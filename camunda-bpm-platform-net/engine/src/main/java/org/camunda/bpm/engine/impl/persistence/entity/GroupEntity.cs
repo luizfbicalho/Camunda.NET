@@ -1,0 +1,121 @@
+﻿using System;
+using System.Collections.Generic;
+
+/*
+ * Copyright Camunda Services GmbH and/or licensed to Camunda Services GmbH
+ * under one or more contributor license agreements. See the NOTICE file
+ * distributed with this work for additional information regarding copyright
+ * ownership. Camunda licenses this file to you under the Apache License,
+ * Version 2.0; you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+namespace org.camunda.bpm.engine.impl.persistence.entity
+{
+
+	using Group = org.camunda.bpm.engine.identity.Group;
+	using HasDbRevision = org.camunda.bpm.engine.impl.db.HasDbRevision;
+	using DbEntity = org.camunda.bpm.engine.impl.db.DbEntity;
+
+
+	/// <summary>
+	/// @author Tom Baeyens
+	/// </summary>
+	[Serializable]
+	public class GroupEntity : Group, DbEntity, HasDbRevision
+	{
+
+	  private const long serialVersionUID = 1L;
+
+	  protected internal string id;
+	  protected internal int revision;
+	  protected internal string name;
+	  protected internal string type;
+
+	  public GroupEntity()
+	  {
+	  }
+
+	  public GroupEntity(string id)
+	  {
+		this.id = id;
+	  }
+
+	  public virtual object PersistentState
+	  {
+		  get
+		  {
+			IDictionary<string, object> persistentState = new Dictionary<string, object>();
+			persistentState["name"] = name;
+			persistentState["type"] = type;
+			return persistentState;
+		  }
+	  }
+
+	  public virtual int RevisionNext
+	  {
+		  get
+		  {
+			return revision + 1;
+		  }
+	  }
+
+	  public virtual string Id
+	  {
+		  get
+		  {
+			return id;
+		  }
+		  set
+		  {
+			this.id = value;
+		  }
+	  }
+	  public virtual string Name
+	  {
+		  get
+		  {
+			return name;
+		  }
+		  set
+		  {
+			this.name = value;
+		  }
+	  }
+	  public virtual string Type
+	  {
+		  get
+		  {
+			return type;
+		  }
+		  set
+		  {
+			this.type = value;
+		  }
+	  }
+	  public virtual int Revision
+	  {
+		  get
+		  {
+			return revision;
+		  }
+		  set
+		  {
+			this.revision = value;
+		  }
+	  }
+
+	  public override string ToString()
+	  {
+		return this.GetType().Name + "[id=" + id + ", revision=" + revision + ", name=" + name + ", type=" + type + "]";
+	  }
+	}
+
+}

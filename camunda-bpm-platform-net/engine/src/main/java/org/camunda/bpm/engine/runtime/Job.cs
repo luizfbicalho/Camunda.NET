@@ -1,0 +1,117 @@
+﻿using System;
+
+/*
+ * Copyright Camunda Services GmbH and/or licensed to Camunda Services GmbH
+ * under one or more contributor license agreements. See the NOTICE file
+ * distributed with this work for additional information regarding copyright
+ * ownership. Camunda licenses this file to you under the Apache License,
+ * Version 2.0; you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+namespace org.camunda.bpm.engine.runtime
+{
+
+	using JobDefinition = org.camunda.bpm.engine.management.JobDefinition;
+
+
+	/// <summary>
+	/// Represents one job (timer, message, etc.).
+	/// 
+	/// @author Joram Barrez
+	/// @author Daniel Meyer
+	/// </summary>
+	public interface Job
+	{
+
+	  /// <summary>
+	  /// Returns the unique identifier for this job.
+	  /// </summary>
+	  string Id {get;}
+
+	  /// <summary>
+	  /// Returns the date on which this job is supposed to be processed.
+	  /// </summary>
+	  DateTime Duedate {get;}
+
+	  /// <summary>
+	  /// Returns the id of the process instance which execution created the job.
+	  /// </summary>
+	  string ProcessInstanceId {get;}
+
+	  /// <summary>
+	  /// Returns the id of the process definition which created the job.
+	  /// </summary>
+	  string ProcessDefinitionId {get;}
+
+	  /// <summary>
+	  /// Returns the key of the process definition which created the job.
+	  /// </summary>
+	  string ProcessDefinitionKey {get;}
+
+	  /// <summary>
+	  /// Returns the specific execution on which the job was created.
+	  /// </summary>
+	  string ExecutionId {get;}
+
+	  /// <summary>
+	  /// Returns the number of retries this job has left.
+	  /// Whenever the jobexecutor fails to execute the job, this value is decremented.
+	  /// When it hits zero, the job is supposed to be dead and not retried again
+	  /// (ie a manual retry is required then).
+	  /// </summary>
+	  int Retries {get;}
+
+	  /// <summary>
+	  /// Returns the message of the exception that occurred, the last time the job was
+	  /// executed. Returns null when no exception occurred.
+	  /// 
+	  /// To get the full exception stacktrace,
+	  /// use <seealso cref="ManagementService#getJobExceptionStacktrace(String)"/>
+	  /// </summary>
+	  string ExceptionMessage {get;}
+
+	  /// <summary>
+	  /// Returns the id of the deployment in which context the job was created.
+	  /// </summary>
+	  string DeploymentId {get;}
+
+	  /// <summary>
+	  /// The id of the <seealso cref="JobDefinition"/> for this job.
+	  /// </summary>
+	  string JobDefinitionId {get;}
+
+	  /// <summary>
+	  /// Indicates whether this job is suspended. If a job is suspended,
+	  /// the job will be not acquired by the job executor.
+	  /// </summary>
+	  /// <returns> true if this Job is currently suspended. </returns>
+	  bool Suspended {get;}
+
+	  /// <summary>
+	  /// The job's priority that is a hint to job acquisition.
+	  /// 
+	  /// @since 7.4
+	  /// </summary>
+	  long Priority {get;}
+
+	  /// <summary>
+	  /// The id of the tenant this job belongs to. Can be <code>null</code>
+	  /// if the job belongs to no single tenant.
+	  /// </summary>
+	  string TenantId {get;}
+
+	  /// <summary>
+	  /// The date/time when this job has been created </summary>
+	  DateTime CreateTime {get;}
+
+	}
+
+}

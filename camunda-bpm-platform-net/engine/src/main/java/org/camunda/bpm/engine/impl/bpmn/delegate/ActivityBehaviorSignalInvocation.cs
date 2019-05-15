@@ -1,0 +1,52 @@
+﻿/*
+ * Copyright Camunda Services GmbH and/or licensed to Camunda Services GmbH
+ * under one or more contributor license agreements. See the NOTICE file
+ * distributed with this work for additional information regarding copyright
+ * ownership. Camunda licenses this file to you under the Apache License,
+ * Version 2.0; you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+namespace org.camunda.bpm.engine.impl.bpmn.@delegate
+{
+	using DelegateInvocation = org.camunda.bpm.engine.impl.@delegate.DelegateInvocation;
+	using ActivityExecution = org.camunda.bpm.engine.impl.pvm.@delegate.ActivityExecution;
+	using SignallableActivityBehavior = org.camunda.bpm.engine.impl.pvm.@delegate.SignallableActivityBehavior;
+
+	/// <summary>
+	/// @author Roman Smirnov
+	/// 
+	/// </summary>
+	public class ActivityBehaviorSignalInvocation : DelegateInvocation
+	{
+
+	  protected internal SignallableActivityBehavior behaviorInstance;
+	  protected internal ActivityExecution execution;
+	  protected internal string signalName;
+	  protected internal object signalData;
+
+	  public ActivityBehaviorSignalInvocation(SignallableActivityBehavior behaviorInstance, ActivityExecution execution, string signalName, object signalData) : base(execution, null)
+	  {
+		this.behaviorInstance = behaviorInstance;
+		this.execution = execution;
+		this.signalName = signalName;
+		this.signalData = signalData;
+	  }
+
+//JAVA TO C# CONVERTER WARNING: Method 'throws' clauses are not available in .NET:
+//ORIGINAL LINE: protected void invoke() throws Exception
+	  protected internal override void invoke()
+	  {
+		behaviorInstance.signal(execution, signalName, signalData);
+	  }
+
+	}
+
+}

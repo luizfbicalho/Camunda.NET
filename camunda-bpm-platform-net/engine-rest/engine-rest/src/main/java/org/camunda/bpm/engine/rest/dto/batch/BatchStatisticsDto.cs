@@ -1,0 +1,76 @@
+﻿/*
+ * Copyright Camunda Services GmbH and/or licensed to Camunda Services GmbH
+ * under one or more contributor license agreements. See the NOTICE file
+ * distributed with this work for additional information regarding copyright
+ * ownership. Camunda licenses this file to you under the Apache License,
+ * Version 2.0; you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+namespace org.camunda.bpm.engine.rest.dto.batch
+{
+	using BatchStatistics = org.camunda.bpm.engine.batch.BatchStatistics;
+
+	public class BatchStatisticsDto : BatchDto
+	{
+
+	  protected internal int remainingJobs;
+	  protected internal int completedJobs;
+	  protected internal int failedJobs;
+
+	  public virtual int RemainingJobs
+	  {
+		  get
+		  {
+			return remainingJobs;
+		  }
+	  }
+
+	  public virtual int CompletedJobs
+	  {
+		  get
+		  {
+			return completedJobs;
+		  }
+	  }
+
+	  public virtual int FailedJobs
+	  {
+		  get
+		  {
+			return failedJobs;
+		  }
+	  }
+
+	  public static BatchStatisticsDto fromBatchStatistics(BatchStatistics batchStatistics)
+	  {
+		BatchStatisticsDto dto = new BatchStatisticsDto();
+		dto.id = batchStatistics.Id;
+		dto.type = batchStatistics.Type;
+		dto.totalJobs = batchStatistics.TotalJobs;
+		dto.jobsCreated = batchStatistics.JobsCreated;
+		dto.batchJobsPerSeed = batchStatistics.BatchJobsPerSeed;
+		dto.invocationsPerBatchJob = batchStatistics.InvocationsPerBatchJob;
+		dto.seedJobDefinitionId = batchStatistics.SeedJobDefinitionId;
+		dto.monitorJobDefinitionId = batchStatistics.MonitorJobDefinitionId;
+		dto.batchJobDefinitionId = batchStatistics.BatchJobDefinitionId;
+		dto.tenantId = batchStatistics.TenantId;
+		dto.createUserId = batchStatistics.CreateUserId;
+		dto.suspended = batchStatistics.Suspended;
+
+		dto.remainingJobs = batchStatistics.RemainingJobs;
+		dto.completedJobs = batchStatistics.CompletedJobs;
+		dto.failedJobs = batchStatistics.FailedJobs;
+		return dto;
+	  }
+
+	}
+
+}

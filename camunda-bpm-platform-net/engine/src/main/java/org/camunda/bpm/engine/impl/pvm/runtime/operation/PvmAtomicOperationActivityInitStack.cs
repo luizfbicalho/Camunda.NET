@@ -1,0 +1,90 @@
+﻿using System.Collections.Generic;
+
+/*
+ * Copyright Camunda Services GmbH and/or licensed to Camunda Services GmbH
+ * under one or more contributor license agreements. See the NOTICE file
+ * distributed with this work for additional information regarding copyright
+ * ownership. Camunda licenses this file to you under the Apache License,
+ * Version 2.0; you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+namespace org.camunda.bpm.engine.impl.pvm.runtime.operation
+{
+
+
+	/// <summary>
+	/// Instantiates the next activity on the stack of the current execution's start context.
+	/// 
+	/// @author Thorben Lindhauer
+	/// </summary>
+	public class PvmAtomicOperationActivityInitStack : PvmAtomicOperation
+	{
+
+	  protected internal PvmAtomicOperation operationOnScopeInitialization;
+
+	  public PvmAtomicOperationActivityInitStack(PvmAtomicOperation operationOnScopeInitialization)
+	  {
+		this.operationOnScopeInitialization = operationOnScopeInitialization;
+	  }
+
+	  public virtual string CanonicalName
+	  {
+		  get
+		  {
+			return "activity-stack-init";
+		  }
+	  }
+
+	  public virtual void execute(PvmExecutionImpl execution)
+	  {
+		ExecutionStartContext executionStartContext = execution.ExecutionStartContext;
+
+		InstantiationStack instantiationStack = executionStartContext.InstantiationStack;
+		IList<PvmActivity> activityStack = instantiationStack.Activities;
+		PvmActivity currentActivity = activityStack.RemoveAt(0);
+
+		PvmExecutionImpl propagatingExecution = execution;
+		if (currentActivity.Scope)
+		{
+		  propagatingExecution = execution.createExecution();
+		  execution.Active = false;
+		  propagatingExecution.setActivity(currentActivity);
+		  propagatingExecution.initialize();
+		}
+		else
+		{
+		  propagatingExecution.setActivity(currentActivity);
+		}
+
+		// notify listeners for the instantiated activity
+		propagatingExecution.performOperation(operationOnScopeInitialization);
+	  }
+
+	  public virtual bool isAsync(PvmExecutionImpl instance)
+	  {
+		return false;
+	  }
+
+	  public virtual PvmExecutionImpl getStartContextExecution(PvmExecutionImpl execution)
+	  {
+		return execution;
+	  }
+
+	  public virtual bool AsyncCapable
+	  {
+		  get
+		  {
+			return false;
+		  }
+	  }
+	}
+
+}
