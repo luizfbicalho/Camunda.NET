@@ -1,5 +1,5 @@
 ﻿using System;
-
+using org.camunda.bpm.model.xml.type.reference;
 /*
  * Copyright Camunda Services GmbH and/or licensed to Camunda Services GmbH
  * under one or more contributor license agreements. See the NOTICE file
@@ -19,9 +19,9 @@
 namespace org.camunda.bpm.model.xml.type.attribute
 {
 	using ModelElementInstance = org.camunda.bpm.model.xml.instance.ModelElementInstance;
-	using AttributeReferenceBuilder = org.camunda.bpm.model.xml.type.reference.AttributeReferenceBuilder;
-	using AttributeReferenceCollection = org.camunda.bpm.model.xml.type.reference.AttributeReferenceCollection;
-	using AttributeReferenceCollectionBuilder = org.camunda.bpm.model.xml.type.reference.AttributeReferenceCollectionBuilder;
+	//using AttributeReferenceBuilder = org.camunda.bpm.model.xml.type.reference.AttributeReferenceBuilder;
+	//using AttributeReferenceCollection = org.camunda.bpm.model.xml.type.reference.AttributeReferenceCollection;
+	//using AttributeReferenceCollectionBuilder = org.camunda.bpm.model.xml.type.reference.AttributeReferenceCollectionBuilder;
 
 	/// <summary>
 	/// @author Sebastian Menski

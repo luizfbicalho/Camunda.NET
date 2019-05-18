@@ -1,5 +1,5 @@
 ﻿using System;
-
+using org.camunda.bpm.model.xml.impl.type.reference;
 /*
  * Copyright Camunda Services GmbH and/or licensed to Camunda Services GmbH
  * under one or more contributor license agreements. See the NOTICE file
@@ -18,14 +18,14 @@
  */
 namespace org.camunda.bpm.model.xml.impl.type.attribute
 {
-	using AttributeReferenceBuilderImpl = org.camunda.bpm.model.xml.impl.type.reference.AttributeReferenceBuilderImpl;
-	using AttributeReferenceCollectionBuilderImpl = org.camunda.bpm.model.xml.impl.type.reference.AttributeReferenceCollectionBuilderImpl;
-	using QNameAttributeReferenceBuilderImpl = org.camunda.bpm.model.xml.impl.type.reference.QNameAttributeReferenceBuilderImpl;
+	//using AttributeReferenceBuilderImpl = org.camunda.bpm.model.xml.impl.type.reference.AttributeReferenceBuilderImpl;
+	//using AttributeReferenceCollectionBuilderImpl = org.camunda.bpm.model.xml.impl.type.reference.AttributeReferenceCollectionBuilderImpl;
+	//using QNameAttributeReferenceBuilderImpl = org.camunda.bpm.model.xml.impl.type.reference.QNameAttributeReferenceBuilderImpl;
 	using ModelElementInstance = org.camunda.bpm.model.xml.instance.ModelElementInstance;
 	using StringAttributeBuilder = org.camunda.bpm.model.xml.type.attribute.StringAttributeBuilder;
-	using AttributeReferenceBuilder = org.camunda.bpm.model.xml.type.reference.AttributeReferenceBuilder;
-	using AttributeReferenceCollection = org.camunda.bpm.model.xml.type.reference.AttributeReferenceCollection;
-	using AttributeReferenceCollectionBuilder = org.camunda.bpm.model.xml.type.reference.AttributeReferenceCollectionBuilder;
+	//using AttributeReferenceBuilder = org.camunda.bpm.model.xml.type.reference.AttributeReferenceBuilder;
+	//using AttributeReferenceCollection = org.camunda.bpm.model.xml.type.reference.AttributeReferenceCollection;
+	//using AttributeReferenceCollectionBuilder = org.camunda.bpm.model.xml.type.reference.AttributeReferenceCollectionBuilder;
 
 
 	/// 

@@ -5,6 +5,10 @@ VisualStudioVersion = 16.0.28822.285
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "camunda.engine", "engine\src\main\camunda.engine.csproj", "{093E1457-BE4E-4143-AF5F-4D3D8F4EEA51}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "camunda.bpmn.model", "..\camunda-bpmn-model-net\src\main\camunda.bpmn.model.csproj", "{7E8717F5-AA2F-4B04-9E16-51201CCFA663}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "camunda.xml.model", "..\camunda-xml-model-net\src\main\camunda.xml.model.csproj", "{0F7C1110-C1AE-424D-8E70-915B86706D95}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +19,14 @@ Global
 		{093E1457-BE4E-4143-AF5F-4D3D8F4EEA51}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{093E1457-BE4E-4143-AF5F-4D3D8F4EEA51}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{093E1457-BE4E-4143-AF5F-4D3D8F4EEA51}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7E8717F5-AA2F-4B04-9E16-51201CCFA663}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7E8717F5-AA2F-4B04-9E16-51201CCFA663}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7E8717F5-AA2F-4B04-9E16-51201CCFA663}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7E8717F5-AA2F-4B04-9E16-51201CCFA663}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0F7C1110-C1AE-424D-8E70-915B86706D95}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0F7C1110-C1AE-424D-8E70-915B86706D95}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0F7C1110-C1AE-424D-8E70-915B86706D95}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0F7C1110-C1AE-424D-8E70-915B86706D95}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
