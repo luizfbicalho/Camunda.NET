@@ -56,7 +56,7 @@ namespace org.camunda.bpm.engine.impl.bpmn.parser
 	  /// <summary>
 	  /// The namespace of the Activiti custom BPMN extensions. </summary>
 	  /// @deprecated use <seealso cref="#CAMUNDA_BPMN_EXTENSIONS_NS"/> 
-	  [Obsolete("use <seealso cref="#CAMUNDA_BPMN_EXTENSIONS_NS"/>")]
+	  [Obsolete("use <seealso cref=\"#CAMUNDA_BPMN_EXTENSIONS_NS\"/>")]
 	  public const string ACTIVITI_BPMN_EXTENSIONS_NS = "http://activiti.org/bpmn";
 
 	  /// <summary>

@@ -1006,7 +1006,7 @@ namespace org.camunda.bpm.engine
 	  /// Add a comment to a task and/or process instance.
 	  /// </summary>
 	  /// @deprecated Use <seealso cref="#createComment(String, String, String)"/> instead 
-	  [Obsolete("Use <seealso cref="#createComment(String, String, String)"/> instead")]
+	  [Obsolete("Use <seealso cref=\"#createComment(String, String, String)\"/> instead")]
 	  void addComment(string taskId, string processInstanceId, string message);
 
 	  /// <summary>

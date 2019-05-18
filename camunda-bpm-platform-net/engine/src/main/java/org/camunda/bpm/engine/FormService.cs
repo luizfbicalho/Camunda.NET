@@ -66,7 +66,7 @@ namespace org.camunda.bpm.engine
 
 	  /// @deprecated use <seealso cref="#submitStartForm(String, Map)"/>
 	  ///  
-	  [Obsolete("use <seealso cref="#submitStartForm(String, java.util.Map)"/>")]
+	  [Obsolete("use <seealso cref=\"#submitStartForm(String, java.util.Map)\"/>")]
 	  ProcessInstance submitStartFormData(string processDefinitionId, IDictionary<string, string> properties);
 
 	  /// <summary>
@@ -78,7 +78,7 @@ namespace org.camunda.bpm.engine
 	  ProcessInstance submitStartForm(string processDefinitionId, IDictionary<string, object> properties);
 
 	  /// @deprecated use <seealso cref="#submitStartForm(String, String, Map)"/> 
-	  [Obsolete("use <seealso cref="#submitStartForm(String, String, java.util.Map)"/>")]
+	  [Obsolete("use <seealso cref=\"#submitStartForm(String, String, java.util.Map)\"/>")]
 	  ProcessInstance submitStartFormData(string processDefinitionId, string businessKey, IDictionary<string, string> properties);
 
 	  /// <summary>
@@ -155,7 +155,7 @@ namespace org.camunda.bpm.engine
 	  object getRenderedTaskForm(string taskId, string formEngineName);
 
 	  /// @deprecated use <seealso cref="#submitTaskForm(String, Map)"/>  
-	  [Obsolete("use <seealso cref="#submitTaskForm(String, java.util.Map)"/>")]
+	  [Obsolete("use <seealso cref=\"#submitTaskForm(String, java.util.Map)\"/>")]
 	  void submitTaskFormData(string taskId, IDictionary<string, string> properties);
 
 	  /// <summary>

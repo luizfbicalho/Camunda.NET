@@ -95,7 +95,7 @@ namespace org.camunda.bpm.engine
 	  ///          If the user has no <seealso cref="Permissions#DELETE"/> permission on <seealso cref="Resources#DEPLOYMENT"/>.
 	  /// </exception>
 	  /// @deprecated use <seealso cref="#deleteDeployment(String, boolean)"/>. This methods may be deleted from 5.3. 
-	  [Obsolete("use <seealso cref="#deleteDeployment(String, boolean)"/>. This methods may be deleted from 5.3.")]
+	  [Obsolete("use <seealso cref=\"#deleteDeployment(String, boolean)\"/>. This methods may be deleted from 5.3.")]
 	  void deleteDeploymentCascade(string deploymentId);
 
 	  /// <summary>

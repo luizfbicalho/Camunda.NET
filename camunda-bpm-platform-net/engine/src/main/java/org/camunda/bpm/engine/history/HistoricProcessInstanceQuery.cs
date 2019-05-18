@@ -318,26 +318,26 @@ namespace org.camunda.bpm.engine.history
 	  /// Only select historic process instances that were started as of the provided
 	  /// date. (Date will be adjusted to reflect midnight) </summary>
 	  /// @deprecated use <seealso cref="#startedAfter(Date)"/> and <seealso cref="#startedBefore(Date)"/> instead  
-	  [Obsolete("use <seealso cref="#startedAfter(java.util.Date)"/> and <seealso cref="#startedBefore(java.util.Date)"/> instead")]
+	  [Obsolete("use <seealso cref=\"#startedAfter(java.util.Date)\"/> and <seealso cref=\"#startedBefore(java.util.Date)\"/> instead")]
 	  HistoricProcessInstanceQuery startDateBy(DateTime date);
 
 	  /// <summary>
 	  /// Only select historic process instances that were started on the provided date. </summary>
 	  /// @deprecated use <seealso cref="#startedAfter(Date)"/> and <seealso cref="#startedBefore(Date)"/> instead  
-	  [Obsolete("use <seealso cref="#startedAfter(java.util.Date)"/> and <seealso cref="#startedBefore(java.util.Date)"/> instead")]
+	  [Obsolete("use <seealso cref=\"#startedAfter(java.util.Date)\"/> and <seealso cref=\"#startedBefore(java.util.Date)\"/> instead")]
 	  HistoricProcessInstanceQuery startDateOn(DateTime date);
 
 	  /// <summary>
 	  /// Only select historic process instances that were finished as of the
 	  /// provided date. (Date will be adjusted to reflect one second before midnight) </summary>
 	  /// @deprecated use <seealso cref="#startedAfter(Date)"/> and <seealso cref="#startedBefore(Date)"/> instead  
-	  [Obsolete("use <seealso cref="#startedAfter(java.util.Date)"/> and <seealso cref="#startedBefore(java.util.Date)"/> instead")]
+	  [Obsolete("use <seealso cref=\"#startedAfter(java.util.Date)\"/> and <seealso cref=\"#startedBefore(java.util.Date)\"/> instead")]
 	  HistoricProcessInstanceQuery finishDateBy(DateTime date);
 
 	  /// <summary>
 	  /// Only select historic process instances that were finished on provided date. </summary>
 	  /// @deprecated use <seealso cref="#startedAfter(Date)"/> and <seealso cref="#startedBefore(Date)"/> instead  
-	  [Obsolete("use <seealso cref="#startedAfter(java.util.Date)"/> and <seealso cref="#startedBefore(java.util.Date)"/> instead")]
+	  [Obsolete("use <seealso cref=\"#startedAfter(java.util.Date)\"/> and <seealso cref=\"#startedBefore(java.util.Date)\"/> instead")]
 	  HistoricProcessInstanceQuery finishDateOn(DateTime date);
 
 	  /// <summary>

@@ -94,7 +94,7 @@ namespace org.camunda.bpm.engine.repository
 	  /// <summary>
 	  /// Order by deployment time (needs to be followed by <seealso cref="#asc()"/> or <seealso cref="#desc()"/>). </summary>
 	  /// @deprecated Use <seealso cref="#orderByDeploymentTime()"/> instead</p> 
-	  [Obsolete("Use <seealso cref="#orderByDeploymentTime()"/> instead</p>")]
+	  [Obsolete("Use <seealso cref=\"#orderByDeploymentTime()\"/> instead</p>")]
 	  DeploymentQuery orderByDeploymenTime();
 
 	  /// <summary>

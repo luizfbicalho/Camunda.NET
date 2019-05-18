@@ -147,11 +147,11 @@ namespace org.camunda.bpm.engine.impl.bpmn.parser
 	  public static readonly IList<string> VARIABLE_EVENTS = new IList<string> {org.camunda.bpm.engine.@delegate.VariableListener_Fields.CREATE, org.camunda.bpm.engine.@delegate.VariableListener_Fields.DELETE, org.camunda.bpm.engine.@delegate.VariableListener_Fields.UPDATE};
 
 	  /// @deprecated use <seealso cref="BpmnProperties#TYPE"/> 
-	  [Obsolete("use <seealso cref="BpmnProperties#TYPE"/>")]
+	  [Obsolete("use <seealso cref=\"BpmnProperties#TYPE\"/>")]
 	  public static readonly string PROPERTYNAME_TYPE = BpmnProperties.TYPE.Name;
 
 	  /// @deprecated use <seealso cref="BpmnProperties#ERROR_EVENT_DEFINITIONS"/> 
-	  [Obsolete("use <seealso cref="BpmnProperties#ERROR_EVENT_DEFINITIONS"/>")]
+	  [Obsolete("use <seealso cref=\"BpmnProperties#ERROR_EVENT_DEFINITIONS\"/>")]
 	  public static readonly string PROPERTYNAME_ERROR_EVENT_DEFINITIONS = BpmnProperties.ERROR_EVENT_DEFINITIONS.Name;
 
 	  /* process start authorization specific finals */

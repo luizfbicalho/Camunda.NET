@@ -121,7 +121,7 @@ namespace org.camunda.bpm.engine.impl.context
 	  }
 
 	  /// @deprecated since 7.2, use <seealso cref="#getBpmnExecutionContext()"/> 
-	  [Obsolete("since 7.2, use <seealso cref="#getBpmnExecutionContext()"/>")]
+	  [Obsolete("since 7.2, use <seealso cref=\"#getBpmnExecutionContext()\"/>")]
 	  public static ExecutionContext getExecutionContext()
 	  {
 		return BpmnExecutionContext;

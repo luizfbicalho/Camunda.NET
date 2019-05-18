@@ -242,7 +242,7 @@ namespace org.camunda.bpm.engine
 	  /// Finds history cleanup job, if present. </summary>
 	  /// @deprecated As of v. 7.9.0, because there can be more than one history cleanup job at once, use <seealso cref="#findHistoryCleanupJobs"/> instead. 
 	  /// <returns> job entity </returns>
-	  [Obsolete("As of v. 7.9.0, because there can be more than one history cleanup job at once, use <seealso cref="#findHistoryCleanupJobs"/> instead.")]
+	  [Obsolete("As of v. 7.9.0, because there can be more than one history cleanup job at once, use <seealso cref=\"#findHistoryCleanupJobs\"/> instead.")]
 	  Job findHistoryCleanupJob();
 
 	  /// <summary>

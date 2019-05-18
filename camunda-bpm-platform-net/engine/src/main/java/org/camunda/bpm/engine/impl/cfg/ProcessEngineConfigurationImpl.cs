@@ -3560,7 +3560,7 @@ namespace org.camunda.bpm.engine.impl.cfg
 
 
 	  /// @deprecated use <seealso cref="#getCustomPreBPMNParseListeners"/> instead. 
-	  [Obsolete("use <seealso cref="#getCustomPreBPMNParseListeners"/> instead.")]
+	  [Obsolete("use <seealso cref=\"#getCustomPreBPMNParseListeners\"/> instead.")]
 	  public virtual IList<BpmnParseListener> PreParseListeners
 	  {
 		  get
@@ -3575,7 +3575,7 @@ namespace org.camunda.bpm.engine.impl.cfg
 
 
 	  /// @deprecated use <seealso cref="#getCustomPostBPMNParseListeners"/> instead. 
-	  [Obsolete("use <seealso cref="#getCustomPostBPMNParseListeners"/> instead.")]
+	  [Obsolete("use <seealso cref=\"#getCustomPostBPMNParseListeners\"/> instead.")]
 	  public virtual IList<BpmnParseListener> PostParseListeners
 	  {
 		  get
