@@ -19,58 +19,55 @@
 namespace org.camunda.bpm.engine.impl.form.validator
 {
 
-	/// <summary>
-	/// Runtime exception for use within a <seealso cref="FormFieldValidator"/>.
-	/// Optionally contains a detail which uniquely identifies the problem.
-	/// 
-	/// @author Thomas Skjolberg
-	/// </summary>
-	public class FormFieldValidationException : FormException
-	{
+    /// <summary>
+    /// Runtime exception for use within a <seealso cref="FormFieldValidator"/>.
+    /// Optionally contains a detail which uniquely identifies the problem.
+    /// 
+    /// @author Thomas Skjolberg
+    /// </summary>
+    public class FormFieldValidationException : FormException
+    {
 
-	  private const long serialVersionUID = 1L;
+        private const long serialVersionUID = 1L;
 
-	  /// <summary>
-	  /// optional object for detailing the nature of the validation error </summary>
-	  protected internal object detail;
+        /// <summary>
+        /// optional object for detailing the nature of the validation error </summary>
+        protected internal object detail;
 
-	  public FormFieldValidationException() : base()
-	  {
-	  }
+        public FormFieldValidationException() : base()
+        {
+        }
 
-	  public FormFieldValidationException(object detail) : base()
-	  {
+        public FormFieldValidationException(object detail) : base()
+        {
 
-		this.detail = detail;
-	  }
+            this.detail = detail;
+        }
 
-	  public FormFieldValidationException(object detail, string message, Exception cause) : base(message, cause)
-	  {
+        public FormFieldValidationException(object detail, string message, Exception cause) : base(message, cause)
+        {
 
-		this.detail = detail;
-	  }
+            this.detail = detail;
+        }
 
-	  public FormFieldValidationException(object detail, string message) : base(message)
-	  {
+        public FormFieldValidationException(object detail, string message) : base(message)
+        {
 
-		this.detail = detail;
-	  }
+            this.detail = detail;
+        }
 
-	  public FormFieldValidationException(object detail, Exception cause) : base(cause)
-	  {
+        public FormFieldValidationException(object detail, Exception cause) : base(cause)
+        {
 
-		this.detail = detail;
-	  }
+            this.detail = detail;
+        }
 
-//JAVA TO C# CONVERTER TODO TASK: Most Java annotations will not have direct .NET equivalent attributes:
-//ORIGINAL LINE: @SuppressWarnings("unchecked") public <T> T getDetail()
-	  public virtual T getDetail<T>()
-	  {
-		  get
-		  {
-			return (T) detail;
-		  }
-	  }
-	}
+        //JAVA TO C# CONVERTER TODO TASK: Most Java annotations will not have direct .NET equivalent attributes:
+        //ORIGINAL LINE: @SuppressWarnings("unchecked") public <T> T getDetail()
+        public virtual T getDetail<T>()
+        {
+            return (T)detail;
+        }
+    }
 
 }
