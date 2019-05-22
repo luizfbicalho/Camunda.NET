@@ -17,7 +17,6 @@
 namespace org.camunda.bpm.engine.impl.pvm.runtime.operation
 {
 	using ExecutionListener = org.camunda.bpm.engine.@delegate.ExecutionListener;
-	using ExecutionEntity = org.camunda.bpm.engine.impl.persistence.entity.ExecutionEntity;
 	using ScopeImpl = org.camunda.bpm.engine.impl.pvm.process.ScopeImpl;
 	using TransitionImpl = org.camunda.bpm.engine.impl.pvm.process.TransitionImpl;
 
@@ -75,6 +74,11 @@ namespace org.camunda.bpm.engine.impl.pvm.runtime.operation
 		  {
 			return "transition-notifiy-listener-start";
 		  }
+	  }
+
+	  public override bool shouldHandleFailureAsBpmnError()
+	  {
+		return true;
 	  }
 	}
 

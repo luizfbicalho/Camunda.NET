@@ -34,8 +34,9 @@ namespace org.camunda.bpm.model.xml.impl.type.reference
 	  private readonly Type<Target> referenceTargetClass;
 	  protected internal ElementReferenceCollectionImpl<Target, Source> elementReferenceCollectionImpl;
 
-	  public ElementReferenceCollectionBuilderImpl(Type<Source> childElementType, Type<Target> referenceTargetClass, ChildElementCollectionImpl<Source> collection)
+	  public ElementReferenceCollectionBuilderImpl(Type childElementType, Type referenceTargetClass, ChildElementCollectionImpl<Source> collection)
 	  {
+			  referenceTargetClass = typeof(Target);
 		this.childElementType = childElementType;
 		this.referenceTargetClass = referenceTargetClass;
 		this.elementReferenceCollectionImpl = new ElementReferenceCollectionImpl<Target, Source>(collection);

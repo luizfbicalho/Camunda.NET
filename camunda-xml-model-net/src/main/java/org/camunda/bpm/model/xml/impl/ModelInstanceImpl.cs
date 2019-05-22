@@ -82,13 +82,15 @@ namespace org.camunda.bpm.model.xml.impl
 	  }
 
 
-	  public virtual T newInstance<T>(Type<T> type) where T : org.camunda.bpm.model.xml.instance.ModelElementInstance
+	  public virtual T newInstance<T>(Type type) where T : org.camunda.bpm.model.xml.instance.ModelElementInstance
 	  {
+			  type = typeof(T);
 		return newInstance(type, null);
 	  }
 
-	  public virtual T newInstance<T>(Type<T> type, string id) where T : org.camunda.bpm.model.xml.instance.ModelElementInstance
+	  public virtual T newInstance<T>(Type type, string id) where T : org.camunda.bpm.model.xml.instance.ModelElementInstance
 	  {
+			  type = typeof(T);
 		ModelElementType modelElementType = model.getType(type);
 		if (modelElementType != null)
 		{
@@ -177,8 +179,9 @@ namespace org.camunda.bpm.model.xml.impl
 
 //JAVA TO C# CONVERTER TODO TASK: Most Java annotations will not have direct .NET equivalent attributes:
 //ORIGINAL LINE: @SuppressWarnings("unchecked") public <T extends org.camunda.bpm.model.xml.instance.ModelElementInstance> java.util.Collection<T> getModelElementsByType(Class<T> referencingClass)
-	  public virtual ICollection<T> getModelElementsByType<T>(Type<T> referencingClass) where T : org.camunda.bpm.model.xml.instance.ModelElementInstance
+	  public virtual ICollection<T> getModelElementsByType<T>(Type referencingClass) where T : org.camunda.bpm.model.xml.instance.ModelElementInstance
 	  {
+			  referencingClass = typeof(T);
 		return (ICollection<T>) getModelElementsByType(Model.getType(referencingClass));
 	  }
 

@@ -433,8 +433,9 @@ namespace org.camunda.bpm.engine.impl.cmmn.transformer
 
 //JAVA TO C# CONVERTER TODO TASK: Most Java annotations will not have direct .NET equivalent attributes:
 //ORIGINAL LINE: @SuppressWarnings("unchecked") protected <V extends org.camunda.bpm.model.cmmn.instance.CmmnElement> org.camunda.bpm.engine.impl.cmmn.handler.CmmnElementHandler<V, org.camunda.bpm.engine.impl.cmmn.model.CmmnActivity> getDefinitionHandler(Class<V> cls)
-	  protected internal virtual CmmnElementHandler<V, CmmnActivity> getDefinitionHandler<V>(Type<V> cls) where V : org.camunda.bpm.model.cmmn.instance.CmmnElement
+	  protected internal virtual CmmnElementHandler<V, CmmnActivity> getDefinitionHandler<V>(Type cls) where V : org.camunda.bpm.model.cmmn.instance.CmmnElement
 	  {
+			  cls = typeof(V);
 		return (CmmnElementHandler<V, CmmnActivity>) HandlerRegistry.DefinitionElementHandlers[cls];
 	  }
 

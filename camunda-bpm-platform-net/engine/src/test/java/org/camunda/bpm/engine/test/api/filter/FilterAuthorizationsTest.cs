@@ -47,7 +47,7 @@ namespace org.camunda.bpm.engine.test.api.filter
 	  {
 		testUser = createTestUser("test");
 
-		createAuthorization_Renamed = createAuthorization(Permissions.CREATE, org.camunda.bpm.engine.authorization.Authorization_Fields.ANY);
+		createAuthorization_Renamed = createAuthorization_Renamed(Permissions.CREATE, org.camunda.bpm.engine.authorization.Authorization_Fields.ANY);
 		updateAuthorization = createAuthorization(Permissions.UPDATE, null);
 		readAuthorization = createAuthorization(Permissions.READ, null);
 		deleteAuthorization = createAuthorization(Permissions.DELETE, null);

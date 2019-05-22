@@ -185,8 +185,9 @@ namespace org.camunda.bpm.qa.performance.engine.util
 		  }
 	  }
 
-	  public virtual T getMapper<T>(Type<T> type)
+	  public virtual T getMapper<T>(Type type)
 	  {
+			  type = typeof(T);
 		return wrappedSession.getMapper(type);
 	  }
 

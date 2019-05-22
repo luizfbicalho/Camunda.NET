@@ -47,8 +47,9 @@ namespace org.camunda.bpm.engine.cdi.impl
 
 //JAVA TO C# CONVERTER TODO TASK: Most Java annotations will not have direct .NET equivalent attributes:
 //ORIGINAL LINE: @SuppressWarnings("unchecked") @Override public <T> T getValue(String name, Class<T> type)
-	  public override T getValue<T>(string name, Type<T> type)
+	  public override T getValue<T>(string name, Type type)
 	  {
+			  type = typeof(T);
 		object @object = get(name);
 		if (@object == null)
 		{

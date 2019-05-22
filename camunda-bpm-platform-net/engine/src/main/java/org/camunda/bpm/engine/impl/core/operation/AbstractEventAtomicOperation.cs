@@ -41,7 +41,6 @@ namespace org.camunda.bpm.engine.impl.core.operation
 
 	  public virtual void execute(T execution)
 	  {
-
 		CoreModelElement scope = getScope(execution);
 //JAVA TO C# CONVERTER WARNING: Java wildcard generics have no direct equivalent in .NET:
 //ORIGINAL LINE: java.util.List<org.camunda.bpm.engine.delegate.DelegateListener<? extends org.camunda.bpm.engine.delegate.BaseDelegateExecution>> listeners = getListeners(scope, execution);
@@ -63,27 +62,24 @@ namespace org.camunda.bpm.engine.impl.core.operation
 //JAVA TO C# CONVERTER WARNING: Java wildcard generics have no direct equivalent in .NET:
 //ORIGINAL LINE: org.camunda.bpm.engine.delegate.DelegateListener<? extends org.camunda.bpm.engine.delegate.BaseDelegateExecution> listener = listeners.get(listenerIndex);
 			DelegateListener<BaseDelegateExecution> listener = listeners[listenerIndex];
+			execution.ListenerIndex = listenerIndex + 1;
+
 			try
 			{
-			  execution.ListenerIndex = listenerIndex + 1;
 			  execution.invokeListener(listener);
 			}
-			catch (Exception e)
+			catch (Exception ex)
 			{
-			  throw e;
+			  eventNotificationsFailed(execution, ex);
+			  // do not continue listener invocation once a listener has failed
+			  return;
 			}
-			catch (Exception e)
-			{
-			  throw new PvmException("couldn't execute event listener : " + e.Message, e);
-			}
-			execution.performOperationSync(this);
 
+			execution.performOperationSync(this);
 		  }
 		  else
 		  {
-			execution.ListenerIndex = 0;
-			execution.EventName = null;
-			execution.EventSource = null;
+			resetListeners(execution);
 
 			eventNotificationsCompleted(execution);
 		  }
@@ -94,6 +90,13 @@ namespace org.camunda.bpm.engine.impl.core.operation
 		  eventNotificationsCompleted(execution);
 
 		}
+	  }
+
+	  protected internal virtual void resetListeners(T execution)
+	  {
+		execution.ListenerIndex = 0;
+		execution.EventName = null;
+		execution.EventSource = null;
 	  }
 
 //JAVA TO C# CONVERTER WARNING: Java wildcard generics have no direct equivalent in .NET:
@@ -124,6 +127,18 @@ namespace org.camunda.bpm.engine.impl.core.operation
 	  protected internal abstract CoreModelElement getScope(T execution);
 	  protected internal abstract string EventName {get;}
 	  protected internal abstract void eventNotificationsCompleted(T execution);
+
+	  protected internal virtual void eventNotificationsFailed(T execution, Exception exception)
+	  {
+		if (exception is Exception)
+		{
+		  throw (Exception) exception;
+		}
+		else
+		{
+		  throw new PvmException("couldn't execute event listener : " + exception.Message, exception);
+		}
+	  }
 	}
 
 }

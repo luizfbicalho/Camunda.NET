@@ -37,6 +37,7 @@ namespace org.camunda.bpm.engine.impl.pvm.runtime.operation
 		execution.incrementSequenceCounter();
 		execution.activityInstanceStarting();
 		execution.enterActivityInstance();
+		execution.setTransition(null);
 
 		return execution;
 	  }

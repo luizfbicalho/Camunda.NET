@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Numerics;
 
 /*
  * Copyright Camunda Services GmbH and/or licensed to Camunda Services GmbH
@@ -199,9 +200,9 @@ namespace org.camunda.bpm.engine.impl.variable.serializer.jpa
 		{
 		  return new decimal(@string);
 		}
-		else if (type == typeof(System.Numerics.BigInteger))
+		else if (type == typeof(BigInteger))
 		{
-		  return new System.Numerics.BigInteger(@string);
+		  return new BigInteger(@string);
 		}
 		else
 		{
@@ -223,7 +224,7 @@ namespace org.camunda.bpm.engine.impl.variable.serializer.jpa
 		{
 		  return "" + ((java.sql.Date) value).Time;
 		}
-		else if (value is long? || value is string || value is sbyte? || value is short? || value is int? || value is float? || value is double? || value is char? || value is decimal || value is System.Numerics.BigInteger)
+		else if (value is long? || value is string || value is sbyte? || value is short? || value is int? || value is float? || value is double? || value is char? || value is decimal || value is BigInteger)
 		{
 		  return value.ToString();
 		}

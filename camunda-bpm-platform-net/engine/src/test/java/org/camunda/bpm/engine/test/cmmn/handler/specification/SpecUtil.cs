@@ -24,8 +24,9 @@ namespace org.camunda.bpm.engine.test.cmmn.handler.specification
 	public class SpecUtil
 	{
 
-	  public static T createElement<T>(CmmnModelInstance modelInstance, CmmnModelElementInstance parentElement, string id, Type<T> elementClass) where T : org.camunda.bpm.model.cmmn.instance.CmmnModelElementInstance
+	  public static T createElement<T>(CmmnModelInstance modelInstance, CmmnModelElementInstance parentElement, string id, Type elementClass) where T : org.camunda.bpm.model.cmmn.instance.CmmnModelElementInstance
 	  {
+			  elementClass = typeof(T);
 		T element = modelInstance.newInstance(elementClass);
 		element.setAttributeValue("id", id, true);
 		parentElement.addChildElement(element);

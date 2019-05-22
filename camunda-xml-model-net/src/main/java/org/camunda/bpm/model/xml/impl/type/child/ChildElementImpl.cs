@@ -32,8 +32,10 @@ namespace org.camunda.bpm.model.xml.impl.type.child
 	public class ChildElementImpl<T> : ChildElementCollectionImpl<T>, ChildElement<T> where T : org.camunda.bpm.model.xml.instance.ModelElementInstance
 	{
 
-	  public ChildElementImpl(Type<T> childElementTypeChild, ModelElementTypeImpl parentElementType) : base(childElementTypeChild, parentElementType)
+	  public ChildElementImpl(Type childElementTypeChild, ModelElementTypeImpl parentElementType)
 	  {
+			  childElementTypeChild = typeof(T);
+		base(childElementTypeChild, parentElementType);
 		this.maxOccurs = 1;
 	  }
 

@@ -17,6 +17,7 @@
 namespace org.camunda.bpm.engine.history
 {
 	using BatchPermissions = org.camunda.bpm.engine.authorization.BatchPermissions;
+	using Permissions = org.camunda.bpm.engine.authorization.Permissions;
 	using Resources = org.camunda.bpm.engine.authorization.Resources;
 	using Batch = org.camunda.bpm.engine.batch.Batch;
 
@@ -59,8 +60,9 @@ namespace org.camunda.bpm.engine.history
 	  /// track the progress of setting a removal time.
 	  /// </summary>
 	  /// <exception cref="BadUserRequestException"> when no historic process instances could be found. </exception>
-	  /// <exception cref="AuthorizationException"> when no <seealso cref="BatchPermissions#CREATE_BATCH_SET_REMOVAL_TIME"/> permission
-	  /// is granted on <seealso cref="Resources#BATCH"/>.
+	  /// <exception cref="AuthorizationException">
+	  /// when no <seealso cref="BatchPermissions#CREATE_BATCH_SET_REMOVAL_TIME CREATE_BATCH_SET_REMOVAL_TIME"/>
+	  /// or no permission <seealso cref="Permissions#CREATE CREATE"/> permission is granted on <seealso cref="Resources#BATCH"/>.
 	  /// </exception>
 	  /// <returns> the batch which sets the removal time asynchronously. </returns>
 	  Batch executeAsync();

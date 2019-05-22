@@ -220,8 +220,9 @@ namespace org.camunda.bpm.engine.impl.db.entitymanager
 
 	  }
 
-	  public virtual T selectById<T>(Type<T> entityClass, string id) where T : org.camunda.bpm.engine.impl.db.DbEntity
+	  public virtual T selectById<T>(Type entityClass, string id) where T : org.camunda.bpm.engine.impl.db.DbEntity
 	  {
+			  entityClass = typeof(T);
 		T persistentObject = dbEntityCache.get(entityClass, id);
 		if (persistentObject != null)
 		{
@@ -238,13 +239,15 @@ namespace org.camunda.bpm.engine.impl.db.entitymanager
 		return persistentObject;
 	  }
 
-	  public virtual T getCachedEntity<T>(Type<T> type, string id) where T : org.camunda.bpm.engine.impl.db.DbEntity
+	  public virtual T getCachedEntity<T>(Type type, string id) where T : org.camunda.bpm.engine.impl.db.DbEntity
 	  {
+			  type = typeof(T);
 		return dbEntityCache.get(type, id);
 	  }
 
-	  public virtual IList<T> getCachedEntitiesByType<T>(Type<T> type) where T : org.camunda.bpm.engine.impl.db.DbEntity
+	  public virtual IList<T> getCachedEntitiesByType<T>(Type type) where T : org.camunda.bpm.engine.impl.db.DbEntity
 	  {
+			  type = typeof(T);
 		return dbEntityCache.getEntitiesByType(type);
 	  }
 
@@ -373,7 +376,7 @@ namespace org.camunda.bpm.engine.impl.db.entitymanager
 		  IList<IList<DbOperation>> batches = CollectionUtil.partition(operationsToFlush, BATCH_SIZE);
 		  foreach (IList<DbOperation> batch in batches)
 		  {
-			flushDbOperations(batch);
+			flushDbOperations(batch, operationsToFlush);
 		  }
 		}
 		finally
@@ -387,7 +390,7 @@ namespace org.camunda.bpm.engine.impl.db.entitymanager
 		}
 	  }
 
-	  protected internal virtual void flushDbOperations(IList<DbOperation> operationsToFlush)
+	  protected internal virtual void flushDbOperations(IList<DbOperation> operationsToFlush, IList<DbOperation> allOperations)
 	  {
 		// execute the flush
 		foreach (DbOperation dbOperation in operationsToFlush)
@@ -403,7 +406,7 @@ namespace org.camunda.bpm.engine.impl.db.entitymanager
 			doOptimisticLockingException = isOptimisticLockingException(dbOperation, e);
 			if (!doOptimisticLockingException)
 			{
-			  throw LOG.flushDbOperationException(operationsToFlush, dbOperation, e);
+			  throw LOG.flushDbOperationException(allOperations, dbOperation, e);
 			}
 		  }
 		  if (dbOperation.Failed || doOptimisticLockingException)
@@ -425,7 +428,7 @@ namespace org.camunda.bpm.engine.impl.db.entitymanager
 			DbOperation failedOperation = hasOptimisticLockingException(operationsToFlush, e);
 			if (failedOperation == null)
 			{
-			  throw LOG.flushDbOperationsException(operationsToFlush, e);
+			  throw LOG.flushDbOperationsException(allOperations, e);
 			}
 			else
 			{

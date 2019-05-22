@@ -1,5 +1,5 @@
 ﻿using System;
-using org.camunda.bpm.model.xml.impl.type.reference;
+
 /*
  * Copyright Camunda Services GmbH and/or licensed to Camunda Services GmbH
  * under one or more contributor license agreements. See the NOTICE file
@@ -18,14 +18,14 @@ using org.camunda.bpm.model.xml.impl.type.reference;
  */
 namespace org.camunda.bpm.model.xml.impl.type.attribute
 {
-	//using AttributeReferenceBuilderImpl = org.camunda.bpm.model.xml.impl.type.reference.AttributeReferenceBuilderImpl;
-	//using AttributeReferenceCollectionBuilderImpl = org.camunda.bpm.model.xml.impl.type.reference.AttributeReferenceCollectionBuilderImpl;
-	//using QNameAttributeReferenceBuilderImpl = org.camunda.bpm.model.xml.impl.type.reference.QNameAttributeReferenceBuilderImpl;
+	using AttributeReferenceBuilderImpl = org.camunda.bpm.model.xml.impl.type.reference.AttributeReferenceBuilderImpl;
+	using AttributeReferenceCollectionBuilderImpl = org.camunda.bpm.model.xml.impl.type.reference.AttributeReferenceCollectionBuilderImpl;
+	using QNameAttributeReferenceBuilderImpl = org.camunda.bpm.model.xml.impl.type.reference.QNameAttributeReferenceBuilderImpl;
 	using ModelElementInstance = org.camunda.bpm.model.xml.instance.ModelElementInstance;
 	using StringAttributeBuilder = org.camunda.bpm.model.xml.type.attribute.StringAttributeBuilder;
-	//using AttributeReferenceBuilder = org.camunda.bpm.model.xml.type.reference.AttributeReferenceBuilder;
-	//using AttributeReferenceCollection = org.camunda.bpm.model.xml.type.reference.AttributeReferenceCollection;
-	//using AttributeReferenceCollectionBuilder = org.camunda.bpm.model.xml.type.reference.AttributeReferenceCollectionBuilder;
+	using AttributeReferenceBuilder = org.camunda.bpm.model.xml.type.reference.AttributeReferenceBuilder;
+	using AttributeReferenceCollection = org.camunda.bpm.model.xml.type.reference.AttributeReferenceCollection;
+	using AttributeReferenceCollectionBuilder = org.camunda.bpm.model.xml.type.reference.AttributeReferenceCollectionBuilder;
 
 
 	/// 
@@ -69,16 +69,18 @@ namespace org.camunda.bpm.model.xml.impl.type.attribute
 	  /// </summary>
 	  /// <param name="referenceTargetElement"> the reference target model element instance </param>
 	  /// <returns> the new attribute reference builder </returns>
-	  public virtual AttributeReferenceBuilder<V> qNameAttributeReference<V>(Type<V> referenceTargetElement) where V : org.camunda.bpm.model.xml.instance.ModelElementInstance
+	  public virtual AttributeReferenceBuilder<V> qNameAttributeReference<V>(Type referenceTargetElement) where V : org.camunda.bpm.model.xml.instance.ModelElementInstance
 	  {
+			  referenceTargetElement = typeof(V);
 		AttributeImpl<string> attribute = (AttributeImpl<string>) build();
 		AttributeReferenceBuilderImpl<V> referenceBuilder = new QNameAttributeReferenceBuilderImpl<V>(attribute, referenceTargetElement);
 		AttributeReference = referenceBuilder;
 		return referenceBuilder;
 	  }
 
-	  public virtual AttributeReferenceBuilder<V> idAttributeReference<V>(Type<V> referenceTargetElement) where V : org.camunda.bpm.model.xml.instance.ModelElementInstance
+	  public virtual AttributeReferenceBuilder<V> idAttributeReference<V>(Type referenceTargetElement) where V : org.camunda.bpm.model.xml.instance.ModelElementInstance
 	  {
+			  referenceTargetElement = typeof(V);
 		AttributeImpl<string> attribute = (AttributeImpl<string>) build();
 		AttributeReferenceBuilderImpl<V> referenceBuilder = new AttributeReferenceBuilderImpl<V>(attribute, referenceTargetElement);
 		AttributeReference = referenceBuilder;
@@ -87,8 +89,9 @@ namespace org.camunda.bpm.model.xml.impl.type.attribute
 
 //JAVA TO C# CONVERTER TODO TASK: Most Java annotations will not have direct .NET equivalent attributes:
 //ORIGINAL LINE: @SuppressWarnings("rawtypes") public <V extends org.camunda.bpm.model.xml.instance.ModelElementInstance> org.camunda.bpm.model.xml.type.reference.AttributeReferenceCollectionBuilder<V> idAttributeReferenceCollection(Class<V> referenceTargetElement, Class attributeReferenceCollection)
-	  public virtual AttributeReferenceCollectionBuilder<V> idAttributeReferenceCollection<V>(Type<V> referenceTargetElement, Type attributeReferenceCollection) where V : org.camunda.bpm.model.xml.instance.ModelElementInstance
+	  public virtual AttributeReferenceCollectionBuilder<V> idAttributeReferenceCollection<V>(Type referenceTargetElement, Type attributeReferenceCollection) where V : org.camunda.bpm.model.xml.instance.ModelElementInstance
 	  {
+			  referenceTargetElement = typeof(V);
 		AttributeImpl<string> attribute = (AttributeImpl<string>) build();
 		AttributeReferenceCollectionBuilder<V> referenceBuilder = new AttributeReferenceCollectionBuilderImpl<V>(attribute, referenceTargetElement, attributeReferenceCollection);
 		AttributeReference = referenceBuilder;

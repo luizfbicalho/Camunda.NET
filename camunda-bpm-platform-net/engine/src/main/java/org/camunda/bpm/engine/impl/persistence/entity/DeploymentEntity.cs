@@ -138,8 +138,9 @@ namespace org.camunda.bpm.engine.impl.persistence.entity
 
 //JAVA TO C# CONVERTER TODO TASK: Most Java annotations will not have direct .NET equivalent attributes:
 //ORIGINAL LINE: @SuppressWarnings("unchecked") public <T> java.util.List<T> getDeployedArtifacts(Class<T> clazz)
-	  public virtual IList<T> getDeployedArtifacts<T>(Type<T> clazz)
+	  public virtual IList<T> getDeployedArtifacts<T>(Type clazz)
 	  {
+			  clazz = typeof(T);
 		if (deployedArtifacts == null)
 		{
 		  return null;

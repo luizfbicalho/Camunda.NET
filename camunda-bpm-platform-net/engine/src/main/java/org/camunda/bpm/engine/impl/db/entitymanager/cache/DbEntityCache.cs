@@ -79,8 +79,9 @@ namespace org.camunda.bpm.engine.impl.db.entitymanager.cache
 	  /// <exception cref="ProcessEngineException"> if an object for the given id can be found but is of the wrong type. </exception>
 //JAVA TO C# CONVERTER TODO TASK: Most Java annotations will not have direct .NET equivalent attributes:
 //ORIGINAL LINE: @SuppressWarnings("unchecked") public <T extends org.camunda.bpm.engine.impl.db.DbEntity> T get(Class<T> type, String id)
-	  public virtual T get<T>(Type<T> type, string id) where T : org.camunda.bpm.engine.impl.db.DbEntity
+	  public virtual T get<T>(Type type, string id) where T : org.camunda.bpm.engine.impl.db.DbEntity
 	  {
+			  type = typeof(T);
 		Type cacheKey = cacheKeyMapping.getEntityCacheKey(type);
 		CachedDbEntity cachedDbEntity = getCachedEntity(cacheKey, id);
 		if (cachedDbEntity != null)
@@ -103,8 +104,9 @@ namespace org.camunda.bpm.engine.impl.db.entitymanager.cache
 
 //JAVA TO C# CONVERTER TODO TASK: Most Java annotations will not have direct .NET equivalent attributes:
 //ORIGINAL LINE: @SuppressWarnings("unchecked") public <T extends org.camunda.bpm.engine.impl.db.DbEntity> java.util.List<T> getEntitiesByType(Class<T> type)
-	  public virtual IList<T> getEntitiesByType<T>(Type<T> type) where T : org.camunda.bpm.engine.impl.db.DbEntity
+	  public virtual IList<T> getEntitiesByType<T>(Type type) where T : org.camunda.bpm.engine.impl.db.DbEntity
 	  {
+			  type = typeof(T);
 		Type cacheKey = cacheKeyMapping.getEntityCacheKey(type);
 		IDictionary<string, CachedDbEntity> entities = cachedEntites[cacheKey];
 		IList<T> result = new List<T>();

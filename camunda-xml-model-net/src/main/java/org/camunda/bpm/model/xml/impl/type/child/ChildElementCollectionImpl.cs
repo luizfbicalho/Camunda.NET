@@ -56,8 +56,9 @@ namespace org.camunda.bpm.model.xml.impl.type.child
 	  /// indicates whether this collection is mutable. </summary>
 	  private bool isMutable = true;
 
-	  public ChildElementCollectionImpl(Type<T> childElementTypeClass, ModelElementTypeImpl parentElementType)
+	  public ChildElementCollectionImpl(Type childElementTypeClass, ModelElementTypeImpl parentElementType)
 	  {
+			  childElementTypeClass = typeof(T);
 		this.childElementTypeClass = childElementTypeClass;
 		this.parentElementType = parentElementType;
 	  }

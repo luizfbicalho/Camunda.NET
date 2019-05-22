@@ -84,7 +84,7 @@ namespace org.camunda.bpm.engine
 	  /// </returns>
 	  /// @deprecated Use <seealso cref="#getMissingAuthorizations()"/> to get the type of the resource
 	  /// of the <seealso cref="MissingAuthorization"/>(s). This method may be removed in future versions. 
-	  [Obsolete("Use <seealso cref=\"#getMissingAuthorizations()\"/> to get the type of the resource")]
+	  [Obsolete("Use <seealso cref="#getMissingAuthorizations()"/> to get the type of the resource")]
 	  public virtual string ResourceType
 	  {
 		  get
@@ -103,7 +103,7 @@ namespace org.camunda.bpm.engine
 	  /// </returns>
 	  /// @deprecated Use <seealso cref="#getMissingAuthorizations()"/> to get the violated permission name
 	  /// of the <seealso cref="MissingAuthorization"/>(s). This method may be removed in future versions. 
-	  [Obsolete("Use <seealso cref=\"#getMissingAuthorizations()\"/> to get the violated permission name")]
+	  [Obsolete("Use <seealso cref="#getMissingAuthorizations()"/> to get the violated permission name")]
 	  public virtual string ViolatedPermissionName
 	  {
 		  get
@@ -131,7 +131,7 @@ namespace org.camunda.bpm.engine
 	  /// </returns>
 	  /// @deprecated Use <seealso cref="#getMissingAuthorizations()"/> to get the id of the resource
 	  /// of the <seealso cref="MissingAuthorization"/>(s). This method may be removed in future versions. 
-	  [Obsolete("Use <seealso cref=\"#getMissingAuthorizations()\"/> to get the id of the resource")]
+	  [Obsolete("Use <seealso cref="#getMissingAuthorizations()"/> to get the id of the resource")]
 	  public virtual string ResourceId
 	  {
 		  get

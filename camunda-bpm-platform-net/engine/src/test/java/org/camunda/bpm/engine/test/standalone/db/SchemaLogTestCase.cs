@@ -19,15 +19,18 @@
 namespace org.camunda.bpm.engine.test.standalone.db
 {
 //JAVA TO C# CONVERTER TODO TASK: This Java 'import static' statement cannot be converted to C#:
+//	import static org.hamcrest.Matchers.greaterThan;
+//JAVA TO C# CONVERTER TODO TASK: This Java 'import static' statement cannot be converted to C#:
 //	import static org.junit.Assert.assertThat;
 //JAVA TO C# CONVERTER TODO TASK: This Java 'import static' statement cannot be converted to C#:
-//	import static org.junit.Assert.assertTrue;
+//	import static org.junit.Assert.fail;
 
 
 	using DbSqlSessionFactory = org.camunda.bpm.engine.impl.db.sql.DbSqlSessionFactory;
-	using CoreMatchers = org.hamcrest.CoreMatchers;
 	using Before = org.junit.Before;
 	using Rule = org.junit.Rule;
+	using Resource = org.springframework.core.io.Resource;
+	using PathMatchingResourcePatternResolver = org.springframework.core.io.support.PathMatchingResourcePatternResolver;
 
 	/// <summary>
 	/// @author Miklas Boskamp
@@ -62,16 +65,26 @@ namespace org.camunda.bpm.engine.test.standalone.db
 		}
 	  }
 
-	  private IList<string> readFolderContent(string path)
+	  private IList<string> readFolderContent(string folder)
 	  {
-		ClassLoader classLoader = this.GetType().ClassLoader;
-		URL resource = classLoader.getResource(path);
-		assertThat(resource, CoreMatchers.notNullValue());
+		IList<string> files = new List<string>();
+		string path = "classpath:" + folder + "/*";
+		try
+		{
+		  PathMatchingResourcePatternResolver resolver = new PathMatchingResourcePatternResolver();
+		  Resource[] resources = resolver.getResources(path);
+		  assertThat("No resources found at " + path, resources.Length, greaterThan(0));
+		  foreach (Resource res in resources)
+		  {
+			files.Add(res.Filename);
+		  }
+		}
+		catch (IOException)
+		{
+		  fail("unable to load resources from " + path);
+		}
 
-		File folder = new File(resource.File);
-		assertTrue(folder.Directory);
-
-		return Arrays.asList(folder.list());
+		return files;
 	  }
 
 	  public virtual bool isMinorLevel(string version)

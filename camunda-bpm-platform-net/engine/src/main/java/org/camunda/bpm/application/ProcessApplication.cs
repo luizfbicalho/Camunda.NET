@@ -14,8 +14,6 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-using System;
-
 namespace org.camunda.bpm.application
 {
 
@@ -55,11 +53,9 @@ namespace org.camunda.bpm.application
 	  internal string[] deploymentDescriptors;
 
 
-		public ProcessApplication(String value = "", String name = "", String[] deploymentDescriptors = null)
+		public ProcessApplication(String value = "", String name = "", String[] deploymentDescriptors = {DEFAULT_META_INF_PROCESSES_XML})
 		{
-            deploymentDescriptors = deploymentDescriptors ?? new string[] { DEFAULT_META_INF_PROCESSES_XML };
-
-            this.value = value;
+			this.value = value;
 			this.name = name;
 			this.deploymentDescriptors = deploymentDescriptors;
 		}

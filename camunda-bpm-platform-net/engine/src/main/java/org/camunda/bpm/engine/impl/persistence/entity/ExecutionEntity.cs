@@ -63,7 +63,6 @@ namespace org.camunda.bpm.engine.impl.persistence.entity
 	using ExecutionStartContext = org.camunda.bpm.engine.impl.pvm.runtime.ExecutionStartContext;
 	using ProcessInstanceStartContext = org.camunda.bpm.engine.impl.pvm.runtime.ProcessInstanceStartContext;
 	using PvmExecutionImpl = org.camunda.bpm.engine.impl.pvm.runtime.PvmExecutionImpl;
-	using FoxAtomicOperationDeleteCascadeFireActivityEnd = org.camunda.bpm.engine.impl.pvm.runtime.operation.FoxAtomicOperationDeleteCascadeFireActivityEnd;
 	using PvmAtomicOperation = org.camunda.bpm.engine.impl.pvm.runtime.operation.PvmAtomicOperation;
 	using ExecutionTopDownWalker = org.camunda.bpm.engine.impl.tree.ExecutionTopDownWalker;
 	using TreeVisitor = org.camunda.bpm.engine.impl.tree.TreeVisitor;
@@ -1768,13 +1767,6 @@ namespace org.camunda.bpm.engine.impl.persistence.entity
 	  public virtual void insert()
 	  {
 		Context.CommandContext.ExecutionManager.insertExecution(this);
-	  }
-
-	  public override void deleteCascade2(string deleteReason)
-	  {
-		this.deleteReason = deleteReason;
-		this.deleteRoot = true;
-		performOperation(new FoxAtomicOperationDeleteCascadeFireActivityEnd());
 	  }
 
 	  public virtual int RevisionNext

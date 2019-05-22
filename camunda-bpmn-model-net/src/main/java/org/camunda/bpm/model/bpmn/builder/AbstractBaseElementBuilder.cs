@@ -40,13 +40,15 @@ namespace org.camunda.bpm.model.bpmn.builder
 	  {
 	  }
 
-	  protected internal virtual T createInstance<T>(Type<T> typeClass) where T : BpmnModelElementInstance
+	  protected internal virtual T createInstance<T>(Type typeClass) where T : BpmnModelElementInstance
 	  {
+			  typeClass = typeof(T);
 		return modelInstance.newInstance(typeClass);
 	  }
 
-	  protected internal virtual T createInstance<T>(Type<T> typeClass, string identifier) where T : BaseElement
+	  protected internal virtual T createInstance<T>(Type typeClass, string identifier) where T : BaseElement
 	  {
+			  typeClass = typeof(T);
 		T instance = createInstance(typeClass);
 		if (!string.ReferenceEquals(identifier, null))
 		{
@@ -59,51 +61,59 @@ namespace org.camunda.bpm.model.bpmn.builder
 		return instance;
 	  }
 
-	  protected internal virtual T createChild<T>(Type<T> typeClass) where T : BpmnModelElementInstance
+	  protected internal virtual T createChild<T>(Type typeClass) where T : BpmnModelElementInstance
 	  {
+			  typeClass = typeof(T);
 		return createChild(element, typeClass);
 	  }
 
-	  protected internal virtual T createChild<T>(Type<T> typeClass, string identifier) where T : BaseElement
+	  protected internal virtual T createChild<T>(Type typeClass, string identifier) where T : BaseElement
 	  {
+			  typeClass = typeof(T);
 		return createChild(element, typeClass, identifier);
 	  }
 
-	  protected internal virtual T createChild<T>(BpmnModelElementInstance parent, Type<T> typeClass) where T : BpmnModelElementInstance
+	  protected internal virtual T createChild<T>(BpmnModelElementInstance parent, Type typeClass) where T : BpmnModelElementInstance
 	  {
+			  typeClass = typeof(T);
 		T instance = createInstance(typeClass);
 		parent.addChildElement(instance);
 		return instance;
 	  }
 
-	  protected internal virtual T createChild<T>(BpmnModelElementInstance parent, Type<T> typeClass, string identifier) where T : BaseElement
+	  protected internal virtual T createChild<T>(BpmnModelElementInstance parent, Type typeClass, string identifier) where T : BaseElement
 	  {
+			  typeClass = typeof(T);
 		T instance = createInstance(typeClass, identifier);
 		parent.addChildElement(instance);
 		return instance;
 	  }
 
-	  protected internal virtual T createSibling<T>(Type<T> typeClass) where T : BpmnModelElementInstance
+	  protected internal virtual T createSibling<T>(Type typeClass) where T : BpmnModelElementInstance
 	  {
+			  typeClass = typeof(T);
 		T instance = createInstance(typeClass);
 		element.ParentElement.addChildElement(instance);
 		return instance;
 	  }
 
-	  protected internal virtual T createSibling<T>(Type<T> typeClass, string identifier) where T : BaseElement
+	  protected internal virtual T createSibling<T>(Type typeClass, string identifier) where T : BaseElement
 	  {
+			  typeClass = typeof(T);
 		T instance = createInstance(typeClass, identifier);
 		element.ParentElement.addChildElement(instance);
 		return instance;
 	  }
 
-	  protected internal virtual T getCreateSingleChild<T>(Type<T> typeClass) where T : BpmnModelElementInstance
+	  protected internal virtual T getCreateSingleChild<T>(Type typeClass) where T : BpmnModelElementInstance
 	  {
+			  typeClass = typeof(T);
 		return getCreateSingleChild(element, typeClass);
 	  }
 
-	  protected internal virtual T getCreateSingleChild<T>(BpmnModelElementInstance parent, Type<T> typeClass) where T : BpmnModelElementInstance
+	  protected internal virtual T getCreateSingleChild<T>(BpmnModelElementInstance parent, Type typeClass) where T : BpmnModelElementInstance
 	  {
+			  typeClass = typeof(T);
 		ICollection<T> childrenOfType = parent.getChildElementsByType(typeClass);
 		if (childrenOfType.Count == 0)
 		{
@@ -123,8 +133,9 @@ namespace org.camunda.bpm.model.bpmn.builder
 		}
 	  }
 
-	  protected internal virtual T getCreateSingleExtensionElement<T>(Type<T> typeClass) where T : BpmnModelElementInstance
+	  protected internal virtual T getCreateSingleExtensionElement<T>(Type typeClass) where T : BpmnModelElementInstance
 	  {
+			  typeClass = typeof(T);
 		ExtensionElements extensionElements = getCreateSingleChild(typeof(ExtensionElements));
 		return getCreateSingleChild(extensionElements, typeClass);
 	  }

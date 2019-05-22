@@ -186,8 +186,9 @@ namespace org.camunda.bpm.engine.impl.bpmn.behavior
 		return new ProcessEngineException(exceptionMessage("032", "Execution '{}' with execution behavior of class '{}' cannot have concurrency.", scopeExecutionId, className));
 	  }
 
-	  public virtual ProcessEngineException resolveDelegateExpressionException(Expression expression, Type parentClass, Type<JavaDelegate> javaDelegateClass)
+	  public virtual ProcessEngineException resolveDelegateExpressionException(Expression expression, Type parentClass, Type javaDelegateClass)
 	  {
+			  javaDelegateClass = typeof(JavaDelegate);
 		return new ProcessEngineException(exceptionMessage("033", "Delegate Expression '{}' did neither resolve to an implementation of '{}' nor '{}'.", expression, parentClass, javaDelegateClass));
 	  }
 

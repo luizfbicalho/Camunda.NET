@@ -641,8 +641,9 @@ namespace org.camunda.bpm.engine.impl.cmmn.handler
 		return definition.DefaultControl;
 	  }
 
-	  protected internal virtual IList<V> queryExtensionElementsByClass<V>(CmmnElement element, Type<V> cls) where V : org.camunda.bpm.model.xml.instance.ModelElementInstance
+	  protected internal virtual IList<V> queryExtensionElementsByClass<V>(CmmnElement element, Type cls) where V : org.camunda.bpm.model.xml.instance.ModelElementInstance
 	  {
+			  cls = typeof(V);
 		ExtensionElements extensionElements = getExtensionElements(element);
 
 		if (extensionElements != null)

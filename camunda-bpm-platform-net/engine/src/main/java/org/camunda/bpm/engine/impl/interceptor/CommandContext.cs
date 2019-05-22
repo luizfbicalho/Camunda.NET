@@ -296,8 +296,9 @@ namespace org.camunda.bpm.engine.impl.interceptor
 
 //JAVA TO C# CONVERTER TODO TASK: Most Java annotations will not have direct .NET equivalent attributes:
 //ORIGINAL LINE: @SuppressWarnings({"unchecked"}) public <T> T getSession(Class<T> sessionClass)
-	  public virtual T getSession<T>(Type<T> sessionClass)
+	  public virtual T getSession<T>(Type sessionClass)
 	  {
+			  sessionClass = typeof(T);
 		Session session = sessions[sessionClass];
 		if (session == null)
 		{

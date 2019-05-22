@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Numerics;
 
 /*
  * Copyright Camunda Services GmbH and/or licensed to Camunda Services GmbH
@@ -192,7 +193,7 @@ namespace org.camunda.bpm.engine.test.standalone.jpa
 		manager.persist(bigDecimalIdJPAEntity);
 
 		bigIntegerIdJPAEntity = new BigIntegerIdJPAEntity();
-		bigIntegerIdJPAEntity.BigIntegerId = System.Numerics.BigInteger.Parse("12345678912345678912345678900000");
+		bigIntegerIdJPAEntity.BigIntegerId = BigInteger.Parse("12345678912345678912345678900000");
 		manager.persist(bigIntegerIdJPAEntity);
 
 		manager.flush();

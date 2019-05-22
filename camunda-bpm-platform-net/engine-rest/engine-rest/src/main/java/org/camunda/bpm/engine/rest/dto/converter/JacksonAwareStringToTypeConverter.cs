@@ -42,8 +42,9 @@ namespace org.camunda.bpm.engine.rest.dto.converter
 		  }
 	  }
 
-	  protected internal virtual T mapToType(string value, Type<T> typeClass)
+	  protected internal virtual T mapToType(string value, Type typeClass)
 	  {
+			  typeClass = typeof(T);
 		try
 		{
 		  return objectMapper.readValue(value, typeClass);

@@ -1870,6 +1870,136 @@ namespace org.camunda.bpm.engine.test.api.runtime
 		assertThat(returnedValue.ValueSerialized).isEqualTo(serializedValue);
 	  }
 
+//JAVA TO C# CONVERTER TODO TASK: Most Java annotations will not have direct .NET equivalent attributes:
+//ORIGINAL LINE: @Test public void testStartMessageOnlyFlag()
+	  public virtual void testStartMessageOnlyFlag()
+	  {
+		deployTwoVersionsWithStartMessageEvent();
+
+		ProcessDefinition firstProcessDefinition = repositoryService.createProcessDefinitionQuery().processDefinitionVersion(1).singleResult();
+		ProcessDefinition secondProcessDefinition = repositoryService.createProcessDefinitionQuery().processDefinitionVersion(2).singleResult();
+
+		runtimeService.createMessageCorrelation("a").startMessageOnly().processDefinitionId(firstProcessDefinition.Id).processInstanceBusinessKey("first").correlate();
+
+		runtimeService.createMessageCorrelation("a").startMessageOnly().processDefinitionId(secondProcessDefinition.Id).processInstanceBusinessKey("second").correlate();
+
+		assertTwoInstancesAreStarted(firstProcessDefinition, secondProcessDefinition);
+	  }
+
+//JAVA TO C# CONVERTER TODO TASK: Most Java annotations will not have direct .NET equivalent attributes:
+//ORIGINAL LINE: @Test public void testStartMessageOnlyFlagAll()
+	  public virtual void testStartMessageOnlyFlagAll()
+	  {
+		deployTwoVersionsWithStartMessageEvent();
+
+		ProcessDefinition firstProcessDefinition = repositoryService.createProcessDefinitionQuery().processDefinitionVersion(1).singleResult();
+		ProcessDefinition secondProcessDefinition = repositoryService.createProcessDefinitionQuery().processDefinitionVersion(2).singleResult();
+
+		runtimeService.createMessageCorrelation("a").startMessageOnly().processDefinitionId(firstProcessDefinition.Id).processInstanceBusinessKey("first").correlateAll();
+
+		runtimeService.createMessageCorrelation("a").startMessageOnly().processDefinitionId(secondProcessDefinition.Id).processInstanceBusinessKey("second").correlateAll();
+
+		assertTwoInstancesAreStarted(firstProcessDefinition, secondProcessDefinition);
+	  }
+
+//JAVA TO C# CONVERTER TODO TASK: Most Java annotations will not have direct .NET equivalent attributes:
+//ORIGINAL LINE: @Deployment(resources = "org/camunda/bpm/engine/test/api/runtime/MessageCorrelationTest.testMessageStartEventCorrelation.bpmn20.xml") @Test public void testStartMessageOnlyFlagWithResult()
+	  [Deployment(resources : "org/camunda/bpm/engine/test/api/runtime/MessageCorrelationTest.testMessageStartEventCorrelation.bpmn20.xml")]
+	  public virtual void testStartMessageOnlyFlagWithResult()
+	  {
+		MessageCorrelationResult result = runtimeService.createMessageCorrelation("newInvoiceMessage").setVariable("aKey", "aValue").startMessageOnly().correlateWithResult();
+
+		ProcessInstanceQuery processInstanceQuery = runtimeService.createProcessInstanceQuery().processDefinitionKey("messageStartEvent").variableValueEquals("aKey", "aValue");
+		assertThat(processInstanceQuery.count()).isEqualTo(1);
+		assertThat(result.ProcessInstance.Id).isEqualTo(processInstanceQuery.singleResult().Id);
+	  }
+
+//JAVA TO C# CONVERTER TODO TASK: Most Java annotations will not have direct .NET equivalent attributes:
+//ORIGINAL LINE: @Deployment(resources = "org/camunda/bpm/engine/test/api/runtime/MessageCorrelationTest.testMessageStartEventCorrelation.bpmn20.xml") @Test public void testStartMessageOnlyFlagWithVariablesInResult()
+	  [Deployment(resources : "org/camunda/bpm/engine/test/api/runtime/MessageCorrelationTest.testMessageStartEventCorrelation.bpmn20.xml")]
+	  public virtual void testStartMessageOnlyFlagWithVariablesInResult()
+	  {
+
+		MessageCorrelationResultWithVariables result = runtimeService.createMessageCorrelation("newInvoiceMessage").setVariable("aKey", "aValue").startMessageOnly().correlateWithResultAndVariables(false);
+
+		ProcessInstanceQuery processInstanceQuery = runtimeService.createProcessInstanceQuery().processDefinitionKey("messageStartEvent").variableValueEquals("aKey", "aValue");
+		assertThat(processInstanceQuery.count()).isEqualTo(1);
+		assertThat(result.Variables.size()).isEqualTo(1);
+		assertThat(result.Variables.getValueTyped("aKey").Value).isEqualTo("aValue");
+	  }
+
+//JAVA TO C# CONVERTER TODO TASK: Most Java annotations will not have direct .NET equivalent attributes:
+//ORIGINAL LINE: @Deployment(resources = "org/camunda/bpm/engine/test/api/runtime/MessageCorrelationTest.testMessageStartEventCorrelation.bpmn20.xml") @Test public void testStartMessageOnlyFlagAllWithResult()
+	  [Deployment(resources : "org/camunda/bpm/engine/test/api/runtime/MessageCorrelationTest.testMessageStartEventCorrelation.bpmn20.xml")]
+	  public virtual void testStartMessageOnlyFlagAllWithResult()
+	  {
+		IList<MessageCorrelationResult> result = runtimeService.createMessageCorrelation("newInvoiceMessage").setVariable("aKey", "aValue").startMessageOnly().correlateAllWithResult();
+
+		ProcessInstanceQuery processInstanceQuery = runtimeService.createProcessInstanceQuery().processDefinitionKey("messageStartEvent").variableValueEquals("aKey", "aValue");
+		assertThat(processInstanceQuery.count()).isEqualTo(1);
+		assertThat(result[0].ProcessInstance.Id).isEqualTo(processInstanceQuery.singleResult().Id);
+	  }
+
+//JAVA TO C# CONVERTER TODO TASK: Most Java annotations will not have direct .NET equivalent attributes:
+//ORIGINAL LINE: @Deployment(resources = "org/camunda/bpm/engine/test/api/runtime/MessageCorrelationTest.testMessageStartEventCorrelation.bpmn20.xml") @Test public void testStartMessageOnlyFlagAllWithVariablesInResult()
+	  [Deployment(resources : "org/camunda/bpm/engine/test/api/runtime/MessageCorrelationTest.testMessageStartEventCorrelation.bpmn20.xml")]
+	  public virtual void testStartMessageOnlyFlagAllWithVariablesInResult()
+	  {
+
+		IList<MessageCorrelationResultWithVariables> results = runtimeService.createMessageCorrelation("newInvoiceMessage").setVariable("aKey", "aValue").startMessageOnly().correlateAllWithResultAndVariables(false);
+
+		ProcessInstanceQuery processInstanceQuery = runtimeService.createProcessInstanceQuery().processDefinitionKey("messageStartEvent").variableValueEquals("aKey", "aValue");
+		assertThat(processInstanceQuery.count()).isEqualTo(1);
+		MessageCorrelationResultWithVariables result = results[0];
+		assertThat(result.Variables.size()).isEqualTo(1);
+		assertThat(result.Variables.getValueTyped("aKey").Value).isEqualTo("aValue");
+	  }
+
+//JAVA TO C# CONVERTER TODO TASK: Most Java annotations will not have direct .NET equivalent attributes:
+//ORIGINAL LINE: @Test public void testFailStartMessageOnlyFlagWithCorrelationVariable()
+	  public virtual void testFailStartMessageOnlyFlagWithCorrelationVariable()
+	  {
+		try
+		{
+		  runtimeService.createMessageCorrelation("a").startMessageOnly().processInstanceVariableEquals("var", "value").correlate();
+
+		  fail("expected exception");
+		}
+		catch (BadUserRequestException e)
+		{
+		  testRule.assertTextPresent("Cannot specify correlation variables ", e.Message);
+		}
+	  }
+
+//JAVA TO C# CONVERTER TODO TASK: Most Java annotations will not have direct .NET equivalent attributes:
+//ORIGINAL LINE: @Test public void testFailStartMessageOnlyFlagWithCorrelationVariables()
+	  public virtual void testFailStartMessageOnlyFlagWithCorrelationVariables()
+	  {
+		try
+		{
+		  runtimeService.createMessageCorrelation("a").startMessageOnly().processInstanceVariablesEqual(Variables.createVariables().putValue("var1", "b").putValue("var2", "c")).correlateAll();
+
+		  fail("expected exception");
+		}
+		catch (BadUserRequestException e)
+		{
+		  testRule.assertTextPresent("Cannot specify correlation variables ", e.Message);
+		}
+	  }
+
+	  protected internal virtual void deployTwoVersionsWithStartMessageEvent()
+	  {
+		testRule.deploy(Bpmn.createExecutableProcess("process").startEvent().message("a").userTask("ut1").endEvent().done());
+
+		testRule.deploy(Bpmn.createExecutableProcess("process").startEvent().message("a").userTask("ut2").endEvent().done());
+	  }
+
+	  protected internal virtual void assertTwoInstancesAreStarted(ProcessDefinition firstProcessDefinition, ProcessDefinition secondProcessDefinition)
+	  {
+		assertThat(runtimeService.createProcessInstanceQuery().processInstanceBusinessKey("first").processDefinitionId(firstProcessDefinition.Id).count()).isEqualTo(1);
+		assertThat(runtimeService.createProcessInstanceQuery().processInstanceBusinessKey("second").processDefinitionId(secondProcessDefinition.Id).count()).isEqualTo(1);
+	  }
+
 	  public class ChangeVariableDelegate : JavaDelegate
 	  {
 //JAVA TO C# CONVERTER WARNING: Method 'throws' clauses are not available in .NET:

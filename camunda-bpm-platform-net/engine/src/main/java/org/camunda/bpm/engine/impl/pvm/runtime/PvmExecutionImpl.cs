@@ -42,7 +42,6 @@ namespace org.camunda.bpm.engine.impl.pvm.runtime
 	using ModificationObserverBehavior = org.camunda.bpm.engine.impl.pvm.@delegate.ModificationObserverBehavior;
 	using SignallableActivityBehavior = org.camunda.bpm.engine.impl.pvm.@delegate.SignallableActivityBehavior;
 	using org.camunda.bpm.engine.impl.pvm.process;
-	using FoxAtomicOperationDeleteCascadeFireActivityEnd = org.camunda.bpm.engine.impl.pvm.runtime.operation.FoxAtomicOperationDeleteCascadeFireActivityEnd;
 	using PvmAtomicOperation = org.camunda.bpm.engine.impl.pvm.runtime.operation.PvmAtomicOperation;
 	using org.camunda.bpm.engine.impl.tree;
 	using EnsureUtil = org.camunda.bpm.engine.impl.util.EnsureUtil;
@@ -154,6 +153,8 @@ namespace org.camunda.bpm.engine.impl.pvm.runtime
 	  /// marks the current activity instance
 	  /// </summary>
 	  protected internal int activityInstanceState = ActivityInstanceState_Fields.DEFAULT.StateCode;
+
+	  protected internal bool activityInstanceEndListenersFailed = false;
 
 	  // sequence counter ////////////////////////////////////////////////////////
 	  protected internal long sequenceCounter = 0;
@@ -385,6 +386,7 @@ namespace org.camunda.bpm.engine.impl.pvm.runtime
 		}
 
 		performOperation(org.camunda.bpm.engine.impl.pvm.runtime.operation.PvmAtomicOperation_Fields.ACTIVITY_NOTIFY_LISTENER_END);
+
 	  }
 
 	  public virtual void endCompensation()
@@ -632,13 +634,6 @@ namespace org.camunda.bpm.engine.impl.pvm.runtime
 		performOperation(org.camunda.bpm.engine.impl.pvm.runtime.operation.PvmAtomicOperation_Fields.DELETE_CASCADE);
 	  }
 
-	  public virtual void deleteCascade2(string deleteReason)
-	  {
-		this.deleteReason = deleteReason;
-		DeleteRoot = true;
-		performOperation(new FoxAtomicOperationDeleteCascadeFireActivityEnd());
-	  }
-
 	  public virtual void executeEventHandlerActivity(ActivityImpl eventHandlerActivity)
 	  {
 
@@ -864,6 +859,9 @@ namespace org.camunda.bpm.engine.impl.pvm.runtime
 		}
 
 		PvmActivity activityImpl = activity;
+		this.isEnded = false;
+		this.isActive_Renamed = true;
+
 		switch (activityStartBehavior)
 		{
 		  case org.camunda.bpm.engine.impl.pvm.process.ActivityStartBehavior.CONCURRENT_IN_FLOW_SCOPE:
@@ -1434,6 +1432,8 @@ namespace org.camunda.bpm.engine.impl.pvm.runtime
 		  initializeTimerDeclarations();
 		}
 
+		activityInstanceEndListenersFailed = false;
+
 	  }
 
 	  public virtual void activityInstanceStarting()
@@ -1452,6 +1452,11 @@ namespace org.camunda.bpm.engine.impl.pvm.runtime
 		this.activityInstanceState = ENDING.StateCode;
 	  }
 
+	  public virtual void activityInstanceEndListenerFailure()
+	  {
+		this.activityInstanceEndListenersFailed = true;
+	  }
+
 	  protected internal abstract string generateActivityInstanceId(string activityId);
 
 	  public virtual void leaveActivityInstance()
@@ -1463,6 +1468,7 @@ namespace org.camunda.bpm.engine.impl.pvm.runtime
 		activityInstanceId = ParentActivityInstanceId;
 
 		activityInstanceState = ActivityInstanceState_Fields.DEFAULT.StateCode;
+		activityInstanceEndListenersFailed = false;
 	  }
 
 	  public virtual string ParentActivityInstanceId
@@ -2184,6 +2190,11 @@ namespace org.camunda.bpm.engine.impl.pvm.runtime
 	  public virtual bool isInState(ActivityInstanceState state)
 	  {
 		return activityInstanceState == state.StateCode;
+	  }
+
+	  public virtual bool hasFailedOnEndListeners()
+	  {
+		return activityInstanceEndListenersFailed;
 	  }
 
 	  public virtual bool EventScope

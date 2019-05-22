@@ -22,8 +22,10 @@ namespace org.camunda.bpm.model.xml.impl.type.attribute
 	public class NamedEnumAttributeBuilder<T> : AttributeBuilderImpl<T> where T : Enum<T>
 	{
 
-	  public NamedEnumAttributeBuilder(string attributeName, ModelElementTypeImpl modelType, Type<T> type) : base(attributeName, modelType, new NamedEnumAttribute<T>(modelType, type))
+	  public NamedEnumAttributeBuilder(string attributeName, ModelElementTypeImpl modelType, Type type)
 	  {
+			  type = typeof(T);
+		base(attributeName, modelType, new NamedEnumAttribute<T>(modelType, type));
 	  }
 
 	  public override NamedEnumAttributeBuilder<T> @namespace(string namespaceUri)

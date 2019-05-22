@@ -18,7 +18,6 @@
  */
 namespace org.camunda.bpm.engine.rest.dto.history
 {
-
 	using HistoricIdentityLinkLog = org.camunda.bpm.engine.history.HistoricIdentityLinkLog;
 
 	public class HistoricIdentityLinkLogDto
@@ -144,6 +143,12 @@ namespace org.camunda.bpm.engine.rest.dto.history
 	  public static HistoricIdentityLinkLogDto fromHistoricIdentityLink(HistoricIdentityLinkLog historicIdentityLink)
 	  {
 		HistoricIdentityLinkLogDto dto = new HistoricIdentityLinkLogDto();
+		fromHistoricIdentityLink(dto, historicIdentityLink);
+		return dto;
+	  }
+
+	  public static void fromHistoricIdentityLink(HistoricIdentityLinkLogDto dto, HistoricIdentityLinkLog historicIdentityLink)
+	  {
 		dto.id = historicIdentityLink.Id;
 		dto.assignerId = historicIdentityLink.AssignerId;
 		dto.groupId = historicIdentityLink.GroupId;
@@ -157,8 +162,6 @@ namespace org.camunda.bpm.engine.rest.dto.history
 		dto.tenantId = historicIdentityLink.TenantId;
 		dto.removalTime = historicIdentityLink.RemovalTime;
 		dto.rootProcessInstanceId = historicIdentityLink.RootProcessInstanceId;
-
-		return dto;
 	  }
 	}
 

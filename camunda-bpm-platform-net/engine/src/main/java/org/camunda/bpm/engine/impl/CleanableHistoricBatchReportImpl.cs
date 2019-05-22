@@ -22,7 +22,9 @@ namespace org.camunda.bpm.engine.impl
 
 	using CleanableHistoricBatchReport = org.camunda.bpm.engine.history.CleanableHistoricBatchReport;
 	using CleanableHistoricBatchReportResult = org.camunda.bpm.engine.history.CleanableHistoricBatchReportResult;
+	using BatchJobHandler = org.camunda.bpm.engine.impl.batch.BatchJobHandler;
 	using CommandChecker = org.camunda.bpm.engine.impl.cfg.CommandChecker;
+	using Context = org.camunda.bpm.engine.impl.context.Context;
 	using CommandContext = org.camunda.bpm.engine.impl.interceptor.CommandContext;
 	using CommandExecutor = org.camunda.bpm.engine.impl.interceptor.CommandExecutor;
 
@@ -57,6 +59,12 @@ namespace org.camunda.bpm.engine.impl
 		checkPermissions(commandContext);
 
 		IDictionary<string, int> batchOperationsForHistoryCleanup = commandContext.ProcessEngineConfiguration.ParsedBatchOperationsForHistoryCleanup;
+
+		if (HistoryCleanupStrategyRemovalTimeBased)
+		{
+		  addBatchOperationsWithoutTTL(batchOperationsForHistoryCleanup);
+		}
+
 		return commandContext.HistoricBatchManager.findCleanableHistoricBatchesReportCountByCriteria(this, batchOperationsForHistoryCleanup);
 	  }
 
@@ -68,7 +76,36 @@ namespace org.camunda.bpm.engine.impl
 		checkPermissions(commandContext);
 
 		IDictionary<string, int> batchOperationsForHistoryCleanup = commandContext.ProcessEngineConfiguration.ParsedBatchOperationsForHistoryCleanup;
+
+		if (HistoryCleanupStrategyRemovalTimeBased)
+		{
+		  addBatchOperationsWithoutTTL(batchOperationsForHistoryCleanup);
+		}
+
 		return commandContext.HistoricBatchManager.findCleanableHistoricBatchesReportByCriteria(this, page, batchOperationsForHistoryCleanup);
+	  }
+
+	  protected internal virtual void addBatchOperationsWithoutTTL(IDictionary<string, int> batchOperations)
+	  {
+//JAVA TO C# CONVERTER WARNING: Java wildcard generics have no direct equivalent in .NET:
+//ORIGINAL LINE: java.util.Map<String, org.camunda.bpm.engine.impl.batch.BatchJobHandler<?>> batchJobHandlers = org.camunda.bpm.engine.impl.context.Context.getProcessEngineConfiguration().getBatchHandlers();
+		IDictionary<string, BatchJobHandler<object>> batchJobHandlers = Context.ProcessEngineConfiguration.BatchHandlers;
+
+		ISet<string> batchOperationKeys = null;
+		if (batchJobHandlers != null)
+		{
+		  batchOperationKeys = batchJobHandlers.Keys;
+		}
+
+		if (batchOperationKeys != null)
+		{
+		  foreach (string batchOperation in batchOperationKeys)
+		  {
+			int? ttl = batchOperations[batchOperation];
+			batchOperations[batchOperation] = ttl.Value;
+
+		  }
+		}
 	  }
 
 	  public virtual DateTime CurrentTimestamp

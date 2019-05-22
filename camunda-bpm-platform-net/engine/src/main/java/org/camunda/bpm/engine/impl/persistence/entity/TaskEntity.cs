@@ -25,6 +25,8 @@ namespace org.camunda.bpm.engine.impl.persistence.entity
 	using TaskListener = org.camunda.bpm.engine.@delegate.TaskListener;
 	using VariableScope = org.camunda.bpm.engine.@delegate.VariableScope;
 	using NullValueException = org.camunda.bpm.engine.exception.NullValueException;
+	using BpmnExceptionHandler = org.camunda.bpm.engine.impl.bpmn.helper.BpmnExceptionHandler;
+	using ErrorPropagationException = org.camunda.bpm.engine.impl.bpmn.helper.ErrorPropagationException;
 	using ProcessEngineConfigurationImpl = org.camunda.bpm.engine.impl.cfg.ProcessEngineConfigurationImpl;
 	using ResourceAuthorizationProvider = org.camunda.bpm.engine.impl.cfg.auth.ResourceAuthorizationProvider;
 	using CaseDefinitionEntity = org.camunda.bpm.engine.impl.cmmn.entity.repository.CaseDefinitionEntity;
@@ -46,6 +48,7 @@ namespace org.camunda.bpm.engine.impl.persistence.entity
 	using HistoryEventTypes = org.camunda.bpm.engine.impl.history.@event.HistoryEventTypes;
 	using CommandContext = org.camunda.bpm.engine.impl.interceptor.CommandContext;
 	using CommandContextListener = org.camunda.bpm.engine.impl.interceptor.CommandContextListener;
+	using ActivityExecution = org.camunda.bpm.engine.impl.pvm.@delegate.ActivityExecution;
 	using PvmExecutionImpl = org.camunda.bpm.engine.impl.pvm.runtime.PvmExecutionImpl;
 	using TaskDefinition = org.camunda.bpm.engine.impl.task.TaskDefinition;
 	using TaskListenerInvocation = org.camunda.bpm.engine.impl.task.@delegate.TaskListenerInvocation;
@@ -146,7 +149,7 @@ namespace org.camunda.bpm.engine.impl.persistence.entity
 	  protected internal string formKey;
 
 //JAVA TO C# CONVERTER TODO TASK: Most Java annotations will not have direct .NET equivalent attributes:
-//ORIGINAL LINE: @SuppressWarnings({ "unchecked" }) protected transient org.camunda.bpm.engine.impl.core.variable.scope.VariableStore<VariableInstanceEntity> variableStore = new org.camunda.bpm.engine.impl.core.variable.scope.VariableStore<VariableInstanceEntity>(this, new TaskEntityReferencer(this));
+//ORIGINAL LINE: @SuppressWarnings({ "unchecked" }) protected transient org.camunda.bpm.engine.impl.core.variable.scope.VariableStore<VariableInstanceEntity> variableStore = new org.camunda.bpm.engine.impl.core.variable.scope.VariableStore<>(this, new TaskEntityReferencer(this));
 	  [NonSerialized]
 	  protected internal VariableStore<VariableInstanceEntity> variableStore;
 
@@ -349,20 +352,26 @@ namespace org.camunda.bpm.engine.impl.persistence.entity
 		ensureTaskActive();
 
 		// trigger TaskListener.complete event
-		fireEvent(org.camunda.bpm.engine.@delegate.TaskListener_Fields.EVENTNAME_COMPLETE);
+//JAVA TO C# CONVERTER WARNING: The original Java variable was marked 'final':
+//ORIGINAL LINE: final boolean listenersSuccessful = fireEvent(org.camunda.bpm.engine.delegate.TaskListener_Fields.EVENTNAME_COMPLETE);
+		bool listenersSuccessful = fireEvent(org.camunda.bpm.engine.@delegate.TaskListener_Fields.EVENTNAME_COMPLETE);
 
-		// delete the task
-		Context.CommandContext.TaskManager.deleteTask(this, TaskEntity.DELETE_REASON_COMPLETED, false, skipCustomListeners);
-
-		// if the task is associated with a
-		// execution (and not a case execution)
-		// then call signal an the associated
-		// execution.
-		if (!string.ReferenceEquals(executionId, null))
+		if (listenersSuccessful)
 		{
-		  ExecutionEntity execution = getExecution();
-		  execution.removeTask(this);
-		  execution.signal(null, null);
+		  // delete the task
+		  Context.CommandContext.TaskManager.deleteTask(this, TaskEntity.DELETE_REASON_COMPLETED, false, skipCustomListeners);
+
+		  // if the task is associated with a
+		  // execution (and not a case execution)
+		  // and it's still in the same activity
+		  // then call signal an the associated
+		  // execution.
+		  if (!string.ReferenceEquals(executionId, null))
+		  {
+			ExecutionEntity execution = getExecution();
+			execution.removeTask(this);
+			execution.signal(null, null);
+		  }
 		}
 	  }
 
@@ -1169,7 +1178,10 @@ namespace org.camunda.bpm.engine.impl.persistence.entity
 		  }
 	  }
 
-	  public virtual void fireEvent(string taskEventName)
+	  /// <returns> true if invoking the listener was successful;
+	  ///   if not successful, either false is returned (case: BPMN error propagation)
+	  ///   or an exception is thrown </returns>
+	  public virtual bool fireEvent(string taskEventName)
 	  {
 
 		IList<TaskListener> taskEventListeners = getListenersForEvent(taskEventName);
@@ -1190,8 +1202,11 @@ namespace org.camunda.bpm.engine.impl.persistence.entity
 			}
 			try
 			{
-			  TaskListenerInvocation listenerInvocation = new TaskListenerInvocation(taskListener, this, execution);
-			  Context.ProcessEngineConfiguration.DelegateInterceptor.handleInvocation(listenerInvocation);
+			  bool success = invokeListener(execution, taskEventName, taskListener);
+			  if (!success)
+			  {
+				return false;
+			  }
 			}
 			catch (Exception e)
 			{
@@ -1199,6 +1214,48 @@ namespace org.camunda.bpm.engine.impl.persistence.entity
 			}
 		  }
 		}
+
+		return true;
+	  }
+
+	  /// <returns> true if the next listener can be invoked; false if not </returns>
+//JAVA TO C# CONVERTER WARNING: Method 'throws' clauses are not available in .NET:
+//ORIGINAL LINE: protected boolean invokeListener(org.camunda.bpm.engine.impl.core.instance.CoreExecution currentExecution, String eventName, org.camunda.bpm.engine.delegate.TaskListener taskListener) throws Exception
+	  protected internal virtual bool invokeListener(CoreExecution currentExecution, string eventName, TaskListener taskListener)
+	  {
+		bool isBpmnTask = currentExecution is ActivityExecution && currentExecution != null;
+//JAVA TO C# CONVERTER WARNING: The original Java variable was marked 'final':
+//ORIGINAL LINE: final org.camunda.bpm.engine.impl.task.delegate.TaskListenerInvocation listenerInvocation = new org.camunda.bpm.engine.impl.task.delegate.TaskListenerInvocation(taskListener, this, currentExecution);
+		TaskListenerInvocation listenerInvocation = new TaskListenerInvocation(taskListener, this, currentExecution);
+
+		try
+		{
+		  Context.ProcessEngineConfiguration.DelegateInterceptor.handleInvocation(listenerInvocation);
+		}
+		catch (Exception ex)
+		{
+		  // exceptions on delete events are never handled as BPMN errors
+		  if (isBpmnTask && !eventName.Equals(EVENTNAME_DELETE))
+		  {
+			try
+			{
+			  BpmnExceptionHandler.propagateException((ActivityExecution) currentExecution, ex);
+			  return false;
+			}
+			catch (ErrorPropagationException)
+			{
+			  // exception has been logged by thrower
+			  // re-throw the original exception so that it is logged
+			  // and set as cause of the failure
+			  throw ex;
+			}
+		  }
+		  else
+		  {
+			throw ex;
+		  }
+		}
+		return true;
 	  }
 
 	  protected internal virtual IList<TaskListener> getListenersForEvent(string @event)

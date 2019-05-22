@@ -23,12 +23,17 @@ namespace org.camunda.bpm.engine.test.bpmn.executionlistener
 //	import static org.camunda.bpm.engine.impl.cfg.ProcessEngineConfigurationImpl.HISTORYLEVEL_AUDIT;
 
 	using AssertionFailedError = junit.framework.AssertionFailedError;
+	using BpmnError = org.camunda.bpm.engine.@delegate.BpmnError;
 	using DelegateExecution = org.camunda.bpm.engine.@delegate.DelegateExecution;
 	using ExecutionListener = org.camunda.bpm.engine.@delegate.ExecutionListener;
 	using JavaDelegate = org.camunda.bpm.engine.@delegate.JavaDelegate;
-
+	using ProcessBuilder = org.camunda.bpm.model.bpmn.builder.ProcessBuilder;
+	using SequenceFlow = org.camunda.bpm.model.bpmn.instance.SequenceFlow;
+	using CamundaExecutionListener = org.camunda.bpm.model.bpmn.instance.camunda.CamundaExecutionListener;
 	using HistoricVariableInstance = org.camunda.bpm.engine.history.HistoricVariableInstance;
 	using HistoricVariableInstanceQuery = org.camunda.bpm.engine.history.HistoricVariableInstanceQuery;
+	using DeploymentWithDefinitions = org.camunda.bpm.engine.repository.DeploymentWithDefinitions;
+	using ProcessDefinition = org.camunda.bpm.engine.repository.ProcessDefinition;
 	using Job = org.camunda.bpm.engine.runtime.Job;
 	using ProcessInstance = org.camunda.bpm.engine.runtime.ProcessInstance;
 	using Task = org.camunda.bpm.engine.task.Task;
@@ -46,6 +51,7 @@ namespace org.camunda.bpm.engine.test.bpmn.executionlistener
 	using Before = org.junit.Before;
 	using Rule = org.junit.Rule;
 	using Test = org.junit.Test;
+	using ExpectedException = org.junit.rules.ExpectedException;
 	using RuleChain = org.junit.rules.RuleChain;
 //JAVA TO C# CONVERTER TODO TASK: This Java 'import static' statement cannot be converted to C#:
 //	import static org.hamcrest.CoreMatchers.@is;
@@ -59,6 +65,8 @@ namespace org.camunda.bpm.engine.test.bpmn.executionlistener
 //	import static org.junit.Assert.assertNotNull;
 //JAVA TO C# CONVERTER TODO TASK: This Java 'import static' statement cannot be converted to C#:
 //	import static org.junit.Assert.assertTrue;
+//JAVA TO C# CONVERTER TODO TASK: This Java 'import static' statement cannot be converted to C#:
+//	import static org.junit.Assert.fail;
 
 	/// <summary>
 	/// @author Frederik Heremans
@@ -83,8 +91,14 @@ namespace org.camunda.bpm.engine.test.bpmn.executionlistener
 		}
 
 
+	  protected internal const string ERROR_CODE = "208";
+	  protected internal const string PROCESS_KEY = "Process";
 	  public ProcessEngineRule processEngineRule = new ProvidedProcessEngineRule();
 	  public ProcessEngineTestRule testHelper;
+
+//JAVA TO C# CONVERTER TODO TASK: Most Java annotations will not have direct .NET equivalent attributes:
+//ORIGINAL LINE: @Rule public org.junit.rules.ExpectedException thrown = org.junit.rules.ExpectedException.none();
+	  public ExpectedException thrown = ExpectedException.none();
 
 //JAVA TO C# CONVERTER TODO TASK: Most Java annotations will not have direct .NET equivalent attributes:
 //ORIGINAL LINE: @Rule public org.junit.rules.RuleChain ruleChain = org.junit.rules.RuleChain.outerRule(processEngineRule).around(testHelper);
@@ -94,6 +108,7 @@ namespace org.camunda.bpm.engine.test.bpmn.executionlistener
 	  protected internal TaskService taskService;
 	  protected internal HistoryService historyService;
 	  protected internal ManagementService managementService;
+	  protected internal RepositoryService repositoryService;
 
 //JAVA TO C# CONVERTER TODO TASK: Most Java annotations will not have direct .NET equivalent attributes:
 //ORIGINAL LINE: @Before public void clearRecorderListener()
@@ -110,6 +125,14 @@ namespace org.camunda.bpm.engine.test.bpmn.executionlistener
 		taskService = processEngineRule.TaskService;
 		historyService = processEngineRule.HistoryService;
 		managementService = processEngineRule.ManagementService;
+		repositoryService = processEngineRule.RepositoryService;
+	  }
+
+//JAVA TO C# CONVERTER TODO TASK: Most Java annotations will not have direct .NET equivalent attributes:
+//ORIGINAL LINE: @Before public void resetListener()
+	  public virtual void resetListener()
+	  {
+		ThrowBPMNErrorDelegate.reset();
 	  }
 
 //JAVA TO C# CONVERTER WARNING: 'final' parameters are not available in .NET:
@@ -380,14 +403,14 @@ namespace org.camunda.bpm.engine.test.bpmn.executionlistener
 
 	  private const string MESSAGE = "cancelMessage";
 //JAVA TO C# CONVERTER WARNING: The .NET Type.FullName property will not always yield results identical to the Java Class.getName method:
-	  public static readonly BpmnModelInstance PROCESS_SERVICE_TASK_WITH_EXECUTION_START_LISTENER = Bpmn.createExecutableProcess("Process").startEvent().parallelGateway("fork").userTask("userTask1").serviceTask("sendTask").camundaExecutionListenerClass(org.camunda.bpm.engine.@delegate.ExecutionListener_Fields.EVENTNAME_START, typeof(SendMessageDelegate).FullName).camundaExpression("${true}").endEvent("endEvent").camundaExecutionListenerClass(RecorderExecutionListener.EVENTNAME_START, typeof(RecorderExecutionListener).FullName).moveToLastGateway().userTask("userTask2").boundaryEvent("boundaryEvent").message(MESSAGE).endEvent("endBoundaryEvent").moveToNode("userTask2").endEvent().done();
+	  public static readonly BpmnModelInstance PROCESS_SERVICE_TASK_WITH_EXECUTION_START_LISTENER = Bpmn.createExecutableProcess(PROCESS_KEY).startEvent().parallelGateway("fork").userTask("userTask1").serviceTask("sendTask").camundaExecutionListenerClass(org.camunda.bpm.engine.@delegate.ExecutionListener_Fields.EVENTNAME_START, typeof(SendMessageDelegate).FullName).camundaExpression("${true}").endEvent("endEvent").camundaExecutionListenerClass(RecorderExecutionListener.EVENTNAME_START, typeof(RecorderExecutionListener).FullName).moveToLastGateway().userTask("userTask2").boundaryEvent("boundaryEvent").message(MESSAGE).endEvent("endBoundaryEvent").moveToNode("userTask2").endEvent().done();
 
 //JAVA TO C# CONVERTER TODO TASK: Most Java annotations will not have direct .NET equivalent attributes:
 //ORIGINAL LINE: @Test public void testServiceTaskExecutionListenerCall()
 	  public virtual void testServiceTaskExecutionListenerCall()
 	  {
 		testHelper.deploy(PROCESS_SERVICE_TASK_WITH_EXECUTION_START_LISTENER);
-		runtimeService.startProcessInstanceByKey("Process");
+		runtimeService.startProcessInstanceByKey(PROCESS_KEY);
 		Task task = taskService.createTaskQuery().taskDefinitionKey("userTask1").singleResult();
 		taskService.complete(task.Id);
 
@@ -405,7 +428,7 @@ namespace org.camunda.bpm.engine.test.bpmn.executionlistener
 	  public virtual void testServiceTaskTwoExecutionListenerCall()
 	  {
 		testHelper.deploy(PROCESS_SERVICE_TASK_WITH_TWO_EXECUTION_START_LISTENER);
-		runtimeService.startProcessInstanceByKey("Process");
+		runtimeService.startProcessInstanceByKey(PROCESS_KEY);
 		Task task = taskService.createTaskQuery().taskDefinitionKey("userTask1").singleResult();
 		taskService.complete(task.Id);
 
@@ -417,14 +440,14 @@ namespace org.camunda.bpm.engine.test.bpmn.executionlistener
 	  }
 
 //JAVA TO C# CONVERTER WARNING: The .NET Type.FullName property will not always yield results identical to the Java Class.getName method:
-	  public static readonly BpmnModelInstance PROCESS_SERVICE_TASK_WITH_EXECUTION_START_LISTENER_AND_SUB_PROCESS = modify(Bpmn.createExecutableProcess("Process").startEvent().userTask("userTask").serviceTask("sendTask").camundaExecutionListenerClass(org.camunda.bpm.engine.@delegate.ExecutionListener_Fields.EVENTNAME_START, typeof(SendMessageDelegate).FullName).camundaExecutionListenerClass(RecorderExecutionListener.EVENTNAME_START, typeof(RecorderExecutionListener).FullName).camundaExpression("${true}").endEvent("endEvent").camundaExecutionListenerClass(RecorderExecutionListener.EVENTNAME_START, typeof(RecorderExecutionListener).FullName).done()).addSubProcessTo("Process").triggerByEvent().embeddedSubProcess().startEvent("startSubProcess").interrupting(false).camundaExecutionListenerClass(RecorderExecutionListener.EVENTNAME_START, typeof(RecorderExecutionListener).FullName).message(MESSAGE).userTask("subProcessTask").camundaExecutionListenerClass(RecorderExecutionListener.EVENTNAME_START, typeof(RecorderExecutionListener).FullName).endEvent("endSubProcess").done();
+	  public static readonly BpmnModelInstance PROCESS_SERVICE_TASK_WITH_EXECUTION_START_LISTENER_AND_SUB_PROCESS = modify(Bpmn.createExecutableProcess(PROCESS_KEY).startEvent().userTask("userTask").serviceTask("sendTask").camundaExecutionListenerClass(org.camunda.bpm.engine.@delegate.ExecutionListener_Fields.EVENTNAME_START, typeof(SendMessageDelegate).FullName).camundaExecutionListenerClass(RecorderExecutionListener.EVENTNAME_START, typeof(RecorderExecutionListener).FullName).camundaExpression("${true}").endEvent("endEvent").camundaExecutionListenerClass(RecorderExecutionListener.EVENTNAME_START, typeof(RecorderExecutionListener).FullName).done()).addSubProcessTo(PROCESS_KEY).triggerByEvent().embeddedSubProcess().startEvent("startSubProcess").interrupting(false).camundaExecutionListenerClass(RecorderExecutionListener.EVENTNAME_START, typeof(RecorderExecutionListener).FullName).message(MESSAGE).userTask("subProcessTask").camundaExecutionListenerClass(RecorderExecutionListener.EVENTNAME_START, typeof(RecorderExecutionListener).FullName).endEvent("endSubProcess").done();
 
 //JAVA TO C# CONVERTER TODO TASK: Most Java annotations will not have direct .NET equivalent attributes:
 //ORIGINAL LINE: @Test public void testServiceTaskExecutionListenerCallAndSubProcess()
 	  public virtual void testServiceTaskExecutionListenerCallAndSubProcess()
 	  {
 		testHelper.deploy(PROCESS_SERVICE_TASK_WITH_EXECUTION_START_LISTENER_AND_SUB_PROCESS);
-		runtimeService.startProcessInstanceByKey("Process");
+		runtimeService.startProcessInstanceByKey(PROCESS_KEY);
 		Task task = taskService.createTaskQuery().taskDefinitionKey("userTask").singleResult();
 		taskService.complete(task.Id);
 
@@ -521,6 +544,606 @@ namespace org.camunda.bpm.engine.test.bpmn.executionlistener
 		  assertNotNull(endVariable);
 		  assertNotNull(endVariable.Value);
 		  assertTrue(Convert.ToBoolean(endVariable.Value.ToString()));
+		}
+	  }
+
+//JAVA TO C# CONVERTER TODO TASK: Most Java annotations will not have direct .NET equivalent attributes:
+//ORIGINAL LINE: @Test public void testThrowBpmnErrorInStartListenerServiceTaskWithCatch()
+	  public virtual void testThrowBpmnErrorInStartListenerServiceTaskWithCatch()
+	  {
+		// given
+		BpmnModelInstance model = createModelWithCatchInServiceTaskAndListener(org.camunda.bpm.engine.@delegate.ExecutionListener_Fields.EVENTNAME_START);
+		testHelper.deploy(model);
+		runtimeService.startProcessInstanceByKey(PROCESS_KEY);
+		Task task = taskService.createTaskQuery().taskDefinitionKey("userTask1").singleResult();
+
+		// when listeners are invoked
+		taskService.complete(task.Id);
+
+		// then
+		verifyErrorGotCaught();
+	  }
+
+//JAVA TO C# CONVERTER TODO TASK: Most Java annotations will not have direct .NET equivalent attributes:
+//ORIGINAL LINE: @Test public void testThrowBpmnErrorInStartListenerAndSubprocessWithCatch()
+	  public virtual void testThrowBpmnErrorInStartListenerAndSubprocessWithCatch()
+	  {
+		// given
+		BpmnModelInstance model = createModelWithCatchInSubprocessAndListener(org.camunda.bpm.engine.@delegate.ExecutionListener_Fields.EVENTNAME_START);
+		testHelper.deploy(model);
+		runtimeService.startProcessInstanceByKey(PROCESS_KEY);
+		Task task = taskService.createTaskQuery().taskDefinitionKey("userTask1").singleResult();
+
+		// when listeners are invoked
+		taskService.complete(task.Id);
+
+		// then
+		verifyErrorGotCaught();
+	  }
+
+//JAVA TO C# CONVERTER TODO TASK: Most Java annotations will not have direct .NET equivalent attributes:
+//ORIGINAL LINE: @Test public void testThrowBpmnErrorInStartListenerAndEventSubprocessWithCatch()
+	  public virtual void testThrowBpmnErrorInStartListenerAndEventSubprocessWithCatch()
+	  {
+		// given
+		BpmnModelInstance model = createModelWithCatchInEventSubprocessAndListener(org.camunda.bpm.engine.@delegate.ExecutionListener_Fields.EVENTNAME_START);
+		testHelper.deploy(model);
+		runtimeService.startProcessInstanceByKey(PROCESS_KEY);
+		Task task = taskService.createTaskQuery().taskDefinitionKey("userTask1").singleResult();
+
+		// when listeners are invoked
+		taskService.complete(task.Id);
+
+		// then
+		verifyErrorGotCaught();
+	  }
+
+//JAVA TO C# CONVERTER TODO TASK: Most Java annotations will not have direct .NET equivalent attributes:
+//ORIGINAL LINE: @Test public void testThrowBpmnErrorInEndListenerAndServiceTaskWithCatch()
+	  public virtual void testThrowBpmnErrorInEndListenerAndServiceTaskWithCatch()
+	  {
+		// given
+		BpmnModelInstance model = createModelWithCatchInServiceTaskAndListener(org.camunda.bpm.engine.@delegate.ExecutionListener_Fields.EVENTNAME_END);
+		testHelper.deploy(model);
+		runtimeService.startProcessInstanceByKey(PROCESS_KEY);
+		Task task = taskService.createTaskQuery().taskDefinitionKey("userTask1").singleResult();
+
+		// when listeners are invoked
+		taskService.complete(task.Id);
+
+		// then
+		verifyErrorGotCaught();
+	  }
+
+//JAVA TO C# CONVERTER TODO TASK: Most Java annotations will not have direct .NET equivalent attributes:
+//ORIGINAL LINE: @Test public void testThrowBpmnErrorInEndListenerAndSubprocessWithCatch()
+	  public virtual void testThrowBpmnErrorInEndListenerAndSubprocessWithCatch()
+	  {
+		// given
+		BpmnModelInstance model = createModelWithCatchInSubprocessAndListener(org.camunda.bpm.engine.@delegate.ExecutionListener_Fields.EVENTNAME_END);
+		testHelper.deploy(model);
+		runtimeService.startProcessInstanceByKey(PROCESS_KEY);
+		Task task = taskService.createTaskQuery().taskDefinitionKey("userTask1").singleResult();
+
+		// when listeners are invoked
+		taskService.complete(task.Id);
+
+		// then
+		verifyErrorGotCaught();
+	  }
+
+//JAVA TO C# CONVERTER TODO TASK: Most Java annotations will not have direct .NET equivalent attributes:
+//ORIGINAL LINE: @Test public void testThrowBpmnErrorInEndListenerAndEventSubprocessWithCatch()
+	  public virtual void testThrowBpmnErrorInEndListenerAndEventSubprocessWithCatch()
+	  {
+		// given
+		BpmnModelInstance model = createModelWithCatchInEventSubprocessAndListener(org.camunda.bpm.engine.@delegate.ExecutionListener_Fields.EVENTNAME_END);
+		testHelper.deploy(model);
+		runtimeService.startProcessInstanceByKey(PROCESS_KEY);
+		Task task = taskService.createTaskQuery().taskDefinitionKey("userTask1").singleResult();
+
+		// when the listeners are invoked
+		taskService.complete(task.Id);
+
+		// then
+		verifyErrorGotCaught();
+	  }
+
+//JAVA TO C# CONVERTER TODO TASK: Most Java annotations will not have direct .NET equivalent attributes:
+//ORIGINAL LINE: @Test public void testThrowBpmnErrorInTakeListenerAndEventSubprocessWithCatch()
+	  public virtual void testThrowBpmnErrorInTakeListenerAndEventSubprocessWithCatch()
+	  {
+		// given
+		ProcessBuilder processBuilder = Bpmn.createExecutableProcess(PROCESS_KEY);
+		BpmnModelInstance model = processBuilder.startEvent().userTask("userTask1").sequenceFlowId("flow1").userTask("afterListener").endEvent().done();
+
+		CamundaExecutionListener listener = model.newInstance(typeof(CamundaExecutionListener));
+		listener.CamundaEvent = org.camunda.bpm.engine.@delegate.ExecutionListener_Fields.EVENTNAME_TAKE;
+//JAVA TO C# CONVERTER WARNING: The .NET Type.FullName property will not always yield results identical to the Java Class.getName method:
+		listener.CamundaClass = typeof(ThrowBPMNErrorDelegate).FullName;
+		model.getModelElementById<SequenceFlow>("flow1").builder().addExtensionElement(listener);
+
+		processBuilder.eventSubProcess().startEvent("errorEvent").error(ERROR_CODE).userTask("afterCatch").endEvent();
+
+		testHelper.deploy(model);
+
+		runtimeService.startProcessInstanceByKey(PROCESS_KEY);
+		Task task = taskService.createTaskQuery().taskDefinitionKey("userTask1").singleResult();
+		// when the listeners are invoked
+		taskService.complete(task.Id);
+
+		// then
+		verifyErrorGotCaught();
+	  }
+
+//JAVA TO C# CONVERTER TODO TASK: Most Java annotations will not have direct .NET equivalent attributes:
+//ORIGINAL LINE: @Test public void testThrowBpmnErrorInStartListenerOfStartEventAndEventSubprocessWithCatch()
+	  public virtual void testThrowBpmnErrorInStartListenerOfStartEventAndEventSubprocessWithCatch()
+	  {
+		// given
+		ProcessBuilder processBuilder = Bpmn.createExecutableProcess(PROCESS_KEY);
+//JAVA TO C# CONVERTER WARNING: The .NET Type.FullName property will not always yield results identical to the Java Class.getName method:
+		BpmnModelInstance model = processBuilder.startEvent().camundaExecutionListenerClass(org.camunda.bpm.engine.@delegate.ExecutionListener_Fields.EVENTNAME_START, typeof(ThrowBPMNErrorDelegate).FullName).userTask("afterListener").endEvent().done();
+
+		processBuilder.eventSubProcess().startEvent("errorEvent").error(ERROR_CODE).userTask("afterCatch").endEvent();
+
+		testHelper.deploy(model);
+		// when the listeners are invoked
+		runtimeService.startProcessInstanceByKey(PROCESS_KEY);
+
+		// then
+		verifyErrorGotCaught();
+	  }
+
+//JAVA TO C# CONVERTER TODO TASK: Most Java annotations will not have direct .NET equivalent attributes:
+//ORIGINAL LINE: @Test public void testThrowBpmnErrorInStartListenerOfStartEventAndSubprocessWithCatch()
+	  public virtual void testThrowBpmnErrorInStartListenerOfStartEventAndSubprocessWithCatch()
+	  {
+		// given
+//JAVA TO C# CONVERTER WARNING: The .NET Type.FullName property will not always yield results identical to the Java Class.getName method:
+		BpmnModelInstance model = Bpmn.createExecutableProcess(PROCESS_KEY).startEvent().userTask("userTask1").subProcess("sub").embeddedSubProcess().startEvent("inSub").camundaExecutionListenerClass(org.camunda.bpm.engine.@delegate.ExecutionListener_Fields.EVENTNAME_START, typeof(ThrowBPMNErrorDelegate).FullName).userTask("afterListener").endEvent().subProcessDone().boundaryEvent("errorEvent").error(ERROR_CODE).userTask("afterCatch").endEvent("endEvent").moveToActivity("sub").endEvent().done();
+
+		testHelper.deploy(model);
+
+		runtimeService.startProcessInstanceByKey(PROCESS_KEY);
+		Task task = taskService.createTaskQuery().taskDefinitionKey("userTask1").singleResult();
+		// when the listeners are invoked
+		taskService.complete(task.Id);
+
+		// then
+		verifyErrorGotCaught();
+	  }
+
+//JAVA TO C# CONVERTER TODO TASK: Most Java annotations will not have direct .NET equivalent attributes:
+//ORIGINAL LINE: @Test public void testThrowBpmnErrorInEndListenerOfLastEventAndEventProcessWithCatch()
+	  public virtual void testThrowBpmnErrorInEndListenerOfLastEventAndEventProcessWithCatch()
+	  {
+		// given
+		ProcessBuilder processBuilder = Bpmn.createExecutableProcess(PROCESS_KEY);
+//JAVA TO C# CONVERTER WARNING: The .NET Type.FullName property will not always yield results identical to the Java Class.getName method:
+		BpmnModelInstance model = processBuilder.startEvent().userTask("userTask1").serviceTask("throw").camundaExpression("${true}").camundaExecutionListenerClass(org.camunda.bpm.engine.@delegate.ExecutionListener_Fields.EVENTNAME_END, typeof(ThrowBPMNErrorDelegate).FullName).done();
+
+		processBuilder.eventSubProcess().startEvent("errorEvent").error(ERROR_CODE).userTask("afterCatch").endEvent();
+
+		testHelper.deploy(model);
+		runtimeService.startProcessInstanceByKey(PROCESS_KEY);
+		Task task = taskService.createTaskQuery().taskDefinitionKey("userTask1").singleResult();
+		// when the listeners are invoked
+		taskService.complete(task.Id);
+
+		// then
+		Task afterCatch = taskService.createTaskQuery().singleResult();
+		assertNotNull(afterCatch);
+		assertEquals("afterCatch", afterCatch.Name);
+		assertEquals(1, ThrowBPMNErrorDelegate.INVOCATIONS);
+
+		// and completing this task ends the process instance
+		taskService.complete(afterCatch.Id);
+
+		assertEquals(0, runtimeService.createExecutionQuery().count());
+	  }
+
+//JAVA TO C# CONVERTER TODO TASK: Most Java annotations will not have direct .NET equivalent attributes:
+//ORIGINAL LINE: @Test public void testThrowBpmnErrorInEndListenerOfLastEventAndServiceTaskWithCatch()
+	  public virtual void testThrowBpmnErrorInEndListenerOfLastEventAndServiceTaskWithCatch()
+	  {
+		// given
+//JAVA TO C# CONVERTER WARNING: The .NET Type.FullName property will not always yield results identical to the Java Class.getName method:
+		BpmnModelInstance model = Bpmn.createExecutableProcess(PROCESS_KEY).startEvent().userTask("userTask1").serviceTask("throw").camundaExpression("${true}").camundaExecutionListenerClass(org.camunda.bpm.engine.@delegate.ExecutionListener_Fields.EVENTNAME_END, typeof(ThrowBPMNErrorDelegate).FullName).boundaryEvent().error(ERROR_CODE).userTask("afterCatch").endEvent().done();
+
+		testHelper.deploy(model);
+		runtimeService.startProcessInstanceByKey(PROCESS_KEY);
+		Task task = taskService.createTaskQuery().taskDefinitionKey("userTask1").singleResult();
+		// when the listeners are invoked
+		taskService.complete(task.Id);
+
+		// then
+		verifyErrorGotCaught();
+	  }
+
+//JAVA TO C# CONVERTER TODO TASK: Most Java annotations will not have direct .NET equivalent attributes:
+//ORIGINAL LINE: @Test public void testThrowBpmnErrorInStartListenerOfLastEventAndServiceTaskWithCatch()
+	  public virtual void testThrowBpmnErrorInStartListenerOfLastEventAndServiceTaskWithCatch()
+	  {
+		// given
+//JAVA TO C# CONVERTER WARNING: The .NET Type.FullName property will not always yield results identical to the Java Class.getName method:
+		BpmnModelInstance model = Bpmn.createExecutableProcess(PROCESS_KEY).startEvent().userTask("userTask1").serviceTask("throw").camundaExpression("${true}").camundaExecutionListenerClass(org.camunda.bpm.engine.@delegate.ExecutionListener_Fields.EVENTNAME_START, typeof(ThrowBPMNErrorDelegate).FullName).boundaryEvent().error(ERROR_CODE).userTask("afterCatch").endEvent().done();
+
+		testHelper.deploy(model);
+		runtimeService.startProcessInstanceByKey(PROCESS_KEY);
+		Task task = taskService.createTaskQuery().taskDefinitionKey("userTask1").singleResult();
+		// when the listeners are invoked
+		taskService.complete(task.Id);
+
+		// then
+		verifyErrorGotCaught();
+	  }
+
+//JAVA TO C# CONVERTER TODO TASK: Most Java annotations will not have direct .NET equivalent attributes:
+//ORIGINAL LINE: @Test public void testThrowBpmnErrorInEndListenerOfLastEventAndSubprocessWithCatch()
+	  public virtual void testThrowBpmnErrorInEndListenerOfLastEventAndSubprocessWithCatch()
+	  {
+		// given
+//JAVA TO C# CONVERTER WARNING: The .NET Type.FullName property will not always yield results identical to the Java Class.getName method:
+		BpmnModelInstance model = Bpmn.createExecutableProcess(PROCESS_KEY).startEvent().userTask("userTask1").subProcess("sub").embeddedSubProcess().startEvent("inSub").serviceTask("throw").camundaExpression("${true}").camundaExecutionListenerClass(org.camunda.bpm.engine.@delegate.ExecutionListener_Fields.EVENTNAME_END, typeof(ThrowBPMNErrorDelegate).FullName).boundaryEvent().error(ERROR_CODE).userTask("afterCatch").moveToActivity("sub").userTask("afterSub").endEvent().done();
+
+		testHelper.deploy(model);
+
+		runtimeService.startProcessInstanceByKey(PROCESS_KEY);
+		Task task = taskService.createTaskQuery().taskDefinitionKey("userTask1").singleResult();
+		// when the listeners are invoked
+		taskService.complete(task.Id);
+
+		// then
+		verifyErrorGotCaught();
+	  }
+
+//JAVA TO C# CONVERTER TODO TASK: Most Java annotations will not have direct .NET equivalent attributes:
+//ORIGINAL LINE: @Test public void testThrowBpmnErrorInStartListenerOfLastEventAndSubprocessWithCatch()
+	  public virtual void testThrowBpmnErrorInStartListenerOfLastEventAndSubprocessWithCatch()
+	  {
+		// given
+//JAVA TO C# CONVERTER WARNING: The .NET Type.FullName property will not always yield results identical to the Java Class.getName method:
+		BpmnModelInstance model = Bpmn.createExecutableProcess(PROCESS_KEY).startEvent().userTask("userTask1").subProcess("sub").embeddedSubProcess().startEvent("inSub").serviceTask("throw").camundaExpression("${true}").camundaExecutionListenerClass(org.camunda.bpm.engine.@delegate.ExecutionListener_Fields.EVENTNAME_START, typeof(ThrowBPMNErrorDelegate).FullName).boundaryEvent().error(ERROR_CODE).userTask("afterCatch").moveToActivity("sub").userTask("afterSub").endEvent().done();
+
+		testHelper.deploy(model);
+
+		runtimeService.startProcessInstanceByKey(PROCESS_KEY);
+		Task task = taskService.createTaskQuery().taskDefinitionKey("userTask1").singleResult();
+		// when the listeners are invoked
+		taskService.complete(task.Id);
+
+		// then
+		verifyErrorGotCaught();
+	  }
+
+//JAVA TO C# CONVERTER TODO TASK: Most Java annotations will not have direct .NET equivalent attributes:
+//ORIGINAL LINE: @Test public void testThrowBpmnErrorInStartListenerServiceTaskAndEndListener()
+	  public virtual void testThrowBpmnErrorInStartListenerServiceTaskAndEndListener()
+	  {
+		// given
+//JAVA TO C# CONVERTER WARNING: The .NET Type.FullName property will not always yield results identical to the Java Class.getName method:
+		BpmnModelInstance model = Bpmn.createExecutableProcess(PROCESS_KEY).startEvent().userTask("userTask1").serviceTask("throw").camundaExecutionListenerClass(org.camunda.bpm.engine.@delegate.ExecutionListener_Fields.EVENTNAME_START, typeof(ThrowBPMNErrorDelegate).FullName).camundaExecutionListenerClass(org.camunda.bpm.engine.@delegate.ExecutionListener_Fields.EVENTNAME_END, typeof(SetsVariableDelegate).FullName).camundaExpression("${true}").boundaryEvent("errorEvent").error(ERROR_CODE).userTask("afterCatch").endEvent("endEvent").moveToActivity("throw").userTask("afterService").endEvent().done();
+
+		testHelper.deploy(model);
+
+		runtimeService.startProcessInstanceByKey(PROCESS_KEY);
+		Task task = taskService.createTaskQuery().taskDefinitionKey("userTask1").singleResult();
+		// when the listeners are invoked
+		taskService.complete(task.Id);
+
+		// then
+		verifyErrorGotCaught();
+		// end listener is called
+		assertEquals("bar", runtimeService.createVariableInstanceQuery().variableName("foo").singleResult().Value);
+	  }
+
+//JAVA TO C# CONVERTER TODO TASK: Most Java annotations will not have direct .NET equivalent attributes:
+//ORIGINAL LINE: @Test public void testThrowBpmnErrorInStartListenerOfStartEventAndCallActivity()
+	  public virtual void testThrowBpmnErrorInStartListenerOfStartEventAndCallActivity()
+	  {
+		// given
+//JAVA TO C# CONVERTER WARNING: The .NET Type.FullName property will not always yield results identical to the Java Class.getName method:
+		BpmnModelInstance subprocess = Bpmn.createExecutableProcess("subprocess").startEvent().userTask("userTask1").serviceTask("throw").camundaExecutionListenerClass(org.camunda.bpm.engine.@delegate.ExecutionListener_Fields.EVENTNAME_START, typeof(ThrowBPMNErrorDelegate).FullName).camundaExpression("${true}").userTask("afterService").done();
+		ProcessBuilder processBuilder = Bpmn.createExecutableProcess(PROCESS_KEY);
+		BpmnModelInstance parent = processBuilder.startEvent().callActivity().calledElement("subprocess").userTask("afterCallActivity").done();
+
+		processBuilder.eventSubProcess().startEvent("errorEvent").error(ERROR_CODE).userTask("afterCatch").endEvent();
+
+		testHelper.deploy(parent, subprocess);
+
+		runtimeService.startProcessInstanceByKey(PROCESS_KEY);
+		Task task = taskService.createTaskQuery().taskDefinitionKey("userTask1").singleResult();
+		// when the listeners are invoked
+		taskService.complete(task.Id);
+
+		// then
+		verifyErrorGotCaught();
+	  }
+
+//JAVA TO C# CONVERTER TODO TASK: Most Java annotations will not have direct .NET equivalent attributes:
+//ORIGINAL LINE: @Test public void testThrowBpmnErrorInEndListenerInConcurrentExecutionAndEventSubprocessWithCatch()
+	  public virtual void testThrowBpmnErrorInEndListenerInConcurrentExecutionAndEventSubprocessWithCatch()
+	  {
+		// given
+		ProcessBuilder processBuilder = Bpmn.createExecutableProcess(PROCESS_KEY);
+//JAVA TO C# CONVERTER WARNING: The .NET Type.FullName property will not always yield results identical to the Java Class.getName method:
+		BpmnModelInstance model = processBuilder.startEvent().parallelGateway("fork").userTask("userTask1").serviceTask("throw").camundaExecutionListenerClass(org.camunda.bpm.engine.@delegate.ExecutionListener_Fields.EVENTNAME_START, typeof(ThrowBPMNErrorDelegate).FullName).camundaExpression("${true}").userTask("afterService").endEvent().moveToLastGateway().userTask("userTask2").done();
+		processBuilder.eventSubProcess().startEvent("errorEvent").error(ERROR_CODE).userTask("afterCatch").endEvent();
+
+		testHelper.deploy(model);
+		runtimeService.startProcessInstanceByKey(PROCESS_KEY);
+		Task task = taskService.createTaskQuery().taskDefinitionKey("userTask1").singleResult();
+		// when the listeners are invoked
+		taskService.complete(task.Id);
+
+		// then
+		verifyErrorGotCaught();
+	  }
+
+//JAVA TO C# CONVERTER TODO TASK: Most Java annotations will not have direct .NET equivalent attributes:
+//ORIGINAL LINE: @Test public void testThrowBpmnErrorInStartExpressionListenerAndEventSubprocessWithCatch()
+	  public virtual void testThrowBpmnErrorInStartExpressionListenerAndEventSubprocessWithCatch()
+	  {
+		// given
+		processEngineRule.ProcessEngineConfiguration.Beans["myListener"] = new ThrowBPMNErrorDelegate();
+
+		ProcessBuilder processBuilder = Bpmn.createExecutableProcess(PROCESS_KEY);
+		BpmnModelInstance model = processBuilder.startEvent().userTask("userTask1").serviceTask("throw").camundaExecutionListenerExpression(org.camunda.bpm.engine.@delegate.ExecutionListener_Fields.EVENTNAME_START, "${myListener.notify(execution)}").camundaExpression("${true}").userTask("afterService").endEvent().done();
+		processBuilder.eventSubProcess().startEvent("errorEvent").error(ERROR_CODE).userTask("afterCatch").endEvent();
+
+		testHelper.deploy(model);
+		runtimeService.startProcessInstanceByKey(PROCESS_KEY);
+
+		// when listeners are invoked
+		Task task = taskService.createTaskQuery().taskDefinitionKey("userTask1").singleResult();
+		taskService.complete(task.Id);
+
+		// then
+		verifyErrorGotCaught();
+	  }
+
+//JAVA TO C# CONVERTER TODO TASK: Most Java annotations will not have direct .NET equivalent attributes:
+//ORIGINAL LINE: @Test @Deployment public void testThrowBpmnErrorInEndScriptListenerAndSubprocessWithCatch()
+	  public virtual void testThrowBpmnErrorInEndScriptListenerAndSubprocessWithCatch()
+	  {
+		// when the listeners are invoked
+		runtimeService.startProcessInstanceByKey(PROCESS_KEY);
+
+		// then
+		assertEquals(1, taskService.createTaskQuery().list().size());
+		assertEquals("afterCatch", taskService.createTaskQuery().singleResult().Name);
+	  }
+
+//JAVA TO C# CONVERTER TODO TASK: Most Java annotations will not have direct .NET equivalent attributes:
+//ORIGINAL LINE: @Test public void testThrowUncaughtBpmnErrorFromEndListenerShouldNotTriggerListenerAgain()
+	  public virtual void testThrowUncaughtBpmnErrorFromEndListenerShouldNotTriggerListenerAgain()
+	  {
+
+		// given
+//JAVA TO C# CONVERTER WARNING: The .NET Type.FullName property will not always yield results identical to the Java Class.getName method:
+		BpmnModelInstance model = Bpmn.createExecutableProcess(PROCESS_KEY).startEvent().userTask("userTask1").serviceTask("throw").camundaExpression("${true}").camundaExecutionListenerClass(org.camunda.bpm.engine.@delegate.ExecutionListener_Fields.EVENTNAME_END, typeof(ThrowBPMNErrorDelegate).FullName).endEvent().done();
+
+		testHelper.deploy(model);
+
+		runtimeService.startProcessInstanceByKey(PROCESS_KEY);
+		Task task = taskService.createTaskQuery().taskDefinitionKey("userTask1").singleResult();
+
+		// when the listeners are invoked
+		taskService.complete(task.Id);
+
+		// then
+
+		// the process has ended, because the error was not caught
+		assertEquals(0, runtimeService.createExecutionQuery().count());
+
+		// the listener was only called once
+		assertEquals(1, ThrowBPMNErrorDelegate.INVOCATIONS);
+	  }
+
+//JAVA TO C# CONVERTER TODO TASK: Most Java annotations will not have direct .NET equivalent attributes:
+//ORIGINAL LINE: @Test public void testThrowUncaughtBpmnErrorFromStartListenerShouldNotTriggerListenerAgain()
+	  public virtual void testThrowUncaughtBpmnErrorFromStartListenerShouldNotTriggerListenerAgain()
+	  {
+
+		// given
+//JAVA TO C# CONVERTER WARNING: The .NET Type.FullName property will not always yield results identical to the Java Class.getName method:
+		BpmnModelInstance model = Bpmn.createExecutableProcess(PROCESS_KEY).startEvent().userTask("userTask1").serviceTask("throw").camundaExpression("${true}").camundaExecutionListenerClass(org.camunda.bpm.engine.@delegate.ExecutionListener_Fields.EVENTNAME_START, typeof(ThrowBPMNErrorDelegate).FullName).endEvent().done();
+
+		testHelper.deploy(model);
+
+		runtimeService.startProcessInstanceByKey(PROCESS_KEY);
+		Task task = taskService.createTaskQuery().taskDefinitionKey("userTask1").singleResult();
+
+		// when the listeners are invoked
+		taskService.complete(task.Id);
+
+		// then
+
+		// the process has ended, because the error was not caught
+		assertEquals(0, runtimeService.createExecutionQuery().count());
+
+		// the listener was only called once
+		assertEquals(1, ThrowBPMNErrorDelegate.INVOCATIONS);
+	  }
+
+//JAVA TO C# CONVERTER TODO TASK: Most Java annotations will not have direct .NET equivalent attributes:
+//ORIGINAL LINE: @Test public void testThrowBpmnErrorInEndListenerMessageCorrelationShouldNotTriggerPropagation()
+	  public virtual void testThrowBpmnErrorInEndListenerMessageCorrelationShouldNotTriggerPropagation()
+	  {
+		// given
+//JAVA TO C# CONVERTER WARNING: The .NET Type.FullName property will not always yield results identical to the Java Class.getName method:
+		BpmnModelInstance model = Bpmn.createExecutableProcess(PROCESS_KEY).startEvent().userTask("userTask1").subProcess("sub").embeddedSubProcess().startEvent("inSub").userTask("taskWithListener").camundaExecutionListenerClass(org.camunda.bpm.engine.@delegate.ExecutionListener_Fields.EVENTNAME_END, typeof(ThrowBPMNErrorDelegate).FullName).boundaryEvent("errorEvent").error(ERROR_CODE).userTask("afterCatch").endEvent().subProcessDone().boundaryEvent("message").message("foo").userTask("afterMessage").endEvent("endEvent").moveToActivity("sub").endEvent().done();
+
+		DeploymentWithDefinitions deployment = testHelper.deploy(model);
+		runtimeService.startProcessInstanceByKey(PROCESS_KEY);
+		Task task = taskService.createTaskQuery().taskDefinitionKey("userTask1").singleResult();
+		taskService.complete(task.Id);
+		// assert
+		assertEquals(1, taskService.createTaskQuery().list().size());
+		assertEquals("taskWithListener", taskService.createTaskQuery().singleResult().Name);
+
+		try
+		{
+		  // when the listeners are invoked
+		  runtimeService.correlateMessage("foo");
+		  fail("Expected exception");
+		}
+		catch (Exception e)
+		{
+		  // then
+		  assertTrue(e.Message.contains("business error"));
+		  assertEquals(1, ThrowBPMNErrorDelegate.INVOCATIONS);
+		}
+
+		// cleanup
+		repositoryService.deleteDeployment(deployment.Id, true, true);
+	  }
+
+//JAVA TO C# CONVERTER TODO TASK: Most Java annotations will not have direct .NET equivalent attributes:
+//ORIGINAL LINE: @Test public void testThrowBpmnErrorInStartListenerOnModificationShouldNotTriggerPropagation()
+	  public virtual void testThrowBpmnErrorInStartListenerOnModificationShouldNotTriggerPropagation()
+	  {
+		// expect
+		thrown.expect(typeof(BpmnError));
+		thrown.expectMessage("business error");
+
+		// given
+//JAVA TO C# CONVERTER WARNING: The .NET Type.FullName property will not always yield results identical to the Java Class.getName method:
+		BpmnModelInstance model = Bpmn.createExecutableProcess(PROCESS_KEY).startEvent().userTask("userTask1").subProcess("sub").camundaExecutionListenerClass(org.camunda.bpm.engine.@delegate.ExecutionListener_Fields.EVENTNAME_START, typeof(ThrowBPMNErrorDelegate).FullName).embeddedSubProcess().startEvent("inSub").serviceTask("throw").camundaExpression("${true}").boundaryEvent("errorEvent1").error(ERROR_CODE).subProcessDone().boundaryEvent("errorEvent2").error(ERROR_CODE).userTask("afterCatch").endEvent("endEvent").moveToActivity("sub").userTask("afterSub").endEvent().done();
+		DeploymentWithDefinitions deployment = testHelper.deploy(model);
+		ProcessDefinition definition = deployment.DeployedProcessDefinitions[0];
+
+		ProcessInstance processInstance = runtimeService.startProcessInstanceByKey(PROCESS_KEY);
+
+		// when the listeners are invoked
+		runtimeService.createModification(definition.Id).startBeforeActivity("throw").processInstanceIds(processInstance.Id).execute();
+	  }
+
+//JAVA TO C# CONVERTER TODO TASK: Most Java annotations will not have direct .NET equivalent attributes:
+//ORIGINAL LINE: @Test public void testThrowBpmnErrorInProcessStartListenerShouldNotTriggerPropagation()
+	  public virtual void testThrowBpmnErrorInProcessStartListenerShouldNotTriggerPropagation()
+	  {
+		// given
+		ProcessBuilder processBuilder = Bpmn.createExecutableProcess(PROCESS_KEY);
+		BpmnModelInstance model = processBuilder.startEvent().userTask("afterThrow").endEvent().done();
+
+		processBuilder.eventSubProcess().startEvent("errorEvent").error(ERROR_CODE).userTask("afterCatch").endEvent();
+
+		CamundaExecutionListener listener = model.newInstance(typeof(CamundaExecutionListener));
+		listener.CamundaEvent = org.camunda.bpm.engine.@delegate.ExecutionListener_Fields.EVENTNAME_START;
+//JAVA TO C# CONVERTER WARNING: The .NET Type.FullName property will not always yield results identical to the Java Class.getName method:
+		listener.CamundaClass = typeof(ThrowBPMNErrorDelegate).FullName;
+		model.getModelElementById<org.camunda.bpm.model.bpmn.instance.Process>(PROCESS_KEY).builder().addExtensionElement(listener);
+
+		DeploymentWithDefinitions deployment = testHelper.deploy(model);
+
+		try
+		{
+		  // when listeners are invoked
+		  runtimeService.startProcessInstanceByKey(PROCESS_KEY);
+		  fail("Exception expected");
+		}
+		catch (Exception e)
+		{
+		  // then
+		  assertTrue(e.Message.contains("business error"));
+		  assertEquals(1, ThrowBPMNErrorDelegate.INVOCATIONS);
+		}
+
+		// cleanup
+		repositoryService.deleteDeployment(deployment.Id, true, true);
+	  }
+
+//JAVA TO C# CONVERTER TODO TASK: Most Java annotations will not have direct .NET equivalent attributes:
+//ORIGINAL LINE: @Test public void testThrowBpmnErrorInProcessEndListenerShouldNotTriggerPropagation()
+	  public virtual void testThrowBpmnErrorInProcessEndListenerShouldNotTriggerPropagation()
+	  {
+		// given
+		ProcessBuilder processBuilder = Bpmn.createExecutableProcess(PROCESS_KEY);
+		BpmnModelInstance model = processBuilder.startEvent().endEvent().done();
+
+		processBuilder.eventSubProcess().startEvent("errorEvent").error(ERROR_CODE).userTask("afterCatch").endEvent();
+
+		CamundaExecutionListener listener = model.newInstance(typeof(CamundaExecutionListener));
+		listener.CamundaEvent = org.camunda.bpm.engine.@delegate.ExecutionListener_Fields.EVENTNAME_END;
+//JAVA TO C# CONVERTER WARNING: The .NET Type.FullName property will not always yield results identical to the Java Class.getName method:
+		listener.CamundaClass = typeof(ThrowBPMNErrorDelegate).FullName;
+		model.getModelElementById<org.camunda.bpm.model.bpmn.instance.Process>(PROCESS_KEY).builder().addExtensionElement(listener);
+
+		DeploymentWithDefinitions deployment = testHelper.deploy(model);
+
+		try
+		{
+		  // when listeners are invoked
+		  runtimeService.startProcessInstanceByKey(PROCESS_KEY);
+		  fail("Exception expected");
+		}
+		catch (Exception e)
+		{
+		  assertTrue(e.Message.contains("business error"));
+		  assertEquals(1, ThrowBPMNErrorDelegate.INVOCATIONS);
+		}
+
+		// cleanup
+		repositoryService.deleteDeployment(deployment.Id, true, true);
+	  }
+
+	  protected internal virtual BpmnModelInstance createModelWithCatchInServiceTaskAndListener(string eventName)
+	  {
+//JAVA TO C# CONVERTER WARNING: The .NET Type.FullName property will not always yield results identical to the Java Class.getName method:
+		return Bpmn.createExecutableProcess(PROCESS_KEY).startEvent().userTask("userTask1").serviceTask("throw").camundaExecutionListenerClass(eventName, typeof(ThrowBPMNErrorDelegate).FullName).camundaExpression("${true}").boundaryEvent("errorEvent").error(ERROR_CODE).userTask("afterCatch").endEvent("endEvent").moveToActivity("throw").userTask("afterService").endEvent().done();
+	  }
+
+	  protected internal virtual BpmnModelInstance createModelWithCatchInSubprocessAndListener(string eventName)
+	  {
+//JAVA TO C# CONVERTER WARNING: The .NET Type.FullName property will not always yield results identical to the Java Class.getName method:
+		return Bpmn.createExecutableProcess(PROCESS_KEY).startEvent().userTask("userTask1").subProcess("sub").embeddedSubProcess().startEvent("inSub").serviceTask("throw").camundaExecutionListenerClass(eventName, typeof(ThrowBPMNErrorDelegate).FullName).camundaExpression("${true}").userTask("afterService").endEvent().subProcessDone().boundaryEvent("errorEvent").error(ERROR_CODE).userTask("afterCatch").endEvent("endEvent").moveToActivity("sub").userTask("afterSub").endEvent().done();
+	  }
+
+	  protected internal virtual BpmnModelInstance createModelWithCatchInEventSubprocessAndListener(string eventName)
+	  {
+		ProcessBuilder processBuilder = Bpmn.createExecutableProcess(PROCESS_KEY);
+//JAVA TO C# CONVERTER WARNING: The .NET Type.FullName property will not always yield results identical to the Java Class.getName method:
+		BpmnModelInstance model = processBuilder.startEvent().userTask("userTask1").serviceTask("throw").camundaExecutionListenerClass(eventName, typeof(ThrowBPMNErrorDelegate).FullName).camundaExpression("${true}").userTask("afterService").endEvent().done();
+		processBuilder.eventSubProcess().startEvent("errorEvent").error(ERROR_CODE).userTask("afterCatch").endEvent();
+		return model;
+	  }
+
+	  protected internal virtual void verifyErrorGotCaught()
+	  {
+		assertEquals(1, taskService.createTaskQuery().list().size());
+		assertEquals("afterCatch", taskService.createTaskQuery().singleResult().Name);
+		assertEquals(1, ThrowBPMNErrorDelegate.INVOCATIONS);
+	  }
+
+	  public class ThrowBPMNErrorDelegate : ExecutionListener
+	  {
+
+		public static int INVOCATIONS = 0;
+
+//JAVA TO C# CONVERTER WARNING: Method 'throws' clauses are not available in .NET:
+//ORIGINAL LINE: @Override public void notify(org.camunda.bpm.engine.delegate.DelegateExecution execution) throws Exception
+		public virtual void notify(DelegateExecution execution)
+		{
+		  INVOCATIONS++;
+		  throw new BpmnError(ERROR_CODE, "business error");
+		}
+
+		public static void reset()
+		{
+		  INVOCATIONS = 0;
+		}
+	  }
+
+	  public class SetsVariableDelegate : JavaDelegate
+	  {
+
+//JAVA TO C# CONVERTER WARNING: Method 'throws' clauses are not available in .NET:
+//ORIGINAL LINE: @Override public void execute(org.camunda.bpm.engine.delegate.DelegateExecution execution) throws Exception
+		public virtual void execute(DelegateExecution execution)
+		{
+		  execution.setVariable("foo", "bar");
 		}
 	  }
 	}

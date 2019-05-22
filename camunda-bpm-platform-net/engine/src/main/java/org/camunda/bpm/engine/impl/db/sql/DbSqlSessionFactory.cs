@@ -134,6 +134,7 @@ namespace org.camunda.bpm.engine.impl.db.sql
 		constants["constant.datepart.minute"] = "MINUTE";
 		constants["constant.null.startTime"] = "null START_TIME_";
 		constants["constant.varchar.cast"] = "'${key}'";
+		constants["constant.integer.cast"] = "NULL";
 		constants["constant.null.reporter"] = "NULL AS REPORTER_";
 		dbSpecificConstants[H2] = constants;
 
@@ -218,6 +219,7 @@ namespace org.camunda.bpm.engine.impl.db.sql
 		  constants["constant.datepart.minute"] = "MINUTE";
 		  constants["constant.null.startTime"] = "null START_TIME_";
 		  constants["constant.varchar.cast"] = "'${key}'";
+		  constants["constant.integer.cast"] = "NULL";
 		  constants["constant.null.reporter"] = "NULL AS REPORTER_";
 		  dbSpecificConstants[mysqlLikeDatabase] = constants;
 		}
@@ -305,6 +307,7 @@ namespace org.camunda.bpm.engine.impl.db.sql
 		constants["constant.datepart.minute"] = "MINUTE";
 		constants["constant.null.startTime"] = "null START_TIME_";
 		constants["constant.varchar.cast"] = "cast('${key}' as varchar(64))";
+		constants["constant.integer.cast"] = "cast(NULL as integer)";
 		constants["constant.null.reporter"] = "CAST(NULL AS VARCHAR) AS REPORTER_";
 		dbSpecificConstants[POSTGRES] = constants;
 
@@ -376,6 +379,7 @@ namespace org.camunda.bpm.engine.impl.db.sql
 		constants["constant.datepart.minute"] = "'MI'";
 		constants["constant.null.startTime"] = "null START_TIME_";
 		constants["constant.varchar.cast"] = "'${key}'";
+		constants["constant.integer.cast"] = "NULL";
 		constants["constant.null.reporter"] = "NULL AS REPORTER_";
 		dbSpecificConstants[ORACLE] = constants;
 
@@ -451,6 +455,7 @@ namespace org.camunda.bpm.engine.impl.db.sql
 		constants["constant.datepart.minute"] = "MINUTE";
 		constants["constant.null.startTime"] = "CAST(NULL as timestamp) as START_TIME_";
 		constants["constant.varchar.cast"] = "cast('${key}' as varchar(64))";
+		constants["constant.integer.cast"] = "cast(NULL as integer)";
 		constants["constant.null.reporter"] = "CAST(NULL AS VARCHAR(255)) AS REPORTER_";
 		dbSpecificConstants[DB2] = constants;
 
@@ -511,6 +516,7 @@ namespace org.camunda.bpm.engine.impl.db.sql
 		constants["constant.datepart.minute"] = "MINUTE";
 		constants["constant.null.startTime"] = "CAST(NULL AS datetime2) AS START_TIME_";
 		constants["constant.varchar.cast"] = "'${key}'";
+		constants["constant.integer.cast"] = "NULL";
 		constants["constant.null.reporter"] = "NULL AS REPORTER_";
 		dbSpecificConstants[MSSQL] = constants;
 	  }

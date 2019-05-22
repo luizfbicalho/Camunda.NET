@@ -45,6 +45,7 @@ namespace org.camunda.bpm.engine.authorization
 	  public static readonly Resources DECISION_REQUIREMENTS_DEFINITION = new Resources("DECISION_REQUIREMENTS_DEFINITION", InnerEnum.DECISION_REQUIREMENTS_DEFINITION, org.camunda.bpm.engine.EntityTypes.DECISION_REQUIREMENTS_DEFINITION, 14);
 	  public static readonly Resources REPORT = new Resources("REPORT", InnerEnum.REPORT, org.camunda.bpm.engine.EntityTypes.REPORT, 15);
 	  public static readonly Resources DASHBOARD = new Resources("DASHBOARD", InnerEnum.DASHBOARD, org.camunda.bpm.engine.EntityTypes.DASHBOARD, 16);
+	  public static readonly Resources OPERATION_LOG_CATEGORY = new Resources("OPERATION_LOG_CATEGORY", InnerEnum.OPERATION_LOG_CATEGORY, org.camunda.bpm.engine.EntityTypes.OPERATION_LOG_CATEGORY, 17);
 
 	  private static readonly IList<Resources> valueList = new List<Resources>();
 
@@ -67,6 +68,7 @@ namespace org.camunda.bpm.engine.authorization
 		  valueList.Add(DECISION_REQUIREMENTS_DEFINITION);
 		  valueList.Add(REPORT);
 		  valueList.Add(DASHBOARD);
+		  valueList.Add(OPERATION_LOG_CATEGORY);
 	  }
 
 	  public enum InnerEnum
@@ -87,7 +89,8 @@ namespace org.camunda.bpm.engine.authorization
 		  BATCH,
 		  DECISION_REQUIREMENTS_DEFINITION,
 		  REPORT,
-		  DASHBOARD
+		  DASHBOARD,
+		  OPERATION_LOG_CATEGORY
 	  }
 
 	  public readonly InnerEnum innerEnumValue;

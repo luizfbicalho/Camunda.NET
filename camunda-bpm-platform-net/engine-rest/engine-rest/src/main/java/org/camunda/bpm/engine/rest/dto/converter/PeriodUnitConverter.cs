@@ -33,8 +33,9 @@ namespace org.camunda.bpm.engine.rest.dto.converter
 		return mapToEnum(value, typeof(PeriodUnit));
 	  }
 
-	  protected internal virtual T mapToEnum<T>(string value, Type<T> type) where T : Enum<T>
+	  protected internal virtual T mapToEnum<T>(string value, Type type) where T : Enum<T>
 	  {
+			  type = typeof(T);
 		try
 		{
 		  return Enum.valueOf(type, value.ToUpper());

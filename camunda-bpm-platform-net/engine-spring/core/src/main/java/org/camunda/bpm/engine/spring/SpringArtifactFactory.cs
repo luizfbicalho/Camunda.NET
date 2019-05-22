@@ -38,8 +38,9 @@ namespace org.camunda.bpm.engine.spring
 		this.applicationContext = applicationContext;
 	  }
 
-	  public virtual T getArtifact<T>(Type<T> clazz)
+	  public virtual T getArtifact<T>(Type clazz)
 	  {
+			  clazz = typeof(T);
 		T instance;
 
 		try

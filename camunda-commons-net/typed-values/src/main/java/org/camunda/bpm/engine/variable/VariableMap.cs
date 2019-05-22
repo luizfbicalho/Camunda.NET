@@ -40,7 +40,7 @@ namespace org.camunda.bpm.engine.variable
 
 	  // retrieving variables ///////////////////////////////////////
 
-	  T getValue<T>(string name, Type<T> type);
+	  T getValue<T>(string name, Type type);
 
 	  T getValueTyped<T>(string name);
 

@@ -17,6 +17,7 @@
 namespace org.camunda.bpm.engine.impl.bpmn.behavior
 {
 	using BpmnError = org.camunda.bpm.engine.@delegate.BpmnError;
+	using BpmnExceptionHandler = org.camunda.bpm.engine.impl.bpmn.helper.BpmnExceptionHandler;
 	using Context = org.camunda.bpm.engine.impl.context.Context;
 	using ParameterValueProvider = org.camunda.bpm.engine.impl.core.variable.mapping.value.ParameterValueProvider;
 	using MigratingActivityInstance = org.camunda.bpm.engine.impl.migration.instance.MigratingActivityInstance;
@@ -76,16 +77,15 @@ namespace org.camunda.bpm.engine.impl.bpmn.behavior
 	  }
 
 	  /// <summary>
-	  /// Overrides the propagateBpmnError method to made it public.
-	  /// Is used to propagate the bpmn error from an external task. </summary>
+	  /// It's used to propagate the bpmn error from an external task. </summary>
 	  /// <param name="error"> the error which should be propagated </param>
 	  /// <param name="execution"> the current activity execution </param>
-	  /// <exception cref="Exception"> throwsn an exception if no handler was found </exception>
+	  /// <exception cref="Exception"> throws an exception if no handler was found </exception>
 //JAVA TO C# CONVERTER WARNING: Method 'throws' clauses are not available in .NET:
-//ORIGINAL LINE: @Override public void propagateBpmnError(org.camunda.bpm.engine.delegate.BpmnError error, org.camunda.bpm.engine.impl.pvm.delegate.ActivityExecution execution) throws Exception
-	  public override void propagateBpmnError(BpmnError error, ActivityExecution execution)
+//ORIGINAL LINE: public void propagateBpmnError(org.camunda.bpm.engine.delegate.BpmnError error, org.camunda.bpm.engine.impl.pvm.delegate.ActivityExecution execution) throws Exception
+	  public virtual void propagateBpmnError(BpmnError error, ActivityExecution execution)
 	  {
-		base.propagateBpmnError(error, execution);
+		BpmnExceptionHandler.propagateBpmnError(error, execution);
 	  }
 
 	  public virtual void migrateScope(ActivityExecution scopeExecution)

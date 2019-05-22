@@ -1,4 +1,6 @@
-﻿/*
+﻿using System;
+
+/*
  * Copyright Camunda Services GmbH and/or licensed to Camunda Services GmbH
  * under one or more contributor license agreements. See the NOTICE file
  * distributed with this work for additional information regarding copyright
@@ -49,16 +51,25 @@ namespace org.camunda.bpm.engine.impl.pvm.runtime.operation
 
 
 		}
+		execution.setTransition(null);
 
 		return execution;
 
 	  }
 
+	  protected internal override void eventNotificationsFailed(PvmExecutionImpl execution, Exception e)
+	  {
+		execution.activityInstanceEndListenerFailure();
+		base.eventNotificationsFailed(execution, e);
+	  }
+
 	  protected internal override bool isSkipNotifyListeners(PvmExecutionImpl execution)
 	  {
 		// listeners are skipped if this execution is not part of an activity instance.
-		return string.ReferenceEquals(execution.ActivityInstanceId, null);
+		// or if the end listeners for this activity instance were triggered before already and failed.
+		return execution.hasFailedOnEndListeners() || string.ReferenceEquals(execution.ActivityInstanceId, null);
 	  }
+
 
 	}
 

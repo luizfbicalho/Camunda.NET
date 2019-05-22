@@ -98,13 +98,15 @@ namespace org.camunda.bpm.engine.test.api.runtime.migration
 	  }
 
 
-	  public virtual T newInstance<T>(Type<T> type) where T : org.camunda.bpm.model.xml.instance.ModelElementInstance
+	  public virtual T newInstance<T>(Type type) where T : org.camunda.bpm.model.xml.instance.ModelElementInstance
 	  {
+			  type = typeof(T);
 		return modelInstance.newInstance(type);
 	  }
 
-	  public override T newInstance<T>(Type<T> aClass, string s) where T : org.camunda.bpm.model.xml.instance.ModelElementInstance
+	  public override T newInstance<T>(Type aClass, string s) where T : org.camunda.bpm.model.xml.instance.ModelElementInstance
 	  {
+			  aClass = typeof(T);
 		return modelInstance.newInstance(aClass, s);
 	  }
 
@@ -136,15 +138,17 @@ namespace org.camunda.bpm.engine.test.api.runtime.migration
 		return modelInstance.getModelElementsByType(referencingType);
 	  }
 
-	  public virtual ICollection<T> getModelElementsByType<T>(Type<T> referencingClass) where T : org.camunda.bpm.model.xml.instance.ModelElementInstance
+	  public virtual ICollection<T> getModelElementsByType<T>(Type referencingClass) where T : org.camunda.bpm.model.xml.instance.ModelElementInstance
 	  {
+			  referencingClass = typeof(T);
 		return modelInstance.getModelElementsByType(referencingClass);
 	  }
 
 //JAVA TO C# CONVERTER TODO TASK: Most Java annotations will not have direct .NET equivalent attributes:
 //ORIGINAL LINE: @SuppressWarnings("unchecked") public <T extends AbstractBaseElementBuilder> T getBuilderForElementById(String id, Class<T> builderClass)
-	  public virtual T getBuilderForElementById<T>(string id, Type<T> builderClass) where T : AbstractBaseElementBuilder
+	  public virtual T getBuilderForElementById<T>(string id, Type builderClass) where T : AbstractBaseElementBuilder
 	  {
+			  builderClass = typeof(T);
 		BaseElement modelElementById = modelInstance.getModelElementById(id);
 		return (T) modelElementById.builder();
 	  }

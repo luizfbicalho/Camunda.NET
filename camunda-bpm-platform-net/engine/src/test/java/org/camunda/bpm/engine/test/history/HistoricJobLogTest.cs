@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Numerics;
 
 /*
  * Copyright Camunda Services GmbH and/or licensed to Camunda Services GmbH
@@ -1226,7 +1227,7 @@ namespace org.camunda.bpm.engine.test.history
 	  /// </summary>
 	  protected internal static string randomString(int numCharacters)
 	  {
-		return (new System.Numerics.BigInteger(numCharacters, new Random())).ToString(2);
+		return (new BigInteger(numCharacters, new Random())).ToString(2);
 	  }
 
 

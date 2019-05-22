@@ -33,7 +33,7 @@ namespace org.camunda.bpm.engine.impl.juel
 		/// <returns> conversion result </returns>
 //JAVA TO C# CONVERTER WARNING: Method 'throws' clauses are not available in .NET:
 //ORIGINAL LINE: public <T> T convert(Object value, Class<T> type) throws org.camunda.bpm.engine.impl.javax.el.ELException;
-		T convert<T>(object value, Type<T> type);
+		T convert<T>(object value, Type type);
 	}
 
 	public static class TypeConverter_Fields

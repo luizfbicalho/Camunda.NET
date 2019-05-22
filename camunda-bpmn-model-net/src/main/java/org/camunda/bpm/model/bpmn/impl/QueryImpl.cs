@@ -56,8 +56,9 @@ namespace org.camunda.bpm.model.bpmn.impl
 
 //JAVA TO C# CONVERTER TODO TASK: Most Java annotations will not have direct .NET equivalent attributes:
 //ORIGINAL LINE: @SuppressWarnings("unchecked") public <V extends org.camunda.bpm.model.xml.instance.ModelElementInstance> org.camunda.bpm.model.bpmn.Query<V> filterByType(Class<V> elementClass)
-	  public virtual Query<V> filterByType<V>(Type<V> elementClass) where V : org.camunda.bpm.model.xml.instance.ModelElementInstance
+	  public virtual Query<V> filterByType<V>(Type elementClass) where V : org.camunda.bpm.model.xml.instance.ModelElementInstance
 	  {
+			  elementClass = typeof(V);
 		IList<V> filtered = new List<V>();
 		foreach (T instance in collection)
 		{

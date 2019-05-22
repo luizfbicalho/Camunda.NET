@@ -16,6 +16,13 @@
  */
 namespace org.camunda.bpm.engine.test.api.authorization.history
 {
+//JAVA TO C# CONVERTER TODO TASK: This Java 'import static' statement cannot be converted to C#:
+//	import static org.camunda.bpm.engine.authorization.Resources.OPERATION_LOG_CATEGORY;
+//JAVA TO C# CONVERTER TODO TASK: This Java 'import static' statement cannot be converted to C#:
+//	import static org.camunda.bpm.engine.authorization.Resources.PROCESS_DEFINITION;
+	using static org.camunda.bpm.engine.history.UserOperationLogEntry;
+//JAVA TO C# CONVERTER TODO TASK: This Java 'import static' statement cannot be converted to C#:
+//	import static org.camunda.bpm.engine.authorization.UserOperationLogCategoryPermissions.READ;
 
 	using Authorization = org.camunda.bpm.engine.authorization.Authorization;
 	using Permission = org.camunda.bpm.engine.authorization.Permission;
@@ -23,8 +30,6 @@ namespace org.camunda.bpm.engine.test.api.authorization.history
 	using ProcessDefinitionPermissions = org.camunda.bpm.engine.authorization.ProcessDefinitionPermissions;
 	using Resource = org.camunda.bpm.engine.authorization.Resource;
 	using Resources = org.camunda.bpm.engine.authorization.Resources;
-	using UserOperationLogEntry = org.camunda.bpm.engine.history.UserOperationLogEntry;
-	using UserOperationLogQuery = org.camunda.bpm.engine.history.UserOperationLogQuery;
 	using DefaultPermissionProvider = org.camunda.bpm.engine.impl.cfg.auth.DefaultPermissionProvider;
 	using PermissionProvider = org.camunda.bpm.engine.impl.cfg.auth.PermissionProvider;
 	using StringUtil = org.camunda.bpm.engine.impl.util.StringUtil;
@@ -42,11 +47,12 @@ namespace org.camunda.bpm.engine.test.api.authorization.history
 	  public virtual void testLogCreatedOnAuthorizationCreation()
 	  {
 		// given
+		createGrantAuthorizationWithoutAuthentication(OPERATION_LOG_CATEGORY, CATEGORY_ADMIN, userId, READ);
 		UserOperationLogQuery query = historyService.createUserOperationLogQuery();
 		assertEquals(0, query.count());
 
 		// when
-		createGrantAuthorizationGroup(Resources.PROCESS_DEFINITION, org.camunda.bpm.engine.authorization.Authorization_Fields.ANY, "testGroupId", ProcessDefinitionPermissions.DELETE);
+		createGrantAuthorizationGroup(PROCESS_DEFINITION, org.camunda.bpm.engine.authorization.Authorization_Fields.ANY, "testGroupId", ProcessDefinitionPermissions.DELETE);
 
 		// then
 		assertEquals(6, query.count());
@@ -92,10 +98,9 @@ namespace org.camunda.bpm.engine.test.api.authorization.history
 	  {
 		// given
 		UserOperationLogQuery query = historyService.createUserOperationLogQuery();
-		identityService.clearAuthentication();
-		Authorization authorization = createGrantAuthorization(Resources.PROCESS_DEFINITION, org.camunda.bpm.engine.authorization.Authorization_Fields.ANY, "testUserId", Permissions.DELETE);
+		Authorization authorization = createGrantAuthorizationWithoutAuthentication(Resources.PROCESS_DEFINITION, org.camunda.bpm.engine.authorization.Authorization_Fields.ANY, "testUserId", Permissions.DELETE);
+		createGrantAuthorizationWithoutAuthentication(OPERATION_LOG_CATEGORY, CATEGORY_ADMIN, userId, READ);
 		assertEquals(0, query.count());
-		identityService.setAuthentication(userId, Arrays.asList(groupId));
 
 		// when
 		authorization.addPermission(Permissions.READ);
@@ -162,10 +167,9 @@ namespace org.camunda.bpm.engine.test.api.authorization.history
 	  {
 		// given
 		UserOperationLogQuery query = historyService.createUserOperationLogQuery();
-		identityService.clearAuthentication();
-		Authorization authorization = createGrantAuthorization(Resources.PROCESS_DEFINITION, org.camunda.bpm.engine.authorization.Authorization_Fields.ANY, "testUserId", ProcessDefinitionPermissions.DELETE);
+		Authorization authorization = createGrantAuthorizationWithoutAuthentication(Resources.PROCESS_DEFINITION, org.camunda.bpm.engine.authorization.Authorization_Fields.ANY, "testUserId", ProcessDefinitionPermissions.DELETE);
+		createGrantAuthorizationWithoutAuthentication(OPERATION_LOG_CATEGORY, CATEGORY_ADMIN, userId, READ);
 		assertEquals(0, query.count());
-		identityService.setAuthentication(userId, Arrays.asList(groupId));
 
 		// when
 		authorizationService.deleteAuthorization(authorization.Id);
@@ -213,6 +217,7 @@ namespace org.camunda.bpm.engine.test.api.authorization.history
 	  public virtual void testLogCreatedOnAuthorizationCreationWithExceedingPermissionStringList()
 	  {
 		// given
+		createGrantAuthorizationWithoutAuthentication(OPERATION_LOG_CATEGORY, CATEGORY_ADMIN, userId, READ);
 		UserOperationLogQuery query = historyService.createUserOperationLogQuery();
 		assertEquals(0, query.count());
 
@@ -235,6 +240,7 @@ namespace org.camunda.bpm.engine.test.api.authorization.history
 	  public virtual void testLogCreatedOnAuthorizationCreationWithAllPermission()
 	  {
 		// given
+		createGrantAuthorizationWithoutAuthentication(OPERATION_LOG_CATEGORY, CATEGORY_ADMIN, userId, READ);
 		UserOperationLogQuery query = historyService.createUserOperationLogQuery();
 		assertEquals(0, query.count());
 
@@ -257,6 +263,7 @@ namespace org.camunda.bpm.engine.test.api.authorization.history
 	  public virtual void testLogCreatedOnAuthorizationCreationWithNonePermission()
 	  {
 		// given
+		createGrantAuthorizationWithoutAuthentication(OPERATION_LOG_CATEGORY, CATEGORY_ADMIN, userId, READ);
 		UserOperationLogQuery query = historyService.createUserOperationLogQuery();
 		assertEquals(0, query.count());
 
@@ -274,6 +281,47 @@ namespace org.camunda.bpm.engine.test.api.authorization.history
 		assertEquals(org.camunda.bpm.engine.history.UserOperationLogEntry_Fields.CATEGORY_ADMIN, entry.Category);
 		assertEquals(EntityTypes.AUTHORIZATION, entry.EntityType);
 		assertEquals(TestPermissions.NONE.Name, entry.NewValue);
+	  }
+
+	  public virtual void testLogCreatedOnAuthorizationCreationWithoutAuthorization()
+	  {
+		// given
+		UserOperationLogQuery query = historyService.createUserOperationLogQuery();
+		assertEquals(0, query.count());
+
+		// when
+		createGrantAuthorizationGroup(PROCESS_DEFINITION, org.camunda.bpm.engine.authorization.Authorization_Fields.ANY, "testGroupId", ProcessDefinitionPermissions.DELETE);
+
+		// then the user is not authorised
+		assertEquals(0, query.count());
+	  }
+
+	  public virtual void testLogCreatedOnAuthorizationCreationWithReadPermissionOnAnyCategoryPermission()
+	  {
+		// given
+		createGrantAuthorizationWithoutAuthentication(OPERATION_LOG_CATEGORY, org.camunda.bpm.engine.authorization.Authorization_Fields.ANY, userId, READ);
+		UserOperationLogQuery query = historyService.createUserOperationLogQuery();
+		assertEquals(0, query.count());
+
+		// when
+		createGrantAuthorizationGroup(PROCESS_DEFINITION, org.camunda.bpm.engine.authorization.Authorization_Fields.ANY, "testGroupId", ProcessDefinitionPermissions.DELETE);
+
+		// then the user is authorised
+		assertEquals(6, query.count());
+	  }
+
+	  public virtual void testLogCreatedOnAuthorizationCreationWithReadPermissionOnWrongCategory()
+	  {
+		// given
+		createGrantAuthorizationWithoutAuthentication(OPERATION_LOG_CATEGORY, CATEGORY_OPERATOR, userId, READ);
+		UserOperationLogQuery query = historyService.createUserOperationLogQuery();
+		assertEquals(0, query.count());
+
+		// when
+		createGrantAuthorizationGroup(PROCESS_DEFINITION, org.camunda.bpm.engine.authorization.Authorization_Fields.ANY, "testGroupId", ProcessDefinitionPermissions.DELETE);
+
+		// then the user is not authorised
+		assertEquals(0, query.count());
 	  }
 
 	  public class TestPermissionProvider : DefaultPermissionProvider

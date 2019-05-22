@@ -70,8 +70,9 @@ namespace org.camunda.bpm.engine.impl.history.producer
 
 	  /// <summary>
 	  /// find a cached entity by primary key </summary>
-	  protected internal virtual T findInCache<T>(Type<T> type, string id) where T : org.camunda.bpm.engine.impl.history.@event.HistoryEvent
+	  protected internal virtual T findInCache<T>(Type type, string id) where T : org.camunda.bpm.engine.impl.history.@event.HistoryEvent
 	  {
+			  type = typeof(T);
 		return Context.CommandContext.DbEntityManager.getCachedEntity(type, id);
 	  }
 

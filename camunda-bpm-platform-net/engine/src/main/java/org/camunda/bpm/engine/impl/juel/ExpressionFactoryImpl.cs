@@ -109,7 +109,7 @@ namespace org.camunda.bpm.engine.impl.juel
 			private static int nextOrdinal = 0;
 
 //JAVA TO C# CONVERTER NOTE: Fields cannot have the same name as methods:
-			internal readonly java.util.EnumSet<org.camunda.bpm.engine.impl.juel.Builder.Feature> features_Renamed;
+			internal readonly java.util.EnumSet<org.camunda.bpm.engine.impl.juel.Builder.Feature> features;
 
 			internal Profile(string name, InnerEnum innerEnum, java.util.EnumSet<org.camunda.bpm.engine.impl.juel.Builder.Feature> features)
 			{

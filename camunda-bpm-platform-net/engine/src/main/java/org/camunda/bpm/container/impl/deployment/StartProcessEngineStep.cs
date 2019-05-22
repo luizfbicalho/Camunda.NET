@@ -188,8 +188,9 @@ namespace org.camunda.bpm.container.impl.deployment
 
 //JAVA TO C# CONVERTER TODO TASK: Most Java annotations will not have direct .NET equivalent attributes:
 //ORIGINAL LINE: @SuppressWarnings("unchecked") protected <T> Class loadClass(String className, ClassLoader customClassloader, Class<T> clazz)
-	  protected internal virtual Type loadClass<T>(string className, ClassLoader customClassloader, Type<T> clazz)
+	  protected internal virtual Type loadClass<T>(string className, ClassLoader customClassloader, Type clazz)
 	  {
+			  clazz = typeof(T);
 		try
 		{
 		  if (customClassloader != null)

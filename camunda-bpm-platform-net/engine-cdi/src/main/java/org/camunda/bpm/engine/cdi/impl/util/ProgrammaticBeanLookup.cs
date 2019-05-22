@@ -36,13 +36,15 @@ namespace org.camunda.bpm.engine.cdi.impl.util
 //JAVA TO C# CONVERTER WARNING: The .NET Type.FullName property will not always yield results identical to the Java Class.getName method:
 	  public static readonly Logger LOG = Logger.getLogger(typeof(ProgrammaticBeanLookup).FullName);
 
-	  public static T lookup<T>(Type<T> clazz, BeanManager bm)
+	  public static T lookup<T>(Type clazz, BeanManager bm)
 	  {
+			  clazz = typeof(T);
 		return lookup(clazz, bm, true);
 	  }
 
-	  public static T lookup<T>(Type<T> clazz, BeanManager bm, bool optional)
+	  public static T lookup<T>(Type clazz, BeanManager bm, bool optional)
 	  {
+			  clazz = typeof(T);
 //JAVA TO C# CONVERTER WARNING: Java wildcard generics have no direct equivalent in .NET:
 //ORIGINAL LINE: java.util.Set<javax.enterprise.inject.spi.Bean<?>> beans = bm.getBeans(clazz);
 		ISet<Bean<object>> beans = bm.getBeans(clazz);
@@ -82,8 +84,9 @@ namespace org.camunda.bpm.engine.cdi.impl.util
 	  /// <returns> a ContextualInstance of the given type </returns>
 	  /// <exception cref="javax.enterprise.inject.AmbiguousResolutionException"> if the given type is satisfied by more than one Bean </exception>
 	  /// <seealso cref= #lookup(Class, boolean) </seealso>
-	  public static T lookup<T>(Type<T> clazz)
+	  public static T lookup<T>(Type clazz)
 	  {
+			  clazz = typeof(T);
 		return lookup(clazz, true);
 	  }
 
@@ -92,8 +95,9 @@ namespace org.camunda.bpm.engine.cdi.impl.util
 	  /// <exception cref="IllegalStateException"> if there is no bean of the given class, but only if optional is <code>false</code> </exception>
 	  /// <exception cref="javax.enterprise.inject.AmbiguousResolutionException"> if the given type is satisfied by more than one Bean </exception>
 	  /// <seealso cref= #lookup(Class, boolean) </seealso>
-	  public static T lookup<T>(Type<T> clazz, bool optional)
+	  public static T lookup<T>(Type clazz, bool optional)
 	  {
+			  clazz = typeof(T);
 		BeanManager bm = BeanManagerLookup.BeanManager;
 		return lookup(clazz, bm, optional);
 	  }

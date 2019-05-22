@@ -1,4 +1,6 @@
-﻿/*
+﻿using System.Collections.Generic;
+
+/*
  * Copyright Camunda Services GmbH and/or licensed to Camunda Services GmbH
  * under one or more contributor license agreements. See the NOTICE file
  * distributed with this work for additional information regarding copyright
@@ -20,6 +22,7 @@ namespace org.camunda.bpm.engine.impl.cmd
 //JAVA TO C# CONVERTER TODO TASK: This Java 'import static' statement cannot be converted to C#:
 //	import static org.camunda.bpm.engine.impl.util.EnsureUtil.ensureAtLeastOneNotNull;
 
+
 	using Context = org.camunda.bpm.engine.impl.context.Context;
 	using Command = org.camunda.bpm.engine.impl.interceptor.Command;
 	using CommandContext = org.camunda.bpm.engine.impl.interceptor.CommandContext;
@@ -37,12 +40,17 @@ namespace org.camunda.bpm.engine.impl.cmd
 	public class CorrelateMessageCmd : AbstractCorrelateMessageCmd, Command<MessageCorrelationResultImpl>
 	{
 
-	   /// <summary>
-	   /// Initialize the command with a builder
-	   /// </summary>
-	   /// <param name="messageCorrelationBuilderImpl"> </param>
-	  public CorrelateMessageCmd(MessageCorrelationBuilderImpl messageCorrelationBuilderImpl, bool collectVariables, bool deserializeVariableValues) : base(messageCorrelationBuilderImpl, collectVariables, deserializeVariableValues)
+	  private static readonly CommandLogger LOG = ProcessEngineLogger.CMD_LOGGER;
+
+	  protected internal bool startMessageOnly;
+
+	  /// <summary>
+	  /// Initialize the command with a builder
+	  /// </summary>
+	  /// <param name="messageCorrelationBuilderImpl"> </param>
+	  public CorrelateMessageCmd(MessageCorrelationBuilderImpl messageCorrelationBuilderImpl, bool collectVariables, bool deserializeVariableValues, bool startMessageOnly) : base(messageCorrelationBuilderImpl, collectVariables, deserializeVariableValues)
 	  {
+		this.startMessageOnly = startMessageOnly;
 	  }
 
 //JAVA TO C# CONVERTER WARNING: 'final' parameters are not available in .NET:
@@ -57,11 +65,32 @@ namespace org.camunda.bpm.engine.impl.cmd
 //JAVA TO C# CONVERTER WARNING: The original Java variable was marked 'final':
 //ORIGINAL LINE: final org.camunda.bpm.engine.impl.runtime.CorrelationSet correlationSet = new org.camunda.bpm.engine.impl.runtime.CorrelationSet(builder);
 		CorrelationSet correlationSet = new CorrelationSet(builder);
-		CorrelationHandlerResult correlationResult = commandContext.runWithoutAuthorization(new CallableAnonymousInnerClass(this, commandContext, correlationHandler, correlationSet));
 
-		if (correlationResult == null)
+		CorrelationHandlerResult correlationResult = null;
+		if (startMessageOnly)
 		{
-		  throw new MismatchingMessageCorrelationException(messageName, "No process definition or execution matches the parameters");
+		  IList<CorrelationHandlerResult> correlationResults = commandContext.runWithoutAuthorization(new CallableAnonymousInnerClass(this, commandContext, correlationHandler, correlationSet));
+		  if (correlationResults.Count == 0)
+		  {
+			throw new MismatchingMessageCorrelationException(messageName, "No process definition matches the parameters");
+		  }
+		  else if (correlationResults.Count > 1)
+		  {
+			throw LOG.exceptionCorrelateMessageToSingleProcessDefinition(messageName, correlationResults.Count, correlationSet);
+		  }
+		  else
+		  {
+			correlationResult = correlationResults[0];
+		  }
+		}
+		else
+		{
+		  correlationResult = commandContext.runWithoutAuthorization(new CallableAnonymousInnerClass2(this, commandContext, correlationHandler, correlationSet));
+
+		  if (correlationResult == null)
+		  {
+			throw new MismatchingMessageCorrelationException(messageName, "No process definition or execution matches the parameters");
+		  }
 		}
 
 		// check authorization
@@ -70,7 +99,7 @@ namespace org.camunda.bpm.engine.impl.cmd
 		return createMessageCorrelationResult(commandContext, correlationResult);
 	  }
 
-	  private class CallableAnonymousInnerClass : Callable<CorrelationHandlerResult>
+	  private class CallableAnonymousInnerClass : Callable<IList<CorrelationHandlerResult>>
 	  {
 		  private readonly CorrelateMessageCmd outerInstance;
 
@@ -79,6 +108,30 @@ namespace org.camunda.bpm.engine.impl.cmd
 		  private CorrelationSet correlationSet;
 
 		  public CallableAnonymousInnerClass(CorrelateMessageCmd outerInstance, CommandContext commandContext, CorrelationHandler correlationHandler, CorrelationSet correlationSet)
+		  {
+			  this.outerInstance = outerInstance;
+			  this.commandContext = commandContext;
+			  this.correlationHandler = correlationHandler;
+			  this.correlationSet = correlationSet;
+		  }
+
+//JAVA TO C# CONVERTER WARNING: Method 'throws' clauses are not available in .NET:
+//ORIGINAL LINE: public java.util.List<org.camunda.bpm.engine.impl.runtime.CorrelationHandlerResult> call() throws Exception
+		  public IList<CorrelationHandlerResult> call()
+		  {
+			return correlationHandler.correlateStartMessages(commandContext, outerInstance.messageName, correlationSet);
+		  }
+	  }
+
+	  private class CallableAnonymousInnerClass2 : Callable<CorrelationHandlerResult>
+	  {
+		  private readonly CorrelateMessageCmd outerInstance;
+
+		  private CommandContext commandContext;
+		  private CorrelationHandler correlationHandler;
+		  private CorrelationSet correlationSet;
+
+		  public CallableAnonymousInnerClass2(CorrelateMessageCmd outerInstance, CommandContext commandContext, CorrelationHandler correlationHandler, CorrelationSet correlationSet)
 		  {
 			  this.outerInstance = outerInstance;
 			  this.commandContext = commandContext;

@@ -93,7 +93,7 @@ namespace org.camunda.bpm.engine.impl.bpmn.behavior
 	  ///          the exception to check </param>
 	  /// <returns> the BpmnError that was the cause of this exception or null if no
 	  ///         BpmnError was found </returns>
-	  protected internal override BpmnError checkIfCauseOfExceptionIsBpmnError(Exception e)
+	  protected internal virtual BpmnError checkIfCauseOfExceptionIsBpmnError(Exception e)
 	  {
 		if (e is BpmnError)
 		{

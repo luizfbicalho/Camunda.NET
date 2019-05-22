@@ -41,15 +41,17 @@ namespace org.camunda.bpm.model.xml.impl.type.child
 		this.elementType = modelType;
 	  }
 
-	  public virtual ChildElementBuilder<T> element<T>(Type<T> childElementType) where T : org.camunda.bpm.model.xml.instance.ModelElementInstance
+	  public virtual ChildElementBuilder<T> element<T>(Type childElementType) where T : org.camunda.bpm.model.xml.instance.ModelElementInstance
 	  {
+			  childElementType = typeof(T);
 		ChildElementBuilderImpl<T> builder = new ChildElementBuilderImpl<T>(childElementType, elementType);
 		modelBuildOperations.Add(builder);
 		return builder;
 	  }
 
-	  public virtual ChildElementCollectionBuilder<T> elementCollection<T>(Type<T> childElementType) where T : org.camunda.bpm.model.xml.instance.ModelElementInstance
+	  public virtual ChildElementCollectionBuilder<T> elementCollection<T>(Type childElementType) where T : org.camunda.bpm.model.xml.instance.ModelElementInstance
 	  {
+			  childElementType = typeof(T);
 		ChildElementCollectionBuilderImpl<T> builder = new ChildElementCollectionBuilderImpl<T>(childElementType, elementType);
 		modelBuildOperations.Add(builder);
 		return builder;

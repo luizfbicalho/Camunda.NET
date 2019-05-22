@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Numerics;
 
 /*
  * Based on JUEL 2.2.1 code, 2006-2009 Odysseus Software GmbH
@@ -62,7 +63,7 @@ namespace org.camunda.bpm.engine.impl.juel
 
 		private static bool isBigDecimalOrBigInteger(object value)
 		{
-			return value is decimal || value is System.Numerics.BigInteger;
+			return value is decimal || value is BigInteger;
 		}
 
 		private static bool isBigDecimalOrFloatOrDoubleOrDotEe(object value)
@@ -82,15 +83,15 @@ namespace org.camunda.bpm.engine.impl.juel
 			}
 			if (isFloatOrDoubleOrDotEe(o1) || isFloatOrDoubleOrDotEe(o2))
 			{
-				if (o1 is System.Numerics.BigInteger || o2 is System.Numerics.BigInteger)
+				if (o1 is BigInteger || o2 is BigInteger)
 				{
 					return converter.convert(o1, typeof(decimal)).add(converter.convert(o2, typeof(decimal)));
 				}
 				return converter.convert(o1, typeof(Double)) + converter.convert(o2, typeof(Double));
 			}
-			if (o1 is System.Numerics.BigInteger || o2 is System.Numerics.BigInteger)
+			if (o1 is BigInteger || o2 is BigInteger)
 			{
-				return converter.convert(o1, typeof(System.Numerics.BigInteger)).add(converter.convert(o2, typeof(System.Numerics.BigInteger)));
+				return converter.convert(o1, typeof(BigInteger)).add(converter.convert(o2, typeof(BigInteger)));
 			}
 			return converter.convert(o1, typeof(Long)) + converter.convert(o2, typeof(Long));
 		}
@@ -107,15 +108,15 @@ namespace org.camunda.bpm.engine.impl.juel
 			}
 			if (isFloatOrDoubleOrDotEe(o1) || isFloatOrDoubleOrDotEe(o2))
 			{
-				if (o1 is System.Numerics.BigInteger || o2 is System.Numerics.BigInteger)
+				if (o1 is BigInteger || o2 is BigInteger)
 				{
 					return converter.convert(o1, typeof(decimal)).subtract(converter.convert(o2, typeof(decimal)));
 				}
 				return converter.convert(o1, typeof(Double)) - converter.convert(o2, typeof(Double));
 			}
-			if (o1 is System.Numerics.BigInteger || o2 is System.Numerics.BigInteger)
+			if (o1 is BigInteger || o2 is BigInteger)
 			{
-				return converter.convert(o1, typeof(System.Numerics.BigInteger)).subtract(converter.convert(o2, typeof(System.Numerics.BigInteger)));
+				return converter.convert(o1, typeof(BigInteger)).subtract(converter.convert(o2, typeof(BigInteger)));
 			}
 			return converter.convert(o1, typeof(Long)) - converter.convert(o2, typeof(Long));
 		}
@@ -132,15 +133,15 @@ namespace org.camunda.bpm.engine.impl.juel
 			}
 			if (isFloatOrDoubleOrDotEe(o1) || isFloatOrDoubleOrDotEe(o2))
 			{
-				if (o1 is System.Numerics.BigInteger || o2 is System.Numerics.BigInteger)
+				if (o1 is BigInteger || o2 is BigInteger)
 				{
 					return converter.convert(o1, typeof(decimal)).multiply(converter.convert(o2, typeof(decimal)));
 				}
 				return converter.convert(o1, typeof(Double)) * converter.convert(o2, typeof(Double));
 			}
-			if (o1 is System.Numerics.BigInteger || o2 is System.Numerics.BigInteger)
+			if (o1 is BigInteger || o2 is BigInteger)
 			{
-				return converter.convert(o1, typeof(System.Numerics.BigInteger)).multiply(converter.convert(o2, typeof(System.Numerics.BigInteger)));
+				return converter.convert(o1, typeof(BigInteger)).multiply(converter.convert(o2, typeof(BigInteger)));
 			}
 			return converter.convert(o1, typeof(Long)) * converter.convert(o2, typeof(Long));
 		}
@@ -168,9 +169,9 @@ namespace org.camunda.bpm.engine.impl.juel
 			{
 				return converter.convert(o1, typeof(Double)) % converter.convert(o2, typeof(Double));
 			}
-			if (o1 is System.Numerics.BigInteger || o2 is System.Numerics.BigInteger)
+			if (o1 is BigInteger || o2 is BigInteger)
 			{
-				return converter.convert(o1, typeof(System.Numerics.BigInteger)).remainder(converter.convert(o2, typeof(System.Numerics.BigInteger)));
+				return converter.convert(o1, typeof(BigInteger)).remainder(converter.convert(o2, typeof(BigInteger)));
 			}
 			return converter.convert(o1, typeof(Long)) % converter.convert(o2, typeof(Long));
 		}
@@ -185,9 +186,9 @@ namespace org.camunda.bpm.engine.impl.juel
 			{
 				return -((decimal)value);
 			}
-			if (value is System.Numerics.BigInteger)
+			if (value is BigInteger)
 			{
-				return -((System.Numerics.BigInteger)value);
+				return -((BigInteger)value);
 			}
 			if (value is double?)
 			{

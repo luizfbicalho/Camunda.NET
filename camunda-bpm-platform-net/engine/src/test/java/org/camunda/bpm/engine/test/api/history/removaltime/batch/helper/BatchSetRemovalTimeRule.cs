@@ -85,6 +85,13 @@ namespace org.camunda.bpm.engine.test.api.history.removaltime.batch.helper
 
 		ClockUtil.reset();
 
+		clearDatabase();
+
+		base.finished(description);
+	  }
+
+	  public virtual void clearDatabase()
+	  {
 		if (batchIds.Count > 0)
 		{
 		  foreach (string batchId in batchIds)
@@ -97,8 +104,6 @@ namespace org.camunda.bpm.engine.test.api.history.removaltime.batch.helper
 			}
 		  }
 		}
-
-		base.finished(description);
 	  }
 
 	  // helper ////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -305,7 +310,15 @@ namespace org.camunda.bpm.engine.test.api.history.removaltime.batch.helper
 
 	  public virtual void syncExec(Batch batch)
 	  {
-		batchIds.Add(batch.Id);
+		syncExec(batch, true);
+	  }
+
+	  public virtual void syncExec(Batch batch, bool isClear)
+	  {
+		if (isClear)
+		{
+		  batchIds.Add(batch.Id);
+		}
 
 		string seedJobDefinitionId = batch.SeedJobDefinitionId;
 

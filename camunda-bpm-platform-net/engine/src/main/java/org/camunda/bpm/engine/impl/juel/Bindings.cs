@@ -144,8 +144,9 @@ namespace org.camunda.bpm.engine.impl.juel
 		/// <param name="type"> target type </param>
 		/// <returns> converted value </returns>
 		/// <exception cref="ELException"> </exception>
-		public virtual T convert<T>(object value, Type<T> type)
+		public virtual T convert<T>(object value, Type type)
 		{
+				type = typeof(T);
 			return converter.convert(value, type);
 		}
 

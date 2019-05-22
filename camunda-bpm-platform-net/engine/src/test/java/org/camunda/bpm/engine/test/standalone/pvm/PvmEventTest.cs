@@ -19,12 +19,9 @@
 namespace org.camunda.bpm.engine.test.standalone.pvm
 {
 
-	using FoxDeleteProcessInstanceCmd = org.camunda.bpm.engine.impl.cmd.FoxDeleteProcessInstanceCmd;
 	using ProcessDefinitionBuilder = org.camunda.bpm.engine.impl.pvm.ProcessDefinitionBuilder;
 	using PvmProcessDefinition = org.camunda.bpm.engine.impl.pvm.PvmProcessDefinition;
 	using PvmProcessInstance = org.camunda.bpm.engine.impl.pvm.PvmProcessInstance;
-	using ExecutionImpl = org.camunda.bpm.engine.impl.pvm.runtime.ExecutionImpl;
-	using PvmExecutionImpl = org.camunda.bpm.engine.impl.pvm.runtime.PvmExecutionImpl;
 	using PvmTestCase = org.camunda.bpm.engine.impl.test.PvmTestCase;
 	using Automatic = org.camunda.bpm.engine.test.standalone.pvm.activities.Automatic;
 	using EmbeddedSubProcess = org.camunda.bpm.engine.test.standalone.pvm.activities.EmbeddedSubProcess;
@@ -159,13 +156,7 @@ namespace org.camunda.bpm.engine.test.standalone.pvm
 		PvmProcessInstance processInstance = processDefinition.createProcessInstance();
 		processInstance.start();
 
-		ExecutionImpl execution = (ExecutionImpl) processInstance;
-		FoxDeleteProcessInstanceCmd cmd = new FoxDeleteProcessInstanceCmd(null, null);
-		IList<PvmExecutionImpl> collectExecutionToDelete = cmd.collectExecutionToDelete(execution);
-		foreach (PvmExecutionImpl interpretableExecution in collectExecutionToDelete)
-		{
-		  interpretableExecution.deleteCascade2("");
-		}
+		processInstance.deleteCascade("");
 
 		IList<string> expectedEvents = new List<string>();
 		expectedEvents.Add("start on ProcessDefinition(events)");

@@ -27,6 +27,7 @@ namespace org.camunda.bpm.engine.test.api.authorization.optimize
 	using UserOperationLogEntry = org.camunda.bpm.engine.history.UserOperationLogEntry;
 	using OptimizeService = org.camunda.bpm.engine.impl.OptimizeService;
 	using ProcessEngineConfigurationImpl = org.camunda.bpm.engine.impl.cfg.ProcessEngineConfigurationImpl;
+	using OptimizeHistoricIdentityLinkLogEntity = org.camunda.bpm.engine.impl.persistence.entity.optimize.OptimizeHistoricIdentityLinkLogEntity;
 	using DeploymentBuilder = org.camunda.bpm.engine.repository.DeploymentBuilder;
 	using Bpmn = org.camunda.bpm.model.bpmn.Bpmn;
 	using BpmnModelInstance = org.camunda.bpm.model.bpmn.BpmnModelInstance;
@@ -243,6 +244,40 @@ namespace org.camunda.bpm.engine.test.api.authorization.optimize
 
 		// then
 		assertThat(operationLogEntries.Count, @is(0));
+	  }
+
+	  public virtual void testGetHistoricIdentityLinkLogWithoutAuthorization()
+	  {
+		// given
+		startProcessInstanceByKey("process");
+
+		try
+		{
+		  // when
+		  optimizeService.getHistoricIdentityLinkLogs(new DateTime(0L), null, 10);
+		  fail("Exception expected: It should not be possible to retrieve the logs");
+		}
+		catch (AuthorizationException e)
+		{
+		  // then
+		  string exceptionMessage = e.Message;
+		  assertTextPresent(userId, exceptionMessage);
+		  assertTextPresent(READ_HISTORY.Name, exceptionMessage);
+		  assertTextPresent(PROCESS_DEFINITION.resourceName(), exceptionMessage);
+		}
+	  }
+
+	  public virtual void testGetHistoricIdentityLinkLogWithAuthorization()
+	  {
+		// given
+		startProcessInstanceByKey("process");
+		createGrantAuthorization(PROCESS_DEFINITION, "*", userId, READ_HISTORY);
+
+		// when
+		IList<OptimizeHistoricIdentityLinkLogEntity> historicIdentityLinkLogs = optimizeService.getHistoricIdentityLinkLogs(new DateTime(0L), null, 10);
+
+		// then
+		assertThat(historicIdentityLinkLogs.Count, @is(0));
 	  }
 
 	  public virtual void testGetCompletedProcessInstancesWithoutAuthorization()

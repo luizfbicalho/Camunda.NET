@@ -42,8 +42,9 @@ namespace org.camunda.bpm.model.xml.impl.type.reference
 	  /// </summary>
 	  /// <param name="referenceSourceAttribute"> the reference source attribute </param>
 	  /// <param name="referenceTargetElement"> the reference target model element instance </param>
-	  public AttributeReferenceBuilderImpl(AttributeImpl<string> referenceSourceAttribute, Type<T> referenceTargetElement)
+	  public AttributeReferenceBuilderImpl(AttributeImpl<string> referenceSourceAttribute, Type referenceTargetElement)
 	  {
+			  referenceTargetElement = typeof(T);
 		this.referenceSourceAttribute = referenceSourceAttribute;
 		this.referenceTargetElement = referenceTargetElement;
 		this.attributeReferenceImpl = new AttributeReferenceImpl<T>(referenceSourceAttribute);

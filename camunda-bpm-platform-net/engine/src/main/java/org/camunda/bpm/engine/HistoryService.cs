@@ -23,6 +23,7 @@ namespace org.camunda.bpm.engine
 	using Permissions = org.camunda.bpm.engine.authorization.Permissions;
 	using ProcessDefinitionPermissions = org.camunda.bpm.engine.authorization.ProcessDefinitionPermissions;
 	using Resources = org.camunda.bpm.engine.authorization.Resources;
+	using UserOperationLogCategoryPermissions = org.camunda.bpm.engine.authorization.UserOperationLogCategoryPermissions;
 	using Batch = org.camunda.bpm.engine.batch.Batch;
 	using HistoricBatchQuery = org.camunda.bpm.engine.batch.history.HistoricBatchQuery;
 	using HistoricActivityInstance = org.camunda.bpm.engine.history.HistoricActivityInstance;
@@ -242,7 +243,7 @@ namespace org.camunda.bpm.engine
 	  /// Finds history cleanup job, if present. </summary>
 	  /// @deprecated As of v. 7.9.0, because there can be more than one history cleanup job at once, use <seealso cref="#findHistoryCleanupJobs"/> instead. 
 	  /// <returns> job entity </returns>
-	  [Obsolete("As of v. 7.9.0, because there can be more than one history cleanup job at once, use <seealso cref=\"#findHistoryCleanupJobs\"/> instead.")]
+	  [Obsolete("As of v. 7.9.0, because there can be more than one history cleanup job at once, use <seealso cref="#findHistoryCleanupJobs"/> instead.")]
 	  Job findHistoryCleanupJob();
 
 	  /// <summary>
@@ -288,7 +289,14 @@ namespace org.camunda.bpm.engine
 	  /// Deletes a user operation log entry. Does not cascade to any related entities.
 	  /// </summary>
 	  /// <exception cref="AuthorizationException">
-	  ///          If the user has no <seealso cref="Permissions#DELETE_HISTORY"/> permission on <seealso cref="Resources#PROCESS_DEFINITION"/>. </exception>
+	  ///           For entries related to process definition keys: If the user has
+	  ///           neither <seealso cref="Permissions#DELETE_HISTORY"/> permission on
+	  ///           <seealso cref="Resources#PROCESS_DEFINITION"/> nor
+	  ///           <seealso cref="UserOperationLogCategoryPermissions#DELETE"/> permission on
+	  ///           <seealso cref="Resources#OPERATION_LOG_CATEGORY"/>. For entries not related
+	  ///           to process definition keys: If the user has no
+	  ///           <seealso cref="UserOperationLogCategoryPermissions#DELETE"/> permission on
+	  ///           <seealso cref="Resources#OPERATION_LOG_CATEGORY"/>. </exception>
 	  void deleteUserOperationLogEntry(string entryId);
 
 	  /// <summary>

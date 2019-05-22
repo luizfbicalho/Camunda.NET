@@ -353,8 +353,9 @@ namespace org.camunda.bpm.engine.test.api.authorization
 		identityService.createMembership(userId, groupId);
 	  }
 
-	  protected internal virtual T spyOnSession<T>(CommandContext commandContext, Type<T> sessionClass) where T : org.camunda.bpm.engine.impl.interceptor.Session
+	  protected internal virtual T spyOnSession<T>(CommandContext commandContext, Type sessionClass) where T : org.camunda.bpm.engine.impl.interceptor.Session
 	  {
+			  sessionClass = typeof(T);
 		T manager = commandContext.getSession(sessionClass);
 		T spy = spy(manager);
 		commandContext.Sessions[sessionClass] = spy;

@@ -389,8 +389,9 @@ namespace org.camunda.bpm.model.xml.impl.instance
 
 //JAVA TO C# CONVERTER TODO TASK: Most Java annotations will not have direct .NET equivalent attributes:
 //ORIGINAL LINE: @SuppressWarnings("unchecked") public <T extends org.camunda.bpm.model.xml.instance.ModelElementInstance> java.util.Collection<T> getChildElementsByType(Class<T> childElementClass)
-	  public virtual ICollection<T> getChildElementsByType<T>(Type<T> childElementClass) where T : org.camunda.bpm.model.xml.instance.ModelElementInstance
+	  public virtual ICollection<T> getChildElementsByType<T>(Type childElementClass) where T : org.camunda.bpm.model.xml.instance.ModelElementInstance
 	  {
+			  childElementClass = typeof(T);
 		return (ICollection<T>) getChildElementsByType(ModelInstance.Model.getType(childElementClass));
 	  }
 

@@ -31,8 +31,9 @@ namespace org.camunda.bpm.engine.impl
 	/// </summary>
 	public class DefaultArtifactFactory : ArtifactFactory
 	{
-	  public virtual T getArtifact<T>(Type<T> clazz)
+	  public virtual T getArtifact<T>(Type clazz)
 	  {
+			  clazz = typeof(T);
 		try
 		{
 		  return System.Activator.CreateInstance(clazz);

@@ -90,8 +90,9 @@ namespace org.camunda.bpm.engine.impl.db.sql
 
 //JAVA TO C# CONVERTER TODO TASK: Most Java annotations will not have direct .NET equivalent attributes:
 //ORIGINAL LINE: @SuppressWarnings("unchecked") public <T extends org.camunda.bpm.engine.impl.db.DbEntity> T selectById(Class<T> type, String id)
-	  public override T selectById<T>(Type<T> type, string id) where T : org.camunda.bpm.engine.impl.db.DbEntity
+	  public override T selectById<T>(Type type, string id) where T : org.camunda.bpm.engine.impl.db.DbEntity
 	  {
+			  type = typeof(T);
 		string selectStatement = dbSqlSessionFactory.getSelectStatement(type);
 		selectStatement = dbSqlSessionFactory.mapStatement(selectStatement);
 		ensureNotNull("no select statement for " + type + " in the ibatis mapping files", "selectStatement", selectStatement);

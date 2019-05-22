@@ -88,7 +88,7 @@ namespace org.camunda.bpm.engine.runtime
 
 	  /// <summary>
 	  /// <para>Correlate the message such that a process definition with the given id is selected.
-	  /// Is only supported for <seealso cref="#correlateStartMessage()"/>.</para>
+	  /// Is only supported for <seealso cref="#correlateStartMessage()"/> or <seealso cref="#startMessageOnly()"/> flag.</para>
 	  /// </summary>
 	  /// <param name="processDefinitionId"> the id of the process definition to correlate on. </param>
 	  /// <returns> the builder </returns>
@@ -150,6 +150,12 @@ namespace org.camunda.bpm.engine.runtime
 	  /// </summary>
 	  /// <returns> the builder </returns>
 	  MessageCorrelationBuilder withoutTenantId();
+
+	  /// <summary>
+	  /// Specify that only start message can be correlated.
+	  /// </summary>
+	  /// <returns> the builder </returns>
+	  MessageCorrelationBuilder startMessageOnly();
 
 	  /// <summary>
 	  /// Executes the message correlation.

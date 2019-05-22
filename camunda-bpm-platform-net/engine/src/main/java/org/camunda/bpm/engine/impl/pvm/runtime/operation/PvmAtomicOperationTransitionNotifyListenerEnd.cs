@@ -73,6 +73,11 @@ namespace org.camunda.bpm.engine.impl.pvm.runtime.operation
 			return "transition-notify-listener-end";
 		  }
 	  }
+
+	  public override bool shouldHandleFailureAsBpmnError()
+	  {
+		return true;
+	  }
 	}
 
 }

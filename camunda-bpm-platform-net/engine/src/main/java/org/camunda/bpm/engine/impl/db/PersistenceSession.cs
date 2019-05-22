@@ -40,7 +40,7 @@ namespace org.camunda.bpm.engine.impl.db
 //ORIGINAL LINE: java.util.List<?> selectList(String statement, Object parameter);
 	  IList<object> selectList(string statement, object parameter);
 
-	  T selectById<T>(Type<T> type, string id);
+	  T selectById<T>(Type type, string id);
 
 	  object selectOne(string statement, object parameter);
 

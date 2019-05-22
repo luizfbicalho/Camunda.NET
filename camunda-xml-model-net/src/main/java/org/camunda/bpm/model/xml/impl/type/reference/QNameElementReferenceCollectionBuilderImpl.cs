@@ -27,8 +27,10 @@ namespace org.camunda.bpm.model.xml.impl.type.reference
 	public class QNameElementReferenceCollectionBuilderImpl<Target, Source> : ElementReferenceCollectionBuilderImpl<Target, Source> where Target : org.camunda.bpm.model.xml.instance.ModelElementInstance where Source : org.camunda.bpm.model.xml.instance.ModelElementInstance
 	{
 
-	  public QNameElementReferenceCollectionBuilderImpl(Type<Source> childElementType, Type<Target> referenceTargetClass, ChildElementCollectionImpl<Source> collection) : base(childElementType, referenceTargetClass, collection)
+	  public QNameElementReferenceCollectionBuilderImpl(Type childElementType, Type referenceTargetClass, ChildElementCollectionImpl<Source> collection)
 	  {
+			  referenceTargetClass = typeof(Target);
+		base(childElementType, referenceTargetClass, collection);
 		this.elementReferenceCollectionImpl = new QNameElementReferenceCollectionImpl<Target, Source>(collection);
 	  }
 

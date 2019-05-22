@@ -86,8 +86,9 @@ namespace org.camunda.bpm.model.xml.impl.util
 	  /// <param name="type"> the class to create a new instance of </param>
 	  /// <param name="parameters"> the parameters to pass to the constructor </param>
 	  /// <returns> the created instance </returns>
-	  public static T createInstance<T>(Type<T> type, params object[] parameters)
+	  public static T createInstance<T>(Type type, params object[] parameters)
 	  {
+			  type = typeof(T);
 
 		// get types for parameters
 		Type[] parameterTypes = new Type[parameters.Length];

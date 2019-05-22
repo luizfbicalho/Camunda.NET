@@ -128,13 +128,15 @@ namespace org.camunda.bpm.model.bpmn.builder
 		return myself;
 	  }
 
-	  private T createTarget<T>(Type<T> typeClass) where T : FlowNode
+	  private T createTarget<T>(Type typeClass) where T : FlowNode
 	  {
+			  typeClass = typeof(T);
 		return createTarget(typeClass, null);
 	  }
 
-	  protected internal virtual T createTarget<T>(Type<T> typeClass, string identifier) where T : FlowNode
+	  protected internal virtual T createTarget<T>(Type typeClass, string identifier) where T : FlowNode
 	  {
+			  typeClass = typeof(T);
 		T target = createSibling(typeClass, identifier);
 
 		BpmnShape targetBpmnShape = createBpmnShape(target);
@@ -144,15 +146,17 @@ namespace org.camunda.bpm.model.bpmn.builder
 		return target;
 	  }
 
-	  protected internal virtual T createTargetBuilder<T, F>(Type<F> typeClass) where T : AbstractFlowNodeBuilder where F : FlowNode
+	  protected internal virtual T createTargetBuilder<T, F>(Type typeClass) where T : AbstractFlowNodeBuilder where F : FlowNode
 	  {
+			  typeClass = typeof(F);
 		return createTargetBuilder(typeClass, null);
 	  }
 
 //JAVA TO C# CONVERTER TODO TASK: Most Java annotations will not have direct .NET equivalent attributes:
 //ORIGINAL LINE: @SuppressWarnings("unchecked") protected <T extends AbstractFlowNodeBuilder, F extends FlowNode> T createTargetBuilder(Class<F> typeClass, String id)
-	  protected internal virtual T createTargetBuilder<T, F>(Type<F> typeClass, string id) where T : AbstractFlowNodeBuilder where F : FlowNode
+	  protected internal virtual T createTargetBuilder<T, F>(Type typeClass, string id) where T : AbstractFlowNodeBuilder where F : FlowNode
 	  {
+			  typeClass = typeof(F);
 		AbstractFlowNodeBuilder builder = createTarget(typeClass, id).builder();
 
 		if (compensationStarted)

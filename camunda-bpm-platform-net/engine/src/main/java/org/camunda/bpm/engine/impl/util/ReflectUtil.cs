@@ -215,8 +215,9 @@ namespace org.camunda.bpm.engine.impl.util
 		}
 	  }
 
-	  public static T instantiate<T>(Type<T> type)
+	  public static T instantiate<T>(Type type)
 	  {
+			  type = typeof(T);
 		try
 		{
 		  return System.Activator.CreateInstance(type);
@@ -413,8 +414,9 @@ namespace org.camunda.bpm.engine.impl.util
 
 //JAVA TO C# CONVERTER TODO TASK: Most Java annotations will not have direct .NET equivalent attributes:
 //ORIGINAL LINE: @SuppressWarnings({ "unchecked", "rawtypes" }) private static <T> Constructor<T> findMatchingConstructor(Class<T> clazz, Object[] args)
-	  private static System.Reflection.ConstructorInfo<T> findMatchingConstructor<T>(Type<T> clazz, object[] args)
+	  private static System.Reflection.ConstructorInfo<T> findMatchingConstructor<T>(Type clazz, object[] args)
 	  {
+			  clazz = typeof(T);
 		foreach (System.Reflection.ConstructorInfo constructor in clazz.GetConstructors(BindingFlags.DeclaredOnly | BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.Static | BindingFlags.Instance))
 		{ // cannot use <?> or <T> due to JDK 5/6 incompatibility
 		  if (matches(constructor.ParameterTypes, args))

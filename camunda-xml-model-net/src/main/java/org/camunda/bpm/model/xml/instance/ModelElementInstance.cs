@@ -211,7 +211,7 @@ namespace org.camunda.bpm.model.xml.instance
 	  /// </summary>
 	  /// <param name="childElementClass">  the class of the child element type to search for </param>
 	  /// <returns> a collection of elements to the given type </returns>
-	  ICollection<T> getChildElementsByType<T>(Type<T> childElementClass);
+	  ICollection<T> getChildElementsByType<T>(Type childElementClass);
 
 	  /// <summary>
 	  /// Inserts the new element after the given element or at the beginning if the given element is null.

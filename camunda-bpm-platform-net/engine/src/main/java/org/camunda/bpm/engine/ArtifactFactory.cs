@@ -41,7 +41,7 @@ namespace org.camunda.bpm.engine
 	  /// 
 	  /// <param name="clazz"> of the artifact to create </param>
 	  /// <returns> the instance of the fullyQualifiedClassName </returns>
-	  T getArtifact<T>(Type<T> clazz);
+	  T getArtifact<T>(Type clazz);
 
 	}
 

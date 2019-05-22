@@ -30,8 +30,9 @@ namespace org.camunda.bpm.engine.cdi
 
 	  private ArtifactFactory defaultArtifactFactory = new DefaultArtifactFactory();
 
-	  public virtual T getArtifact<T>(Type<T> clazz)
+	  public virtual T getArtifact<T>(Type clazz)
 	  {
+			  clazz = typeof(T);
 		T instance = ProgrammaticBeanLookup.lookup(clazz, true);
 
 		if (instance == null)

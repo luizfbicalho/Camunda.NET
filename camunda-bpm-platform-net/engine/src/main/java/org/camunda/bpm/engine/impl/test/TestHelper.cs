@@ -254,8 +254,9 @@ namespace org.camunda.bpm.engine.impl.test
 		}
 	  }
 
-	  private static T getAnnotation<T>(ProcessEngine processEngine, Type testClass, string methodName, Type<T> annotationClass) where T : Annotation
+	  private static T getAnnotation<T>(ProcessEngine processEngine, Type testClass, string methodName, Type annotationClass) where T : Annotation
 	  {
+			  annotationClass = typeof(T);
 		System.Reflection.MethodInfo method = null;
 		T annotation = null;
 

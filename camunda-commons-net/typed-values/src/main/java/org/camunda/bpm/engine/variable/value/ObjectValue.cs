@@ -52,7 +52,7 @@ namespace org.camunda.bpm.engine.variable.value
 	  /// <param name="type"> the java class the value should be cast to </param>
 	  /// <returns> the object represented by this TypedValue. </returns>
 	  /// <exception cref="IllegalStateException"> in case the object is not deserialized. See <seealso cref="#isDeserialized()"/>. </exception>
-	  T getValue<T>(Type<T> type);
+	  T getValue<T>(Type type);
 
 	  /// <summary>
 	  /// Returns the Class this object is an instance of.

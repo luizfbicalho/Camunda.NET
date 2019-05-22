@@ -57,8 +57,9 @@ namespace org.camunda.bpm.engine.rest.mapper
 
 //JAVA TO C# CONVERTER WARNING: Method 'throws' clauses are not available in .NET:
 //ORIGINAL LINE: public MultipartFormData readFrom(Class<MultipartFormData> type, Type genericType, Annotation[] annotations, javax.ws.rs.core.MediaType mediaType, javax.ws.rs.core.MultivaluedMap<String, String> httpHeaders, java.io.InputStream entityStream) throws java.io.IOException, javax.ws.rs.WebApplicationException
-	  public virtual MultipartFormData readFrom(Type<MultipartFormData> type, Type genericType, Annotation[] annotations, MediaType mediaType, MultivaluedMap<string, string> httpHeaders, Stream entityStream)
+	  public virtual MultipartFormData readFrom(Type type, Type genericType, Annotation[] annotations, MediaType mediaType, MultivaluedMap<string, string> httpHeaders, Stream entityStream)
 	  {
+			  type = typeof(MultipartFormData);
 
 //JAVA TO C# CONVERTER WARNING: The original Java variable was marked 'final':
 //ORIGINAL LINE: final MultipartFormData multipartFormData = createMultipartFormDataInstance();

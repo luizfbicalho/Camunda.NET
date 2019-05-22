@@ -17,7 +17,6 @@
 namespace org.camunda.bpm.engine.impl.pvm.runtime.operation
 {
 	using ExecutionListener = org.camunda.bpm.engine.@delegate.ExecutionListener;
-	using ExecutionEntity = org.camunda.bpm.engine.impl.persistence.entity.ExecutionEntity;
 	using ScopeImpl = org.camunda.bpm.engine.impl.pvm.process.ScopeImpl;
 
 
@@ -62,6 +61,10 @@ namespace org.camunda.bpm.engine.impl.pvm.runtime.operation
 		  }
 	  }
 
+	  public override bool shouldHandleFailureAsBpmnError()
+	  {
+		return true;
+	  }
 	}
 
 }

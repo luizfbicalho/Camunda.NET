@@ -1,5 +1,5 @@
 ﻿using System;
-using org.camunda.bpm.model.xml.type.reference;
+
 /*
  * Copyright Camunda Services GmbH and/or licensed to Camunda Services GmbH
  * under one or more contributor license agreements. See the NOTICE file
@@ -19,9 +19,9 @@ using org.camunda.bpm.model.xml.type.reference;
 namespace org.camunda.bpm.model.xml.type.attribute
 {
 	using ModelElementInstance = org.camunda.bpm.model.xml.instance.ModelElementInstance;
-	//using AttributeReferenceBuilder = org.camunda.bpm.model.xml.type.reference.AttributeReferenceBuilder;
-	//using AttributeReferenceCollection = org.camunda.bpm.model.xml.type.reference.AttributeReferenceCollection;
-	//using AttributeReferenceCollectionBuilder = org.camunda.bpm.model.xml.type.reference.AttributeReferenceCollectionBuilder;
+	using AttributeReferenceBuilder = org.camunda.bpm.model.xml.type.reference.AttributeReferenceBuilder;
+	using AttributeReferenceCollection = org.camunda.bpm.model.xml.type.reference.AttributeReferenceCollection;
+	using AttributeReferenceCollectionBuilder = org.camunda.bpm.model.xml.type.reference.AttributeReferenceCollectionBuilder;
 
 	/// <summary>
 	/// @author Sebastian Menski
@@ -38,13 +38,13 @@ namespace org.camunda.bpm.model.xml.type.attribute
 
 	  StringAttributeBuilder idAttribute();
 
-	  AttributeReferenceBuilder<V> qNameAttributeReference<V>(Type<V> referenceTargetElement);
+	  AttributeReferenceBuilder<V> qNameAttributeReference<V>(Type referenceTargetElement);
 
-	  AttributeReferenceBuilder<V> idAttributeReference<V>(Type<V> referenceTargetElement);
+	  AttributeReferenceBuilder<V> idAttributeReference<V>(Type referenceTargetElement);
 
 //JAVA TO C# CONVERTER TODO TASK: Most Java annotations will not have direct .NET equivalent attributes:
 //ORIGINAL LINE: @SuppressWarnings("rawtypes") <V extends org.camunda.bpm.model.xml.instance.ModelElementInstance> org.camunda.bpm.model.xml.type.reference.AttributeReferenceCollectionBuilder<V> idAttributeReferenceCollection(Class<V> referenceTargetElement, Class attributeReferenceCollection);
-	  AttributeReferenceCollectionBuilder<V> idAttributeReferenceCollection<V>(Type<V> referenceTargetElement, Type attributeReferenceCollection);
+	  AttributeReferenceCollectionBuilder<V> idAttributeReferenceCollection<V>(Type referenceTargetElement, Type attributeReferenceCollection);
 
 	}
 

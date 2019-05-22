@@ -55,7 +55,7 @@ namespace org.camunda.bpm.model.xml
 	  /// <param name="type">  the class of the type to create </param>
 	  /// @param <T>   instance type </param>
 	  /// <returns> the new created instance </returns>
-	  T newInstance<T>(Type<T> type);
+	  T newInstance<T>(Type type);
 
 	  /// <summary>
 	  /// Creates a new instance of type class with user-defined id.
@@ -64,7 +64,7 @@ namespace org.camunda.bpm.model.xml
 	  /// <param name="id">    identifier of new element instance </param>
 	  /// @param <T>   instance type </param>
 	  /// <returns> the new created instance </returns>
-	  T newInstance<T>(Type<T> type, string id);
+	  T newInstance<T>(Type type, string id);
 
 	  /// <summary>
 	  /// Creates a new instance of type.
@@ -108,7 +108,7 @@ namespace org.camunda.bpm.model.xml
 	  /// </summary>
 	  /// <param name="referencingClass">  the type class of the elements </param>
 	  /// <returns> the collection of elements of the type </returns>
-	  ICollection<T> getModelElementsByType<T>(Type<T> referencingClass);
+	  ICollection<T> getModelElementsByType<T>(Type referencingClass);
 
 	  /// <summary>
 	  /// Copies the model instance but not the model. So only the wrapped DOM document is cloned.

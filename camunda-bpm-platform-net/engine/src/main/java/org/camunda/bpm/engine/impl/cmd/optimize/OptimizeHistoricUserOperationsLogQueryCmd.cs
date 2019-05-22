@@ -19,18 +19,13 @@ using System.Collections.Generic;
  */
 namespace org.camunda.bpm.engine.impl.cmd.optimize
 {
-	using HistoricVariableUpdate = org.camunda.bpm.engine.history.HistoricVariableUpdate;
 	using UserOperationLogEntry = org.camunda.bpm.engine.history.UserOperationLogEntry;
 	using Command = org.camunda.bpm.engine.impl.interceptor.Command;
 	using CommandContext = org.camunda.bpm.engine.impl.interceptor.CommandContext;
-	using HistoricDetailVariableInstanceUpdateEntity = org.camunda.bpm.engine.impl.persistence.entity.HistoricDetailVariableInstanceUpdateEntity;
-	using AbstractTypedValueSerializer = org.camunda.bpm.engine.impl.variable.serializer.AbstractTypedValueSerializer;
 
 
 	public class OptimizeHistoricUserOperationsLogQueryCmd : Command<IList<UserOperationLogEntry>>
 	{
-
-	  private static readonly CommandLogger LOG = ProcessEngineLogger.CMD_LOGGER;
 
 	  protected internal DateTime occurredAfter;
 	  protected internal DateTime occurredAt;

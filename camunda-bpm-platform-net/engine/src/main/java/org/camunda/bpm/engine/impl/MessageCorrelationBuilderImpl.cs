@@ -24,7 +24,6 @@ namespace org.camunda.bpm.engine.impl
 	using CommandLogger = org.camunda.bpm.engine.impl.cmd.CommandLogger;
 	using CorrelateAllMessageCmd = org.camunda.bpm.engine.impl.cmd.CorrelateAllMessageCmd;
 	using CorrelateMessageCmd = org.camunda.bpm.engine.impl.cmd.CorrelateMessageCmd;
-	using CorrelateStartMessageCmd = org.camunda.bpm.engine.impl.cmd.CorrelateStartMessageCmd;
 	using Command = org.camunda.bpm.engine.impl.interceptor.Command;
 	using CommandContext = org.camunda.bpm.engine.impl.interceptor.CommandContext;
 	using CommandExecutor = org.camunda.bpm.engine.impl.interceptor.CommandExecutor;
@@ -65,6 +64,8 @@ namespace org.camunda.bpm.engine.impl
 //JAVA TO C# CONVERTER NOTE: Fields cannot have the same name as methods:
 	  protected internal string tenantId_Renamed = null;
 	  protected internal bool isTenantIdSet = false;
+
+	  protected internal bool startMessagesOnly = false;
 
 	  public MessageCorrelationBuilderImpl(CommandExecutor commandExecutor, string messageName) : this(messageName)
 	  {
@@ -224,6 +225,12 @@ namespace org.camunda.bpm.engine.impl
 		return this;
 	  }
 
+	  public virtual MessageCorrelationBuilder startMessageOnly()
+	  {
+		startMessagesOnly = true;
+		return this;
+	  }
+
 	  public virtual void correlate()
 	  {
 		correlateWithResult();
@@ -231,18 +238,32 @@ namespace org.camunda.bpm.engine.impl
 
 	  public virtual MessageCorrelationResult correlateWithResult()
 	  {
-		ensureProcessDefinitionIdNotSet();
-		ensureProcessInstanceAndTenantIdNotSet();
-
-		return execute(new CorrelateMessageCmd(this, false, false));
+		if (startMessagesOnly)
+		{
+		  ensureCorrelationVariablesNotSet();
+		  ensureProcessDefinitionAndTenantIdNotSet();
+		}
+		else
+		{
+		  ensureProcessDefinitionIdNotSet();
+		  ensureProcessInstanceAndTenantIdNotSet();
+		}
+		return execute(new CorrelateMessageCmd(this, false, false, startMessagesOnly));
 	  }
 
 	  public virtual MessageCorrelationResultWithVariables correlateWithResultAndVariables(bool deserializeValues)
 	  {
-		ensureProcessDefinitionIdNotSet();
-		ensureProcessInstanceAndTenantIdNotSet();
-
-		return execute(new CorrelateMessageCmd(this, true, deserializeValues));
+		if (startMessagesOnly)
+		{
+		  ensureCorrelationVariablesNotSet();
+		  ensureProcessDefinitionAndTenantIdNotSet();
+		}
+		else
+		{
+		  ensureProcessDefinitionIdNotSet();
+		  ensureProcessInstanceAndTenantIdNotSet();
+		}
+		return execute(new CorrelateMessageCmd(this, true, deserializeValues, startMessagesOnly));
 	  }
 
 	  public virtual void correlateExclusively()
@@ -259,26 +280,45 @@ namespace org.camunda.bpm.engine.impl
 
 	  public virtual IList<MessageCorrelationResult> correlateAllWithResult()
 	  {
-		ensureProcessDefinitionIdNotSet();
-		ensureProcessInstanceAndTenantIdNotSet();
-
-		return (System.Collections.IList) execute(new CorrelateAllMessageCmd(this, false, false));
+		if (startMessagesOnly)
+		{
+		  ensureCorrelationVariablesNotSet();
+		  ensureProcessDefinitionAndTenantIdNotSet();
+		  // only one result can be expected
+		  MessageCorrelationResult result = execute(new CorrelateMessageCmd(this, false, false, startMessagesOnly));
+		  return Arrays.asList(result);
+		}
+		else
+		{
+		  ensureProcessDefinitionIdNotSet();
+		  ensureProcessInstanceAndTenantIdNotSet();
+		  return (System.Collections.IList) execute(new CorrelateAllMessageCmd(this, false, false));
+		}
 	  }
 
 	  public virtual IList<MessageCorrelationResultWithVariables> correlateAllWithResultAndVariables(bool deserializeValues)
 	  {
-		ensureProcessDefinitionIdNotSet();
-		ensureProcessInstanceAndTenantIdNotSet();
-
-		return (System.Collections.IList) execute(new CorrelateAllMessageCmd(this, true, deserializeValues));
+		if (startMessagesOnly)
+		{
+		  ensureCorrelationVariablesNotSet();
+		  ensureProcessDefinitionAndTenantIdNotSet();
+		  // only one result can be expected
+		  MessageCorrelationResultWithVariables result = execute(new CorrelateMessageCmd(this, true, deserializeValues, startMessagesOnly));
+		  return Arrays.asList(result);
+		}
+		else
+		{
+		  ensureProcessDefinitionIdNotSet();
+		  ensureProcessInstanceAndTenantIdNotSet();
+		  return (System.Collections.IList) execute(new CorrelateAllMessageCmd(this, true, deserializeValues));
+		}
 	  }
 
 	  public virtual ProcessInstance correlateStartMessage()
 	  {
-		ensureCorrelationVariablesNotSet();
-		ensureProcessDefinitionAndTenantIdNotSet();
-
-		return execute(new CorrelateStartMessageCmd(this));
+		startMessageOnly();
+		MessageCorrelationResult result = correlateWithResult();
+		return result.ProcessInstance;
 	  }
 
 	  protected internal virtual void ensureProcessDefinitionIdNotSet()

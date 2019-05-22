@@ -2098,8 +2098,9 @@ namespace org.camunda.bpm.model.bpmn.builder
 
 //JAVA TO C# CONVERTER TODO TASK: Most Java annotations will not have direct .NET equivalent attributes:
 //ORIGINAL LINE: @SuppressWarnings("unchecked") protected <T extends EventDefinition> T assertAndGetSingleEventDefinition(String elementId, Class<T> eventDefinitionType)
-	  protected internal virtual T assertAndGetSingleEventDefinition<T>(string elementId, Type<T> eventDefinitionType) where T : EventDefinition
+	  protected internal virtual T assertAndGetSingleEventDefinition<T>(string elementId, Type eventDefinitionType) where T : EventDefinition
 	  {
+			  eventDefinitionType = typeof(T);
 		BpmnModelElementInstance element = modelInstance.getModelElementById(elementId);
 		assertThat(element).NotNull;
 		ICollection<EventDefinition> eventDefinitions = element.getChildElementsByType(typeof(EventDefinition));

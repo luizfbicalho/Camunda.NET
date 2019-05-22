@@ -151,8 +151,9 @@ namespace org.camunda.bpm.engine.spring.components.aop
 
 //JAVA TO C# CONVERTER TODO TASK: Most Java annotations will not have direct .NET equivalent attributes:
 //ORIGINAL LINE: @SuppressWarnings("unchecked") private <K extends Annotation, V> java.util.Map<K, V> mapOfAnnotationValues(Class<K> annotationType, org.aopalliance.intercept.MethodInvocation invocation)
-		private IDictionary<K, V> mapOfAnnotationValues<K, V>(Type<K> annotationType, MethodInvocation invocation) where K : Annotation
+		private IDictionary<K, V> mapOfAnnotationValues<K, V>(Type annotationType, MethodInvocation invocation) where K : Annotation
 		{
+				annotationType = typeof(K);
 			System.Reflection.MethodInfo method = invocation.Method;
 			Annotation[][] annotations = method.ParameterAnnotations;
 			IDictionary<K, V> vars = new Dictionary<K, V>();

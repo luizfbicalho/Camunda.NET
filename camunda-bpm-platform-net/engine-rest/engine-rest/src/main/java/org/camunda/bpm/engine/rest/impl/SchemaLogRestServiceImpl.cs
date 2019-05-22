@@ -22,7 +22,7 @@ namespace org.camunda.bpm.engine.rest.impl
 
 	using SchemaLogEntry = org.camunda.bpm.engine.management.SchemaLogEntry;
 	using SchemaLogQuery = org.camunda.bpm.engine.management.SchemaLogQuery;
-	using SchemaLogDto = org.camunda.bpm.engine.rest.dto.SchemaLogDto;
+	using SchemaLogEntryDto = org.camunda.bpm.engine.rest.dto.SchemaLogEntryDto;
 	using SchemaLogQueryDto = org.camunda.bpm.engine.rest.dto.SchemaLogQueryDto;
 	using ObjectMapper = com.fasterxml.jackson.databind.ObjectMapper;
 
@@ -37,12 +37,12 @@ namespace org.camunda.bpm.engine.rest.impl
 	  {
 	  }
 
-	  public virtual SchemaLogDto getSchemaLog(Request request, UriInfo uriInfo, int? firstResult, int? maxResults)
+	  public virtual IList<SchemaLogEntryDto> getSchemaLog(Request request, UriInfo uriInfo, int? firstResult, int? maxResults)
 	  {
 		return querySchemaLog(new SchemaLogQueryDto(ObjectMapper, uriInfo.QueryParameters), firstResult, maxResults);
 	  }
 
-	  public virtual SchemaLogDto querySchemaLog(SchemaLogQueryDto dto, int? firstResult, int? maxResults)
+	  public virtual IList<SchemaLogEntryDto> querySchemaLog(SchemaLogQueryDto dto, int? firstResult, int? maxResults)
 	  {
 		SchemaLogQuery query = dto.toQuery(processEngine);
 		IList<SchemaLogEntry> schemaLogEntries;
@@ -54,7 +54,7 @@ namespace org.camunda.bpm.engine.rest.impl
 		{
 		  schemaLogEntries = query.list();
 		}
-		return SchemaLogDto.fromSchemaLogEntries(schemaLogEntries);
+		return SchemaLogEntryDto.fromSchemaLogEntries(schemaLogEntries);
 	  }
 
 	  protected internal virtual IList<SchemaLogEntry> executePaginatedQuery(SchemaLogQuery query, int? firstResult, int? maxResults)

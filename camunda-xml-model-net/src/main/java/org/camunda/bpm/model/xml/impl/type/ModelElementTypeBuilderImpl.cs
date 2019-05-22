@@ -96,15 +96,17 @@ namespace org.camunda.bpm.model.xml.impl.type
 		return builder;
 	  }
 
-	  public virtual AttributeBuilder<V> enumAttribute<V>(string attributeName, Type<V> enumType) where V : Enum<V>
+	  public virtual AttributeBuilder<V> enumAttribute<V>(string attributeName, Type enumType) where V : Enum<V>
 	  {
+			  enumType = typeof(V);
 		EnumAttributeBuilder<V> builder = new EnumAttributeBuilder<V>(attributeName, modelType, enumType);
 		modelBuildOperations.Add(builder);
 		return builder;
 	  }
 
-	  public virtual AttributeBuilder<V> namedEnumAttribute<V>(string attributeName, Type<V> enumType) where V : Enum<V>
+	  public virtual AttributeBuilder<V> namedEnumAttribute<V>(string attributeName, Type enumType) where V : Enum<V>
 	  {
+			  enumType = typeof(V);
 		NamedEnumAttributeBuilder<V> builder = new NamedEnumAttributeBuilder<V>(attributeName, modelType, enumType);
 		modelBuildOperations.Add(builder);
 		return builder;

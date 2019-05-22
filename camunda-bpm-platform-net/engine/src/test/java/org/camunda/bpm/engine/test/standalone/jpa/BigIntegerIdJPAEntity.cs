@@ -1,4 +1,6 @@
-﻿/*
+﻿using System.Numerics;
+
+/*
  * Copyright Camunda Services GmbH and/or licensed to Camunda Services GmbH
  * under one or more contributor license agreements. See the NOTICE file
  * distributed with this work for additional information regarding copyright
@@ -27,9 +29,9 @@ namespace org.camunda.bpm.engine.test.standalone.jpa
 	{
 //JAVA TO C# CONVERTER TODO TASK: Most Java annotations will not have direct .NET equivalent attributes:
 //ORIGINAL LINE: @Id @Column(name = "ID_") private java.math.BigInteger bigIntegerId;
-		private System.Numerics.BigInteger bigIntegerId;
+		private BigInteger bigIntegerId;
 
-	  public virtual System.Numerics.BigInteger BigIntegerId
+	  public virtual BigInteger BigIntegerId
 	  {
 		  get
 		  {

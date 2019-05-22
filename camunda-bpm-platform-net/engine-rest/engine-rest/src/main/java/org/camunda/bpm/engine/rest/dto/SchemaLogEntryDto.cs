@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 /*
  * Copyright Camunda Services GmbH and/or licensed to Camunda Services GmbH
@@ -19,6 +20,8 @@
 namespace org.camunda.bpm.engine.rest.dto
 {
 
+	using SchemaLogEntry = org.camunda.bpm.engine.management.SchemaLogEntry;
+
 	/// <summary>
 	/// @author Miklas Boskamp
 	/// 
@@ -29,6 +32,16 @@ namespace org.camunda.bpm.engine.rest.dto
 	  private string id;
 	  private DateTime timestamp;
 	  private string version;
+
+	  public static IList<SchemaLogEntryDto> fromSchemaLogEntries(IList<SchemaLogEntry> entries)
+	  {
+		IList<SchemaLogEntryDto> dtos = new List<SchemaLogEntryDto>();
+		foreach (SchemaLogEntry entry in entries)
+		{
+		  dtos.Add(new SchemaLogEntryDto(entry.Id, entry.Timestamp, entry.Version));
+		}
+		return dtos;
+	  }
 
 	  public SchemaLogEntryDto(string id, DateTime timestamp, string version)
 	  {

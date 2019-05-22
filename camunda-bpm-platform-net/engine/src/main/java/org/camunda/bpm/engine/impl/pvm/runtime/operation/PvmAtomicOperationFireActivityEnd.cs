@@ -54,6 +54,10 @@ namespace org.camunda.bpm.engine.impl.pvm.runtime.operation
 		// nothing to do
 	  }
 
+	  protected internal override bool isSkipNotifyListeners(PvmExecutionImpl execution)
+	  {
+		return execution.hasFailedOnEndListeners();
+	  }
 	}
 
 }

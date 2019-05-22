@@ -32,6 +32,7 @@ namespace org.camunda.bpm.engine.test.standalone.entity
 
 	  public virtual void testUpdateCaseDefinitionIdInTask()
 	  {
+		// given
 //JAVA TO C# CONVERTER WARNING: The original Java variable was marked 'final':
 //ORIGINAL LINE: final org.camunda.bpm.engine.impl.cmmn.entity.repository.CaseDefinitionEntity caseDefinitionEntity1 = prepareCaseDefinition(java.util.UUID.randomUUID().toString());
 		CaseDefinitionEntity caseDefinitionEntity1 = prepareCaseDefinition(System.Guid.randomUUID().ToString());
@@ -55,11 +56,13 @@ namespace org.camunda.bpm.engine.test.standalone.entity
 
 		task.CaseDefinitionId = caseDefinitionEntity2.Id;
 
+		// when
 		update(task);
 //JAVA TO C# CONVERTER WARNING: The original Java variable was marked 'final':
 //ORIGINAL LINE: final org.camunda.bpm.engine.impl.persistence.entity.TaskEntity updatedTask = findTask(task.getId());
 		TaskEntity updatedTask = findTask(task.Id);
 
+		// then
 		assertThat(updatedTask.CaseDefinitionId).isEqualTo(caseDefinitionEntity2.Id);
 
 		deleteTask(updatedTask);
@@ -69,6 +72,7 @@ namespace org.camunda.bpm.engine.test.standalone.entity
 
 	  public virtual void testUpdateCaseDefinitionIdInCaseExecutionEntity()
 	  {
+		// given
 //JAVA TO C# CONVERTER WARNING: The original Java variable was marked 'final':
 //ORIGINAL LINE: final org.camunda.bpm.engine.impl.cmmn.entity.repository.CaseDefinitionEntity caseDefinitionEntity1 = prepareCaseDefinition(java.util.UUID.randomUUID().toString());
 		CaseDefinitionEntity caseDefinitionEntity1 = prepareCaseDefinition(System.Guid.randomUUID().ToString());
@@ -93,8 +97,10 @@ namespace org.camunda.bpm.engine.test.standalone.entity
 
 		assertThat(createdCaseExecution.CaseDefinitionId).isEqualTo(caseDefinitionEntity2.Id);
 
+		// when
 		update(createdCaseExecution);
 
+		// then
 //JAVA TO C# CONVERTER WARNING: The original Java variable was marked 'final':
 //ORIGINAL LINE: final org.camunda.bpm.engine.impl.cmmn.entity.runtime.CaseExecutionEntity updatedCaseExecution = findCaseExecution(createdCaseExecution.getId());
 		CaseExecutionEntity updatedCaseExecution = findCaseExecution(createdCaseExecution.Id);

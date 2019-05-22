@@ -37,8 +37,9 @@ namespace org.camunda.bpm.model.xml.impl.type.reference
 
 //JAVA TO C# CONVERTER TODO TASK: Most Java annotations will not have direct .NET equivalent attributes:
 //ORIGINAL LINE: @SuppressWarnings({ "unchecked", "rawtypes" }) public AttributeReferenceCollectionBuilderImpl(org.camunda.bpm.model.xml.impl.type.attribute.AttributeImpl<String> attribute, Class<T> referenceTargetElement, Class attributeReferenceCollection)
-	  public AttributeReferenceCollectionBuilderImpl(AttributeImpl<string> attribute, Type<T> referenceTargetElement, Type attributeReferenceCollection)
+	  public AttributeReferenceCollectionBuilderImpl(AttributeImpl<string> attribute, Type referenceTargetElement, Type attributeReferenceCollection)
 	  {
+			  referenceTargetElement = typeof(T);
 		this.referenceSourceAttribute = attribute;
 		this.referenceTargetElement = referenceTargetElement;
 		try

@@ -42,6 +42,10 @@ namespace org.camunda.bpm.qa.upgrade
 	using MeterLogTimestampScenario = org.camunda.bpm.qa.upgrade.timestamp.MeterLogTimestampScenario;
 	using TaskCreateTimeScenario = org.camunda.bpm.qa.upgrade.timestamp.TaskCreateTimeScenario;
 	using UserLockExpTimeScenario = org.camunda.bpm.qa.upgrade.timestamp.UserLockExpTimeScenario;
+	using CreateStandaloneTaskDeleteScenario = org.camunda.bpm.qa.upgrade.useroperationlog.CreateStandaloneTaskDeleteScenario;
+	using CreateStandaloneTaskScenario = org.camunda.bpm.qa.upgrade.useroperationlog.CreateStandaloneTaskScenario;
+	using SetAssigneeProcessInstanceTaskScenario = org.camunda.bpm.qa.upgrade.useroperationlog.SetAssigneeProcessInstanceTaskScenario;
+	using SuspendProcessDefinitionDeleteScenario = org.camunda.bpm.qa.upgrade.useroperationlog.SuspendProcessDefinitionDeleteScenario;
 
 	/// <summary>
 	/// @author Tassilo Weidner
@@ -86,6 +90,10 @@ namespace org.camunda.bpm.qa.upgrade
 		runner.setupScenarios(typeof(EventSubscriptionCreateTimeScenario));
 		runner.setupScenarios(typeof(MeterLogTimestampScenario));
 		runner.setupScenarios(typeof(UserLockExpTimeScenario));
+		runner.setupScenarios(typeof(CreateStandaloneTaskScenario));
+		runner.setupScenarios(typeof(SetAssigneeProcessInstanceTaskScenario));
+		runner.setupScenarios(typeof(CreateStandaloneTaskDeleteScenario));
+		runner.setupScenarios(typeof(SuspendProcessDefinitionDeleteScenario));
 
 		processEngine.close();
 	  }

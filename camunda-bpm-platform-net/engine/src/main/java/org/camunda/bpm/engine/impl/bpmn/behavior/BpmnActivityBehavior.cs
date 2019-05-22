@@ -50,7 +50,7 @@ namespace org.camunda.bpm.engine.impl.bpmn.behavior
 	  /// </summary>
 	  public virtual void performDefaultOutgoingBehavior(ActivityExecution activityExceution)
 	  {
-		performOutgoingBehavior(activityExceution, true, false, null);
+		performOutgoingBehavior(activityExceution, true, null);
 	  }
 
 	  /// <summary>
@@ -65,7 +65,7 @@ namespace org.camunda.bpm.engine.impl.bpmn.behavior
 	  /// </summary>
 	  public virtual void performIgnoreConditionsOutgoingBehavior(ActivityExecution activityExecution)
 	  {
-		performOutgoingBehavior(activityExecution, false, false, null);
+		performOutgoingBehavior(activityExecution, false, null);
 	  }
 
 	  /// <summary>
@@ -76,10 +76,7 @@ namespace org.camunda.bpm.engine.impl.bpmn.behavior
 	  /// <param name="checkConditions">
 	  ///          Whether or not to check conditions before determining whether or
 	  ///          not to take a transition. </param>
-	  /// <param name="throwExceptionIfExecutionStuck">
-	  ///          If true, an <seealso cref="ProcessEngineException"/> will be thrown in case no
-	  ///          transition could be found to leave the activity. </param>
-	  protected internal virtual void performOutgoingBehavior(ActivityExecution execution, bool checkConditions, bool throwExceptionIfExecutionStuck, IList<ActivityExecution> reusableExecutions)
+	  protected internal virtual void performOutgoingBehavior(ActivityExecution execution, bool checkConditions, IList<ActivityExecution> reusableExecutions)
 	  {
 
 		LOG.leavingActivity(execution.Activity.Id);
@@ -153,13 +150,7 @@ namespace org.camunda.bpm.engine.impl.bpmn.behavior
 			{
 			  LOG.missingOutgoingSequenceFlow(execution.Activity.Id);
 			  execution.end(true);
-
-			  if (throwExceptionIfExecutionStuck)
-			  {
-				throw LOG.stuckExecutionException(execution.Activity.Id);
-			  }
 			}
-
 		  }
 		}
 	  }

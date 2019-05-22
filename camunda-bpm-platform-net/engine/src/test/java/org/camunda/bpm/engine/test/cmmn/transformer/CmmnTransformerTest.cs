@@ -84,8 +84,9 @@ namespace org.camunda.bpm.engine.test.cmmn.transformer
 		casePlanModel = createElement(caseDefinition, "aCasePlanModel", typeof(CasePlanModel));
 	  }
 
-	  protected internal virtual T createElement<T>(CmmnModelElementInstance parentElement, string id, Type<T> elementClass) where T : org.camunda.bpm.model.cmmn.instance.CmmnModelElementInstance
+	  protected internal virtual T createElement<T>(CmmnModelElementInstance parentElement, string id, Type elementClass) where T : org.camunda.bpm.model.cmmn.instance.CmmnModelElementInstance
 	  {
+			  elementClass = typeof(T);
 		T element = modelInstance.newInstance(elementClass);
 		element.setAttributeValue("id", id, true);
 		parentElement.addChildElement(element);

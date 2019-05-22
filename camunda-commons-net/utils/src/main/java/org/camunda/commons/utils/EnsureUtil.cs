@@ -50,8 +50,9 @@ namespace org.camunda.commons.utils
 	  /// <exception cref="IllegalArgumentException"> in case object cannot be casted to type </exception>
 //JAVA TO C# CONVERTER TODO TASK: Most Java annotations will not have direct .NET equivalent attributes:
 //ORIGINAL LINE: @SuppressWarnings("unchecked") public static <T> T ensureParamInstanceOf(String objectName, Object object, Class<T> type)
-	  public static T ensureParamInstanceOf<T>(string objectName, object @object, Type<T> type)
+	  public static T ensureParamInstanceOf<T>(string objectName, object @object, Type type)
 	  {
+			  type = typeof(T);
 		if (type.IsAssignableFrom(@object.GetType()))
 		{
 		  return (T) @object;

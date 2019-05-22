@@ -81,8 +81,9 @@ namespace org.camunda.bpm.engine.impl.db
 		return message.ToString();
 	  }
 
-	  public virtual ProcessEngineException entityCacheLookupException<T>(Type<T> type, string id, Type entity, Exception cause) where T : DbEntity
+	  public virtual ProcessEngineException entityCacheLookupException<T>(Type type, string id, Type entity, Exception cause) where T : DbEntity
 	  {
+			  type = typeof(T);
 		return new ProcessEngineException(exceptionMessage("001", "Could not lookup entity of type '{}' and id '{}': found entity of type '{}'.", type, id, entity), cause);
 	  }
 

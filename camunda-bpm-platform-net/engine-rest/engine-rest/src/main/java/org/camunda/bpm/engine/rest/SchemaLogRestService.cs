@@ -1,4 +1,6 @@
-﻿/*
+﻿using System.Collections.Generic;
+
+/*
  * Copyright Camunda Services GmbH and/or licensed to Camunda Services GmbH
  * under one or more contributor license agreements. See the NOTICE file
  * distributed with this work for additional information regarding copyright
@@ -17,7 +19,8 @@
 namespace org.camunda.bpm.engine.rest
 {
 
-	using SchemaLogDto = org.camunda.bpm.engine.rest.dto.SchemaLogDto;
+
+	using SchemaLogEntryDto = org.camunda.bpm.engine.rest.dto.SchemaLogEntryDto;
 	using SchemaLogQueryDto = org.camunda.bpm.engine.rest.dto.SchemaLogQueryDto;
 
 	/// <summary>
@@ -30,12 +33,12 @@ namespace org.camunda.bpm.engine.rest
 	{
 
 //JAVA TO C# CONVERTER TODO TASK: Most Java annotations will not have direct .NET equivalent attributes:
-//ORIGINAL LINE: @GET @Produces(javax.ws.rs.core.MediaType.APPLICATION_JSON) org.camunda.bpm.engine.rest.dto.SchemaLogDto getSchemaLog(@Context Request request, @Context UriInfo uriInfo, @QueryParam("firstResult") System.Nullable<int> firstResult, @QueryParam("maxResults") System.Nullable<int> maxResults);
-	  SchemaLogDto getSchemaLog(Request request, UriInfo uriInfo, int? firstResult, int? maxResults);
+//ORIGINAL LINE: @GET @Produces(javax.ws.rs.core.MediaType.APPLICATION_JSON) java.util.List<org.camunda.bpm.engine.rest.dto.SchemaLogEntryDto> getSchemaLog(@Context Request request, @Context UriInfo uriInfo, @QueryParam("firstResult") System.Nullable<int> firstResult, @QueryParam("maxResults") System.Nullable<int> maxResults);
+	  IList<SchemaLogEntryDto> getSchemaLog(Request request, UriInfo uriInfo, int? firstResult, int? maxResults);
 
 //JAVA TO C# CONVERTER TODO TASK: Most Java annotations will not have direct .NET equivalent attributes:
-//ORIGINAL LINE: @POST @Consumes(javax.ws.rs.core.MediaType.APPLICATION_JSON) @Produces(javax.ws.rs.core.MediaType.APPLICATION_JSON) org.camunda.bpm.engine.rest.dto.SchemaLogDto querySchemaLog(org.camunda.bpm.engine.rest.dto.SchemaLogQueryDto dto, @QueryParam("firstResult") System.Nullable<int> firstResult, @QueryParam("maxResults") System.Nullable<int> maxResults);
-	  SchemaLogDto querySchemaLog(SchemaLogQueryDto dto, int? firstResult, int? maxResults);
+//ORIGINAL LINE: @POST @Consumes(javax.ws.rs.core.MediaType.APPLICATION_JSON) @Produces(javax.ws.rs.core.MediaType.APPLICATION_JSON) java.util.List<org.camunda.bpm.engine.rest.dto.SchemaLogEntryDto> querySchemaLog(org.camunda.bpm.engine.rest.dto.SchemaLogQueryDto dto, @QueryParam("firstResult") System.Nullable<int> firstResult, @QueryParam("maxResults") System.Nullable<int> maxResults);
+	  IList<SchemaLogEntryDto> querySchemaLog(SchemaLogQueryDto dto, int? firstResult, int? maxResults);
 	}
 
 	public static class SchemaLogRestService_Fields

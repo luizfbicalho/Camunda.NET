@@ -53,8 +53,6 @@ namespace org.camunda.bpm.engine.test.standalone.db
 		/// </summary>
 		foreach (string file in folderContents[UPGRADE_SCRIPT_FOLDER])
 		{
-		  Console.WriteLine(file);
-
 		  assertTrue("unexpected file format for file: " + file, file.EndsWith(".sql", StringComparison.Ordinal));
 		  // get rid of the .sql ending as it makes splitting easier
 		  file = file.Substring(0, file.Length - 4);

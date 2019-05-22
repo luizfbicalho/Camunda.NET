@@ -51,8 +51,9 @@ namespace org.camunda.bpm.integrationtest.functional.spin.dataformat
 
 	  }
 
-	  public virtual C mapTo<C>(Type<C> type)
+	  public virtual C mapTo<C>(Type type)
 	  {
+			  type = typeof(C);
 		return default(C);
 	  }
 

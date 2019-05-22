@@ -46,7 +46,7 @@ namespace org.camunda.bpm.qa.upgrade.gson
 		  public void execute(ProcessEngine engine, string scenarioName)
 		  {
 			// boolean filter
-			engine.RuntimeService.startProcessInstanceByKey("oneTaskProcess", "TaskFilterVariablesScenario_filterBooleanVariable", Variables.createVariables().putValue("booleanVariable", true));
+			engine.RuntimeService.startProcessInstanceByKey("oneTaskProcess_710", "TaskFilterVariablesScenario_filterBooleanVariable", Variables.createVariables().putValue("booleanVariable", true));
 
 			TaskQuery query = engine.TaskService.createTaskQuery().processVariableValueEquals("booleanVariable", true);
 
@@ -56,7 +56,7 @@ namespace org.camunda.bpm.qa.upgrade.gson
 			engine.FilterService.saveFilter(filter);
 
 			// int filter
-			engine.RuntimeService.startProcessInstanceByKey("oneTaskProcess", "TaskFilterVariablesScenario_filterIntVariable", Variables.createVariables().putValue("intVariable", 7));
+			engine.RuntimeService.startProcessInstanceByKey("oneTaskProcess_710", "TaskFilterVariablesScenario_filterIntVariable", Variables.createVariables().putValue("intVariable", 7));
 
 			query = engine.TaskService.createTaskQuery().processVariableValueEquals("intVariable", 7);
 
@@ -66,7 +66,7 @@ namespace org.camunda.bpm.qa.upgrade.gson
 			engine.FilterService.saveFilter(filter);
 
 			// int out of range filter
-			engine.RuntimeService.startProcessInstanceByKey("oneTaskProcess", "TaskFilterVariablesScenario_filterIntOutOfRangeVariable", Variables.createVariables().putValue("longVariable", int.MaxValue+1L));
+			engine.RuntimeService.startProcessInstanceByKey("oneTaskProcess_710", "TaskFilterVariablesScenario_filterIntOutOfRangeVariable", Variables.createVariables().putValue("longVariable", int.MaxValue+1L));
 
 			query = engine.TaskService.createTaskQuery().processVariableValueEquals("longVariable", int.MaxValue+1L);
 
@@ -76,7 +76,7 @@ namespace org.camunda.bpm.qa.upgrade.gson
 			engine.FilterService.saveFilter(filter);
 
 			// double filter
-			engine.RuntimeService.startProcessInstanceByKey("oneTaskProcess", "TaskFilterVariablesScenario_filterDoubleVariable", Variables.createVariables().putValue("doubleVariable", 88.89D));
+			engine.RuntimeService.startProcessInstanceByKey("oneTaskProcess_710", "TaskFilterVariablesScenario_filterDoubleVariable", Variables.createVariables().putValue("doubleVariable", 88.89D));
 
 			query = engine.TaskService.createTaskQuery().processVariableValueEquals("doubleVariable", 88.89D);
 
@@ -86,7 +86,7 @@ namespace org.camunda.bpm.qa.upgrade.gson
 			engine.FilterService.saveFilter(filter);
 
 			// string filter
-			engine.RuntimeService.startProcessInstanceByKey("oneTaskProcess", "TaskFilterVariablesScenario_filterStringVariable", Variables.createVariables().putValue("stringVariable", "aVariableValue"));
+			engine.RuntimeService.startProcessInstanceByKey("oneTaskProcess_710", "TaskFilterVariablesScenario_filterStringVariable", Variables.createVariables().putValue("stringVariable", "aVariableValue"));
 
 			query = engine.TaskService.createTaskQuery().processVariableValueEquals("stringVariable", "aVariableValue");
 
@@ -96,7 +96,7 @@ namespace org.camunda.bpm.qa.upgrade.gson
 			engine.FilterService.saveFilter(filter);
 
 			// filter null
-			engine.RuntimeService.startProcessInstanceByKey("oneTaskProcess", "TaskFilterVariablesScenario_filterNullVariable", Variables.createVariables().putValue("nullVariable", null));
+			engine.RuntimeService.startProcessInstanceByKey("oneTaskProcess_710", "TaskFilterVariablesScenario_filterNullVariable", Variables.createVariables().putValue("nullVariable", null));
 
 			query = engine.TaskService.createTaskQuery().processVariableValueEquals("nullVariable", null);
 

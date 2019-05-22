@@ -28,6 +28,7 @@ namespace org.camunda.bpm.engine.impl.util
 	using Resource = org.camunda.bpm.engine.authorization.Resource;
 	using Resources = org.camunda.bpm.engine.authorization.Resources;
 	using TaskPermissions = org.camunda.bpm.engine.authorization.TaskPermissions;
+	using UserOperationLogCategoryPermissions = org.camunda.bpm.engine.authorization.UserOperationLogCategoryPermissions;
 
 	public class ResourceTypeUtil
 	{
@@ -46,6 +47,7 @@ namespace org.camunda.bpm.engine.impl.util
 		PERMISSION_ENUMS[Resources.PROCESS_DEFINITION.resourceType()] = typeof(ProcessDefinitionPermissions);
 		PERMISSION_ENUMS[Resources.PROCESS_INSTANCE.resourceType()] = typeof(ProcessInstancePermissions);
 		PERMISSION_ENUMS[Resources.TASK.resourceType()] = typeof(TaskPermissions);
+		PERMISSION_ENUMS[Resources.OPERATION_LOG_CATEGORY.resourceType()] = typeof(UserOperationLogCategoryPermissions);
 
 		// the rest
 		foreach (Resource resource in Resources.values())

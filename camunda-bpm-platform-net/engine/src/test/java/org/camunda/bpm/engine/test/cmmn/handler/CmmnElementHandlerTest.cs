@@ -73,15 +73,17 @@ namespace org.camunda.bpm.engine.test.cmmn.handler
 		context.Deployment = deployment;
 	  }
 
-	  protected internal virtual T createElement<T>(CmmnModelElementInstance parentElement, Type<T> elementClass) where T : org.camunda.bpm.model.cmmn.instance.CmmnModelElementInstance
+	  protected internal virtual T createElement<T>(CmmnModelElementInstance parentElement, Type elementClass) where T : org.camunda.bpm.model.cmmn.instance.CmmnModelElementInstance
 	  {
+			  elementClass = typeof(T);
 		T element = modelInstance.newInstance(elementClass);
 		parentElement.addChildElement(element);
 		return element;
 	  }
 
-	  protected internal virtual T createElement<T>(CmmnModelElementInstance parentElement, string id, Type<T> elementClass) where T : org.camunda.bpm.model.cmmn.instance.CmmnModelElementInstance
+	  protected internal virtual T createElement<T>(CmmnModelElementInstance parentElement, string id, Type elementClass) where T : org.camunda.bpm.model.cmmn.instance.CmmnModelElementInstance
 	  {
+			  elementClass = typeof(T);
 		T element = createElement(parentElement, elementClass);
 		element.setAttributeValue("id", id, true);
 		return element;

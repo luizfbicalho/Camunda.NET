@@ -1,4 +1,6 @@
-﻿/*
+﻿using System;
+
+/*
  * Copyright Camunda Services GmbH and/or licensed to Camunda Services GmbH
  * under one or more contributor license agreements. See the NOTICE file
  * distributed with this work for additional information regarding copyright
@@ -16,8 +18,11 @@
  */
 namespace org.camunda.bpm.engine.impl.pvm.runtime.operation
 {
+	using BpmnExceptionHandler = org.camunda.bpm.engine.impl.bpmn.helper.BpmnExceptionHandler;
+	using ErrorPropagationException = org.camunda.bpm.engine.impl.bpmn.helper.ErrorPropagationException;
 	using CoreModelElement = org.camunda.bpm.engine.impl.core.model.CoreModelElement;
 	using AbstractEventAtomicOperation = org.camunda.bpm.engine.impl.core.operation.AbstractEventAtomicOperation;
+	using ActivityExecution = org.camunda.bpm.engine.impl.pvm.@delegate.ActivityExecution;
 
 	/// <summary>
 	/// @author Daniel Meyer
@@ -39,6 +44,39 @@ namespace org.camunda.bpm.engine.impl.pvm.runtime.operation
 		  }
 	  }
 
+	  protected internal override void eventNotificationsFailed(PvmExecutionImpl execution, Exception exception)
+	  {
+
+		if (shouldHandleFailureAsBpmnError())
+		{
+		  ActivityExecution activityExecution = (ActivityExecution) execution;
+		  try
+		  {
+			resetListeners(execution);
+			BpmnExceptionHandler.propagateException(activityExecution, exception);
+		  }
+		  catch (ErrorPropagationException)
+		  {
+			// exception has been logged by thrower
+			// re-throw the original exception so that it is logged
+			// and set as cause of the failure
+			base.eventNotificationsFailed(execution, exception);
+		  }
+		  catch (Exception e)
+		  {
+			base.eventNotificationsFailed(execution, e);
+		  }
+		}
+		else
+		{
+		  base.eventNotificationsFailed(execution, exception);
+		}
+	  }
+
+	  public virtual bool shouldHandleFailureAsBpmnError()
+	  {
+		return false;
+	  }
 	}
 
 }

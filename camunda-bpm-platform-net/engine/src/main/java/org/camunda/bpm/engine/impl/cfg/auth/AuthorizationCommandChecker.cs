@@ -734,13 +734,50 @@ namespace org.camunda.bpm.engine.impl.cfg.auth
 
 	  public virtual void checkDeleteUserOperationLog(UserOperationLogEntry entry)
 	  {
+		/*
+		 * (1) if entry has a category and a process definition key:
+		 *   => entry in context of process definition
+		 *   => check either 
+		 *        DELETE_HISTORY on PROCESS_DEFINITION with processDefinitionKey OR
+		 *        DELETE on OPERATION_LOG_CATEGORY with category
+		 * 
+		 * (2) if entry has a category but no process definition key:
+		 *   => standalone entry (task, job, batch, ...), admin entry (user, tenant, ...) or CMMN related
+		 *   => check DELETE on OPERATION_LOG_CATEGORY with category
+		 *   
+		 * (3) if entry has no category but a process definition key:
+		 *   => pre-7.11.0 entry in context of process definition 
+		 *   => check DELETE_HISTORY on PROCESS_DEFINITION with processDefinitionKey
+		 *   
+		 * (4) if entry has no category and no process definition key:
+		 *   => pre-7.11.0 standalone entry (task, job, batch, ...) or CMMN related
+		 *   => no authorization check like before 7.11.0
+		 */
 		if (entry != null)
 		{
+		  string category = entry.Category;
 		  string processDefinitionKey = entry.ProcessDefinitionKey;
-		  if (!string.ReferenceEquals(processDefinitionKey, null))
+		  if (!string.ReferenceEquals(category, null) || !string.ReferenceEquals(processDefinitionKey, null))
 		  {
-			AuthorizationManager.checkAuthorization(DELETE_HISTORY, PROCESS_DEFINITION, processDefinitionKey);
+			CompositePermissionCheck permissionCheck = null;
+			if (string.ReferenceEquals(category, null))
+			{
+			  // case (3)
+			  permissionCheck = (new PermissionCheckBuilder()).atomicCheckForResourceId(PROCESS_DEFINITION, processDefinitionKey, DELETE_HISTORY).build();
+			}
+			else if (string.ReferenceEquals(processDefinitionKey, null))
+			{
+			  // case (2)
+			  permissionCheck = (new PermissionCheckBuilder()).atomicCheckForResourceId(Resources.OPERATION_LOG_CATEGORY, category, UserOperationLogCategoryPermissions.DELETE).build();
+			}
+			else
+			{
+			  // case (1)
+			  permissionCheck = (new PermissionCheckBuilder()).disjunctive().atomicCheckForResourceId(PROCESS_DEFINITION, processDefinitionKey, DELETE_HISTORY).atomicCheckForResourceId(Resources.OPERATION_LOG_CATEGORY, category, UserOperationLogCategoryPermissions.DELETE).build();
+			}
+			AuthorizationManager.checkAuthorization(permissionCheck);
 		  }
+		  // case (4)
 		}
 	  }
 

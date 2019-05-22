@@ -31,8 +31,10 @@ namespace org.camunda.bpm.model.xml.impl.type.attribute
 
 	  private readonly Type<T> type;
 
-	  public EnumAttribute(ModelElementType owningElementType, Type<T> type) : base(owningElementType)
+	  public EnumAttribute(ModelElementType owningElementType, Type type)
 	  {
+			  type = typeof(T);
+		base(owningElementType);
 		this.type = type;
 	  }
 

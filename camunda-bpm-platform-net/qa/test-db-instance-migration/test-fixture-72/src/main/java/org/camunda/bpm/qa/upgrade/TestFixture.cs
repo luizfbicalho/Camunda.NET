@@ -24,7 +24,6 @@ namespace org.camunda.bpm.qa.upgrade
 	using RuntimeService = org.camunda.bpm.engine.RuntimeService;
 	using TaskService = org.camunda.bpm.engine.TaskService;
 	using ProcessEngineConfigurationImpl = org.camunda.bpm.engine.impl.cfg.ProcessEngineConfigurationImpl;
-	using AuthorizationScenario = org.camunda.bpm.qa.upgrade.scenarios.authorization.AuthorizationScenario;
 	using NestedNonInterruptingBoundaryEventOnInnerSubprocessScenario = org.camunda.bpm.qa.upgrade.scenarios.boundary.NestedNonInterruptingBoundaryEventOnInnerSubprocessScenario;
 	using NestedNonInterruptingBoundaryEventOnOuterSubprocessScenario = org.camunda.bpm.qa.upgrade.scenarios.boundary.NestedNonInterruptingBoundaryEventOnOuterSubprocessScenario;
 	using NonInterruptingBoundaryEventScenario = org.camunda.bpm.qa.upgrade.scenarios.boundary.NonInterruptingBoundaryEventScenario;
@@ -130,16 +129,6 @@ namespace org.camunda.bpm.qa.upgrade
 
 		// event-based gateway
 		runner.setupScenarios(typeof(EventBasedGatewayScenario));
-
-		processEngine.close();
-
-		processEngineConfiguration = (ProcessEngineConfigurationImpl) ProcessEngineConfiguration.createProcessEngineConfigurationFromResource("camunda.auth.cfg.xml");
-		processEngine = processEngineConfiguration.buildProcessEngine();
-
-		// register test scenarios
-		runner = new ScenarioRunner(processEngine, ENGINE_VERSION);
-
-		runner.setupScenarios(typeof(AuthorizationScenario));
 
 		processEngine.close();
 	  }

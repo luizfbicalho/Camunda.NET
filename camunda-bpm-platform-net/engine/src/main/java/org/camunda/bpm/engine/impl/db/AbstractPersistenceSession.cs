@@ -42,7 +42,7 @@ namespace org.camunda.bpm.engine.impl.db
 		public abstract int executeUpdate(string updateStatement, object parameter);
 		public abstract void @lock(string statement, object parameter);
 		public abstract object selectOne(string statement, object parameter);
-		public abstract T selectById(Type<T> type, string id);
+		public abstract T selectById(Type type, string id);
 //JAVA TO C# CONVERTER WARNING: Java wildcard generics have no direct equivalent in .NET:
 //ORIGINAL LINE: public abstract java.util.List<JavaToDotNetGenericWildcard> selectList(String statement, Object parameter);
 		public abstract IList<object> selectList(string statement, object parameter);

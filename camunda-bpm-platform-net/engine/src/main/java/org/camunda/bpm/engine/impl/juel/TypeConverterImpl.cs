@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Numerics;
 
 /*
  * Based on JUEL 2.2.1 code, 2006-2009 Odysseus Software GmbH
@@ -76,9 +77,9 @@ namespace org.camunda.bpm.engine.impl.juel
 			{
 				return (decimal)value;
 			}
-			if (value is System.Numerics.BigInteger)
+			if (value is BigInteger)
 			{
-				return new decimal((System.Numerics.BigInteger)value);
+				return new decimal((BigInteger)value);
 			}
 			if (value is Number)
 			{
@@ -102,15 +103,15 @@ namespace org.camunda.bpm.engine.impl.juel
 			throw new ELException(LocalMessages.get("error.coerce.type", value.GetType(), typeof(decimal)));
 		}
 
-		protected internal virtual System.Numerics.BigInteger coerceToBigInteger(object value)
+		protected internal virtual BigInteger coerceToBigInteger(object value)
 		{
 			if (value == null || "".Equals(value))
 			{
-				return System.Numerics.BigInteger.valueOf(0l);
+				return BigInteger.valueOf(0l);
 			}
-			if (value is System.Numerics.BigInteger)
+			if (value is BigInteger)
 			{
-				return (System.Numerics.BigInteger)value;
+				return (BigInteger)value;
 			}
 			if (value is decimal)
 			{
@@ -118,24 +119,24 @@ namespace org.camunda.bpm.engine.impl.juel
 			}
 			if (value is Number)
 			{
-				return System.Numerics.BigInteger.valueOf(((Number)value).longValue());
+				return BigInteger.valueOf(((Number)value).longValue());
 			}
 			if (value is string)
 			{
 				try
 				{
-					return new System.Numerics.BigInteger((string)value);
+					return new BigInteger((string)value);
 				}
 				catch (System.FormatException)
 				{
-					throw new ELException(LocalMessages.get("error.coerce.value", value, typeof(System.Numerics.BigInteger)));
+					throw new ELException(LocalMessages.get("error.coerce.value", value, typeof(BigInteger)));
 				}
 			}
 			if (value is char?)
 			{
-				return System.Numerics.BigInteger.valueOf((short)((char?)value).Value);
+				return BigInteger.valueOf((short)((char?)value).Value);
 			}
-			throw new ELException(LocalMessages.get("error.coerce.type", value.GetType(), typeof(System.Numerics.BigInteger)));
+			throw new ELException(LocalMessages.get("error.coerce.type", value.GetType(), typeof(BigInteger)));
 		}
 
 		protected internal virtual double? coerceToDouble(object value)
@@ -353,8 +354,9 @@ namespace org.camunda.bpm.engine.impl.juel
 
 //JAVA TO C# CONVERTER TODO TASK: Most Java annotations will not have direct .NET equivalent attributes:
 //ORIGINAL LINE: @SuppressWarnings("unchecked") protected <T extends Enum<T>> T coerceToEnum(Object value, Class<T> type)
-		protected internal virtual T coerceToEnum<T>(object value, Type<T> type) where T : Enum<T>
+		protected internal virtual T coerceToEnum<T>(object value, Type type) where T : Enum<T>
 		{
+				type = typeof(T);
 			if (value == null || "".Equals(value))
 			{
 				return null;
@@ -460,7 +462,7 @@ namespace org.camunda.bpm.engine.impl.juel
 			{
 				return coerceToBigDecimal(value);
 			}
-			if (type == typeof(System.Numerics.BigInteger))
+			if (type == typeof(BigInteger))
 			{
 				return coerceToBigInteger(value);
 			}
@@ -492,8 +494,9 @@ namespace org.camunda.bpm.engine.impl.juel
 //JAVA TO C# CONVERTER TODO TASK: Most Java annotations will not have direct .NET equivalent attributes:
 //ORIGINAL LINE: @SuppressWarnings("unchecked") public <T> T convert(Object value, Class<T> type) throws org.camunda.bpm.engine.impl.javax.el.ELException
 //JAVA TO C# CONVERTER WARNING: Method 'throws' clauses are not available in .NET:
-		public virtual T convert<T>(object value, Type<T> type)
+		public virtual T convert<T>(object value, Type type)
 		{
+				type = typeof(T);
 			return (T)coerceToType(value, type);
 		}
 	}

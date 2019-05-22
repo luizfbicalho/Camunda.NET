@@ -469,8 +469,9 @@ namespace org.camunda.bpm.engine.impl.util
 		return processEngineConfiguration.GeneralResourceWhitelistPattern;
 	  }
 
-	  protected internal static T generateException<T>(Type<T> exceptionClass, string message, string variableName, string description) where T : org.camunda.bpm.engine.ProcessEngineException
+	  protected internal static T generateException<T>(Type exceptionClass, string message, string variableName, string description) where T : org.camunda.bpm.engine.ProcessEngineException
 	  {
+			  exceptionClass = typeof(T);
 		string formattedMessage = formatMessage(message, variableName, description);
 
 		try

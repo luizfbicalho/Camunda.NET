@@ -92,7 +92,7 @@ namespace org.camunda.bpm.engine.rest
 //ORIGINAL LINE: @Test public void testGetSchemaLog()
 	  public virtual void testGetSchemaLog()
 	  {
-		given().queryParam("version", SCHEMA_LOG_ENTRY_MOCK_VERSION).queryParam("sortBy", "timestamp").queryParam("sortOrder", "asc").expect().statusCode(Status.OK.StatusCode).contentType(MediaType.APPLICATION_JSON).body("schemaLogEntries[0].version", @is(SCHEMA_LOG_ENTRY_MOCK_VERSION)).body("schemaLogEntries[0].timestamp", notNullValue()).when().get(SCHEMA_LOG_URL);
+		given().queryParam("version", SCHEMA_LOG_ENTRY_MOCK_VERSION).queryParam("sortBy", "timestamp").queryParam("sortOrder", "asc").expect().statusCode(Status.OK.StatusCode).contentType(MediaType.APPLICATION_JSON).body("[0].version", @is(SCHEMA_LOG_ENTRY_MOCK_VERSION)).body("[0].timestamp", notNullValue()).when().get(SCHEMA_LOG_URL);
 
 		verify(mockedQuery).version(SCHEMA_LOG_ENTRY_MOCK_VERSION);
 		verify(mockedQuery).orderByTimestamp();
@@ -108,7 +108,7 @@ namespace org.camunda.bpm.engine.rest
 		@params["sortBy"] = "timestamp";
 		@params["sortOrder"] = "asc";
 
-		given().contentType(MediaType.APPLICATION_JSON).body(@params).expect().statusCode(Status.OK.StatusCode).contentType(MediaType.APPLICATION_JSON).body("schemaLogEntries[0].version", @is(SCHEMA_LOG_ENTRY_MOCK_VERSION)).body("schemaLogEntries[0].timestamp", notNullValue()).when().post(SCHEMA_LOG_URL);
+		given().contentType(MediaType.APPLICATION_JSON).body(@params).expect().statusCode(Status.OK.StatusCode).contentType(MediaType.APPLICATION_JSON).body("[0].version", @is(SCHEMA_LOG_ENTRY_MOCK_VERSION)).body("[0].timestamp", notNullValue()).when().post(SCHEMA_LOG_URL);
 
 		verify(mockedQuery).version(SCHEMA_LOG_ENTRY_MOCK_VERSION);
 		verify(mockedQuery).orderByTimestamp();

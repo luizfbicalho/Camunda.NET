@@ -38,11 +38,11 @@ namespace org.camunda.bpm.model.xml.type.child
 
 	  ChildElement<T> build();
 
-	  ElementReferenceBuilder<V, T> qNameElementReference<V>(Type<V> referenceTargetType);
+	  ElementReferenceBuilder<V, T> qNameElementReference<V>(Type referenceTargetType);
 
-	  ElementReferenceBuilder<V, T> idElementReference<V>(Type<V> referenceTargetType);
+	  ElementReferenceBuilder<V, T> idElementReference<V>(Type referenceTargetType);
 
-	  ElementReferenceBuilder<V, T> uriElementReference<V>(Type<V> referenceTargetType);
+	  ElementReferenceBuilder<V, T> uriElementReference<V>(Type referenceTargetType);
 
 	}
 

@@ -36,7 +36,7 @@ namespace org.camunda.bpm.model.bpmn.instance
 
 	  ModelElementInstance addExtensionElement(string namespaceUri, string localName);
 
-	  T addExtensionElement<T>(Type<T> extensionElementClass);
+	  T addExtensionElement<T>(Type extensionElementClass);
 
 	}
 

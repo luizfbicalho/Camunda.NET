@@ -18,7 +18,6 @@
  */
 namespace org.camunda.bpm.engine.impl.pvm
 {
-	using CoreVariableInstance = org.camunda.bpm.engine.impl.core.variable.CoreVariableInstance;
 	using ActivityImpl = org.camunda.bpm.engine.impl.pvm.process.ActivityImpl;
 	using PvmExecutionImpl = org.camunda.bpm.engine.impl.pvm.runtime.PvmExecutionImpl;
 

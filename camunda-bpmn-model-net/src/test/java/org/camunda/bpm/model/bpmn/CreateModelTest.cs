@@ -43,8 +43,9 @@ namespace org.camunda.bpm.model.bpmn
 		modelInstance.Definitions = definitions;
 	  }
 
-	  protected internal virtual T createElement<T>(BpmnModelElementInstance parentElement, string id, Type<T> elementClass) where T : BpmnModelElementInstance
+	  protected internal virtual T createElement<T>(BpmnModelElementInstance parentElement, string id, Type elementClass) where T : BpmnModelElementInstance
 	  {
+			  elementClass = typeof(T);
 		T element = modelInstance.newInstance(elementClass);
 		element.setAttributeValue("id", id, true);
 		parentElement.addChildElement(element);

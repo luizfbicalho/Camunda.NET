@@ -63,6 +63,7 @@ namespace org.camunda.bpm.engine.impl.persistence.entity
 	using Permission = org.camunda.bpm.engine.authorization.Permission;
 	using Permissions = org.camunda.bpm.engine.authorization.Permissions;
 	using Resource = org.camunda.bpm.engine.authorization.Resource;
+	using Resources = org.camunda.bpm.engine.authorization.Resources;
 
 	using BatchQueryImpl = org.camunda.bpm.engine.impl.batch.BatchQueryImpl;
 	using BatchStatisticsQueryImpl = org.camunda.bpm.engine.impl.batch.BatchStatisticsQueryImpl;
@@ -773,7 +774,9 @@ namespace org.camunda.bpm.engine.impl.persistence.entity
 
 	  public virtual void configureUserOperationLogQuery(UserOperationLogQueryImpl query)
 	  {
-		configureQuery(query, PROCESS_DEFINITION, "RES.PROC_DEF_KEY_", READ_HISTORY);
+		configureQuery(query);
+		CompositePermissionCheck permissionCheck = (new PermissionCheckBuilder()).disjunctive().atomicCheck(PROCESS_DEFINITION, "RES.PROC_DEF_KEY_", READ_HISTORY).atomicCheck(Resources.OPERATION_LOG_CATEGORY, "RES.CATEGORY_", READ).build();
+		addPermissionCheck(query.AuthCheck, permissionCheck);
 	  }
 
 	  // batch

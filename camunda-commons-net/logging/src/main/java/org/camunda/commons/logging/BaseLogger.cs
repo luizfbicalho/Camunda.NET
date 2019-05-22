@@ -93,8 +93,9 @@ namespace org.camunda.commons.logging
 	  /// <param name="projectCode"> the unique code for a complete project. </param>
 	  /// <param name="name"> the name of the slf4j logger to use. </param>
 	  /// <param name="componentId"> the unique id of the component. </param>
-	  public static T createLogger<T>(Type<T> loggerClass, string projectCode, string name, string componentId) where T : BaseLogger
+	  public static T createLogger<T>(Type loggerClass, string projectCode, string name, string componentId) where T : BaseLogger
 	  {
+			  loggerClass = typeof(T);
 		try
 		{
 		  T logger = System.Activator.CreateInstance(loggerClass);

@@ -90,7 +90,8 @@ namespace org.camunda.bpm.engine.test.api.history.removaltime.cleanup
 //ORIGINAL LINE: @AfterClass public static void tearDown()
 	  public static void tearDown()
 	  {
-		engineConfiguration.setHistoryCleanupStrategy(null).setHistoryRemovalTimeStrategy(null).initHistoryCleanup();
+		engineConfiguration.setHistoryRemovalTimeStrategy(null).initHistoryRemovalTime();
+		engineConfiguration.setHistoryCleanupStrategy(null).initHistoryCleanup();
 	  }
 
 //JAVA TO C# CONVERTER TODO TASK: Most Java annotations will not have direct .NET equivalent attributes:

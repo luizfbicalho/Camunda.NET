@@ -62,8 +62,9 @@ namespace org.camunda.bpm.qa.performance.engine.util
 
 	  }
 
-	  public static T readObjectFromFile<T>(string filename, Type<T> type)
+	  public static T readObjectFromFile<T>(string filename, Type type)
 	  {
+			  type = typeof(T);
 
 //JAVA TO C# CONVERTER WARNING: The original Java variable was marked 'final':
 //ORIGINAL LINE: final org.codehaus.jackson.map.ObjectMapper mapper = getMapper();

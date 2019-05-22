@@ -16,6 +16,7 @@
  */
 namespace org.camunda.bpm.engine.impl.bpmn.behavior
 {
+	using BpmnExceptionHandler = org.camunda.bpm.engine.impl.bpmn.helper.BpmnExceptionHandler;
 	using ActivityExecution = org.camunda.bpm.engine.impl.pvm.@delegate.ActivityExecution;
 
 
@@ -37,7 +38,7 @@ namespace org.camunda.bpm.engine.impl.bpmn.behavior
 //ORIGINAL LINE: public void execute(org.camunda.bpm.engine.impl.pvm.delegate.ActivityExecution execution) throws Exception
 	  public virtual void execute(ActivityExecution execution)
 	  {
-		propagateError(errorCode, null, null, execution);
+		BpmnExceptionHandler.propagateError(errorCode, null, null, execution);
 	  }
 
 	  public virtual string ErrorCode

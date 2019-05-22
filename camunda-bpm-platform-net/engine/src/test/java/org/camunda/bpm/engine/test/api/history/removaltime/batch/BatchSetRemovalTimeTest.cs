@@ -22,6 +22,9 @@ namespace org.camunda.bpm.engine.test.api.history.removaltime.batch
 	using Batch = org.camunda.bpm.engine.batch.Batch;
 	using HistoricBatch = org.camunda.bpm.engine.batch.history.HistoricBatch;
 	using HistoricBatchQuery = org.camunda.bpm.engine.batch.history.HistoricBatchQuery;
+	using CleanableHistoricBatchReportResult = org.camunda.bpm.engine.history.CleanableHistoricBatchReportResult;
+	using CleanableHistoricDecisionInstanceReportResult = org.camunda.bpm.engine.history.CleanableHistoricDecisionInstanceReportResult;
+	using CleanableHistoricProcessInstanceReportResult = org.camunda.bpm.engine.history.CleanableHistoricProcessInstanceReportResult;
 	using HistoricDecisionInstance = org.camunda.bpm.engine.history.HistoricDecisionInstance;
 	using HistoricDecisionInstanceQuery = org.camunda.bpm.engine.history.HistoricDecisionInstanceQuery;
 	using HistoricProcessInstance = org.camunda.bpm.engine.history.HistoricProcessInstance;
@@ -2096,6 +2099,113 @@ namespace org.camunda.bpm.engine.test.api.history.removaltime.batch
 
 		// when
 		builder.absoluteRemovalTime(DateTime.Now);
+	  }
+
+//JAVA TO C# CONVERTER TODO TASK: Most Java annotations will not have direct .NET equivalent attributes:
+//ORIGINAL LINE: @Test public void shouldSeeCleanableButNotFinishedProcessInstanceInReport()
+	  public virtual void shouldSeeCleanableButNotFinishedProcessInstanceInReport()
+	  {
+		// given
+		string processInstanceId = testRule.process().userTask().deploy().start();
+
+		// when
+		testRule.syncExec(historyService.setRemovalTimeToHistoricProcessInstances().absoluteRemovalTime(CURRENT_DATE).byIds(processInstanceId).executeAsync());
+
+		CleanableHistoricProcessInstanceReportResult report = historyService.createCleanableHistoricProcessInstanceReport().singleResult();
+
+		// then
+		assertThat(report.FinishedProcessInstanceCount).isEqualTo(0);
+		assertThat(report.CleanableProcessInstanceCount).isEqualTo(1);
+		assertThat(report.HistoryTimeToLive).Null;
+	  }
+
+//JAVA TO C# CONVERTER TODO TASK: Most Java annotations will not have direct .NET equivalent attributes:
+//ORIGINAL LINE: @Test public void shouldSeeCleanableAndFinishedProcessInstanceInReport()
+	  public virtual void shouldSeeCleanableAndFinishedProcessInstanceInReport()
+	  {
+		// given
+		string processInstanceId = testRule.process().serviceTask().deploy().start();
+
+		// when
+		testRule.syncExec(historyService.setRemovalTimeToHistoricProcessInstances().absoluteRemovalTime(CURRENT_DATE).byIds(processInstanceId).executeAsync());
+
+		CleanableHistoricProcessInstanceReportResult report = historyService.createCleanableHistoricProcessInstanceReport().singleResult();
+
+		// then
+		assertThat(report.FinishedProcessInstanceCount).isEqualTo(1);
+		assertThat(report.CleanableProcessInstanceCount).isEqualTo(1);
+		assertThat(report.HistoryTimeToLive).Null;
+	  }
+
+//JAVA TO C# CONVERTER TODO TASK: Most Java annotations will not have direct .NET equivalent attributes:
+//ORIGINAL LINE: @Test @Deployment(resources = { "org/camunda/bpm/engine/test/dmn/deployment/drdDish.dmn11.xml" }) public void shouldSeeCleanableAndFinishedDecisionInstanceInReport()
+	  [Deployment(resources : { "org/camunda/bpm/engine/test/dmn/deployment/drdDish.dmn11.xml" })]
+	  public virtual void shouldSeeCleanableAndFinishedDecisionInstanceInReport()
+	  {
+		// given
+		decisionService.evaluateDecisionByKey("dish-decision").variables(Variables.createVariables().putValue("temperature", 32).putValue("dayType", "Weekend")).evaluate();
+
+		HistoricDecisionInstanceQuery query = historyService.createHistoricDecisionInstanceQuery().decisionDefinitionKey("dish-decision");
+
+		// when
+		testRule.syncExec(historyService.setRemovalTimeToHistoricDecisionInstances().absoluteRemovalTime(CURRENT_DATE).byQuery(query).executeAsync());
+
+		CleanableHistoricDecisionInstanceReportResult report = historyService.createCleanableHistoricDecisionInstanceReport().decisionDefinitionKeyIn("dish-decision").singleResult();
+
+		// then
+		assertThat(report.FinishedDecisionInstanceCount).isEqualTo(1);
+		assertThat(report.CleanableDecisionInstanceCount).isEqualTo(1);
+		assertThat(report.HistoryTimeToLive).Null;
+	  }
+
+//JAVA TO C# CONVERTER TODO TASK: Most Java annotations will not have direct .NET equivalent attributes:
+//ORIGINAL LINE: @Test public void shouldSeeCleanableButNotFinishedBatchInReport()
+	  public virtual void shouldSeeCleanableButNotFinishedBatchInReport()
+	  {
+		// given
+		string processInstanceId = testRule.process().serviceTask().deploy().start();
+		Batch batchOne = historyService.deleteHistoricProcessInstancesAsync(Collections.singletonList(processInstanceId), "");
+
+		// when
+		testRule.syncExec(historyService.setRemovalTimeToHistoricBatches().absoluteRemovalTime(CURRENT_DATE).byIds(batchOne.Id).executeAsync());
+
+		testRule.clearDatabase();
+
+		CleanableHistoricBatchReportResult report = historyService.createCleanableHistoricBatchReport().singleResult();
+
+		// then
+		assertThat(report.FinishedBatchesCount).isEqualTo(0);
+		assertThat(report.CleanableBatchesCount).isEqualTo(1);
+		assertThat(report.HistoryTimeToLive).Null;
+
+		// clear database
+		managementService.deleteBatch(batchOne.Id, true);
+	  }
+
+//JAVA TO C# CONVERTER TODO TASK: Most Java annotations will not have direct .NET equivalent attributes:
+//ORIGINAL LINE: @Test public void shouldSeeCleanableAndFinishedBatchInReport()
+	  public virtual void shouldSeeCleanableAndFinishedBatchInReport()
+	  {
+		// given
+		string processInstanceId = testRule.process().serviceTask().deploy().start();
+		Batch batchOne = historyService.deleteHistoricProcessInstancesAsync(Collections.singletonList(processInstanceId), "");
+
+		testRule.syncExec(batchOne, false);
+
+		// when
+		testRule.syncExec(historyService.setRemovalTimeToHistoricBatches().absoluteRemovalTime(CURRENT_DATE).byIds(batchOne.Id).executeAsync());
+
+		testRule.clearDatabase();
+
+		CleanableHistoricBatchReportResult report = historyService.createCleanableHistoricBatchReport().singleResult();
+
+		// then
+		assertThat(report.FinishedBatchesCount).isEqualTo(1);
+		assertThat(report.CleanableBatchesCount).isEqualTo(1);
+		assertThat(report.HistoryTimeToLive).Null;
+
+		// clear database
+		historyService.deleteHistoricBatch(batchOne.Id);
 	  }
 
 	}

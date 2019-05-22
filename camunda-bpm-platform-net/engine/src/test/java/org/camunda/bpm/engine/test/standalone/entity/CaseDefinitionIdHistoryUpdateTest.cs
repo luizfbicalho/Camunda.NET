@@ -34,6 +34,7 @@ namespace org.camunda.bpm.engine.test.standalone.entity
 	public class CaseDefinitionIdHistoryUpdateTest : PluggableProcessEngineTestCase
 	{
 
+	  [RequiredHistoryLevel(org.camunda.bpm.engine.ProcessEngineConfiguration.HISTORY_ACTIVITY)]
 	  public virtual void testUpdateCaseDefinitionIdInCaseExecutionEntity()
 	  {
 		// given

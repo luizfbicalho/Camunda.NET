@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Numerics;
 
 /*
  * Copyright Camunda Services GmbH and/or licensed to Camunda Services GmbH
@@ -1025,9 +1026,9 @@ namespace org.camunda.bpm.engine.impl.digest._apacheCommonsCodec
 		///            a byte array containing base64 character data </param>
 		/// <returns> A BigInteger
 		/// @since 1.4 </returns>
-		public static System.Numerics.BigInteger decodeInteger(sbyte[] pArray)
+		public static BigInteger decodeInteger(sbyte[] pArray)
 		{
-			return new System.Numerics.BigInteger(1, decodeBase64(pArray));
+			return new BigInteger(1, decodeBase64(pArray));
 		}
 
 		/// <summary>
@@ -1039,7 +1040,7 @@ namespace org.camunda.bpm.engine.impl.digest._apacheCommonsCodec
 		/// <exception cref="NullPointerException">
 		///             if null is passed in
 		/// @since 1.4 </exception>
-		public static sbyte[] encodeInteger(System.Numerics.BigInteger bigInt)
+		public static sbyte[] encodeInteger(BigInteger bigInt)
 		{
 			if (bigInt == null)
 			{
@@ -1054,7 +1055,7 @@ namespace org.camunda.bpm.engine.impl.digest._apacheCommonsCodec
 		/// <param name="bigInt">
 		///            <code>BigInteger</code> to be converted </param>
 		/// <returns> a byte array representation of the BigInteger parameter </returns>
-		internal static sbyte[] toIntegerBytes(System.Numerics.BigInteger bigInt)
+		internal static sbyte[] toIntegerBytes(BigInteger bigInt)
 		{
 			int bitlen = bigInt.bitLength();
 			// round bitlen

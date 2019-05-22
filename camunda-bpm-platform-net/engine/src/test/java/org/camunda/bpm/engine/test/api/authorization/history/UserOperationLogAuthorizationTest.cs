@@ -26,8 +26,17 @@ namespace org.camunda.bpm.engine.test.api.authorization.history
 //JAVA TO C# CONVERTER TODO TASK: This Java 'import static' statement cannot be converted to C#:
 //	import static org.camunda.bpm.engine.authorization.Permissions.READ_HISTORY;
 //JAVA TO C# CONVERTER TODO TASK: This Java 'import static' statement cannot be converted to C#:
+//	import static org.camunda.bpm.engine.authorization.Resources.OPERATION_LOG_CATEGORY;
+//JAVA TO C# CONVERTER TODO TASK: This Java 'import static' statement cannot be converted to C#:
 //	import static org.camunda.bpm.engine.authorization.Resources.PROCESS_DEFINITION;
-
+//JAVA TO C# CONVERTER TODO TASK: This Java 'import static' statement cannot be converted to C#:
+//	import static org.camunda.bpm.engine.authorization.UserOperationLogCategoryPermissions.DELETE;
+//JAVA TO C# CONVERTER TODO TASK: This Java 'import static' statement cannot be converted to C#:
+//	import static org.camunda.bpm.engine.authorization.UserOperationLogCategoryPermissions.READ;
+//JAVA TO C# CONVERTER TODO TASK: This Java 'import static' statement cannot be converted to C#:
+//	import static org.camunda.bpm.engine.history.UserOperationLogEntry_Fields.CATEGORY_OPERATOR;
+//JAVA TO C# CONVERTER TODO TASK: This Java 'import static' statement cannot be converted to C#:
+//	import static org.camunda.bpm.engine.history.UserOperationLogEntry_Fields.CATEGORY_TASK_WORKER;
 
 	using HistoricIncident = org.camunda.bpm.engine.history.HistoricIncident;
 	using HistoricProcessInstance = org.camunda.bpm.engine.history.HistoricProcessInstance;
@@ -40,6 +49,7 @@ namespace org.camunda.bpm.engine.test.api.authorization.history
 	using TimerSuspendProcessDefinitionHandler = org.camunda.bpm.engine.impl.jobexecutor.TimerSuspendProcessDefinitionHandler;
 	using HistoricIncidentEntity = org.camunda.bpm.engine.impl.persistence.entity.HistoricIncidentEntity;
 	using Job = org.camunda.bpm.engine.runtime.Job;
+	using Ignore = org.junit.Ignore;
 
 	/// <summary>
 	/// @author Roman Smirnov
@@ -71,11 +81,63 @@ namespace org.camunda.bpm.engine.test.api.authorization.history
 
 	  // standalone task ///////////////////////////////
 
-	  public virtual void testQueryCreateStandaloneTaskUserOperationLog()
+	  public virtual void testQueryCreateStandaloneTaskUserOperationLogWithoutAuthorization()
 	  {
 		// given
 		string taskId = "myTask";
 		createTask(taskId);
+
+		// when
+		UserOperationLogQuery query = historyService.createUserOperationLogQuery();
+
+		// then
+		verifyQueryResults(query, 0);
+
+		deleteTask(taskId, true);
+	  }
+
+	  public virtual void testQueryCreateStandaloneTaskUserOperationLogWithReadHistoryPermissionOnProcessDefinition()
+	  {
+		// given
+		string taskId = "myTask";
+		createTask(taskId);
+
+		createGrantAuthorizationWithoutAuthentication(PROCESS_DEFINITION, ONE_TASK_PROCESS_KEY, userId, READ_HISTORY);
+
+		// when
+		UserOperationLogQuery query = historyService.createUserOperationLogQuery();
+
+		// then
+		verifyQueryResults(query, 0);
+
+		deleteTask(taskId, true);
+	  }
+
+	  // CAM-9888
+	  public virtual void failing_testQueryCreateStandaloneTaskUserOperationLogWithReadHistoryPermissionOnAnyProcessDefinition()
+	  {
+		// given
+		string taskId = "myTask";
+		createTask(taskId);
+
+		createGrantAuthorizationWithoutAuthentication(PROCESS_DEFINITION, ANY, userId, READ_HISTORY);
+
+		// when
+		UserOperationLogQuery query = historyService.createUserOperationLogQuery();
+
+		// then
+		verifyQueryResults(query, 0);
+
+		deleteTask(taskId, true);
+	  }
+
+	  public virtual void testQueryCreateStandaloneTaskUserOperationLogWithReadPermissionOnCategory()
+	  {
+		// given
+		string taskId = "myTask";
+		createTask(taskId);
+
+		createGrantAuthorizationWithoutAuthentication(OPERATION_LOG_CATEGORY, CATEGORY_TASK_WORKER, userId, READ);
 
 		// when
 		UserOperationLogQuery query = historyService.createUserOperationLogQuery();
@@ -86,12 +148,140 @@ namespace org.camunda.bpm.engine.test.api.authorization.history
 		deleteTask(taskId, true);
 	  }
 
-	  public virtual void testQuerySetAssigneeStandaloneTaskUserOperationLog()
+	  public virtual void testQueryCreateStandaloneTaskUserOperationLogWithReadPermissionOnAnyCategory()
+	  {
+		// given
+		string taskId = "myTask";
+		createTask(taskId);
+
+		createGrantAuthorizationWithoutAuthentication(OPERATION_LOG_CATEGORY, ANY, userId, READ);
+
+		// when
+		UserOperationLogQuery query = historyService.createUserOperationLogQuery();
+
+		// then
+		verifyQueryResults(query, 1);
+
+		deleteTask(taskId, true);
+	  }
+
+	  public virtual void testQueryCreateStandaloneTaskUserOperationLogWithReadPermissionOnAnyCategoryAndRevokeReadHistoryOnProcessDefinition()
+	  {
+		// given
+		string taskId = "myTask";
+		createTask(taskId);
+
+		createGrantAuthorizationWithoutAuthentication(OPERATION_LOG_CATEGORY, ANY, userId, READ);
+		createRevokeAuthorizationWithoutAuthentication(PROCESS_DEFINITION, ONE_TASK_PROCESS_KEY, userId, READ_HISTORY);
+
+		// when
+		UserOperationLogQuery query = historyService.createUserOperationLogQuery();
+
+		// then
+		verifyQueryResults(query, 1); // "revoke specific process definition" has no effect since task log is not related to a definition
+
+		deleteTask(taskId, true);
+	  }
+
+	  // CAM-9888
+	  public virtual void failing_testQueryCreateStandaloneTaskUserOperationLogWithReadPermissionOnAnyCategoryAndRevokeReadHistoryOnAnyProcessDefinition()
+	  {
+		// given
+		string taskId = "myTask";
+		createTask(taskId);
+
+		createGrantAuthorizationWithoutAuthentication(OPERATION_LOG_CATEGORY, ANY, userId, READ);
+		createRevokeAuthorizationWithoutAuthentication(PROCESS_DEFINITION, ANY, userId, READ_HISTORY);
+
+		// when
+		UserOperationLogQuery query = historyService.createUserOperationLogQuery();
+
+		// then
+		// "grant all categories" should preceed over "revoke all process definitions" 
+		verifyQueryResults(query, 1);
+
+		deleteTask(taskId, true);
+	  }
+
+	  public virtual void testQuerySetAssigneeStandaloneTaskUserOperationLogWithoutAuthorization()
 	  {
 		// given
 		string taskId = "myTask";
 		createTask(taskId);
 		setAssignee(taskId, "demo");
+
+		// when
+		UserOperationLogQuery query = historyService.createUserOperationLogQuery();
+
+		// then
+		verifyQueryResults(query, 0);
+
+		deleteTask(taskId, true);
+	  }
+
+	  public virtual void testQuerySetAssigneeStandaloneTaskUserOperationLogWithReadPermissionOnProcessDefinition()
+	  {
+		// given
+		string taskId = "myTask";
+		createTask(taskId);
+		setAssignee(taskId, "demo");
+
+		createGrantAuthorizationWithoutAuthentication(PROCESS_DEFINITION, ONE_TASK_PROCESS_KEY, userId, READ_HISTORY);
+
+		// when
+		UserOperationLogQuery query = historyService.createUserOperationLogQuery();
+
+		// then
+		verifyQueryResults(query, 0);
+
+		deleteTask(taskId, true);
+	  }
+
+	  // CAM-9888
+	  public virtual void failing_testQuerySetAssigneeStandaloneTaskUserOperationLogWithReadPermissionOnAnyProcessDefinition()
+	  {
+		// given
+		string taskId = "myTask";
+		createTask(taskId);
+		setAssignee(taskId, "demo");
+
+		createGrantAuthorizationWithoutAuthentication(PROCESS_DEFINITION, ANY, userId, READ_HISTORY);
+
+		// when
+		UserOperationLogQuery query = historyService.createUserOperationLogQuery();
+
+		// then
+		verifyQueryResults(query, 0);
+
+		deleteTask(taskId, true);
+	  }
+
+	  public virtual void testQuerySetAssigneeStandaloneTaskUserOperationLogWithReadPermissionOnCategory()
+	  {
+		// given
+		string taskId = "myTask";
+		createTask(taskId);
+		setAssignee(taskId, "demo");
+
+		createGrantAuthorizationWithoutAuthentication(OPERATION_LOG_CATEGORY, CATEGORY_TASK_WORKER, userId, READ);
+
+		// when
+		UserOperationLogQuery query = historyService.createUserOperationLogQuery();
+
+		// then
+		verifyQueryResults(query, 2);
+
+		deleteTask(taskId, true);
+	  }
+
+	  public virtual void testQuerySetAssigneeStandaloneTaskUserOperationLogWithReadPermissionOnAnyCategory()
+	  {
+		// given
+		string taskId = "myTask";
+		createTask(taskId);
+		setAssignee(taskId, "demo");
+
+		createGrantAuthorizationWithoutAuthentication(OPERATION_LOG_CATEGORY, ANY, userId, READ);
 
 		// when
 		UserOperationLogQuery query = historyService.createUserOperationLogQuery();
@@ -167,9 +357,92 @@ namespace org.camunda.bpm.engine.test.api.authorization.history
 		verifyQueryResults(query, 2);
 	  }
 
+	  public virtual void testQuerySetAssigneeTaskUserOperationLogWithReadPermissionOnCategory()
+	  {
+		// given
+		startProcessInstanceByKey(ONE_TASK_PROCESS_KEY);
+		string taskId = selectSingleTask().Id;
+		setAssignee(taskId, "demo");
+
+		createGrantAuthorizationWithoutAuthentication(OPERATION_LOG_CATEGORY, CATEGORY_TASK_WORKER, userId, READ);
+
+		// when
+		UserOperationLogQuery query = historyService.createUserOperationLogQuery();
+
+		// then
+		verifyQueryResults(query, 1);
+	  }
+
+	  public virtual void testQuerySetAssigneeTaskUserOperationLogWithReadPermissionOnAnyCategory()
+	  {
+		// given
+		startProcessInstanceByKey(ONE_TASK_PROCESS_KEY);
+		string taskId = selectSingleTask().Id;
+		setAssignee(taskId, "demo");
+
+		createGrantAuthorizationWithoutAuthentication(OPERATION_LOG_CATEGORY, ANY, userId, READ);
+
+		// when
+		UserOperationLogQuery query = historyService.createUserOperationLogQuery();
+
+		// then
+		verifyQueryResults(query, 2);
+	  }
+
+	  public virtual void testQuerySetAssigneeTaskUserOperationLogWithReadPermissionOnAnyCategoryAndRevokeOnProcessDefinition()
+	  {
+		// given
+		startProcessInstanceByKey(ONE_TASK_PROCESS_KEY);
+		string taskId = selectSingleTask().Id;
+		setAssignee(taskId, "demo");
+
+		createGrantAuthorizationWithoutAuthentication(OPERATION_LOG_CATEGORY, ANY, userId, READ);
+		createRevokeAuthorizationWithoutAuthentication(PROCESS_DEFINITION, ONE_TASK_PROCESS_KEY, userId, READ_HISTORY);
+
+		// when
+		UserOperationLogQuery query = historyService.createUserOperationLogQuery();
+
+		// then
+		verifyQueryResults(query, 0); // "revoke process definition" wins over "grant all categories" since task log is related to the definition
+	  }
+
+	  public virtual void testQuerySetAssigneeTaskUserOperationLogWithReadPermissionOnAnyCategoryAndRevokeOnUnrelatedProcessDefinition()
+	  {
+		// given
+		startProcessInstanceByKey(ONE_TASK_PROCESS_KEY);
+		string taskId = selectSingleTask().Id;
+		setAssignee(taskId, "demo");
+
+		createGrantAuthorizationWithoutAuthentication(OPERATION_LOG_CATEGORY, ANY, userId, READ);
+		createRevokeAuthorizationWithoutAuthentication(PROCESS_DEFINITION, ONE_TASK_CASE_KEY, userId, READ_HISTORY);
+
+		// when
+		UserOperationLogQuery query = historyService.createUserOperationLogQuery();
+
+		// then
+		verifyQueryResults(query, 2); // "revoke process definition" has no effect since task log is not related to the definition
+	  }
+
+	  public virtual void testQuerySetAssigneeTaskUserOperationLogWithReadPermissionOnAnyCategoryAndRevokeOnAnyProcessDefinition()
+	  {
+		// given
+		startProcessInstanceByKey(ONE_TASK_PROCESS_KEY);
+		string taskId = selectSingleTask().Id;
+		setAssignee(taskId, "demo");
+
+		createGrantAuthorizationWithoutAuthentication(OPERATION_LOG_CATEGORY, ANY, userId, READ);
+		createRevokeAuthorizationWithoutAuthentication(PROCESS_DEFINITION, ANY, userId, READ_HISTORY);
+
+		// when
+		UserOperationLogQuery query = historyService.createUserOperationLogQuery();
+
+		// then
+		verifyQueryResults(query, 0); // "revoke all process definitions" wins over "grant all categories"
+	  }
+
 	  // (case) human task /////////////////////////////
 
-	  public virtual void testQuerySetAssigneeHumanTaskUserOperationLog()
+	  public virtual void testQuerySetAssigneeHumanTaskUserOperationLogWithoutAuthorization()
 	  {
 		// given
 		createCaseInstanceByKey(ONE_TASK_CASE_KEY);
@@ -180,12 +453,77 @@ namespace org.camunda.bpm.engine.test.api.authorization.history
 		UserOperationLogQuery query = historyService.createUserOperationLogQuery();
 
 		// then
+		verifyQueryResults(query, 0);
+	  }
+
+	  public virtual void testQuerySetAssigneeHumanTaskUserOperationLogWithReadHistoryPermissionOnProcessDefinition()
+	  {
+		// given
+		createCaseInstanceByKey(ONE_TASK_CASE_KEY);
+		string taskId = selectSingleTask().Id;
+		setAssignee(taskId, "demo");
+
+		createGrantAuthorizationWithoutAuthentication(PROCESS_DEFINITION, ONE_TASK_CASE_KEY, userId, READ_HISTORY);
+
+		// when
+		UserOperationLogQuery query = historyService.createUserOperationLogQuery();
+
+		// then
+		verifyQueryResults(query, 0);
+	  }
+
+	  // CAM-9888
+	  public virtual void failing_testQuerySetAssigneeHumanTaskUserOperationLogWithReadHistoryPermissionOnAnyProcessDefinition()
+	  {
+		// given
+		createCaseInstanceByKey(ONE_TASK_CASE_KEY);
+		string taskId = selectSingleTask().Id;
+		setAssignee(taskId, "demo");
+
+		createGrantAuthorizationWithoutAuthentication(PROCESS_DEFINITION, ANY, userId, READ_HISTORY);
+
+		// when
+		UserOperationLogQuery query = historyService.createUserOperationLogQuery();
+
+		// then
+		verifyQueryResults(query, 0);
+	  }
+
+	  public virtual void testQuerySetAssigneeHumanTaskUserOperationLogWithReadPermissionOnCategory()
+	  {
+		// given
+		createCaseInstanceByKey(ONE_TASK_CASE_KEY);
+		string taskId = selectSingleTask().Id;
+		setAssignee(taskId, "demo");
+
+		createGrantAuthorizationWithoutAuthentication(OPERATION_LOG_CATEGORY, CATEGORY_TASK_WORKER, userId, READ);
+
+		// when
+		UserOperationLogQuery query = historyService.createUserOperationLogQuery();
+
+		// then
+		verifyQueryResults(query, 1);
+	  }
+
+	  public virtual void testQuerySetAssigneeHumanTaskUserOperationLogWithReadPermissionOnAnyCategory()
+	  {
+		// given
+		createCaseInstanceByKey(ONE_TASK_CASE_KEY);
+		string taskId = selectSingleTask().Id;
+		setAssignee(taskId, "demo");
+
+		createGrantAuthorizationWithoutAuthentication(OPERATION_LOG_CATEGORY, ANY, userId, READ);
+
+		// when
+		UserOperationLogQuery query = historyService.createUserOperationLogQuery();
+
+		// then
 		verifyQueryResults(query, 1);
 	  }
 
 	  // standalone job ///////////////////////////////
 
-	  public virtual void testQuerySetStandaloneJobRetriesUserOperationLog()
+	  public virtual void testQuerySetStandaloneJobRetriesUserOperationLogWithoutAuthorization()
 	  {
 		// given
 		disableAuthorization();
@@ -201,7 +539,147 @@ namespace org.camunda.bpm.engine.test.api.authorization.history
 		UserOperationLogQuery query = historyService.createUserOperationLogQuery();
 
 		// then
+		verifyQueryResults(query, 0);
+
+		disableAuthorization();
+		managementService.deleteJob(jobId);
+		enableAuthorization();
+
+		clearDatabase();
+	  }
+
+	  public virtual void testQuerySetStandaloneJobRetriesUserOperationLogWithReadHistoryPermissionOnProcessDefinition()
+	  {
+		// given
+		disableAuthorization();
+		repositoryService.suspendProcessDefinitionByKey(ONE_TASK_PROCESS_KEY, true, DateTime.Now);
+		enableAuthorization();
+
+		disableAuthorization();
+		string jobId = managementService.createJobQuery().singleResult().Id;
+		managementService.setJobRetries(jobId, 5);
+		enableAuthorization();
+
+		createGrantAuthorizationWithoutAuthentication(PROCESS_DEFINITION, ONE_TASK_PROCESS_KEY, userId, READ_HISTORY);
+
+		// when
+		UserOperationLogQuery query = historyService.createUserOperationLogQuery();
+
+		// then only user operation log of non standalone jobs are visible
 		verifyQueryResults(query, 1);
+		assertEquals(ONE_TASK_PROCESS_KEY, query.singleResult().ProcessDefinitionKey);
+
+		disableAuthorization();
+		managementService.deleteJob(jobId);
+		enableAuthorization();
+
+		clearDatabase();
+	  }
+
+//JAVA TO C# CONVERTER TODO TASK: Most Java annotations will not have direct .NET equivalent attributes:
+//ORIGINAL LINE: @Ignore("CAM-9888") public void testQuerySetStandaloneJobRetriesUserOperationLogWithReadHistoryPermissionOnAnyProcessDefinition()
+	  public virtual void testQuerySetStandaloneJobRetriesUserOperationLogWithReadHistoryPermissionOnAnyProcessDefinition()
+	  {
+		// given
+		disableAuthorization();
+		identityService.clearAuthentication();
+		repositoryService.suspendProcessDefinitionByKey(ONE_TASK_PROCESS_KEY, true, DateTime.Now);
+		enableAuthorization();
+
+		disableAuthorization();
+		identityService.setAuthentication(userId, null);
+		string jobId = managementService.createJobQuery().singleResult().Id;
+		managementService.setJobRetries(jobId, 5);
+		enableAuthorization();
+
+		createGrantAuthorizationWithoutAuthentication(PROCESS_DEFINITION, ANY, userId, READ_HISTORY);
+
+		// when
+		UserOperationLogQuery query = historyService.createUserOperationLogQuery();
+
+		// then only non-stadalone jobs entries
+		verifyQueryResults(query, 1);
+
+		disableAuthorization();
+		managementService.deleteJob(jobId);
+		enableAuthorization();
+
+		clearDatabase();
+	  }
+
+	  public virtual void testQuerySetStandaloneJobRetriesUserOperationLogWithReadPermissionOnCategory()
+	  {
+		// given
+		disableAuthorization();
+		repositoryService.suspendProcessDefinitionByKey(ONE_TASK_PROCESS_KEY, true, DateTime.Now);
+		enableAuthorization();
+
+		disableAuthorization();
+		string jobId = managementService.createJobQuery().singleResult().Id;
+		managementService.setJobRetries(jobId, 5);
+		enableAuthorization();
+
+		createGrantAuthorizationWithoutAuthentication(OPERATION_LOG_CATEGORY, CATEGORY_OPERATOR, userId, READ);
+
+		// when
+		UserOperationLogQuery query = historyService.createUserOperationLogQuery();
+
+		// then expect 2 entries (due to necessary permission on 'Operator' category, the definition suspension can be seen as well)
+		verifyQueryResults(query, 2);
+
+		disableAuthorization();
+		managementService.deleteJob(jobId);
+		enableAuthorization();
+
+		clearDatabase();
+	  }
+
+	  public virtual void testQuerySetStandaloneJobRetriesUserOperationLogWithReadPermissionOnAnyCategory()
+	  {
+		// given
+		disableAuthorization();
+		repositoryService.suspendProcessDefinitionByKey(ONE_TASK_PROCESS_KEY, true, DateTime.Now);
+		enableAuthorization();
+
+		disableAuthorization();
+		string jobId = managementService.createJobQuery().singleResult().Id;
+		managementService.setJobRetries(jobId, 5);
+		enableAuthorization();
+
+		createGrantAuthorizationWithoutAuthentication(OPERATION_LOG_CATEGORY, ANY, userId, READ);
+
+		// when
+		UserOperationLogQuery query = historyService.createUserOperationLogQuery();
+
+		// then
+		verifyQueryResults(query, 2);
+
+		disableAuthorization();
+		managementService.deleteJob(jobId);
+		enableAuthorization();
+
+		clearDatabase();
+	  }
+
+	  public virtual void testQuerySetStandaloneJobRetriesUserOperationLogWithReadPermissionOnWrongCategory()
+	  {
+		// given
+		disableAuthorization();
+		repositoryService.suspendProcessDefinitionByKey(ONE_TASK_PROCESS_KEY, true, DateTime.Now);
+		enableAuthorization();
+
+		disableAuthorization();
+		string jobId = managementService.createJobQuery().singleResult().Id;
+		managementService.setJobRetries(jobId, 5);
+		enableAuthorization();
+
+		createGrantAuthorizationWithoutAuthentication(OPERATION_LOG_CATEGORY, CATEGORY_TASK_WORKER, userId, READ);
+
+		// when
+		UserOperationLogQuery query = historyService.createUserOperationLogQuery();
+
+		// then
+		verifyQueryResults(query, 0);
 
 		disableAuthorization();
 		managementService.deleteJob(jobId);
@@ -267,6 +745,44 @@ namespace org.camunda.bpm.engine.test.api.authorization.history
 		verifyQueryResults(query, 2);
 	  }
 
+	  public virtual void testQuerySetJobRetriesUserOperationLogWithReadPermissionOnCategory()
+	  {
+		// given
+		startProcessInstanceByKey(TIMER_BOUNDARY_PROCESS_KEY);
+		string jobId = selectSingleJob().Id;
+
+		disableAuthorization();
+		managementService.setJobRetries(jobId, 5);
+		enableAuthorization();
+
+		createGrantAuthorizationWithoutAuthentication(OPERATION_LOG_CATEGORY, CATEGORY_OPERATOR, userId, READ);
+
+		// when
+		UserOperationLogQuery query = historyService.createUserOperationLogQuery();
+
+		// then
+		verifyQueryResults(query, 2);
+	  }
+
+	  public virtual void testQuerySetJobRetriesUserOperationLogWithReadPermissionOnAnyCategory()
+	  {
+		// given
+		startProcessInstanceByKey(TIMER_BOUNDARY_PROCESS_KEY);
+		string jobId = selectSingleJob().Id;
+
+		disableAuthorization();
+		managementService.setJobRetries(jobId, 5);
+		enableAuthorization();
+
+		createGrantAuthorizationWithoutAuthentication(OPERATION_LOG_CATEGORY, ANY, userId, READ);
+
+		// when
+		UserOperationLogQuery query = historyService.createUserOperationLogQuery();
+
+		// then
+		verifyQueryResults(query, 2);
+	  }
+
 	  // process definition ////////////////////////////////////////////
 
 	  public virtual void testQuerySuspendProcessDefinitionUserOperationLogWithoutAuthorization()
@@ -303,6 +819,36 @@ namespace org.camunda.bpm.engine.test.api.authorization.history
 		// given
 		suspendProcessDefinitionByKey(ONE_TASK_PROCESS_KEY);
 		createGrantAuthorizationWithoutAuthentication(PROCESS_DEFINITION, ANY, userId, READ_HISTORY);
+
+		// when
+		UserOperationLogQuery query = historyService.createUserOperationLogQuery();
+
+		// then
+		verifyQueryResults(query, 1);
+
+		clearDatabase();
+	  }
+
+	  public virtual void testQuerySuspendProcessDefinitionUserOperationLogWithReadHPermissionOnCategory()
+	  {
+		// given
+		suspendProcessDefinitionByKey(ONE_TASK_PROCESS_KEY);
+		createGrantAuthorizationWithoutAuthentication(OPERATION_LOG_CATEGORY, CATEGORY_OPERATOR, userId, READ);
+
+		// when
+		UserOperationLogQuery query = historyService.createUserOperationLogQuery();
+
+		// then
+		verifyQueryResults(query, 1);
+
+		clearDatabase();
+	  }
+
+	  public virtual void testQuerySuspendProcessDefinitionUserOperationLogWithReadHPermissionOnAnyCategory()
+	  {
+		// given
+		suspendProcessDefinitionByKey(ONE_TASK_PROCESS_KEY);
+		createGrantAuthorizationWithoutAuthentication(OPERATION_LOG_CATEGORY, ANY, userId, READ);
 
 		// when
 		UserOperationLogQuery query = historyService.createUserOperationLogQuery();
@@ -364,9 +910,71 @@ namespace org.camunda.bpm.engine.test.api.authorization.history
 		clearDatabase();
 	  }
 
+	  public virtual void testQuerySuspendProcessInstanceUserOperationLogWithReadPermissionOnCategory()
+	  {
+		// given
+		string processInstanceId = startProcessInstanceByKey(ONE_TASK_PROCESS_KEY).Id;
+		suspendProcessInstanceById(processInstanceId);
+
+		createGrantAuthorizationWithoutAuthentication(OPERATION_LOG_CATEGORY, CATEGORY_OPERATOR, userId, READ);
+
+		// when
+		UserOperationLogQuery query = historyService.createUserOperationLogQuery();
+
+		// then
+		verifyQueryResults(query, 2);
+
+		clearDatabase();
+	  }
+
+	  public virtual void testQuerySuspendProcessInstanceUserOperationLogWithReadPermissionOnAnyCategory()
+	  {
+		// given
+		string processInstanceId = startProcessInstanceByKey(ONE_TASK_PROCESS_KEY).Id;
+		suspendProcessInstanceById(processInstanceId);
+
+		createGrantAuthorizationWithoutAuthentication(OPERATION_LOG_CATEGORY, ANY, userId, READ);
+
+		// when
+		UserOperationLogQuery query = historyService.createUserOperationLogQuery();
+
+		// then
+		verifyQueryResults(query, 2);
+
+		clearDatabase();
+	  }
+
 	  // delete deployment (cascade = false)
 
-	  public virtual void testQueryAfterDeletingDeployment()
+	  public virtual void testQueryAfterDeletingDeploymentWithoutAuthorization()
+	  {
+		// given
+		startProcessInstanceByKey(ONE_TASK_PROCESS_KEY);
+		string taskId = selectSingleTask().Id;
+		setAssignee(taskId, "demo");
+
+		disableAuthorization();
+		taskService.complete(taskId);
+		enableAuthorization();
+
+		deleteDeployment(deploymentId, false);
+
+		// when
+		UserOperationLogQuery query = historyService.createUserOperationLogQuery();
+
+		// then
+		verifyQueryResults(query, 0);
+
+		disableAuthorization();
+		IList<HistoricProcessInstance> instances = historyService.createHistoricProcessInstanceQuery().list();
+		foreach (HistoricProcessInstance instance in instances)
+		{
+		  historyService.deleteHistoricProcessInstance(instance.Id);
+		}
+		enableAuthorization();
+	  }
+
+	  public virtual void testQueryAfterDeletingDeploymentWithReadHistoryPermissionOnProcessDefinition()
 	  {
 		// given
 		startProcessInstanceByKey(ONE_TASK_PROCESS_KEY);
@@ -395,15 +1003,224 @@ namespace org.camunda.bpm.engine.test.api.authorization.history
 		enableAuthorization();
 	  }
 
+	  public virtual void testQueryAfterDeletingDeploymentWithReadHistoryPermissionOnAnyProcessDefinition()
+	  {
+		// given
+		startProcessInstanceByKey(ONE_TASK_PROCESS_KEY);
+		string taskId = selectSingleTask().Id;
+		setAssignee(taskId, "demo");
+		createGrantAuthorizationWithoutAuthentication(PROCESS_DEFINITION, ANY, userId, READ_HISTORY);
+
+		disableAuthorization();
+		taskService.complete(taskId);
+		enableAuthorization();
+
+		deleteDeployment(deploymentId, false);
+
+		// when
+		UserOperationLogQuery query = historyService.createUserOperationLogQuery();
+
+		// then
+		verifyQueryResults(query, 3);
+
+		disableAuthorization();
+		IList<HistoricProcessInstance> instances = historyService.createHistoricProcessInstanceQuery().list();
+		foreach (HistoricProcessInstance instance in instances)
+		{
+		  historyService.deleteHistoricProcessInstance(instance.Id);
+		}
+		enableAuthorization();
+	  }
+
+	  public virtual void testQueryAfterDeletingDeploymentWithReadPermissionOnCategory()
+	  {
+		// given
+		startProcessInstanceByKey(ONE_TASK_PROCESS_KEY);
+		string taskId = selectSingleTask().Id;
+		setAssignee(taskId, "demo");
+
+		disableAuthorization();
+		taskService.complete(taskId);
+		enableAuthorization();
+
+		deleteDeployment(deploymentId, false);
+
+		// when
+		createGrantAuthorizationWithoutAuthentication(OPERATION_LOG_CATEGORY, CATEGORY_OPERATOR, userId, READ);
+		UserOperationLogQuery query = historyService.createUserOperationLogQuery();
+
+		// then expect 1 entry (start process instance)
+		verifyQueryResults(query, 1);
+
+		// and when
+		createGrantAuthorizationWithoutAuthentication(OPERATION_LOG_CATEGORY, CATEGORY_TASK_WORKER, userId, READ);
+
+		// then expect 3 entries (start process instance, set assignee, complete task)
+		verifyQueryResults(query, 3);
+
+		disableAuthorization();
+		IList<HistoricProcessInstance> instances = historyService.createHistoricProcessInstanceQuery().list();
+		foreach (HistoricProcessInstance instance in instances)
+		{
+		  historyService.deleteHistoricProcessInstance(instance.Id);
+		}
+		enableAuthorization();
+	  }
+
+	  public virtual void testQueryAfterDeletingDeploymentWithReadPermissionOnAnyCategory()
+	  {
+		// given
+		startProcessInstanceByKey(ONE_TASK_PROCESS_KEY);
+		string taskId = selectSingleTask().Id;
+		setAssignee(taskId, "demo");
+		createGrantAuthorizationWithoutAuthentication(OPERATION_LOG_CATEGORY, ANY, userId, READ);
+
+		disableAuthorization();
+		taskService.complete(taskId);
+		enableAuthorization();
+
+		deleteDeployment(deploymentId, false);
+
+		// when
+		UserOperationLogQuery query = historyService.createUserOperationLogQuery();
+
+		// then
+		verifyQueryResults(query, 3);
+
+		disableAuthorization();
+		IList<HistoricProcessInstance> instances = historyService.createHistoricProcessInstanceQuery().list();
+		foreach (HistoricProcessInstance instance in instances)
+		{
+		  historyService.deleteHistoricProcessInstance(instance.Id);
+		}
+		enableAuthorization();
+	  }
+
 	  // delete user operation log (standalone) ////////////////////////
 
-	  public virtual void testDeleteStandaloneEntry()
+	  public virtual void testDeleteStandaloneEntryWithoutAuthorization()
 	  {
 		// given
 		string taskId = "myTask";
 		createTask(taskId);
 
+		disableAuthorization();
 		string entryId = historyService.createUserOperationLogQuery().singleResult().Id;
+		enableAuthorization();
+
+		// when
+		try
+		{
+		  historyService.deleteUserOperationLogEntry(entryId);
+		  fail("Exception expected: It should not be possible to delete the user operation log");
+		}
+		catch (AuthorizationException e)
+		{
+		  // then
+		  string message = e.Message;
+		  assertTextPresent(userId, message);
+		  assertTextPresent(DELETE.Name, message);
+		  assertTextPresent(OPERATION_LOG_CATEGORY.resourceName(), message);
+		  assertTextPresent(CATEGORY_TASK_WORKER, message);
+		}
+
+		deleteTask(taskId, true);
+	  }
+
+	  public virtual void testDeleteStandaloneEntryWithDeleteHistoryPermissionOnProcessDefinition()
+	  {
+		// given
+		string taskId = "myTask";
+		createTask(taskId);
+
+		disableAuthorization();
+		string entryId = historyService.createUserOperationLogQuery().singleResult().Id;
+		enableAuthorization();
+
+		createGrantAuthorizationWithoutAuthentication(PROCESS_DEFINITION, ONE_TASK_PROCESS_KEY, userId, DELETE_HISTORY);
+
+		// when
+		try
+		{
+		  historyService.deleteUserOperationLogEntry(entryId);
+		  fail("Exception expected: It should not be possible to delete the user operation log");
+		}
+		catch (AuthorizationException e)
+		{
+		  // then
+		  string message = e.Message;
+		  assertTextPresent(userId, message);
+		  assertTextPresent(DELETE.Name, message);
+		  assertTextPresent(OPERATION_LOG_CATEGORY.resourceName(), message);
+		  assertTextPresent(CATEGORY_TASK_WORKER, message);
+		}
+
+		deleteTask(taskId, true);
+	  }
+
+	  public virtual void testDeleteStandaloneEntryWithDeleteHistoryPermissionOnAnyProcessDefinition()
+	  {
+		// given
+		string taskId = "myTask";
+		createTask(taskId);
+
+		disableAuthorization();
+		string entryId = historyService.createUserOperationLogQuery().singleResult().Id;
+		enableAuthorization();
+
+		createGrantAuthorizationWithoutAuthentication(PROCESS_DEFINITION, ANY, userId, DELETE_HISTORY);
+
+		// when
+		try
+		{
+		  historyService.deleteUserOperationLogEntry(entryId);
+		  fail("Exception expected: It should not be possible to delete the user operation log");
+		}
+		catch (AuthorizationException e)
+		{
+		  // then
+		  string message = e.Message;
+		  assertTextPresent(userId, message);
+		  assertTextPresent(DELETE.Name, message);
+		  assertTextPresent(OPERATION_LOG_CATEGORY.resourceName(), message);
+		  assertTextPresent(CATEGORY_TASK_WORKER, message);
+		}
+
+		deleteTask(taskId, true);
+	  }
+
+	  public virtual void testDeleteStandaloneEntryWithDeletePermissionOnCategory()
+	  {
+		// given
+		string taskId = "myTask";
+		createTask(taskId);
+
+		disableAuthorization();
+		string entryId = historyService.createUserOperationLogQuery().singleResult().Id;
+		enableAuthorization();
+
+		createGrantAuthorizationWithoutAuthentication(OPERATION_LOG_CATEGORY, CATEGORY_TASK_WORKER, userId, DELETE);
+
+		// when
+		historyService.deleteUserOperationLogEntry(entryId);
+
+		// then
+		assertNull(historyService.createUserOperationLogQuery().singleResult());
+
+		deleteTask(taskId, true);
+	  }
+
+	  public virtual void testDeleteStandaloneEntryWithDeletePermissionOnAnyCategory()
+	  {
+		// given
+		string taskId = "myTask";
+		createTask(taskId);
+
+		disableAuthorization();
+		string entryId = historyService.createUserOperationLogQuery().singleResult().Id;
+		enableAuthorization();
+
+		createGrantAuthorizationWithoutAuthentication(OPERATION_LOG_CATEGORY, ANY, userId, DELETE);
 
 		// when
 		historyService.deleteUserOperationLogEntry(entryId);
@@ -441,6 +1258,9 @@ namespace org.camunda.bpm.engine.test.api.authorization.history
 		  assertTextPresent(DELETE_HISTORY.Name, message);
 		  assertTextPresent(ONE_TASK_PROCESS_KEY, message);
 		  assertTextPresent(PROCESS_DEFINITION.resourceName(), message);
+		  assertTextPresent(DELETE.Name, message);
+		  assertTextPresent(OPERATION_LOG_CATEGORY.resourceName(), message);
+		  assertTextPresent(CATEGORY_TASK_WORKER, message);
 		}
 	  }
 
@@ -486,6 +1306,48 @@ namespace org.camunda.bpm.engine.test.api.authorization.history
 		enableAuthorization();
 	  }
 
+	  public virtual void testDeleteEntryWithDeletePermissionOnCategory()
+	  {
+		// given
+		startProcessInstanceByKey(ONE_TASK_PROCESS_KEY);
+		string taskId = selectSingleTask().Id;
+		setAssignee(taskId, "demo");
+		createGrantAuthorization(OPERATION_LOG_CATEGORY, CATEGORY_TASK_WORKER, userId, DELETE);
+
+		disableAuthorization();
+		string entryId = historyService.createUserOperationLogQuery().entityType("Task").singleResult().Id;
+		enableAuthorization();
+
+		// when
+		historyService.deleteUserOperationLogEntry(entryId);
+
+		// then
+		disableAuthorization();
+		assertNull(historyService.createUserOperationLogQuery().entityType("Task").singleResult());
+		enableAuthorization();
+	  }
+
+	  public virtual void testDeleteEntryWithDeletePermissionOnAnyCategory()
+	  {
+		// given
+		startProcessInstanceByKey(ONE_TASK_PROCESS_KEY);
+		string taskId = selectSingleTask().Id;
+		setAssignee(taskId, "demo");
+		createGrantAuthorization(OPERATION_LOG_CATEGORY, ANY, userId, DELETE);
+
+		disableAuthorization();
+		string entryId = historyService.createUserOperationLogQuery().entityType("Task").singleResult().Id;
+		enableAuthorization();
+
+		// when
+		historyService.deleteUserOperationLogEntry(entryId);
+
+		// then
+		disableAuthorization();
+		assertNull(historyService.createUserOperationLogQuery().entityType("Task").singleResult());
+		enableAuthorization();
+	  }
+
 	  public virtual void testDeleteEntryAfterDeletingDeployment()
 	  {
 		// given
@@ -516,14 +1378,126 @@ namespace org.camunda.bpm.engine.test.api.authorization.history
 
 	  // delete user operation log (case) //////////////////////////////
 
-	  public virtual void testCaseDeleteEntry()
+	  public virtual void testCaseDeleteEntryWithoutAuthorization()
 	  {
 		// given
 		createCaseInstanceByKey(ONE_TASK_CASE_KEY);
 		string taskId = selectSingleTask().Id;
 		setAssignee(taskId, "demo");
 
+		disableAuthorization();
 		string entryId = historyService.createUserOperationLogQuery().singleResult().Id;
+		enableAuthorization();
+
+		// when
+		try
+		{
+		  historyService.deleteUserOperationLogEntry(entryId);
+		  fail("Exception expected: It should not be possible to delete the user operation log");
+		}
+		catch (AuthorizationException e)
+		{
+		  // then
+		  string message = e.Message;
+		  assertTextPresent(userId, message);
+		  assertTextPresent(DELETE.Name, message);
+		  assertTextPresent(OPERATION_LOG_CATEGORY.resourceName(), message);
+		  assertTextPresent(CATEGORY_TASK_WORKER, message);
+		}
+	  }
+
+	  public virtual void testCaseDeleteEntryWithDeleteHistoryPermissionOnProcessDefinition()
+	  {
+		// given
+		createCaseInstanceByKey(ONE_TASK_CASE_KEY);
+		string taskId = selectSingleTask().Id;
+		setAssignee(taskId, "demo");
+
+		disableAuthorization();
+		string entryId = historyService.createUserOperationLogQuery().singleResult().Id;
+		enableAuthorization();
+
+		createGrantAuthorizationWithoutAuthentication(PROCESS_DEFINITION, ONE_TASK_CASE_KEY, userId, DELETE_HISTORY);
+
+		// when
+		try
+		{
+		  historyService.deleteUserOperationLogEntry(entryId);
+		  fail("Exception expected: It should not be possible to delete the user operation log");
+		}
+		catch (AuthorizationException e)
+		{
+		  // then
+		  string message = e.Message;
+		  assertTextPresent(userId, message);
+		  assertTextPresent(DELETE.Name, message);
+		  assertTextPresent(OPERATION_LOG_CATEGORY.resourceName(), message);
+		  assertTextPresent(CATEGORY_TASK_WORKER, message);
+		}
+	  }
+
+	  public virtual void testCaseDeleteEntryWithDeleteHistoryPermissionOnAnyProcessDefinition()
+	  {
+		// given
+		createCaseInstanceByKey(ONE_TASK_CASE_KEY);
+		string taskId = selectSingleTask().Id;
+		setAssignee(taskId, "demo");
+
+		disableAuthorization();
+		string entryId = historyService.createUserOperationLogQuery().singleResult().Id;
+		enableAuthorization();
+
+		createGrantAuthorizationWithoutAuthentication(PROCESS_DEFINITION, ANY, userId, DELETE_HISTORY);
+
+		// when
+		try
+		{
+		  historyService.deleteUserOperationLogEntry(entryId);
+		  fail("Exception expected: It should not be possible to delete the user operation log");
+		}
+		catch (AuthorizationException e)
+		{
+		  // then
+		  string message = e.Message;
+		  assertTextPresent(userId, message);
+		  assertTextPresent(DELETE.Name, message);
+		  assertTextPresent(OPERATION_LOG_CATEGORY.resourceName(), message);
+		  assertTextPresent(CATEGORY_TASK_WORKER, message);
+		}
+	  }
+
+	  public virtual void testCaseDeleteEntryWithDeletePermissionOnCategory()
+	  {
+		// given
+		createCaseInstanceByKey(ONE_TASK_CASE_KEY);
+		string taskId = selectSingleTask().Id;
+		setAssignee(taskId, "demo");
+
+		disableAuthorization();
+		string entryId = historyService.createUserOperationLogQuery().singleResult().Id;
+		enableAuthorization();
+
+		createGrantAuthorizationWithoutAuthentication(OPERATION_LOG_CATEGORY, CATEGORY_TASK_WORKER, userId, DELETE);
+
+		// when
+		historyService.deleteUserOperationLogEntry(entryId);
+
+		// then
+		assertNull(historyService.createUserOperationLogQuery().singleResult());
+	  }
+
+	  public virtual void testCaseDeleteEntryWithDeletePermissionOnAnyCategory()
+	  {
+		// given
+		createCaseInstanceByKey(ONE_TASK_CASE_KEY);
+		string taskId = selectSingleTask().Id;
+		setAssignee(taskId, "demo");
+
+		disableAuthorization();
+		string entryId = historyService.createUserOperationLogQuery().singleResult().Id;
+		enableAuthorization();
+
+		createGrantAuthorizationWithoutAuthentication(OPERATION_LOG_CATEGORY, ANY, userId, DELETE);
 
 		// when
 		historyService.deleteUserOperationLogEntry(entryId);

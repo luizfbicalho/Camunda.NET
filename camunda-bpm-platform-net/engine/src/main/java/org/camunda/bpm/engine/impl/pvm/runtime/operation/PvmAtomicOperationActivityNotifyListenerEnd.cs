@@ -75,6 +75,10 @@ namespace org.camunda.bpm.engine.impl.pvm.runtime.operation
 		  }
 	  }
 
+	  public override bool shouldHandleFailureAsBpmnError()
+	  {
+		return true;
+	  }
 	}
 
 }

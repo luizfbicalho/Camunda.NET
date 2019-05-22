@@ -218,6 +218,20 @@ namespace org.camunda.bpm.engine.test.api.authorization
 		saveAuthorization(authorization);
 	  }
 
+	  protected internal virtual void createRevokeAuthorizationWithoutAuthentication(Resource resource, string resourceId, string userId, params Permission[] permissions)
+	  {
+		Authentication currentAuthentication = identityService.CurrentAuthentication;
+		identityService.clearAuthentication();
+		try
+		{
+		  createRevokeAuthorization(resource, resourceId, userId, permissions);
+		}
+		finally
+		{
+		  identityService.Authentication = currentAuthentication;
+		}
+	  }
+
 	  protected internal virtual void createRevokeAuthorization(Resource resource, string resourceId, string userId, params Permission[] permissions)
 	  {
 		Authorization authorization = createRevokeAuthorization(resource, resourceId);

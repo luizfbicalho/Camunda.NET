@@ -38,13 +38,13 @@ namespace org.camunda.bpm.model.xml.type.child
 
 	  ChildElementCollection<T> build();
 
-	  ElementReferenceCollectionBuilder<V, T> qNameElementReferenceCollection<V>(Type<V> referenceTargetType);
+	  ElementReferenceCollectionBuilder<V, T> qNameElementReferenceCollection<V>(Type referenceTargetType);
 
-	  ElementReferenceCollectionBuilder<V, T> idElementReferenceCollection<V>(Type<V> referenceTargetType);
+	  ElementReferenceCollectionBuilder<V, T> idElementReferenceCollection<V>(Type referenceTargetType);
 
-	  ElementReferenceCollectionBuilder<V, T> idsElementReferenceCollection<V>(Type<V> referenceTargetType);
+	  ElementReferenceCollectionBuilder<V, T> idsElementReferenceCollection<V>(Type referenceTargetType);
 
-	  ElementReferenceCollectionBuilder<V, T> uriElementReferenceCollection<V>(Type<V> referenceTargetType);
+	  ElementReferenceCollectionBuilder<V, T> uriElementReferenceCollection<V>(Type referenceTargetType);
 
 	}
 

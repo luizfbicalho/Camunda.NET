@@ -27,6 +27,7 @@ namespace org.camunda.bpm.engine.impl.optimize
 	using UserOperationLogEntry = org.camunda.bpm.engine.history.UserOperationLogEntry;
 	using AbstractManager = org.camunda.bpm.engine.impl.persistence.AbstractManager;
 	using ByteArrayEntity = org.camunda.bpm.engine.impl.persistence.entity.ByteArrayEntity;
+	using OptimizeHistoricIdentityLinkLogEntity = org.camunda.bpm.engine.impl.persistence.entity.optimize.OptimizeHistoricIdentityLinkLogEntity;
 
 
 //JAVA TO C# CONVERTER TODO TASK: This Java 'import static' statement cannot be converted to C#:
@@ -116,6 +117,20 @@ namespace org.camunda.bpm.engine.impl.optimize
 		@params["maxResults"] = maxResults;
 
 		return DbEntityManager.selectList("selectHistoricUserOperationLogPage", @params);
+	  }
+
+//JAVA TO C# CONVERTER TODO TASK: Most Java annotations will not have direct .NET equivalent attributes:
+//ORIGINAL LINE: @SuppressWarnings("unchecked") public java.util.List<org.camunda.bpm.engine.impl.persistence.entity.optimize.OptimizeHistoricIdentityLinkLogEntity> getHistoricIdentityLinkLogs(java.util.Date occurredAfter, java.util.Date occurredAt, int maxResults)
+	  public virtual IList<OptimizeHistoricIdentityLinkLogEntity> getHistoricIdentityLinkLogs(DateTime occurredAfter, DateTime occurredAt, int maxResults)
+	  {
+		checkIsAuthorizedToReadHistoryOfProcessDefinitions();
+
+		IDictionary<string, object> @params = new Dictionary<string, object>();
+		@params["occurredAfter"] = occurredAfter;
+		@params["occurredAt"] = occurredAt;
+		@params["maxResults"] = maxResults;
+
+		return DbEntityManager.selectList("selectHistoricIdentityLinkPage", @params);
 	  }
 
 	  private void checkIsAuthorizedToReadHistoryOfProcessDefinitions()

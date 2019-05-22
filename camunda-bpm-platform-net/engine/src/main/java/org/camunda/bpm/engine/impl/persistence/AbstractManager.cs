@@ -101,8 +101,9 @@ namespace org.camunda.bpm.engine.impl.persistence
 		  }
 	  }
 
-	  protected internal virtual T getSession<T>(Type<T> sessionClass)
+	  protected internal virtual T getSession<T>(Type sessionClass)
 	  {
+			  sessionClass = typeof(T);
 		return Context.CommandContext.getSession(sessionClass);
 	  }
 

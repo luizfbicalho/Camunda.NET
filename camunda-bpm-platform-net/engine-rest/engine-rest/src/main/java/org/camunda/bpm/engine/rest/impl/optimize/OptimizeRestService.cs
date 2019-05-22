@@ -27,13 +27,15 @@ namespace org.camunda.bpm.engine.rest.impl.optimize
 	using HistoricVariableUpdate = org.camunda.bpm.engine.history.HistoricVariableUpdate;
 	using UserOperationLogEntry = org.camunda.bpm.engine.history.UserOperationLogEntry;
 	using ProcessEngineConfigurationImpl = org.camunda.bpm.engine.impl.cfg.ProcessEngineConfigurationImpl;
+	using OptimizeHistoricIdentityLinkLogEntity = org.camunda.bpm.engine.impl.persistence.entity.optimize.OptimizeHistoricIdentityLinkLogEntity;
 	using DateConverter = org.camunda.bpm.engine.rest.dto.converter.DateConverter;
 	using HistoricActivityInstanceDto = org.camunda.bpm.engine.rest.dto.history.HistoricActivityInstanceDto;
 	using HistoricDecisionInstanceDto = org.camunda.bpm.engine.rest.dto.history.HistoricDecisionInstanceDto;
 	using HistoricProcessInstanceDto = org.camunda.bpm.engine.rest.dto.history.HistoricProcessInstanceDto;
 	using HistoricTaskInstanceDto = org.camunda.bpm.engine.rest.dto.history.HistoricTaskInstanceDto;
 	using UserOperationLogEntryDto = org.camunda.bpm.engine.rest.dto.history.UserOperationLogEntryDto;
-	using HistoricOptimizeVariableUpdateDto = org.camunda.bpm.engine.rest.dto.history.optimize.HistoricOptimizeVariableUpdateDto;
+	using OptimizeHistoricIdentityLinkLogDto = org.camunda.bpm.engine.rest.dto.history.optimize.OptimizeHistoricIdentityLinkLogDto;
+	using OptimizeHistoricVariableUpdateDto = org.camunda.bpm.engine.rest.dto.history.optimize.OptimizeHistoricVariableUpdateDto;
 
 
 //JAVA TO C# CONVERTER TODO TASK: Most Java annotations will not have direct .NET equivalent attributes:
@@ -162,6 +164,28 @@ namespace org.camunda.bpm.engine.rest.impl.optimize
 	  }
 
 //JAVA TO C# CONVERTER TODO TASK: Most Java annotations will not have direct .NET equivalent attributes:
+//ORIGINAL LINE: @GET @Path("/identity-link-log") public java.util.List<org.camunda.bpm.engine.rest.dto.history.optimize.OptimizeHistoricIdentityLinkLogDto> getHistoricIdentityLinkLogs(@QueryParam("occurredAfter") String occurredAfterAsString, @QueryParam("occurredAt") String occurredAtAsString, @QueryParam("maxResults") int maxResults)
+	  public virtual IList<OptimizeHistoricIdentityLinkLogDto> getHistoricIdentityLinkLogs(string occurredAfterAsString, string occurredAtAsString, int maxResults)
+	  {
+
+		DateTime occurredAfter = dateConverter.convertQueryParameterToType(occurredAfterAsString);
+		DateTime occurredAt = dateConverter.convertQueryParameterToType(occurredAtAsString);
+		maxResults = ensureValidMaxResults(maxResults);
+
+		ProcessEngineConfigurationImpl config = (ProcessEngineConfigurationImpl) ProcessEngine.ProcessEngineConfiguration;
+
+		IList<OptimizeHistoricIdentityLinkLogEntity> operationLogEntries = config.OptimizeService.getHistoricIdentityLinkLogs(occurredAfter, occurredAt, maxResults);
+
+		IList<OptimizeHistoricIdentityLinkLogDto> result = new List<OptimizeHistoricIdentityLinkLogDto>();
+		foreach (OptimizeHistoricIdentityLinkLogEntity logEntry in operationLogEntries)
+		{
+		  OptimizeHistoricIdentityLinkLogDto dto = OptimizeHistoricIdentityLinkLogDto.fromHistoricIdentityLink(logEntry);
+		  result.Add(dto);
+		}
+		return result;
+	  }
+
+//JAVA TO C# CONVERTER TODO TASK: Most Java annotations will not have direct .NET equivalent attributes:
 //ORIGINAL LINE: @GET @Path("/process-instance/completed") public java.util.List<org.camunda.bpm.engine.rest.dto.history.HistoricProcessInstanceDto> getCompletedHistoricProcessInstances(@QueryParam("finishedAfter") String finishedAfterAsString, @QueryParam("finishedAt") String finishedAtAsString, @QueryParam("maxResults") int maxResults)
 	  public virtual IList<HistoricProcessInstanceDto> getCompletedHistoricProcessInstances(string finishedAfterAsString, string finishedAtAsString, int maxResults)
 	  {
@@ -202,8 +226,8 @@ namespace org.camunda.bpm.engine.rest.impl.optimize
 	  }
 
 //JAVA TO C# CONVERTER TODO TASK: Most Java annotations will not have direct .NET equivalent attributes:
-//ORIGINAL LINE: @GET @Path("/variable-update") public java.util.List<org.camunda.bpm.engine.rest.dto.history.optimize.HistoricOptimizeVariableUpdateDto> getHistoricVariableUpdates(@QueryParam("occurredAfter") String occurredAfterAsString, @QueryParam("occurredAt") String occurredAtAsString, @QueryParam("maxResults") int maxResults)
-	  public virtual IList<HistoricOptimizeVariableUpdateDto> getHistoricVariableUpdates(string occurredAfterAsString, string occurredAtAsString, int maxResults)
+//ORIGINAL LINE: @GET @Path("/variable-update") public java.util.List<org.camunda.bpm.engine.rest.dto.history.optimize.OptimizeHistoricVariableUpdateDto> getHistoricVariableUpdates(@QueryParam("occurredAfter") String occurredAfterAsString, @QueryParam("occurredAt") String occurredAtAsString, @QueryParam("maxResults") int maxResults)
+	  public virtual IList<OptimizeHistoricVariableUpdateDto> getHistoricVariableUpdates(string occurredAfterAsString, string occurredAtAsString, int maxResults)
 	  {
 		DateTime occurredAfter = dateConverter.convertQueryParameterToType(occurredAfterAsString);
 		DateTime occurredAt = dateConverter.convertQueryParameterToType(occurredAtAsString);
@@ -212,10 +236,10 @@ namespace org.camunda.bpm.engine.rest.impl.optimize
 		ProcessEngineConfigurationImpl config = (ProcessEngineConfigurationImpl) ProcessEngine.ProcessEngineConfiguration;
 		IList<HistoricVariableUpdate> historicVariableUpdates = config.OptimizeService.getHistoricVariableUpdates(occurredAfter, occurredAt, maxResults);
 
-		IList<HistoricOptimizeVariableUpdateDto> result = new List<HistoricOptimizeVariableUpdateDto>();
+		IList<OptimizeHistoricVariableUpdateDto> result = new List<OptimizeHistoricVariableUpdateDto>();
 		foreach (HistoricVariableUpdate instance in historicVariableUpdates)
 		{
-		  HistoricOptimizeVariableUpdateDto dto = HistoricOptimizeVariableUpdateDto.fromHistoricVariableUpdate(instance);
+		  OptimizeHistoricVariableUpdateDto dto = OptimizeHistoricVariableUpdateDto.fromHistoricVariableUpdate(instance);
 		  result.Add(dto);
 		}
 		return result;

@@ -27,9 +27,9 @@ namespace org.camunda.bpm.model.xml.type.child
 	public interface SequenceBuilder
 	{
 
-	  ChildElementBuilder<T> element<T>(Type<T> childElementType);
+	  ChildElementBuilder<T> element<T>(Type childElementType);
 
-	  ChildElementCollectionBuilder<T> elementCollection<T>(Type<T> childElementType);
+	  ChildElementCollectionBuilder<T> elementCollection<T>(Type childElementType);
 
 	}
 

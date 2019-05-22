@@ -29,11 +29,13 @@ namespace org.camunda.bpm.engine.impl
 	using OptimizeCompletedHistoricProcessInstanceQueryCmd = org.camunda.bpm.engine.impl.cmd.optimize.OptimizeCompletedHistoricProcessInstanceQueryCmd;
 	using OptimizeCompletedHistoricTaskInstanceQueryCmd = org.camunda.bpm.engine.impl.cmd.optimize.OptimizeCompletedHistoricTaskInstanceQueryCmd;
 	using OptimizeHistoricDecisionInstanceQueryCmd = org.camunda.bpm.engine.impl.cmd.optimize.OptimizeHistoricDecisionInstanceQueryCmd;
+	using OptimizeHistoricIdentityLinkLogQueryCmd = org.camunda.bpm.engine.impl.cmd.optimize.OptimizeHistoricIdentityLinkLogQueryCmd;
 	using OptimizeHistoricUserOperationsLogQueryCmd = org.camunda.bpm.engine.impl.cmd.optimize.OptimizeHistoricUserOperationsLogQueryCmd;
 	using OptimizeHistoricVariableUpdateQueryCmd = org.camunda.bpm.engine.impl.cmd.optimize.OptimizeHistoricVariableUpdateQueryCmd;
 	using OptimizeRunningHistoricActivityInstanceQueryCmd = org.camunda.bpm.engine.impl.cmd.optimize.OptimizeRunningHistoricActivityInstanceQueryCmd;
 	using OptimizeRunningHistoricProcessInstanceQueryCmd = org.camunda.bpm.engine.impl.cmd.optimize.OptimizeRunningHistoricProcessInstanceQueryCmd;
 	using OptimizeRunningHistoricTaskInstanceQueryCmd = org.camunda.bpm.engine.impl.cmd.optimize.OptimizeRunningHistoricTaskInstanceQueryCmd;
+	using OptimizeHistoricIdentityLinkLogEntity = org.camunda.bpm.engine.impl.persistence.entity.optimize.OptimizeHistoricIdentityLinkLogEntity;
 
 
 	public class OptimizeService : ServiceImpl
@@ -66,6 +68,12 @@ namespace org.camunda.bpm.engine.impl
 	  public virtual IList<UserOperationLogEntry> getHistoricUserOperationLogs(DateTime occurredAfter, DateTime occurredAt, int maxResults)
 	  {
 		return commandExecutor.execute(new OptimizeHistoricUserOperationsLogQueryCmd(occurredAfter, occurredAt, maxResults)
+	   );
+	  }
+
+	  public virtual IList<OptimizeHistoricIdentityLinkLogEntity> getHistoricIdentityLinkLogs(DateTime occurredAfter, DateTime occurredAt, int maxResults)
+	  {
+		return commandExecutor.execute(new OptimizeHistoricIdentityLinkLogQueryCmd(occurredAfter, occurredAt, maxResults)
 	   );
 	  }
 

@@ -50,6 +50,7 @@ namespace org.camunda.bpm.engine
 	  public const string METRICS = "Metrics";
 	  public const string CASE_INSTANCE = "CaseInstance";
 	  public const string PROPERTY = "Property";
+	  public const string OPERATION_LOG_CATEGORY = "OperationLogCatgeory";
 	}
 
 }

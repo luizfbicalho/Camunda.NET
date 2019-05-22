@@ -46,9 +46,9 @@ namespace org.camunda.bpm.model.xml.type
 
 	  AttributeBuilder<double> doubleAttribute(string attributeName);
 
-	  AttributeBuilder<V> enumAttribute<V>(string attributeName, Type<V> enumType);
+	  AttributeBuilder<V> enumAttribute<V>(string attributeName, Type enumType);
 
-	  AttributeBuilder<V> namedEnumAttribute<V>(string attributeName, Type<V> enumType);
+	  AttributeBuilder<V> namedEnumAttribute<V>(string attributeName, Type enumType);
 
 	  SequenceBuilder sequence();
 

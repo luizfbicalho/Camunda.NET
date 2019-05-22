@@ -85,8 +85,9 @@ namespace org.camunda.bpm.model.bpmn.impl.instance
 		return extensionElement;
 	  }
 
-	  public virtual T addExtensionElement<T>(Type<T> extensionElementClass) where T : org.camunda.bpm.model.xml.instance.ModelElementInstance
+	  public virtual T addExtensionElement<T>(Type extensionElementClass) where T : org.camunda.bpm.model.xml.instance.ModelElementInstance
 	  {
+			  extensionElementClass = typeof(T);
 		ModelElementInstance extensionElement = modelInstance.newInstance(extensionElementClass);
 		addChildElement(extensionElement);
 		return extensionElementClass.cast(extensionElement);

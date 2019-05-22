@@ -148,8 +148,9 @@ namespace org.camunda.bpm.integrationtest.functional.spin.dataformat
 			return (T) new Foo();
 		  }
 
-		  public override T mapInternalToJava<T>(object parameter, Type<T> type)
+		  public override T mapInternalToJava<T>(object parameter, Type type)
 		  {
+				  type = typeof(T);
 			return null;
 		  }
 

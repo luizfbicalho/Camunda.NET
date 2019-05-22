@@ -49,8 +49,9 @@ namespace org.camunda.bpm.model.xml.impl.type.child
 
 	  private readonly IList<ModelBuildOperation> modelBuildOperations = new List<ModelBuildOperation>();
 
-	  public ChildElementCollectionBuilderImpl(Type<T> childElementTypeClass, ModelElementType parentElementType)
+	  public ChildElementCollectionBuilderImpl(Type childElementTypeClass, ModelElementType parentElementType)
 	  {
+			  childElementTypeClass = typeof(T);
 		this.childElementType = childElementTypeClass;
 		this.parentElementType = (ModelElementTypeImpl) parentElementType;
 		this.collection = createCollectionInstance();
@@ -91,32 +92,36 @@ namespace org.camunda.bpm.model.xml.impl.type.child
 		return collection;
 	  }
 
-	  public virtual ElementReferenceCollectionBuilder<V, T> qNameElementReferenceCollection<V>(Type<V> referenceTargetType) where V : org.camunda.bpm.model.xml.instance.ModelElementInstance
+	  public virtual ElementReferenceCollectionBuilder<V, T> qNameElementReferenceCollection<V>(Type referenceTargetType) where V : org.camunda.bpm.model.xml.instance.ModelElementInstance
 	  {
+			  referenceTargetType = typeof(V);
 		ChildElementCollectionImpl<T> collection = (ChildElementCollectionImpl<T>) build();
 		QNameElementReferenceCollectionBuilderImpl<V, T> builder = new QNameElementReferenceCollectionBuilderImpl<V, T>(childElementType, referenceTargetType, collection);
 		ReferenceBuilder = builder;
 		return builder;
 	  }
 
-	  public virtual ElementReferenceCollectionBuilder<V, T> idElementReferenceCollection<V>(Type<V> referenceTargetType) where V : org.camunda.bpm.model.xml.instance.ModelElementInstance
+	  public virtual ElementReferenceCollectionBuilder<V, T> idElementReferenceCollection<V>(Type referenceTargetType) where V : org.camunda.bpm.model.xml.instance.ModelElementInstance
 	  {
+			  referenceTargetType = typeof(V);
 		ChildElementCollectionImpl<T> collection = (ChildElementCollectionImpl<T>) build();
 		ElementReferenceCollectionBuilder<V, T> builder = new ElementReferenceCollectionBuilderImpl<V, T>(childElementType, referenceTargetType, collection);
 		ReferenceBuilder = builder;
 		return builder;
 	  }
 
-	  public virtual ElementReferenceCollectionBuilder<V, T> idsElementReferenceCollection<V>(Type<V> referenceTargetType) where V : org.camunda.bpm.model.xml.instance.ModelElementInstance
+	  public virtual ElementReferenceCollectionBuilder<V, T> idsElementReferenceCollection<V>(Type referenceTargetType) where V : org.camunda.bpm.model.xml.instance.ModelElementInstance
 	  {
+			  referenceTargetType = typeof(V);
 		ChildElementCollectionImpl<T> collection = (ChildElementCollectionImpl<T>) build();
 		ElementReferenceCollectionBuilder<V, T> builder = new IdsElementReferenceCollectionBuilderImpl<V, T>(childElementType, referenceTargetType, collection);
 		ReferenceBuilder = builder;
 		return builder;
 	  }
 
-	  public virtual ElementReferenceCollectionBuilder<V, T> uriElementReferenceCollection<V>(Type<V> referenceTargetType) where V : org.camunda.bpm.model.xml.instance.ModelElementInstance
+	  public virtual ElementReferenceCollectionBuilder<V, T> uriElementReferenceCollection<V>(Type referenceTargetType) where V : org.camunda.bpm.model.xml.instance.ModelElementInstance
 	  {
+			  referenceTargetType = typeof(V);
 		ChildElementCollectionImpl<T> collection = (ChildElementCollectionImpl<T>) build();
 		ElementReferenceCollectionBuilder<V, T> builder = new UriElementReferenceCollectionBuilderImpl<V, T>(childElementType, referenceTargetType, collection);
 		ReferenceBuilder = builder;

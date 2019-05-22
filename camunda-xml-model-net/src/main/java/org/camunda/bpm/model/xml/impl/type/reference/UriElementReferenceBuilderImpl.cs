@@ -24,8 +24,10 @@ namespace org.camunda.bpm.model.xml.impl.type.reference
 	public class UriElementReferenceBuilderImpl<Target, Source> : ElementReferenceBuilderImpl<Target, Source> where Target : org.camunda.bpm.model.xml.instance.ModelElementInstance where Source : org.camunda.bpm.model.xml.instance.ModelElementInstance
 	{
 
-	  public UriElementReferenceBuilderImpl(Type<Source> childElementType, Type<Target> referenceTargetClass, ChildElementImpl<Source> child) : base(childElementType, referenceTargetClass, child)
+	  public UriElementReferenceBuilderImpl(Type childElementType, Type referenceTargetClass, ChildElementImpl<Source> child)
 	  {
+			  referenceTargetClass = typeof(Target);
+		base(childElementType, referenceTargetClass, child);
 		this.elementReferenceCollectionImpl = new UriElementReferenceImpl<Target, Source>(child);
 	  }
 

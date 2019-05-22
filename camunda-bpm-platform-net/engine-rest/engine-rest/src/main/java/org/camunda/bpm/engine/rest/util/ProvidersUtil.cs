@@ -28,18 +28,21 @@ namespace org.camunda.bpm.engine.rest.util
 	public class ProvidersUtil
 	{
 
-	  public static T resolveFromContext<T>(Providers providers, Type<T> clazz)
+	  public static T resolveFromContext<T>(Providers providers, Type clazz)
 	  {
+			  clazz = typeof(T);
 		return resolveFromContext(providers, clazz, null);
 	  }
 
-	  public static T resolveFromContext<T>(Providers providers, Type<T> clazz, Type type)
+	  public static T resolveFromContext<T>(Providers providers, Type clazz, Type type)
 	  {
+			  clazz = typeof(T);
 		return resolveFromContext(providers, clazz, null, type);
 	  }
 
-	  public static T resolveFromContext<T>(Providers providers, Type<T> clazz, MediaType mediaType, Type type)
+	  public static T resolveFromContext<T>(Providers providers, Type clazz, MediaType mediaType, Type type)
 	  {
+			  clazz = typeof(T);
 		ContextResolver<T> contextResolver = providers.getContextResolver(clazz, mediaType);
 
 		if (contextResolver == null)

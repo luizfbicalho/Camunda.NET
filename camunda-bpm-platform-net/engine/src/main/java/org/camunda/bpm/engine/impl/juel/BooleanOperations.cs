@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Numerics;
 
 /*
  * Based on JUEL 2.2.1 code, 2006-2009 Odysseus Software GmbH
@@ -50,9 +51,9 @@ namespace org.camunda.bpm.engine.impl.juel
 			{
 				return converter.convert(o1, typeof(Double)) < converter.convert(o2, typeof(Double));
 			}
-			if (t1.IsAssignableFrom(typeof(System.Numerics.BigInteger)) || t2.IsAssignableFrom(typeof(System.Numerics.BigInteger)))
+			if (t1.IsAssignableFrom(typeof(BigInteger)) || t2.IsAssignableFrom(typeof(BigInteger)))
 			{
-				return converter.convert(o1, typeof(System.Numerics.BigInteger)).compareTo(converter.convert(o2, typeof(System.Numerics.BigInteger))) < 0;
+				return converter.convert(o1, typeof(BigInteger)).compareTo(converter.convert(o2, typeof(BigInteger))) < 0;
 			}
 			if (SIMPLE_INTEGER_TYPES.Contains(t1) || SIMPLE_INTEGER_TYPES.Contains(t2))
 			{
@@ -87,9 +88,9 @@ namespace org.camunda.bpm.engine.impl.juel
 			{
 				return converter.convert(o1, typeof(Double)) > converter.convert(o2, typeof(Double));
 			}
-			if (t1.IsAssignableFrom(typeof(System.Numerics.BigInteger)) || t2.IsAssignableFrom(typeof(System.Numerics.BigInteger)))
+			if (t1.IsAssignableFrom(typeof(BigInteger)) || t2.IsAssignableFrom(typeof(BigInteger)))
 			{
-				return converter.convert(o1, typeof(System.Numerics.BigInteger)).compareTo(converter.convert(o2, typeof(System.Numerics.BigInteger))) > 0;
+				return converter.convert(o1, typeof(BigInteger)).compareTo(converter.convert(o2, typeof(BigInteger))) > 0;
 			}
 			if (SIMPLE_INTEGER_TYPES.Contains(t1) || SIMPLE_INTEGER_TYPES.Contains(t2))
 			{
@@ -182,9 +183,9 @@ namespace org.camunda.bpm.engine.impl.juel
 			{
 				return converter.convert(o1, typeof(Double)).Equals(converter.convert(o2, typeof(Double)));
 			}
-			if (t1.IsAssignableFrom(typeof(System.Numerics.BigInteger)) || t2.IsAssignableFrom(typeof(System.Numerics.BigInteger)))
+			if (t1.IsAssignableFrom(typeof(BigInteger)) || t2.IsAssignableFrom(typeof(BigInteger)))
 			{
-				return converter.convert(o1, typeof(System.Numerics.BigInteger)).Equals(converter.convert(o2, typeof(System.Numerics.BigInteger)));
+				return converter.convert(o1, typeof(BigInteger)).Equals(converter.convert(o2, typeof(BigInteger)));
 			}
 			if (SIMPLE_INTEGER_TYPES.Contains(t1) || SIMPLE_INTEGER_TYPES.Contains(t2))
 			{

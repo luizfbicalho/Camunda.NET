@@ -139,8 +139,9 @@ namespace org.camunda.bpm.engine.cdi.test
 		getBeanInstance(typeof(BusinessProcess)).associateExecutionById(processInstanceId);
 	  }
 
-	  protected internal virtual T getBeanInstance<T>(Type<T> clazz)
+	  protected internal virtual T getBeanInstance<T>(Type clazz)
 	  {
+			  clazz = typeof(T);
 		return ProgrammaticBeanLookup.lookup(clazz);
 	  }
 

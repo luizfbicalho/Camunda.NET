@@ -34,7 +34,7 @@ namespace org.camunda.bpm.model.bpmn
 
 	  Query<V> filterByType<V>(ModelElementType elementType);
 
-	  Query<V> filterByType<V>(Type<V> elementClass);
+	  Query<V> filterByType<V>(Type elementClass);
 
 	  T singleResult();
 

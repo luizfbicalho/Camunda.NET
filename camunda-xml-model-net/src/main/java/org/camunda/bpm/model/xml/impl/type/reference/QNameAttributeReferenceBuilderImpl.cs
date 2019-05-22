@@ -33,8 +33,10 @@ namespace org.camunda.bpm.model.xml.impl.type.reference
 	  /// </summary>
 	  /// <param name="referenceSourceAttribute"> the reference source attribute </param>
 	  /// <param name="referenceTargetElement">   the reference target model element instance </param>
-	  public QNameAttributeReferenceBuilderImpl(AttributeImpl<string> referenceSourceAttribute, Type<T> referenceTargetElement) : base(referenceSourceAttribute, referenceTargetElement)
+	  public QNameAttributeReferenceBuilderImpl(AttributeImpl<string> referenceSourceAttribute, Type referenceTargetElement)
 	  {
+			  referenceTargetElement = typeof(T);
+		base(referenceSourceAttribute, referenceTargetElement);
 		this.attributeReferenceImpl = new QNameAttributeReferenceImpl<T>(referenceSourceAttribute);
 	  }
 	}

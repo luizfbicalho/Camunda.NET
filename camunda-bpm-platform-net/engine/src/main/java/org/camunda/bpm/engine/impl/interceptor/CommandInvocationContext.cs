@@ -36,20 +36,20 @@ namespace org.camunda.bpm.engine.impl.interceptor
 	/// 
 	/// @author Thorben Lindhauer
 	/// </summary>
-	public class CommandInvocationContext<T1>
-    {
+	public class CommandInvocationContext
+	{
 
 	  private static readonly CommandLogger LOG = ProcessEngineLogger.CMD_LOGGER;
 
 	  protected internal Exception throwable;
 //JAVA TO C# CONVERTER WARNING: Java wildcard generics have no direct equivalent in .NET:
 //ORIGINAL LINE: protected Command< ? > command;
-	  protected internal Command<T1> command;
+	  protected internal Command<object> command;
 	  protected internal bool isExecuting = false;
 	  protected internal IList<AtomicOperationInvocation> queuedInvocations = new List<AtomicOperationInvocation>();
 	  protected internal BpmnStackTrace bpmnStackTrace = new BpmnStackTrace();
 
-	  public CommandInvocationContext(Command<T1> command)
+	  public CommandInvocationContext<T1>(Command<T1> command)
 	  {
 		this.command = command;
 	  }
