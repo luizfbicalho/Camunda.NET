@@ -66,7 +66,7 @@ namespace org.camunda.bpm.engine.history
 	  DateTime RemovalTime {get;}
 
 	  /// <summary>
-	  /// The difference between <seealso cref="#getEndTime()"/> and <seealso cref="#getStartTime()"/> . </summary>
+	  /// The difference between <seealso cref="getEndTime()"/> and <seealso cref="getStartTime()"/> . </summary>
 	  long? DurationInMillis {get;}
 
 	  /// <summary>

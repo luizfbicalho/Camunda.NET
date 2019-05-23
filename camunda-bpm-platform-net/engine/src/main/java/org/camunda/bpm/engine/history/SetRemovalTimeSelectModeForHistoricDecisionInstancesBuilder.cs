@@ -39,7 +39,7 @@ namespace org.camunda.bpm.engine.history
 	  /// live and the engine's removal time strategy.
 	  /// 
 	  /// </para>
-	  /// <para> In case <seealso cref="SetRemovalTimeToHistoricDecisionInstancesBuilder#hierarchical()"/> is enabled, the removal time is being calculated
+	  /// <para> In case <seealso cref="SetRemovalTimeToHistoricDecisionInstancesBuilder.hierarchical()"/> is enabled, the removal time is being calculated
 	  /// based on the base time and time to live of the historic root decision instance.
 	  /// 
 	  /// </para>

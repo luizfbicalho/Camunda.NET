@@ -35,7 +35,7 @@ namespace org.camunda.bpm.engine.impl.identity
 
 	  /// <summary>
 	  /// <para>Returns a new (transient) <seealso cref="User"/> object. The Object is not
-	  /// yet persistent and must be saved using the <seealso cref="#saveUser(User)"/>
+	  /// yet persistent and must be saved using the <seealso cref="saveUser(User)"/>
 	  /// method.</para>
 	  /// 
 	  /// <para>NOTE: the implementation does not validate the uniqueness of the userId
@@ -72,7 +72,7 @@ namespace org.camunda.bpm.engine.impl.identity
 
 	  /// <summary>
 	  /// <para>Returns a new (transient) <seealso cref="Group"/> object. The Object is not
-	  /// yet persistent and must be saved using the <seealso cref="#saveGroup(Group)"/>
+	  /// yet persistent and must be saved using the <seealso cref="saveGroup(Group)"/>
 	  /// method.</para>
 	  /// 
 	  /// <para>NOTE: the implementation does not validate the uniqueness of the groupId
@@ -101,7 +101,7 @@ namespace org.camunda.bpm.engine.impl.identity
 	  /// <summary>
 	  /// <para>
 	  /// Returns a new (transient) <seealso cref="Tenant"/> object. The Object is not yet
-	  /// persistent and must be saved using the <seealso cref="#saveTenant(Tenant)"/> method.
+	  /// persistent and must be saved using the <seealso cref="saveTenant(Tenant)"/> method.
 	  /// </para>
 	  /// 
 	  /// <para>

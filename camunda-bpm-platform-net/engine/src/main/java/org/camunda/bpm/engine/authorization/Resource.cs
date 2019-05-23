@@ -20,9 +20,9 @@ namespace org.camunda.bpm.engine.authorization
 	/// <para>Resources are entities for which a user or a group is authorized. Examples of 
 	/// resources are applications, process-definitions, process-instances, tasks ...</para> 
 	/// 
-	/// <para>A resource has a type and an id. The type (<seealso cref="#setResource(String)"/>) 
+	/// <para>A resource has a type and an id. The type (<seealso cref="setResource(string)"/>) 
 	/// allows to group all resources of the same kind. A resource id is the identifier of 
-	/// an individual resource instance (<seealso cref="#setResourceId(String)"/>). For example:
+	/// an individual resource instance (<seealso cref="setResourceId(string)"/>). For example:
 	/// the resource type could be "processDefinition" and the resource-id could be the 
 	/// id of an individual process definition.</para>  
 	/// 

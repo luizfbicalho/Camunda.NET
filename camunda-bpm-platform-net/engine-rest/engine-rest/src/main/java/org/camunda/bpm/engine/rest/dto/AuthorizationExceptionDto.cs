@@ -61,9 +61,9 @@ namespace org.camunda.bpm.engine.rest.dto
 	  /// <returns> the name of the resource if there
 	  /// is only one <seealso cref="MissingAuthorizationDto"/>, {@code null} otherwise
 	  /// </returns>
-	  /// @deprecated Use <seealso cref="#getMissingAuthorizations()"/> to get the name of the resource
+	  /// @deprecated Use <seealso cref="getMissingAuthorizations()"/> to get the name of the resource
 	  /// of the <seealso cref="MissingAuthorizationDto"/>(s). This method will be removed in future version. 
-	  [Obsolete("Use <seealso cref="#getMissingAuthorizations()"/> to get the name of the resource")]
+	  [Obsolete("Use <seealso cref=\"getMissingAuthorizations()\"/> to get the name of the resource")]
 	  public virtual string ResourceName
 	  {
 		  get
@@ -80,9 +80,9 @@ namespace org.camunda.bpm.engine.rest.dto
 	  /// <returns> the id of the resource if there
 	  /// is only one <seealso cref="MissingAuthorizationDto"/>, {@code null} otherwise
 	  /// </returns>
-	  /// @deprecated Use <seealso cref="#getMissingAuthorizations()"/> to get the id of the resource
+	  /// @deprecated Use <seealso cref="getMissingAuthorizations()"/> to get the id of the resource
 	  /// of the <seealso cref="MissingAuthorizationDto"/>(s). This method will be removed in future version. 
-	  [Obsolete("Use <seealso cref="#getMissingAuthorizations()"/> to get the id of the resource")]
+	  [Obsolete("Use <seealso cref=\"getMissingAuthorizations()\"/> to get the id of the resource")]
 	  public virtual string ResourceId
 	  {
 		  get
@@ -99,9 +99,9 @@ namespace org.camunda.bpm.engine.rest.dto
 	  /// <returns> the name of the violated permission if there
 	  /// is only one <seealso cref="MissingAuthorizationDto"/>, {@code null} otherwise
 	  /// </returns>
-	  /// @deprecated Use <seealso cref="#getMissingAuthorizations()"/> to get the name of the violated permission
+	  /// @deprecated Use <seealso cref="getMissingAuthorizations()"/> to get the name of the violated permission
 	  /// of the <seealso cref="MissingAuthorizationDto"/>(s). This method will be removed in future version. 
-	  [Obsolete("Use <seealso cref="#getMissingAuthorizations()"/> to get the name of the violated permission")]
+	  [Obsolete("Use <seealso cref=\"getMissingAuthorizations()\"/> to get the name of the violated permission")]
 	  public virtual string PermissionName
 	  {
 		  get

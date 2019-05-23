@@ -27,8 +27,8 @@ namespace org.camunda.bpm.engine.impl.juel
 	/// <summary>
 	/// Simple root property resolver implementation. This resolver handles root properties (i.e.
 	/// <code>base == null &amp;&amp; property instanceof String</code>), which are stored in a map. The
-	/// properties can be accessed via the <seealso cref="#getProperty(String)"/>,
-	/// <seealso cref="#setProperty(String, Object)"/>, <seealso cref="#isProperty(String)"/> and <seealso cref="#properties()"/>
+	/// properties can be accessed via the <seealso cref="getProperty(string)"/>,
+	/// <seealso cref="setProperty(string, object)"/>, <seealso cref="isProperty(string)"/> and <seealso cref="properties()"/>
 	/// methods.
 	/// 
 	/// @author Christoph Beck

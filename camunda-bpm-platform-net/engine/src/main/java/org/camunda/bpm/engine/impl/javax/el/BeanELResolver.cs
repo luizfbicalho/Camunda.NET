@@ -26,7 +26,7 @@ namespace org.camunda.bpm.engine.impl.javax.el
 	/// as a property, and coerces it to a string. That string is then used to find a JavaBeans compliant
 	/// property on the base object. The value is accessed using JavaBeans getters and setters. This
 	/// resolver can be constructed in read-only mode, which means that isReadOnly will always return
-	/// true and <seealso cref="#setValue(ELContext, Object, Object, Object)"/> will always throw
+	/// true and <seealso cref="setValue(ELContext, object, object, object)"/> will always throw
 	/// PropertyNotWritableException. ELResolvers are combined together using <seealso cref="CompositeELResolver"/>
 	/// s, to define rich semantics for evaluating an expression. See the javadocs for <seealso cref="ELResolver"/>
 	/// for details. Because this resolver handles base objects of any type, it should be placed near the
@@ -204,9 +204,9 @@ namespace org.camunda.bpm.engine.impl.javax.el
 		/// fields as are present in the PropertyDescriptor, with the additional required named
 		/// attributes "type" and "resolvableAtDesignTime" set as follows:
 		/// <ul>
-		/// <li><seealso cref="ELResolver#TYPE"/> - The runtime type of the property, from
+		/// <li><seealso cref="ELResolver.TYPE"/> - The runtime type of the property, from
 		/// PropertyDescriptor.getPropertyType().</li>
-		/// <li><seealso cref="ELResolver#RESOLVABLE_AT_DESIGN_TIME"/> - true.</li>
+		/// <li><seealso cref="ELResolver.RESOLVABLE_AT_DESIGN_TIME"/> - true.</li>
 		/// </ul>
 		/// </summary>
 		/// <param name="context">
@@ -375,7 +375,7 @@ namespace org.camunda.bpm.engine.impl.javax.el
 
 		/// <summary>
 		/// If the base object is not null, returns whether a call to
-		/// <seealso cref="#setValue(ELContext, Object, Object, Object)"/> will always fail. If the base is not
+		/// <seealso cref="setValue(ELContext, object, object, object)"/> will always fail. If the base is not
 		/// null, the propertyResolved property of the ELContext object must be set to true by this
 		/// resolver, before returning. If this property is not true after this method is called, the
 		/// caller can safely assume no value was set.
@@ -604,7 +604,7 @@ namespace org.camunda.bpm.engine.impl.javax.el
 		/// Lookup an expression factory used to coerce method parameters in context under key
 		/// <code>"javax.el.ExpressionFactory"</code>.
 		/// If no expression factory can be found under that key, use a default instance created with
-		/// <seealso cref="ExpressionFactory#newInstance()"/>. </summary>
+		/// <seealso cref="ExpressionFactory.newInstance()"/>. </summary>
 		/// <param name="context">
 		///            The context of this evaluation. </param>
 		/// <returns> expression factory instance </returns>

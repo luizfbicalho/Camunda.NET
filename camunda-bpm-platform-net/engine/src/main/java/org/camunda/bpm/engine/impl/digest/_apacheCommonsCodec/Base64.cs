@@ -790,7 +790,7 @@ namespace org.camunda.bpm.engine.impl.digest._apacheCommonsCodec
 		///            if <code>true</code> this encoder will chunk the base64 output into 76 character blocks </param>
 		/// <returns> Base64-encoded data. </returns>
 		/// <exception cref="IllegalArgumentException">
-		///             Thrown when the input array needs an output array bigger than <seealso cref="Integer#MAX_VALUE"/> </exception>
+		///             Thrown when the input array needs an output array bigger than <seealso cref="Integer.MAX_VALUE"/> </exception>
 		public static sbyte[] encodeBase64(sbyte[] binaryData, bool isChunked)
 		{
 			return encodeBase64(binaryData, isChunked, false);
@@ -807,7 +807,7 @@ namespace org.camunda.bpm.engine.impl.digest._apacheCommonsCodec
 		///            if <code>true</code> this encoder will emit - and _ instead of the usual + and / characters. </param>
 		/// <returns> Base64-encoded data. </returns>
 		/// <exception cref="IllegalArgumentException">
-		///             Thrown when the input array needs an output array bigger than <seealso cref="Integer#MAX_VALUE"/>
+		///             Thrown when the input array needs an output array bigger than <seealso cref="Integer.MAX_VALUE"/>
 		/// @since 1.4 </exception>
 		public static sbyte[] encodeBase64(sbyte[] binaryData, bool isChunked, bool urlSafe)
 		{

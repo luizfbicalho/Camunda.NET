@@ -70,7 +70,7 @@ namespace org.camunda.bpm.engine.externaltask
 	  /// <seealso cref= ExternalTaskService#handleFailure(String, String,String, String, int, long)
 	  /// 
 	  /// To get the full error details,
-	  /// use <seealso cref="ExternalTaskService#getExternalTaskErrorDetails(String)"/> </seealso>
+	  /// use <seealso cref="ExternalTaskService.getExternalTaskErrorDetails(string)"/> </seealso>
 	  string ErrorMessage {get;}
 
 	  /// <returns> true if the external task is suspended; a suspended external task

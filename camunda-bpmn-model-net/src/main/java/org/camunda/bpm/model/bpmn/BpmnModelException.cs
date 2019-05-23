@@ -21,7 +21,7 @@ namespace org.camunda.bpm.model.bpmn
 	using ModelException = org.camunda.bpm.model.xml.ModelException;
 
 	/// <summary>
-	/// <para>A <seealso cref="RuntimeException"/> in the Bpmn Model.</para>
+	/// <para>A <seealso cref="System.Exception"/> in the Bpmn Model.</para>
 	/// 
 	/// @author Daniel Meyer
 	/// 

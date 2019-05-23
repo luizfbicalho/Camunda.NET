@@ -19,7 +19,7 @@ namespace org.camunda.bpm.model.xml
 
 	/// <summary>
 	/// Exception thrown if a user attempts to perform an unsupported
-	/// model operation. Example: call <seealso cref="Collection#add(Object)"/> on an
+	/// model operation. Example: call <seealso cref="Collection.add(object)"/> on an
 	/// immutable collection.
 	/// 
 	/// @author Daniel Meyer

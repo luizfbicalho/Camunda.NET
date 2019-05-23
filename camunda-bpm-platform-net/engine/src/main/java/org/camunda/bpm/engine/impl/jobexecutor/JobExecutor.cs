@@ -157,7 +157,7 @@ namespace org.camunda.bpm.engine.impl.jobexecutor
 	  public abstract void executeJobs(IList<string> jobIds, ProcessEngineImpl processEngine);
 
 	  /// <summary>
-	  /// Deprecated: use <seealso cref="#executeJobs(List, ProcessEngineImpl)"/> instead </summary>
+	  /// Deprecated: use <seealso cref="executeJobs(System.Collections.IList, ProcessEngineImpl)"/> instead </summary>
 	  /// <param name="jobIds"> </param>
 	  [Obsolete]
 	  public virtual void executeJobs(IList<string> jobIds)
@@ -232,7 +232,7 @@ namespace org.camunda.bpm.engine.impl.jobexecutor
 	  }
 
 	  /// <summary>
-	  /// Deprecated: use <seealso cref="#getProcessEngines()"/> instead
+	  /// Deprecated: use <seealso cref="getProcessEngines()"/> instead
 	  /// </summary>
 	  [Obsolete]
 	  public virtual CommandExecutor CommandExecutor

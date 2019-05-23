@@ -31,7 +31,7 @@ namespace org.camunda.bpm.model.bpmn.instance.camunda
 
 	/// <summary>
 	/// Test to check the interoperability when changing elements and attributes with
-	/// the <seealso cref="BpmnModelConstants#ACTIVITI_NS"/>. In contrast to
+	/// the <seealso cref="BpmnModelConstants.ACTIVITI_NS"/>. In contrast to
 	/// <seealso cref="CamundaExtensionsTest"/> this test uses directly the get*Ns() methods to
 	/// check the expected value.
 	/// 

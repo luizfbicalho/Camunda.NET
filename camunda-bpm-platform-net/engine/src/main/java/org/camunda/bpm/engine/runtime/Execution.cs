@@ -45,7 +45,7 @@ namespace org.camunda.bpm.engine.runtime
 
 	  /// <summary>
 	  /// Id of the root of the execution tree representing the process instance.
-	  /// It is the same as <seealso cref="#getId()"/> if this execution is the process instance. 
+	  /// It is the same as <seealso cref="getId()"/> if this execution is the process instance. 
 	  /// </summary>
 	  string ProcessInstanceId {get;}
 

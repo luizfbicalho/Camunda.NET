@@ -55,7 +55,7 @@ namespace org.camunda.bpm.engine.history
 	  CleanableHistoricCaseInstanceReport compact();
 
 	  /// <summary>
-	  /// Order by finished case instances amount (needs to be followed by <seealso cref="#asc()"/> or <seealso cref="#desc()"/>).
+	  /// Order by finished case instances amount (needs to be followed by <seealso cref="asc()"/> or <seealso cref="desc()"/>).
 	  /// </summary>
 	  CleanableHistoricCaseInstanceReport orderByFinished();
 

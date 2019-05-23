@@ -99,7 +99,7 @@ namespace org.camunda.bpm.engine.impl.persistence.entity
 
 	  /// <summary>
 	  /// Group ids for which authorizations exist in the database.
-	  /// This is initialized once per command by the <seealso cref="#filterAuthenticatedGroupIds(List)"/> method. (Manager
+	  /// This is initialized once per command by the <seealso cref="filterAuthenticatedGroupIds(System.Collections.IList)"/> method. (Manager
 	  /// instances are command scoped).
 	  /// It is used to only check authorizations for groups for which authorizations exist. In other words,
 	  /// if for a given group no authorization exists in the DB, then auth checks are not performed for this group.
@@ -521,7 +521,7 @@ namespace org.camunda.bpm.engine.impl.persistence.entity
 
 	  /// <summary>
 	  /// Checks if the current authentication contains the group
-	  /// <seealso cref="Groups#CAMUNDA_ADMIN"/>. The check is ignored if the authorization is
+	  /// <seealso cref="Groups.CAMUNDA_ADMIN"/>. The check is ignored if the authorization is
 	  /// disabled or no authentication exists.
 	  /// </summary>
 	  /// <exception cref="AuthorizationException"> </exception>
@@ -542,7 +542,7 @@ namespace org.camunda.bpm.engine.impl.persistence.entity
 	  /// <param name="authentication">
 	  ///          authentication to check, cannot be <code>null</code> </param>
 	  /// <returns> <code>true</code> if the given authentication contains the group
-	  ///         <seealso cref="Groups#CAMUNDA_ADMIN"/> or the user </returns>
+	  ///         <seealso cref="Groups.CAMUNDA_ADMIN"/> or the user </returns>
 	  public virtual bool isCamundaAdmin(Authentication authentication)
 	  {
 		IList<string> groupIds = authentication.GroupIds;

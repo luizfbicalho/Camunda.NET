@@ -105,7 +105,7 @@ namespace org.camunda.bpm.engine.history
 
 	  /// <summary>
 	  /// Only select historic process instances with incident status either 'open' or 'resolved'.
-	  /// To get all process instances with incidents, use <seealso cref="HistoricProcessInstanceQuery#withIncidents()"/>.
+	  /// To get all process instances with incidents, use <seealso cref="HistoricProcessInstanceQuery.withIncidents()"/>.
 	  /// </summary>
 	  /// <param name="status"> indicates the incident status, which is either 'open' or 'resolved' </param>
 	  /// <returns> <seealso cref="HistoricProcessInstanceQuery"/> </returns>
@@ -143,7 +143,7 @@ namespace org.camunda.bpm.engine.history
 	  /// greater than the passed value. The type only applies to already ended
 	  /// process instances, otherwise use a <seealso cref="ProcessInstanceQuery"/> instead! of
 	  /// variable is determined based on the value, using types configured in
-	  /// <seealso cref="ProcessEngineConfiguration#getVariableSerializers()"/>. Byte-arrays and
+	  /// <seealso cref="ProcessEngineConfiguration.getVariableSerializers()"/>. Byte-arrays and
 	  /// <seealso cref="Serializable"/> objects (which are not primitive type wrappers) are
 	  /// not supported. </summary>
 	  /// <param name="name"> of the variable, cannot be null.  </param>
@@ -230,39 +230,39 @@ namespace org.camunda.bpm.engine.history
 	  HistoricProcessInstanceQuery startedBy(string userId);
 
 	  /// <summary>
-	  /// Order by the process instance id (needs to be followed by <seealso cref="#asc()"/> or <seealso cref="#desc()"/>). </summary>
+	  /// Order by the process instance id (needs to be followed by <seealso cref="asc()"/> or <seealso cref="desc()"/>). </summary>
 	  HistoricProcessInstanceQuery orderByProcessInstanceId();
 
 	  /// <summary>
-	  /// Order by the process definition id (needs to be followed by <seealso cref="#asc()"/> or <seealso cref="#desc()"/>). </summary>
+	  /// Order by the process definition id (needs to be followed by <seealso cref="asc()"/> or <seealso cref="desc()"/>). </summary>
 	  HistoricProcessInstanceQuery orderByProcessDefinitionId();
 
 	  /// <summary>
-	  /// Order by the process definition key (needs to be followed by <seealso cref="#asc()"/> or <seealso cref="#desc()"/>). </summary>
+	  /// Order by the process definition key (needs to be followed by <seealso cref="asc()"/> or <seealso cref="desc()"/>). </summary>
 	  HistoricProcessInstanceQuery orderByProcessDefinitionKey();
 
 	  /// <summary>
-	  /// Order by the process definition name (needs to be followed by <seealso cref="#asc()"/> or <seealso cref="#desc()"/>). </summary>
+	  /// Order by the process definition name (needs to be followed by <seealso cref="asc()"/> or <seealso cref="desc()"/>). </summary>
 	  HistoricProcessInstanceQuery orderByProcessDefinitionName();
 
 	  /// <summary>
-	  /// Order by the process definition version (needs to be followed by <seealso cref="#asc()"/> or <seealso cref="#desc()"/>). </summary>
+	  /// Order by the process definition version (needs to be followed by <seealso cref="asc()"/> or <seealso cref="desc()"/>). </summary>
 	  HistoricProcessInstanceQuery orderByProcessDefinitionVersion();
 
 	  /// <summary>
-	  /// Order by the business key (needs to be followed by <seealso cref="#asc()"/> or <seealso cref="#desc()"/>). </summary>
+	  /// Order by the business key (needs to be followed by <seealso cref="asc()"/> or <seealso cref="desc()"/>). </summary>
 	  HistoricProcessInstanceQuery orderByProcessInstanceBusinessKey();
 
 	  /// <summary>
-	  /// Order by the start time (needs to be followed by <seealso cref="#asc()"/> or <seealso cref="#desc()"/>). </summary>
+	  /// Order by the start time (needs to be followed by <seealso cref="asc()"/> or <seealso cref="desc()"/>). </summary>
 	  HistoricProcessInstanceQuery orderByProcessInstanceStartTime();
 
 	  /// <summary>
-	  /// Order by the end time (needs to be followed by <seealso cref="#asc()"/> or <seealso cref="#desc()"/>). </summary>
+	  /// Order by the end time (needs to be followed by <seealso cref="asc()"/> or <seealso cref="desc()"/>). </summary>
 	  HistoricProcessInstanceQuery orderByProcessInstanceEndTime();
 
 	  /// <summary>
-	  /// Order by the duration of the process instance (needs to be followed by <seealso cref="#asc()"/> or <seealso cref="#desc()"/>). </summary>
+	  /// Order by the duration of the process instance (needs to be followed by <seealso cref="asc()"/> or <seealso cref="desc()"/>). </summary>
 	  HistoricProcessInstanceQuery orderByProcessInstanceDuration();
 
 	  /// <summary>
@@ -309,7 +309,7 @@ namespace org.camunda.bpm.engine.history
 	  HistoricProcessInstanceQuery withoutTenantId();
 
 	  /// <summary>
-	  /// Order by tenant id (needs to be followed by <seealso cref="#asc()"/> or <seealso cref="#desc()"/>).
+	  /// Order by tenant id (needs to be followed by <seealso cref="asc()"/> or <seealso cref="desc()"/>).
 	  /// Note that the ordering of historic process instances without tenant id is database-specific.
 	  /// </summary>
 	  HistoricProcessInstanceQuery orderByTenantId();
@@ -317,27 +317,27 @@ namespace org.camunda.bpm.engine.history
 	  /// <summary>
 	  /// Only select historic process instances that were started as of the provided
 	  /// date. (Date will be adjusted to reflect midnight) </summary>
-	  /// @deprecated use <seealso cref="#startedAfter(Date)"/> and <seealso cref="#startedBefore(Date)"/> instead  
-	  [Obsolete("use <seealso cref="#startedAfter(java.util.Date)"/> and <seealso cref="#startedBefore(java.util.Date)"/> instead")]
+	  /// @deprecated use <seealso cref="startedAfter(System.DateTime)"/> and <seealso cref="startedBefore(System.DateTime)"/> instead  
+	  [Obsolete("use <seealso cref=\"startedAfter(System.DateTime)\"/> and <seealso cref=\"startedBefore(System.DateTime)\"/> instead")]
 	  HistoricProcessInstanceQuery startDateBy(DateTime date);
 
 	  /// <summary>
 	  /// Only select historic process instances that were started on the provided date. </summary>
-	  /// @deprecated use <seealso cref="#startedAfter(Date)"/> and <seealso cref="#startedBefore(Date)"/> instead  
-	  [Obsolete("use <seealso cref="#startedAfter(java.util.Date)"/> and <seealso cref="#startedBefore(java.util.Date)"/> instead")]
+	  /// @deprecated use <seealso cref="startedAfter(System.DateTime)"/> and <seealso cref="startedBefore(System.DateTime)"/> instead  
+	  [Obsolete("use <seealso cref=\"startedAfter(System.DateTime)\"/> and <seealso cref=\"startedBefore(System.DateTime)\"/> instead")]
 	  HistoricProcessInstanceQuery startDateOn(DateTime date);
 
 	  /// <summary>
 	  /// Only select historic process instances that were finished as of the
 	  /// provided date. (Date will be adjusted to reflect one second before midnight) </summary>
-	  /// @deprecated use <seealso cref="#startedAfter(Date)"/> and <seealso cref="#startedBefore(Date)"/> instead  
-	  [Obsolete("use <seealso cref="#startedAfter(java.util.Date)"/> and <seealso cref="#startedBefore(java.util.Date)"/> instead")]
+	  /// @deprecated use <seealso cref="startedAfter(System.DateTime)"/> and <seealso cref="startedBefore(System.DateTime)"/> instead  
+	  [Obsolete("use <seealso cref=\"startedAfter(System.DateTime)\"/> and <seealso cref=\"startedBefore(System.DateTime)\"/> instead")]
 	  HistoricProcessInstanceQuery finishDateBy(DateTime date);
 
 	  /// <summary>
 	  /// Only select historic process instances that were finished on provided date. </summary>
-	  /// @deprecated use <seealso cref="#startedAfter(Date)"/> and <seealso cref="#startedBefore(Date)"/> instead  
-	  [Obsolete("use <seealso cref="#startedAfter(java.util.Date)"/> and <seealso cref="#startedBefore(java.util.Date)"/> instead")]
+	  /// @deprecated use <seealso cref="startedAfter(System.DateTime)"/> and <seealso cref="startedBefore(System.DateTime)"/> instead  
+	  [Obsolete("use <seealso cref=\"startedAfter(System.DateTime)\"/> and <seealso cref=\"startedBefore(System.DateTime)\"/> instead")]
 	  HistoricProcessInstanceQuery finishDateOn(DateTime date);
 
 	  /// <summary>

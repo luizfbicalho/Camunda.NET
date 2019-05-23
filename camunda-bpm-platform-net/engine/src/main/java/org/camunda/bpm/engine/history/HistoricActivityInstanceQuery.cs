@@ -98,48 +98,48 @@ namespace org.camunda.bpm.engine.history
 
 	  // ordering /////////////////////////////////////////////////////////////////
 	  /// <summary>
-	  /// Order by id (needs to be followed by <seealso cref="#asc()"/> or <seealso cref="#desc()"/>). </summary>
+	  /// Order by id (needs to be followed by <seealso cref="asc()"/> or <seealso cref="desc()"/>). </summary>
 	  HistoricActivityInstanceQuery orderByHistoricActivityInstanceId();
 
 	  /// <summary>
-	  /// Order by processInstanceId (needs to be followed by <seealso cref="#asc()"/> or <seealso cref="#desc()"/>). </summary>
+	  /// Order by processInstanceId (needs to be followed by <seealso cref="asc()"/> or <seealso cref="desc()"/>). </summary>
 	  HistoricActivityInstanceQuery orderByProcessInstanceId();
 
 	  /// <summary>
-	  /// Order by executionId (needs to be followed by <seealso cref="#asc()"/> or <seealso cref="#desc()"/>). </summary>
+	  /// Order by executionId (needs to be followed by <seealso cref="asc()"/> or <seealso cref="desc()"/>). </summary>
 	  HistoricActivityInstanceQuery orderByExecutionId();
 
 	  /// <summary>
-	  /// Order by activityId (needs to be followed by <seealso cref="#asc()"/> or <seealso cref="#desc()"/>). </summary>
+	  /// Order by activityId (needs to be followed by <seealso cref="asc()"/> or <seealso cref="desc()"/>). </summary>
 	  HistoricActivityInstanceQuery orderByActivityId();
 
 	  /// <summary>
-	  /// Order by activityName (needs to be followed by <seealso cref="#asc()"/> or <seealso cref="#desc()"/>). </summary>
+	  /// Order by activityName (needs to be followed by <seealso cref="asc()"/> or <seealso cref="desc()"/>). </summary>
 	  HistoricActivityInstanceQuery orderByActivityName();
 
 	  /// <summary>
-	  /// Order by activityType (needs to be followed by <seealso cref="#asc()"/> or <seealso cref="#desc()"/>). </summary>
+	  /// Order by activityType (needs to be followed by <seealso cref="asc()"/> or <seealso cref="desc()"/>). </summary>
 	  HistoricActivityInstanceQuery orderByActivityType();
 
 	  /// <summary>
-	  /// Order by start (needs to be followed by <seealso cref="#asc()"/> or <seealso cref="#desc()"/>). </summary>
+	  /// Order by start (needs to be followed by <seealso cref="asc()"/> or <seealso cref="desc()"/>). </summary>
 	  HistoricActivityInstanceQuery orderByHistoricActivityInstanceStartTime();
 
 	  /// <summary>
-	  /// Order by end (needs to be followed by <seealso cref="#asc()"/> or <seealso cref="#desc()"/>). </summary>
+	  /// Order by end (needs to be followed by <seealso cref="asc()"/> or <seealso cref="desc()"/>). </summary>
 	  HistoricActivityInstanceQuery orderByHistoricActivityInstanceEndTime();
 
 	  /// <summary>
-	  /// Order by duration (needs to be followed by <seealso cref="#asc()"/> or <seealso cref="#desc()"/>). </summary>
+	  /// Order by duration (needs to be followed by <seealso cref="asc()"/> or <seealso cref="desc()"/>). </summary>
 	  HistoricActivityInstanceQuery orderByHistoricActivityInstanceDuration();
 
 	  /// <summary>
-	  /// Order by processDefinitionId (needs to be followed by <seealso cref="#asc()"/> or <seealso cref="#desc()"/>). </summary>
+	  /// Order by processDefinitionId (needs to be followed by <seealso cref="asc()"/> or <seealso cref="desc()"/>). </summary>
 	  HistoricActivityInstanceQuery orderByProcessDefinitionId();
 
 	  /// <summary>
 	  /// <para>Sort the <seealso cref="HistoricActivityInstance activity instances"/> in the order in which
-	  /// they occurred (ie. started) and needs to be followed by <seealso cref="#asc()"/> or <seealso cref="#desc()"/>.</para>
+	  /// they occurred (ie. started) and needs to be followed by <seealso cref="asc()"/> or <seealso cref="desc()"/>.</para>
 	  /// 
 	  /// <para>The set of all <seealso cref="HistoricActivityInstance activity instances"/> is a <strong>partially
 	  /// ordered set</strong>. At a BPMN level this means that instances of concurrent activities (example:
@@ -148,10 +148,10 @@ namespace org.camunda.bpm.engine.history
 	  /// in respect to that relation.</para>
 	  /// 
 	  /// <para>Technically this means that <seealso cref="HistoricActivityInstance activity instances"/>
-	  /// with different <seealso cref="HistoricActivityInstance#getExecutionId() execution ids"/> are
+	  /// with different <seealso cref="HistoricActivityInstance.getExecutionId() execution ids"/> are
 	  /// <strong>incomparable</strong>. Only <seealso cref="HistoricActivityInstance activity instances"/> with
-	  /// the same <seealso cref="HistoricActivityInstance#getExecutionId() execution id"/> can be <strong>totally
-	  /// ordered</strong> by using <seealso cref="#executionId(String)"/> and <seealso cref="#orderPartiallyByOccurrence()"/>
+	  /// the same <seealso cref="HistoricActivityInstance.getExecutionId() execution id"/> can be <strong>totally
+	  /// ordered</strong> by using <seealso cref="executionId(string)"/> and <seealso cref="orderPartiallyByOccurrence()"/>
 	  /// which will return a result set ordered by its occurrence.</para>
 	  /// 
 	  /// @since 7.3
@@ -163,7 +163,7 @@ namespace org.camunda.bpm.engine.history
 	  HistoricActivityInstanceQuery tenantIdIn(params string[] tenantIds);
 
 	  /// <summary>
-	  /// Order by tenant id (needs to be followed by <seealso cref="#asc()"/> or <seealso cref="#desc()"/>).
+	  /// Order by tenant id (needs to be followed by <seealso cref="asc()"/> or <seealso cref="desc()"/>).
 	  /// Note that the ordering of historic activity instances without tenant id is database-specific.
 	  /// </summary>
 	  HistoricActivityInstanceQuery orderByTenantId();

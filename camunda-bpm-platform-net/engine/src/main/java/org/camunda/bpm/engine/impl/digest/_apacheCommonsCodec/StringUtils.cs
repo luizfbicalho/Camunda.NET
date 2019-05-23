@@ -34,7 +34,7 @@ namespace org.camunda.bpm.engine.impl.digest._apacheCommonsCodec
 		/// <summary>
 		/// Constructs a new <code>String</code> by decoding the specified array of bytes using the given charset.
 		/// <para>
-		/// This method catches <seealso cref="UnsupportedEncodingException"/> and re-throws it as <seealso cref="IllegalStateException"/>, which
+		/// This method catches <seealso cref="UnsupportedEncodingException"/> and re-throws it as <seealso cref="System.InvalidOperationException"/>, which
 		/// should never happen for a required charset name. Use this method when the encoding is required to be in the JRE.
 		/// </para>
 		/// </summary>
@@ -98,7 +98,7 @@ namespace org.camunda.bpm.engine.impl.digest._apacheCommonsCodec
 		/// Encodes the given string into a sequence of bytes using the named charset, storing the result into a new byte
 		/// array.
 		/// <para>
-		/// This method catches <seealso cref="UnsupportedEncodingException"/> and rethrows it as <seealso cref="IllegalStateException"/>, which
+		/// This method catches <seealso cref="UnsupportedEncodingException"/> and rethrows it as <seealso cref="System.InvalidOperationException"/>, which
 		/// should never happen for a required charset name. Use this method when the encoding is required to be in the JRE.
 		/// </para>
 		/// </summary>

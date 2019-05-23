@@ -36,7 +36,7 @@ namespace org.camunda.bpm.engine.impl.juel
 		private static readonly ValueExpression[] NO_VARIABLES = new ValueExpression[0];
 
 		/// <summary>
-		/// Wrap a <seealso cref="Method"/> for serialization.
+		/// Wrap a <seealso cref="System.Reflection.MethodInfo"/> for serialization.
 		/// </summary>
 		[Serializable]
 		private class MethodWrapper

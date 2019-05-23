@@ -58,7 +58,7 @@ namespace org.camunda.bpm.engine.history
 	  DateTime CloseTime {get;}
 
 	  /// <summary>
-	  /// The difference between <seealso cref="#getCloseTime()"/> and <seealso cref="#getCreateTime()"/>. </summary>
+	  /// The difference between <seealso cref="getCloseTime()"/> and <seealso cref="getCreateTime()"/>. </summary>
 	  long? DurationInMillis {get;}
 
 	  /// <summary>

@@ -26,7 +26,7 @@ namespace org.camunda.bpm.integrationtest.functional.slf4j
 
 	  /// <summary>
 	  /// Verify that camunda commons log a messages with a single format parameter.
-	  /// The return type of <seealso cref="MessageFormatter#format(String, Object)"/> changed with slf4j-api:1.6.0
+	  /// The return type of <seealso cref="MessageFormatter.format(string, object)"/> changed with slf4j-api:1.6.0
 	  /// </summary>
 	  public virtual void testLogWithSingleFormatParameter()
 	  {
@@ -35,7 +35,7 @@ namespace org.camunda.bpm.integrationtest.functional.slf4j
 
 	  /// <summary>
 	  /// Verify that camunda commons log a messages with two format parameters.
-	  /// The return type of <seealso cref="MessageFormatter#format(String, Object, Object)"/> changed with slf4j-api:1.6.0
+	  /// The return type of <seealso cref="MessageFormatter.format(string, object, object)"/> changed with slf4j-api:1.6.0
 	  /// </summary>
 	  public virtual void testLogWithTwoFormatParameters()
 	  {
@@ -44,7 +44,7 @@ namespace org.camunda.bpm.integrationtest.functional.slf4j
 
 	  /// <summary>
 	  /// Verify that camunda commons log a messages which uses the array formatter (more than two format parameters).
-	  /// The return type of <seealso cref="MessageFormatter#arrayFormat(String, Object[])"/> changed with slf4j-api:1.6.0
+	  /// The return type of <seealso cref="MessageFormatter.arrayFormat(string, Object[])"/> changed with slf4j-api:1.6.0
 	  /// </summary>
 	  public virtual void testLogWithArrayFormatter()
 	  {

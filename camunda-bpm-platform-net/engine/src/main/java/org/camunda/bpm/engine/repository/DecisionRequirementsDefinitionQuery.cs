@@ -81,7 +81,7 @@ namespace org.camunda.bpm.engine.repository
 
 	  /// <summary>
 	  /// Only select decision requirements definition with a certain version.
-	  /// Particularly useful when used in combination with <seealso cref="#decisionRequirementsDefinitionKey(String)"/>
+	  /// Particularly useful when used in combination with <seealso cref="decisionRequirementsDefinitionKey(string)"/>
 	  /// </summary>
 	  /// <param name="version"> the version of the decision requirements definition </param>
 	  DecisionRequirementsDefinitionQuery decisionRequirementsDefinitionVersion(int? version);
@@ -90,8 +90,8 @@ namespace org.camunda.bpm.engine.repository
 	  /// Only select the decision requirements definition which are the latest deployed
 	  /// (i.e. which have the highest version number for the given key).
 	  /// 
-	  /// Can only be used in combination with <seealso cref="#decisionRequirementsDefinitionKey(String)"/>
-	  /// or <seealso cref="#decisionRequirementsDefinitionKeyLike(String)"/>. Can also be used without any
+	  /// Can only be used in combination with <seealso cref="decisionRequirementsDefinitionKey(string)"/>
+	  /// or <seealso cref="decisionRequirementsDefinitionKeyLike(string)"/>. Can also be used without any
 	  /// other criteria (i.e. query.latest().list()), which will then give all the
 	  /// latest versions of all the deployed decision requirements definition.
 	  /// 
@@ -121,7 +121,7 @@ namespace org.camunda.bpm.engine.repository
 
 	  /// <summary>
 	  /// Select decision requirements definition which have no tenant id. Can be used in
-	  /// combination with <seealso cref="#tenantIdIn(String...)"/>.
+	  /// combination with <seealso cref="tenantIdIn(string...)"/>.
 	  /// </summary>
 	  DecisionRequirementsDefinitionQuery includeDecisionRequirementsDefinitionsWithoutTenantId();
 
@@ -129,42 +129,42 @@ namespace org.camunda.bpm.engine.repository
 
 	  /// <summary>
 	  /// Order by the category of the decision requirements definition (needs to be followed by
-	  /// <seealso cref="#asc()"/> or <seealso cref="#desc()"/>). 
+	  /// <seealso cref="asc()"/> or <seealso cref="desc()"/>). 
 	  /// </summary>
 	  DecisionRequirementsDefinitionQuery orderByDecisionRequirementsDefinitionCategory();
 
 	  /// <summary>
-	  /// Order by decision requirements definition key (needs to be followed by <seealso cref="#asc()"/> or
-	  /// <seealso cref="#desc()"/>). 
+	  /// Order by decision requirements definition key (needs to be followed by <seealso cref="asc()"/> or
+	  /// <seealso cref="desc()"/>). 
 	  /// </summary>
 	  DecisionRequirementsDefinitionQuery orderByDecisionRequirementsDefinitionKey();
 
 	  /// <summary>
 	  /// Order by the id of the decision requirements definition (needs to be followed by
-	  /// <seealso cref="#asc()"/> or <seealso cref="#desc()"/>). 
+	  /// <seealso cref="asc()"/> or <seealso cref="desc()"/>). 
 	  /// </summary>
 	  DecisionRequirementsDefinitionQuery orderByDecisionRequirementsDefinitionId();
 
 	  /// <summary>
 	  /// Order by the version of the decision requirements definition (needs to be followed
-	  /// by <seealso cref="#asc()"/> or <seealso cref="#desc()"/>). 
+	  /// by <seealso cref="asc()"/> or <seealso cref="desc()"/>). 
 	  /// </summary>
 	  DecisionRequirementsDefinitionQuery orderByDecisionRequirementsDefinitionVersion();
 
 	  /// <summary>
 	  /// Order by the name of the decision requirements definition (needs to be followed by
-	  /// <seealso cref="#asc()"/> or <seealso cref="#desc()"/>). 
+	  /// <seealso cref="asc()"/> or <seealso cref="desc()"/>). 
 	  /// </summary>
 	  DecisionRequirementsDefinitionQuery orderByDecisionRequirementsDefinitionName();
 
 	  /// <summary>
-	  /// Order by deployment id (needs to be followed by <seealso cref="#asc()"/>
-	  /// or <seealso cref="#desc()"/>). 
+	  /// Order by deployment id (needs to be followed by <seealso cref="asc()"/>
+	  /// or <seealso cref="desc()"/>). 
 	  /// </summary>
 	  DecisionRequirementsDefinitionQuery orderByDeploymentId();
 
 	  /// <summary>
-	  /// Order by tenant id (needs to be followed by <seealso cref="#asc()"/> or <seealso cref="#desc()"/>).
+	  /// Order by tenant id (needs to be followed by <seealso cref="asc()"/> or <seealso cref="desc()"/>).
 	  /// Note that the ordering of decision requirements definition without tenant id is database-specific. 
 	  /// </summary>
 	  DecisionRequirementsDefinitionQuery orderByTenantId();

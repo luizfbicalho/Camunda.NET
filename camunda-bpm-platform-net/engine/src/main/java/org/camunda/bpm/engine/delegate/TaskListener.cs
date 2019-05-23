@@ -21,10 +21,10 @@ namespace org.camunda.bpm.engine.@delegate
 	/// 
 	/// <para>The following Task Events are supported:
 	/// <ul>
-	/// <li><seealso cref="#EVENTNAME_CREATE"/></li>
-	/// <li><seealso cref="#EVENTNAME_ASSIGNMENT"/></li>
-	/// <li><seealso cref="#EVENTNAME_COMPLETE"/></li>
-	/// <li><seealso cref="#EVENTNAME_DELETE"/></li>
+	/// <li><seealso cref="EVENTNAME_CREATE"/></li>
+	/// <li><seealso cref="EVENTNAME_ASSIGNMENT"/></li>
+	/// <li><seealso cref="EVENTNAME_COMPLETE"/></li>
+	/// <li><seealso cref="EVENTNAME_DELETE"/></li>
 	/// </ul>
 	/// </para>
 	/// 

@@ -55,7 +55,7 @@ namespace org.camunda.bpm.engine.impl.bpmn.behavior
 
 	  /// <summary>
 	  /// Performs the default outgoing BPMN 2.0 behavior (@see
-	  /// <seealso cref="#performDefaultOutgoingBehavior(ActivityExecution)"/>), but without
+	  /// <seealso cref="performDefaultOutgoingBehavior(ActivityExecution)"/>), but without
 	  /// checking the conditions on the outgoing sequence flow.
 	  /// 
 	  /// This means that every outgoing sequence flow is selected for continuing the

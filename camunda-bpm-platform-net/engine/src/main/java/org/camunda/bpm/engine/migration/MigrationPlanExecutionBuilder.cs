@@ -38,7 +38,7 @@ namespace org.camunda.bpm.engine.migration
 	  MigrationPlanExecutionBuilder processInstanceIds(params string[] processInstanceIds);
 
 	  /// <param name="processInstanceQuery"> a query which selects the process instances to migrate.
-	  ///   Query results are restricted to process instances for which the user has <seealso cref="Permissions#READ"/> permission. </param>
+	  ///   Query results are restricted to process instances for which the user has <seealso cref="Permissions.READ"/> permission. </param>
 	  MigrationPlanExecutionBuilder processInstanceQuery(ProcessInstanceQuery processInstanceQuery);
 
 	  /// <summary>
@@ -59,8 +59,8 @@ namespace org.camunda.bpm.engine.migration
 	  /// <exception cref="AuthorizationException">
 	  ///   if the user has not all of the following permissions
 	  ///   <ul>
-	  ///      <li>if the user has no <seealso cref="Permissions#UPDATE"/> permission on <seealso cref="Resources#PROCESS_INSTANCE"/> or</li>
-	  ///      <li>no <seealso cref="Permissions#UPDATE_INSTANCE"/> permission on <seealso cref="Resources#PROCESS_DEFINITION"/></li>
+	  ///      <li>if the user has no <seealso cref="Permissions.UPDATE"/> permission on <seealso cref="Resources.PROCESS_INSTANCE"/> or</li>
+	  ///      <li>no <seealso cref="Permissions.UPDATE_INSTANCE"/> permission on <seealso cref="Resources.PROCESS_DEFINITION"/></li>
 	  ///   </ul> </exception>
 	  void execute();
 
@@ -73,8 +73,8 @@ namespace org.camunda.bpm.engine.migration
 	  /// <exception cref="AuthorizationException">
 	  ///   if the user has not all of the following permissions
 	  ///   <ul>
-	  ///     <li><seealso cref="Permissions#MIGRATE_INSTANCE"/> permission on <seealso cref="Resources#PROCESS_DEFINITION"/> for source and target</li>
-	  ///     <li><seealso cref="Permissions#CREATE"/> or <seealso cref="BatchPermissions#CREATE_BATCH_MIGRATE_PROCESS_INSTANCES"/> permission on <seealso cref="Resources#BATCH"/></li>
+	  ///     <li><seealso cref="Permissions.MIGRATE_INSTANCE"/> permission on <seealso cref="Resources.PROCESS_DEFINITION"/> for source and target</li>
+	  ///     <li><seealso cref="Permissions.CREATE"/> or <seealso cref="BatchPermissions.CREATE_BATCH_MIGRATE_PROCESS_INSTANCES"/> permission on <seealso cref="Resources.BATCH"/></li>
 	  ///   </ul> </exception>
 	  Batch executeAsync();
 	}

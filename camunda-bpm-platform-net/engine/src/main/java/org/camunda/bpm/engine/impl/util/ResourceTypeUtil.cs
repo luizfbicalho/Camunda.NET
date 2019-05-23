@@ -74,7 +74,7 @@ namespace org.camunda.bpm.engine.impl.util
 	  }
 
 
-	  /// <returns> See <seealso cref="ResourceTypeUtil#PERMISSION_ENUMS"/> </returns>
+	  /// <returns> See <seealso cref="ResourceTypeUtil.PERMISSION_ENUMS"/> </returns>
 	  public static IDictionary<int, Type> PermissionEnums
 	  {
 		  get
@@ -84,7 +84,7 @@ namespace org.camunda.bpm.engine.impl.util
 	  }
 
 	  /// <summary>
-	  /// Retrieves the <seealso cref="Permission"/> array based on the predifined <seealso cref="ResourceTypeUtil#PERMISSION_ENUMS PERMISSION_ENUMS"/>
+	  /// Retrieves the <seealso cref="Permission"/> array based on the predifined <seealso cref="ResourceTypeUtil.PERMISSION_ENUMS PERMISSION_ENUMS"/>
 	  /// </summary>
 	  public static Permission[] getPermissionsByResourceType(int givenResourceType)
 	  {

@@ -18,7 +18,7 @@ namespace org.camunda.bpm.container.impl.jmx.services
 {
 	/// <summary>
 	/// <para>MBean interface exposing management properties of the jobExecutor through JMX.
-	/// This MBean also allows to <seealso cref="#start()"/> and <seealso cref="#shutdown()"/> the Job Executor.</para>
+	/// This MBean also allows to <seealso cref="start()"/> and <seealso cref="shutdown()"/> the Job Executor.</para>
 	/// 
 	/// @author Daniel Meyer
 	/// 

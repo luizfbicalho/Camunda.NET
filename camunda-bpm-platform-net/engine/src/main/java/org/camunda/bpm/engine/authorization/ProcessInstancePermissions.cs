@@ -19,7 +19,7 @@
 namespace org.camunda.bpm.engine.authorization
 {
 	/// <summary>
-	/// The set of built-in <seealso cref="Permission Permissions"/> for <seealso cref="Resources#PROCESS_INSTANCE Process instances"/> in Camunda BPM.
+	/// The set of built-in <seealso cref="Permission Permissions"/> for <seealso cref="Resources.PROCESS_INSTANCE Process instances"/> in Camunda BPM.
 	/// 
 	/// @author Yana Vasileva
 	/// 

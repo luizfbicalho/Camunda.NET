@@ -79,31 +79,31 @@ namespace org.camunda.bpm.engine.impl.cmmn.execution
 
 	  /// <summary>
 	  /// <para>Returns <code>true</code> iff:<br>
-	  ///  <code><seealso cref="#getCurrentState()"/> == <seealso cref="CaseExecutionState#NEW"/></code>
+	  ///  <code><seealso cref="getCurrentState()"/> == <seealso cref="CaseExecutionState.NEW"/></code>
 	  /// </para>
 	  /// </summary>
-	  /// <returns> whether <code>this</code> case execution has as current state <seealso cref="CaseExecutionState#NEW"/> </returns>
+	  /// <returns> whether <code>this</code> case execution has as current state <seealso cref="CaseExecutionState.NEW"/> </returns>
 	  bool New {get;}
 
 	  /// <summary>
 	  /// <para>Returns <code>true</code> iff:<br>
-	  ///  <code><seealso cref="#getCurrentState()"/> == <seealso cref="CaseExecutionState#TERMINATING_ON_TERMINATION"/>
-	  ///        || <seealso cref="#getCurrentState()"/> == <seealso cref="CaseExecutionState#TERMINATING_ON_PARENT_TERMINATION"/>
-	  ///        || <seealso cref="#getCurrentState()"/> == <seealso cref="CaseExecutionState#TERMINATING_ON_EXIT"/></code>
+	  ///  <code><seealso cref="getCurrentState()"/> == <seealso cref="CaseExecutionState.TERMINATING_ON_TERMINATION"/>
+	  ///        || <seealso cref="getCurrentState()"/> == <seealso cref="CaseExecutionState.TERMINATING_ON_PARENT_TERMINATION"/>
+	  ///        || <seealso cref="getCurrentState()"/> == <seealso cref="CaseExecutionState.TERMINATING_ON_EXIT"/></code>
 	  /// </para>
 	  /// </summary>
-	  /// <returns> whether <code>this</code> case execution has as current state <seealso cref="CaseExecutionState#TERMINATING_ON_TERMINATION"/>,
-	  ///         <seealso cref="CaseExecutionState#TERMINATING_ON_PARENT_TERMINATION"/> or <seealso cref="CaseExecutionState#TERMINATING_ON_EXIT"/> </returns>
+	  /// <returns> whether <code>this</code> case execution has as current state <seealso cref="CaseExecutionState.TERMINATING_ON_TERMINATION"/>,
+	  ///         <seealso cref="CaseExecutionState.TERMINATING_ON_PARENT_TERMINATION"/> or <seealso cref="CaseExecutionState.TERMINATING_ON_EXIT"/> </returns>
 	  bool Terminating {get;}
 
 	  /// <summary>
 	  /// <para>Returns <code>true</code> iff:<br>
-	  ///  <code><seealso cref="#getCurrentState()"/> == <seealso cref="CaseExecutionState#SUSPENDING_ON_SUSPENSION"/>
-	  ///        || <seealso cref="#getCurrentState()"/> == <seealso cref="CaseExecutionState#SUSPENDING_ON_PARENT_SUSPENSION"/></code>
+	  ///  <code><seealso cref="getCurrentState()"/> == <seealso cref="CaseExecutionState.SUSPENDING_ON_SUSPENSION"/>
+	  ///        || <seealso cref="getCurrentState()"/> == <seealso cref="CaseExecutionState.SUSPENDING_ON_PARENT_SUSPENSION"/></code>
 	  /// </para>
 	  /// </summary>
 	  /// <returns> whether <code>this</code> case execution has as current state
-	  ///        <seealso cref="CaseExecutionState#SUSPENDING_ON_SUSPENSION"/> or <seealso cref="CaseExecutionState#SUSPENDING_ON_PARENT_SUSPENSION"/> </returns>
+	  ///        <seealso cref="CaseExecutionState.SUSPENDING_ON_SUSPENSION"/> or <seealso cref="CaseExecutionState.SUSPENDING_ON_PARENT_SUSPENSION"/> </returns>
 	  bool Suspending {get;}
 
 	  /// <summary>
@@ -118,7 +118,7 @@ namespace org.camunda.bpm.engine.impl.cmmn.execution
 	  /// <summary>
 	  /// <para>Creates new child case executions for each given <seealso cref="CmmnActivity"/>.</para>
 	  /// 
-	  /// <para>Afterwards the method <seealso cref="#triggerChildExecutionsLifecycle(List)"/> must be called
+	  /// <para>Afterwards the method <seealso cref="triggerChildExecutionsLifecycle(System.Collections.IList)"/> must be called
 	  /// to execute each created case executions (ie. the create listener will be
 	  /// notified etc.).</para>
 	  /// 
@@ -139,23 +139,23 @@ namespace org.camunda.bpm.engine.impl.cmmn.execution
 	  /// <summary>
 	  /// <para>This method triggers for each given case execution the lifecycle.</para>
 	  /// 
-	  /// <para>This method must be called after <seealso cref="#createChildExecutions(List)"/>.</para>
+	  /// <para>This method must be called after <seealso cref="createChildExecutions(System.Collections.IList)"/>.</para>
 	  /// </summary>
 	  /// <param name="children"> a collection of <seealso cref="CmmnExecution case execution"/> to
 	  ///                 trigger for each given case execution the lifecycle </param>
 	  void triggerChildExecutionsLifecycle(IList<CmmnExecution> children);
 
 	  /// <summary>
-	  /// <para>Transition to <seealso cref="CaseExecutionState#ENABLED"/> state.</para>
+	  /// <para>Transition to <seealso cref="CaseExecutionState.ENABLED"/> state.</para>
 	  /// 
-	  /// <para><code>This</code> case execution must be in <seealso cref="CaseExecutionState#AVAILABLE"/>
+	  /// <para><code>This</code> case execution must be in <seealso cref="CaseExecutionState.AVAILABLE"/>
 	  /// state to be able to do this transition.</para>
 	  /// 
 	  /// <para>It is only possible to enable a case execution which is associated with a
 	  /// <seealso cref="Stage"/> or <seealso cref="Task"/>.</para>
 	  /// </summary>
 	  /// <exception cref="CaseIllegalStateTransitionException"> will be thrown, if <code>this</code> case execution
-	  ///         is not <seealso cref="CaseExecutionState#AVAILABLE"/>. </exception>
+	  ///         is not <seealso cref="CaseExecutionState.AVAILABLE"/>. </exception>
 	  /// <exception cref="ProcessEngineException"> when an internal exception happens during the execution
 	  ///     of the command. </exception>
 	  void enable();
@@ -163,7 +163,7 @@ namespace org.camunda.bpm.engine.impl.cmmn.execution
 	  /// <summary>
 	  /// <para>Transition to  state.</para>
 	  /// 
-	  /// <para><code>This</code> case execution must be in <seealso cref="CaseExecutionState#ENABLED"/>
+	  /// <para><code>This</code> case execution must be in <seealso cref="CaseExecutionState.ENABLED"/>
 	  /// state to be able to do this transition.</para>
 	  /// 
 	  /// <para>It is only possible to disable a case execution which is associated with a
@@ -172,63 +172,63 @@ namespace org.camunda.bpm.engine.impl.cmmn.execution
 	  /// <para>If <code>this</code> case execution has a parent case execution, that parent
 	  /// case execution will be notified that <code>this</code> case execution has been
 	  /// disabled. This can lead to a completion of the parent case execution, for more
-	  /// details when the parent case execution can be completed see <seealso cref="#complete()"/>.</para>
+	  /// details when the parent case execution can be completed see <seealso cref="complete()"/>.</para>
 	  /// </summary>
 	  /// <exception cref="CaseIllegalStateTransitionException"> will be thrown, if <code>this</code> case execution
-	  ///         is not <seealso cref="CaseExecutionState#ENABLED"/>. </exception>
+	  ///         is not <seealso cref="CaseExecutionState.ENABLED"/>. </exception>
 	  /// <exception cref="ProcessEngineException"> when an internal exception happens during the execution
 	  ///     of the command. </exception>
 	  void disable();
 
 	  /// <summary>
-	  /// <para>Transition to <seealso cref="CaseExecutionState#ENABLED"/> state.</para>
+	  /// <para>Transition to <seealso cref="CaseExecutionState.ENABLED"/> state.</para>
 	  /// 
-	  /// <para><code>This</code> case execution must be in <seealso cref="CaseExecutionState#DISABLED"/>
+	  /// <para><code>This</code> case execution must be in <seealso cref="CaseExecutionState.DISABLED"/>
 	  /// state to be able to do this transition.</para>
 	  /// 
 	  /// <para>It is only possible to re-enable a case execution which is associated with a
 	  /// <seealso cref="Stage"/> or <seealso cref="Task"/>.</para>
 	  /// </summary>
 	  /// <exception cref="CaseIllegalStateTransitionException"> will be thrown, if <code>this</code> case execution
-	  ///         is not <seealso cref="CaseExecutionState#DISABLED"/>. </exception>
+	  ///         is not <seealso cref="CaseExecutionState.DISABLED"/>. </exception>
 	  /// <exception cref="ProcessEngineException"> when an internal exception happens during the execution
 	  ///     of the command. </exception>
 	  void reenable();
 
 	  /// <summary>
-	  /// <para>Transition to <seealso cref="CaseExecutionState#ACTIVE"/> state.</para>
+	  /// <para>Transition to <seealso cref="CaseExecutionState.ACTIVE"/> state.</para>
 	  /// 
-	  /// <para><code>This</code> case execution must be in <seealso cref="CaseExecutionState#ENABLED"/>
+	  /// <para><code>This</code> case execution must be in <seealso cref="CaseExecutionState.ENABLED"/>
 	  /// state to be able to do this transition.</para>
 	  /// 
 	  /// <para>It is only possible to start a case execution manually which is associated with a
 	  /// <seealso cref="Stage"/> or <seealso cref="Task"/>.</para>
 	  /// </summary>
 	  /// <exception cref="CaseIllegalStateTransitionException"> will be thrown, if <code>this</code> case execution
-	  ///         is not <seealso cref="CaseExecutionState#ENABLED"/>. </exception>
+	  ///         is not <seealso cref="CaseExecutionState.ENABLED"/>. </exception>
 	  /// <exception cref="ProcessEngineException"> when an internal exception happens during the execution
 	  ///     of the command. </exception>
 	  void manualStart();
 
 	  /// <summary>
-	  /// <para>Transition to <seealso cref="CaseExecutionState#ACTIVE"/> state.</para>
+	  /// <para>Transition to <seealso cref="CaseExecutionState.ACTIVE"/> state.</para>
 	  /// 
-	  /// <para><code>This</code> case execution must be in <seealso cref="CaseExecutionState#AVAILABLE"/>
+	  /// <para><code>This</code> case execution must be in <seealso cref="CaseExecutionState.AVAILABLE"/>
 	  /// state to be able to do this transition.</para>
 	  /// 
 	  /// <para>It is only possible to start a case execution which is associated with a
 	  /// <seealso cref="Stage"/> or <seealso cref="Task"/>.</para>
 	  /// </summary>
 	  /// <exception cref="CaseIllegalStateTransitionException"> will be thrown, if <code>this</code> case execution
-	  ///         is not <seealso cref="CaseExecutionState#AVAILABLE"/>. </exception>
+	  ///         is not <seealso cref="CaseExecutionState.AVAILABLE"/>. </exception>
 	  /// <exception cref="ProcessEngineException"> when an internal exception happens during the execution
 	  ///     of the command. </exception>
 	  void start();
 
 	  /// <summary>
-	  /// <para>Transition to <seealso cref="CaseExecutionState#COMPLETED"/> state.</para>
+	  /// <para>Transition to <seealso cref="CaseExecutionState.COMPLETED"/> state.</para>
 	  /// 
-	  /// <para><code>This</code> case execution must be in <seealso cref="CaseExecutionState#ACTIVE"/>
+	  /// <para><code>This</code> case execution must be in <seealso cref="CaseExecutionState.ACTIVE"/>
 	  /// state to be able to do this transition.</para>
 	  /// 
 	  /// <para>It is only possible to complete a case execution which is associated with a
@@ -237,20 +237,20 @@ namespace org.camunda.bpm.engine.impl.cmmn.execution
 	  /// <para>If <code>this</code> case execution has a parent case execution, that parent
 	  /// case execution will be notified that <code>this</code> case execution has been
 	  /// completed. This can lead to a completion of the parent case execution, for more
-	  /// details when the parent case execution can be completed see <seealso cref="#complete()"/>.</para>
+	  /// details when the parent case execution can be completed see <seealso cref="complete()"/>.</para>
 	  /// 
 	  /// <para>In case of a <seealso cref="Stage"/> the completion can only be performed when the following
 	  /// criteria are fulfilled:<br>
 	  /// <ul>
-	  ///  <li>there are no children in the state <seealso cref="CaseExecutionState#ACTIVE"/> or <seealso cref="CaseExecutionState#NEW"/></li>
+	  ///  <li>there are no children in the state <seealso cref="CaseExecutionState.ACTIVE"/> or <seealso cref="CaseExecutionState.NEW"/></li>
 	  ///  <li>if the property <code>autoComplete</code> of the associated <seealso cref="Stage"/> is set to <strong><code>true</code></strong>:
 	  ///    <ul>
 	  ///      <li>all required (<code>requiredRule</code> evaluates to <code>true</code>) children are in state
 	  ///        <ul>
-	  ///          <li><seealso cref="CaseExecutionState#DISABLED"/></li>
-	  ///          <li><seealso cref="CaseExecutionState#COMPLETED"/></li>
-	  ///          <li><seealso cref="CaseExecutionState#TERMINATED"/></li>
-	  ///          <li><seealso cref="CaseExecutionState#FAILED"/></li>
+	  ///          <li><seealso cref="CaseExecutionState.DISABLED"/></li>
+	  ///          <li><seealso cref="CaseExecutionState.COMPLETED"/></li>
+	  ///          <li><seealso cref="CaseExecutionState.TERMINATED"/></li>
+	  ///          <li><seealso cref="CaseExecutionState.FAILED"/></li>
 	  ///        </ul>
 	  ///      </li>
 	  ///    </ul>
@@ -259,10 +259,10 @@ namespace org.camunda.bpm.engine.impl.cmmn.execution
 	  ///    <ul>
 	  ///      <li>all children are in
 	  ///        <ul>
-	  ///          <li><seealso cref="CaseExecutionState#DISABLED"/></li>
-	  ///          <li><seealso cref="CaseExecutionState#COMPLETED"/></li>
-	  ///          <li><seealso cref="CaseExecutionState#TERMINATED"/></li>
-	  ///          <li><seealso cref="CaseExecutionState#FAILED"/></li>
+	  ///          <li><seealso cref="CaseExecutionState.DISABLED"/></li>
+	  ///          <li><seealso cref="CaseExecutionState.COMPLETED"/></li>
+	  ///          <li><seealso cref="CaseExecutionState.TERMINATED"/></li>
+	  ///          <li><seealso cref="CaseExecutionState.FAILED"/></li>
 	  ///        </ul>
 	  ///      </li>
 	  ///    </ul>
@@ -285,16 +285,16 @@ namespace org.camunda.bpm.engine.impl.cmmn.execution
 	  /// </para>
 	  /// </summary>
 	  /// <exception cref="CaseIllegalStateTransitionException"> will be thrown, if <code>this</code> case execution
-	  ///         is not <seealso cref="CaseExecutionState#ACTIVE"/> or when the case execution cannot be
+	  ///         is not <seealso cref="CaseExecutionState.ACTIVE"/> or when the case execution cannot be
 	  ///         completed. </exception>
 	  /// <exception cref="ProcessEngineException"> when an internal exception happens during the execution
 	  ///     of the command. </exception>
 	  void complete();
 
 	  /// <summary>
-	  /// <para>Transition to <seealso cref="CaseExecutionState#COMPLETED"/> state.</para>
+	  /// <para>Transition to <seealso cref="CaseExecutionState.COMPLETED"/> state.</para>
 	  /// 
-	  /// <para><code>This</code> case execution must be in <seealso cref="CaseExecutionState#ACTIVE"/>
+	  /// <para><code>This</code> case execution must be in <seealso cref="CaseExecutionState.ACTIVE"/>
 	  /// state to be able to do this transition.</para>
 	  /// 
 	  /// <para>It is only possible to complete a case execution manually which is associated with a
@@ -303,18 +303,18 @@ namespace org.camunda.bpm.engine.impl.cmmn.execution
 	  /// <para>If <code>this</code> case execution has a parent case execution, that parent
 	  /// case execution will be notified that <code>this</code> case execution has been
 	  /// completed. This can lead to a completion of the parent case execution, for more
-	  /// details when the parent case execution can be completed see <seealso cref="#complete()"/>.</para>
+	  /// details when the parent case execution can be completed see <seealso cref="complete()"/>.</para>
 	  /// 
 	  /// <para>In case of a <seealso cref="Stage"/> the completion can only be performed when the following
 	  /// criteria are fulfilled:<br>
 	  /// <ul>
-	  ///  <li>there are no children in the state <seealso cref="CaseExecutionState#ACTIVE"/> or <seealso cref="CaseExecutionState#NEW"/></li>
+	  ///  <li>there are no children in the state <seealso cref="CaseExecutionState.ACTIVE"/> or <seealso cref="CaseExecutionState.NEW"/></li>
 	  ///  <li>all required (<code>requiredRule</code> evaluates to <code>true</code>) children are in state
 	  ///    <ul>
-	  ///      <li><seealso cref="CaseExecutionState#DISABLED"/></li>
-	  ///      <li><seealso cref="CaseExecutionState#COMPLETED"/></li>
-	  ///      <li><seealso cref="CaseExecutionState#TERMINATED"/></li>
-	  ///      <li><seealso cref="CaseExecutionState#FAILED"/></li>
+	  ///      <li><seealso cref="CaseExecutionState.DISABLED"/></li>
+	  ///      <li><seealso cref="CaseExecutionState.COMPLETED"/></li>
+	  ///      <li><seealso cref="CaseExecutionState.TERMINATED"/></li>
+	  ///      <li><seealso cref="CaseExecutionState.FAILED"/></li>
 	  ///    </ul>
 	  ///  </li>
 	  /// </ul>
@@ -327,16 +327,16 @@ namespace org.camunda.bpm.engine.impl.cmmn.execution
 	  /// </para>
 	  /// </summary>
 	  /// <exception cref="CaseIllegalStateTransitionException"> will be thrown, if <code>this</code> case execution
-	  ///         is not <seealso cref="CaseExecutionState#ACTIVE"/> or when the case execution cannot be
+	  ///         is not <seealso cref="CaseExecutionState.ACTIVE"/> or when the case execution cannot be
 	  ///         completed. </exception>
 	  /// <exception cref="ProcessEngineException"> when an internal exception happens during the execution
 	  ///     of the command. </exception>
 	  void manualComplete();
 
 	  /// <summary>
-	  /// <para>Transition to <seealso cref="CaseExecutionState#COMPLETED"/> state.</para>
+	  /// <para>Transition to <seealso cref="CaseExecutionState.COMPLETED"/> state.</para>
 	  /// 
-	  /// <para><code>This</code> case execution must be in <seealso cref="CaseExecutionState#AVAILABLE"/>
+	  /// <para><code>This</code> case execution must be in <seealso cref="CaseExecutionState.AVAILABLE"/>
 	  /// state to be able to do this transition.</para>
 	  /// 
 	  /// <para>For <seealso cref="EventListener event listener"/> transitions when the event being listened by the
@@ -350,23 +350,23 @@ namespace org.camunda.bpm.engine.impl.cmmn.execution
 	  /// case execution will be notified that <code>this</code> case execution has been
 	  /// completed (ie.the event or milestone occured). This can lead to a completion of
 	  /// the parent case execution, for more details when the parent case execution can
-	  /// be completed see <seealso cref="#complete()"/>.</para>
+	  /// be completed see <seealso cref="complete()"/>.</para>
 	  /// </summary>
 	  /// <exception cref="CaseIllegalStateTransitionException"> will be thrown, if <code>this</code> case execution
-	  ///         is not <seealso cref="CaseExecutionState#AVAILABLE"/>. </exception>
+	  ///         is not <seealso cref="CaseExecutionState.AVAILABLE"/>. </exception>
 	  /// <exception cref="ProcessEngineException"> when an internal exception happens during the execution
 	  ///     of the command. </exception>
 	  void occur();
 
 	  /// <summary>
-	  /// <para>Transition to <seealso cref="CaseExecutionState#TERMINATING_ON_TERMINATION"/> state.</para>
+	  /// <para>Transition to <seealso cref="CaseExecutionState.TERMINATING_ON_TERMINATION"/> state.</para>
 	  /// 
 	  /// <para>If <code>this</code> case execution is associated with a <seealso cref="Stage"/> or
-	  /// <seealso cref="Task"/>, then <code>this</code> case execution must be in <seealso cref="CaseExecutionState#ACTIVE"/>
+	  /// <seealso cref="Task"/>, then <code>this</code> case execution must be in <seealso cref="CaseExecutionState.ACTIVE"/>
 	  /// state to be able to do this transition.<br>
 	  /// And if <code>this</code> case execution is association with <seealso cref="EventListener EventListener"/>
 	  /// or a <seealso cref="Milestone"/>, then <code>this</code> case execution must be in
-	  /// <seealso cref="CaseExecutionState#AVAILABLE"/> state to be able to do this transition.</para>
+	  /// <seealso cref="CaseExecutionState.AVAILABLE"/> state to be able to do this transition.</para>
 	  /// 
 	  /// <para>For a <seealso cref="Stage"/> instance the termination of <code>this</code> case execution
 	  /// will be propagated down to all its contained <seealso cref="EventListener EventListener"/>, <seealso cref="Milestone"/>,
@@ -374,8 +374,8 @@ namespace org.camunda.bpm.engine.impl.cmmn.execution
 	  /// 
 	  /// <para>In case of a <seealso cref="Stage"/> this corresponding case execution stays in this state until
 	  /// all children notified this case execution, that they terminated successfully. Afterwards the
-	  /// method <seealso cref="#performTerminate()"/> must be called to complete the transition into the state
-	  /// <seealso cref="CaseExecutionState#TERMINATED"/>.</para>
+	  /// method <seealso cref="performTerminate()"/> must be called to complete the transition into the state
+	  /// <seealso cref="CaseExecutionState.TERMINATED"/>.</para>
 	  /// </summary>
 	  /// <exception cref="CaseIllegalStateTransitionException"> will be thrown, if <code>this</code> case execution
 	  ///         is not in the expected state. </exception>
@@ -384,12 +384,12 @@ namespace org.camunda.bpm.engine.impl.cmmn.execution
 	  void terminate();
 
 	  /// <summary>
-	  /// <para>Transition to <seealso cref="CaseExecutionState#TERMINATED"/> state.</para>
+	  /// <para>Transition to <seealso cref="CaseExecutionState.TERMINATED"/> state.</para>
 	  /// 
 	  /// <para>If <code>this</code> case execution has a parent case execution, that parent
 	  /// case execution will be notified that <code>this</code> case execution has been
 	  /// terminated. This can lead to a completion of the parent case execution, for more
-	  /// details when the parent case execution can be completed see <seealso cref="#complete()"/>.</para>
+	  /// details when the parent case execution can be completed see <seealso cref="complete()"/>.</para>
 	  /// </summary>
 	  /// <exception cref="CaseIllegalStateTransitionException"> will be thrown, if <code>this</code> case execution
 	  ///         is not in the expected state. </exception>
@@ -398,16 +398,16 @@ namespace org.camunda.bpm.engine.impl.cmmn.execution
 	  void performTerminate();
 
 	  /// <summary>
-	  /// <para>Transition to <seealso cref="CaseExecutionState#TERMINATING_ON_PARENT_TERMINATION"/> state.</para>
+	  /// <para>Transition to <seealso cref="CaseExecutionState.TERMINATING_ON_PARENT_TERMINATION"/> state.</para>
 	  /// 
-	  /// <para><code>This</code> case execution must be in <seealso cref="CaseExecutionState#AVAILABLE"/>
-	  /// or <seealso cref="CaseExecutionState#SUSPENDED"/> state to be able to do this transition.</para>
+	  /// <para><code>This</code> case execution must be in <seealso cref="CaseExecutionState.AVAILABLE"/>
+	  /// or <seealso cref="CaseExecutionState.SUSPENDED"/> state to be able to do this transition.</para>
 	  /// 
 	  /// <para>It is only possible to execute a parent termination on a case execution which is
 	  /// associated with a <seealso cref="EventListener"/> or <seealso cref="Milestone"/>.</para>
 	  /// 
-	  /// <para>Afterwards the method <seealso cref="#performParentTerminate()"/> must be called to complete
-	  /// the transition into the state <seealso cref="CaseExecutionState#TERMINATED"/>.</para>
+	  /// <para>Afterwards the method <seealso cref="performParentTerminate()"/> must be called to complete
+	  /// the transition into the state <seealso cref="CaseExecutionState.TERMINATED"/>.</para>
 	  /// </summary>
 	  /// <exception cref="CaseIllegalStateTransitionException"> will be thrown, if <code>this</code> case execution
 	  ///         is not in the expected state. </exception>
@@ -416,10 +416,10 @@ namespace org.camunda.bpm.engine.impl.cmmn.execution
 	  void parentTerminate();
 
 	  /// <summary>
-	  /// <para>Transition to <seealso cref="CaseExecutionState#TERMINATED"/> state.</para>
+	  /// <para>Transition to <seealso cref="CaseExecutionState.TERMINATED"/> state.</para>
 	  /// 
-	  /// <para><code>This</code> case execution must be in <seealso cref="CaseExecutionState#AVAILABLE"/>
-	  /// or <seealso cref="CaseExecutionState#SUSPENDED"/> state to be able to do this transition.</para>
+	  /// <para><code>This</code> case execution must be in <seealso cref="CaseExecutionState.AVAILABLE"/>
+	  /// or <seealso cref="CaseExecutionState.SUSPENDED"/> state to be able to do this transition.</para>
 	  /// 
 	  /// <para>It is only possible to execute a parent termination on a case execution which is
 	  /// associated with a <seealso cref="EventListener"/> or <seealso cref="Milestone"/>.</para>
@@ -431,31 +431,31 @@ namespace org.camunda.bpm.engine.impl.cmmn.execution
 	  void performParentTerminate();
 
 	  /// <summary>
-	  /// <para>Transition to <seealso cref="CaseExecutionState#TERMINATING_ON_EXIT"/> state.</para>
+	  /// <para>Transition to <seealso cref="CaseExecutionState.TERMINATING_ON_EXIT"/> state.</para>
 	  /// 
 	  /// <para><code>This</code> case execution must be in one of the following state to
 	  /// be able to do this transition:
 	  /// <ul>
-	  ///   <li><seealso cref="CaseExecutionState#AVAILABLE"/>,</li>
-	  ///   <li><seealso cref="CaseExecutionState#ENABLED"/>,</li>
-	  ///   <li><seealso cref="CaseExecutionState#DISABLED"/>,</li>
-	  ///   <li><seealso cref="CaseExecutionState#ACTIVE"/>,</li>
-	  ///   <li><seealso cref="CaseExecutionState#SUSPENDED"/> or</li>
-	  ///   <li><seealso cref="CaseExecutionState#FAILED"/></li>
+	  ///   <li><seealso cref="CaseExecutionState.AVAILABLE"/>,</li>
+	  ///   <li><seealso cref="CaseExecutionState.ENABLED"/>,</li>
+	  ///   <li><seealso cref="CaseExecutionState.DISABLED"/>,</li>
+	  ///   <li><seealso cref="CaseExecutionState.ACTIVE"/>,</li>
+	  ///   <li><seealso cref="CaseExecutionState.SUSPENDED"/> or</li>
+	  ///   <li><seealso cref="CaseExecutionState.FAILED"/></li>
 	  /// </ul>
 	  /// 
 	  /// </para>
 	  /// <para>It is only possible to execute an exit on a case execution which is
 	  /// associated with a <seealso cref="Stage"/> or <seealso cref="Task"/>.</para>
 	  /// 
-	  /// <para>Afterwards the method <seealso cref="#performExit()"/> must be called to complete
-	  /// the transition into the state <seealso cref="CaseExecutionState#TERMINATED"/>.</para>
+	  /// <para>Afterwards the method <seealso cref="performExit()"/> must be called to complete
+	  /// the transition into the state <seealso cref="CaseExecutionState.TERMINATED"/>.</para>
 	  /// 
 	  /// <para>If this transition is triggered by a fulfilled exit criteria and if
 	  /// <code>this</code> case execution has a parent case execution, that parent
 	  /// case execution will be notified that <code>this</code> case execution has been
 	  /// terminated. This can lead to a completion of the parent case execution, for more
-	  /// details when the parent case execution can be completed see <seealso cref="#complete()"/>.</para>
+	  /// details when the parent case execution can be completed see <seealso cref="complete()"/>.</para>
 	  /// </summary>
 	  /// <exception cref="CaseIllegalStateTransitionException"> will be thrown, if <code>this</code> case execution
 	  ///         is not in the expected state. </exception>
@@ -464,17 +464,17 @@ namespace org.camunda.bpm.engine.impl.cmmn.execution
 	  void exit();
 
 	  /// <summary>
-	  /// <para>Transition to <seealso cref="CaseExecutionState#TERMINATED"/> state.</para>
+	  /// <para>Transition to <seealso cref="CaseExecutionState.TERMINATED"/> state.</para>
 	  /// </summary>
 	  /// <exception cref="ProcessEngineException"> when an internal exception happens during the execution
 	  ///     of the command. </exception>
 	  void parentComplete();
 
 	  /// <summary>
-	  /// <para>Transition to <seealso cref="CaseExecutionState#TERMINATED"/> state.</para>
+	  /// <para>Transition to <seealso cref="CaseExecutionState.TERMINATED"/> state.</para>
 	  /// 
 	  /// <para>This can lead to a completion of the parent case execution, for more
-	  /// details when the parent case execution can be completed see <seealso cref="#complete()"/>.</para>
+	  /// details when the parent case execution can be completed see <seealso cref="complete()"/>.</para>
 	  /// </summary>
 	  /// <exception cref="CaseIllegalStateTransitionException"> will be thrown, if <code>this</code> case execution
 	  ///         is not in the expected state. </exception>
@@ -483,21 +483,21 @@ namespace org.camunda.bpm.engine.impl.cmmn.execution
 	  void performExit();
 
 	  /// <summary>
-	  /// <para>Transition to <seealso cref="CaseExecutionState#SUSPENDING_ON_SUSPENSION"/> state.</para>
+	  /// <para>Transition to <seealso cref="CaseExecutionState.SUSPENDING_ON_SUSPENSION"/> state.</para>
 	  /// 
 	  /// <para>If <code>this</code> case execution is associated with a <seealso cref="Stage"/> or
-	  /// <seealso cref="Task"/>, then <code>this</code> case execution must be in <seealso cref="CaseExecutionState#ACTIVE"/>
+	  /// <seealso cref="Task"/>, then <code>this</code> case execution must be in <seealso cref="CaseExecutionState.ACTIVE"/>
 	  /// state to be able to do this transition.<br>
 	  /// And if <code>this</code> case execution is association with <seealso cref="EventListener EventListener"/>
 	  /// or a <seealso cref="Milestone"/>, then <code>this</code> case execution must be in
-	  /// <seealso cref="CaseExecutionState#AVAILABLE"/> state to be able to do this transition.</para>
+	  /// <seealso cref="CaseExecutionState.AVAILABLE"/> state to be able to do this transition.</para>
 	  /// 
 	  /// <para>For a <seealso cref="Stage"/> instance the suspension of <code>this</code> case execution
 	  /// will be propagated down to all its contained <seealso cref="EventListener EventListener"/>, <seealso cref="Milestone"/>,
 	  /// <seealso cref="Stage"/>, and <seealso cref="Task"/> instances.</para>
 	  /// 
-	  /// <para>Afterwards the method <seealso cref="#performSuspension()"/> must be called to complete
-	  /// the transition into the state <seealso cref="CaseExecutionState#SUSPENDED"/>.</para>
+	  /// <para>Afterwards the method <seealso cref="performSuspension()"/> must be called to complete
+	  /// the transition into the state <seealso cref="CaseExecutionState.SUSPENDED"/>.</para>
 	  /// </summary>
 	  /// <exception cref="CaseIllegalStateTransitionException"> will be thrown, if <code>this</code> case execution
 	  ///         is not in the expected state. </exception>
@@ -506,7 +506,7 @@ namespace org.camunda.bpm.engine.impl.cmmn.execution
 	  void suspend();
 
 	  /// <summary>
-	  /// <para>Transition to <seealso cref="CaseExecutionState#SUSPENDED"/> state.</para>
+	  /// <para>Transition to <seealso cref="CaseExecutionState.SUSPENDED"/> state.</para>
 	  /// </summary>
 	  /// <exception cref="CaseIllegalStateTransitionException"> will be thrown, if <code>this</code> case execution
 	  ///         is not in the expected state. </exception>
@@ -515,23 +515,23 @@ namespace org.camunda.bpm.engine.impl.cmmn.execution
 	  void performSuspension();
 
 	  /// <summary>
-	  /// <para>Transition to <seealso cref="CaseExecutionState#SUSPENDING_ON_PARENT_SUSPENSION"/> state.</para>
+	  /// <para>Transition to <seealso cref="CaseExecutionState.SUSPENDING_ON_PARENT_SUSPENSION"/> state.</para>
 	  /// 
 	  /// <para><code>This</code> case execution must be in one of the following state to
 	  /// be able to do this transition:
 	  /// <ul>
-	  ///   <li><seealso cref="CaseExecutionState#AVAILABLE"/>,</li>
-	  ///   <li><seealso cref="CaseExecutionState#ENABLED"/>,</li>
-	  ///   <li><seealso cref="CaseExecutionState#DISABLED"/> or</li>
-	  ///   <li><seealso cref="CaseExecutionState#ACTIVE"/></li>
+	  ///   <li><seealso cref="CaseExecutionState.AVAILABLE"/>,</li>
+	  ///   <li><seealso cref="CaseExecutionState.ENABLED"/>,</li>
+	  ///   <li><seealso cref="CaseExecutionState.DISABLED"/> or</li>
+	  ///   <li><seealso cref="CaseExecutionState.ACTIVE"/></li>
 	  /// </ul>
 	  /// 
 	  /// </para>
 	  /// <para>It is only possible to execute a parent suspension on a case execution which is
 	  /// associated with a <seealso cref="Stage"/> or <seealso cref="Task"/>.</para>
 	  /// 
-	  /// <para>Afterwards the method <seealso cref="#performParentSuspension()"/> must be called to complete
-	  /// the transition into the state <seealso cref="CaseExecutionState#SUSPENDED"/>.</para>
+	  /// <para>Afterwards the method <seealso cref="performParentSuspension()"/> must be called to complete
+	  /// the transition into the state <seealso cref="CaseExecutionState.SUSPENDED"/>.</para>
 	  /// </summary>
 	  /// <exception cref="CaseIllegalStateTransitionException"> will be thrown, if <code>this</code> case execution
 	  ///         is not in the expected state. </exception>
@@ -540,7 +540,7 @@ namespace org.camunda.bpm.engine.impl.cmmn.execution
 	  void parentSuspend();
 
 	  /// <summary>
-	  /// <para>Transition to <seealso cref="CaseExecutionState#SUSPENDED"/> state.</para>
+	  /// <para>Transition to <seealso cref="CaseExecutionState.SUSPENDED"/> state.</para>
 	  /// </summary>
 	  /// <exception cref="CaseIllegalStateTransitionException"> will be thrown, if <code>this</code> case execution
 	  ///         is not in the expected state. </exception>
@@ -549,11 +549,11 @@ namespace org.camunda.bpm.engine.impl.cmmn.execution
 	  void performParentSuspension();
 
 	  /// <summary>
-	  /// <para>Transition to either to <seealso cref="CaseExecutionState#ACTIVE"/> state, if <code>this</code>
-	  /// case execution is associated with a <seealso cref="Stage"/> or <seealso cref="Task"/>, or to <seealso cref="CaseExecutionState#AVAILABE"/>,
+	  /// <para>Transition to either to <seealso cref="CaseExecutionState.ACTIVE"/> state, if <code>this</code>
+	  /// case execution is associated with a <seealso cref="Stage"/> or <seealso cref="Task"/>, or to <seealso cref="CaseExecutionState.AVAILABE"/>,
 	  /// if <code>this</code> case execution is associated with a <seealso cref="EventListener"/> or <seealso cref="Milestone"/>.</para>
 	  /// 
-	  /// <para><code>This</code> case execution must be in <seealso cref="CaseExecutionState#SUSPENDED"/>
+	  /// <para><code>This</code> case execution must be in <seealso cref="CaseExecutionState.SUSPENDED"/>
 	  /// state to be able to do this transition.</para>
 	  /// 
 	  /// <para>For a <seealso cref="Stage"/> instance the resume of <code>this</code> case execution
@@ -567,12 +567,12 @@ namespace org.camunda.bpm.engine.impl.cmmn.execution
 	  void resume();
 
 	  /// <summary>
-	  /// <para>Transition to the previous state (<seealso cref="CaseExecutionState#AVAILABLE"/>,
-	  /// <seealso cref="CaseExecutionState#ENABLED"/>, <seealso cref="CaseExecutionState#DISABLED"/> or
-	  /// <seealso cref="CaseExecutionState#ACTIVE"/>) when the parent <seealso cref="Stage"/> transitions
-	  /// out of <seealso cref="CaseExecutionState#SUSPENDED"/>.</para>
+	  /// <para>Transition to the previous state (<seealso cref="CaseExecutionState.AVAILABLE"/>,
+	  /// <seealso cref="CaseExecutionState.ENABLED"/>, <seealso cref="CaseExecutionState.DISABLED"/> or
+	  /// <seealso cref="CaseExecutionState.ACTIVE"/>) when the parent <seealso cref="Stage"/> transitions
+	  /// out of <seealso cref="CaseExecutionState.SUSPENDED"/>.</para>
 	  /// 
-	  /// <para><code>This</code> case execution must be in <seealso cref="CaseExecutionState#SUSPENDED"/>
+	  /// <para><code>This</code> case execution must be in <seealso cref="CaseExecutionState.SUSPENDED"/>
 	  /// state to be able to do this transition.</para>
 	  /// 
 	  /// <para>It is only possible to execute a parent resume on a case execution which is
@@ -585,25 +585,25 @@ namespace org.camunda.bpm.engine.impl.cmmn.execution
 	  void parentResume();
 
 	  /// <summary>
-	  /// <para>Transition to <seealso cref="CaseExecutionState#ACTIVE"/> state.</para>
+	  /// <para>Transition to <seealso cref="CaseExecutionState.ACTIVE"/> state.</para>
 	  /// 
 	  /// <para>If <code>this</code> case execution is associated with a <seealso cref="Stage"/> or
 	  /// <seealso cref="Task"/> and is not a case instance, then <code>this</code> case execution
-	  /// must be in <seealso cref="CaseExecutionState#FAILED"/> state to be able to do this transition.<br>
+	  /// must be in <seealso cref="CaseExecutionState.FAILED"/> state to be able to do this transition.<br>
 	  /// And if <code>this</code> case execution is a case instance, then <code>this</code>
 	  /// case instance must be in one of the following state to perform this transition:
 	  /// <ul>
-	  ///   <li><seealso cref="CaseExecutionState#COMPLETED"/>,</li>
-	  ///   <li><seealso cref="CaseExecutionState#SUSPENDED"/>,</li>
-	  ///   <li><seealso cref="CaseExecutionState#TERMINATED"/> or</li>
-	  ///   <li><seealso cref="CaseExecutionState#FAILED"/></li>
+	  ///   <li><seealso cref="CaseExecutionState.COMPLETED"/>,</li>
+	  ///   <li><seealso cref="CaseExecutionState.SUSPENDED"/>,</li>
+	  ///   <li><seealso cref="CaseExecutionState.TERMINATED"/> or</li>
+	  ///   <li><seealso cref="CaseExecutionState.FAILED"/></li>
 	  /// </ul>
 	  /// </para>
 	  /// 
-	  /// <para>In case of a case instance the transition out of <seealso cref="CaseExecutionState#SUSPENDED"/> state
+	  /// <para>In case of a case instance the transition out of <seealso cref="CaseExecutionState.SUSPENDED"/> state
 	  /// the resume will be propagated down to all its contained <seealso cref="EventListener EventListener"/>,
-	  /// <seealso cref="Milestone"/>, <seealso cref="Stage"/>, and <seealso cref="Task"/> instances, see <seealso cref="#resume()"/> and
-	  /// <seealso cref="#parentResume()"/>.</para>
+	  /// <seealso cref="Milestone"/>, <seealso cref="Stage"/>, and <seealso cref="Task"/> instances, see <seealso cref="resume()"/> and
+	  /// <seealso cref="parentResume()"/>.</para>
 	  /// </summary>
 	  /// <exception cref="CaseIllegalStateTransitionException"> will be thrown, if <code>this</code> case execution
 	  ///         is not in the expected state. </exception>
@@ -612,16 +612,16 @@ namespace org.camunda.bpm.engine.impl.cmmn.execution
 	  void reactivate();
 
 	  /// <summary>
-	  /// <para>Transition to <seealso cref="CaseExecutionState#CLOSED"/> state when no further
+	  /// <para>Transition to <seealso cref="CaseExecutionState.CLOSED"/> state when no further
 	  /// work or modifications should be allowed for this case instance.</para>
 	  /// 
 	  /// <para>It is only possible to close a case instance which is in one of the following
 	  /// states:
 	  /// <ul>
-	  ///   <li><seealso cref="CaseExecutionState#COMPLETED"/>,</li>
-	  ///   <li><seealso cref="CaseExecutionState#SUSPENDED"/>,</li>
-	  ///   <li><seealso cref="CaseExecutionState#TERMINATED"/> or</li>
-	  ///   <li><seealso cref="CaseExecutionState#FAILED"/></li>
+	  ///   <li><seealso cref="CaseExecutionState.COMPLETED"/>,</li>
+	  ///   <li><seealso cref="CaseExecutionState.SUSPENDED"/>,</li>
+	  ///   <li><seealso cref="CaseExecutionState.TERMINATED"/> or</li>
+	  ///   <li><seealso cref="CaseExecutionState.FAILED"/></li>
 	  /// </ul>
 	  /// </para>
 	  /// </summary>
@@ -644,10 +644,10 @@ namespace org.camunda.bpm.engine.impl.cmmn.execution
 	  void remove();
 
 	  /// <summary>
-	  /// <para>Returns a <seealso cref="List"/> of child case executions. If <code>this</code> case
-	  /// execution has no child case executions an empty <seealso cref="List"/> will be returned.</para>
+	  /// <para>Returns a <seealso cref="System.Collections.IList"/> of child case executions. If <code>this</code> case
+	  /// execution has no child case executions an empty <seealso cref="System.Collections.IList"/> will be returned.</para>
 	  /// </summary>
-	  /// <returns> a <seealso cref="List"/> of child case executions. </returns>
+	  /// <returns> a <seealso cref="System.Collections.IList"/> of child case executions. </returns>
 //JAVA TO C# CONVERTER WARNING: Java wildcard generics have no direct equivalent in .NET:
 //ORIGINAL LINE: java.util.List<? extends CmmnExecution> getCaseExecutions();
 	  IList<CmmnExecution> CaseExecutions {get;}
@@ -728,7 +728,7 @@ namespace org.camunda.bpm.engine.impl.cmmn.execution
 	  /// <summary>
 	  /// <para>The flag <code>entryCriterionSatisfied</code> will only be set to
 	  /// <code>true</code>, when <code>this</code> <seealso cref="CmmnActivityExecution"/>
-	  /// stays in state <seealso cref="CaseExecutionState#NEW"/>.</para>
+	  /// stays in state <seealso cref="CaseExecutionState.NEW"/>.</para>
 	  /// 
 	  /// <para>For example:</para>
 	  /// 
@@ -741,13 +741,13 @@ namespace org.camunda.bpm.engine.impl.cmmn.execution
 	  /// </ul>
 	  /// 
 	  /// <para>When the <seealso cref="Stage"/> instance becomes active, two child case executions
-	  /// will be created for task A and task B. Both tasks are in the state <seealso cref="CaseExecutionState#NEW"/>.
+	  /// will be created for task A and task B. Both tasks are in the state <seealso cref="CaseExecutionState.NEW"/>.
 	  /// Now task A performs the <code>create</code> transition and so that the given sentry is triggered,
 	  /// that this is satisfied. Afterwards the sentry will be reseted, that the sentry is not satisfied anymore.</para>
-	  /// <para>But task B is still in the state <seealso cref="CaseExecutionState#NEW"/> and will not be
+	  /// <para>But task B is still in the state <seealso cref="CaseExecutionState.NEW"/> and will not be
 	  /// notified, that its' entry criterion has been satisfied. That's why the the flag <code>entryCriterionSatisfied</code>
 	  /// will be set to <code>true</code> on the case execution of task B in such a situation. When
-	  /// task B performs the transition into the state <seealso cref="CaseExecutionState#AVAILABLE"/> it can perform
+	  /// task B performs the transition into the state <seealso cref="CaseExecutionState.AVAILABLE"/> it can perform
 	  /// the next transition because the entry criterion has been already satisfied.</para>
 	  /// </summary>
 	  bool EntryCriterionSatisfied {get;}

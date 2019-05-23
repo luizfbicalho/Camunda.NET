@@ -30,7 +30,7 @@ namespace org.camunda.bpm.engine.impl.context
 	/// @author Tom Baeyens
 	/// @author Roman Smirnov
 	/// @author Daniel Meyer 
-	[Obsolete("since 7.2: use <seealso cref="BpmnExecutionContext"/>")]
+	[Obsolete("since 7.2: use <seealso cref=\"BpmnExecutionContext\"/>")]
 	public class ExecutionContext : CoreExecutionContext<ExecutionEntity>
 	{
 

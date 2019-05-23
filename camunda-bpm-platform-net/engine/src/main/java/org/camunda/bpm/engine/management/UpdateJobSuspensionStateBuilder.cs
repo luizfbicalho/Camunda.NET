@@ -29,10 +29,10 @@ namespace org.camunda.bpm.engine.management
 	  /// Activates the provided jobs.
 	  /// </summary>
 	  /// <exception cref="AuthorizationException">
-	  ///           if the user has no <seealso cref="Permissions#UPDATE"/> permission on
-	  ///           <seealso cref="Resources#PROCESS_INSTANCE"/> or no
-	  ///           <seealso cref="Permissions#UPDATE_INSTANCE"/> permission on
-	  ///           <seealso cref="Resources#PROCESS_DEFINITION"/>. </exception>
+	  ///           if the user has no <seealso cref="Permissions.UPDATE"/> permission on
+	  ///           <seealso cref="Resources.PROCESS_INSTANCE"/> or no
+	  ///           <seealso cref="Permissions.UPDATE_INSTANCE"/> permission on
+	  ///           <seealso cref="Resources.PROCESS_DEFINITION"/>. </exception>
 	  void activate();
 
 	  /// <summary>
@@ -40,10 +40,10 @@ namespace org.camunda.bpm.engine.management
 	  /// executed by the job executor.
 	  /// </summary>
 	  /// <exception cref="AuthorizationException">
-	  ///           if the user has no <seealso cref="Permissions#UPDATE"/> permission on
-	  ///           <seealso cref="Resources#PROCESS_INSTANCE"/> or no
-	  ///           <seealso cref="Permissions#UPDATE_INSTANCE"/> permission on
-	  ///           <seealso cref="Resources#PROCESS_DEFINITION"/>. </exception>
+	  ///           if the user has no <seealso cref="Permissions.UPDATE"/> permission on
+	  ///           <seealso cref="Resources.PROCESS_INSTANCE"/> or no
+	  ///           <seealso cref="Permissions.UPDATE_INSTANCE"/> permission on
+	  ///           <seealso cref="Resources.PROCESS_DEFINITION"/>. </exception>
 	  void suspend();
 
 	}

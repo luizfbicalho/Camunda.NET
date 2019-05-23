@@ -55,7 +55,7 @@ namespace org.camunda.bpm.engine.history
 	  CleanableHistoricProcessInstanceReport compact();
 
 	  /// <summary>
-	  /// Order by finished process instances amount (needs to be followed by <seealso cref="#asc()"/> or <seealso cref="#desc()"/>).
+	  /// Order by finished process instances amount (needs to be followed by <seealso cref="asc()"/> or <seealso cref="desc()"/>).
 	  /// </summary>
 	  CleanableHistoricProcessInstanceReport orderByFinished();
 

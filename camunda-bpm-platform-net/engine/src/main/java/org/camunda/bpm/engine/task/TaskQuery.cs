@@ -89,7 +89,7 @@ namespace org.camunda.bpm.engine.task
 	  /// </summary>
 	  /// <exception cref="BadUserRequestException">
 	  ///   <ul><li>When the query is executed and expressions are disabled for adhoc queries
-	  ///  (in case the query is executed via <seealso cref="#list()"/>, <seealso cref="#listPage(int, int)"/>, <seealso cref="#singleResult()"/>, or <seealso cref="#count()"/>)
+	  ///  (in case the query is executed via <seealso cref="list()"/>, <seealso cref="listPage(int, int)"/>, <seealso cref="singleResult()"/>, or <seealso cref="count()"/>)
 	  ///  or stored queries (in case the query is stored along with a filter).
 	  ///  Expression evaluation can be activated by setting the process engine configuration properties
 	  ///  <code>enableExpressionsInAdhocQueries</code> (default <code>false</code>) and
@@ -108,7 +108,7 @@ namespace org.camunda.bpm.engine.task
 	  /// </summary>
 	  /// <exception cref="BadUserRequestException">
 	  ///   <ul><li>When the query is executed and expressions are disabled for adhoc queries
-	  ///  (in case the query is executed via <seealso cref="#list()"/>, <seealso cref="#listPage(int, int)"/>, <seealso cref="#singleResult()"/>, or <seealso cref="#count()"/>)
+	  ///  (in case the query is executed via <seealso cref="list()"/>, <seealso cref="listPage(int, int)"/>, <seealso cref="singleResult()"/>, or <seealso cref="count()"/>)
 	  ///  or stored queries (in case the query is stored along with a filter).
 	  ///  Expression evaluation can be activated by setting the process engine configuration properties
 	  ///  <code>enableExpressionsInAdhocQueries</code> (default <code>false</code>) and
@@ -124,7 +124,7 @@ namespace org.camunda.bpm.engine.task
 	  /// </summary>
 	  /// <exception cref="BadUserRequestException">
 	  ///   <ul><li>When the query is executed and expressions are disabled for adhoc queries
-	  ///  (in case the query is executed via <seealso cref="#list()"/>, <seealso cref="#listPage(int, int)"/>, <seealso cref="#singleResult()"/>, or <seealso cref="#count()"/>)
+	  ///  (in case the query is executed via <seealso cref="list()"/>, <seealso cref="listPage(int, int)"/>, <seealso cref="singleResult()"/>, or <seealso cref="count()"/>)
 	  ///  or stored queries (in case the query is stored along with a filter).
 	  ///  Expression evaluation can be activated by setting the process engine configuration properties
 	  ///  <code>enableExpressionsInAdhocQueries</code> (default <code>false</code>) and
@@ -135,7 +135,7 @@ namespace org.camunda.bpm.engine.task
 	  /// Only select tasks which don't have an assignee. </summary>
 	  TaskQuery taskUnassigned();
 
-	  /// <seealso cref= <seealso cref="#taskUnassigned"/> </seealso>
+	  /// <seealso cref= <seealso cref="taskUnassigned"/> </seealso>
 	  [Obsolete]
 	  TaskQuery taskUnnassigned();
 
@@ -153,19 +153,19 @@ namespace org.camunda.bpm.engine.task
 	  /// <para>
 	  /// Per default it only selects tasks which are not already assigned
 	  /// to a user. To also include assigned task in the result specify
-	  /// <seealso cref="#includeAssignedTasks()"/> in your query.
+	  /// <seealso cref="includeAssignedTasks()"/> in your query.
 	  /// </para>
 	  /// </summary>
 	  /// <exception cref="ProcessEngineException">
-	  ///   <ul><li>When query is executed and <seealso cref="#taskCandidateGroup(String)"/> or
-	  ///     <seealso cref="#taskCandidateGroupIn(List)"/> has been executed on the "and query" instance.
-	  ///     No exception is thrown when query is executed and <seealso cref="#taskCandidateGroup(String)"/> or
-	  ///     <seealso cref="#taskCandidateGroupIn(List)"/> has been executed on the "or query" instance.
+	  ///   <ul><li>When query is executed and <seealso cref="taskCandidateGroup(string)"/> or
+	  ///     <seealso cref="taskCandidateGroupIn(System.Collections.IList)"/> has been executed on the "and query" instance.
+	  ///     No exception is thrown when query is executed and <seealso cref="taskCandidateGroup(string)"/> or
+	  ///     <seealso cref="taskCandidateGroupIn(System.Collections.IList)"/> has been executed on the "or query" instance.
 	  ///   <li>When passed user is <code>null</code>.
 	  ///   </ul> </exception>
 	  /// <exception cref="BadUserRequestException">
 	  ///   <ul><li>When the query is executed and expressions are disabled for adhoc queries
-	  ///  (in case the query is executed via <seealso cref="#list()"/>, <seealso cref="#listPage(int, int)"/>, <seealso cref="#singleResult()"/>, or <seealso cref="#count()"/>)
+	  ///  (in case the query is executed via <seealso cref="list()"/>, <seealso cref="listPage(int, int)"/>, <seealso cref="singleResult()"/>, or <seealso cref="count()"/>)
 	  ///  or stored queries (in case the query is stored along with a filter).
 	  ///  Expression evaluation can be activated by setting the process engine configuration properties
 	  ///  <code>enableExpressionsInAdhocQueries</code> (default <code>false</code>) and
@@ -179,17 +179,17 @@ namespace org.camunda.bpm.engine.task
 	  /// <para>
 	  /// Per default it only selects tasks which are not already assigned
 	  /// to a user. To also include assigned task in the result specify
-	  /// <seealso cref="#includeAssignedTasks()"/> in your query.
+	  /// <seealso cref="includeAssignedTasks()"/> in your query.
 	  /// </para>
 	  /// </summary>
 	  /// <exception cref="ProcessEngineException">
-	  ///   <ul><li>When query is executed and <seealso cref="#taskCandidateGroup(String)"/> or
-	  ///     <seealso cref="#taskCandidateGroupIn(List)"/> has been executed on the query instance.
+	  ///   <ul><li>When query is executed and <seealso cref="taskCandidateGroup(string)"/> or
+	  ///     <seealso cref="taskCandidateGroupIn(System.Collections.IList)"/> has been executed on the query instance.
 	  ///   <li>When passed user is <code>null</code>.
 	  ///   </ul> </exception>
 	  /// <exception cref="BadUserRequestException">
 	  ///   <ul><li>When the query is executed and expressions are disabled for adhoc queries
-	  ///  (in case the query is executed via <seealso cref="#list()"/>, <seealso cref="#listPage(int, int)"/>, <seealso cref="#singleResult()"/>, or <seealso cref="#count()"/>)
+	  ///  (in case the query is executed via <seealso cref="list()"/>, <seealso cref="listPage(int, int)"/>, <seealso cref="singleResult()"/>, or <seealso cref="count()"/>)
 	  ///  or stored queries (in case the query is stored along with a filter).
 	  ///  Expression evaluation can be activated by setting the process engine configuration properties
 	  ///  <code>enableExpressionsInAdhocQueries</code> (default <code>false</code>) and
@@ -206,7 +206,7 @@ namespace org.camunda.bpm.engine.task
 	  /// </summary>
 	  /// <exception cref="BadUserRequestException">
 	  ///   <ul><li>When the query is executed and expressions are disabled for adhoc queries
-	  ///  (in case the query is executed via <seealso cref="#list()"/>, <seealso cref="#listPage(int, int)"/>, <seealso cref="#singleResult()"/>, or <seealso cref="#count()"/>)
+	  ///  (in case the query is executed via <seealso cref="list()"/>, <seealso cref="listPage(int, int)"/>, <seealso cref="singleResult()"/>, or <seealso cref="count()"/>)
 	  ///  or stored queries (in case the query is stored along with a filter).
 	  ///  Expression evaluation can be activated by setting the process engine configuration properties
 	  ///  <code>enableExpressionsInAdhocQueries</code> (default <code>false</code>) and
@@ -243,14 +243,14 @@ namespace org.camunda.bpm.engine.task
 	  /// <para>
 	  /// Per default it only selects tasks which are not already assigned
 	  /// to a user. To also include assigned task in the result specify
-	  /// <seealso cref="#includeAssignedTasks()"/> in your query.
+	  /// <seealso cref="includeAssignedTasks()"/> in your query.
 	  /// </para>
 	  /// </summary>
 	  /// <exception cref="ProcessEngineException">
-	  ///   <ul><li>When query is executed and <seealso cref="#taskCandidateUser(String)"/> or
-	  ///     <seealso cref="#taskCandidateGroupIn(List)"/> has been executed on the "and query" instance.</li>
-	  ///   No exception is thrown when query is executed and <seealso cref="#taskCandidateUser(String)"/> or
-	  ///   <seealso cref="#taskCandidateGroupIn(List)"/> has been executed on the "or query" instance.</li>
+	  ///   <ul><li>When query is executed and <seealso cref="taskCandidateUser(string)"/> or
+	  ///     <seealso cref="taskCandidateGroupIn(System.Collections.IList)"/> has been executed on the "and query" instance.</li>
+	  ///   No exception is thrown when query is executed and <seealso cref="taskCandidateUser(string)"/> or
+	  ///   <seealso cref="taskCandidateGroupIn(System.Collections.IList)"/> has been executed on the "or query" instance.</li>
 	  ///   <li>When passed group is <code>null</code>.</li></ul> </exception>
 	  TaskQuery taskCandidateGroup(string candidateGroup);
 
@@ -260,17 +260,17 @@ namespace org.camunda.bpm.engine.task
 	  /// <para>
 	  /// Per default it only selects tasks which are not already assigned
 	  /// to a user. To also include assigned task in the result specify
-	  /// <seealso cref="#includeAssignedTasks()"/> in your query.
+	  /// <seealso cref="includeAssignedTasks()"/> in your query.
 	  /// </para>
 	  /// </summary>
 	  /// <exception cref="ProcessEngineException">
-	  ///   <ul><li>When query is executed and <seealso cref="#taskCandidateUser(String)"/> or
-	  ///     <seealso cref="#taskCandidateGroupIn(List)"/> has been executed on the query instance.
+	  ///   <ul><li>When query is executed and <seealso cref="taskCandidateUser(string)"/> or
+	  ///     <seealso cref="taskCandidateGroupIn(System.Collections.IList)"/> has been executed on the query instance.
 	  ///   <li>When passed group is <code>null</code>.
 	  ///   </ul> </exception>
 	  /// <exception cref="BadUserRequestException">
 	  ///   <ul><li>When the query is executed and expressions are disabled for adhoc queries
-	  ///  (in case the query is executed via <seealso cref="#list()"/>, <seealso cref="#listPage(int, int)"/>, <seealso cref="#singleResult()"/>, or <seealso cref="#count()"/>)
+	  ///  (in case the query is executed via <seealso cref="list()"/>, <seealso cref="listPage(int, int)"/>, <seealso cref="singleResult()"/>, or <seealso cref="count()"/>)
 	  ///  or stored queries (in case the query is stored along with a filter).
 	  ///  Expression evaluation can be activated by setting the process engine configuration properties
 	  ///  <code>enableExpressionsInAdhocQueries</code> (default <code>false</code>) and
@@ -283,14 +283,14 @@ namespace org.camunda.bpm.engine.task
 	  /// <para>
 	  /// Per default it only selects tasks which are not already assigned
 	  /// to a user. To also include assigned task in the result specify
-	  /// <seealso cref="#includeAssignedTasks()"/> in your query.
+	  /// <seealso cref="includeAssignedTasks()"/> in your query.
 	  /// </para>
 	  /// </summary>
 	  /// <exception cref="ProcessEngineException">
-	  ///   <ul><li>When query is executed and <seealso cref="#taskCandidateGroup(String)"/> or
-	  ///     <seealso cref="#taskCandidateUser(String)"/> has been executed on the "and query" instance.</li>
-	  ///   No exception is thrown when query is executed and <seealso cref="#taskCandidateGroup(String)"/> or
-	  ///   <seealso cref="#taskCandidateUser(String)"/> has been executed on the "or query" instance.</li>
+	  ///   <ul><li>When query is executed and <seealso cref="taskCandidateGroup(string)"/> or
+	  ///     <seealso cref="taskCandidateUser(string)"/> has been executed on the "and query" instance.</li>
+	  ///   No exception is thrown when query is executed and <seealso cref="taskCandidateGroup(string)"/> or
+	  ///   <seealso cref="taskCandidateUser(string)"/> has been executed on the "or query" instance.</li>
 	  ///   <li>When passed group list is empty or <code>null</code>.</li></ul> </exception>
 	  TaskQuery taskCandidateGroupIn(IList<string> candidateGroups);
 
@@ -300,16 +300,16 @@ namespace org.camunda.bpm.engine.task
 	  /// <para>
 	  /// Per default it only selects tasks which are not already assigned
 	  /// to a user. To also include assigned task in the result specify
-	  /// <seealso cref="#includeAssignedTasks()"/> in your query.
+	  /// <seealso cref="includeAssignedTasks()"/> in your query.
 	  /// </para>
 	  /// </summary>
 	  /// <exception cref="ProcessEngineException">
-	  ///   <ul><li>When query is executed and <seealso cref="#taskCandidateGroup(String)"/> or
-	  ///     <seealso cref="#taskCandidateUser(String)"/> has been executed on the query instance.
+	  ///   <ul><li>When query is executed and <seealso cref="taskCandidateGroup(string)"/> or
+	  ///     <seealso cref="taskCandidateUser(string)"/> has been executed on the query instance.
 	  ///   <li>When passed group list is empty or <code>null</code>.</ul> </exception>
 	  /// <exception cref="BadUserRequestException">
 	  ///   <ul><li>When the query is executed and expressions are disabled for adhoc queries
-	  ///  (in case the query is executed via <seealso cref="#list()"/>, <seealso cref="#listPage(int, int)"/>, <seealso cref="#singleResult()"/>, or <seealso cref="#count()"/>)
+	  ///  (in case the query is executed via <seealso cref="list()"/>, <seealso cref="listPage(int, int)"/>, <seealso cref="singleResult()"/>, or <seealso cref="count()"/>)
 	  ///  or stored queries (in case the query is stored along with a filter).
 	  ///  Expression evaluation can be activated by setting the process engine configuration properties
 	  ///  <code>enableExpressionsInAdhocQueries</code> (default <code>false</code>) and
@@ -319,8 +319,8 @@ namespace org.camunda.bpm.engine.task
 	  /// <summary>
 	  /// Select both assigned and not assigned tasks for candidate user or group queries.
 	  /// <para>
-	  /// By default <seealso cref="#taskCandidateUser(String)"/>, <seealso cref="#taskCandidateGroup(String)"/>
-	  /// and <seealso cref="#taskCandidateGroupIn(List)"/> queries only select not assigned tasks.
+	  /// By default <seealso cref="taskCandidateUser(string)"/>, <seealso cref="taskCandidateGroup(string)"/>
+	  /// and <seealso cref="taskCandidateGroupIn(System.Collections.IList)"/> queries only select not assigned tasks.
 	  /// </para>
 	  /// </summary>
 	  /// <exception cref="ProcessEngineException">
@@ -564,7 +564,7 @@ namespace org.camunda.bpm.engine.task
 	  /// <summary>
 	  /// Only select tasks which are part of a case instance that have a variable
 	  /// with the given name set to the given value. The type of variable is determined based
-	  /// on the value, using types configured in <seealso cref="ProcessEngineConfiguration#getVariableSerializers()"/>.
+	  /// on the value, using types configured in <seealso cref="ProcessEngineConfiguration.getVariableSerializers()"/>.
 	  /// 
 	  /// Byte-arrays and <seealso cref="Serializable"/> objects (which are not primitive type wrappers)
 	  /// are not supported.
@@ -576,7 +576,7 @@ namespace org.camunda.bpm.engine.task
 	  /// Only select tasks which are part of a case instance that have a variable
 	  /// with the given name, but with a different value than the passed value. The
 	  /// type of variable is determined based on the value, using types configured
-	  /// in <seealso cref="ProcessEngineConfiguration#getVariableSerializers()"/>.
+	  /// in <seealso cref="ProcessEngineConfiguration.getVariableSerializers()"/>.
 	  /// 
 	  /// Byte-arrays and <seealso cref="Serializable"/> objects (which are not primitive type wrappers)
 	  /// are not supported.
@@ -678,7 +678,7 @@ namespace org.camunda.bpm.engine.task
 	  /// </summary>
 	  /// <exception cref="BadUserRequestException">
 	  ///   <ul><li>When the query is executed and expressions are disabled for adhoc queries
-	  ///  (in case the query is executed via <seealso cref="#list()"/>, <seealso cref="#listPage(int, int)"/>, <seealso cref="#singleResult()"/>, or <seealso cref="#count()"/>)
+	  ///  (in case the query is executed via <seealso cref="list()"/>, <seealso cref="listPage(int, int)"/>, <seealso cref="singleResult()"/>, or <seealso cref="count()"/>)
 	  ///  or stored queries (in case the query is stored along with a filter).
 	  ///  Expression evaluation can be activated by setting the process engine configuration properties
 	  ///  <code>enableExpressionsInAdhocQueries</code> (default <code>false</code>) and
@@ -695,7 +695,7 @@ namespace org.camunda.bpm.engine.task
 	  /// </summary>
 	  /// <exception cref="BadUserRequestException">
 	  ///   <ul><li>When the query is executed and expressions are disabled for adhoc queries
-	  ///  (in case the query is executed via <seealso cref="#list()"/>, <seealso cref="#listPage(int, int)"/>, <seealso cref="#singleResult()"/>, or <seealso cref="#count()"/>)
+	  ///  (in case the query is executed via <seealso cref="list()"/>, <seealso cref="listPage(int, int)"/>, <seealso cref="singleResult()"/>, or <seealso cref="count()"/>)
 	  ///  or stored queries (in case the query is stored along with a filter).
 	  ///  Expression evaluation can be activated by setting the process engine configuration properties
 	  ///  <code>enableExpressionsInAdhocQueries</code> (default <code>false</code>) and
@@ -712,7 +712,7 @@ namespace org.camunda.bpm.engine.task
 	  /// </summary>
 	  /// <exception cref="BadUserRequestException">
 	  ///   <ul><li>When the query is executed and expressions are disabled for adhoc queries
-	  ///  (in case the query is executed via <seealso cref="#list()"/>, <seealso cref="#listPage(int, int)"/>, <seealso cref="#singleResult()"/>, or <seealso cref="#count()"/>)
+	  ///  (in case the query is executed via <seealso cref="list()"/>, <seealso cref="listPage(int, int)"/>, <seealso cref="singleResult()"/>, or <seealso cref="count()"/>)
 	  ///  or stored queries (in case the query is stored along with a filter).
 	  ///  Expression evaluation can be activated by setting the process engine configuration properties
 	  ///  <code>enableExpressionsInAdhocQueries</code> (default <code>false</code>) and
@@ -729,7 +729,7 @@ namespace org.camunda.bpm.engine.task
 	  /// </summary>
 	  /// <exception cref="BadUserRequestException">
 	  ///   <ul><li>When the query is executed and expressions are disabled for adhoc queries
-	  ///  (in case the query is executed via <seealso cref="#list()"/>, <seealso cref="#listPage(int, int)"/>, <seealso cref="#singleResult()"/>, or <seealso cref="#count()"/>)
+	  ///  (in case the query is executed via <seealso cref="list()"/>, <seealso cref="listPage(int, int)"/>, <seealso cref="singleResult()"/>, or <seealso cref="count()"/>)
 	  ///  or stored queries (in case the query is stored along with a filter).
 	  ///  Expression evaluation can be activated by setting the process engine configuration properties
 	  ///  <code>enableExpressionsInAdhocQueries</code> (default <code>false</code>) and
@@ -746,7 +746,7 @@ namespace org.camunda.bpm.engine.task
 	  /// </summary>
 	  /// <exception cref="BadUserRequestException">
 	  ///   <ul><li>When the query is executed and expressions are disabled for adhoc queries
-	  ///  (in case the query is executed via <seealso cref="#list()"/>, <seealso cref="#listPage(int, int)"/>, <seealso cref="#singleResult()"/>, or <seealso cref="#count()"/>)
+	  ///  (in case the query is executed via <seealso cref="list()"/>, <seealso cref="listPage(int, int)"/>, <seealso cref="singleResult()"/>, or <seealso cref="count()"/>)
 	  ///  or stored queries (in case the query is stored along with a filter).
 	  ///  Expression evaluation can be activated by setting the process engine configuration properties
 	  ///  <code>enableExpressionsInAdhocQueries</code> (default <code>false</code>) and
@@ -765,7 +765,7 @@ namespace org.camunda.bpm.engine.task
 	  /// </summary>
 	  /// <exception cref="BadUserRequestException">
 	  ///   <ul><li>When the query is executed and expressions are disabled for adhoc queries
-	  ///  (in case the query is executed via <seealso cref="#list()"/>, <seealso cref="#listPage(int, int)"/>, <seealso cref="#singleResult()"/>, or <seealso cref="#count()"/>)
+	  ///  (in case the query is executed via <seealso cref="list()"/>, <seealso cref="listPage(int, int)"/>, <seealso cref="singleResult()"/>, or <seealso cref="count()"/>)
 	  ///  or stored queries (in case the query is stored along with a filter).
 	  ///  Expression evaluation can be activated by setting the process engine configuration properties
 	  ///  <code>enableExpressionsInAdhocQueries</code> (default <code>false</code>) and
@@ -782,7 +782,7 @@ namespace org.camunda.bpm.engine.task
 	  /// </summary>
 	  /// <exception cref="BadUserRequestException">
 	  ///   <ul><li>When the query is executed and expressions are disabled for adhoc queries
-	  ///  (in case the query is executed via <seealso cref="#list()"/>, <seealso cref="#listPage(int, int)"/>, <seealso cref="#singleResult()"/>, or <seealso cref="#count()"/>)
+	  ///  (in case the query is executed via <seealso cref="list()"/>, <seealso cref="listPage(int, int)"/>, <seealso cref="singleResult()"/>, or <seealso cref="count()"/>)
 	  ///  or stored queries (in case the query is stored along with a filter).
 	  ///  Expression evaluation can be activated by setting the process engine configuration properties
 	  ///  <code>enableExpressionsInAdhocQueries</code> (default <code>false</code>) and
@@ -801,7 +801,7 @@ namespace org.camunda.bpm.engine.task
 
 	  /// <summary>
 	  /// If called, the form keys of the fetched tasks are initialized and
-	  /// <seealso cref="Task#getFormKey()"/> will return a value (in case the task has a form key).
+	  /// <seealso cref="Task.getFormKey()"/> will return a value (in case the task has a form key).
 	  /// </summary>
 	  /// <exception cref="ProcessEngineException">
 	  ///   When method has been executed within "or query". Method must be executed on the base query.
@@ -820,91 +820,91 @@ namespace org.camunda.bpm.engine.task
 	  // ordering ////////////////////////////////////////////////////////////
 
 	  /// <summary>
-	  /// Order by task id (needs to be followed by <seealso cref="#asc()"/> or <seealso cref="#desc()"/>).
+	  /// Order by task id (needs to be followed by <seealso cref="asc()"/> or <seealso cref="desc()"/>).
 	  /// </summary>
 	  /// <exception cref="ProcessEngineException"> When method has been executed within "or query".
 	  ///  </exception>
 	  TaskQuery orderByTaskId();
 
 	  /// <summary>
-	  /// Order by task name (needs to be followed by <seealso cref="#asc()"/> or <seealso cref="#desc()"/>).
+	  /// Order by task name (needs to be followed by <seealso cref="asc()"/> or <seealso cref="desc()"/>).
 	  /// </summary>
 	  /// <exception cref="ProcessEngineException"> When method has been executed within "or query".
 	  ///  </exception>
 	  TaskQuery orderByTaskName();
 
 	  /// <summary>
-	  /// Order by task name case insensitive (needs to be followed by <seealso cref="#asc()"/> or <seealso cref="#desc()"/>).
+	  /// Order by task name case insensitive (needs to be followed by <seealso cref="asc()"/> or <seealso cref="desc()"/>).
 	  /// </summary>
 	  /// <exception cref="ProcessEngineException"> When method has been executed within "or query".
 	  ///  </exception>
 	  TaskQuery orderByTaskNameCaseInsensitive();
 
 	  /// <summary>
-	  /// Order by description (needs to be followed by <seealso cref="#asc()"/> or <seealso cref="#desc()"/>).
+	  /// Order by description (needs to be followed by <seealso cref="asc()"/> or <seealso cref="desc()"/>).
 	  /// </summary>
 	  /// <exception cref="ProcessEngineException"> When method has been executed within "or query".
 	  ///  </exception>
 	  TaskQuery orderByTaskDescription();
 
 	  /// <summary>
-	  /// Order by priority (needs to be followed by <seealso cref="#asc()"/> or <seealso cref="#desc()"/>).
+	  /// Order by priority (needs to be followed by <seealso cref="asc()"/> or <seealso cref="desc()"/>).
 	  /// </summary>
 	  /// <exception cref="ProcessEngineException"> When method has been executed within "or query".
 	  ///  </exception>
 	  TaskQuery orderByTaskPriority();
 
 	  /// <summary>
-	  /// Order by assignee (needs to be followed by <seealso cref="#asc()"/> or <seealso cref="#desc()"/>).
+	  /// Order by assignee (needs to be followed by <seealso cref="asc()"/> or <seealso cref="desc()"/>).
 	  /// </summary>
 	  /// <exception cref="ProcessEngineException"> When method has been executed within "or query".
 	  ///  </exception>
 	  TaskQuery orderByTaskAssignee();
 
 	  /// <summary>
-	  /// Order by the time on which the tasks were created (needs to be followed by <seealso cref="#asc()"/> or <seealso cref="#desc()"/>).
+	  /// Order by the time on which the tasks were created (needs to be followed by <seealso cref="asc()"/> or <seealso cref="desc()"/>).
 	  /// </summary>
 	  /// <exception cref="ProcessEngineException"> When method has been executed within "or query".
 	  ///  </exception>
 	  TaskQuery orderByTaskCreateTime();
 
 	  /// <summary>
-	  /// Order by process instance id (needs to be followed by <seealso cref="#asc()"/> or <seealso cref="#desc()"/>).
+	  /// Order by process instance id (needs to be followed by <seealso cref="asc()"/> or <seealso cref="desc()"/>).
 	  /// </summary>
 	  /// <exception cref="ProcessEngineException"> When method has been executed within "or query".
 	  ///  </exception>
 	  TaskQuery orderByProcessInstanceId();
 
 	  /// <summary>
-	  /// Order by case instance id (needs to be followed by <seealso cref="#asc()"/> or <seealso cref="#desc()"/>).
+	  /// Order by case instance id (needs to be followed by <seealso cref="asc()"/> or <seealso cref="desc()"/>).
 	  /// </summary>
 	  /// <exception cref="ProcessEngineException"> When method has been executed within "or query".
 	  ///  </exception>
 	  TaskQuery orderByCaseInstanceId();
 
 	  /// <summary>
-	  /// Order by execution id (needs to be followed by <seealso cref="#asc()"/> or <seealso cref="#desc()"/>).
+	  /// Order by execution id (needs to be followed by <seealso cref="asc()"/> or <seealso cref="desc()"/>).
 	  /// </summary>
 	  /// <exception cref="ProcessEngineException"> When method has been executed within "or query".
 	  ///  </exception>
 	  TaskQuery orderByExecutionId();
 
 	  /// <summary>
-	  /// Order by case execution id (needs to be followed by <seealso cref="#asc()"/> or <seealso cref="#desc()"/>).
+	  /// Order by case execution id (needs to be followed by <seealso cref="asc()"/> or <seealso cref="desc()"/>).
 	  /// </summary>
 	  /// <exception cref="ProcessEngineException"> When method has been executed within "or query".
 	  ///  </exception>
 	  TaskQuery orderByCaseExecutionId();
 
 	  /// <summary>
-	  /// Order by due date (needs to be followed by <seealso cref="#asc()"/> or <seealso cref="#desc()"/>).
+	  /// Order by due date (needs to be followed by <seealso cref="asc()"/> or <seealso cref="desc()"/>).
 	  /// </summary>
 	  /// <exception cref="ProcessEngineException"> When method has been executed within "or query".
 	  ///  </exception>
 	  TaskQuery orderByDueDate();
 
 	  /// <summary>
-	  /// Order by follow-up date (needs to be followed by <seealso cref="#asc()"/> or <seealso cref="#desc()"/>).
+	  /// Order by follow-up date (needs to be followed by <seealso cref="asc()"/> or <seealso cref="desc()"/>).
 	  /// </summary>
 	  /// <exception cref="ProcessEngineException"> When method has been executed within "or query".
 	  ///  </exception>
@@ -956,7 +956,7 @@ namespace org.camunda.bpm.engine.task
 	  TaskQuery orderByCaseInstanceVariable(string variableName, ValueType valueType);
 
 	  /// <summary>
-	  /// Order by tenant id (needs to be followed by <seealso cref="#asc()"/> or <seealso cref="#desc()"/>).
+	  /// Order by tenant id (needs to be followed by <seealso cref="asc()"/> or <seealso cref="desc()"/>).
 	  /// Note that the ordering of tasks without tenant id is database-specific.
 	  /// </summary>
 	  /// <exception cref="ProcessEngineException"> When method has been executed within "or query".
@@ -966,27 +966,27 @@ namespace org.camunda.bpm.engine.task
 	  /// <summary>
 	  /// <para>After calling or(), a chain of several filter criteria could follow. Each filter criterion that follows or()
 	  /// will be linked together with an OR expression until the OR query is terminated. To terminate the OR query right
-	  /// after the last filter criterion was applied, <seealso cref="#endOr()"/> must be invoked.</para>
+	  /// after the last filter criterion was applied, <seealso cref="endOr()"/> must be invoked.</para>
 	  /// </summary>
 	  /// <returns> an object of the type <seealso cref="TaskQuery"/> on which an arbitrary amount of filter criteria could be applied.
 	  /// The several filter criteria will be linked together by an OR expression.
 	  /// </returns>
 	  /// <exception cref="ProcessEngineException"> when or() has been invoked directly after or() or after or() and trailing filter
-	  /// criteria. To prevent throwing this exception, <seealso cref="#endOr()"/> must be invoked after a chain of filter criteria to
+	  /// criteria. To prevent throwing this exception, <seealso cref="endOr()"/> must be invoked after a chain of filter criteria to
 	  /// mark the end of the OR query.
 	  ///  </exception>
 	  TaskQuery or();
 
 	  /// <summary>
 	  /// <para>endOr() terminates an OR query on which an arbitrary amount of filter criteria were applied. To terminate the
-	  /// OR query which has been started by invoking <seealso cref="#or()"/>, endOr() must be invoked. Filter criteria which are
+	  /// OR query which has been started by invoking <seealso cref="or()"/>, endOr() must be invoked. Filter criteria which are
 	  /// applied after calling endOr() are linked together by an AND expression.</para>
 	  /// </summary>
 	  /// <returns> an object of the type <seealso cref="TaskQuery"/> on which an arbitrary amount of filter criteria could be applied.
 	  /// The filter criteria will be linked together by an AND expression.
 	  /// </returns>
-	  /// <exception cref="ProcessEngineException"> when endOr() has been invoked before <seealso cref="#or()"/> was invoked. To prevent throwing
-	  /// this exception, <seealso cref="#or()"/> must be invoked first.
+	  /// <exception cref="ProcessEngineException"> when endOr() has been invoked before <seealso cref="or()"/> was invoked. To prevent throwing
+	  /// this exception, <seealso cref="or()"/> must be invoked first.
 	  ///  </exception>
 	  TaskQuery endOr();
 	}

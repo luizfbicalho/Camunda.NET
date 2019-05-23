@@ -232,7 +232,7 @@ namespace org.camunda.bpm.engine.impl.pvm.@delegate
 	  TransitionImpl Transition {get;}
 
 	  /// <summary>
-	  /// Assumption: the current execution is active and executing an activity (<seealso cref="#getActivity()"/> is not null).
+	  /// Assumption: the current execution is active and executing an activity (<seealso cref="getActivity()"/> is not null).
 	  /// 
 	  /// For a given target scope, this method returns the scope execution.
 	  /// </summary>
@@ -245,7 +245,7 @@ namespace org.camunda.bpm.engine.impl.pvm.@delegate
 	  /// Returns a mapping from scope activities to scope executions for all scopes that
 	  /// are ancestors of the activity currently executed by this execution.
 	  /// 
-	  /// Assumption: the current execution is active and executing an activity (<seealso cref="#getActivity()"/> is not null).
+	  /// Assumption: the current execution is active and executing an activity (<seealso cref="getActivity()"/> is not null).
 	  /// </summary>
 	  IDictionary<ScopeImpl, PvmExecutionImpl> createActivityExecutionMapping();
 

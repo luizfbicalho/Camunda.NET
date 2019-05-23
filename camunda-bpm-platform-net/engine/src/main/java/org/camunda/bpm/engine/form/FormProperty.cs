@@ -30,8 +30,8 @@ namespace org.camunda.bpm.engine.form
 	{
 
 	  /// <summary>
-	  /// The key used to submit the property in <seealso cref="FormService#submitStartFormData(String, java.util.Map)"/>
-	  /// or <seealso cref="FormService#submitTaskFormData(String, java.util.Map)"/> 
+	  /// The key used to submit the property in <seealso cref="FormService.submitStartFormData(string, System.Collections.IDictionary)"/>
+	  /// or <seealso cref="FormService.submitTaskFormData(string, System.Collections.IDictionary)"/> 
 	  /// </summary>
 	  string Id {get;}
 
@@ -49,7 +49,7 @@ namespace org.camunda.bpm.engine.form
 
 	  /// <summary>
 	  /// Is this property read to be displayed in the form and made accessible with the methods
-	  /// <seealso cref="FormService#getStartFormData(String)"/> and <seealso cref="FormService#getTaskFormData(String)"/>. 
+	  /// <seealso cref="FormService.getStartFormData(string)"/> and <seealso cref="FormService.getTaskFormData(string)"/>. 
 	  /// </summary>
 	  bool Readable {get;}
 

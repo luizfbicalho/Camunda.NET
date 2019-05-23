@@ -29,7 +29,7 @@ namespace org.camunda.bpm.engine.impl.util
 
 	  /// <summary>
 	  /// Freezes the clock to a specified Date that will be returned by
-	  /// <seealso cref="#now()"/> and <seealso cref="#getCurrentTime()"/>
+	  /// <seealso cref="now()"/> and <seealso cref="getCurrentTime()"/>
 	  /// </summary>
 	  /// <param name="currentTime">
 	  ///          the Date to freeze the clock at </param>

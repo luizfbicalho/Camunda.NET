@@ -23,7 +23,7 @@ namespace org.camunda.bpm.engine.impl.db.entitymanager
 
 	/// <summary>
 	/// Allows registering a listener which is notified when an
-	/// <seealso cref="DbOperationType#UPDATE"/> or <seealso cref="DbOperationType#DELETE"/>
+	/// <seealso cref="DbOperationType.UPDATE"/> or <seealso cref="DbOperationType.DELETE"/>
 	/// could not be performed.
 	/// 
 	/// @author Daniel Meyer

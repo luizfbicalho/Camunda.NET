@@ -43,7 +43,7 @@ namespace org.camunda.bpm.engine.impl.variable.serializer
 	  TypedValueSerializer findSerializerForValue(TypedValue value, VariableSerializerFactory fallBackSerializerFactory);
 
 	  /// <summary>
-	  /// Same as calling <seealso cref="VariableSerializers#findSerializerForValue(TypedValue, VariableSerializerFactory)"/>
+	  /// Same as calling <seealso cref="VariableSerializers.findSerializerForValue(TypedValue, VariableSerializerFactory)"/>
 	  /// with no fallback serializer factory.
 	  /// </summary>
 //JAVA TO C# CONVERTER TODO TASK: Most Java annotations will not have direct .NET equivalent attributes:

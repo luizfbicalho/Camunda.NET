@@ -556,7 +556,7 @@ namespace org.camunda.bpm.engine.impl.core.variable.scope
 
 	  /// <summary>
 	  /// Sets a variable in the local scope. In contrast to
-	  /// <seealso cref="#setVariableLocal(String, Object)"/>, the variable is transient that
+	  /// <seealso cref="setVariableLocal(string, object)"/>, the variable is transient that
 	  /// means it will not be stored in the data base. For example, a transient
 	  /// variable can be used for a result variable that is only available for
 	  /// output mapping.

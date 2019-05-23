@@ -37,7 +37,7 @@ namespace org.camunda.bpm.container.impl.jboss.service
 	/// <para>Service representing a managed process engine instance registered with the Msc.</para>
 	/// 
 	/// <para>Instances of this service are created and registered by the <seealso cref="MscRuntimeContainerDelegate"/> 
-	/// when <seealso cref="MscRuntimeContainerDelegate#registerProcessEngine(ProcessEngine)"/> is called.</para>
+	/// when <seealso cref="MscRuntimeContainerDelegate.registerProcessEngine(ProcessEngine)"/> is called.</para>
 	/// 
 	/// <para>This is the JBoass Msc counterpart of the <seealso cref="JmxManagedProcessEngine"/></para>
 	/// 

@@ -42,7 +42,7 @@ namespace org.camunda.bpm.engine.runtime
 	  T startBeforeActivity(string activityId);
 
 	  /// <summary>
-	  /// Submits an instruction that behaves like <seealso cref="#startTransition(String)"/> and always instantiates
+	  /// Submits an instruction that behaves like <seealso cref="startTransition(string)"/> and always instantiates
 	  /// the single outgoing sequence flow of the given activity. Does not consider asyncAfter.
 	  /// </summary>
 	  /// <param name="activityId"> the activity for which the outgoing flow should be executed </param>

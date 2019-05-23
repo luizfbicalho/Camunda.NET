@@ -22,7 +22,7 @@ namespace org.camunda.bpm.engine.cdi.annotation
 
 	/// <summary>
 	/// Annotation for qualifying injection points such that local process variables are
-	/// injected. Instead of a normal Java <seealso cref="Object"/> a <seealso cref="TypedValue"/> will be
+	/// injected. Instead of a normal Java <seealso cref="object"/> a <seealso cref="TypedValue"/> will be
 	/// returned.
 	/// <ul>
 	/// <li>{@code @Inject @ProcessVariableLocalTyped Object accountNumber}</li>

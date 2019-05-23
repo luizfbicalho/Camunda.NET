@@ -192,7 +192,7 @@ namespace org.camunda.bpm.engine.impl.externaltask
 	  /// During mapping variables will be collected,during collection variables will not be deserialized
 	  /// and scope will not be set to local.
 	  /// </summary>
-	  /// <seealso cref= <seealso cref="org.camunda.bpm.engine.impl.core.variable.scope.AbstractVariableScope#collectVariables(VariableMapImpl, Collection, boolean, boolean)"/>
+	  /// <seealso cref= <seealso cref="org.camunda.bpm.engine.impl.core.variable.scope.AbstractVariableScope.collectVariables(VariableMapImpl, System.Collections.ICollection, bool, bool)"/>
 	  /// </seealso>
 	  /// <param name="externalTaskEntity"> - source persistent entity to use for fields </param>
 	  /// <param name="variablesToFetch"> - list of variable names to fetch, if null then all variables will be fetched </param>

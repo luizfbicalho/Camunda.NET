@@ -44,17 +44,17 @@ namespace org.camunda.bpm.engine.impl.javax.el
 	/// Though only a single ELResolver is associated with an ELContext, there are usually multiple
 	/// resolvers considered for any given variable or property resolution. ELResolvers are combined
 	/// together using <seealso cref="CompositeELResolver"/>s, to define rich semantics for evaluating an
-	/// expression. For the <seealso cref="#getValue(ELContext, Object, Object)"/>,
-	/// <seealso cref="#getType(ELContext, Object, Object)"/>, <seealso cref="#setValue(ELContext, Object, Object, Object)"/>
-	/// and <seealso cref="#isReadOnly(ELContext, Object, Object)"/> methods, an ELResolver is not responsible for
+	/// expression. For the <seealso cref="getValue(ELContext, object, object)"/>,
+	/// <seealso cref="getType(ELContext, object, object)"/>, <seealso cref="setValue(ELContext, object, object, object)"/>
+	/// and <seealso cref="isReadOnly(ELContext, object, object)"/> methods, an ELResolver is not responsible for
 	/// resolving all possible (base, property) pairs. In fact, most resolvers will only handle a base of
 	/// a single type. To indicate that a resolver has successfully resolved a particular (base,
 	/// property) pair, it must set the propertyResolved property of the ELContext to true. If it could
 	/// not handle the given pair, it must leave this property alone. The caller must ignore the return
 	/// value of the method if propertyResolved is false.
 	/// 
-	/// The <seealso cref="#getFeatureDescriptors(ELContext, Object)"/> and
-	/// <seealso cref="#getCommonPropertyType(ELContext, Object)"/> methods are primarily designed for design-time
+	/// The <seealso cref="getFeatureDescriptors(ELContext, object)"/> and
+	/// <seealso cref="getCommonPropertyType(ELContext, object)"/> methods are primarily designed for design-time
 	/// tool support, but must handle invocation at runtime as well. The java.beans.Beans.isDesignTime()
 	/// method can be used to determine if the resolver is being consulted at design-time or runtime.
 	/// </summary>
@@ -99,14 +99,14 @@ namespace org.camunda.bpm.engine.impl.javax.el
 		/// int, the value null must be returned. This is to prevent the useless iteration through all
 		/// possible primitive values. A return value of null indicates that this resolver does not
 		/// handle the given base object or that the results are too complex to represent with this
-		/// method and the <seealso cref="#getCommonPropertyType(ELContext, Object)"/> method should be used
+		/// method and the <seealso cref="getCommonPropertyType(ELContext, object)"/> method should be used
 		/// instead. Each FeatureDescriptor will contain information about a single variable or property.
 		/// In addition to the standard properties, the FeatureDescriptor must have two named attributes
 		/// (as set by the setValue method):
 		/// <ul>
-		/// <li><seealso cref="#TYPE"/> - The value of this named attribute must be an instance of java.lang.Class
+		/// <li><seealso cref="TYPE"/> - The value of this named attribute must be an instance of java.lang.Class
 		/// and specify the runtime type of the variable or property.</li>
-		/// <li><seealso cref="#RESOLVABLE_AT_DESIGN_TIME"/> - The value of this named attribute must be an
+		/// <li><seealso cref="RESOLVABLE_AT_DESIGN_TIME"/> - The value of this named attribute must be an
 		/// instance of java.lang.Boolean and indicates whether it is safe to attempt to resolve this
 		/// property at designtime. For instance, it may be unsafe to attempt a resolution at design time
 		/// if the ELResolver needs access to a resource that is only available at runtime and no
@@ -133,7 +133,7 @@ namespace org.camunda.bpm.engine.impl.javax.el
 		/// <summary>
 		/// For a given base and property, attempts to identify the most general type that is acceptable
 		/// for an object to be passed as the value parameter in a future call to the
-		/// <seealso cref="#setValue(ELContext, Object, Object, Object)"/> method. If this resolver handles the
+		/// <seealso cref="setValue(ELContext, object, object, object)"/> method. If this resolver handles the
 		/// given (base, property) pair, the propertyResolved property of the ELContext object must be
 		/// set to true by the resolver, before returning. If this property is not true after this method
 		/// is called, the caller should ignore the return value. This is not always the same as
@@ -189,7 +189,7 @@ namespace org.camunda.bpm.engine.impl.javax.el
 
 		/// <summary>
 		/// For a given base and property, attempts to determine whether a call to
-		/// <seealso cref="#setValue(ELContext, Object, Object, Object)"/> will always fail. If this resolver
+		/// <seealso cref="setValue(ELContext, object, object, object)"/> will always fail. If this resolver
 		/// handles the given (base, property) pair, the propertyResolved property of the ELContext
 		/// object must be set to true by the resolver, before returning. If this property is not true
 		/// after this method is called, the caller should ignore the return value.

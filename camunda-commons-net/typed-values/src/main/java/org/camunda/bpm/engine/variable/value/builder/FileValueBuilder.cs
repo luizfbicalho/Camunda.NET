@@ -42,7 +42,7 @@ namespace org.camunda.bpm.engine.variable.value.builder
 	  FileValueBuilder file(File file);
 
 	  /// <summary>
-	  /// Sets the value to the specified <seealso cref="InputStream"/>.
+	  /// Sets the value to the specified <seealso cref="System.IO.Stream_Input"/>.
 	  /// </summary>
 	  /// <seealso cref= #file(byte[]) </seealso>
 	  /// <seealso cref= #file(File) </seealso>

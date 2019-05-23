@@ -36,7 +36,7 @@ namespace org.camunda.bpm.engine.impl.form.validator
 	  FormFieldHandler FormFieldHandler {get;}
 
 	  /// <returns> the execution
-	  /// Deprecated, use <seealso cref="#getVariableScope()"/>  </returns>
+	  /// Deprecated, use <seealso cref="getVariableScope()"/>  </returns>
 	  [Obsolete]
 	  DelegateExecution Execution {get;}
 

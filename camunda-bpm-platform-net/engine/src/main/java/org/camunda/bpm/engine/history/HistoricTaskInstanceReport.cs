@@ -35,7 +35,7 @@ namespace org.camunda.bpm.engine.history
 	  /// <para>Sets the completed after date for constraining the query to search for all tasks
 	  /// which are completed after a certain date.</para>
 	  /// </summary>
-	  /// <param name="completedAfter"> A <seealso cref="Date"/> to define the granularity of the report
+	  /// <param name="completedAfter"> A <seealso cref="System.DateTime"/> to define the granularity of the report
 	  /// </param>
 	  /// <exception cref="NotValidException">
 	  ///          When the given date is null. </exception>
@@ -45,7 +45,7 @@ namespace org.camunda.bpm.engine.history
 	  /// <para>Sets the completed before date for constraining the query to search for all tasks
 	  /// which are completed before a certain date.</para>
 	  /// </summary>
-	  /// <param name="completedBefore"> A <seealso cref="Date"/> to define the granularity of the report
+	  /// <param name="completedBefore"> A <seealso cref="System.DateTime"/> to define the granularity of the report
 	  /// </param>
 	  /// <exception cref="NotValidException">
 	  ///          When the given date is null. </exception>
@@ -55,8 +55,8 @@ namespace org.camunda.bpm.engine.history
 	  /// <para>Executes the task report query and returns a list of <seealso cref="HistoricTaskInstanceReportResult"/>s</para>
 	  /// </summary>
 	  /// <exception cref="AuthorizationException">
-	  ///          If the user has no <seealso cref="Permissions#READ_HISTORY"/> permission
-	  ///          on any <seealso cref="Resources#PROCESS_DEFINITION"/>.
+	  ///          If the user has no <seealso cref="Permissions.READ_HISTORY"/> permission
+	  ///          on any <seealso cref="Resources.PROCESS_DEFINITION"/>.
 	  /// </exception>
 	  /// <returns> a list of <seealso cref="HistoricTaskInstanceReportResult"/>s </returns>
 	  IList<HistoricTaskInstanceReportResult> countByProcessDefinitionKey();
@@ -65,8 +65,8 @@ namespace org.camunda.bpm.engine.history
 	  /// <para>Executes the task report query and returns a list of <seealso cref="HistoricTaskInstanceReportResult"/>s</para>
 	  /// </summary>
 	  /// <exception cref="AuthorizationException">
-	  ///          If the user has no <seealso cref="Permissions#READ_HISTORY"/> permission
-	  ///          on any <seealso cref="Resources#PROCESS_DEFINITION"/>.
+	  ///          If the user has no <seealso cref="Permissions.READ_HISTORY"/> permission
+	  ///          on any <seealso cref="Resources.PROCESS_DEFINITION"/>.
 	  /// </exception>
 	  /// <returns> a list of <seealso cref="HistoricTaskInstanceReportResult"/>s </returns>
 	  IList<HistoricTaskInstanceReportResult> countByTaskName();

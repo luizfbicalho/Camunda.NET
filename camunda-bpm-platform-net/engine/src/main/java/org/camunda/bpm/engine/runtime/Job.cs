@@ -74,7 +74,7 @@ namespace org.camunda.bpm.engine.runtime
 	  /// executed. Returns null when no exception occurred.
 	  /// 
 	  /// To get the full exception stacktrace,
-	  /// use <seealso cref="ManagementService#getJobExceptionStacktrace(String)"/>
+	  /// use <seealso cref="ManagementService.getJobExceptionStacktrace(string)"/>
 	  /// </summary>
 	  string ExceptionMessage {get;}
 

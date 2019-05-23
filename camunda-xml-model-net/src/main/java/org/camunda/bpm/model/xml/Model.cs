@@ -24,7 +24,7 @@ namespace org.camunda.bpm.model.xml
 
 	/// <summary>
 	/// A model contains all defined types and the relationship between them.
-	/// See <seealso cref="ModelBuilder#createInstance"/> to create a new model.
+	/// See <seealso cref="ModelBuilder.createInstance"/> to create a new model.
 	/// 
 	/// @author Daniel Meyer
 	/// 

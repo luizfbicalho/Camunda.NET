@@ -59,7 +59,7 @@ namespace org.camunda.bpm.engine.runtime
 	  /// <summary>
 	  /// Only select executions which have a local variable with the given value. The type
 	  /// of variable is determined based on the value, using types configured in
-	  /// <seealso cref="ProcessEngineConfiguration#getVariableSerializers()"/>.
+	  /// <seealso cref="ProcessEngineConfiguration.getVariableSerializers()"/>.
 	  /// Byte-arrays and <seealso cref="Serializable"/> objects (which are not primitive type wrappers)
 	  /// are not supported. </summary>
 	  /// <param name="name"> name of the variable, cannot be null. </param>
@@ -157,7 +157,7 @@ namespace org.camunda.bpm.engine.runtime
 
 	  /// <summary>
 	  /// Only select executions that have a message event subscription.
-	  /// Use <seealso cref="#messageEventSubscriptionName(String)"/> to filter for executions
+	  /// Use <seealso cref="messageEventSubscriptionName(string)"/> to filter for executions
 	  /// with message event subscriptions with a certain name.
 	  /// </summary>
 	  ExecutionQuery messageEventSubscription();
@@ -203,19 +203,19 @@ namespace org.camunda.bpm.engine.runtime
 	  //ordering //////////////////////////////////////////////////////////////
 
 	  /// <summary>
-	  /// Order by id (needs to be followed by <seealso cref="#asc()"/> or <seealso cref="#desc()"/>). </summary>
+	  /// Order by id (needs to be followed by <seealso cref="asc()"/> or <seealso cref="desc()"/>). </summary>
 	  ExecutionQuery orderByProcessInstanceId();
 
 	  /// <summary>
-	  /// Order by process definition key (needs to be followed by <seealso cref="#asc()"/> or <seealso cref="#desc()"/>). </summary>
+	  /// Order by process definition key (needs to be followed by <seealso cref="asc()"/> or <seealso cref="desc()"/>). </summary>
 	  ExecutionQuery orderByProcessDefinitionKey();
 
 	  /// <summary>
-	  /// Order by process definition id (needs to be followed by <seealso cref="#asc()"/> or <seealso cref="#desc()"/>). </summary>
+	  /// Order by process definition id (needs to be followed by <seealso cref="asc()"/> or <seealso cref="desc()"/>). </summary>
 	  ExecutionQuery orderByProcessDefinitionId();
 
 	  /// <summary>
-	  /// Order by tenant id (needs to be followed by <seealso cref="#asc()"/> or <seealso cref="#desc()"/>).
+	  /// Order by tenant id (needs to be followed by <seealso cref="asc()"/> or <seealso cref="desc()"/>).
 	  /// Note that the ordering of executions without tenant id is database-specific. 
 	  /// </summary>
 	  ExecutionQuery orderByTenantId();

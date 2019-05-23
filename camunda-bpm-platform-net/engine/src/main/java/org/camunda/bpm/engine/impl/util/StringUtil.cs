@@ -35,17 +35,17 @@ namespace org.camunda.bpm.engine.impl.util
 	{
 
 	  /// <summary>
-	  /// Note: <seealso cref="String#length()"/> counts Unicode supplementary
+	  /// Note: <seealso cref="String.length()"/> counts Unicode supplementary
 	  /// characters twice, so for a String consisting only of those,
 	  /// the limit is effectively MAX_LONG_STRING_LENGTH / 2
 	  /// </summary>
 	  public static int DB_MAX_STRING_LENGTH = 666;
 
 	  /// <summary>
-	  /// Checks whether a <seealso cref="String"/> seams to be an expression or not
+	  /// Checks whether a <seealso cref="string"/> seams to be an expression or not
 	  /// 
 	  /// Note: In most cases you should check for composite expressions. See
-	  /// <seealso cref="#isCompositeExpression(String, ExpressionManager)"/> for more information.
+	  /// <seealso cref="isCompositeExpression(string, ExpressionManager)"/> for more information.
 	  /// </summary>
 	  /// <param name="text"> the text to check </param>
 	  /// <returns> true if the text seams to be an expression false otherwise </returns>
@@ -56,12 +56,12 @@ namespace org.camunda.bpm.engine.impl.util
 	  }
 
 	  /// <summary>
-	  /// Checks whether a <seealso cref="String"/> seams to be a composite expression or not. In contrast to an eval expression
+	  /// Checks whether a <seealso cref="string"/> seams to be a composite expression or not. In contrast to an eval expression
 	  /// is the composite expression also allowed to consist of a combination of literal and eval expressions, e.g.,
 	  /// "Welcome ${customer.name} to our site".
 	  /// 
 	  /// Note: If you just want to allow eval expression, then the expression must always start with "#{" or "${".
-	  /// Use <seealso cref="#isExpression(String)"/> to conduct these kind of checks.
+	  /// Use <seealso cref="isExpression(string)"/> to conduct these kind of checks.
 	  /// 
 	  /// </summary>
 	  public static bool isCompositeExpression(string text, ExpressionManager expressionManager)
@@ -105,7 +105,7 @@ namespace org.camunda.bpm.engine.impl.util
 
 	  /// <summary>
 	  /// converts a byte array into a string using the current process engines default charset as
-	  /// returned by <seealso cref="ProcessEngineConfigurationImpl#getDefaultCharset()"/>
+	  /// returned by <seealso cref="ProcessEngineConfigurationImpl.getDefaultCharset()"/>
 	  /// </summary>
 	  /// <param name="bytes"> the byte array </param>
 	  /// <returns> a string representing the bytes </returns>
@@ -118,7 +118,7 @@ namespace org.camunda.bpm.engine.impl.util
 
 	  /// <summary>
 	  /// converts a byte array into a string using the provided process engine's default charset as
-	  /// returned by <seealso cref="ProcessEngineConfigurationImpl#getDefaultCharset()"/>
+	  /// returned by <seealso cref="ProcessEngineConfigurationImpl.getDefaultCharset()"/>
 	  /// </summary>
 	  /// <param name="bytes"> the byte array </param>
 	  /// <param name="processEngine"> the process engine </param>
@@ -174,10 +174,10 @@ namespace org.camunda.bpm.engine.impl.util
 	  }
 
 	  /// <summary>
-	  /// Trims the input to the <seealso cref="#DB_MAX_STRING_LENGTH maxium length allowed"/> for persistence with our default database schema 
+	  /// Trims the input to the <seealso cref="DB_MAX_STRING_LENGTH maxium length allowed"/> for persistence with our default database schema 
 	  /// </summary>
 	  /// <param name="string"> the input that might be trimmed if maximum length is exceeded </param>
-	  /// <returns> the input, eventually trimmed to <seealso cref="#DB_MAX_STRING_LENGTH"/> </returns>
+	  /// <returns> the input, eventually trimmed to <seealso cref="DB_MAX_STRING_LENGTH"/> </returns>
 	  public static string trimToMaximumLengthAllowed(string @string)
 	  {
 		if (!string.ReferenceEquals(@string, null) && @string.Length > DB_MAX_STRING_LENGTH)

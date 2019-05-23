@@ -71,13 +71,13 @@ namespace org.camunda.bpm.engine.runtime
 
 	  /// <summary>
 	  /// Only select jobs that are timers.
-	  /// Cannot be used together with <seealso cref="#messages()"/> 
+	  /// Cannot be used together with <seealso cref="messages()"/> 
 	  /// </summary>
 	  JobQuery timers();
 
 	  /// <summary>
 	  /// Only select jobs that are messages.
-	  /// Cannot be used together with <seealso cref="#timers()"/> 
+	  /// Cannot be used together with <seealso cref="timers()"/> 
 	  /// </summary>
 	  JobQuery messages();
 
@@ -169,49 +169,49 @@ namespace org.camunda.bpm.engine.runtime
 
 	  /// <summary>
 	  /// Select jobs which have no tenant id. Can be used in combination
-	  /// with <seealso cref="#tenantIdIn(String...)"/>.
+	  /// with <seealso cref="tenantIdIn(string...)"/>.
 	  /// </summary>
 	  JobQuery includeJobsWithoutTenantId();
 
 	  //sorting //////////////////////////////////////////
 
 	  /// <summary>
-	  /// Order by job id (needs to be followed by <seealso cref="#asc()"/> or <seealso cref="#desc()"/>). </summary>
+	  /// Order by job id (needs to be followed by <seealso cref="asc()"/> or <seealso cref="desc()"/>). </summary>
 	  JobQuery orderByJobId();
 
 	  /// <summary>
-	  /// Order by duedate (needs to be followed by <seealso cref="#asc()"/> or <seealso cref="#desc()"/>). </summary>
+	  /// Order by duedate (needs to be followed by <seealso cref="asc()"/> or <seealso cref="desc()"/>). </summary>
 	  JobQuery orderByJobDuedate();
 
 	  /// <summary>
-	  /// Order by retries (needs to be followed by <seealso cref="#asc()"/> or <seealso cref="#desc()"/>). </summary>
+	  /// Order by retries (needs to be followed by <seealso cref="asc()"/> or <seealso cref="desc()"/>). </summary>
 	  JobQuery orderByJobRetries();
 
 	  /// <summary>
-	  /// Order by priority for execution (needs to be followed by <seealso cref="#asc()"/> or <seealso cref="#desc()"/>).
+	  /// Order by priority for execution (needs to be followed by <seealso cref="asc()"/> or <seealso cref="desc()"/>).
 	  /// 
 	  /// @since 7.4
 	  /// </summary>
 	  JobQuery orderByJobPriority();
 
 	  /// <summary>
-	  /// Order by process instance id (needs to be followed by <seealso cref="#asc()"/> or <seealso cref="#desc()"/>). </summary>
+	  /// Order by process instance id (needs to be followed by <seealso cref="asc()"/> or <seealso cref="desc()"/>). </summary>
 	  JobQuery orderByProcessInstanceId();
 
 	  /// <summary>
-	  /// Order by process definition id (needs to be followed by <seealso cref="#asc()"/> or <seealso cref="#desc()"/>). </summary>
+	  /// Order by process definition id (needs to be followed by <seealso cref="asc()"/> or <seealso cref="desc()"/>). </summary>
 	  JobQuery orderByProcessDefinitionId();
 
 	  /// <summary>
-	  /// Order by process definition key (needs to be followed by <seealso cref="#asc()"/> or <seealso cref="#desc()"/>). </summary>
+	  /// Order by process definition key (needs to be followed by <seealso cref="asc()"/> or <seealso cref="desc()"/>). </summary>
 	  JobQuery orderByProcessDefinitionKey();
 
 	  /// <summary>
-	  /// Order by execution id (needs to be followed by <seealso cref="#asc()"/> or <seealso cref="#desc()"/>). </summary>
+	  /// Order by execution id (needs to be followed by <seealso cref="asc()"/> or <seealso cref="desc()"/>). </summary>
 	  JobQuery orderByExecutionId();
 
 	  /// <summary>
-	  /// Order by tenant id (needs to be followed by <seealso cref="#asc()"/> or <seealso cref="#desc()"/>).
+	  /// Order by tenant id (needs to be followed by <seealso cref="asc()"/> or <seealso cref="desc()"/>).
 	  /// Note that the ordering of job without tenant id is database-specific.
 	  /// </summary>
 	  JobQuery orderByTenantId();

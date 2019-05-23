@@ -32,7 +32,7 @@ namespace org.camunda.bpm.container.impl.deployment.scanning.spi
 	  /// <param name="classLoader">
 	  ///          the classloader to scan </param>
 	  /// <param name="paResourceRootPath">
-	  ///          see <seealso cref="ProcessArchiveXml#PROP_RESOURCE_ROOT_PATH"/> </param>
+	  ///          see <seealso cref="ProcessArchiveXml.PROP_RESOURCE_ROOT_PATH"/> </param>
 	  /// <param name="metaFileUrl">
 	  ///          the URL to the META-INF/processes.xml file </param>
 	  /// <returns> a Map of process definitions </returns>
@@ -42,7 +42,7 @@ namespace org.camunda.bpm.container.impl.deployment.scanning.spi
 	  /// <param name="classLoader">
 	  ///          the classloader to scan </param>
 	  /// <param name="paResourceRootPath">
-	  ///          see <seealso cref="ProcessArchiveXml#PROP_RESOURCE_ROOT_PATH"/> </param>
+	  ///          see <seealso cref="ProcessArchiveXml.PROP_RESOURCE_ROOT_PATH"/> </param>
 	  /// <param name="metaFileUrl">
 	  ///          the URL to the META-INF/processes.xml file </param>
 	  /// <param name="additionalResourceSuffixes">

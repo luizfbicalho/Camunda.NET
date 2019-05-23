@@ -27,7 +27,7 @@ namespace org.camunda.bpm.engine.rest.mapper
 	/// <summary>
 	/// Custom implementation of Multipart Form Data which can be used for handling requests.
 	/// <para>
-	/// Provides access to the form parts via <seealso cref="#getNamedPart(String)"/>.
+	/// Provides access to the form parts via <seealso cref="getNamedPart(string)"/>.
 	/// 
 	/// @author Daniel Meyer
 	/// 

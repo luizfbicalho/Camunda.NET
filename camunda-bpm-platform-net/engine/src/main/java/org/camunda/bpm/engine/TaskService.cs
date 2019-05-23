@@ -54,10 +54,10 @@ namespace org.camunda.bpm.engine
 		/// <summary>
 		/// Creates a new task that is not related to any process instance.
 		/// 
-		/// The returned task is transient and must be saved with <seealso cref="#saveTask(Task)"/> 'manually'.
+		/// The returned task is transient and must be saved with <seealso cref="saveTask(Task)"/> 'manually'.
 		/// </summary>
 		/// <exception cref="AuthorizationException">
-		///          if the user has no <seealso cref="Permissions#CREATE"/> permission on <seealso cref="Resources#TASK"/>. </exception>
+		///          if the user has no <seealso cref="Permissions.CREATE"/> permission on <seealso cref="Resources.TASK"/>. </exception>
 	  Task newTask();
 
 	  /// <summary>
@@ -73,11 +73,11 @@ namespace org.camunda.bpm.engine
 		/// <param name="task"> the task, cannot be null.
 		/// </param>
 		/// <exception cref="AuthorizationException">
-		///          If the task is already present and the user has no <seealso cref="Permissions#UPDATE"/> permission
-		///          on <seealso cref="Resources#TASK"/> or no <seealso cref="Permissions#UPDATE_TASK"/> permission on
-		///          <seealso cref="Resources#PROCESS_DEFINITION"/>.
-		///          Or if the task is not present and the user has no <seealso cref="Permissions#CREATE"/> permission
-		///          on <seealso cref="Resources#TASK"/>. </exception>
+		///          If the task is already present and the user has no <seealso cref="Permissions.UPDATE"/> permission
+		///          on <seealso cref="Resources.TASK"/> or no <seealso cref="Permissions.UPDATE_TASK"/> permission on
+		///          <seealso cref="Resources.PROCESS_DEFINITION"/>.
+		///          Or if the task is not present and the user has no <seealso cref="Permissions.CREATE"/> permission
+		///          on <seealso cref="Resources.TASK"/>. </exception>
 		void saveTask(Task task);
 
 		/// <summary>
@@ -90,7 +90,7 @@ namespace org.camunda.bpm.engine
 		///          when an error occurs while deleting the task or in case the task is part
 		///          of a running process or case instance. </exception>
 		/// <exception cref="AuthorizationException">
-		///          If the user has no <seealso cref="Permissions#DELETE"/> permission on <seealso cref="Resources#TASK"/>. </exception>
+		///          If the user has no <seealso cref="Permissions.DELETE"/> permission on <seealso cref="Resources.TASK"/>. </exception>
 		void deleteTask(string taskId);
 
 		/// <summary>
@@ -104,7 +104,7 @@ namespace org.camunda.bpm.engine
 		///          when an error occurs while deleting the tasks or in case one of the tasks
 		///          is part of a running process or case instance. </exception>
 		/// <exception cref="AuthorizationException">
-		///          If the user has no <seealso cref="Permissions#DELETE"/> permission on <seealso cref="Resources#TASK"/>. </exception>
+		///          If the user has no <seealso cref="Permissions.DELETE"/> permission on <seealso cref="Resources.TASK"/>. </exception>
 		void deleteTasks(ICollection<string> taskIds);
 
 	  /// <summary>
@@ -119,7 +119,7 @@ namespace org.camunda.bpm.engine
 	  ///          when an error occurs while deleting the task or in case the task is part
 	  ///          of a running process or case instance. </exception>
 	  /// <exception cref="AuthorizationException">
-	  ///          If the user has no <seealso cref="Permissions#DELETE"/> permission on <seealso cref="Resources#TASK"/>. </exception>
+	  ///          If the user has no <seealso cref="Permissions.DELETE"/> permission on <seealso cref="Resources.TASK"/>. </exception>
 	  void deleteTask(string taskId, bool cascade);
 
 	  /// <summary>
@@ -133,7 +133,7 @@ namespace org.camunda.bpm.engine
 	  ///          when an error occurs while deleting the tasks or in case one of the tasks
 	  ///          is part of a running process or case instance. </exception>
 	  /// <exception cref="AuthorizationException">
-	  ///          If the user has no <seealso cref="Permissions#DELETE"/> permission on <seealso cref="Resources#TASK"/>. </exception>
+	  ///          If the user has no <seealso cref="Permissions.DELETE"/> permission on <seealso cref="Resources.TASK"/>. </exception>
 	  void deleteTasks(ICollection<string> taskIds, bool cascade);
 
 	  /// <summary>
@@ -147,7 +147,7 @@ namespace org.camunda.bpm.engine
 	  ///          when an error occurs while deleting the task or in case the task is part
 	  ///          of a running process or case instance. </exception>
 	  /// <exception cref="AuthorizationException">
-	  ///          If the user has no <seealso cref="Permissions#DELETE"/> permission on <seealso cref="Resources#TASK"/>. </exception>
+	  ///          If the user has no <seealso cref="Permissions.DELETE"/> permission on <seealso cref="Resources.TASK"/>. </exception>
 	  void deleteTask(string taskId, string deleteReason);
 
 	  /// <summary>
@@ -161,13 +161,13 @@ namespace org.camunda.bpm.engine
 	  ///          when an error occurs while deleting the tasks or in case one of the tasks
 	  ///          is part of a running process or case instance. </exception>
 	  /// <exception cref="AuthorizationException">
-	  ///          If the user has no <seealso cref="Permissions#DELETE"/> permission on <seealso cref="Resources#TASK"/>. </exception>
+	  ///          If the user has no <seealso cref="Permissions.DELETE"/> permission on <seealso cref="Resources.TASK"/>. </exception>
 	  void deleteTasks(ICollection<string> taskIds, string deleteReason);
 
 	  /// <summary>
 	  /// Claim responsibility for a task:
-	  /// the given user is made <seealso cref="Task#getAssignee() assignee"/> for the task.
-	  /// The difference with <seealso cref="#setAssignee(String, String)"/> is that here
+	  /// the given user is made <seealso cref="Task.getAssignee() assignee"/> for the task.
+	  /// The difference with <seealso cref="setAssignee(string, string)"/> is that here
 	  /// a check is done if the task already has a user assigned to it.
 	  /// No check is done whether the user is known by the identity component.
 	  /// </summary>
@@ -178,8 +178,8 @@ namespace org.camunda.bpm.engine
 	  /// <exception cref="ProcessEngineException">
 	  ///          when the task doesn't exist or when the task is already claimed by another user. </exception>
 	  /// <exception cref="AuthorizationException">
-	  ///          If the user has no <seealso cref="Permissions#UPDATE"/> permission on <seealso cref="Resources#TASK"/>
-	  ///          or no <seealso cref="Permissions#UPDATE_TASK"/> permission on <seealso cref="Resources#PROCESS_DEFINITION"/>
+	  ///          If the user has no <seealso cref="Permissions.UPDATE"/> permission on <seealso cref="Resources.TASK"/>
+	  ///          or no <seealso cref="Permissions.UPDATE_TASK"/> permission on <seealso cref="Resources.PROCESS_DEFINITION"/>
 	  ///          (if the task is part of a running process instance). </exception>
 	  void claim(string taskId, string userId);
 
@@ -188,29 +188,29 @@ namespace org.camunda.bpm.engine
 	  /// 
 	  /// This method is typically called by a task list user interface
 	  /// after a task form has been submitted by the
-	  /// <seealso cref="Task#getAssignee() assignee"/>.
+	  /// <seealso cref="Task.getAssignee() assignee"/>.
 	  /// </summary>
 	  /// <param name="taskId"> the id of the task to complete, cannot be null.
 	  /// </param>
 	  /// <exception cref="ProcessEngineException">
-	  ///          when no task exists with the given id or when this task is <seealso cref="DelegationState#PENDING"/> delegation. </exception>
+	  ///          when no task exists with the given id or when this task is <seealso cref="DelegationState.PENDING"/> delegation. </exception>
 	  /// <exception cref="AuthorizationException">
-	  ///          If the user has no <seealso cref="Permissions#UPDATE"/> permission on <seealso cref="Resources#TASK"/>
-	  ///          or no <seealso cref="Permissions#UPDATE_TASK"/> permission on <seealso cref="Resources#PROCESS_DEFINITION"/>
+	  ///          If the user has no <seealso cref="Permissions.UPDATE"/> permission on <seealso cref="Resources.TASK"/>
+	  ///          or no <seealso cref="Permissions.UPDATE_TASK"/> permission on <seealso cref="Resources.PROCESS_DEFINITION"/>
 	  ///          (if the task is part of a running process instance). </exception>
 	  void complete(string taskId);
 
 	  /// <summary>
 	  /// Delegates the task to another user.
 	  /// 
-	  /// This means that the <seealso cref="Task#getAssignee() assignee"/> is set
-	  /// and the <seealso cref="Task#getDelegationState() delegation state"/> is set to
-	  /// <seealso cref="DelegationState#PENDING"/>.
+	  /// This means that the <seealso cref="Task.getAssignee() assignee"/> is set
+	  /// and the <seealso cref="Task.getDelegationState() delegation state"/> is set to
+	  /// <seealso cref="DelegationState.PENDING"/>.
 	  /// If no owner is set on the task, the owner is set to the current
-	  /// <seealso cref="Task#getAssignee() assignee"/> of the task.
-	  /// The new assignee must use <seealso cref="TaskService#resolveTask(String)"/>
+	  /// <seealso cref="Task.getAssignee() assignee"/> of the task.
+	  /// The new assignee must use <seealso cref="TaskService.resolveTask(string)"/>
 	  /// to report back to the owner.
-	  /// Only the owner can <seealso cref="TaskService#complete(String) complete"/> the task.
+	  /// Only the owner can <seealso cref="TaskService.complete(string) complete"/> the task.
 	  /// </summary>
 	  /// <param name="taskId"> The id of the task that will be delegated. </param>
 	  /// <param name="userId"> The id of the user that will be set as assignee.
@@ -218,39 +218,39 @@ namespace org.camunda.bpm.engine
 	  /// <exception cref="ProcessEngineException">
 	  ///          when no task exists with the given id. </exception>
 	  /// <exception cref="AuthorizationException">
-	  ///          If the user has no <seealso cref="Permissions#UPDATE"/> permission on <seealso cref="Resources#TASK"/>
-	  ///          or no <seealso cref="Permissions#UPDATE_TASK"/> permission on <seealso cref="Resources#PROCESS_DEFINITION"/>
+	  ///          If the user has no <seealso cref="Permissions.UPDATE"/> permission on <seealso cref="Resources.TASK"/>
+	  ///          or no <seealso cref="Permissions.UPDATE_TASK"/> permission on <seealso cref="Resources.PROCESS_DEFINITION"/>
 	  ///          (if the task is part of a running process instance). </exception>
 	  void delegateTask(string taskId, string userId);
 
 	  /// <summary>
-	  /// Marks that the <seealso cref="Task#getAssignee() assignee"/> is done with the task
-	  /// <seealso cref="TaskService#delegateTask(String, String) delegated"/>
-	  /// to her and that it can be sent back to the <seealso cref="Task#getOwner() owner"/>.
-	  /// Can only be called when this task is <seealso cref="DelegationState#PENDING"/> delegation.
-	  /// After this method returns, the <seealso cref="Task#getDelegationState() delegation state"/>
-	  /// is set to <seealso cref="DelegationState#RESOLVED"/> and the task can be
-	  /// <seealso cref="TaskService#complete(String) completed"/>.
+	  /// Marks that the <seealso cref="Task.getAssignee() assignee"/> is done with the task
+	  /// <seealso cref="TaskService.delegateTask(string, string) delegated"/>
+	  /// to her and that it can be sent back to the <seealso cref="Task.getOwner() owner"/>.
+	  /// Can only be called when this task is <seealso cref="DelegationState.PENDING"/> delegation.
+	  /// After this method returns, the <seealso cref="Task.getDelegationState() delegation state"/>
+	  /// is set to <seealso cref="DelegationState.RESOLVED"/> and the task can be
+	  /// <seealso cref="TaskService.complete(string) completed"/>.
 	  /// </summary>
 	  /// <param name="taskId"> the id of the task to resolve, cannot be null.
 	  /// </param>
 	  /// <exception cref="ProcessEngineException">
 	  ///          when no task exists with the given id. </exception>
 	  /// <exception cref="AuthorizationException">
-	  ///          If the user has no <seealso cref="Permissions#UPDATE"/> permission on <seealso cref="Resources#TASK"/>
-	  ///          or no <seealso cref="Permissions#UPDATE_TASK"/> permission on <seealso cref="Resources#PROCESS_DEFINITION"/>
+	  ///          If the user has no <seealso cref="Permissions.UPDATE"/> permission on <seealso cref="Resources.TASK"/>
+	  ///          or no <seealso cref="Permissions.UPDATE_TASK"/> permission on <seealso cref="Resources.PROCESS_DEFINITION"/>
 	  ///          (if the task is part of a running process instance). </exception>
 	  void resolveTask(string taskId);
 
 	  /// <summary>
-	  /// Marks that the <seealso cref="Task#getAssignee() assignee"/> is done with the task
-	  /// <seealso cref="TaskService#delegateTask(String, String) delegated"/>
-	  /// to her and that it can be sent back to the <seealso cref="Task#getOwner() owner"/>
+	  /// Marks that the <seealso cref="Task.getAssignee() assignee"/> is done with the task
+	  /// <seealso cref="TaskService.delegateTask(string, string) delegated"/>
+	  /// to her and that it can be sent back to the <seealso cref="Task.getOwner() owner"/>
 	  /// with the provided variables.
-	  /// Can only be called when this task is <seealso cref="DelegationState#PENDING"/> delegation.
-	  /// After this method returns, the <seealso cref="Task#getDelegationState() delegation state"/>
-	  /// is set to <seealso cref="DelegationState#RESOLVED"/> and the task can be
-	  /// <seealso cref="TaskService#complete(String) completed"/>.
+	  /// Can only be called when this task is <seealso cref="DelegationState.PENDING"/> delegation.
+	  /// After this method returns, the <seealso cref="Task.getDelegationState() delegation state"/>
+	  /// is set to <seealso cref="DelegationState.RESOLVED"/> and the task can be
+	  /// <seealso cref="TaskService.complete(string) completed"/>.
 	  /// </summary>
 	  /// <param name="taskId"> </param>
 	  /// <param name="variables">
@@ -258,8 +258,8 @@ namespace org.camunda.bpm.engine
 	  /// <exception cref="ProcessEngineException">
 	  ///          when no task exists with the given id. </exception>
 	  /// <exception cref="AuthorizationException">
-	  ///          If the user has no <seealso cref="Permissions#UPDATE"/> permission on <seealso cref="Resources#TASK"/>
-	  ///          or no <seealso cref="Permissions#UPDATE_TASK"/> permission on <seealso cref="Resources#PROCESS_DEFINITION"/>
+	  ///          If the user has no <seealso cref="Permissions.UPDATE"/> permission on <seealso cref="Resources.TASK"/>
+	  ///          or no <seealso cref="Permissions.UPDATE_TASK"/> permission on <seealso cref="Resources.PROCESS_DEFINITION"/>
 	  ///          (if the task is part of a running process instance). </exception>
 	  void resolveTask(string taskId, IDictionary<string, object> variables);
 
@@ -268,7 +268,7 @@ namespace org.camunda.bpm.engine
 	  /// 
 	  /// This method is typically called by a task list user interface
 	  /// after a task form has been submitted by the
-	  /// <seealso cref="Task#getAssignee() assignee"/>
+	  /// <seealso cref="Task.getAssignee() assignee"/>
 	  /// and the required task parameters have been provided.
 	  /// </summary>
 	  /// <param name="taskId"> the id of the task to complete, cannot be null. </param>
@@ -277,8 +277,8 @@ namespace org.camunda.bpm.engine
 	  /// <exception cref="ProcessEngineException">
 	  ///          when no task exists with the given id. </exception>
 	  /// <exception cref="AuthorizationException">
-	  ///          If the user has no <seealso cref="Permissions#UPDATE"/> permission on <seealso cref="Resources#TASK"/>
-	  ///          or no <seealso cref="Permissions#UPDATE_TASK"/> permission on <seealso cref="Resources#PROCESS_DEFINITION"/>
+	  ///          If the user has no <seealso cref="Permissions.UPDATE"/> permission on <seealso cref="Resources.TASK"/>
+	  ///          or no <seealso cref="Permissions.UPDATE_TASK"/> permission on <seealso cref="Resources.PROCESS_DEFINITION"/>
 	  ///          (if the task is part of a running process instance). </exception>
 	  void complete(string taskId, IDictionary<string, object> variables);
 
@@ -287,7 +287,7 @@ namespace org.camunda.bpm.engine
 	  /// 
 	  /// This method is typically called by a task list user interface
 	  /// after a task form has been submitted by the
-	  /// <seealso cref="Task#getAssignee() assignee"/>
+	  /// <seealso cref="Task.getAssignee() assignee"/>
 	  /// and the required task parameters have been provided.
 	  /// </summary>
 	  /// <param name="taskId"> the id of the task to complete, cannot be null. </param>
@@ -301,8 +301,8 @@ namespace org.camunda.bpm.engine
 	  /// <exception cref="ProcessEngineException">
 	  ///          when no task exists with the given id. </exception>
 	  /// <exception cref="AuthorizationException">
-	  ///          If the user has no <seealso cref="Permissions#UPDATE"/> permission on <seealso cref="Resources#TASK"/>
-	  ///          or no <seealso cref="Permissions#UPDATE_TASK"/> permission on <seealso cref="Resources#PROCESS_DEFINITION"/>
+	  ///          If the user has no <seealso cref="Permissions.UPDATE"/> permission on <seealso cref="Resources.TASK"/>
+	  ///          or no <seealso cref="Permissions.UPDATE_TASK"/> permission on <seealso cref="Resources.PROCESS_DEFINITION"/>
 	  ///          (if the task is part of a running process instance). </exception>
 	  VariableMap completeWithVariablesInReturn(string taskId, IDictionary<string, object> variables, bool deserializeValues);
 
@@ -316,8 +316,8 @@ namespace org.camunda.bpm.engine
 	  /// <exception cref="ProcessEngineException">
 	  ///          when the task or user doesn't exist. </exception>
 	  /// <exception cref="AuthorizationException">
-	  ///          If the user has no <seealso cref="Permissions#UPDATE"/> permission on <seealso cref="Resources#TASK"/>
-	  ///          or no <seealso cref="Permissions#UPDATE_TASK"/> permission on <seealso cref="Resources#PROCESS_DEFINITION"/>
+	  ///          If the user has no <seealso cref="Permissions.UPDATE"/> permission on <seealso cref="Resources.TASK"/>
+	  ///          or no <seealso cref="Permissions.UPDATE_TASK"/> permission on <seealso cref="Resources.PROCESS_DEFINITION"/>
 	  ///          (if the task is part of a running process instance). </exception>
 	  void setAssignee(string taskId, string userId);
 
@@ -331,8 +331,8 @@ namespace org.camunda.bpm.engine
 	  /// <exception cref="ProcessEngineException">
 	  ///          when the task or user doesn't exist. </exception>
 	  /// <exception cref="AuthorizationException">
-	  ///          If the user has no <seealso cref="Permissions#UPDATE"/> permission on <seealso cref="Resources#TASK"/>
-	  ///          or no <seealso cref="Permissions#UPDATE_TASK"/> permission on <seealso cref="Resources#PROCESS_DEFINITION"/>
+	  ///          If the user has no <seealso cref="Permissions.UPDATE"/> permission on <seealso cref="Resources.TASK"/>
+	  ///          or no <seealso cref="Permissions.UPDATE_TASK"/> permission on <seealso cref="Resources.PROCESS_DEFINITION"/>
 	  ///          (if the task is part of a running process instance). </exception>
 	  void setOwner(string taskId, string userId);
 
@@ -344,13 +344,13 @@ namespace org.camunda.bpm.engine
 	  /// <exception cref="ProcessEngineException">
 	  ///          when the task doesn't exist. </exception>
 	  /// <exception cref="AuthorizationException">
-	  ///          If the user has no <seealso cref="Permissions#READ"/> permission on <seealso cref="Resources#TASK"/>
-	  ///          or no <seealso cref="Permissions#READ_TASK"/> permission on <seealso cref="Resources#PROCESS_DEFINITION"/>
+	  ///          If the user has no <seealso cref="Permissions.READ"/> permission on <seealso cref="Resources.TASK"/>
+	  ///          or no <seealso cref="Permissions.READ_TASK"/> permission on <seealso cref="Resources.PROCESS_DEFINITION"/>
 	  ///          (if the task is part of a running process instance). </exception>
 	  IList<IdentityLink> getIdentityLinksForTask(string taskId);
 
 	  /// <summary>
-	  /// Convenience shorthand for <seealso cref="#addUserIdentityLink(String, String, String)"/>; with type <seealso cref="IdentityLinkType#CANDIDATE"/>
+	  /// Convenience shorthand for <seealso cref="addUserIdentityLink(string, string, string)"/>; with type <seealso cref="IdentityLinkType.CANDIDATE"/>
 	  /// </summary>
 	  /// <param name="taskId"> id of the task, cannot be null. </param>
 	  /// <param name="userId"> id of the user to use as candidate, cannot be null.
@@ -358,13 +358,13 @@ namespace org.camunda.bpm.engine
 	  /// <exception cref="ProcessEngineException">
 	  ///          when the task or user doesn't exist. </exception>
 	  /// <exception cref="AuthorizationException">
-	  ///          If the user has no <seealso cref="Permissions#UPDATE"/> permission on <seealso cref="Resources#TASK"/>
-	  ///          or no <seealso cref="Permissions#UPDATE_TASK"/> permission on <seealso cref="Resources#PROCESS_DEFINITION"/>
+	  ///          If the user has no <seealso cref="Permissions.UPDATE"/> permission on <seealso cref="Resources.TASK"/>
+	  ///          or no <seealso cref="Permissions.UPDATE_TASK"/> permission on <seealso cref="Resources.PROCESS_DEFINITION"/>
 	  ///          (if the task is part of a running process instance). </exception>
 	  void addCandidateUser(string taskId, string userId);
 
 	  /// <summary>
-	  /// Convenience shorthand for <seealso cref="#addGroupIdentityLink(String, String, String)"/>; with type <seealso cref="IdentityLinkType#CANDIDATE"/>
+	  /// Convenience shorthand for <seealso cref="addGroupIdentityLink(string, string, string)"/>; with type <seealso cref="IdentityLinkType.CANDIDATE"/>
 	  /// </summary>
 	  /// <param name="taskId"> id of the task, cannot be null. </param>
 	  /// <param name="groupId"> id of the group to use as candidate, cannot be null.
@@ -372,8 +372,8 @@ namespace org.camunda.bpm.engine
 	  /// <exception cref="ProcessEngineException">
 	  ///          when the task or group doesn't exist. </exception>
 	  /// <exception cref="AuthorizationException">
-	  ///          If the user has no <seealso cref="Permissions#UPDATE"/> permission on <seealso cref="Resources#TASK"/>
-	  ///          or no <seealso cref="Permissions#UPDATE_TASK"/> permission on <seealso cref="Resources#PROCESS_DEFINITION"/>
+	  ///          If the user has no <seealso cref="Permissions.UPDATE"/> permission on <seealso cref="Resources.TASK"/>
+	  ///          or no <seealso cref="Permissions.UPDATE_TASK"/> permission on <seealso cref="Resources.PROCESS_DEFINITION"/>
 	  ///          (if the task is part of a running process instance). </exception>
 	  void addCandidateGroup(string taskId, string groupId);
 
@@ -388,8 +388,8 @@ namespace org.camunda.bpm.engine
 	  /// <exception cref="ProcessEngineException">
 	  ///          when the task or user doesn't exist. </exception>
 	  /// <exception cref="AuthorizationException">
-	  ///          If the user has no <seealso cref="Permissions#UPDATE"/> permission on <seealso cref="Resources#TASK"/>
-	  ///          or no <seealso cref="Permissions#UPDATE_TASK"/> permission on <seealso cref="Resources#PROCESS_DEFINITION"/>
+	  ///          If the user has no <seealso cref="Permissions.UPDATE"/> permission on <seealso cref="Resources.TASK"/>
+	  ///          or no <seealso cref="Permissions.UPDATE_TASK"/> permission on <seealso cref="Resources.PROCESS_DEFINITION"/>
 	  ///          (if the task is part of a running process instance). </exception>
 	  void addUserIdentityLink(string taskId, string userId, string identityLinkType);
 
@@ -404,13 +404,13 @@ namespace org.camunda.bpm.engine
 	  /// <exception cref="ProcessEngineException">
 	  ///          when the task or group doesn't exist. </exception>
 	  /// <exception cref="AuthorizationException">
-	  ///          If the user has no <seealso cref="Permissions#UPDATE"/> permission on <seealso cref="Resources#TASK"/>
-	  ///          or no <seealso cref="Permissions#UPDATE_TASK"/> permission on <seealso cref="Resources#PROCESS_DEFINITION"/>
+	  ///          If the user has no <seealso cref="Permissions.UPDATE"/> permission on <seealso cref="Resources.TASK"/>
+	  ///          or no <seealso cref="Permissions.UPDATE_TASK"/> permission on <seealso cref="Resources.PROCESS_DEFINITION"/>
 	  ///          (if the task is part of a running process instance). </exception>
 	  void addGroupIdentityLink(string taskId, string groupId, string identityLinkType);
 
 	  /// <summary>
-	  /// Convenience shorthand for <seealso cref="#deleteUserIdentityLink(String, String, String)"/>; with type <seealso cref="IdentityLinkType#CANDIDATE"/>
+	  /// Convenience shorthand for <seealso cref="deleteUserIdentityLink(string, string, string)"/>; with type <seealso cref="IdentityLinkType.CANDIDATE"/>
 	  /// </summary>
 	  /// <param name="taskId"> id of the task, cannot be null. </param>
 	  /// <param name="userId"> id of the user to use as candidate, cannot be null.
@@ -418,13 +418,13 @@ namespace org.camunda.bpm.engine
 	  /// <exception cref="ProcessEngineException">
 	  ///          when the task or user doesn't exist. </exception>
 	  /// <exception cref="AuthorizationException">
-	  ///          If the user has no <seealso cref="Permissions#UPDATE"/> permission on <seealso cref="Resources#TASK"/>
-	  ///          or no <seealso cref="Permissions#UPDATE_TASK"/> permission on <seealso cref="Resources#PROCESS_DEFINITION"/>
+	  ///          If the user has no <seealso cref="Permissions.UPDATE"/> permission on <seealso cref="Resources.TASK"/>
+	  ///          or no <seealso cref="Permissions.UPDATE_TASK"/> permission on <seealso cref="Resources.PROCESS_DEFINITION"/>
 	  ///          (if the task is part of a running process instance). </exception>
 	  void deleteCandidateUser(string taskId, string userId);
 
 	  /// <summary>
-	  /// Convenience shorthand for <seealso cref="#deleteGroupIdentityLink(String, String, String)"/>; with type <seealso cref="IdentityLinkType#CANDIDATE"/>
+	  /// Convenience shorthand for <seealso cref="deleteGroupIdentityLink(string, string, string)"/>; with type <seealso cref="IdentityLinkType.CANDIDATE"/>
 	  /// </summary>
 	  /// <param name="taskId"> id of the task, cannot be null. </param>
 	  /// <param name="groupId"> id of the group to use as candidate, cannot be null.
@@ -432,8 +432,8 @@ namespace org.camunda.bpm.engine
 	  /// <exception cref="ProcessEngineException">
 	  ///          when the task or group doesn't exist. </exception>
 	  /// <exception cref="AuthorizationException">
-	  ///          If the user has no <seealso cref="Permissions#UPDATE"/> permission on <seealso cref="Resources#TASK"/>
-	  ///          or no <seealso cref="Permissions#UPDATE_TASK"/> permission on <seealso cref="Resources#PROCESS_DEFINITION"/>
+	  ///          If the user has no <seealso cref="Permissions.UPDATE"/> permission on <seealso cref="Resources.TASK"/>
+	  ///          or no <seealso cref="Permissions.UPDATE_TASK"/> permission on <seealso cref="Resources.PROCESS_DEFINITION"/>
 	  ///          (if the task is part of a running process instance). </exception>
 	  void deleteCandidateGroup(string taskId, string groupId);
 
@@ -447,8 +447,8 @@ namespace org.camunda.bpm.engine
 	  /// <exception cref="ProcessEngineException">
 	  ///          when the task or user doesn't exist. </exception>
 	  /// <exception cref="AuthorizationException">
-	  ///          If the user has no <seealso cref="Permissions#UPDATE"/> permission on <seealso cref="Resources#TASK"/>
-	  ///          or no <seealso cref="Permissions#UPDATE_TASK"/> permission on <seealso cref="Resources#PROCESS_DEFINITION"/>
+	  ///          If the user has no <seealso cref="Permissions.UPDATE"/> permission on <seealso cref="Resources.TASK"/>
+	  ///          or no <seealso cref="Permissions.UPDATE_TASK"/> permission on <seealso cref="Resources.PROCESS_DEFINITION"/>
 	  ///          (if the task is part of a running process instance). </exception>
 	  void deleteUserIdentityLink(string taskId, string userId, string identityLinkType);
 
@@ -462,8 +462,8 @@ namespace org.camunda.bpm.engine
 	  /// <exception cref="ProcessEngineException">
 	  ///          when the task or group doesn't exist. </exception>
 	  /// <exception cref="AuthorizationException">
-	  ///          If the user has no <seealso cref="Permissions#UPDATE"/> permission on <seealso cref="Resources#TASK"/>
-	  ///          or no <seealso cref="Permissions#UPDATE_TASK"/> permission on <seealso cref="Resources#PROCESS_DEFINITION"/>
+	  ///          If the user has no <seealso cref="Permissions.UPDATE"/> permission on <seealso cref="Resources.TASK"/>
+	  ///          or no <seealso cref="Permissions.UPDATE_TASK"/> permission on <seealso cref="Resources.PROCESS_DEFINITION"/>
 	  ///          (if the task is part of a running process instance). </exception>
 	  void deleteGroupIdentityLink(string taskId, string groupId, string identityLinkType);
 
@@ -478,8 +478,8 @@ namespace org.camunda.bpm.engine
 	  /// <exception cref="ProcessEngineException">
 	  ///          when the task doesn't exist. </exception>
 	  /// <exception cref="AuthorizationException">
-	  ///          If the user has no <seealso cref="Permissions#UPDATE"/> permission on <seealso cref="Resources#TASK"/>
-	  ///          or no <seealso cref="Permissions#UPDATE_TASK"/> permission on <seealso cref="Resources#PROCESS_DEFINITION"/>
+	  ///          If the user has no <seealso cref="Permissions.UPDATE"/> permission on <seealso cref="Resources.TASK"/>
+	  ///          or no <seealso cref="Permissions.UPDATE_TASK"/> permission on <seealso cref="Resources.PROCESS_DEFINITION"/>
 	  ///          (if the task is part of a running process instance). </exception>
 	  void setPriority(string taskId, int priority);
 
@@ -502,12 +502,12 @@ namespace org.camunda.bpm.engine
 	  ///          when the task doesn't exist. </exception>
 	  /// <exception cref="AuthorizationException">
 	  ///           If the user has none of the following:
-	  ///           <li><seealso cref="TaskPermissions#UPDATE_VARIABLE"/> permission on <seealso cref="Resources#TASK"/></li>
-	  ///           <li><seealso cref="Permissions#UPDATE"/> permission on <seealso cref="Resources#TASK"/></li>
+	  ///           <li><seealso cref="TaskPermissions.UPDATE_VARIABLE"/> permission on <seealso cref="Resources.TASK"/></li>
+	  ///           <li><seealso cref="Permissions.UPDATE"/> permission on <seealso cref="Resources.TASK"/></li>
 	  ///           <li>or if the task is part of a running process instance:</li>
 	  ///           <ul>
-	  ///           <li><seealso cref="ProcessDefinitionPermissions#UPDATE_TASK_VARIABLE"/> permission on <seealso cref="Resources#PROCESS_DEFINITION"/></li>
-	  ///           <li><seealso cref="Permissions#UPDATE_TASK"/> permission on <seealso cref="Resources#PROCESS_DEFINITION"/></li>
+	  ///           <li><seealso cref="ProcessDefinitionPermissions.UPDATE_TASK_VARIABLE"/> permission on <seealso cref="Resources.PROCESS_DEFINITION"/></li>
+	  ///           <li><seealso cref="Permissions.UPDATE_TASK"/> permission on <seealso cref="Resources.PROCESS_DEFINITION"/></li>
 	  ///           </ul> </exception>
 	  void setVariable(string taskId, string variableName, object value);
 
@@ -520,12 +520,12 @@ namespace org.camunda.bpm.engine
 	  ///          when the task doesn't exist. </exception>
 	  /// <exception cref="AuthorizationException">
 	  ///           If the user has none of the following:
-	  ///           <li><seealso cref="TaskPermissions#UPDATE_VARIABLE"/> permission on <seealso cref="Resources#TASK"/></li>
-	  ///           <li><seealso cref="Permissions#UPDATE"/> permission on <seealso cref="Resources#TASK"/></li>
+	  ///           <li><seealso cref="TaskPermissions.UPDATE_VARIABLE"/> permission on <seealso cref="Resources.TASK"/></li>
+	  ///           <li><seealso cref="Permissions.UPDATE"/> permission on <seealso cref="Resources.TASK"/></li>
 	  ///           <li>or if the task is part of a running process instance:</li>
 	  ///           <ul>
-	  ///           <li><seealso cref="ProcessDefinitionPermissions#UPDATE_TASK_VARIABLE"/> permission on <seealso cref="Resources#PROCESS_DEFINITION"/></li>
-	  ///           <li><seealso cref="Permissions#UPDATE_TASK"/> permission on <seealso cref="Resources#PROCESS_DEFINITION"/></li>
+	  ///           <li><seealso cref="ProcessDefinitionPermissions.UPDATE_TASK_VARIABLE"/> permission on <seealso cref="Resources.PROCESS_DEFINITION"/></li>
+	  ///           <li><seealso cref="Permissions.UPDATE_TASK"/> permission on <seealso cref="Resources.PROCESS_DEFINITION"/></li>
 	  ///           </ul> </exception>
 	  void setVariables<T1>(string taskId, IDictionary<T1> variables);
 
@@ -537,12 +537,12 @@ namespace org.camunda.bpm.engine
 	  ///          when the task doesn't exist. </exception>
 	  /// <exception cref="AuthorizationException">
 	  ///           If the user has none of the following:
-	  ///           <li><seealso cref="TaskPermissions#UPDATE_VARIABLE"/> permission on <seealso cref="Resources#TASK"/></li>
-	  ///           <li><seealso cref="Permissions#UPDATE"/> permission on <seealso cref="Resources#TASK"/></li>
+	  ///           <li><seealso cref="TaskPermissions.UPDATE_VARIABLE"/> permission on <seealso cref="Resources.TASK"/></li>
+	  ///           <li><seealso cref="Permissions.UPDATE"/> permission on <seealso cref="Resources.TASK"/></li>
 	  ///           <li>or if the task is part of a running process instance:</li>
 	  ///           <ul>
-	  ///           <li><seealso cref="ProcessDefinitionPermissions#UPDATE_TASK_VARIABLE"/> permission on <seealso cref="Resources#PROCESS_DEFINITION"/></li>
-	  ///           <li><seealso cref="Permissions#UPDATE_TASK"/> permission on <seealso cref="Resources#PROCESS_DEFINITION"/></li>
+	  ///           <li><seealso cref="ProcessDefinitionPermissions.UPDATE_TASK_VARIABLE"/> permission on <seealso cref="Resources.PROCESS_DEFINITION"/></li>
+	  ///           <li><seealso cref="Permissions.UPDATE_TASK"/> permission on <seealso cref="Resources.PROCESS_DEFINITION"/></li>
 	  ///           </ul> </exception>
 	  void setVariableLocal(string taskId, string variableName, object value);
 
@@ -554,12 +554,12 @@ namespace org.camunda.bpm.engine
 	  ///          when the task doesn't exist. </exception>
 	  /// <exception cref="AuthorizationException">
 	  ///           If the user has none of the following:
-	  ///           <li><seealso cref="TaskPermissions#UPDATE_VARIABLE"/> permission on <seealso cref="Resources#TASK"/></li>
-	  ///           <li><seealso cref="Permissions#UPDATE"/> permission on <seealso cref="Resources#TASK"/></li>
+	  ///           <li><seealso cref="TaskPermissions.UPDATE_VARIABLE"/> permission on <seealso cref="Resources.TASK"/></li>
+	  ///           <li><seealso cref="Permissions.UPDATE"/> permission on <seealso cref="Resources.TASK"/></li>
 	  ///           <li>or if the task is part of a running process instance:</li>
 	  ///           <ul>
-	  ///           <li><seealso cref="ProcessDefinitionPermissions#UPDATE_TASK_VARIABLE"/> permission on <seealso cref="Resources#PROCESS_DEFINITION"/></li>
-	  ///           <li><seealso cref="Permissions#UPDATE_TASK"/> permission on <seealso cref="Resources#PROCESS_DEFINITION"/></li>
+	  ///           <li><seealso cref="ProcessDefinitionPermissions.UPDATE_TASK_VARIABLE"/> permission on <seealso cref="Resources.PROCESS_DEFINITION"/></li>
+	  ///           <li><seealso cref="Permissions.UPDATE_TASK"/> permission on <seealso cref="Resources.PROCESS_DEFINITION"/></li>
 	  ///           </ul> </exception>
 	  void setVariablesLocal<T1>(string taskId, IDictionary<T1> variables);
 
@@ -570,15 +570,15 @@ namespace org.camunda.bpm.engine
 	  ///          when the task doesn't exist. </exception>
 	  /// <exception cref="AuthorizationException">
 	  ///          <para>In case of standalone tasks:
-	  ///          <li>if the user has no <seealso cref="Permissions#READ"/> permission on <seealso cref="Resources#TASK"/> or</li>
-	  ///          <li>if <seealso cref="ProcessEngineConfiguration#enforceSpecificVariablePermission this"/> configuration is enabled and
-	  ///          the user has no <seealso cref="TaskPermissions#READ_VARIABLE"/> permission on <seealso cref="Resources#TASK"/></li></para>
+	  ///          <li>if the user has no <seealso cref="Permissions.READ"/> permission on <seealso cref="Resources.TASK"/> or</li>
+	  ///          <li>if <seealso cref="ProcessEngineConfiguration.enforceSpecificVariablePermission this"/> configuration is enabled and
+	  ///          the user has no <seealso cref="TaskPermissions.READ_VARIABLE"/> permission on <seealso cref="Resources.TASK"/></li></para>
 	  ///          <para>In case the task is part of a running process instance:</li>
-	  ///          <li>if the user has no <seealso cref="Permissions#READ"/> permission on <seealso cref="Resources#TASK"/> and
-	  ///           no <seealso cref="Permissions#READ_TASK"/> permission on <seealso cref="Resources#PROCESS_DEFINITION"/> </li>
-	  ///          <li>in case <seealso cref="ProcessEngineConfiguration#enforceSpecificVariablePermission this"/> configuration is enabled and
-	  ///          the user has no <seealso cref="TaskPermissions#READ_VARIABLE"/> permission on <seealso cref="Resources#TASK"/> and
-	  ///          no <seealso cref="ProcessDefinitionPermissions#READ_TASK_VARIABLE"/> permission on <seealso cref="Resources#PROCESS_DEFINITION"/></li></para> </exception>
+	  ///          <li>if the user has no <seealso cref="Permissions.READ"/> permission on <seealso cref="Resources.TASK"/> and
+	  ///           no <seealso cref="Permissions.READ_TASK"/> permission on <seealso cref="Resources.PROCESS_DEFINITION"/> </li>
+	  ///          <li>in case <seealso cref="ProcessEngineConfiguration.enforceSpecificVariablePermission this"/> configuration is enabled and
+	  ///          the user has no <seealso cref="TaskPermissions.READ_VARIABLE"/> permission on <seealso cref="Resources.TASK"/> and
+	  ///          no <seealso cref="ProcessDefinitionPermissions.READ_TASK_VARIABLE"/> permission on <seealso cref="Resources.PROCESS_DEFINITION"/></li></para> </exception>
 	  object getVariable(string taskId, string variableName);
 
 	  /// <summary>
@@ -595,15 +595,15 @@ namespace org.camunda.bpm.engine
 	  ///          when the task doesn't exist. </exception>
 	  /// <exception cref="AuthorizationException">
 	  ///          <para>In case of standalone tasks:
-	  ///          <li>if the user has no <seealso cref="Permissions#READ"/> permission on <seealso cref="Resources#TASK"/> or</li>
-	  ///          <li>if <seealso cref="ProcessEngineConfiguration#enforceSpecificVariablePermission this"/> configuration is enabled and
-	  ///          the user has no <seealso cref="TaskPermissions#READ_VARIABLE"/> permission on <seealso cref="Resources#TASK"/></li></para>
+	  ///          <li>if the user has no <seealso cref="Permissions.READ"/> permission on <seealso cref="Resources.TASK"/> or</li>
+	  ///          <li>if <seealso cref="ProcessEngineConfiguration.enforceSpecificVariablePermission this"/> configuration is enabled and
+	  ///          the user has no <seealso cref="TaskPermissions.READ_VARIABLE"/> permission on <seealso cref="Resources.TASK"/></li></para>
 	  ///          <para>In case the task is part of a running process instance:</li>
-	  ///          <li>if the user has no <seealso cref="Permissions#READ"/> permission on <seealso cref="Resources#TASK"/> and
-	  ///           no <seealso cref="Permissions#READ_TASK"/> permission on <seealso cref="Resources#PROCESS_DEFINITION"/> </li>
-	  ///          <li>in case <seealso cref="ProcessEngineConfiguration#enforceSpecificVariablePermission this"/> configuration is enabled and
-	  ///          the user has no <seealso cref="TaskPermissions#READ_VARIABLE"/> permission on <seealso cref="Resources#TASK"/> and
-	  ///          no <seealso cref="ProcessDefinitionPermissions#READ_TASK_VARIABLE"/> permission on <seealso cref="Resources#PROCESS_DEFINITION"/></li></para>
+	  ///          <li>if the user has no <seealso cref="Permissions.READ"/> permission on <seealso cref="Resources.TASK"/> and
+	  ///           no <seealso cref="Permissions.READ_TASK"/> permission on <seealso cref="Resources.PROCESS_DEFINITION"/> </li>
+	  ///          <li>in case <seealso cref="ProcessEngineConfiguration.enforceSpecificVariablePermission this"/> configuration is enabled and
+	  ///          the user has no <seealso cref="TaskPermissions.READ_VARIABLE"/> permission on <seealso cref="Resources.TASK"/> and
+	  ///          no <seealso cref="ProcessDefinitionPermissions.READ_TASK_VARIABLE"/> permission on <seealso cref="Resources.PROCESS_DEFINITION"/></li></para>
 	  /// 
 	  /// @since 7.2 </exception>
 	  T getVariableTyped<T>(string taskId, string variableName);
@@ -623,15 +623,15 @@ namespace org.camunda.bpm.engine
 	  ///          when the task doesn't exist. </exception>
 	  /// <exception cref="AuthorizationException">
 	  ///          <para>In case of standalone tasks:
-	  ///          <li>if the user has no <seealso cref="Permissions#READ"/> permission on <seealso cref="Resources#TASK"/> or</li>
-	  ///          <li>if <seealso cref="ProcessEngineConfiguration#enforceSpecificVariablePermission this"/> configuration is enabled and
-	  ///          the user has no <seealso cref="TaskPermissions#READ_VARIABLE"/> permission on <seealso cref="Resources#TASK"/></li></para>
+	  ///          <li>if the user has no <seealso cref="Permissions.READ"/> permission on <seealso cref="Resources.TASK"/> or</li>
+	  ///          <li>if <seealso cref="ProcessEngineConfiguration.enforceSpecificVariablePermission this"/> configuration is enabled and
+	  ///          the user has no <seealso cref="TaskPermissions.READ_VARIABLE"/> permission on <seealso cref="Resources.TASK"/></li></para>
 	  ///          <para>In case the task is part of a running process instance:</li>
-	  ///          <li>if the user has no <seealso cref="Permissions#READ"/> permission on <seealso cref="Resources#TASK"/> and
-	  ///           no <seealso cref="Permissions#READ_TASK"/> permission on <seealso cref="Resources#PROCESS_DEFINITION"/> </li>
-	  ///          <li>in case <seealso cref="ProcessEngineConfiguration#enforceSpecificVariablePermission this"/> configuration is enabled and
-	  ///          the user has no <seealso cref="TaskPermissions#READ_VARIABLE"/> permission on <seealso cref="Resources#TASK"/> and
-	  ///          no <seealso cref="ProcessDefinitionPermissions#READ_TASK_VARIABLE"/> permission on <seealso cref="Resources#PROCESS_DEFINITION"/></li></para>
+	  ///          <li>if the user has no <seealso cref="Permissions.READ"/> permission on <seealso cref="Resources.TASK"/> and
+	  ///           no <seealso cref="Permissions.READ_TASK"/> permission on <seealso cref="Resources.PROCESS_DEFINITION"/> </li>
+	  ///          <li>in case <seealso cref="ProcessEngineConfiguration.enforceSpecificVariablePermission this"/> configuration is enabled and
+	  ///          the user has no <seealso cref="TaskPermissions.READ_VARIABLE"/> permission on <seealso cref="Resources.TASK"/> and
+	  ///          no <seealso cref="ProcessDefinitionPermissions.READ_TASK_VARIABLE"/> permission on <seealso cref="Resources.PROCESS_DEFINITION"/></li></para>
 	  /// 
 	  /// @since 7.2 </exception>
 	  T getVariableTyped<T>(string taskId, string variableName, bool deserializeValue);
@@ -643,15 +643,15 @@ namespace org.camunda.bpm.engine
 	  ///          when the task doesn't exist. </exception>
 	  /// <exception cref="AuthorizationException">
 	  ///          <para>In case of standalone tasks:
-	  ///          <li>if the user has no <seealso cref="Permissions#READ"/> permission on <seealso cref="Resources#TASK"/> or</li>
-	  ///          <li>if <seealso cref="ProcessEngineConfiguration#enforceSpecificVariablePermission this"/> configuration is enabled and
-	  ///          the user has no <seealso cref="TaskPermissions#READ_VARIABLE"/> permission on <seealso cref="Resources#TASK"/></li></para>
+	  ///          <li>if the user has no <seealso cref="Permissions.READ"/> permission on <seealso cref="Resources.TASK"/> or</li>
+	  ///          <li>if <seealso cref="ProcessEngineConfiguration.enforceSpecificVariablePermission this"/> configuration is enabled and
+	  ///          the user has no <seealso cref="TaskPermissions.READ_VARIABLE"/> permission on <seealso cref="Resources.TASK"/></li></para>
 	  ///          <para>In case the task is part of a running process instance:</li>
-	  ///          <li>if the user has no <seealso cref="Permissions#READ"/> permission on <seealso cref="Resources#TASK"/> and
-	  ///           no <seealso cref="Permissions#READ_TASK"/> permission on <seealso cref="Resources#PROCESS_DEFINITION"/> </li>
-	  ///          <li>in case <seealso cref="ProcessEngineConfiguration#enforceSpecificVariablePermission this"/> configuration is enabled and
-	  ///          the user has no <seealso cref="TaskPermissions#READ_VARIABLE"/> permission on <seealso cref="Resources#TASK"/> and
-	  ///          no <seealso cref="ProcessDefinitionPermissions#READ_TASK_VARIABLE"/> permission on <seealso cref="Resources#PROCESS_DEFINITION"/></li></para> </exception>
+	  ///          <li>if the user has no <seealso cref="Permissions.READ"/> permission on <seealso cref="Resources.TASK"/> and
+	  ///           no <seealso cref="Permissions.READ_TASK"/> permission on <seealso cref="Resources.PROCESS_DEFINITION"/> </li>
+	  ///          <li>in case <seealso cref="ProcessEngineConfiguration.enforceSpecificVariablePermission this"/> configuration is enabled and
+	  ///          the user has no <seealso cref="TaskPermissions.READ_VARIABLE"/> permission on <seealso cref="Resources.TASK"/> and
+	  ///          no <seealso cref="ProcessDefinitionPermissions.READ_TASK_VARIABLE"/> permission on <seealso cref="Resources.PROCESS_DEFINITION"/></li></para> </exception>
 	  object getVariableLocal(string taskId, string variableName);
 
 	  /// <summary>
@@ -668,15 +668,15 @@ namespace org.camunda.bpm.engine
 	  ///          when the task doesn't exist. </exception>
 	  /// <exception cref="AuthorizationException">
 	  ///          <para>In case of standalone tasks:
-	  ///          <li>if the user has no <seealso cref="Permissions#READ"/> permission on <seealso cref="Resources#TASK"/> or</li>
-	  ///          <li>if <seealso cref="ProcessEngineConfiguration#enforceSpecificVariablePermission this"/> configuration is enabled and
-	  ///          the user has no <seealso cref="TaskPermissions#READ_VARIABLE"/> permission on <seealso cref="Resources#TASK"/></li></para>
+	  ///          <li>if the user has no <seealso cref="Permissions.READ"/> permission on <seealso cref="Resources.TASK"/> or</li>
+	  ///          <li>if <seealso cref="ProcessEngineConfiguration.enforceSpecificVariablePermission this"/> configuration is enabled and
+	  ///          the user has no <seealso cref="TaskPermissions.READ_VARIABLE"/> permission on <seealso cref="Resources.TASK"/></li></para>
 	  ///          <para>In case the task is part of a running process instance:</li>
-	  ///          <li>if the user has no <seealso cref="Permissions#READ"/> permission on <seealso cref="Resources#TASK"/> and
-	  ///           no <seealso cref="Permissions#READ_TASK"/> permission on <seealso cref="Resources#PROCESS_DEFINITION"/> </li>
-	  ///          <li>in case <seealso cref="ProcessEngineConfiguration#enforceSpecificVariablePermission this"/> configuration is enabled and
-	  ///          the user has no <seealso cref="TaskPermissions#READ_VARIABLE"/> permission on <seealso cref="Resources#TASK"/> and
-	  ///          no <seealso cref="ProcessDefinitionPermissions#READ_TASK_VARIABLE"/> permission on <seealso cref="Resources#PROCESS_DEFINITION"/></li></para>
+	  ///          <li>if the user has no <seealso cref="Permissions.READ"/> permission on <seealso cref="Resources.TASK"/> and
+	  ///           no <seealso cref="Permissions.READ_TASK"/> permission on <seealso cref="Resources.PROCESS_DEFINITION"/> </li>
+	  ///          <li>in case <seealso cref="ProcessEngineConfiguration.enforceSpecificVariablePermission this"/> configuration is enabled and
+	  ///          the user has no <seealso cref="TaskPermissions.READ_VARIABLE"/> permission on <seealso cref="Resources.TASK"/> and
+	  ///          no <seealso cref="ProcessDefinitionPermissions.READ_TASK_VARIABLE"/> permission on <seealso cref="Resources.PROCESS_DEFINITION"/></li></para>
 	  /// 
 	  /// @since 7.2 </exception>
 	  T getVariableLocalTyped<T>(string taskId, string variableName);
@@ -696,42 +696,42 @@ namespace org.camunda.bpm.engine
 	  ///          when the task doesn't exist. </exception>
 	  /// <exception cref="AuthorizationException">
 	  ///          <para>In case of standalone tasks:
-	  ///          <li>if the user has no <seealso cref="Permissions#READ"/> permission on <seealso cref="Resources#TASK"/> or</li>
-	  ///          <li>if <seealso cref="ProcessEngineConfiguration#enforceSpecificVariablePermission this"/> configuration is enabled and
-	  ///          the user has no <seealso cref="TaskPermissions#READ_VARIABLE"/> permission on <seealso cref="Resources#TASK"/></li></para>
+	  ///          <li>if the user has no <seealso cref="Permissions.READ"/> permission on <seealso cref="Resources.TASK"/> or</li>
+	  ///          <li>if <seealso cref="ProcessEngineConfiguration.enforceSpecificVariablePermission this"/> configuration is enabled and
+	  ///          the user has no <seealso cref="TaskPermissions.READ_VARIABLE"/> permission on <seealso cref="Resources.TASK"/></li></para>
 	  ///          <para>In case the task is part of a running process instance:</li>
-	  ///          <li>if the user has no <seealso cref="Permissions#READ"/> permission on <seealso cref="Resources#TASK"/> and
-	  ///           no <seealso cref="Permissions#READ_TASK"/> permission on <seealso cref="Resources#PROCESS_DEFINITION"/> </li>
-	  ///          <li>in case <seealso cref="ProcessEngineConfiguration#enforceSpecificVariablePermission this"/> configuration is enabled and
-	  ///          the user has no <seealso cref="TaskPermissions#READ_VARIABLE"/> permission on <seealso cref="Resources#TASK"/> and
-	  ///          no <seealso cref="ProcessDefinitionPermissions#READ_TASK_VARIABLE"/> permission on <seealso cref="Resources#PROCESS_DEFINITION"/></li></para>
+	  ///          <li>if the user has no <seealso cref="Permissions.READ"/> permission on <seealso cref="Resources.TASK"/> and
+	  ///           no <seealso cref="Permissions.READ_TASK"/> permission on <seealso cref="Resources.PROCESS_DEFINITION"/> </li>
+	  ///          <li>in case <seealso cref="ProcessEngineConfiguration.enforceSpecificVariablePermission this"/> configuration is enabled and
+	  ///          the user has no <seealso cref="TaskPermissions.READ_VARIABLE"/> permission on <seealso cref="Resources.TASK"/> and
+	  ///          no <seealso cref="ProcessDefinitionPermissions.READ_TASK_VARIABLE"/> permission on <seealso cref="Resources.PROCESS_DEFINITION"/></li></para>
 	  /// 
 	  /// @since 7.2 </exception>
 	  T getVariableLocalTyped<T>(string taskId, string variableName, bool deserializeValue);
 
 	  /// <summary>
 	  /// Get all variables and search in the task scope and if available also the execution scopes.
-	  /// If you have many variables and you only need a few, consider using <seealso cref="#getVariables(String, Collection)"/>
+	  /// If you have many variables and you only need a few, consider using <seealso cref="getVariables(string, System.Collections.ICollection)"/>
 	  /// for better performance.
 	  /// </summary>
 	  /// <exception cref="ProcessEngineException">
 	  ///          when the task doesn't exist. </exception>
 	  /// <exception cref="AuthorizationException">
 	  ///          <para>In case of standalone tasks:
-	  ///          <li>if the user has no <seealso cref="Permissions#READ"/> permission on <seealso cref="Resources#TASK"/> or</li>
-	  ///          <li>if <seealso cref="ProcessEngineConfiguration#enforceSpecificVariablePermission this"/> configuration is enabled and
-	  ///          the user has no <seealso cref="TaskPermissions#READ_VARIABLE"/> permission on <seealso cref="Resources#TASK"/></li></para>
+	  ///          <li>if the user has no <seealso cref="Permissions.READ"/> permission on <seealso cref="Resources.TASK"/> or</li>
+	  ///          <li>if <seealso cref="ProcessEngineConfiguration.enforceSpecificVariablePermission this"/> configuration is enabled and
+	  ///          the user has no <seealso cref="TaskPermissions.READ_VARIABLE"/> permission on <seealso cref="Resources.TASK"/></li></para>
 	  ///          <para>In case the task is part of a running process instance:</li>
-	  ///          <li>if the user has no <seealso cref="Permissions#READ"/> permission on <seealso cref="Resources#TASK"/> and
-	  ///           no <seealso cref="Permissions#READ_TASK"/> permission on <seealso cref="Resources#PROCESS_DEFINITION"/> </li>
-	  ///          <li>in case <seealso cref="ProcessEngineConfiguration#enforceSpecificVariablePermission this"/> configuration is enabled and
-	  ///          the user has no <seealso cref="TaskPermissions#READ_VARIABLE"/> permission on <seealso cref="Resources#TASK"/> and
-	  ///          no <seealso cref="ProcessDefinitionPermissions#READ_TASK_VARIABLE"/> permission on <seealso cref="Resources#PROCESS_DEFINITION"/></li></para> </exception>
+	  ///          <li>if the user has no <seealso cref="Permissions.READ"/> permission on <seealso cref="Resources.TASK"/> and
+	  ///           no <seealso cref="Permissions.READ_TASK"/> permission on <seealso cref="Resources.PROCESS_DEFINITION"/> </li>
+	  ///          <li>in case <seealso cref="ProcessEngineConfiguration.enforceSpecificVariablePermission this"/> configuration is enabled and
+	  ///          the user has no <seealso cref="TaskPermissions.READ_VARIABLE"/> permission on <seealso cref="Resources.TASK"/> and
+	  ///          no <seealso cref="ProcessDefinitionPermissions.READ_TASK_VARIABLE"/> permission on <seealso cref="Resources.PROCESS_DEFINITION"/></li></para> </exception>
 	  IDictionary<string, object> getVariables(string taskId);
 
 	  /// <summary>
 	  /// Get all variables and search in the task scope and if available also the execution scopes.
-	  /// If you have many variables and you only need a few, consider using <seealso cref="#getVariables(String, Collection)"/>
+	  /// If you have many variables and you only need a few, consider using <seealso cref="getVariables(string, System.Collections.ICollection)"/>
 	  /// for better performance.
 	  /// </summary>
 	  /// <param name="taskId"> the id of the task
@@ -740,21 +740,21 @@ namespace org.camunda.bpm.engine
 	  ///          when the task doesn't exist. </exception>
 	  /// <exception cref="AuthorizationException">
 	  ///          <para>In case of standalone tasks:
-	  ///          <li>if the user has no <seealso cref="Permissions#READ"/> permission on <seealso cref="Resources#TASK"/> or</li>
-	  ///          <li>if <seealso cref="ProcessEngineConfiguration#enforceSpecificVariablePermission this"/> configuration is enabled and
-	  ///          the user has no <seealso cref="TaskPermissions#READ_VARIABLE"/> permission on <seealso cref="Resources#TASK"/></li></para>
+	  ///          <li>if the user has no <seealso cref="Permissions.READ"/> permission on <seealso cref="Resources.TASK"/> or</li>
+	  ///          <li>if <seealso cref="ProcessEngineConfiguration.enforceSpecificVariablePermission this"/> configuration is enabled and
+	  ///          the user has no <seealso cref="TaskPermissions.READ_VARIABLE"/> permission on <seealso cref="Resources.TASK"/></li></para>
 	  ///          <para>In case the task is part of a running process instance:</li>
-	  ///          <li>if the user has no <seealso cref="Permissions#READ"/> permission on <seealso cref="Resources#TASK"/> and
-	  ///           no <seealso cref="Permissions#READ_TASK"/> permission on <seealso cref="Resources#PROCESS_DEFINITION"/> </li>
-	  ///          <li>in case <seealso cref="ProcessEngineConfiguration#enforceSpecificVariablePermission this"/> configuration is enabled and
-	  ///          the user has no <seealso cref="TaskPermissions#READ_VARIABLE"/> permission on <seealso cref="Resources#TASK"/> and
-	  ///          no <seealso cref="ProcessDefinitionPermissions#READ_TASK_VARIABLE"/> permission on <seealso cref="Resources#PROCESS_DEFINITION"/></li></para>
+	  ///          <li>if the user has no <seealso cref="Permissions.READ"/> permission on <seealso cref="Resources.TASK"/> and
+	  ///           no <seealso cref="Permissions.READ_TASK"/> permission on <seealso cref="Resources.PROCESS_DEFINITION"/> </li>
+	  ///          <li>in case <seealso cref="ProcessEngineConfiguration.enforceSpecificVariablePermission this"/> configuration is enabled and
+	  ///          the user has no <seealso cref="TaskPermissions.READ_VARIABLE"/> permission on <seealso cref="Resources.TASK"/> and
+	  ///          no <seealso cref="ProcessDefinitionPermissions.READ_TASK_VARIABLE"/> permission on <seealso cref="Resources.PROCESS_DEFINITION"/></li></para>
 	  /// @since 7.2 </exception>
 	  VariableMap getVariablesTyped(string taskId);
 
 	  /// <summary>
 	  /// Get all variables and search in the task scope and if available also the execution scopes.
-	  /// If you have many variables and you only need a few, consider using <seealso cref="#getVariables(String, Collection)"/>
+	  /// If you have many variables and you only need a few, consider using <seealso cref="getVariables(string, System.Collections.ICollection)"/>
 	  /// for better performance.
 	  /// </summary>
 	  /// <param name="taskId"> the id of the task </param>
@@ -764,42 +764,42 @@ namespace org.camunda.bpm.engine
 	  ///          when the task doesn't exist. </exception>
 	  /// <exception cref="AuthorizationException">
 	  ///          <para>In case of standalone tasks:
-	  ///          <li>if the user has no <seealso cref="Permissions#READ"/> permission on <seealso cref="Resources#TASK"/> or</li>
-	  ///          <li>if <seealso cref="ProcessEngineConfiguration#enforceSpecificVariablePermission this"/> configuration is enabled and
-	  ///          the user has no <seealso cref="TaskPermissions#READ_VARIABLE"/> permission on <seealso cref="Resources#TASK"/></li></para>
+	  ///          <li>if the user has no <seealso cref="Permissions.READ"/> permission on <seealso cref="Resources.TASK"/> or</li>
+	  ///          <li>if <seealso cref="ProcessEngineConfiguration.enforceSpecificVariablePermission this"/> configuration is enabled and
+	  ///          the user has no <seealso cref="TaskPermissions.READ_VARIABLE"/> permission on <seealso cref="Resources.TASK"/></li></para>
 	  ///          <para>In case the task is part of a running process instance:</li>
-	  ///          <li>if the user has no <seealso cref="Permissions#READ"/> permission on <seealso cref="Resources#TASK"/> and
-	  ///           no <seealso cref="Permissions#READ_TASK"/> permission on <seealso cref="Resources#PROCESS_DEFINITION"/> </li>
-	  ///          <li>in case <seealso cref="ProcessEngineConfiguration#enforceSpecificVariablePermission this"/> configuration is enabled and
-	  ///          the user has no <seealso cref="TaskPermissions#READ_VARIABLE"/> permission on <seealso cref="Resources#TASK"/> and
-	  ///          no <seealso cref="ProcessDefinitionPermissions#READ_TASK_VARIABLE"/> permission on <seealso cref="Resources#PROCESS_DEFINITION"/></li></para>
+	  ///          <li>if the user has no <seealso cref="Permissions.READ"/> permission on <seealso cref="Resources.TASK"/> and
+	  ///           no <seealso cref="Permissions.READ_TASK"/> permission on <seealso cref="Resources.PROCESS_DEFINITION"/> </li>
+	  ///          <li>in case <seealso cref="ProcessEngineConfiguration.enforceSpecificVariablePermission this"/> configuration is enabled and
+	  ///          the user has no <seealso cref="TaskPermissions.READ_VARIABLE"/> permission on <seealso cref="Resources.TASK"/> and
+	  ///          no <seealso cref="ProcessDefinitionPermissions.READ_TASK_VARIABLE"/> permission on <seealso cref="Resources.PROCESS_DEFINITION"/></li></para>
 	  /// 
 	  /// @since 7.2 </exception>
 	  VariableMap getVariablesTyped(string taskId, bool deserializeValues);
 
 	  /// <summary>
 	  /// Get all variables and search only in the task scope.
-	  /// If you have many task local variables and you only need a few, consider using <seealso cref="#getVariablesLocal(String, Collection)"/>
+	  /// If you have many task local variables and you only need a few, consider using <seealso cref="getVariablesLocal(string, System.Collections.ICollection)"/>
 	  /// for better performance.
 	  /// </summary>
 	  /// <exception cref="ProcessEngineException">
 	  ///          when the task doesn't exist. </exception>
 	  /// <exception cref="AuthorizationException">
 	  ///          <para>In case of standalone tasks:
-	  ///          <li>if the user has no <seealso cref="Permissions#READ"/> permission on <seealso cref="Resources#TASK"/> or</li>
-	  ///          <li>if <seealso cref="ProcessEngineConfiguration#enforceSpecificVariablePermission this"/> configuration is enabled and
-	  ///          the user has no <seealso cref="TaskPermissions#READ_VARIABLE"/> permission on <seealso cref="Resources#TASK"/></li></para>
+	  ///          <li>if the user has no <seealso cref="Permissions.READ"/> permission on <seealso cref="Resources.TASK"/> or</li>
+	  ///          <li>if <seealso cref="ProcessEngineConfiguration.enforceSpecificVariablePermission this"/> configuration is enabled and
+	  ///          the user has no <seealso cref="TaskPermissions.READ_VARIABLE"/> permission on <seealso cref="Resources.TASK"/></li></para>
 	  ///          <para>In case the task is part of a running process instance:</li>
-	  ///          <li>if the user has no <seealso cref="Permissions#READ"/> permission on <seealso cref="Resources#TASK"/> and
-	  ///           no <seealso cref="Permissions#READ_TASK"/> permission on <seealso cref="Resources#PROCESS_DEFINITION"/> </li>
-	  ///          <li>in case <seealso cref="ProcessEngineConfiguration#enforceSpecificVariablePermission this"/> configuration is enabled and
-	  ///          the user has no <seealso cref="TaskPermissions#READ_VARIABLE"/> permission on <seealso cref="Resources#TASK"/> and
-	  ///          no <seealso cref="ProcessDefinitionPermissions#READ_TASK_VARIABLE"/> permission on <seealso cref="Resources#PROCESS_DEFINITION"/></li></para> </exception>
+	  ///          <li>if the user has no <seealso cref="Permissions.READ"/> permission on <seealso cref="Resources.TASK"/> and
+	  ///           no <seealso cref="Permissions.READ_TASK"/> permission on <seealso cref="Resources.PROCESS_DEFINITION"/> </li>
+	  ///          <li>in case <seealso cref="ProcessEngineConfiguration.enforceSpecificVariablePermission this"/> configuration is enabled and
+	  ///          the user has no <seealso cref="TaskPermissions.READ_VARIABLE"/> permission on <seealso cref="Resources.TASK"/> and
+	  ///          no <seealso cref="ProcessDefinitionPermissions.READ_TASK_VARIABLE"/> permission on <seealso cref="Resources.PROCESS_DEFINITION"/></li></para> </exception>
 	  IDictionary<string, object> getVariablesLocal(string taskId);
 
 	  /// <summary>
 	  /// Get all variables and search only in the task scope.
-	  /// If you have many task local variables and you only need a few, consider using <seealso cref="#getVariablesLocal(String, Collection)"/>
+	  /// If you have many task local variables and you only need a few, consider using <seealso cref="getVariablesLocal(string, System.Collections.ICollection)"/>
 	  /// for better performance.
 	  /// </summary>
 	  /// <param name="taskId"> the id of the task </param>
@@ -809,22 +809,22 @@ namespace org.camunda.bpm.engine
 	  ///          when the task doesn't exist. </exception>
 	  /// <exception cref="AuthorizationException">
 	  ///          <para>In case of standalone tasks:
-	  ///          <li>if the user has no <seealso cref="Permissions#READ"/> permission on <seealso cref="Resources#TASK"/> or</li>
-	  ///          <li>if <seealso cref="ProcessEngineConfiguration#enforceSpecificVariablePermission this"/> configuration is enabled and
-	  ///          the user has no <seealso cref="TaskPermissions#READ_VARIABLE"/> permission on <seealso cref="Resources#TASK"/></li></para>
+	  ///          <li>if the user has no <seealso cref="Permissions.READ"/> permission on <seealso cref="Resources.TASK"/> or</li>
+	  ///          <li>if <seealso cref="ProcessEngineConfiguration.enforceSpecificVariablePermission this"/> configuration is enabled and
+	  ///          the user has no <seealso cref="TaskPermissions.READ_VARIABLE"/> permission on <seealso cref="Resources.TASK"/></li></para>
 	  ///          <para>In case the task is part of a running process instance:</li>
-	  ///          <li>if the user has no <seealso cref="Permissions#READ"/> permission on <seealso cref="Resources#TASK"/> and
-	  ///           no <seealso cref="Permissions#READ_TASK"/> permission on <seealso cref="Resources#PROCESS_DEFINITION"/> </li>
-	  ///          <li>in case <seealso cref="ProcessEngineConfiguration#enforceSpecificVariablePermission this"/> configuration is enabled and
-	  ///          the user has no <seealso cref="TaskPermissions#READ_VARIABLE"/> permission on <seealso cref="Resources#TASK"/> and
-	  ///          no <seealso cref="ProcessDefinitionPermissions#READ_TASK_VARIABLE"/> permission on <seealso cref="Resources#PROCESS_DEFINITION"/></li></para>
+	  ///          <li>if the user has no <seealso cref="Permissions.READ"/> permission on <seealso cref="Resources.TASK"/> and
+	  ///           no <seealso cref="Permissions.READ_TASK"/> permission on <seealso cref="Resources.PROCESS_DEFINITION"/> </li>
+	  ///          <li>in case <seealso cref="ProcessEngineConfiguration.enforceSpecificVariablePermission this"/> configuration is enabled and
+	  ///          the user has no <seealso cref="TaskPermissions.READ_VARIABLE"/> permission on <seealso cref="Resources.TASK"/> and
+	  ///          no <seealso cref="ProcessDefinitionPermissions.READ_TASK_VARIABLE"/> permission on <seealso cref="Resources.PROCESS_DEFINITION"/></li></para>
 	  /// 
 	  /// @since 7.2 </exception>
 	  VariableMap getVariablesLocalTyped(string taskId);
 
 	  /// <summary>
 	  /// Get all variables and search only in the task scope.
-	  /// If you have many task local variables and you only need a few, consider using <seealso cref="#getVariablesLocal(String, Collection)"/>
+	  /// If you have many task local variables and you only need a few, consider using <seealso cref="getVariablesLocal(string, System.Collections.ICollection)"/>
 	  /// for better performance.
 	  /// </summary>
 	  /// <param name="taskId"> the id of the task </param>
@@ -834,15 +834,15 @@ namespace org.camunda.bpm.engine
 	  ///          when the task doesn't exist. </exception>
 	  /// <exception cref="AuthorizationException">
 	  ///          <para>In case of standalone tasks:
-	  ///          <li>if the user has no <seealso cref="Permissions#READ"/> permission on <seealso cref="Resources#TASK"/> or</li>
-	  ///          <li>if <seealso cref="ProcessEngineConfiguration#enforceSpecificVariablePermission this"/> configuration is enabled and
-	  ///          the user has no <seealso cref="TaskPermissions#READ_VARIABLE"/> permission on <seealso cref="Resources#TASK"/></li></para>
+	  ///          <li>if the user has no <seealso cref="Permissions.READ"/> permission on <seealso cref="Resources.TASK"/> or</li>
+	  ///          <li>if <seealso cref="ProcessEngineConfiguration.enforceSpecificVariablePermission this"/> configuration is enabled and
+	  ///          the user has no <seealso cref="TaskPermissions.READ_VARIABLE"/> permission on <seealso cref="Resources.TASK"/></li></para>
 	  ///          <para>In case the task is part of a running process instance:</li>
-	  ///          <li>if the user has no <seealso cref="Permissions#READ"/> permission on <seealso cref="Resources#TASK"/> and
-	  ///           no <seealso cref="Permissions#READ_TASK"/> permission on <seealso cref="Resources#PROCESS_DEFINITION"/> </li>
-	  ///          <li>in case <seealso cref="ProcessEngineConfiguration#enforceSpecificVariablePermission this"/> configuration is enabled and
-	  ///          the user has no <seealso cref="TaskPermissions#READ_VARIABLE"/> permission on <seealso cref="Resources#TASK"/> and
-	  ///          no <seealso cref="ProcessDefinitionPermissions#READ_TASK_VARIABLE"/> permission on <seealso cref="Resources#PROCESS_DEFINITION"/></li></para>
+	  ///          <li>if the user has no <seealso cref="Permissions.READ"/> permission on <seealso cref="Resources.TASK"/> and
+	  ///           no <seealso cref="Permissions.READ_TASK"/> permission on <seealso cref="Resources.PROCESS_DEFINITION"/> </li>
+	  ///          <li>in case <seealso cref="ProcessEngineConfiguration.enforceSpecificVariablePermission this"/> configuration is enabled and
+	  ///          the user has no <seealso cref="TaskPermissions.READ_VARIABLE"/> permission on <seealso cref="Resources.TASK"/> and
+	  ///          no <seealso cref="ProcessDefinitionPermissions.READ_TASK_VARIABLE"/> permission on <seealso cref="Resources.PROCESS_DEFINITION"/></li></para>
 	  /// 
 	  /// @since 7.2 </exception>
 	  VariableMap getVariablesLocalTyped(string taskId, bool deserializeValues);
@@ -854,15 +854,15 @@ namespace org.camunda.bpm.engine
 	  ///          when the task doesn't exist. </exception>
 	  /// <exception cref="AuthorizationException">
 	  ///          <para>In case of standalone tasks:
-	  ///          <li>if the user has no <seealso cref="Permissions#READ"/> permission on <seealso cref="Resources#TASK"/> or</li>
-	  ///          <li>if <seealso cref="ProcessEngineConfiguration#enforceSpecificVariablePermission this"/> configuration is enabled and
-	  ///          the user has no <seealso cref="TaskPermissions#READ_VARIABLE"/> permission on <seealso cref="Resources#TASK"/></li></para>
+	  ///          <li>if the user has no <seealso cref="Permissions.READ"/> permission on <seealso cref="Resources.TASK"/> or</li>
+	  ///          <li>if <seealso cref="ProcessEngineConfiguration.enforceSpecificVariablePermission this"/> configuration is enabled and
+	  ///          the user has no <seealso cref="TaskPermissions.READ_VARIABLE"/> permission on <seealso cref="Resources.TASK"/></li></para>
 	  ///          <para>In case the task is part of a running process instance:</li>
-	  ///          <li>if the user has no <seealso cref="Permissions#READ"/> permission on <seealso cref="Resources#TASK"/> and
-	  ///           no <seealso cref="Permissions#READ_TASK"/> permission on <seealso cref="Resources#PROCESS_DEFINITION"/> </li>
-	  ///          <li>in case <seealso cref="ProcessEngineConfiguration#enforceSpecificVariablePermission this"/> configuration is enabled and
-	  ///          the user has no <seealso cref="TaskPermissions#READ_VARIABLE"/> permission on <seealso cref="Resources#TASK"/> and
-	  ///          no <seealso cref="ProcessDefinitionPermissions#READ_TASK_VARIABLE"/> permission on <seealso cref="Resources#PROCESS_DEFINITION"/></li></para>
+	  ///          <li>if the user has no <seealso cref="Permissions.READ"/> permission on <seealso cref="Resources.TASK"/> and
+	  ///           no <seealso cref="Permissions.READ_TASK"/> permission on <seealso cref="Resources.PROCESS_DEFINITION"/> </li>
+	  ///          <li>in case <seealso cref="ProcessEngineConfiguration.enforceSpecificVariablePermission this"/> configuration is enabled and
+	  ///          the user has no <seealso cref="TaskPermissions.READ_VARIABLE"/> permission on <seealso cref="Resources.TASK"/> and
+	  ///          no <seealso cref="ProcessDefinitionPermissions.READ_TASK_VARIABLE"/> permission on <seealso cref="Resources.PROCESS_DEFINITION"/></li></para>
 	  ///  </exception>
 	  IDictionary<string, object> getVariables(string taskId, ICollection<string> variableNames);
 
@@ -877,15 +877,15 @@ namespace org.camunda.bpm.engine
 	  ///          when the task doesn't exist. </exception>
 	  /// <exception cref="AuthorizationException">
 	  ///          <para>In case of standalone tasks:
-	  ///          <li>if the user has no <seealso cref="Permissions#READ"/> permission on <seealso cref="Resources#TASK"/> or</li>
-	  ///          <li>if <seealso cref="ProcessEngineConfiguration#enforceSpecificVariablePermission this"/> configuration is enabled and
-	  ///          the user has no <seealso cref="TaskPermissions#READ_VARIABLE"/> permission on <seealso cref="Resources#TASK"/></li></para>
+	  ///          <li>if the user has no <seealso cref="Permissions.READ"/> permission on <seealso cref="Resources.TASK"/> or</li>
+	  ///          <li>if <seealso cref="ProcessEngineConfiguration.enforceSpecificVariablePermission this"/> configuration is enabled and
+	  ///          the user has no <seealso cref="TaskPermissions.READ_VARIABLE"/> permission on <seealso cref="Resources.TASK"/></li></para>
 	  ///          <para>In case the task is part of a running process instance:</li>
-	  ///          <li>if the user has no <seealso cref="Permissions#READ"/> permission on <seealso cref="Resources#TASK"/> and
-	  ///           no <seealso cref="Permissions#READ_TASK"/> permission on <seealso cref="Resources#PROCESS_DEFINITION"/> </li>
-	  ///          <li>in case <seealso cref="ProcessEngineConfiguration#enforceSpecificVariablePermission this"/> configuration is enabled and
-	  ///          the user has no <seealso cref="TaskPermissions#READ_VARIABLE"/> permission on <seealso cref="Resources#TASK"/> and
-	  ///          no <seealso cref="ProcessDefinitionPermissions#READ_TASK_VARIABLE"/> permission on <seealso cref="Resources#PROCESS_DEFINITION"/></li></para>
+	  ///          <li>if the user has no <seealso cref="Permissions.READ"/> permission on <seealso cref="Resources.TASK"/> and
+	  ///           no <seealso cref="Permissions.READ_TASK"/> permission on <seealso cref="Resources.PROCESS_DEFINITION"/> </li>
+	  ///          <li>in case <seealso cref="ProcessEngineConfiguration.enforceSpecificVariablePermission this"/> configuration is enabled and
+	  ///          the user has no <seealso cref="TaskPermissions.READ_VARIABLE"/> permission on <seealso cref="Resources.TASK"/> and
+	  ///          no <seealso cref="ProcessDefinitionPermissions.READ_TASK_VARIABLE"/> permission on <seealso cref="Resources.PROCESS_DEFINITION"/></li></para>
 	  /// 
 	  /// @since 7.2
 	  ///  </exception>
@@ -898,15 +898,15 @@ namespace org.camunda.bpm.engine
 	  ///          when the task doesn't exist. </exception>
 	  /// <exception cref="AuthorizationException">
 	  ///          <para>In case of standalone tasks:
-	  ///          <li>if the user has no <seealso cref="Permissions#READ"/> permission on <seealso cref="Resources#TASK"/> or</li>
-	  ///          <li>if <seealso cref="ProcessEngineConfiguration#enforceSpecificVariablePermission this"/> configuration is enabled and
-	  ///          the user has no <seealso cref="TaskPermissions#READ_VARIABLE"/> permission on <seealso cref="Resources#TASK"/></li></para>
+	  ///          <li>if the user has no <seealso cref="Permissions.READ"/> permission on <seealso cref="Resources.TASK"/> or</li>
+	  ///          <li>if <seealso cref="ProcessEngineConfiguration.enforceSpecificVariablePermission this"/> configuration is enabled and
+	  ///          the user has no <seealso cref="TaskPermissions.READ_VARIABLE"/> permission on <seealso cref="Resources.TASK"/></li></para>
 	  ///          <para>In case the task is part of a running process instance:</li>
-	  ///          <li>if the user has no <seealso cref="Permissions#READ"/> permission on <seealso cref="Resources#TASK"/> and
-	  ///           no <seealso cref="Permissions#READ_TASK"/> permission on <seealso cref="Resources#PROCESS_DEFINITION"/> </li>
-	  ///          <li>in case <seealso cref="ProcessEngineConfiguration#enforceSpecificVariablePermission this"/> configuration is enabled and
-	  ///          the user has no <seealso cref="TaskPermissions#READ_VARIABLE"/> permission on <seealso cref="Resources#TASK"/> and
-	  ///          no <seealso cref="ProcessDefinitionPermissions#READ_TASK_VARIABLE"/> permission on <seealso cref="Resources#PROCESS_DEFINITION"/></li></para>
+	  ///          <li>if the user has no <seealso cref="Permissions.READ"/> permission on <seealso cref="Resources.TASK"/> and
+	  ///           no <seealso cref="Permissions.READ_TASK"/> permission on <seealso cref="Resources.PROCESS_DEFINITION"/> </li>
+	  ///          <li>in case <seealso cref="ProcessEngineConfiguration.enforceSpecificVariablePermission this"/> configuration is enabled and
+	  ///          the user has no <seealso cref="TaskPermissions.READ_VARIABLE"/> permission on <seealso cref="Resources.TASK"/> and
+	  ///          no <seealso cref="ProcessDefinitionPermissions.READ_TASK_VARIABLE"/> permission on <seealso cref="Resources.PROCESS_DEFINITION"/></li></para>
 	  ///  </exception>
 	  IDictionary<string, object> getVariablesLocal(string taskId, ICollection<string> variableNames);
 
@@ -921,15 +921,15 @@ namespace org.camunda.bpm.engine
 	  ///          when the task doesn't exist. </exception>
 	  /// <exception cref="AuthorizationException">
 	  ///          <para>In case of standalone tasks:
-	  ///          <li>if the user has no <seealso cref="Permissions#READ"/> permission on <seealso cref="Resources#TASK"/> or</li>
-	  ///          <li>if <seealso cref="ProcessEngineConfiguration#enforceSpecificVariablePermission this"/> configuration is enabled and
-	  ///          the user has no <seealso cref="TaskPermissions#READ_VARIABLE"/> permission on <seealso cref="Resources#TASK"/></li></para>
+	  ///          <li>if the user has no <seealso cref="Permissions.READ"/> permission on <seealso cref="Resources.TASK"/> or</li>
+	  ///          <li>if <seealso cref="ProcessEngineConfiguration.enforceSpecificVariablePermission this"/> configuration is enabled and
+	  ///          the user has no <seealso cref="TaskPermissions.READ_VARIABLE"/> permission on <seealso cref="Resources.TASK"/></li></para>
 	  ///          <para>In case the task is part of a running process instance:</li>
-	  ///          <li>if the user has no <seealso cref="Permissions#READ"/> permission on <seealso cref="Resources#TASK"/> and
-	  ///           no <seealso cref="Permissions#READ_TASK"/> permission on <seealso cref="Resources#PROCESS_DEFINITION"/> </li>
-	  ///          <li>in case <seealso cref="ProcessEngineConfiguration#enforceSpecificVariablePermission this"/> configuration is enabled and
-	  ///          the user has no <seealso cref="TaskPermissions#READ_VARIABLE"/> permission on <seealso cref="Resources#TASK"/> and
-	  ///          no <seealso cref="ProcessDefinitionPermissions#READ_TASK_VARIABLE"/> permission on <seealso cref="Resources#PROCESS_DEFINITION"/></li></para>
+	  ///          <li>if the user has no <seealso cref="Permissions.READ"/> permission on <seealso cref="Resources.TASK"/> and
+	  ///           no <seealso cref="Permissions.READ_TASK"/> permission on <seealso cref="Resources.PROCESS_DEFINITION"/> </li>
+	  ///          <li>in case <seealso cref="ProcessEngineConfiguration.enforceSpecificVariablePermission this"/> configuration is enabled and
+	  ///          the user has no <seealso cref="TaskPermissions.READ_VARIABLE"/> permission on <seealso cref="Resources.TASK"/> and
+	  ///          no <seealso cref="ProcessDefinitionPermissions.READ_TASK_VARIABLE"/> permission on <seealso cref="Resources.PROCESS_DEFINITION"/></li></para>
 	  /// 
 	  /// @since 7.2 </exception>
 	  VariableMap getVariablesLocalTyped(string taskId, ICollection<string> variableNames, bool deserializeValues);
@@ -942,12 +942,12 @@ namespace org.camunda.bpm.engine
 	  ///          when the task doesn't exist. </exception>
 	  /// <exception cref="AuthorizationException">
 	  ///           If the user has none of the following:
-	  ///           <li><seealso cref="TaskPermissions#UPDATE_VARIABLE"/> permission on <seealso cref="Resources#TASK"/></li>
-	  ///           <li><seealso cref="Permissions#UPDATE"/> permission on <seealso cref="Resources#TASK"/></li>
+	  ///           <li><seealso cref="TaskPermissions.UPDATE_VARIABLE"/> permission on <seealso cref="Resources.TASK"/></li>
+	  ///           <li><seealso cref="Permissions.UPDATE"/> permission on <seealso cref="Resources.TASK"/></li>
 	  ///           <li>or if the task is part of a running process instance:</li>
 	  ///           <ul>
-	  ///           <li><seealso cref="ProcessDefinitionPermissions#UPDATE_TASK_VARIABLE"/> permission on <seealso cref="Resources#PROCESS_DEFINITION"/></li>
-	  ///           <li><seealso cref="Permissions#UPDATE_TASK"/> permission on <seealso cref="Resources#PROCESS_DEFINITION"/></li>
+	  ///           <li><seealso cref="ProcessDefinitionPermissions.UPDATE_TASK_VARIABLE"/> permission on <seealso cref="Resources.PROCESS_DEFINITION"/></li>
+	  ///           <li><seealso cref="Permissions.UPDATE_TASK"/> permission on <seealso cref="Resources.PROCESS_DEFINITION"/></li>
 	  ///           </ul> </exception>
 	  void removeVariable(string taskId, string variableName);
 
@@ -959,12 +959,12 @@ namespace org.camunda.bpm.engine
 	  ///          when the task doesn't exist. </exception>
 	  /// <exception cref="AuthorizationException">
 	  ///           If the user has none of the following:
-	  ///           <li><seealso cref="TaskPermissions#UPDATE_VARIABLE"/> permission on <seealso cref="Resources#TASK"/></li>
-	  ///           <li><seealso cref="Permissions#UPDATE"/> permission on <seealso cref="Resources#TASK"/></li>
+	  ///           <li><seealso cref="TaskPermissions.UPDATE_VARIABLE"/> permission on <seealso cref="Resources.TASK"/></li>
+	  ///           <li><seealso cref="Permissions.UPDATE"/> permission on <seealso cref="Resources.TASK"/></li>
 	  ///           <li>or if the task is part of a running process instance:</li>
 	  ///           <ul>
-	  ///           <li><seealso cref="ProcessDefinitionPermissions#UPDATE_TASK_VARIABLE"/> permission on <seealso cref="Resources#PROCESS_DEFINITION"/></li>
-	  ///           <li><seealso cref="Permissions#UPDATE_TASK"/> permission on <seealso cref="Resources#PROCESS_DEFINITION"/></li>
+	  ///           <li><seealso cref="ProcessDefinitionPermissions.UPDATE_TASK_VARIABLE"/> permission on <seealso cref="Resources.PROCESS_DEFINITION"/></li>
+	  ///           <li><seealso cref="Permissions.UPDATE_TASK"/> permission on <seealso cref="Resources.PROCESS_DEFINITION"/></li>
 	  ///           </ul> </exception>
 	  void removeVariableLocal(string taskId, string variableName);
 
@@ -976,12 +976,12 @@ namespace org.camunda.bpm.engine
 	  ///          when the task doesn't exist. </exception>
 	  /// <exception cref="AuthorizationException">
 	  ///           If the user has none of the following:
-	  ///           <li><seealso cref="TaskPermissions#UPDATE_VARIABLE"/> permission on <seealso cref="Resources#TASK"/></li>
-	  ///           <li><seealso cref="Permissions#UPDATE"/> permission on <seealso cref="Resources#TASK"/></li>
+	  ///           <li><seealso cref="TaskPermissions.UPDATE_VARIABLE"/> permission on <seealso cref="Resources.TASK"/></li>
+	  ///           <li><seealso cref="Permissions.UPDATE"/> permission on <seealso cref="Resources.TASK"/></li>
 	  ///           <li>or if the task is part of a running process instance:</li>
 	  ///           <ul>
-	  ///           <li><seealso cref="ProcessDefinitionPermissions#UPDATE_TASK_VARIABLE"/> permission on <seealso cref="Resources#PROCESS_DEFINITION"/></li>
-	  ///           <li><seealso cref="Permissions#UPDATE_TASK"/> permission on <seealso cref="Resources#PROCESS_DEFINITION"/></li>
+	  ///           <li><seealso cref="ProcessDefinitionPermissions.UPDATE_TASK_VARIABLE"/> permission on <seealso cref="Resources.PROCESS_DEFINITION"/></li>
+	  ///           <li><seealso cref="Permissions.UPDATE_TASK"/> permission on <seealso cref="Resources.PROCESS_DEFINITION"/></li>
 	  ///           </ul> </exception>
 	  void removeVariables(string taskId, ICollection<string> variableNames);
 
@@ -993,20 +993,20 @@ namespace org.camunda.bpm.engine
 	  ///          when the task doesn't exist. </exception>
 	  /// <exception cref="AuthorizationException">
 	  ///           If the user has none of the following:
-	  ///           <li><seealso cref="TaskPermissions#UPDATE_VARIABLE"/> permission on <seealso cref="Resources#TASK"/></li>
-	  ///           <li><seealso cref="Permissions#UPDATE"/> permission on <seealso cref="Resources#TASK"/></li>
+	  ///           <li><seealso cref="TaskPermissions.UPDATE_VARIABLE"/> permission on <seealso cref="Resources.TASK"/></li>
+	  ///           <li><seealso cref="Permissions.UPDATE"/> permission on <seealso cref="Resources.TASK"/></li>
 	  ///           <li>or if the task is part of a running process instance:</li>
 	  ///           <ul>
-	  ///           <li><seealso cref="ProcessDefinitionPermissions#UPDATE_TASK_VARIABLE"/> permission on <seealso cref="Resources#PROCESS_DEFINITION"/></li>
-	  ///           <li><seealso cref="Permissions#UPDATE_TASK"/> permission on <seealso cref="Resources#PROCESS_DEFINITION"/></li>
+	  ///           <li><seealso cref="ProcessDefinitionPermissions.UPDATE_TASK_VARIABLE"/> permission on <seealso cref="Resources.PROCESS_DEFINITION"/></li>
+	  ///           <li><seealso cref="Permissions.UPDATE_TASK"/> permission on <seealso cref="Resources.PROCESS_DEFINITION"/></li>
 	  ///           </ul> </exception>
 	  void removeVariablesLocal(string taskId, ICollection<string> variableNames);
 
 	  /// <summary>
 	  /// Add a comment to a task and/or process instance.
 	  /// </summary>
-	  /// @deprecated Use <seealso cref="#createComment(String, String, String)"/> instead 
-	  [Obsolete("Use <seealso cref="#createComment(String, String, String)"/> instead")]
+	  /// @deprecated Use <seealso cref="createComment(string, string, string)"/> instead 
+	  [Obsolete("Use <seealso cref=\"createComment(string, string, string)\"/> instead")]
 	  void addComment(string taskId, string processInstanceId, string message);
 
 	  /// <summary>

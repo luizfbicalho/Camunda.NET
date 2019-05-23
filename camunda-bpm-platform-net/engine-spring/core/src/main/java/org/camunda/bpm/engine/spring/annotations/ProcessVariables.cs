@@ -17,7 +17,7 @@ namespace org.camunda.bpm.engine.spring.annotations
 {
 
 	/// <summary>
-	/// Annotation used on method signatures to tell the runtime to inject the current process' process variables as a <seealso cref="java.util.Map<String,Object>"/>.
+	/// Annotation used on method signatures to tell the runtime to inject the current process' process variables as a <seealso cref="System.Collections.Generic.IDictionary<string,object>"/>.
 	/// 
 	/// @author Josh Long
 	/// @since 1.0

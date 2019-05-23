@@ -64,15 +64,15 @@ namespace org.camunda.bpm.engine.identity
 	  //sorting ////////////////////////////////////////////////////////
 
 	  /// <summary>
-	  /// Order by group id (needs to be followed by <seealso cref="#asc()"/> or <seealso cref="#desc()"/>). </summary>
+	  /// Order by group id (needs to be followed by <seealso cref="asc()"/> or <seealso cref="desc()"/>). </summary>
 	  GroupQuery orderByGroupId();
 
 	  /// <summary>
-	  /// Order by group name (needs to be followed by <seealso cref="#asc()"/> or <seealso cref="#desc()"/>). </summary>
+	  /// Order by group name (needs to be followed by <seealso cref="asc()"/> or <seealso cref="desc()"/>). </summary>
 	  GroupQuery orderByGroupName();
 
 	  /// <summary>
-	  /// Order by group type (needs to be followed by <seealso cref="#asc()"/> or <seealso cref="#desc()"/>). </summary>
+	  /// Order by group type (needs to be followed by <seealso cref="asc()"/> or <seealso cref="desc()"/>). </summary>
 	  GroupQuery orderByGroupType();
 
 	}

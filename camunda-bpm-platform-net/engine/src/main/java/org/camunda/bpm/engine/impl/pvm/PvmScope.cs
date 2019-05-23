@@ -35,7 +35,7 @@ namespace org.camunda.bpm.engine.impl.pvm
 	  /// if true, there will _always_ be a scope execution created for it.
 	  /// <para>
 	  /// Note: the fact that this is a scope does not mean that it is also a
-	  /// <seealso cref="#isSubProcessScope() sub process scope."/>
+	  /// <seealso cref="isSubProcessScope() sub process scope."/>
 	  /// 
 	  /// @returns true if this activity is a scope
 	  /// </para>
@@ -55,10 +55,10 @@ namespace org.camunda.bpm.engine.impl.pvm
 
 	  /// <summary>
 	  /// The event scope for an activity is the scope in which the activity listens for events.
-	  /// This may or may not be the <seealso cref="#getFlowScope() flow scope."/>.
+	  /// This may or may not be the <seealso cref="getFlowScope() flow scope."/>.
 	  /// Consider: boundary events have a different event scope than flow scope.
 	  /// <para>
-	  /// The event scope is always a <seealso cref="#isScope() scope"/>.
+	  /// The event scope is always a <seealso cref="isScope() scope"/>.
 	  /// 
 	  /// </para>
 	  /// </summary>
@@ -69,7 +69,7 @@ namespace org.camunda.bpm.engine.impl.pvm
 	  /// The flow scope of the activity. The scope in which the activity itself is executed.
 	  /// <para>
 	  /// Note: in order to ensure backwards compatible behavior,  a flow scope is not necessarily
-	  /// a <seealso cref="#isScope() a scope"/>. Example: event sub processes.
+	  /// a <seealso cref="isScope() a scope"/>. Example: event sub processes.
 	  /// </para>
 	  /// </summary>
 	  ScopeImpl FlowScope {get;}
@@ -86,7 +86,7 @@ namespace org.camunda.bpm.engine.impl.pvm
 
 	  /// <summary>
 	  /// Returns the flow activities of this scope. This is the list of activities for which this scope is
-	  /// the <seealso cref="PvmActivity#getFlowScope() flow scope"/>.
+	  /// the <seealso cref="PvmActivity.getFlowScope() flow scope"/>.
 	  /// </summary>
 	  /// <returns> the list of flow activities for this scope. </returns>
 //JAVA TO C# CONVERTER WARNING: Java wildcard generics have no direct equivalent in .NET:

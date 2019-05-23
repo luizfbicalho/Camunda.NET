@@ -19,15 +19,15 @@ namespace org.camunda.bpm.engine.impl.javax.el
 {
 	/// <summary>
 	/// An Expression that refers to a method on an object. The
-	/// <seealso cref="ExpressionFactory#createMethodExpression(ELContext, String, Class, Class[])"/> method can be
+	/// <seealso cref="ExpressionFactory.createMethodExpression(ELContext, string, System.Type, Class[])"/> method can be
 	/// used to parse an expression string and return a concrete instance of MethodExpression that
 	/// encapsulates the parsed expression. The <seealso cref="FunctionMapper"/> is used at parse time, not
 	/// evaluation time, so one is not needed to evaluate an expression using this class. However, the
-	/// <seealso cref="ELContext"/> is needed at evaluation time. The <seealso cref="#getMethodInfo(ELContext)"/> and
-	/// <seealso cref="#invoke(ELContext, Object[])"/> methods will evaluate the expression each time they are
+	/// <seealso cref="ELContext"/> is needed at evaluation time. The <seealso cref="getMethodInfo(ELContext)"/> and
+	/// <seealso cref="invoke(ELContext, Object[])"/> methods will evaluate the expression each time they are
 	/// called. The <seealso cref="ELResolver"/> in the ELContext is used to resolve the top-level variables and to
 	/// determine the behavior of the . and [] operators. For any of the two methods, the
-	/// <seealso cref="ELResolver#getValue(ELContext, Object, Object)"/> method is used to resolve all properties
+	/// <seealso cref="ELResolver.getValue(ELContext, object, object)"/> method is used to resolve all properties
 	/// up to but excluding the last one. This provides the base object on which the method appears. If
 	/// the base object is null, a PropertyNotFoundException must be thrown. At the last resolution, the
 	/// final property is then coerced to a String, which provides the name of the method to be found. A

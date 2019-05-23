@@ -190,7 +190,7 @@ namespace org.camunda.bpm.container.impl.metadata
 	  ///   &lt;property name="name"&gt;value&lt;/property&gt;
 	  /// &lt;/properties&gt;
 	  /// </pre>
-	  /// structure into a properties <seealso cref="Map"/>
+	  /// structure into a properties <seealso cref="System.Collections.IDictionary"/>
 	  /// 
 	  /// Supports resolution of Ant-style placeholders against system properties.
 	  /// 

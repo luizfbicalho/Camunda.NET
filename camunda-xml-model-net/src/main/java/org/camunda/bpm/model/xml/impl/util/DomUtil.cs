@@ -63,7 +63,7 @@ namespace org.camunda.bpm.model.xml.impl.util
 	  }
 
 	  /// <summary>
-	  /// Filter retaining only Nodes of type <seealso cref="Node#ELEMENT_NODE"/>
+	  /// Filter retaining only Nodes of type <seealso cref="Node.ELEMENT_NODE"/>
 	  /// 
 	  /// </summary>
 	  public class ElementNodeListFilter : NodeListFilter

@@ -43,8 +43,8 @@ namespace org.camunda.bpm.engine.history
 	  string TypeName {get;}
 
 	  /// <returns> the name of the variable type. </returns>
-	  /// @deprecated since 7.2. Use <seealso cref="#getTypeName()"/> 
-	  [Obsolete("since 7.2. Use <seealso cref="#getTypeName()"/>")]
+	  /// @deprecated since 7.2. Use <seealso cref="getTypeName()"/> 
+	  [Obsolete("since 7.2. Use <seealso cref=\"getTypeName()\"/>")]
 	  string VariableTypeName {get;}
 
 	  object Value {get;}

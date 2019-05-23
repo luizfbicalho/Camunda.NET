@@ -49,7 +49,7 @@ namespace org.camunda.bpm.engine.runtime
 	  /// <summary>
 	  /// Specify a tenant to deliver the signal to. The signal can only be received
 	  /// on executions or process definitions which belongs to the given tenant.
-	  /// Cannot be used in combination with <seealso cref="#executionId(String)"/>.
+	  /// Cannot be used in combination with <seealso cref="executionId(string)"/>.
 	  /// </summary>
 	  /// <param name="tenantId">
 	  ///          the id of the tenant </param>
@@ -59,7 +59,7 @@ namespace org.camunda.bpm.engine.runtime
 	  /// <summary>
 	  /// Specify that the signal can only be received on executions or process
 	  /// definitions which belongs to no tenant. Cannot be used in combination with
-	  /// <seealso cref="#executionId(String)"/>.
+	  /// <seealso cref="executionId(string)"/>.
 	  /// </summary>
 	  /// <returns> the builder </returns>
 	  SignalEventReceivedBuilder withoutTenantId();
@@ -72,7 +72,7 @@ namespace org.camunda.bpm.engine.runtime
 	  /// 
 	  /// <para>
 	  /// Note that the signal delivers to all tenants if no tenant is specified
-	  /// using <seealso cref="#tenantId(String)"/> or <seealso cref="#withoutTenantId()"/>.
+	  /// using <seealso cref="tenantId(string)"/> or <seealso cref="withoutTenantId()"/>.
 	  /// </para>
 	  /// </summary>
 	  /// <exception cref="ProcessEngineException">
@@ -80,15 +80,15 @@ namespace org.camunda.bpm.engine.runtime
 	  ///           or has not subscribed to the signal </exception>
 	  /// <exception cref="AuthorizationException">
 	  ///           <li>if notify an execution and the user has no
-	  ///           <seealso cref="Permissions#UPDATE"/> permission on
-	  ///           <seealso cref="Resources#PROCESS_INSTANCE"/> or no
-	  ///           <seealso cref="Permissions#UPDATE_INSTANCE"/> permission on
-	  ///           <seealso cref="Resources#PROCESS_DEFINITION"/>.</li>
+	  ///           <seealso cref="Permissions.UPDATE"/> permission on
+	  ///           <seealso cref="Resources.PROCESS_INSTANCE"/> or no
+	  ///           <seealso cref="Permissions.UPDATE_INSTANCE"/> permission on
+	  ///           <seealso cref="Resources.PROCESS_DEFINITION"/>.</li>
 	  ///           <li>if start a new process instance and the user has no
-	  ///           <seealso cref="Permissions#CREATE"/> permission on
-	  ///           <seealso cref="Resources#PROCESS_INSTANCE"/> and no
-	  ///           <seealso cref="Permissions#CREATE_INSTANCE"/> permission on
-	  ///           <seealso cref="Resources#PROCESS_DEFINITION"/>.</li> </exception>
+	  ///           <seealso cref="Permissions.CREATE"/> permission on
+	  ///           <seealso cref="Resources.PROCESS_INSTANCE"/> and no
+	  ///           <seealso cref="Permissions.CREATE_INSTANCE"/> permission on
+	  ///           <seealso cref="Resources.PROCESS_DEFINITION"/>.</li> </exception>
 	  void send();
 
 	}

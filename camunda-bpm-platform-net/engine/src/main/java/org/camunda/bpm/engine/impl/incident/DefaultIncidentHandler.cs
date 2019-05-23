@@ -32,7 +32,7 @@ namespace org.camunda.bpm.engine.impl.incident
 	/// By default, the process engine has two default handlers:
 	/// <ul>
 	/// <li>type <code>failedJob</code>: Indicates jobs without retries left. This incident handler is active by default and must be disabled
-	/// via <seealso cref="org.camunda.bpm.engine.ProcessEngineConfiguration#setCreateIncidentOnFailedJobEnabled(boolean)"/>.
+	/// via <seealso cref="org.camunda.bpm.engine.ProcessEngineConfiguration.setCreateIncidentOnFailedJobEnabled(bool)"/>.
 	/// <li>type <code>failedExternalTask</code>: Indicates external tasks without retries left
 	/// </para>
 	/// </summary>

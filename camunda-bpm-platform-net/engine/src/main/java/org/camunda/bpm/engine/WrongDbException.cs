@@ -21,7 +21,7 @@ namespace org.camunda.bpm.engine
 	/// Exception that is thrown when the Activiti engine discovers a mismatch between the 
 	/// database schema version and the engine version.
 	/// 
-	/// The check is done when the engine is created in <seealso cref="ProcessEngineBuilder#buildProcessEngine()"/>.
+	/// The check is done when the engine is created in <seealso cref="ProcessEngineBuilder.buildProcessEngine()"/>.
 	/// 
 	/// @author Tom Baeyens
 	/// </summary>

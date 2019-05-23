@@ -136,7 +136,7 @@ namespace org.camunda.bpm.model.xml.instance
 
 	  /// <summary>
 	  /// Returns the text content of the DOM element without leading and trailing spaces. For
-	  /// raw text content see <seealso cref="ModelElementInstanceImpl#getRawTextContent()"/>.
+	  /// raw text content see <seealso cref="ModelElementInstanceImpl.getRawTextContent()"/>.
 	  /// </summary>
 	  /// <returns> text content of underlying DOM element with leading and trailing whitespace trimmed </returns>
 	  string TextContent {get;set;}

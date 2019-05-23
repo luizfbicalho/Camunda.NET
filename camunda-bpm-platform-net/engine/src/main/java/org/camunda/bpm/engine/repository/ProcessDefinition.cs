@@ -42,7 +42,7 @@ namespace org.camunda.bpm.engine.repository
 	  string Description {get;}
 
 	  /// <summary>
-	  /// Does this process definition has a <seealso cref="FormService#getStartFormData(String) start form key"/>. </summary>
+	  /// Does this process definition has a <seealso cref="FormService.getStartFormData(string) start form key"/>. </summary>
 	  bool hasStartFormKey();
 
 	  /// <summary>

@@ -61,7 +61,7 @@ namespace org.camunda.bpm.engine.history
 	  HistoricActivityStatisticsQuery finishedAfter(DateTime date);
 
 	  /// <summary>
-	  /// Order by activity id (needs to be followed by <seealso cref="#asc()"/> or <seealso cref="#desc()"/>).
+	  /// Order by activity id (needs to be followed by <seealso cref="asc()"/> or <seealso cref="desc()"/>).
 	  /// </summary>
 	  HistoricActivityStatisticsQuery orderByActivityId();
 

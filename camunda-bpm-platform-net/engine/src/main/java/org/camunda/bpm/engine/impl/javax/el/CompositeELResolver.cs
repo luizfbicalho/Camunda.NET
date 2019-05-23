@@ -24,9 +24,9 @@ namespace org.camunda.bpm.engine.impl.javax.el
 	/// associated with an ELContext, there are usually multiple resolvers considered for any given
 	/// variable or property resolution. ELResolvers are combined together using a CompositeELResolver,
 	/// to define rich semantics for evaluating an expression. For the
-	/// <seealso cref="#getValue(ELContext, Object, Object)"/>, <seealso cref="#getType(ELContext, Object, Object)"/>,
-	/// <seealso cref="#setValue(ELContext, Object, Object, Object)"/> and
-	/// <seealso cref="#isReadOnly(ELContext, Object, Object)"/> methods, an ELResolver is not responsible for
+	/// <seealso cref="getValue(ELContext, object, object)"/>, <seealso cref="getType(ELContext, object, object)"/>,
+	/// <seealso cref="setValue(ELContext, object, object, object)"/> and
+	/// <seealso cref="isReadOnly(ELContext, object, object)"/> methods, an ELResolver is not responsible for
 	/// resolving all possible (base, property) pairs. In fact, most resolvers will only handle a base of
 	/// a single type. To indicate that a resolver has successfully resolved a particular (base,
 	/// property) pair, it must set the propertyResolved property of the ELContext to true. If it could
@@ -34,8 +34,8 @@ namespace org.camunda.bpm.engine.impl.javax.el
 	/// value of the method if propertyResolved is false. The CompositeELResolver initializes the
 	/// ELContext.propertyResolved flag to false, and uses it as a stop condition for iterating through
 	/// its component resolvers. The ELContext.propertyResolved flag is not used for the design-time
-	/// methods <seealso cref="#getFeatureDescriptors(ELContext, Object)"/> and
-	/// <seealso cref="#getCommonPropertyType(ELContext, Object)"/>. Instead, results are collected and combined
+	/// methods <seealso cref="getFeatureDescriptors(ELContext, object)"/> and
+	/// <seealso cref="getCommonPropertyType(ELContext, object)"/>. Instead, results are collected and combined
 	/// from all child ELResolvers for these methods.
 	/// </summary>
 	public class CompositeELResolver : ELResolver
@@ -172,7 +172,7 @@ namespace org.camunda.bpm.engine.impl.javax.el
 		/// <summary>
 		/// For a given base and property, attempts to identify the most general type that is acceptable
 		/// for an object to be passed as the value parameter in a future call to the
-		/// <seealso cref="#setValue(ELContext, Object, Object, Object)"/> method. The result is obtained by
+		/// <seealso cref="setValue(ELContext, object, object, object)"/> method. The result is obtained by
 		/// querying all component resolvers. If this resolver handles the given (base, property) pair,
 		/// the propertyResolved property of the ELContext object must be set to true by the resolver,
 		/// before returning. If this property is not true after this method is called, the caller should
@@ -269,7 +269,7 @@ namespace org.camunda.bpm.engine.impl.javax.el
 
 		/// <summary>
 		/// For a given base and property, attempts to determine whether a call to
-		/// <seealso cref="#setValue(ELContext, Object, Object, Object)"/> will always fail. The result is obtained
+		/// <seealso cref="setValue(ELContext, object, object, object)"/> will always fail. The result is obtained
 		/// by querying all component resolvers. If this resolver handles the given (base, property)
 		/// pair, the propertyResolved property of the ELContext object must be set to true by the
 		/// resolver, before returning. If this property is not true after this method is called, the

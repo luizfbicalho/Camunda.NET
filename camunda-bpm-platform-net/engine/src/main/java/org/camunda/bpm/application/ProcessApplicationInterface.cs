@@ -114,8 +114,8 @@ namespace org.camunda.bpm.application
 	  ProcessApplicationReference Reference {get;}
 
 	  /// <summary>
-	  /// Since <seealso cref="#getReference()"/> may return a proxy object, this method returs the actual, unproxied object and is
-	  /// meant to be called from the <seealso cref="#execute(Callable)"/> method. (ie. from a Callable implementation passed to
+	  /// Since <seealso cref="getReference()"/> may return a proxy object, this method returs the actual, unproxied object and is
+	  /// meant to be called from the <seealso cref="execute(Callable)"/> method. (ie. from a Callable implementation passed to
 	  /// the method.).
 	  /// </summary>
 	  ProcessApplicationInterface RawObject {get;}
@@ -130,9 +130,9 @@ namespace org.camunda.bpm.application
 	  T execute<T>(Callable<T> callable);
 
 	  /// <summary>
-	  /// Is invoked instead of <seealso cref="#execute(Callable)"/> if a context is available.
+	  /// Is invoked instead of <seealso cref="execute(Callable)"/> if a context is available.
 	  /// The default implementation simply forward the call to
-	  /// <seealso cref="#execute(Callable)"/>. A custom implementation can override the method
+	  /// <seealso cref="execute(Callable)"/>. A custom implementation can override the method
 	  /// to hook into the invocation.
 	  /// </summary>
 	  /// <param name="callable"> to be executed "within" the context of this process application. </param>
@@ -168,7 +168,7 @@ namespace org.camunda.bpm.application
 	  /// process in the context of this process application.</para>
 	  /// 
 	  /// <para>The process engine must only call this method from Callable implementations passed
-	  /// to <seealso cref="#execute(Callable)"/></para>
+	  /// to <seealso cref="execute(Callable)"/></para>
 	  /// </summary>
 	  ELResolver ElResolver {get;}
 
@@ -186,7 +186,7 @@ namespace org.camunda.bpm.application
 	  /// <para>This method is invoked at deployment time once for each process archive
 	  /// deployed by this process application.</para>
 	  /// 
-	  /// <para><strong>NOTE:</strong> this method must NOT call the <seealso cref="DeploymentBuilder#deploy()"/>
+	  /// <para><strong>NOTE:</strong> this method must NOT call the <seealso cref="DeploymentBuilder.deploy()"/>
 	  /// method.</para>
 	  /// </summary>
 	  /// <param name="deploymentBuilder"> the <seealso cref="DeploymentBuilder"/> used to construct the deployment. </param>

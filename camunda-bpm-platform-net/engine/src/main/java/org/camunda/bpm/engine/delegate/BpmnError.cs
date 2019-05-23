@@ -31,7 +31,7 @@ namespace org.camunda.bpm.engine.@delegate
 	/// definition. Technical errors should be represented by other exception types.
 	/// 
 	/// This class represents an actual instance of a BPMN Error, whereas
-	/// <seealso cref="Error"/> represents an Error definition.
+	/// <seealso cref="System.Exception"/> represents an Error definition.
 	/// 
 	/// @author Falko Menge
 	/// </summary>

@@ -38,7 +38,7 @@ namespace org.camunda.bpm.engine.impl.util
 	  /// </summary>
 	  /// <param name="resourcePath"> the path to the resource to load </param>
 	  /// <param name="deployment"> the deployment to load resources from </param>
-	  /// <returns> the resource content as <seealso cref="String"/> </returns>
+	  /// <returns> the resource content as <seealso cref="string"/> </returns>
 	  public static string loadResourceContent(string resourcePath, DeploymentEntity deployment)
 	  {
 		string[] pathSplit = resourcePath.Split("://", 2);

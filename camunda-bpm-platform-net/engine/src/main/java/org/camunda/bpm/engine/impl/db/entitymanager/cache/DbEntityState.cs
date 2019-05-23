@@ -26,7 +26,7 @@ namespace org.camunda.bpm.engine.impl.db.entitymanager.cache
 
 	  /// <summary>
 	  /// A transient object does not exist in the database and has been created by the current session.
-	  /// It will be INSERTed to the database and marked <seealso cref="#PERSISTENT"/> with the next flush.
+	  /// It will be INSERTed to the database and marked <seealso cref="PERSISTENT"/> with the next flush.
 	  /// </summary>
 	  TRANSIENT,
 
@@ -41,7 +41,7 @@ namespace org.camunda.bpm.engine.impl.db.entitymanager.cache
 	  /// A persistent object which may exist in the database but which has not been loaded into the current session
 	  /// form the database. A detached copy of the object has been modified offline and merged back into the session.
 	  /// At the next flush an update with optimistic locking check will be performed and after that, the object will be marked
-	  /// <seealso cref="#PERSISTENT"/>.
+	  /// <seealso cref="PERSISTENT"/>.
 	  /// </summary>
 	  MERGED,
 
@@ -58,7 +58,7 @@ namespace org.camunda.bpm.engine.impl.db.entitymanager.cache
 	  DELETED_PERSISTENT,
 
 	  /// <summary>
-	  /// A <seealso cref="#MERGED"/> object which may exists in the database and is set to be deleted by the current session.
+	  /// A <seealso cref="MERGED"/> object which may exists in the database and is set to be deleted by the current session.
 	  /// It will be removed from the cache at the next flush. 
 	  /// </summary>
 	  DELETED_MERGED

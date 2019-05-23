@@ -47,7 +47,7 @@ namespace org.camunda.bpm.engine.impl.bpmn.behavior
 
 	  /// <summary>
 	  /// Subclasses that call leave() will first pass through this method, before
-	  /// the regular <seealso cref="FlowNodeActivityBehavior#leave(ActivityExecution)"/> is
+	  /// the regular <seealso cref="FlowNodeActivityBehavior.leave(ActivityExecution)"/> is
 	  /// called.
 	  /// </summary>
 	  public override void doLeave(ActivityExecution execution)

@@ -26,7 +26,7 @@ namespace org.camunda.bpm.engine.migration
 
 	  /// <summary>
 	  /// Toggle whether the instructions should include updating of the respective event triggers
-	  /// where appropriate. See <seealso cref="MigrationInstructionBuilder#updateEventTrigger()"/> for details
+	  /// where appropriate. See <seealso cref="MigrationInstructionBuilder.updateEventTrigger()"/> for details
 	  /// what updating the event trigger means for a single instruction.
 	  /// </summary>
 	  /// <returns> this builder </returns>

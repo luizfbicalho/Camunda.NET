@@ -26,9 +26,9 @@ namespace org.camunda.bpm.engine.impl.javax.el
 	/// evaluation. Classes that implement the EL expression language expose their functionality via this
 	/// abstract class. There is no concrete implementation of this API available in this package.
 	/// Technologies such as JavaServer Pages and JavaServer Faces provide access to an implementation
-	/// via factory methods. The <seealso cref="#createValueExpression(ELContext, String, Class)"/> method is used
+	/// via factory methods. The <seealso cref="createValueExpression(ELContext, string, System.Type)"/> method is used
 	/// to parse expressions that evaluate to values (both l-values and r-values are supported). The
-	/// <seealso cref="#createMethodExpression(ELContext, String, Class, Class[])"/> method is used to parse
+	/// <seealso cref="createMethodExpression(ELContext, string, System.Type, Class[])"/> method is used to parse
 	/// expressions that evaluate to a reference to a method on an object. Unlike previous incarnations
 	/// of this API, there is no way to parse and evaluate an expression in one single step. The
 	/// expression needs to first be parsed, and then evaluated. Resolution of model objects is performed

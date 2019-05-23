@@ -22,7 +22,7 @@ namespace org.camunda.bpm.engine.rest.exception
 
 
 	/// <summary>
-	/// Translates any <seealso cref="Throwable"/> to a HTTP 500 error and a JSON response.
+	/// Translates any <seealso cref="System.Exception"/> to a HTTP 500 error and a JSON response.
 	/// Response content format: <code>{"type" : "ExceptionType", "message" : "some exception message"}
 	/// @author nico.rehwaldt
 	/// </summary>

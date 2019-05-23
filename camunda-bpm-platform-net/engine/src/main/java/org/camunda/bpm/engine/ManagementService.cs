@@ -85,7 +85,7 @@ namespace org.camunda.bpm.engine
 	  /// <returns> a new <seealso cref="ProcessApplicationRegistration"/>
 	  /// </returns>
 	  /// <exception cref="AuthorizationException">
-	  ///          If the user is not a member of the group <seealso cref="Groups#CAMUNDA_ADMIN"/>. </exception>
+	  ///          If the user is not a member of the group <seealso cref="Groups.CAMUNDA_ADMIN"/>. </exception>
 	  ProcessApplicationRegistration registerProcessApplication(string deploymentId, ProcessApplicationReference reference);
 
 	  /// <summary>
@@ -99,7 +99,7 @@ namespace org.camunda.bpm.engine
 	  ///          indicates whether the process definitions should be removed from the deployment cache
 	  /// </param>
 	  /// <exception cref="AuthorizationException">
-	  ///          If the user is not a member of the group <seealso cref="Groups#CAMUNDA_ADMIN"/>. </exception>
+	  ///          If the user is not a member of the group <seealso cref="Groups.CAMUNDA_ADMIN"/>. </exception>
 	  void unregisterProcessApplication(string deploymentId, bool removeProcessDefinitionsFromCache);
 
 	  /// <summary>
@@ -113,7 +113,7 @@ namespace org.camunda.bpm.engine
 	  ///          indicates whether the process definitions should be removed from the deployment cache
 	  /// </param>
 	  /// <exception cref="AuthorizationException">
-	  ///          If the user is not a member of the group <seealso cref="Groups#CAMUNDA_ADMIN"/>. </exception>
+	  ///          If the user is not a member of the group <seealso cref="Groups.CAMUNDA_ADMIN"/>. </exception>
 	  void unregisterProcessApplication(ISet<string> deploymentIds, bool removeProcessDefinitionsFromCache);
 
 	  /// <returns> the name of the process application that is currently registered for
@@ -121,14 +121,14 @@ namespace org.camunda.bpm.engine
 	  ///         currently registered.
 	  /// </returns>
 	  /// <exception cref="AuthorizationException">
-	  ///          If the user is not a member of the group <seealso cref="Groups#CAMUNDA_ADMIN"/>. </exception>
+	  ///          If the user is not a member of the group <seealso cref="Groups.CAMUNDA_ADMIN"/>. </exception>
 	  string getProcessApplicationForDeployment(string deploymentId);
 
 	  /// <summary>
 	  /// Get the mapping containing {table name, row count} entries of the database schema.
 	  /// </summary>
 	  /// <exception cref="AuthorizationException">
-	  ///          If the user is not a member of the group <seealso cref="Groups#CAMUNDA_ADMIN"/>. </exception>
+	  ///          If the user is not a member of the group <seealso cref="Groups.CAMUNDA_ADMIN"/>. </exception>
 	  IDictionary<string, long> TableCount {get;}
 
 	  /// <summary>
@@ -136,7 +136,7 @@ namespace org.camunda.bpm.engine
 	  /// <seealso cref="Execution"/> or the like.
 	  /// </summary>
 	  /// <exception cref="AuthorizationException">
-	  ///          If the user is not a member of the group <seealso cref="Groups#CAMUNDA_ADMIN"/>. </exception>
+	  ///          If the user is not a member of the group <seealso cref="Groups.CAMUNDA_ADMIN"/>. </exception>
 	  string getTableName(Type entityClass);
 
 	  /// <summary>
@@ -144,7 +144,7 @@ namespace org.camunda.bpm.engine
 	  /// Returns null when no table exists with the given name.
 	  /// </summary>
 	  /// <exception cref="AuthorizationException">
-	  ///          If the user is not a member of the group <seealso cref="Groups#CAMUNDA_ADMIN"/>. </exception>
+	  ///          If the user is not a member of the group <seealso cref="Groups.CAMUNDA_ADMIN"/>. </exception>
 	  TableMetaData getTableMetaData(string tableName);
 
 	  /// <summary>
@@ -152,7 +152,7 @@ namespace org.camunda.bpm.engine
 	  /// containing specific sections of table row data.
 	  /// </summary>
 	  /// <exception cref="AuthorizationException">
-	  ///          If the user is not a member of the group <seealso cref="Groups#CAMUNDA_ADMIN"/>. </exception>
+	  ///          If the user is not a member of the group <seealso cref="Groups.CAMUNDA_ADMIN"/>. </exception>
 	  TablePageQuery createTablePageQuery();
 
 	  /// <summary>
@@ -177,8 +177,8 @@ namespace org.camunda.bpm.engine
 	  /// <exception cref="ProcessEngineException">
 	  ///          When there is no job with the given id. </exception>
 	  /// <exception cref="AuthorizationException">
-	  ///          If the user has no <seealso cref="Permissions#UPDATE"/> permission on <seealso cref="Resources#PROCESS_INSTANCE"/>
-	  ///          or no <seealso cref="Permissions#UPDATE_INSTANCE"/> permission on <seealso cref="Resources#PROCESS_DEFINITION"/>. </exception>
+	  ///          If the user has no <seealso cref="Permissions.UPDATE"/> permission on <seealso cref="Resources.PROCESS_INSTANCE"/>
+	  ///          or no <seealso cref="Permissions.UPDATE_INSTANCE"/> permission on <seealso cref="Resources.PROCESS_DEFINITION"/>. </exception>
 	  void executeJob(string jobId);
 
 	  /// <summary>
@@ -189,8 +189,8 @@ namespace org.camunda.bpm.engine
 	  /// <exception cref="ProcessEngineException">
 	  ///          When there is no job with the given id. </exception>
 	  /// <exception cref="AuthorizationException">
-	  ///          If the user has no <seealso cref="Permissions#UPDATE"/> permission on <seealso cref="Resources#PROCESS_INSTANCE"/>
-	  ///          or no <seealso cref="Permissions#UPDATE_INSTANCE"/> permission on <seealso cref="Resources#PROCESS_DEFINITION"/>. </exception>
+	  ///          If the user has no <seealso cref="Permissions.UPDATE"/> permission on <seealso cref="Resources.PROCESS_INSTANCE"/>
+	  ///          or no <seealso cref="Permissions.UPDATE_INSTANCE"/> permission on <seealso cref="Resources.PROCESS_DEFINITION"/>. </exception>
 	  void deleteJob(string jobId);
 
 	  /// <summary>
@@ -201,12 +201,12 @@ namespace org.camunda.bpm.engine
 	  /// will be <strong>not</strong> activated.
 	  /// </para>
 	  /// 
-	  /// <para>Note: for more complex activate commands use <seealso cref="#updateJobDefinitionSuspensionState()"/>.</para>
+	  /// <para>Note: for more complex activate commands use <seealso cref="updateJobDefinitionSuspensionState()"/>.</para>
 	  /// </summary>
 	  /// <exception cref="ProcessEngineException">
 	  ///          If the job definition id is equal null. </exception>
 	  /// <exception cref="AuthorizationException">
-	  ///          If the user has no <seealso cref="Permissions#UPDATE"/> permission on <seealso cref="Resources#PROCESS_DEFINITION"/>.
+	  ///          If the user has no <seealso cref="Permissions.UPDATE"/> permission on <seealso cref="Resources.PROCESS_DEFINITION"/>.
 	  /// </exception>
 	  /// <seealso cref= #activateJobById(String) </seealso>
 	  /// <seealso cref= #activateJobByJobDefinitionId(String) </seealso>
@@ -220,12 +220,12 @@ namespace org.camunda.bpm.engine
 	  /// will be <strong>not</strong> activated.
 	  /// </para>
 	  /// 
-	  /// <para>Note: for more complex activate commands use <seealso cref="#updateJobDefinitionSuspensionState()"/>.</para>
+	  /// <para>Note: for more complex activate commands use <seealso cref="updateJobDefinitionSuspensionState()"/>.</para>
 	  /// </summary>
 	  /// <exception cref="ProcessEngineException">
 	  ///          If the process definition id is equal null. </exception>
 	  /// <exception cref="AuthorizationException">
-	  ///          If the user has no <seealso cref="Permissions#UPDATE"/> permission on <seealso cref="Resources#PROCESS_DEFINITION"/>.
+	  ///          If the user has no <seealso cref="Permissions.UPDATE"/> permission on <seealso cref="Resources.PROCESS_DEFINITION"/>.
 	  /// </exception>
 	  /// <seealso cref= #activateJobByProcessDefinitionId(String) </seealso>
 	  void activateJobDefinitionByProcessDefinitionId(string processDefinitionId);
@@ -238,12 +238,12 @@ namespace org.camunda.bpm.engine
 	  /// will be <strong>not</strong> activated.
 	  /// </para>
 	  /// 
-	  /// <para>Note: for more complex activate commands use <seealso cref="#updateJobDefinitionSuspensionState()"/>.</para>
+	  /// <para>Note: for more complex activate commands use <seealso cref="updateJobDefinitionSuspensionState()"/>.</para>
 	  /// </summary>
 	  /// <exception cref="ProcessEngineException">
 	  ///          If the process definition key is equal null. </exception>
 	  /// <exception cref="AuthorizationException">
-	  ///          If the user has no <seealso cref="Permissions#UPDATE"/> permission on <seealso cref="Resources#PROCESS_DEFINITION"/>.
+	  ///          If the user has no <seealso cref="Permissions.UPDATE"/> permission on <seealso cref="Resources.PROCESS_DEFINITION"/>.
 	  /// </exception>
 	  /// <seealso cref= #activateJobByProcessDefinitionKey(String) </seealso>
 	  void activateJobDefinitionByProcessDefinitionKey(string processDefinitionKey);
@@ -251,7 +251,7 @@ namespace org.camunda.bpm.engine
 	  /// <summary>
 	  /// <para>Activates the <seealso cref="JobDefinition"/> with the given id immediately.</para>
 	  /// 
-	  /// <para>Note: for more complex activate commands use <seealso cref="#updateJobDefinitionSuspensionState()"/>.</para>
+	  /// <para>Note: for more complex activate commands use <seealso cref="updateJobDefinitionSuspensionState()"/>.</para>
 	  /// </summary>
 	  /// <param name="activateJobs"> If true, all the <seealso cref="Job"/>s of the provided job definition
 	  ///                     will be activated too.
@@ -260,13 +260,13 @@ namespace org.camunda.bpm.engine
 	  ///          If the job definition id is equal null. </exception>
 	  /// <exception cref="AuthorizationException"> thrown if the current user does not possess
 	  ///   <ul>
-	  ///     <li><seealso cref="Permissions#UPDATE"/> on <seealso cref="Resources#PROCESS_DEFINITION"/></li>
+	  ///     <li><seealso cref="Permissions.UPDATE"/> on <seealso cref="Resources.PROCESS_DEFINITION"/></li>
 	  ///   </ul>
 	  /// 
 	  ///   If <code>activateJobs</code> is <code>true</code>, the user must further possess one of the following permissions:
 	  ///   <ul>
-	  ///     <li><seealso cref="Permissions#UPDATE_INSTANCE"/> on <seealso cref="Resources#PROCESS_DEFINITION"/></li>
-	  ///     <li><seealso cref="Permissions#UPDATE"/> on any <seealso cref="Resources#PROCESS_INSTANCE"/></li>
+	  ///     <li><seealso cref="Permissions.UPDATE_INSTANCE"/> on <seealso cref="Resources.PROCESS_DEFINITION"/></li>
+	  ///     <li><seealso cref="Permissions.UPDATE"/> on any <seealso cref="Resources.PROCESS_INSTANCE"/></li>
 	  ///   </ul>
 	  /// </exception>
 	  /// <seealso cref= #activateJobById(String) </seealso>
@@ -276,7 +276,7 @@ namespace org.camunda.bpm.engine
 	  /// <summary>
 	  /// <para>Activates all <seealso cref="JobDefinition"/>s of the provided process definition id immediately.</para>
 	  /// 
-	  /// <para>Note: for more complex activate commands use <seealso cref="#updateJobDefinitionSuspensionState()"/>.</para>
+	  /// <para>Note: for more complex activate commands use <seealso cref="updateJobDefinitionSuspensionState()"/>.</para>
 	  /// </summary>
 	  /// <param name="activateJobs"> If true, all the <seealso cref="Job"/>s of the provided job definition
 	  ///                     will be activated too.
@@ -285,13 +285,13 @@ namespace org.camunda.bpm.engine
 	  ///          If the process definition id is equal null. </exception>
 	  /// <exception cref="AuthorizationException"> thrown if the current user does not possess
 	  ///   <ul>
-	  ///     <li><seealso cref="Permissions#UPDATE"/> on <seealso cref="Resources#PROCESS_DEFINITION"/></li>
+	  ///     <li><seealso cref="Permissions.UPDATE"/> on <seealso cref="Resources.PROCESS_DEFINITION"/></li>
 	  ///   </ul>
 	  /// 
 	  ///   If <code>activateJobs</code> is <code>true</code>, the user must further possess one of the following permissions:
 	  ///   <ul>
-	  ///     <li><seealso cref="Permissions#UPDATE_INSTANCE"/> on <seealso cref="Resources#PROCESS_DEFINITION"/></li>
-	  ///     <li><seealso cref="Permissions#UPDATE"/> on any <seealso cref="Resources#PROCESS_INSTANCE"/></li>
+	  ///     <li><seealso cref="Permissions.UPDATE_INSTANCE"/> on <seealso cref="Resources.PROCESS_DEFINITION"/></li>
+	  ///     <li><seealso cref="Permissions.UPDATE"/> on any <seealso cref="Resources.PROCESS_INSTANCE"/></li>
 	  ///   </ul>
 	  /// </exception>
 	  /// <seealso cref= #activateJobByProcessDefinitionId(String) </seealso>
@@ -300,7 +300,7 @@ namespace org.camunda.bpm.engine
 	  /// <summary>
 	  /// <para>Activates all <seealso cref="JobDefinition"/>s of the provided process definition key immediately.</para>
 	  /// 
-	  /// <para>Note: for more complex activate commands use <seealso cref="#updateJobDefinitionSuspensionState()"/>.</para>
+	  /// <para>Note: for more complex activate commands use <seealso cref="updateJobDefinitionSuspensionState()"/>.</para>
 	  /// </summary>
 	  /// <param name="activateJobs"> If true, all the <seealso cref="Job"/>s of the provided job definition
 	  ///                     will be activated too.
@@ -309,13 +309,13 @@ namespace org.camunda.bpm.engine
 	  ///          If the process definition key is equal null. </exception>
 	  /// <exception cref="AuthorizationException"> thrown if the current user does not possess
 	  ///   <ul>
-	  ///     <li><seealso cref="Permissions#UPDATE"/> on <seealso cref="Resources#PROCESS_DEFINITION"/></li>
+	  ///     <li><seealso cref="Permissions.UPDATE"/> on <seealso cref="Resources.PROCESS_DEFINITION"/></li>
 	  ///   </ul>
 	  /// 
 	  ///   If <code>activateJobs</code> is <code>true</code>, the user must further possess one of the following permissions:
 	  ///   <ul>
-	  ///     <li><seealso cref="Permissions#UPDATE_INSTANCE"/> on <seealso cref="Resources#PROCESS_DEFINITION"/></li>
-	  ///     <li><seealso cref="Permissions#UPDATE"/> on any <seealso cref="Resources#PROCESS_INSTANCE"/></li>
+	  ///     <li><seealso cref="Permissions.UPDATE_INSTANCE"/> on <seealso cref="Resources.PROCESS_DEFINITION"/></li>
+	  ///     <li><seealso cref="Permissions.UPDATE"/> on any <seealso cref="Resources.PROCESS_INSTANCE"/></li>
 	  ///   </ul>
 	  /// </exception>
 	  /// <seealso cref= #activateJobByProcessDefinitionKey(String) </seealso>
@@ -324,7 +324,7 @@ namespace org.camunda.bpm.engine
 	  /// <summary>
 	  /// Activates the <seealso cref="JobDefinition"/> with the given id.
 	  /// 
-	  /// <para>Note: for more complex activate commands use <seealso cref="#updateJobDefinitionSuspensionState()"/>.</para>
+	  /// <para>Note: for more complex activate commands use <seealso cref="updateJobDefinitionSuspensionState()"/>.</para>
 	  /// </summary>
 	  /// <param name="activateJobs"> If true, all the <seealso cref="Job"/>s of the provided job definition
 	  ///                     will be activated too.
@@ -337,13 +337,13 @@ namespace org.camunda.bpm.engine
 	  ///          If the job definition id is equal null. </exception>
 	  /// <exception cref="AuthorizationException"> thrown if the current user does not possess
 	  ///   <ul>
-	  ///     <li><seealso cref="Permissions#UPDATE"/> on <seealso cref="Resources#PROCESS_DEFINITION"/></li>
+	  ///     <li><seealso cref="Permissions.UPDATE"/> on <seealso cref="Resources.PROCESS_DEFINITION"/></li>
 	  ///   </ul>
 	  /// 
 	  ///   If <code>activateJobs</code> is <code>true</code>, the user must further possess one of the following permissions:
 	  ///   <ul>
-	  ///     <li><seealso cref="Permissions#UPDATE_INSTANCE"/> on <seealso cref="Resources#PROCESS_DEFINITION"/></li>
-	  ///     <li><seealso cref="Permissions#UPDATE"/> on any <seealso cref="Resources#PROCESS_INSTANCE"/></li>
+	  ///     <li><seealso cref="Permissions.UPDATE_INSTANCE"/> on <seealso cref="Resources.PROCESS_DEFINITION"/></li>
+	  ///     <li><seealso cref="Permissions.UPDATE"/> on any <seealso cref="Resources.PROCESS_INSTANCE"/></li>
 	  ///   </ul>
 	  /// </exception>
 	  /// <seealso cref= #activateJobById(String) </seealso>
@@ -353,7 +353,7 @@ namespace org.camunda.bpm.engine
 	  /// <summary>
 	  /// <para>Activates all <seealso cref="JobDefinition"/>s of the provided process definition id.</para>
 	  /// 
-	  /// <para>Note: for more complex activate commands use <seealso cref="#updateJobDefinitionSuspensionState()"/>.</para>
+	  /// <para>Note: for more complex activate commands use <seealso cref="updateJobDefinitionSuspensionState()"/>.</para>
 	  /// </summary>
 	  /// <param name="activateJobs"> If true, all the <seealso cref="Job"/>s of the provided job definition
 	  ///                     will be activated too.
@@ -366,13 +366,13 @@ namespace org.camunda.bpm.engine
 	  ///          If the process definition id is equal null. </exception>
 	  /// <exception cref="AuthorizationException"> thrown if the current user does not possess
 	  ///   <ul>
-	  ///     <li><seealso cref="Permissions#UPDATE"/> on <seealso cref="Resources#PROCESS_DEFINITION"/></li>
+	  ///     <li><seealso cref="Permissions.UPDATE"/> on <seealso cref="Resources.PROCESS_DEFINITION"/></li>
 	  ///   </ul>
 	  /// 
 	  ///   If <code>activateJobs</code> is <code>true</code>, the user must further possess one of the following permissions:
 	  ///   <ul>
-	  ///     <li><seealso cref="Permissions#UPDATE_INSTANCE"/> on <seealso cref="Resources#PROCESS_DEFINITION"/></li>
-	  ///     <li><seealso cref="Permissions#UPDATE"/> on any <seealso cref="Resources#PROCESS_INSTANCE"/></li>
+	  ///     <li><seealso cref="Permissions.UPDATE_INSTANCE"/> on <seealso cref="Resources.PROCESS_DEFINITION"/></li>
+	  ///     <li><seealso cref="Permissions.UPDATE"/> on any <seealso cref="Resources.PROCESS_INSTANCE"/></li>
 	  ///   </ul>
 	  /// </exception>
 	  /// <seealso cref= #activateJobByProcessDefinitionId(String) </seealso>
@@ -381,7 +381,7 @@ namespace org.camunda.bpm.engine
 	  /// <summary>
 	  /// <para>Activates all <seealso cref="JobDefinition"/>s of the provided process definition key.</para>
 	  /// 
-	  /// <para>Note: for more complex activate commands use <seealso cref="#updateJobDefinitionSuspensionState()"/>.</para>
+	  /// <para>Note: for more complex activate commands use <seealso cref="updateJobDefinitionSuspensionState()"/>.</para>
 	  /// </summary>
 	  /// <param name="activateJobs"> If true, all the <seealso cref="Job"/>s of the provided job definition
 	  ///                     will be activated too.
@@ -394,13 +394,13 @@ namespace org.camunda.bpm.engine
 	  ///          If the process definition key is equal null. </exception>
 	  /// <exception cref="AuthorizationException"> thrown if the current user does not possess
 	  ///   <ul>
-	  ///     <li><seealso cref="Permissions#UPDATE"/> on <seealso cref="Resources#PROCESS_DEFINITION"/></li>
+	  ///     <li><seealso cref="Permissions.UPDATE"/> on <seealso cref="Resources.PROCESS_DEFINITION"/></li>
 	  ///   </ul>
 	  /// 
 	  ///   If <code>activateJobs</code> is <code>true</code>, the user must further possess one of the following permissions:
 	  ///   <ul>
-	  ///     <li><seealso cref="Permissions#UPDATE_INSTANCE"/> on <seealso cref="Resources#PROCESS_DEFINITION"/></li>
-	  ///     <li><seealso cref="Permissions#UPDATE"/> on any <seealso cref="Resources#PROCESS_INSTANCE"/></li>
+	  ///     <li><seealso cref="Permissions.UPDATE_INSTANCE"/> on <seealso cref="Resources.PROCESS_DEFINITION"/></li>
+	  ///     <li><seealso cref="Permissions.UPDATE"/> on any <seealso cref="Resources.PROCESS_INSTANCE"/></li>
 	  ///   </ul>
 	  /// </exception>
 	  /// <seealso cref= #activateJobByProcessDefinitionKey(String) </seealso>
@@ -409,7 +409,7 @@ namespace org.camunda.bpm.engine
 	  /// <summary>
 	  /// <para>Suspends the <seealso cref="JobDefinition"/> with the given id immediately.</para>
 	  /// 
-	  /// <para>Note: for more complex suspend commands use <seealso cref="#updateJobDefinitionSuspensionState()"/>.</para>
+	  /// <para>Note: for more complex suspend commands use <seealso cref="updateJobDefinitionSuspensionState()"/>.</para>
 	  /// 
 	  /// <para>
 	  /// <strong>Note:</strong> All <seealso cref="Job"/>s of the provided job definition
@@ -419,7 +419,7 @@ namespace org.camunda.bpm.engine
 	  /// <exception cref="ProcessEngineException">
 	  ///          If no such job definition can be found. </exception>
 	  /// <exception cref="AuthorizationException">
-	  ///          If the user has no <seealso cref="Permissions#UPDATE"/> permission on <seealso cref="Resources#PROCESS_DEFINITION"/>.
+	  ///          If the user has no <seealso cref="Permissions.UPDATE"/> permission on <seealso cref="Resources.PROCESS_DEFINITION"/>.
 	  /// </exception>
 	  /// <seealso cref= #suspendJobById(String) </seealso>
 	  /// <seealso cref= #suspendJobByJobDefinitionId(String) </seealso>
@@ -428,7 +428,7 @@ namespace org.camunda.bpm.engine
 	  /// <summary>
 	  /// <para>Suspends all <seealso cref="JobDefinition"/> of the provided process definition id immediately.</para>
 	  /// 
-	  /// <para>Note: for more complex suspend commands use <seealso cref="#updateJobDefinitionSuspensionState()"/>.</para>
+	  /// <para>Note: for more complex suspend commands use <seealso cref="updateJobDefinitionSuspensionState()"/>.</para>
 	  /// 
 	  /// <para>
 	  /// <strong>Note:</strong> All <seealso cref="Job"/>s of the provided job definition
@@ -438,7 +438,7 @@ namespace org.camunda.bpm.engine
 	  /// <exception cref="ProcessEngineException">
 	  ///          If the process definition id is equal null. </exception>
 	  /// <exception cref="AuthorizationException">
-	  ///          If the user has no <seealso cref="Permissions#UPDATE"/> permission on <seealso cref="Resources#PROCESS_DEFINITION"/>.
+	  ///          If the user has no <seealso cref="Permissions.UPDATE"/> permission on <seealso cref="Resources.PROCESS_DEFINITION"/>.
 	  /// </exception>
 	  /// <seealso cref= #suspendJobByProcessDefinitionId(String) </seealso>
 	  void suspendJobDefinitionByProcessDefinitionId(string processDefinitionId);
@@ -446,7 +446,7 @@ namespace org.camunda.bpm.engine
 	  /// <summary>
 	  /// <para>Suspends all <seealso cref="JobDefinition"/> of the provided process definition key immediately.</para>
 	  /// 
-	  /// <para>Note: for more complex suspend commands use <seealso cref="#updateJobDefinitionSuspensionState()"/>.</para>
+	  /// <para>Note: for more complex suspend commands use <seealso cref="updateJobDefinitionSuspensionState()"/>.</para>
 	  /// 
 	  /// <para>
 	  /// <strong>Note:</strong> All <seealso cref="Job"/>s of the provided job definition
@@ -456,7 +456,7 @@ namespace org.camunda.bpm.engine
 	  /// <exception cref="ProcessEngineException">
 	  ///          If the process definition key is equal null. </exception>
 	  /// <exception cref="AuthorizationException">
-	  ///          If the user has no <seealso cref="Permissions#UPDATE"/> permission on <seealso cref="Resources#PROCESS_DEFINITION"/>.
+	  ///          If the user has no <seealso cref="Permissions.UPDATE"/> permission on <seealso cref="Resources.PROCESS_DEFINITION"/>.
 	  /// </exception>
 	  /// <seealso cref= #suspendJobByProcessDefinitionKey(String) </seealso>
 	  void suspendJobDefinitionByProcessDefinitionKey(string processDefinitionKey);
@@ -464,7 +464,7 @@ namespace org.camunda.bpm.engine
 	  /// <summary>
 	  /// Suspends the <seealso cref="JobDefinition"/> with the given id immediately.
 	  /// 
-	  /// <para>Note: for more complex suspend commands use <seealso cref="#updateJobDefinitionSuspensionState()"/>.</para>
+	  /// <para>Note: for more complex suspend commands use <seealso cref="updateJobDefinitionSuspensionState()"/>.</para>
 	  /// </summary>
 	  /// <param name="suspendJobs"> If true, all the <seealso cref="Job"/>s of the provided job definition
 	  ///                     will be suspended too.
@@ -473,13 +473,13 @@ namespace org.camunda.bpm.engine
 	  ///          If the job definition id is equal null. </exception>
 	  /// <exception cref="AuthorizationException"> thrown if the current user does not possess
 	  ///   <ul>
-	  ///     <li><seealso cref="Permissions#UPDATE"/> on <seealso cref="Resources#PROCESS_DEFINITION"/></li>
+	  ///     <li><seealso cref="Permissions.UPDATE"/> on <seealso cref="Resources.PROCESS_DEFINITION"/></li>
 	  ///   </ul>
 	  /// 
 	  ///   If <code>suspendJobs</code> is <code>true</code>, the user must further possess one of the following permissions:
 	  ///   <ul>
-	  ///     <li><seealso cref="Permissions#UPDATE_INSTANCE"/> on <seealso cref="Resources#PROCESS_DEFINITION"/></li>
-	  ///     <li><seealso cref="Permissions#UPDATE"/> on any <seealso cref="Resources#PROCESS_INSTANCE"/></li>
+	  ///     <li><seealso cref="Permissions.UPDATE_INSTANCE"/> on <seealso cref="Resources.PROCESS_DEFINITION"/></li>
+	  ///     <li><seealso cref="Permissions.UPDATE"/> on any <seealso cref="Resources.PROCESS_INSTANCE"/></li>
 	  ///   </ul>
 	  /// </exception>
 	  /// <seealso cref= #suspendJobById(String) </seealso>
@@ -489,7 +489,7 @@ namespace org.camunda.bpm.engine
 	  /// <summary>
 	  /// Suspends all <seealso cref="JobDefinition"/>s of the provided process definition id immediately.
 	  /// 
-	  /// <para>Note: for more complex suspend commands use <seealso cref="#updateJobDefinitionSuspensionState()"/>.</para>
+	  /// <para>Note: for more complex suspend commands use <seealso cref="updateJobDefinitionSuspensionState()"/>.</para>
 	  /// </summary>
 	  /// <param name="suspendJobs"> If true, all the <seealso cref="Job"/>s of the provided job definition
 	  ///                     will be suspended too.
@@ -498,13 +498,13 @@ namespace org.camunda.bpm.engine
 	  ///          If the process definition id is equal null. </exception>
 	  /// <exception cref="AuthorizationException"> thrown if the current user does not possess
 	  ///   <ul>
-	  ///     <li><seealso cref="Permissions#UPDATE"/> on <seealso cref="Resources#PROCESS_DEFINITION"/></li>
+	  ///     <li><seealso cref="Permissions.UPDATE"/> on <seealso cref="Resources.PROCESS_DEFINITION"/></li>
 	  ///   </ul>
 	  /// 
 	  ///   If <code>suspendJobs</code> is <code>true</code>, the user must further possess one of the following permissions:
 	  ///   <ul>
-	  ///     <li><seealso cref="Permissions#UPDATE_INSTANCE"/> on <seealso cref="Resources#PROCESS_DEFINITION"/></li>
-	  ///     <li><seealso cref="Permissions#UPDATE"/> on any <seealso cref="Resources#PROCESS_INSTANCE"/></li>
+	  ///     <li><seealso cref="Permissions.UPDATE_INSTANCE"/> on <seealso cref="Resources.PROCESS_DEFINITION"/></li>
+	  ///     <li><seealso cref="Permissions.UPDATE"/> on any <seealso cref="Resources.PROCESS_INSTANCE"/></li>
 	  ///   </ul>
 	  /// </exception>
 	  /// <seealso cref= #suspendJobByProcessDefinitionId(String) </seealso>
@@ -513,7 +513,7 @@ namespace org.camunda.bpm.engine
 	  /// <summary>
 	  /// Suspends all <seealso cref="JobDefinition"/>s of the provided process definition key immediately.
 	  /// 
-	  /// <para>Note: for more complex suspend commands use <seealso cref="#updateJobDefinitionSuspensionState()"/>.</para>
+	  /// <para>Note: for more complex suspend commands use <seealso cref="updateJobDefinitionSuspensionState()"/>.</para>
 	  /// </summary>
 	  /// <param name="suspendJobs"> If true, all the <seealso cref="Job"/>s of the provided job definition
 	  ///                     will be suspended too.
@@ -522,13 +522,13 @@ namespace org.camunda.bpm.engine
 	  ///          If the process definition key is equal null. </exception>
 	  /// <exception cref="AuthorizationException"> thrown if the current user does not possess
 	  ///   <ul>
-	  ///     <li><seealso cref="Permissions#UPDATE"/> on <seealso cref="Resources#PROCESS_DEFINITION"/></li>
+	  ///     <li><seealso cref="Permissions.UPDATE"/> on <seealso cref="Resources.PROCESS_DEFINITION"/></li>
 	  ///   </ul>
 	  /// 
 	  ///   If <code>suspendJobs</code> is <code>true</code>, the user must further possess one of the following permissions:
 	  ///   <ul>
-	  ///     <li><seealso cref="Permissions#UPDATE_INSTANCE"/> on <seealso cref="Resources#PROCESS_DEFINITION"/></li>
-	  ///     <li><seealso cref="Permissions#UPDATE"/> on any <seealso cref="Resources#PROCESS_INSTANCE"/></li>
+	  ///     <li><seealso cref="Permissions.UPDATE_INSTANCE"/> on <seealso cref="Resources.PROCESS_DEFINITION"/></li>
+	  ///     <li><seealso cref="Permissions.UPDATE"/> on any <seealso cref="Resources.PROCESS_INSTANCE"/></li>
 	  ///   </ul>
 	  /// </exception>
 	  /// <seealso cref= #suspendJobByProcessDefinitionKey(String) </seealso>
@@ -537,7 +537,7 @@ namespace org.camunda.bpm.engine
 	  /// <summary>
 	  /// Suspends the <seealso cref="JobDefinition"/> with the given id.
 	  /// 
-	  /// <para>Note: for more complex suspend commands use <seealso cref="#updateJobDefinitionSuspensionState()"/>.</para>
+	  /// <para>Note: for more complex suspend commands use <seealso cref="updateJobDefinitionSuspensionState()"/>.</para>
 	  /// </summary>
 	  /// <param name="suspendJobs"> If true, all the <seealso cref="Job"/>s of the provided job definition
 	  ///                     will be suspended too.
@@ -550,13 +550,13 @@ namespace org.camunda.bpm.engine
 	  ///          If the job definition id is equal null. </exception>
 	  /// <exception cref="AuthorizationException"> thrown if the current user does not possess
 	  ///   <ul>
-	  ///     <li><seealso cref="Permissions#UPDATE"/> on <seealso cref="Resources#PROCESS_DEFINITION"/></li>
+	  ///     <li><seealso cref="Permissions.UPDATE"/> on <seealso cref="Resources.PROCESS_DEFINITION"/></li>
 	  ///   </ul>
 	  /// 
 	  ///   If <code>suspendJobs</code> is <code>true</code>, the user must further possess one of the following permissions:
 	  ///   <ul>
-	  ///     <li><seealso cref="Permissions#UPDATE_INSTANCE"/> on <seealso cref="Resources#PROCESS_DEFINITION"/></li>
-	  ///     <li><seealso cref="Permissions#UPDATE"/> on any <seealso cref="Resources#PROCESS_INSTANCE"/></li>
+	  ///     <li><seealso cref="Permissions.UPDATE_INSTANCE"/> on <seealso cref="Resources.PROCESS_DEFINITION"/></li>
+	  ///     <li><seealso cref="Permissions.UPDATE"/> on any <seealso cref="Resources.PROCESS_INSTANCE"/></li>
 	  ///   </ul>
 	  /// </exception>
 	  /// <seealso cref= #suspendJobById(String) </seealso>
@@ -566,7 +566,7 @@ namespace org.camunda.bpm.engine
 	  /// <summary>
 	  /// Suspends all <seealso cref="JobDefinition"/>s of the provided process definition id.
 	  /// 
-	  /// <para>Note: for more complex suspend commands use <seealso cref="#updateJobDefinitionSuspensionState()"/>.</para>
+	  /// <para>Note: for more complex suspend commands use <seealso cref="updateJobDefinitionSuspensionState()"/>.</para>
 	  /// </summary>
 	  /// <param name="suspendJobs"> If true, all the <seealso cref="Job"/>s of the provided job definition
 	  ///                     will be suspended too.
@@ -579,13 +579,13 @@ namespace org.camunda.bpm.engine
 	  ///          If the process definition id is equal null. </exception>
 	  /// <exception cref="AuthorizationException"> thrown if the current user does not possess
 	  ///   <ul>
-	  ///     <li><seealso cref="Permissions#UPDATE"/> on <seealso cref="Resources#PROCESS_DEFINITION"/></li>
+	  ///     <li><seealso cref="Permissions.UPDATE"/> on <seealso cref="Resources.PROCESS_DEFINITION"/></li>
 	  ///   </ul>
 	  /// 
 	  ///   If <code>suspendJobs</code> is <code>true</code>, the user must further possess one of the following permissions:
 	  ///   <ul>
-	  ///     <li><seealso cref="Permissions#UPDATE_INSTANCE"/> on <seealso cref="Resources#PROCESS_DEFINITION"/></li>
-	  ///     <li><seealso cref="Permissions#UPDATE"/> on any <seealso cref="Resources#PROCESS_INSTANCE"/></li>
+	  ///     <li><seealso cref="Permissions.UPDATE_INSTANCE"/> on <seealso cref="Resources.PROCESS_DEFINITION"/></li>
+	  ///     <li><seealso cref="Permissions.UPDATE"/> on any <seealso cref="Resources.PROCESS_INSTANCE"/></li>
 	  ///   </ul>
 	  /// </exception>
 	  /// <seealso cref= #suspendJobByProcessDefinitionId(String) </seealso>
@@ -594,7 +594,7 @@ namespace org.camunda.bpm.engine
 	  /// <summary>
 	  /// Suspends all <seealso cref="JobDefinition"/>s of the provided process definition key.
 	  /// 
-	  /// <para>Note: for more complex suspend commands use <seealso cref="#updateJobDefinitionSuspensionState()"/>.</para>
+	  /// <para>Note: for more complex suspend commands use <seealso cref="updateJobDefinitionSuspensionState()"/>.</para>
 	  /// </summary>
 	  /// <param name="suspendJobs"> If true, all the <seealso cref="Job"/>s of the provided job definition
 	  ///                     will be suspended too.
@@ -607,13 +607,13 @@ namespace org.camunda.bpm.engine
 	  ///          If the process definition key is equal null. </exception>
 	  /// <exception cref="AuthorizationException"> thrown if the current user does not possess
 	  ///   <ul>
-	  ///     <li><seealso cref="Permissions#UPDATE"/> on <seealso cref="Resources#PROCESS_DEFINITION"/></li>
+	  ///     <li><seealso cref="Permissions.UPDATE"/> on <seealso cref="Resources.PROCESS_DEFINITION"/></li>
 	  ///   </ul>
 	  /// 
 	  ///   If <code>suspendJobs</code> is <code>true</code>, the user must further possess one of the following permissions:
 	  ///   <ul>
-	  ///     <li><seealso cref="Permissions#UPDATE_INSTANCE"/> on <seealso cref="Resources#PROCESS_DEFINITION"/></li>
-	  ///     <li><seealso cref="Permissions#UPDATE"/> on any <seealso cref="Resources#PROCESS_INSTANCE"/></li>
+	  ///     <li><seealso cref="Permissions.UPDATE_INSTANCE"/> on <seealso cref="Resources.PROCESS_DEFINITION"/></li>
+	  ///     <li><seealso cref="Permissions.UPDATE"/> on any <seealso cref="Resources.PROCESS_INSTANCE"/></li>
 	  ///   </ul>
 	  /// </exception>
 	  /// <seealso cref= #suspendJobByProcessDefinitionKey(String) </seealso>
@@ -622,128 +622,128 @@ namespace org.camunda.bpm.engine
 	  /// <summary>
 	  /// <para>Activates the <seealso cref="Job"/> with the given id.</para>
 	  /// 
-	  /// <para>Note: for more complex activate commands use <seealso cref="#updateJobSuspensionState()"/>.</para>
+	  /// <para>Note: for more complex activate commands use <seealso cref="updateJobSuspensionState()"/>.</para>
 	  /// </summary>
 	  /// <exception cref="ProcessEngineException">
 	  ///          If the job id is equal null. </exception>
 	  /// <exception cref="AuthorizationException">
-	  ///          If the user has no <seealso cref="Permissions#UPDATE"/> permission on <seealso cref="Resources#PROCESS_INSTANCE"/>
-	  ///          or no <seealso cref="Permissions#UPDATE_INSTANCE"/> permission on <seealso cref="Resources#PROCESS_DEFINITION"/>. </exception>
+	  ///          If the user has no <seealso cref="Permissions.UPDATE"/> permission on <seealso cref="Resources.PROCESS_INSTANCE"/>
+	  ///          or no <seealso cref="Permissions.UPDATE_INSTANCE"/> permission on <seealso cref="Resources.PROCESS_DEFINITION"/>. </exception>
 	  void activateJobById(string jobId);
 
 	  /// <summary>
 	  /// <para>Activates all <seealso cref="Job"/>s of the provided job definition id.</para>
 	  /// 
-	  /// <para>Note: for more complex activate commands use <seealso cref="#updateJobSuspensionState()"/>.</para>
+	  /// <para>Note: for more complex activate commands use <seealso cref="updateJobSuspensionState()"/>.</para>
 	  /// </summary>
 	  /// <exception cref="ProcessEngineException">
 	  ///          If the job definition id is equal null. </exception>
 	  /// <exception cref="AuthorizationException">
-	  ///          If the user has no <seealso cref="Permissions#UPDATE"/> permission on <seealso cref="Resources#PROCESS_INSTANCE"/>
-	  ///          or no <seealso cref="Permissions#UPDATE_INSTANCE"/> permission on <seealso cref="Resources#PROCESS_DEFINITION"/>. </exception>
+	  ///          If the user has no <seealso cref="Permissions.UPDATE"/> permission on <seealso cref="Resources.PROCESS_INSTANCE"/>
+	  ///          or no <seealso cref="Permissions.UPDATE_INSTANCE"/> permission on <seealso cref="Resources.PROCESS_DEFINITION"/>. </exception>
 	  void activateJobByJobDefinitionId(string jobDefinitionId);
 
 	  /// <summary>
 	  /// <para>Activates all <seealso cref="Job"/>s of the provided process instance id.</para>
 	  /// 
-	  /// <para>Note: for more complex activate commands use <seealso cref="#updateJobSuspensionState()"/>.</para>
+	  /// <para>Note: for more complex activate commands use <seealso cref="updateJobSuspensionState()"/>.</para>
 	  /// </summary>
 	  /// <exception cref="ProcessEngineException">
 	  ///          If the process instance id is equal null. </exception>
 	  /// <exception cref="AuthorizationException">
-	  ///          If the user has no <seealso cref="Permissions#UPDATE"/> permission on <seealso cref="Resources#PROCESS_INSTANCE"/>
-	  ///          or no <seealso cref="Permissions#UPDATE_INSTANCE"/> permission on <seealso cref="Resources#PROCESS_DEFINITION"/>. </exception>
+	  ///          If the user has no <seealso cref="Permissions.UPDATE"/> permission on <seealso cref="Resources.PROCESS_INSTANCE"/>
+	  ///          or no <seealso cref="Permissions.UPDATE_INSTANCE"/> permission on <seealso cref="Resources.PROCESS_DEFINITION"/>. </exception>
 	  void activateJobByProcessInstanceId(string processInstanceId);
 
 	  /// <summary>
 	  /// <para>Activates all <seealso cref="Job"/>s of the provided process definition id.</para>
 	  /// 
-	  /// <para>Note: for more complex activate commands use <seealso cref="#updateJobSuspensionState()"/>.</para>
+	  /// <para>Note: for more complex activate commands use <seealso cref="updateJobSuspensionState()"/>.</para>
 	  /// </summary>
 	  /// <exception cref="ProcessEngineException">
 	  ///          If the process definition id is equal null. </exception>
 	  /// <exception cref="AuthorizationException">
-	  ///          If the user has no <seealso cref="Permissions#UPDATE"/> permission on <seealso cref="Resources#PROCESS_INSTANCE"/>
-	  ///          or no <seealso cref="Permissions#UPDATE_INSTANCE"/> permission on <seealso cref="Resources#PROCESS_DEFINITION"/>. </exception>
+	  ///          If the user has no <seealso cref="Permissions.UPDATE"/> permission on <seealso cref="Resources.PROCESS_INSTANCE"/>
+	  ///          or no <seealso cref="Permissions.UPDATE_INSTANCE"/> permission on <seealso cref="Resources.PROCESS_DEFINITION"/>. </exception>
 	  void activateJobByProcessDefinitionId(string processDefinitionId);
 
 	  /// <summary>
 	  /// <para>Activates <seealso cref="Job"/>s of the provided process definition key.</para>
 	  /// 
-	  /// <para>Note: for more complex activate commands use <seealso cref="#updateJobSuspensionState()"/>.</para>
+	  /// <para>Note: for more complex activate commands use <seealso cref="updateJobSuspensionState()"/>.</para>
 	  /// </summary>
 	  /// <exception cref="ProcessEngineException">
 	  ///          If the process definition key is equal null. </exception>
 	  /// <exception cref="AuthorizationException">
-	  ///          If the user has no <seealso cref="Permissions#UPDATE"/> permission on <seealso cref="Resources#PROCESS_INSTANCE"/>
-	  ///          or no <seealso cref="Permissions#UPDATE_INSTANCE"/> permission on <seealso cref="Resources#PROCESS_DEFINITION"/>. </exception>
+	  ///          If the user has no <seealso cref="Permissions.UPDATE"/> permission on <seealso cref="Resources.PROCESS_INSTANCE"/>
+	  ///          or no <seealso cref="Permissions.UPDATE_INSTANCE"/> permission on <seealso cref="Resources.PROCESS_DEFINITION"/>. </exception>
 	  void activateJobByProcessDefinitionKey(string processDefinitionKey);
 
 	  /// <summary>
 	  /// <para>Suspends the <seealso cref="Job"/> with the given id.</para>
 	  /// 
-	  /// <para>Note: for more complex suspend commands use <seealso cref="#updateJobSuspensionState()"/>.</para>
+	  /// <para>Note: for more complex suspend commands use <seealso cref="updateJobSuspensionState()"/>.</para>
 	  /// </summary>
 	  /// <exception cref="ProcessEngineException">
 	  ///          If the job id is equal null. </exception>
 	  /// <exception cref="AuthorizationException">
-	  ///          If the user has no <seealso cref="Permissions#UPDATE"/> permission on <seealso cref="Resources#PROCESS_INSTANCE"/>
-	  ///          or no <seealso cref="Permissions#UPDATE_INSTANCE"/> permission on <seealso cref="Resources#PROCESS_DEFINITION"/>. </exception>
+	  ///          If the user has no <seealso cref="Permissions.UPDATE"/> permission on <seealso cref="Resources.PROCESS_INSTANCE"/>
+	  ///          or no <seealso cref="Permissions.UPDATE_INSTANCE"/> permission on <seealso cref="Resources.PROCESS_DEFINITION"/>. </exception>
 	  void suspendJobById(string jobId);
 
 	  /// <summary>
 	  /// <para>Suspends all <seealso cref="Job"/>s of the provided job definition id.</para>
 	  /// 
-	  /// <para>Note: for more complex suspend commands use <seealso cref="#updateJobSuspensionState()"/>.</para>
+	  /// <para>Note: for more complex suspend commands use <seealso cref="updateJobSuspensionState()"/>.</para>
 	  /// </summary>
 	  /// <exception cref="ProcessEngineException">
 	  ///          If the job definition id is equal null. </exception>
 	  /// <exception cref="AuthorizationException">
-	  ///          If the user has no <seealso cref="Permissions#UPDATE"/> permission on <seealso cref="Resources#PROCESS_INSTANCE"/>
-	  ///          or no <seealso cref="Permissions#UPDATE_INSTANCE"/> permission on <seealso cref="Resources#PROCESS_DEFINITION"/>. </exception>
+	  ///          If the user has no <seealso cref="Permissions.UPDATE"/> permission on <seealso cref="Resources.PROCESS_INSTANCE"/>
+	  ///          or no <seealso cref="Permissions.UPDATE_INSTANCE"/> permission on <seealso cref="Resources.PROCESS_DEFINITION"/>. </exception>
 	  void suspendJobByJobDefinitionId(string jobDefinitionId);
 
 	  /// <summary>
 	  /// <para>Suspends all <seealso cref="Job"/>s of the provided process instance id.</para>
 	  /// 
-	  /// <para>Note: for more complex suspend commands use <seealso cref="#updateJobSuspensionState()"/>.</para>
+	  /// <para>Note: for more complex suspend commands use <seealso cref="updateJobSuspensionState()"/>.</para>
 	  /// </summary>
 	  /// <exception cref="ProcessEngineException">
 	  ///          If the process instance id is equal null. </exception>
 	  /// <exception cref="AuthorizationException">
-	  ///          If the user has no <seealso cref="Permissions#UPDATE"/> permission on <seealso cref="Resources#PROCESS_INSTANCE"/>
-	  ///          or no <seealso cref="Permissions#UPDATE_INSTANCE"/> permission on <seealso cref="Resources#PROCESS_DEFINITION"/>. </exception>
+	  ///          If the user has no <seealso cref="Permissions.UPDATE"/> permission on <seealso cref="Resources.PROCESS_INSTANCE"/>
+	  ///          or no <seealso cref="Permissions.UPDATE_INSTANCE"/> permission on <seealso cref="Resources.PROCESS_DEFINITION"/>. </exception>
 	  void suspendJobByProcessInstanceId(string processInstanceId);
 
 	  /// <summary>
 	  /// <para>Suspends all <seealso cref="Job"/>s of the provided process definition id.</para>
 	  /// 
-	  /// <para>Note: for more complex suspend commands use <seealso cref="#updateJobSuspensionState()"/>.</para>
+	  /// <para>Note: for more complex suspend commands use <seealso cref="updateJobSuspensionState()"/>.</para>
 	  /// </summary>
 	  /// <exception cref="ProcessEngineException">
 	  ///          If the process definition id is equal null. </exception>
 	  /// <exception cref="AuthorizationException">
-	  ///          If the user has no <seealso cref="Permissions#UPDATE"/> permission on <seealso cref="Resources#PROCESS_INSTANCE"/>
-	  ///          or no <seealso cref="Permissions#UPDATE_INSTANCE"/> permission on <seealso cref="Resources#PROCESS_DEFINITION"/>. </exception>
+	  ///          If the user has no <seealso cref="Permissions.UPDATE"/> permission on <seealso cref="Resources.PROCESS_INSTANCE"/>
+	  ///          or no <seealso cref="Permissions.UPDATE_INSTANCE"/> permission on <seealso cref="Resources.PROCESS_DEFINITION"/>. </exception>
 	  void suspendJobByProcessDefinitionId(string processDefinitionId);
 
 	  /// <summary>
 	  /// <para>Suspends <seealso cref="Job"/>s of the provided process definition key.</para>
 	  /// 
-	  /// <para>Note: for more complex suspend commands use <seealso cref="#updateJobSuspensionState()"/>.</para>
+	  /// <para>Note: for more complex suspend commands use <seealso cref="updateJobSuspensionState()"/>.</para>
 	  /// </summary>
 	  /// <exception cref="ProcessEngineException">
 	  ///          If the process definition key is equal null. </exception>
 	  /// <exception cref="AuthorizationException">
-	  ///          If the user has no <seealso cref="Permissions#UPDATE"/> permission on <seealso cref="Resources#PROCESS_INSTANCE"/>
-	  ///          or no <seealso cref="Permissions#UPDATE_INSTANCE"/> permission on <seealso cref="Resources#PROCESS_DEFINITION"/>. </exception>
+	  ///          If the user has no <seealso cref="Permissions.UPDATE"/> permission on <seealso cref="Resources.PROCESS_INSTANCE"/>
+	  ///          or no <seealso cref="Permissions.UPDATE_INSTANCE"/> permission on <seealso cref="Resources.PROCESS_DEFINITION"/>. </exception>
 	  void suspendJobByProcessDefinitionKey(string processDefinitionKey);
 
 	  /// <summary>
 	  /// Activate or suspend jobs using a fluent builder. Specify the jobs by
 	  /// calling one of the <i>by</i> methods, like <i>byJobId</i>. To update the
-	  /// suspension state call <seealso cref="UpdateJobSuspensionStateBuilder#activate()"/> or
-	  /// <seealso cref="UpdateJobSuspensionStateBuilder#suspend()"/>.
+	  /// suspension state call <seealso cref="UpdateJobSuspensionStateBuilder.activate()"/> or
+	  /// <seealso cref="UpdateJobSuspensionStateBuilder.suspend()"/>.
 	  /// </summary>
 	  /// <returns> the builder to update the suspension state </returns>
 	  UpdateJobSuspensionStateSelectBuilder updateJobSuspensionState();
@@ -752,8 +752,8 @@ namespace org.camunda.bpm.engine
 	  /// Activate or suspend job definitions using a fluent builder. Specify the job
 	  /// definitions by calling one of the <i>by</i> methods, like
 	  /// <i>byJobDefinitionId</i>. To update the suspension state call
-	  /// <seealso cref="UpdateJobDefinitionSuspensionStateBuilder#activate()"/> or
-	  /// <seealso cref="UpdateJobDefinitionSuspensionStateBuilder#suspend()"/>.
+	  /// <seealso cref="UpdateJobDefinitionSuspensionStateBuilder.activate()"/> or
+	  /// <seealso cref="UpdateJobDefinitionSuspensionStateBuilder.suspend()"/>.
 	  /// </summary>
 	  /// <returns> the builder to update the suspension state </returns>
 	  UpdateJobDefinitionSuspensionStateSelectBuilder updateJobDefinitionSuspensionState();
@@ -769,10 +769,10 @@ namespace org.camunda.bpm.engine
 	  /// <param name="retries"> number of retries.
 	  /// </param>
 	  /// <exception cref="AuthorizationException">
-	  ///          If the user has no <seealso cref="Permissions#UPDATE"/> permission on <seealso cref="Resources#PROCESS_INSTANCE"/>
-	  ///          and no <seealso cref="Permissions#UPDATE_INSTANCE"/> permission on <seealso cref="Resources#PROCESS_DEFINITION"/>
-	  ///          and no <seealso cref="ProcessInstancePermissions#RETRY_JOB"/> permission on <seealso cref="Resources#PROCESS_INSTANCE"/>
-	  ///          and no <seealso cref="ProcessDefinitionPermissions#RETRY_JOB"/> permission on <seealso cref="Resources#PROCESS_DEFINITION"/>. </exception>
+	  ///          If the user has no <seealso cref="Permissions.UPDATE"/> permission on <seealso cref="Resources.PROCESS_INSTANCE"/>
+	  ///          and no <seealso cref="Permissions.UPDATE_INSTANCE"/> permission on <seealso cref="Resources.PROCESS_DEFINITION"/>
+	  ///          and no <seealso cref="ProcessInstancePermissions.RETRY_JOB"/> permission on <seealso cref="Resources.PROCESS_INSTANCE"/>
+	  ///          and no <seealso cref="ProcessDefinitionPermissions.RETRY_JOB"/> permission on <seealso cref="Resources.PROCESS_DEFINITION"/>. </exception>
 	  void setJobRetries(string jobId, int retries);
 
 	  /// <summary>
@@ -787,10 +787,10 @@ namespace org.camunda.bpm.engine
 	  /// </param>
 	  /// <exception cref="BadUserRequestException"> if jobIds is null </exception>
 	  /// <exception cref="AuthorizationException">
-	  ///          If the user has no <seealso cref="Permissions#UPDATE"/> permission on <seealso cref="Resources#PROCESS_INSTANCE"/>
-	  ///          and no <seealso cref="Permissions#UPDATE_INSTANCE"/> permission on <seealso cref="Resources#PROCESS_DEFINITION"/>
-	  ///          and no <seealso cref="Permissions#RETRY_JOB"/> permission on <seealso cref="Resources#PROCESS_INSTANCE"/>
-	  ///          and no <seealso cref="Permissions#RETRY_JOB"/> permission on <seealso cref="Resources#PROCESS_DEFINITION"/>. </exception>
+	  ///          If the user has no <seealso cref="Permissions.UPDATE"/> permission on <seealso cref="Resources.PROCESS_INSTANCE"/>
+	  ///          and no <seealso cref="Permissions.UPDATE_INSTANCE"/> permission on <seealso cref="Resources.PROCESS_DEFINITION"/>
+	  ///          and no <seealso cref="Permissions.RETRY_JOB"/> permission on <seealso cref="Resources.PROCESS_INSTANCE"/>
+	  ///          and no <seealso cref="Permissions.RETRY_JOB"/> permission on <seealso cref="Resources.PROCESS_DEFINITION"/>. </exception>
 	  void setJobRetries(IList<string> jobIds, int retries);
 
 	  /// <summary>
@@ -805,8 +805,8 @@ namespace org.camunda.bpm.engine
 	  /// </param>
 	  /// <exception cref="BadUserRequestException"> if jobIds is null </exception>
 	  /// <exception cref="AuthorizationException">
-	  ///          If the user has no <seealso cref="Permissions#CREATE"/> or
-	  ///          <seealso cref="BatchPermissions#CREATE_BATCH_SET_JOB_RETRIES"/> permission on <seealso cref="Resources#BATCH"/>. </exception>
+	  ///          If the user has no <seealso cref="Permissions.CREATE"/> or
+	  ///          <seealso cref="BatchPermissions.CREATE_BATCH_SET_JOB_RETRIES"/> permission on <seealso cref="Resources.BATCH"/>. </exception>
 	  Batch setJobRetriesAsync(IList<string> jobIds, int retries);
 
 	  /// <summary>
@@ -821,8 +821,8 @@ namespace org.camunda.bpm.engine
 	  /// </param>
 	  /// <exception cref="BadUserRequestException"> if jobQuery is null </exception>
 	  /// <exception cref="AuthorizationException">
-	  ///          If the user has no <seealso cref="Permissions#CREATE"/> or
-	  ///          <seealso cref="BatchPermissions#CREATE_BATCH_SET_JOB_RETRIES"/> permission on <seealso cref="Resources#BATCH"/>. </exception>
+	  ///          If the user has no <seealso cref="Permissions.CREATE"/> or
+	  ///          <seealso cref="BatchPermissions.CREATE_BATCH_SET_JOB_RETRIES"/> permission on <seealso cref="Resources.BATCH"/>. </exception>
 	  Batch setJobRetriesAsync(JobQuery jobQuery, int retries);
 
 	  /// <summary>
@@ -841,8 +841,8 @@ namespace org.camunda.bpm.engine
 	  /// </param>
 	  /// <exception cref="BadUserRequestException"> if neither jobIds, nor jobQuery is provided or result in empty list </exception>
 	  /// <exception cref="AuthorizationException">
-	  ///          If the user has no <seealso cref="Permissions#CREATE"/> or
-	  ///          <seealso cref="BatchPermissions#CREATE_BATCH_SET_JOB_RETRIES"/> permission on <seealso cref="Resources#BATCH"/>. </exception>
+	  ///          If the user has no <seealso cref="Permissions.CREATE"/> or
+	  ///          <seealso cref="BatchPermissions.CREATE_BATCH_SET_JOB_RETRIES"/> permission on <seealso cref="Resources.BATCH"/>. </exception>
 	  Batch setJobRetriesAsync(IList<string> jobIds, JobQuery jobQuery, int retries);
 
 	  /// <summary>
@@ -860,8 +860,8 @@ namespace org.camunda.bpm.engine
 	  /// <param name="retries"> number of retries.
 	  /// </param>
 	  /// <exception cref="AuthorizationException">
-	  ///          If the user has no <seealso cref="Permissions#CREATE"/> or
-	  ///          <seealso cref="BatchPermissions#CREATE_BATCH_SET_JOB_RETRIES"/> permission on <seealso cref="Resources#BATCH"/>. </exception>
+	  ///          If the user has no <seealso cref="Permissions.CREATE"/> or
+	  ///          <seealso cref="BatchPermissions.CREATE_BATCH_SET_JOB_RETRIES"/> permission on <seealso cref="Resources.BATCH"/>. </exception>
 	  Batch setJobRetriesAsync(IList<string> processInstanceIds, ProcessInstanceQuery query, int retries);
 
 	  /// <summary>
@@ -887,10 +887,10 @@ namespace org.camunda.bpm.engine
 	  /// <param name="retries"> number of retries.
 	  /// </param>
 	  /// <exception cref="AuthorizationException">
-	  ///          If the user has no <seealso cref="Permissions#UPDATE"/> permission on <seealso cref="Resources#PROCESS_INSTANCE"/>
-	  ///          and no <seealso cref="Permissions#UPDATE_INSTANCE"/> permission on <seealso cref="Resources#PROCESS_DEFINITION"/>
-	  ///          and no <seealso cref="Permissions#RETRY_JOB"/> permission on <seealso cref="Resources#PROCESS_INSTANCE"/>
-	  ///          and no <seealso cref="Permissions#RETRY_JOB"/> permission on <seealso cref="Resources#PROCESS_DEFINITION"/>. </exception>
+	  ///          If the user has no <seealso cref="Permissions.UPDATE"/> permission on <seealso cref="Resources.PROCESS_INSTANCE"/>
+	  ///          and no <seealso cref="Permissions.UPDATE_INSTANCE"/> permission on <seealso cref="Resources.PROCESS_DEFINITION"/>
+	  ///          and no <seealso cref="Permissions.RETRY_JOB"/> permission on <seealso cref="Resources.PROCESS_INSTANCE"/>
+	  ///          and no <seealso cref="Permissions.RETRY_JOB"/> permission on <seealso cref="Resources.PROCESS_DEFINITION"/>. </exception>
 	  void setJobRetriesByJobDefinitionId(string jobDefinitionId, int retries);
 
 	  /// <summary>
@@ -902,8 +902,8 @@ namespace org.camunda.bpm.engine
 	  /// <param name="newDuedate"> new date for job execution
 	  /// </param>
 	  /// <exception cref="AuthorizationException">
-	  ///          If the user has no <seealso cref="Permissions#UPDATE"/> permission on <seealso cref="Resources#PROCESS_INSTANCE"/>
-	  ///          or no <seealso cref="Permissions#UPDATE_INSTANCE"/> permission on <seealso cref="Resources#PROCESS_DEFINITION"/>. </exception>
+	  ///          If the user has no <seealso cref="Permissions.UPDATE"/> permission on <seealso cref="Resources.PROCESS_INSTANCE"/>
+	  ///          or no <seealso cref="Permissions.UPDATE_INSTANCE"/> permission on <seealso cref="Resources.PROCESS_DEFINITION"/>. </exception>
 	  void setJobDuedate(string jobId, DateTime newDuedate);
 
 	  /// <summary>
@@ -915,10 +915,10 @@ namespace org.camunda.bpm.engine
 	  ///          creation date of the job or the current date
 	  /// </param>
 	  /// <exception cref="AuthorizationException">
-	  ///           If the user has no <seealso cref="Permissions#UPDATE"/> permission on
-	  ///           <seealso cref="Resources#PROCESS_INSTANCE"/> or no
-	  ///           <seealso cref="Permissions#UPDATE_INSTANCE"/> permission on
-	  ///           <seealso cref="Resources#PROCESS_DEFINITION"/>. </exception>
+	  ///           If the user has no <seealso cref="Permissions.UPDATE"/> permission on
+	  ///           <seealso cref="Resources.PROCESS_INSTANCE"/> or no
+	  ///           <seealso cref="Permissions.UPDATE_INSTANCE"/> permission on
+	  ///           <seealso cref="Resources.PROCESS_DEFINITION"/>. </exception>
 	  void recalculateJobDuedate(string jobId, bool creationDateBased);
 
 	  /// <summary>
@@ -929,8 +929,8 @@ namespace org.camunda.bpm.engine
 	  /// </param>
 	  /// <exception cref="AuthorizationException"> thrown if the current user does not possess any of the following permissions
 	  ///   <ul>
-	  ///     <li><seealso cref="Permissions#UPDATE"/> on <seealso cref="Resources#PROCESS_INSTANCE"/></li>
-	  ///     <li><seealso cref="Permissions#UPDATE_INSTANCE"/> on <seealso cref="Resources#PROCESS_DEFINITION"/></li>
+	  ///     <li><seealso cref="Permissions.UPDATE"/> on <seealso cref="Resources.PROCESS_INSTANCE"/></li>
+	  ///     <li><seealso cref="Permissions.UPDATE_INSTANCE"/> on <seealso cref="Resources.PROCESS_DEFINITION"/></li>
 	  ///   </ul>
 	  /// 
 	  /// @since 7.4 </exception>
@@ -942,14 +942,14 @@ namespace org.camunda.bpm.engine
 	  /// This setting overrides any setting specified in the BPMN 2.0 XML.</para>
 	  /// 
 	  /// <para>The overriding priority can be cleared by using the method
-	  /// <seealso cref="#clearOverridingJobPriorityForJobDefinition(String)"/>.</para>
+	  /// <seealso cref="clearOverridingJobPriorityForJobDefinition(string)"/>.</para>
 	  /// </summary>
 	  /// <param name="jobDefinitionId"> the id of the job definition to set the priority for </param>
 	  /// <param name="priority"> the priority to set;
 	  /// </param>
 	  /// <exception cref="AuthorizationException"> thrown if the current user does not possess any of the following permissions
 	  ///   <ul>
-	  ///     <li><seealso cref="Permissions#UPDATE"/> on <seealso cref="Resources#PROCESS_DEFINITION"/></li>
+	  ///     <li><seealso cref="Permissions.UPDATE"/> on <seealso cref="Resources.PROCESS_DEFINITION"/></li>
 	  ///   </ul>
 	  /// 
 	  /// @since 7.4 </exception>
@@ -964,7 +964,7 @@ namespace org.camunda.bpm.engine
 	  /// are updated accordingly.</para>
 	  /// 
 	  /// <para>The overriding priority can be cleared by using the method
-	  /// <seealso cref="#clearOverridingJobPriorityForJobDefinition(String)"/>.</para>
+	  /// <seealso cref="clearOverridingJobPriorityForJobDefinition(string)"/>.</para>
 	  /// </summary>
 	  /// <param name="jobDefinitionId"> the id of the job definition to set the priority for </param>
 	  /// <param name="priority"> the priority to set </param>
@@ -972,13 +972,13 @@ namespace org.camunda.bpm.engine
 	  /// </param>
 	  /// <exception cref="AuthorizationException"> thrown if the current user does not possess
 	  ///   <ul>
-	  ///     <li><seealso cref="Permissions#UPDATE"/> on <seealso cref="Resources#PROCESS_DEFINITION"/></li>
+	  ///     <li><seealso cref="Permissions.UPDATE"/> on <seealso cref="Resources.PROCESS_DEFINITION"/></li>
 	  ///   </ul>
 	  /// 
 	  ///   If cascade is <code>true</code>, the user must further possess one of the following permissions:
 	  ///   <ul>
-	  ///     <li><seealso cref="Permissions#UPDATE"/> on <seealso cref="Resources#PROCESS_INSTANCE"/></li>
-	  ///     <li><seealso cref="Permissions#UPDATE_INSTANCE"/> on <seealso cref="Resources#PROCESS_DEFINITION"/></li>
+	  ///     <li><seealso cref="Permissions.UPDATE"/> on <seealso cref="Resources.PROCESS_INSTANCE"/></li>
+	  ///     <li><seealso cref="Permissions.UPDATE_INSTANCE"/> on <seealso cref="Resources.PROCESS_DEFINITION"/></li>
 	  ///   </ul>
 	  /// 
 	  /// @since 7.4 </exception>
@@ -995,7 +995,7 @@ namespace org.camunda.bpm.engine
 	  /// </param>
 	  /// <exception cref="AuthorizationException"> thrown if the current user does not possess any of the following permissions
 	  ///   <ul>
-	  ///     <li><seealso cref="Permissions#UPDATE"/> on <seealso cref="Resources#PROCESS_DEFINITION"/></li>
+	  ///     <li><seealso cref="Permissions.UPDATE"/> on <seealso cref="Resources.PROCESS_DEFINITION"/></li>
 	  ///   </ul>
 	  /// 
 	  /// @since 7.4 </exception>
@@ -1011,14 +1011,14 @@ namespace org.camunda.bpm.engine
 	  /// <exception cref="ProcessEngineException">
 	  ///          When no job exists with the given id. </exception>
 	  /// <exception cref="AuthorizationException">
-	  ///          If the user has no <seealso cref="Permissions#READ"/> permission on <seealso cref="Resources#PROCESS_INSTANCE"/>
-	  ///          or no <seealso cref="Permissions#READ_INSTANCE"/> permission on <seealso cref="Resources#PROCESS_DEFINITION"/>. </exception>
+	  ///          If the user has no <seealso cref="Permissions.READ"/> permission on <seealso cref="Resources.PROCESS_INSTANCE"/>
+	  ///          or no <seealso cref="Permissions.READ_INSTANCE"/> permission on <seealso cref="Resources.PROCESS_DEFINITION"/>. </exception>
 	  string getJobExceptionStacktrace(string jobId);
 
 	  /// <returns> a map of all properties.
 	  /// </returns>
 	  /// <exception cref="AuthorizationException">
-	  ///          If the user is not a member of the group <seealso cref="Groups#CAMUNDA_ADMIN"/>. </exception>
+	  ///          If the user is not a member of the group <seealso cref="Groups.CAMUNDA_ADMIN"/>. </exception>
 	  IDictionary<string, string> Properties {get;}
 
 	  /// <summary>
@@ -1029,7 +1029,7 @@ namespace org.camunda.bpm.engine
 	  /// <param name="value"> the new value for the property.
 	  /// </param>
 	  /// <exception cref="AuthorizationException">
-	  ///          If the user is not a member of the group <seealso cref="Groups#CAMUNDA_ADMIN"/>. </exception>
+	  ///          If the user is not a member of the group <seealso cref="Groups.CAMUNDA_ADMIN"/>. </exception>
 	  void setProperty(string name, string value);
 
 	  /// <summary>
@@ -1038,7 +1038,7 @@ namespace org.camunda.bpm.engine
 	  /// <param name="name"> the name of the property to delete
 	  /// </param>
 	  /// <exception cref="AuthorizationException">
-	  ///          If the user is not a member of the group <seealso cref="Groups#CAMUNDA_ADMIN"/>. </exception>
+	  ///          If the user is not a member of the group <seealso cref="Groups.CAMUNDA_ADMIN"/>. </exception>
 	  void deleteProperty(string name);
 
 	  /// <summary>
@@ -1047,7 +1047,7 @@ namespace org.camunda.bpm.engine
 	  ///  Note: will always return an empty string
 	  /// </summary>
 	  /// <exception cref="AuthorizationException">
-	  ///          If the user is not a member of the group <seealso cref="Groups#CAMUNDA_ADMIN"/>. </exception>
+	  ///          If the user is not a member of the group <seealso cref="Groups.CAMUNDA_ADMIN"/>. </exception>
 	  string databaseSchemaUpgrade(Connection connection, string catalog, string schema);
 
 	  /// <summary>
@@ -1064,7 +1064,7 @@ namespace org.camunda.bpm.engine
 	  /// Query for the number of activity instances aggregated by activities of a single process definition.
 	  /// </summary>
 	  /// <exception cref="AuthorizationException">
-	  ///          If the user has no <seealso cref="Permissions#READ"/> permission on <seealso cref="Resources#PROCESS_DEFINITION"/>. </exception>
+	  ///          If the user has no <seealso cref="Permissions.READ"/> permission on <seealso cref="Resources.PROCESS_DEFINITION"/>. </exception>
 	  ActivityStatisticsQuery createActivityStatisticsQuery(string processDefinitionId);
 
 	  /// <summary>
@@ -1072,7 +1072,7 @@ namespace org.camunda.bpm.engine
 	  /// This set is only relevant, if the engine configuration property <code>jobExecutorDeploymentAware</code> is set.
 	  /// </summary>
 	  /// <exception cref="AuthorizationException">
-	  ///          If the user is not a member of the group <seealso cref="Groups#CAMUNDA_ADMIN"/>. </exception>
+	  ///          If the user is not a member of the group <seealso cref="Groups.CAMUNDA_ADMIN"/>. </exception>
 	  ISet<string> RegisteredDeployments {get;}
 
 	  /// <summary>
@@ -1081,7 +1081,7 @@ namespace org.camunda.bpm.engine
 	  /// If set to false, the job executor will execute any job.
 	  /// </summary>
 	  /// <exception cref="AuthorizationException">
-	  ///          If the user is not a member of the group <seealso cref="Groups#CAMUNDA_ADMIN"/>. </exception>
+	  ///          If the user is not a member of the group <seealso cref="Groups.CAMUNDA_ADMIN"/>. </exception>
 	  void registerDeploymentForJobExecutor(string deploymentId);
 
 	  /// <summary>
@@ -1090,7 +1090,7 @@ namespace org.camunda.bpm.engine
 	  /// jobs for the given deployment will no longer get acquired.
 	  /// </summary>
 	  /// <exception cref="AuthorizationException">
-	  ///          If the user is not a member of the group <seealso cref="Groups#CAMUNDA_ADMIN"/>. </exception>
+	  ///          If the user is not a member of the group <seealso cref="Groups.CAMUNDA_ADMIN"/>. </exception>
 	  void unregisterDeploymentForJobExecutor(string deploymentId);
 
 	  /// <summary>
@@ -1099,7 +1099,7 @@ namespace org.camunda.bpm.engine
 	  /// <returns> the history level
 	  /// </returns>
 	  /// <exception cref="AuthorizationException">
-	  ///          If the user is not a member of the group <seealso cref="Groups#CAMUNDA_ADMIN"/>. </exception>
+	  ///          If the user is not a member of the group <seealso cref="Groups.CAMUNDA_ADMIN"/>. </exception>
 	  int HistoryLevel {get;}
 
 	  /// <returns> a new metrics Query.
@@ -1151,7 +1151,7 @@ namespace org.camunda.bpm.engine
 	  /// <exception cref="BadUserRequestException">
 	  ///          If no such batch can be found. </exception>
 	  /// <exception cref="AuthorizationException">
-	  ///          If the user has no <seealso cref="Permissions#UPDATE"/> permission on <seealso cref="Resources#BATCH"/>.
+	  ///          If the user has no <seealso cref="Permissions.UPDATE"/> permission on <seealso cref="Resources.BATCH"/>.
 	  /// 
 	  /// @since 7.5 </exception>
 	  void suspendBatchById(string batchId);
@@ -1169,7 +1169,7 @@ namespace org.camunda.bpm.engine
 	  /// <exception cref="BadUserRequestException">
 	  ///          If no such batch can be found. </exception>
 	  /// <exception cref="AuthorizationException">
-	  ///          If the user has no <seealso cref="Permissions#UPDATE"/> permission on <seealso cref="Resources#BATCH"/>.
+	  ///          If the user has no <seealso cref="Permissions.UPDATE"/> permission on <seealso cref="Resources.BATCH"/>.
 	  /// 
 	  /// @since 7.5 </exception>
 	  void activateBatchById(string batchId);
@@ -1181,7 +1181,7 @@ namespace org.camunda.bpm.engine
 	  /// historic jobs logs are also removed.
 	  /// </summary>
 	  /// <exception cref="AuthorizationException">
-	  ///          If the user has no <seealso cref="Permissions#DELETE"/> permission on <seealso cref="Resources#BATCH"/>
+	  ///          If the user has no <seealso cref="Permissions.DELETE"/> permission on <seealso cref="Resources.BATCH"/>
 	  /// 
 	  /// @since 7.5 </exception>
 	  void deleteBatch(string batchId, bool cascade);

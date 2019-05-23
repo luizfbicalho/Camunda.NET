@@ -75,36 +75,36 @@ namespace org.camunda.bpm.engine.management
 
 	  /// <summary>
 	  /// Select job definitions which have no tenant id. Can be used in combination
-	  /// with <seealso cref="#tenantIdIn(String...)"/>.
+	  /// with <seealso cref="tenantIdIn(string...)"/>.
 	  /// </summary>
 	  JobDefinitionQuery includeJobDefinitionsWithoutTenantId();
 
 	  /// <summary>
-	  /// Order by id (needs to be followed by <seealso cref="#asc()"/> or <seealso cref="#desc()"/>). </summary>
+	  /// Order by id (needs to be followed by <seealso cref="asc()"/> or <seealso cref="desc()"/>). </summary>
 	  JobDefinitionQuery orderByJobDefinitionId();
 
 	  /// <summary>
-	  /// Order by activty id (needs to be followed by <seealso cref="#asc()"/> or <seealso cref="#desc()"/>). </summary>
+	  /// Order by activty id (needs to be followed by <seealso cref="asc()"/> or <seealso cref="desc()"/>). </summary>
 	  JobDefinitionQuery orderByActivityId();
 
 	  /// <summary>
-	  /// Order by process defintion id (needs to be followed by <seealso cref="#asc()"/> or <seealso cref="#desc()"/>). </summary>
+	  /// Order by process defintion id (needs to be followed by <seealso cref="asc()"/> or <seealso cref="desc()"/>). </summary>
 	  JobDefinitionQuery orderByProcessDefinitionId();
 
 	  /// <summary>
-	  /// Order by process definition key (needs to be followed by <seealso cref="#asc()"/> or <seealso cref="#desc()"/>). </summary>
+	  /// Order by process definition key (needs to be followed by <seealso cref="asc()"/> or <seealso cref="desc()"/>). </summary>
 	  JobDefinitionQuery orderByProcessDefinitionKey();
 
 	  /// <summary>
-	  /// Order by job type (needs to be followed by <seealso cref="#asc()"/> or <seealso cref="#desc()"/>). </summary>
+	  /// Order by job type (needs to be followed by <seealso cref="asc()"/> or <seealso cref="desc()"/>). </summary>
 	  JobDefinitionQuery orderByJobType();
 
 	  /// <summary>
-	  /// Order by job configuration (needs to be followed by <seealso cref="#asc()"/> or <seealso cref="#desc()"/>). </summary>
+	  /// Order by job configuration (needs to be followed by <seealso cref="asc()"/> or <seealso cref="desc()"/>). </summary>
 	  JobDefinitionQuery orderByJobConfiguration();
 
 	  /// <summary>
-	  /// Order by tenant id (needs to be followed by <seealso cref="#asc()"/> or <seealso cref="#desc()"/>).
+	  /// Order by tenant id (needs to be followed by <seealso cref="asc()"/> or <seealso cref="desc()"/>).
 	  /// Note that the ordering of job definitions without tenant id is database-specific.
 	  /// </summary>
 	  JobDefinitionQuery orderByTenantId();

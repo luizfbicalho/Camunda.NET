@@ -39,9 +39,9 @@ namespace org.camunda.bpm.engine.runtime
 	  ///           If no process Instances are found
 	  ///           If a process Instance is set to null </exception>
 	  /// <exception cref="AuthorizationException">
-	  ///           if the user has no <seealso cref="Permissions#CREATE"/> or
-	  ///           <seealso cref="BatchPermissions#CREATE_BATCH_UPDATE_PROCESS_INSTANCES_SUSPEND"/> permission
-	  ///           on <seealso cref="Resources#BATCH"/>. </exception>
+	  ///           if the user has no <seealso cref="Permissions.CREATE"/> or
+	  ///           <seealso cref="BatchPermissions.CREATE_BATCH_UPDATE_PROCESS_INSTANCES_SUSPEND"/> permission
+	  ///           on <seealso cref="Resources.BATCH"/>. </exception>
 	  Batch activateAsync();
 
 	  /// <summary>
@@ -81,9 +81,9 @@ namespace org.camunda.bpm.engine.runtime
 	  ///           If no process Instances are found
 	  ///           If a process Instance is set to null </exception>
 	  /// <exception cref="AuthorizationException">
-	  ///           if the user has no <seealso cref="Permissions#CREATE"/> or
-	  ///           <seealso cref="BatchPermissions#CREATE_BATCH_UPDATE_PROCESS_INSTANCES_SUSPEND"/> permission
-	  ///           on <seealso cref="Resources#BATCH"/>. </exception>
+	  ///           if the user has no <seealso cref="Permissions.CREATE"/> or
+	  ///           <seealso cref="BatchPermissions.CREATE_BATCH_UPDATE_PROCESS_INSTANCES_SUSPEND"/> permission
+	  ///           on <seealso cref="Resources.BATCH"/>. </exception>
 	  Batch suspendAsync();
 	}
 

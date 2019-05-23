@@ -35,8 +35,8 @@ namespace org.camunda.bpm.model.xml.type.child
 	  /// Indicates whether the collection is immutable.
 	  /// 
 	  /// If the collection is immutable, all state-altering operations such
-	  /// as <seealso cref="Collection#add(Object)"/> or <seealso cref="Collection#remove(Object)"/>
-	  /// will throw an <seealso cref="UnsupportedOperationException"/>.
+	  /// as <seealso cref="Collection.add(object)"/> or <seealso cref="Collection.remove(object)"/>
+	  /// will throw an <seealso cref="System.NotSupportedException"/>.
 	  /// </summary>
 	  /// <returns> true if the collection is mutable, false otherwise. </returns>
 	  bool Immutable {get;}
@@ -73,7 +73,7 @@ namespace org.camunda.bpm.model.xml.type.child
 	  ModelElementType ParentElementType {get;}
 
 	  /// <summary>
-	  /// returns a <seealso cref="Collection"/> containing all or a subset of the child elements of
+	  /// returns a <seealso cref="System.Collections.ICollection"/> containing all or a subset of the child elements of
 	  /// a  <seealso cref="ModelElementInstance"/>.  
 	  /// </summary>
 	  ICollection<T> get(ModelElementInstance element);

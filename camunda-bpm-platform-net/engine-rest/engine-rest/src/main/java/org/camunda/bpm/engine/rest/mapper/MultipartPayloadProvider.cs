@@ -29,7 +29,7 @@ namespace org.camunda.bpm.engine.rest.mapper
 
 	/// <summary>
 	/// <para>Provides a <seealso cref="MessageBodyReader"/> for <seealso cref="MultipartFormData"/>. This allows writing resources which
-	/// consume <seealso cref="MediaType#MULTIPART_FORM_DATA"/> which is parsed into a <seealso cref="MultipartFormData"/> object:</para>
+	/// consume <seealso cref="MediaType.MULTIPART_FORM_DATA"/> which is parsed into a <seealso cref="MultipartFormData"/> object:</para>
 	/// 
 	/// <pre>
 	/// {@literal @}POST

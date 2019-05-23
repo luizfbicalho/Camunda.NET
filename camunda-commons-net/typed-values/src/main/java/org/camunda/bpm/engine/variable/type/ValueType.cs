@@ -76,7 +76,7 @@ namespace org.camunda.bpm.engine.variable.type
 	  /// following meaning: When a value query is made
 	  /// (e.g. all tasks with a certain variable value), a "child" type's value
 	  /// also matches a parameter value of the parent type. This is only
-	  /// supported when the parent value type's implementation of <seealso cref="#isAbstract()"/>
+	  /// supported when the parent value type's implementation of <seealso cref="isAbstract()"/>
 	  /// returns <code>true</code>.</para>
 	  /// </summary>
 	  ValueType Parent {get;}
@@ -89,7 +89,7 @@ namespace org.camunda.bpm.engine.variable.type
 
 	  /// <summary>
 	  /// Converts a typed value to a typed value of this type.
-	  /// This does not suceed if <seealso cref="#canConvertFromTypedValue(TypedValue)"/>
+	  /// This does not suceed if <seealso cref="canConvertFromTypedValue(TypedValue)"/>
 	  /// returns <code>false</code>.
 	  /// </summary>
 	  TypedValue convertFromTypedValue(TypedValue typedValue);

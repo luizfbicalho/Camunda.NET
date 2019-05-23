@@ -31,8 +31,8 @@ namespace org.camunda.bpm.engine.authorization
 
 	  /// <summary>
 	  /// only selects authorizations for the given type. Legal values:
-	  /// <seealso cref="Authorization#AUTH_TYPE_GLOBAL"/>, <seealso cref="Authorization#AUTH_TYPE_GRANT"/>
-	  /// <seealso cref="Authorization#AUTH_TYPE_REVOKE"/> 
+	  /// <seealso cref="Authorization.AUTH_TYPE_GLOBAL"/>, <seealso cref="Authorization.AUTH_TYPE_GRANT"/>
+	  /// <seealso cref="Authorization.AUTH_TYPE_REVOKE"/> 
 	  /// </summary>
 	  AuthorizationQuery authorizationType(int? type);
 
@@ -80,11 +80,11 @@ namespace org.camunda.bpm.engine.authorization
 	  // order by /////////////////////////////////////////////
 
 	  /// <summary>
-	  /// Order by resource type (needs to be followed by <seealso cref="#asc()"/> or <seealso cref="#desc()"/>). </summary>
+	  /// Order by resource type (needs to be followed by <seealso cref="asc()"/> or <seealso cref="desc()"/>). </summary>
 	  AuthorizationQuery orderByResourceType();
 
 	  /// <summary>
-	  /// Order by resource id (needs to be followed by <seealso cref="#asc()"/> or <seealso cref="#desc()"/>). </summary>
+	  /// Order by resource id (needs to be followed by <seealso cref="asc()"/> or <seealso cref="desc()"/>). </summary>
 	  AuthorizationQuery orderByResourceId();
 
 	}

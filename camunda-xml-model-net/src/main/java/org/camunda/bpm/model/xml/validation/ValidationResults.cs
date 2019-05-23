@@ -23,7 +23,7 @@ namespace org.camunda.bpm.model.xml.validation
 
 	/// <summary>
 	/// Object in which the results of a model validation are collected.
-	/// See: <seealso cref="ModelInstance#validate(java.util.Collection)"/>.
+	/// See: <seealso cref="ModelInstance.validate(System.Collections.ICollection)"/>.
 	/// 
 	/// @author Daniel Meyer
 	/// @since 7.6
@@ -31,13 +31,13 @@ namespace org.camunda.bpm.model.xml.validation
 	public interface ValidationResults
 	{
 
-	  /// <returns> true if there are <seealso cref="ValidationResult"/> of type <seealso cref="ValidationResultType#ERROR"/> </returns>
+	  /// <returns> true if there are <seealso cref="ValidationResult"/> of type <seealso cref="ValidationResultType.ERROR"/> </returns>
 	  bool hasErrors();
 
-	  /// <returns> the count of <seealso cref="ValidationResult"/> of type <seealso cref="ValidationResultType#ERROR"/> </returns>
+	  /// <returns> the count of <seealso cref="ValidationResult"/> of type <seealso cref="ValidationResultType.ERROR"/> </returns>
 	  int ErrorCount {get;}
 
-	  /// <returns> the count of <seealso cref="ValidationResult"/> of type <seealso cref="ValidationResultType#WARNING"/> </returns>
+	  /// <returns> the count of <seealso cref="ValidationResult"/> of type <seealso cref="ValidationResultType.WARNING"/> </returns>
 	  int WarinigCount {get;}
 
 	  /// <returns> the individual results of the validation grouped by element. </returns>

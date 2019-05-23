@@ -55,7 +55,7 @@ namespace org.camunda.bpm.engine.history
 	  CleanableHistoricDecisionInstanceReport compact();
 
 	  /// <summary>
-	  /// Order by finished decision instances amount (needs to be followed by <seealso cref="#asc()"/> or <seealso cref="#desc()"/>).
+	  /// Order by finished decision instances amount (needs to be followed by <seealso cref="asc()"/> or <seealso cref="desc()"/>).
 	  /// </summary>
 	  CleanableHistoricDecisionInstanceReport orderByFinished();
 

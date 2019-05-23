@@ -26,7 +26,7 @@ namespace org.camunda.bpm.engine.impl.incident
 	/// <para>
 	/// 
 	/// Custom implementations of this interface may be wired through
-	/// <seealso cref="org.camunda.bpm.engine.impl.cfg.ProcessEngineConfigurationImpl#setCustomIncidentHandlers(java.util.List)"/>.
+	/// <seealso cref="org.camunda.bpm.engine.impl.cfg.ProcessEngineConfigurationImpl.setCustomIncidentHandlers(System.Collections.IList)"/>.
 	/// 
 	/// </para>
 	/// </summary>

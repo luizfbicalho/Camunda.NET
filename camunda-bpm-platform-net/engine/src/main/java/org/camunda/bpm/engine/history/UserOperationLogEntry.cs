@@ -36,8 +36,8 @@ namespace org.camunda.bpm.engine.history
 	/// 
 	/// <h2>Affected Entity Criteria</h2>
 	/// <para>
-	///   The methods that reference other entities (except users), such as <seealso cref="#getProcessInstanceId()"/>
-	///   or <seealso cref="#getProcessDefinitionId()"/>, describe which entities were affected
+	///   The methods that reference other entities (except users), such as <seealso cref="getProcessInstanceId()"/>
+	///   or <seealso cref="getProcessDefinitionId()"/>, describe which entities were affected
 	///   by the operation and represent restriction criteria.
 	///   A <code>null</code> return value of any of those methods means that regarding
 	///   this criterion, any entity was affected.
@@ -45,8 +45,8 @@ namespace org.camunda.bpm.engine.history
 	/// <para>
 	///   For example, if an operation suspends all process instances that belong to a certain
 	///   process definition id, one operation log entry is created.
-	///   Its return value for the method <seealso cref="#getProcessInstanceId()"/> is <code>null</code>,
-	///   while <seealso cref="#getProcessDefinitionId()"/> returns an id. Thus, the return values
+	///   Its return value for the method <seealso cref="getProcessInstanceId()"/> is <code>null</code>,
+	///   while <seealso cref="getProcessDefinitionId()"/> returns an id. Thus, the return values
 	///   of these methods can be understood as selection criteria of instances of the entity type
 	///   that were affected by the operation.
 	/// </para>
@@ -55,7 +55,7 @@ namespace org.camunda.bpm.engine.history
 	/// <para>The event describes which user has requested out the operation and the time
 	/// at which the operation was performed. Furthermore, one operation can result in multiple
 	/// <seealso cref="UserOperationLogEntry"/> entities whicha are linked by the value of the
-	/// <seealso cref="#getOperationId()"/> method.</para>
+	/// <seealso cref="getOperationId()"/> method.</para>
 	/// 
 	/// @author Danny Gräf
 	/// @author Daniel Meyer
@@ -64,9 +64,9 @@ namespace org.camunda.bpm.engine.history
 	public interface UserOperationLogEntry
 	{
 
-	  /// @deprecated Please use <seealso cref="EntityTypes#TASK"/> instead. 
-	  /// @deprecated Please use <seealso cref="EntityTypes#IDENTITY_LINK"/> instead. 
-	  /// @deprecated Please use <seealso cref="EntityTypes#ATTACHMENT"/> instead. 
+	  /// @deprecated Please use <seealso cref="EntityTypes.TASK"/> instead. 
+	  /// @deprecated Please use <seealso cref="EntityTypes.IDENTITY_LINK"/> instead. 
+	  /// @deprecated Please use <seealso cref="EntityTypes.ATTACHMENT"/> instead. 
 
 	  /// <summary>
 	  /// The unique identifier of this log entry. </summary>

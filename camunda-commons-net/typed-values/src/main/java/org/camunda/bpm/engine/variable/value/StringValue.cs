@@ -17,7 +17,7 @@
 namespace org.camunda.bpm.engine.variable.value
 {
 	/// <summary>
-	/// <para>A <seealso cref="PrimitiveValue"/> corresponding to the Java type <seealso cref="String"/>.</para>
+	/// <para>A <seealso cref="PrimitiveValue"/> corresponding to the Java type <seealso cref="string"/>.</para>
 	/// 
 	/// @author Daniel Meyer
 	/// @since 7.2

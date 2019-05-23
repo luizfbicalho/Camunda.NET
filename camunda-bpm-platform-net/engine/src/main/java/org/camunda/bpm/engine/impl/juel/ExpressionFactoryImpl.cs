@@ -33,7 +33,7 @@ namespace org.camunda.bpm.engine.impl.juel
 	/// This class is also used as an EL "service provider". The <em>JUEL</em> jar file specifies this
 	/// class as el expression factory implementation in
 	/// <code>META-INF/services/javax.el.ExpressionFactory</code>. Calling
-	/// <seealso cref="ExpressionFactory#newInstance()"/> will then return an instance of this class, configured as
+	/// <seealso cref="ExpressionFactory.newInstance()"/> will then return an instance of this class, configured as
 	/// described below.
 	/// 
 	/// If no properties are specified at construction time, properties are read from
@@ -43,11 +43,11 @@ namespace org.camunda.bpm.engine.impl.juel
 	/// <code>javax.el.ExpressionFactory</code> whose value is the name of this class, these properties
 	/// are taken as default properties.</li>
 	/// <li>Otherwise, if system property <code>javax.el.ExpressionFactory</code> is set to the name of
-	/// this class, the system properties <seealso cref="System#getProperties()"/> are taken as default properties.
+	/// this class, the system properties <seealso cref="System.getProperties()"/> are taken as default properties.
 	/// </li>
 	/// <li>
 	/// <code>el.properties</code> on your classpath. These properties override the properties from
-	/// <code>JAVA_HOME/lib/el.properties</code> or <seealso cref="System#getProperties()"/>.</li>
+	/// <code>JAVA_HOME/lib/el.properties</code> or <seealso cref="System.getProperties()"/>.</li>
 	/// </ol>
 	/// There are also constructors to explicitly pass in an instance of <seealso cref="Properties"/>.
 	/// 
@@ -185,7 +185,7 @@ namespace org.camunda.bpm.engine.impl.juel
 		/// Create a new expression factory using the default builder and cache implementations. The
 		/// builder and cache are configured from <code>el.properties</code> (see above). The maximum
 		/// cache size will be 1000 unless overridden in <code>el.properties</code>. The builder profile
-		/// is <seealso cref="Profile#JEE6"/> (features may be overridden in <code>el.properties</code>).
+		/// is <seealso cref="Profile.JEE6"/> (features may be overridden in <code>el.properties</code>).
 		/// </summary>
 		public ExpressionFactoryImpl() : this(Profile.JEE6)
 		{
@@ -212,7 +212,7 @@ namespace org.camunda.bpm.engine.impl.juel
 		/// Create a new expression factory using the default builder and cache implementations. The
 		/// builder and cache are configured using the specified properties. The maximum cache size will
 		/// be 1000 unless overridden by property <code>javax.el.cacheSize</code>. The builder profile is
-		/// <seealso cref="Profile#JEE6"/> (features may be overridden in <code>properties</code>).
+		/// <seealso cref="Profile.JEE6"/> (features may be overridden in <code>properties</code>).
 		/// </summary>
 		/// <param name="properties">
 		///            used to initialize this factory (may be <code>null</code>) </param>
@@ -241,7 +241,7 @@ namespace org.camunda.bpm.engine.impl.juel
 		/// Create a new expression factory using the default builder and cache implementations. The
 		/// builder and cache are configured using the specified properties. The maximum cache size will
 		/// be 1000 unless overridden by property <code>javax.el.cacheSize</code>. The builder profile is
-		/// <seealso cref="Profile#JEE6"/> (individual features may be overridden in <code>properties</code>).
+		/// <seealso cref="Profile.JEE6"/> (individual features may be overridden in <code>properties</code>).
 		/// </summary>
 		/// <param name="properties">
 		///            used to initialize this factory (may be <code>null</code>) </param>

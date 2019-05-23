@@ -43,8 +43,8 @@ namespace org.camunda.bpm.engine.@delegate
 	  /// to the concrete type of the Bpmn Model Element currently executed.</para>
 	  /// 
 	  /// <para>If called from a Service <seealso cref="ExecutionListener"/>, the method will return the corresponding <seealso cref="FlowNode"/>
-	  /// for <seealso cref="ExecutionListener#EVENTNAME_START"/> and <seealso cref="ExecutionListener#EVENTNAME_END"/> and the corresponding
-	  /// <seealso cref="SequenceFlow"/> for <seealso cref="ExecutionListener#EVENTNAME_TAKE"/>.</para>
+	  /// for <seealso cref="ExecutionListener.EVENTNAME_START"/> and <seealso cref="ExecutionListener.EVENTNAME_END"/> and the corresponding
+	  /// <seealso cref="SequenceFlow"/> for <seealso cref="ExecutionListener.EVENTNAME_TAKE"/>.</para>
 	  /// </summary>
 	  /// <returns> the <seealso cref="FlowElement"/> corresponding to the current Bpmn Model Element </returns>
 	  FlowElement BpmnModelElementInstance {get;}

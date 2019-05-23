@@ -68,7 +68,7 @@ namespace org.camunda.bpm.engine.history
 
 	  /// <summary>
 	  /// Only select historic variable updates associated to the given <seealso cref="HistoricActivityInstance activity instance"/>. </summary>
-	  /// @deprecated since 5.2, use <seealso cref="#activityInstanceId(String)"/> instead  
+	  /// @deprecated since 5.2, use <seealso cref="activityInstanceId(string)"/> instead  
 	  HistoricDetailQuery activityId(string activityId);
 
 	  /// <summary>
@@ -118,7 +118,7 @@ namespace org.camunda.bpm.engine.history
 
 	  /// <summary>
 	  /// Exclude all task-related <seealso cref="HistoricDetail"/>s, so only items which have no
-	  /// task-id set will be selected. When used together with <seealso cref="#taskId(String)"/>, this
+	  /// task-id set will be selected. When used together with <seealso cref="taskId(string)"/>, this
 	  /// call is ignored task details are NOT excluded.
 	  /// </summary>
 	  HistoricDetailQuery excludeTaskDetails();
@@ -145,7 +145,7 @@ namespace org.camunda.bpm.engine.history
 	  HistoricDetailQuery occurredAfter(DateTime date);
 
 	  /// <summary>
-	  /// Order by tenant id (needs to be followed by <seealso cref="#asc()"/> or <seealso cref="#desc()"/>).
+	  /// Order by tenant id (needs to be followed by <seealso cref="asc()"/> or <seealso cref="desc()"/>).
 	  /// Note that the ordering of historic details without tenant id is database-specific.
 	  /// </summary>
 	  HistoricDetailQuery orderByTenantId();
@@ -164,7 +164,7 @@ namespace org.camunda.bpm.engine.history
 
 	  /// <summary>
 	  /// <para>Sort the <seealso cref="HistoricDetail historic detail events"/> in the order in which
-	  /// they occurred and needs to be followed by <seealso cref="#asc()"/> or <seealso cref="#desc()"/>.</para>
+	  /// they occurred and needs to be followed by <seealso cref="asc()"/> or <seealso cref="desc()"/>.</para>
 	  /// 
 	  /// <para>The set of all <seealso cref="HistoricVariableUpdate historic variable update events"/> is
 	  /// a <strong>partially ordered set</strong>. Due to this fact {@link HistoricVariableUpdate
@@ -173,7 +173,7 @@ namespace org.camunda.bpm.engine.history
 	  /// the <seealso cref="HistoricDetail historic variable update events"/> for two {@link VariableInstance
 	  /// variable instances} in the order they occurred. Just for one {@link VariableInstance variable
 	  /// instance} the set of <seealso cref="HistoricVariableUpdate historic variable update events"/> can be
-	  /// <strong>totally ordered</strong> by using <seealso cref="#variableInstanceId(String)"/> and {@link
+	  /// <strong>totally ordered</strong> by using <seealso cref="variableInstanceId(string)"/> and {@link
 	  /// #orderPartiallyByOccurrence()} which will return a result set ordered by its occurrence.</para>
 	  /// 
 	  /// <para><strong>For example:</strong><br>
@@ -188,7 +188,7 @@ namespace org.camunda.bpm.engine.history
 	  /// 
 	  /// <para>As a result there exists four <seealso cref="HistoricVariableUpdate historic variable update events"/>.</para>
 	  /// 
-	  /// <para>By using <seealso cref="#variableInstanceId(String)"/> and <seealso cref="#orderPartiallyByOccurrence()"/> it
+	  /// <para>By using <seealso cref="variableInstanceId(string)"/> and <seealso cref="orderPartiallyByOccurrence()"/> it
 	  /// is possible to sort the events in the order in which they occurred. The following query</para>
 	  /// 
 	  /// <code>

@@ -76,27 +76,27 @@ namespace org.camunda.bpm.engine
 
 	  /// <summary>
 	  /// <para>Returns a new (transient) <seealso cref="Authorization"/> object. The Object is not 
-	  /// yet persistent and must be saved using the <seealso cref="#saveAuthorization(Authorization)"/>
+	  /// yet persistent and must be saved using the <seealso cref="saveAuthorization(Authorization)"/>
 	  /// method.</para>
 	  /// </summary>
-	  /// <param name="authorizationType"> the type of the authorization. Legal values: <seealso cref="Authorization#AUTH_TYPE_GLOBAL"/>, 
-	  /// <seealso cref="Authorization#AUTH_TYPE_GRANT"/>, <seealso cref="Authorization#AUTH_TYPE_REVOKE"/> </param>
+	  /// <param name="authorizationType"> the type of the authorization. Legal values: <seealso cref="Authorization.AUTH_TYPE_GLOBAL"/>, 
+	  /// <seealso cref="Authorization.AUTH_TYPE_GRANT"/>, <seealso cref="Authorization.AUTH_TYPE_REVOKE"/> </param>
 	  /// <returns> an non-persistent Authorization object. </returns>
-	  /// <exception cref="AuthorizationException"> if the user has no <seealso cref="Permissions#CREATE"/> permissions on <seealso cref="Resources#AUTHORIZATION"/>. </exception>
+	  /// <exception cref="AuthorizationException"> if the user has no <seealso cref="Permissions.CREATE"/> permissions on <seealso cref="Resources.AUTHORIZATION"/>. </exception>
 	  Authorization createNewAuthorization(int authorizationType);
 
 	  /// <summary>
 	  /// Allows saving an <seealso cref="Authorization"/> object. Use this method for persisting new 
-	  /// transient <seealso cref="Authorization"/> objects obtained through <seealso cref="#createNewAuthorization(int)"/> or
+	  /// transient <seealso cref="Authorization"/> objects obtained through <seealso cref="createNewAuthorization(int)"/> or
 	  /// for updating persistent objects.
 	  /// </summary>
 	  /// <param name="authorization"> a Authorization object. </param>
 	  /// <returns> the authorization object. </returns>
 	  /// <exception cref="ProcessEngineException"> in case an internal error occurs </exception>
 	  /// <exception cref="AuthorizationException"> if the user has no 
-	  ///          <seealso cref="Permissions#CREATE"/> permissions (in case of persisting a transient object) or no 
-	  ///          <seealso cref="Permissions#UPDATE"/> permissions (in case of updating a persistent object) 
-	  ///          on <seealso cref="Resources#AUTHORIZATION"/> </exception>
+	  ///          <seealso cref="Permissions.CREATE"/> permissions (in case of persisting a transient object) or no 
+	  ///          <seealso cref="Permissions.UPDATE"/> permissions (in case of updating a persistent object) 
+	  ///          on <seealso cref="Resources.AUTHORIZATION"/> </exception>
 	  Authorization saveAuthorization(Authorization authorization);
 
 	  /// <summary>
@@ -104,7 +104,7 @@ namespace org.camunda.bpm.engine
 	  /// </summary>
 	  /// <param name="authorizationId"> the id of the Authorization object to delete. </param>
 	  /// <exception cref="ProcessEngineException"> if no such authorization exists or if an internal error occurs. </exception>
-	  /// <exception cref="AuthorizationException"> if the user has no <seealso cref="Permissions#DELETE"/> permissions on <seealso cref="Resources#AUTHORIZATION"/>. </exception>
+	  /// <exception cref="AuthorizationException"> if the user has no <seealso cref="Permissions.DELETE"/> permissions on <seealso cref="Resources.AUTHORIZATION"/>. </exception>
 	  void deleteAuthorization(string authorizationId);
 
 	  /// <summary>
@@ -119,7 +119,7 @@ namespace org.camunda.bpm.engine
 	  /// <para>Returns true if the given user has permissions for interacting with the resource is the 
 	  /// requested way.</para>
 	  /// 
-	  /// <para>This method checks for the resource type, see <seealso cref="Authorization#ANY"/></para>
+	  /// <para>This method checks for the resource type, see <seealso cref="Authorization.ANY"/></para>
 	  /// </summary>
 	  /// <param name="userId"> the id of the user for which the check is performed. </param>
 	  /// <param name="groupIds"> a list of group ids the user is member of </param>

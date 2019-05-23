@@ -254,7 +254,7 @@ namespace org.camunda.bpm.qa.performance.engine.sqlstatementlog
 
 	  /// <summary>
 	  /// stops logging statement executed by the current thread and returns the list of logged statements. </summary>
-	  /// <returns> the <seealso cref="List"/> of logged sql statements </returns>
+	  /// <returns> the <seealso cref="System.Collections.IList"/> of logged sql statements </returns>
 	  public static IList<SqlStatementLog> stopLogging()
 	  {
 		IList<SqlStatementLog> log = threadStatementLog.get();

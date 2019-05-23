@@ -25,7 +25,7 @@ namespace org.camunda.bpm.qa.performance.engine.steps
 
 	/// <summary>
 	/// <para><seealso cref="ExecutionListener"/> recording the current execution id in the <seealso cref="PerfTestRunContext"/>
-	/// using the key <seealso cref="PerfTestConstants#EXECUTION_ID"/>.</para>
+	/// using the key <seealso cref="PerfTestConstants.EXECUTION_ID"/>.</para>
 	/// 
 	/// <para>This is mainly used for removing the necessity for querying for the execution Id.</para>
 	/// 

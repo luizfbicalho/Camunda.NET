@@ -25,9 +25,9 @@ namespace org.camunda.bpm.engine.impl.identity
 	/// his groups and his tenants to the process engine.</para>
 	/// 
 	/// <para>The current authentication is managed using a Thread Local. The value can
-	/// be set using <seealso cref="#setCurrentAuthentication(String, List)"/>,
-	/// retrieved using <seealso cref="#getCurrentAuthentication()"/> and cleared
-	/// using <seealso cref="#clearCurrentAuthentication()"/>.</para>
+	/// be set using <seealso cref="setCurrentAuthentication(string, System.Collections.IList)"/>,
+	/// retrieved using <seealso cref="getCurrentAuthentication()"/> and cleared
+	/// using <seealso cref="clearCurrentAuthentication()"/>.</para>
 	/// 
 	/// <para>Users typically do not use this class directly but rather use
 	/// the corresponding Service API methods:

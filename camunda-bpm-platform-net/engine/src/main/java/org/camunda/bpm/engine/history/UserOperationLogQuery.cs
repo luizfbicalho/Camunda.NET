@@ -112,7 +112,7 @@ namespace org.camunda.bpm.engine.history
 	  /// <summary>
 	  /// Query entries of a composite operation.
 	  /// This allows grouping multiple updates which are part of the same operation:
-	  /// for instance, a User may update multiple fields of a UserTask when calling <seealso cref="TaskService#saveTask(org.camunda.bpm.engine.task.Task)"/>
+	  /// for instance, a User may update multiple fields of a UserTask when calling <seealso cref="TaskService.saveTask(org.camunda.bpm.engine.task.Task)"/>
 	  /// which will be logged as separate <seealso cref="UserOperationLogEntry OperationLogEntries"/> with the same 'operationId'
 	  /// 
 	  /// </summary>
@@ -155,7 +155,7 @@ namespace org.camunda.bpm.engine.history
 	  UserOperationLogQuery beforeTimestamp(DateTime before);
 
 	  /// <summary>
-	  /// Order by time stamp (needs to be followed by <seealso cref="#asc()"/> or <seealso cref="#desc()"/>). </summary>
+	  /// Order by time stamp (needs to be followed by <seealso cref="asc()"/> or <seealso cref="desc()"/>). </summary>
 	  UserOperationLogQuery orderByTimestamp();
 	}
 

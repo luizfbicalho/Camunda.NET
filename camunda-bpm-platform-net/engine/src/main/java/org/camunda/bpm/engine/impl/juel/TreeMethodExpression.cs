@@ -27,7 +27,7 @@ namespace org.camunda.bpm.engine.impl.juel
 
 	/// <summary>
 	/// A method expression is ready to be evaluated (by calling either
-	/// <seealso cref="#invoke(ELContext, Object[])"/> or <seealso cref="#getMethodInfo(ELContext)"/>).
+	/// <seealso cref="invoke(ELContext, Object[])"/> or <seealso cref="getMethodInfo(ELContext)"/>).
 	/// 
 	/// Instances of this class are usually created using an <seealso cref="ExpressionFactoryImpl"/>.
 	/// 

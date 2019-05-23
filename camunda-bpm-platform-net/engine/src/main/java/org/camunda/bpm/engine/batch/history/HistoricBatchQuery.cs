@@ -48,22 +48,22 @@ namespace org.camunda.bpm.engine.batch.history
 	  HistoricBatchQuery withoutTenantId();
 
 	  /// <summary>
-	  /// Returns historic batches sorted by id; must be followed by an invocation of <seealso cref="#asc()"/> or <seealso cref="#desc()"/>.
+	  /// Returns historic batches sorted by id; must be followed by an invocation of <seealso cref="asc()"/> or <seealso cref="desc()"/>.
 	  /// </summary>
 	  HistoricBatchQuery orderById();
 
 	  /// <summary>
-	  /// Returns historic batches sorted by start time; must be followed by an invocation of <seealso cref="#asc()"/> or <seealso cref="#desc()"/>.
+	  /// Returns historic batches sorted by start time; must be followed by an invocation of <seealso cref="asc()"/> or <seealso cref="desc()"/>.
 	  /// </summary>
 	  HistoricBatchQuery orderByStartTime();
 
 	  /// <summary>
-	  /// Returns historic batches sorted by end time; must be followed by an invocation of <seealso cref="#asc()"/> or <seealso cref="#desc()"/>.
+	  /// Returns historic batches sorted by end time; must be followed by an invocation of <seealso cref="asc()"/> or <seealso cref="desc()"/>.
 	  /// </summary>
 	  HistoricBatchQuery orderByEndTime();
 
 	  /// <summary>
-	  /// Returns historic batches sorted by tenant id; must be followed by an invocation of <seealso cref="#asc()"/> or <seealso cref="#desc()"/>.
+	  /// Returns historic batches sorted by tenant id; must be followed by an invocation of <seealso cref="asc()"/> or <seealso cref="desc()"/>.
 	  /// </summary>
 	  HistoricBatchQuery orderByTenantId();
 

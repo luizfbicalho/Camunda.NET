@@ -87,7 +87,7 @@ namespace org.camunda.bpm.engine.impl.pvm.runtime
 	  /// Prunes a concurrent scope. This can only happen if
 	  /// (a) the process instance has been migrated from a previous version to a new version of the process engine
 	  /// 
-	  /// This is an inverse operation to <seealso cref="#createConcurrentScope(PvmExecutionImpl)"/>.
+	  /// This is an inverse operation to <seealso cref="createConcurrentScope(PvmExecutionImpl)"/>.
 	  /// 
 	  /// See: javadoc of this class for note about concurrent scopes.
 	  /// </summary>

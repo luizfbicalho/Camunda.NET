@@ -31,7 +31,7 @@ namespace org.camunda.bpm.container.impl.metadata.spi
 	  /// <returns> the <seealso cref="JobExecutorXml"/> configuration of the JobExecutor.  </returns>
 	  JobExecutorXml JobExecutor {get;}
 
-	  /// <returns> A <seealso cref="List"/> of <seealso cref="ProcessEngineXml"/> Metadata Items representing process engine configurations.  </returns>
+	  /// <returns> A <seealso cref="System.Collections.IList"/> of <seealso cref="ProcessEngineXml"/> Metadata Items representing process engine configurations.  </returns>
 	  IList<ProcessEngineXml> ProcessEngines {get;}
 
 	}

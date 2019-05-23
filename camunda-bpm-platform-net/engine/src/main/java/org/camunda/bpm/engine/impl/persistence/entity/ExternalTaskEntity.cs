@@ -55,7 +55,7 @@ namespace org.camunda.bpm.engine.impl.persistence.entity
 	  private const string EXCEPTION_NAME = "externalTask.exceptionByteArray";
 
 	  /// <summary>
-	  /// Note: <seealso cref="String#length()"/> counts Unicode supplementary
+	  /// Note: <seealso cref="String.length()"/> counts Unicode supplementary
 	  /// characters twice, so for a String consisting only of those,
 	  /// the limit is effectively MAX_EXCEPTION_MESSAGE_LENGTH / 2
 	  /// </summary>

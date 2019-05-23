@@ -37,11 +37,11 @@ namespace org.camunda.bpm.engine.impl.history
 	  /// Calculates the removal time of historic entities related to processes.
 	  /// 
 	  /// START: the removal time is set for each historic entity separately on occurrence (creation).
-	  ///        <seealso cref="HistoricProcessInstanceEventEntity#getEndTime()"/> is {@code null}
+	  ///        <seealso cref="HistoricProcessInstanceEventEntity.getEndTime()"/> is {@code null}
 	  /// 
 	  /// END:   the removal time is updated simultaneously for all historic entities which belong to
 	  ///        the root process instance when it ends.
-	  ///        <seealso cref="HistoricProcessInstanceEventEntity#getEndTime()"/> is not {@code null}
+	  ///        <seealso cref="HistoricProcessInstanceEventEntity.getEndTime()"/> is not {@code null}
 	  /// </summary>
 	  /// <param name="historicRootProcessInstance"> which is either in state running or ended </param>
 	  /// <param name="processDefinition"> of the historic root process instance </param>
@@ -60,10 +60,10 @@ namespace org.camunda.bpm.engine.impl.history
 	  /// Calculates the removal time of historic batches.
 	  /// 
 	  /// START: the removal time is set for the historic batch entity on start.
-	  ///        <seealso cref="HistoricBatchEntity#getEndTime()"/> is {@code null}
+	  ///        <seealso cref="HistoricBatchEntity.getEndTime()"/> is {@code null}
 	  /// 
 	  /// END:   the removal time is set for the historic batch entity on end.
-	  ///        <seealso cref="HistoricBatchEntity#getEndTime()"/> is not {@code null}
+	  ///        <seealso cref="HistoricBatchEntity.getEndTime()"/> is not {@code null}
 	  /// </summary>
 	  /// <param name="historicBatch"> which is either in state running or ended </param>
 	  /// <returns> the removal time of historic entities </returns>

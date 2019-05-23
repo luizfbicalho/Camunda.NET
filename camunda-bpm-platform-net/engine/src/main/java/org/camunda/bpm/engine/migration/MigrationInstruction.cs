@@ -35,7 +35,7 @@ namespace org.camunda.bpm.engine.migration
 
 	  /// <returns> whether this flow node's event trigger is going to be updated during
 	  ///   migration. Can only be true for flow nodes that define a persistent event trigger.
-	  ///   See <seealso cref="MigrationInstructionBuilder#updateEventTrigger()"/> for details </returns>
+	  ///   See <seealso cref="MigrationInstructionBuilder.updateEventTrigger()"/> for details </returns>
 	  bool UpdateEventTrigger {get;}
 
 	}

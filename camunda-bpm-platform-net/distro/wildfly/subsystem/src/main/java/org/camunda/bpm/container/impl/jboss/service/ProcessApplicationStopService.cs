@@ -32,7 +32,7 @@ namespace org.camunda.bpm.container.impl.jboss.service
 	using InjectedValue = org.jboss.msc.value.InjectedValue;
 
 	/// <summary>
-	/// Responsible for invoking <seealso cref="BpmPlatformPlugin#postProcessApplicationUndeploy(ProcessApplicationInterface)"/>
+	/// Responsible for invoking <seealso cref="BpmPlatformPlugin.postProcessApplicationUndeploy(ProcessApplicationInterface)"/>
 	/// 
 	/// @author Daniel Meyer
 	/// 

@@ -37,7 +37,7 @@ namespace org.camunda.bpm.engine.impl.@delegate
 	/// This implementation has the following features:
 	/// <ul>
 	/// <li>it performs context switch into the target process application (if applicable)</li>
-	/// <li>it checks autorizations if <seealso cref="ProcessEngineConfigurationImpl#isAuthorizationEnabledForCustomCode()"/> is true</li>
+	/// <li>it checks autorizations if <seealso cref="ProcessEngineConfigurationImpl.isAuthorizationEnabledForCustomCode()"/> is true</li>
 	/// </ul>
 	/// 
 	/// @author Daniel Meyer

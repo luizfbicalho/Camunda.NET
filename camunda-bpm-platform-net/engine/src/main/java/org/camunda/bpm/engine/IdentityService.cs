@@ -51,29 +51,29 @@ namespace org.camunda.bpm.engine
 	  /// 
 	  /// Read only identity service implementations do not support the following methods:
 	  /// <ul>
-	  /// <li> <seealso cref="#newUser(String)"/> </li>
-	  /// <li> <seealso cref="#saveUser(User)"/> </li>
-	  /// <li> <seealso cref="#deleteUser(String)"/> </li>
+	  /// <li> <seealso cref="newUser(string)"/> </li>
+	  /// <li> <seealso cref="saveUser(User)"/> </li>
+	  /// <li> <seealso cref="deleteUser(string)"/> </li>
 	  /// 
-	  /// <li> <seealso cref="#newGroup(String)"/> </li>
-	  /// <li> <seealso cref="#saveGroup(Group)"/> </li>
-	  /// <li> <seealso cref="#deleteGroup(String)"/> </li>
+	  /// <li> <seealso cref="newGroup(string)"/> </li>
+	  /// <li> <seealso cref="saveGroup(Group)"/> </li>
+	  /// <li> <seealso cref="deleteGroup(string)"/> </li>
 	  /// 
-	  /// <li> <seealso cref="#newTenant(String)"/> </li>
-	  /// <li> <seealso cref="#saveTenant(Tenant)"/> </li>
-	  /// <li> <seealso cref="#deleteTenant(String)"/> </li>
+	  /// <li> <seealso cref="newTenant(string)"/> </li>
+	  /// <li> <seealso cref="saveTenant(Tenant)"/> </li>
+	  /// <li> <seealso cref="deleteTenant(string)"/> </li>
 	  /// 
-	  /// <li> <seealso cref="#createMembership(String, String)"/> </li>
-	  /// <li> <seealso cref="#deleteMembership(String, String)"/> </li>
+	  /// <li> <seealso cref="createMembership(string, string)"/> </li>
+	  /// <li> <seealso cref="deleteMembership(string, string)"/> </li>
 	  /// 
-	  /// <li> <seealso cref="#createTenantUserMembership(String, String)"/> </li>
-	  /// <li> <seealso cref="#createTenantGroupMembership(String, String)"/> </li>
-	  /// <li> <seealso cref="#deleteTenantUserMembership(String, String)"/> </li>
-	  /// <li> <seealso cref="#deleteTenantGroupMembership(String, String)"/> </li>
+	  /// <li> <seealso cref="createTenantUserMembership(string, string)"/> </li>
+	  /// <li> <seealso cref="createTenantGroupMembership(string, string)"/> </li>
+	  /// <li> <seealso cref="deleteTenantUserMembership(string, string)"/> </li>
+	  /// <li> <seealso cref="deleteTenantGroupMembership(string, string)"/> </li>
 	  /// </ul>
 	  /// 
 	  /// <para>If these methods are invoked on a read-only identity service implementation,
-	  /// the invocation will throw an <seealso cref="UnsupportedOperationException"/>.</para>
+	  /// the invocation will throw an <seealso cref="System.NotSupportedException"/>.</para>
 	  /// </summary>
 	  /// <returns> true if this identity service implementation provides read-only
 	  ///         access to the user repository, false otherwise. </returns>
@@ -81,19 +81,19 @@ namespace org.camunda.bpm.engine
 
 	  /// <summary>
 	  /// Creates a new user. The user is transient and must be saved using
-	  /// <seealso cref="#saveUser(User)"/>. </summary>
+	  /// <seealso cref="saveUser(User)"/>. </summary>
 	  /// <param name="userId"> id for the new user, cannot be null. </param>
-	  /// <exception cref="UnsupportedOperationException"> if identity service implementation is read only. See <seealso cref="#isReadOnly()"/> </exception>
-	  /// <exception cref="AuthorizationException"> if the user has no <seealso cref="Permissions#CREATE"/> permissions on <seealso cref="Resources#USER"/>. </exception>
+	  /// <exception cref="UnsupportedOperationException"> if identity service implementation is read only. See <seealso cref="isReadOnly()"/> </exception>
+	  /// <exception cref="AuthorizationException"> if the user has no <seealso cref="Permissions.CREATE"/> permissions on <seealso cref="Resources.USER"/>. </exception>
 	  User newUser(string userId);
 
 	  /// <summary>
 	  /// Saves the user. If the user already existed, the user is updated. </summary>
 	  /// <param name="user"> user to save, cannot be null. </param>
 	  /// <exception cref="RuntimeException"> when a user with the same name already exists. </exception>
-	  /// <exception cref="UnsupportedOperationException"> if identity service implementation is read only. See <seealso cref="#isReadOnly()"/> </exception>
-	  /// <exception cref="AuthorizationException"> if the user has no <seealso cref="Permissions#UPDATE"/> permissions on <seealso cref="Resources#USER"/> (update existing user)
-	  /// or if user has no <seealso cref="Permissions#CREATE"/> permissions on <seealso cref="Resources#USER"/> (save new user). </exception>
+	  /// <exception cref="UnsupportedOperationException"> if identity service implementation is read only. See <seealso cref="isReadOnly()"/> </exception>
+	  /// <exception cref="AuthorizationException"> if the user has no <seealso cref="Permissions.UPDATE"/> permissions on <seealso cref="Resources.USER"/> (update existing user)
+	  /// or if user has no <seealso cref="Permissions.CREATE"/> permissions on <seealso cref="Resources.USER"/> (save new user). </exception>
 	  void saveUser(User user);
 
 	  /// <summary>
@@ -103,18 +103,18 @@ namespace org.camunda.bpm.engine
 
 	  /// <param name="userId"> id of user to delete, cannot be null. When an id is passed
 	  /// for an unexisting user, this operation is ignored. </param>
-	  /// <exception cref="UnsupportedOperationException"> if identity service implementation is read only. See <seealso cref="#isReadOnly()"/> </exception>
-	  /// <exception cref="AuthorizationException"> if the user has no <seealso cref="Permissions#DELETE"/> permissions on <seealso cref="Resources#USER"/>. </exception>
+	  /// <exception cref="UnsupportedOperationException"> if identity service implementation is read only. See <seealso cref="isReadOnly()"/> </exception>
+	  /// <exception cref="AuthorizationException"> if the user has no <seealso cref="Permissions.DELETE"/> permissions on <seealso cref="Resources.USER"/>. </exception>
 	  void deleteUser(string userId);
 
 	  void unlockUser(string userId);
 
 	  /// <summary>
 	  /// Creates a new group. The group is transient and must be saved using
-	  /// <seealso cref="#saveGroup(Group)"/>. </summary>
+	  /// <seealso cref="saveGroup(Group)"/>. </summary>
 	  /// <param name="groupId"> id for the new group, cannot be null. </param>
-	  /// <exception cref="UnsupportedOperationException"> if identity service implementation is read only. See <seealso cref="#isReadOnly()"/> </exception>
-	  /// <exception cref="AuthorizationException"> if the user has no <seealso cref="Permissions#CREATE"/> permissions on <seealso cref="Resources#GROUP"/>. </exception>
+	  /// <exception cref="UnsupportedOperationException"> if identity service implementation is read only. See <seealso cref="isReadOnly()"/> </exception>
+	  /// <exception cref="AuthorizationException"> if the user has no <seealso cref="Permissions.CREATE"/> permissions on <seealso cref="Resources.GROUP"/>. </exception>
 	  Group newGroup(string groupId);
 
 	  /// <summary>
@@ -131,25 +131,25 @@ namespace org.camunda.bpm.engine
 	  /// Saves the group. If the group already existed, the group is updated. </summary>
 	  /// <param name="group"> group to save. Cannot be null. </param>
 	  /// <exception cref="RuntimeException"> when a group with the same name already exists. </exception>
-	  /// <exception cref="UnsupportedOperationException"> if identity service implementation is read only. See <seealso cref="#isReadOnly()"/> </exception>
-	  /// <exception cref="AuthorizationException"> if the user has no <seealso cref="Permissions#UPDATE"/> permissions on <seealso cref="Resources#GROUP"/> (update existing group)
-	  /// or if user has no <seealso cref="Permissions#CREATE"/> permissions on <seealso cref="Resources#GROUP"/> (save new group). </exception>
+	  /// <exception cref="UnsupportedOperationException"> if identity service implementation is read only. See <seealso cref="isReadOnly()"/> </exception>
+	  /// <exception cref="AuthorizationException"> if the user has no <seealso cref="Permissions.UPDATE"/> permissions on <seealso cref="Resources.GROUP"/> (update existing group)
+	  /// or if user has no <seealso cref="Permissions.CREATE"/> permissions on <seealso cref="Resources.GROUP"/> (save new group). </exception>
 	  void saveGroup(Group group);
 
 	  /// <summary>
 	  /// Deletes the group. When no group exists with the given id, this operation
 	  /// is ignored. </summary>
 	  /// <param name="groupId"> id of the group that should be deleted, cannot be null. </param>
-	  /// <exception cref="UnsupportedOperationException"> if identity service implementation is read only. See <seealso cref="#isReadOnly()"/> </exception>
-	  /// <exception cref="AuthorizationException"> if the user has no <seealso cref="Permissions#DELETE"/> permissions on <seealso cref="Resources#GROUP"/>. </exception>
+	  /// <exception cref="UnsupportedOperationException"> if identity service implementation is read only. See <seealso cref="isReadOnly()"/> </exception>
+	  /// <exception cref="AuthorizationException"> if the user has no <seealso cref="Permissions.DELETE"/> permissions on <seealso cref="Resources.GROUP"/>. </exception>
 	  void deleteGroup(string groupId);
 
 	  /// <param name="userId"> the userId, cannot be null. </param>
 	  /// <param name="groupId"> the groupId, cannot be null. </param>
 	  /// <exception cref="RuntimeException"> when the given user or group doesn't exist or when the user
 	  /// is already member of the group. </exception>
-	  /// <exception cref="UnsupportedOperationException"> if identity service implementation is read only. See <seealso cref="#isReadOnly()"/> </exception>
-	  /// <exception cref="AuthorizationException"> if the user has no <seealso cref="Permissions#CREATE"/> permissions on <seealso cref="Resources#GROUP_MEMBERSHIP"/>. </exception>
+	  /// <exception cref="UnsupportedOperationException"> if identity service implementation is read only. See <seealso cref="isReadOnly()"/> </exception>
+	  /// <exception cref="AuthorizationException"> if the user has no <seealso cref="Permissions.CREATE"/> permissions on <seealso cref="Resources.GROUP_MEMBERSHIP"/>. </exception>
 	  void createMembership(string userId, string groupId);
 
 	  /// <summary>
@@ -157,22 +157,22 @@ namespace org.camunda.bpm.engine
 	  /// or when the user is not a member of the group, this operation is ignored. </summary>
 	  /// <param name="userId"> the user's id, cannot be null. </param>
 	  /// <param name="groupId"> the group's id, cannot be null. </param>
-	  /// <exception cref="UnsupportedOperationException"> if identity service implementation is read only. See <seealso cref="#isReadOnly()"/> </exception>
-	  /// <exception cref="AuthorizationException"> if the user has no <seealso cref="Permissions#DELETE"/> permissions on <seealso cref="Resources#GROUP_MEMBERSHIP"/>. </exception>
+	  /// <exception cref="UnsupportedOperationException"> if identity service implementation is read only. See <seealso cref="isReadOnly()"/> </exception>
+	  /// <exception cref="AuthorizationException"> if the user has no <seealso cref="Permissions.DELETE"/> permissions on <seealso cref="Resources.GROUP_MEMBERSHIP"/>. </exception>
 	  void deleteMembership(string userId, string groupId);
 
 	  /// <summary>
 	  /// Creates a new tenant. The tenant is transient and must be saved using
-	  /// <seealso cref="#saveTenant(Tenant)"/>.
+	  /// <seealso cref="saveTenant(Tenant)"/>.
 	  /// </summary>
 	  /// <param name="tenantId">
 	  ///          id for the new tenant, cannot be <code>null</code>. </param>
 	  /// <exception cref="UnsupportedOperationException">
 	  ///           if identity service implementation is read only. See
-	  ///           <seealso cref="#isReadOnly()"/> </exception>
+	  ///           <seealso cref="isReadOnly()"/> </exception>
 	  /// <exception cref="AuthorizationException">
-	  ///           if the user has no <seealso cref="Permissions#CREATE"/> permissions on
-	  ///           <seealso cref="Resources#TENANT"/>. </exception>
+	  ///           if the user has no <seealso cref="Permissions.CREATE"/> permissions on
+	  ///           <seealso cref="Resources.TENANT"/>. </exception>
 	  Tenant newTenant(string tenantId);
 
 	  /// <summary>
@@ -190,12 +190,12 @@ namespace org.camunda.bpm.engine
 	  ///           when a tenant with the same name already exists. </exception>
 	  /// <exception cref="UnsupportedOperationException">
 	  ///           if identity service implementation is read only. See
-	  ///           <seealso cref="#isReadOnly()"/> </exception>
+	  ///           <seealso cref="isReadOnly()"/> </exception>
 	  /// <exception cref="AuthorizationException">
-	  ///           if the user has no <seealso cref="Permissions#UPDATE"/> permissions on
-	  ///           <seealso cref="Resources#TENANT"/> (update existing tenant) or if user has
-	  ///           no <seealso cref="Permissions#CREATE"/> permissions on
-	  ///           <seealso cref="Resources#TENANT"/> (save new tenant). </exception>
+	  ///           if the user has no <seealso cref="Permissions.UPDATE"/> permissions on
+	  ///           <seealso cref="Resources.TENANT"/> (update existing tenant) or if user has
+	  ///           no <seealso cref="Permissions.CREATE"/> permissions on
+	  ///           <seealso cref="Resources.TENANT"/> (save new tenant). </exception>
 	  void saveTenant(Tenant tenant);
 
 	  /// <summary>
@@ -207,10 +207,10 @@ namespace org.camunda.bpm.engine
 	  ///          <code>null</code>. </param>
 	  /// <exception cref="UnsupportedOperationException">
 	  ///           if identity service implementation is read only. See
-	  ///           <seealso cref="#isReadOnly()"/> </exception>
+	  ///           <seealso cref="isReadOnly()"/> </exception>
 	  /// <exception cref="AuthorizationException">
-	  ///           if the user has no <seealso cref="Permissions#DELETE"/> permissions on
-	  ///           <seealso cref="Resources#TENANT"/>. </exception>
+	  ///           if the user has no <seealso cref="Permissions.DELETE"/> permissions on
+	  ///           <seealso cref="Resources.TENANT"/>. </exception>
 	  void deleteTenant(string tenantId);
 
 	  /// <summary>
@@ -225,10 +225,10 @@ namespace org.camunda.bpm.engine
 	  ///           already a member of this tenant. </exception>
 	  /// <exception cref="UnsupportedOperationException">
 	  ///           if identity service implementation is read only. See
-	  ///           <seealso cref="#isReadOnly()"/> </exception>
+	  ///           <seealso cref="isReadOnly()"/> </exception>
 	  /// <exception cref="AuthorizationException">
-	  ///           if the user has no <seealso cref="Permissions#CREATE"/> permissions on
-	  ///           <seealso cref="Resources#TENANT_MEMBERSHIP"/>. </exception>
+	  ///           if the user has no <seealso cref="Permissions.CREATE"/> permissions on
+	  ///           <seealso cref="Resources.TENANT_MEMBERSHIP"/>. </exception>
 	  void createTenantUserMembership(string tenantId, string userId);
 
 	  /// <summary>
@@ -243,10 +243,10 @@ namespace org.camunda.bpm.engine
 	  ///           is already a member of this tenant. </exception>
 	  /// <exception cref="UnsupportedOperationException">
 	  ///           if identity service implementation is read only. See
-	  ///           <seealso cref="#isReadOnly()"/> </exception>
+	  ///           <seealso cref="isReadOnly()"/> </exception>
 	  /// <exception cref="AuthorizationException">
-	  ///           if the user has no <seealso cref="Permissions#CREATE"/> permissions on
-	  ///           <seealso cref="Resources#TENANT_MEMBERSHIP"/>. </exception>
+	  ///           if the user has no <seealso cref="Permissions.CREATE"/> permissions on
+	  ///           <seealso cref="Resources.TENANT_MEMBERSHIP"/>. </exception>
 	  void createTenantGroupMembership(string tenantId, string groupId);
 
 	  /// <summary>
@@ -259,10 +259,10 @@ namespace org.camunda.bpm.engine
 	  ///          the id of the user, cannot be null. </param>
 	  /// <exception cref="UnsupportedOperationException">
 	  ///           if identity service implementation is read only. See
-	  ///           <seealso cref="#isReadOnly()"/> </exception>
+	  ///           <seealso cref="isReadOnly()"/> </exception>
 	  /// <exception cref="AuthorizationException">
-	  ///           if the user has no <seealso cref="Permissions#DELETE"/> permissions on
-	  ///           <seealso cref="Resources#TENANT_MEMBERSHIP"/>. </exception>
+	  ///           if the user has no <seealso cref="Permissions.DELETE"/> permissions on
+	  ///           <seealso cref="Resources.TENANT_MEMBERSHIP"/>. </exception>
 	  void deleteTenantUserMembership(string tenantId, string userId);
 
 	  /// <summary>
@@ -275,10 +275,10 @@ namespace org.camunda.bpm.engine
 	  ///          the id of the group, cannot be null. </param>
 	  /// <exception cref="UnsupportedOperationException">
 	  ///           if identity service implementation is read only. See
-	  ///           <seealso cref="#isReadOnly()"/> </exception>
+	  ///           <seealso cref="isReadOnly()"/> </exception>
 	  /// <exception cref="AuthorizationException">
-	  ///           if the user has no <seealso cref="Permissions#DELETE"/> permissions on
-	  ///           <seealso cref="Resources#TENANT_MEMBERSHIP"/>. </exception>
+	  ///           if the user has no <seealso cref="Permissions.DELETE"/> permissions on
+	  ///           <seealso cref="Resources.TENANT_MEMBERSHIP"/>. </exception>
 	  void deleteTenantGroupMembership(string tenantId, string groupId);
 
 	  /// <summary>
@@ -325,7 +325,7 @@ namespace org.camunda.bpm.engine
 	  /// Passes the authenticated user id for this thread.
 	  /// All service method (from any service) invocations done by the same
 	  /// thread will have access to this authenticatedUserId. Should be followed by
-	  /// a call to <seealso cref="#clearAuthentication()"/> once the interaction is terminated.
+	  /// a call to <seealso cref="clearAuthentication()"/> once the interaction is terminated.
 	  /// </summary>
 	  /// <param name="authenticatedUserId"> the id of the current user. </param>
 	  string AuthenticatedUserId {set;}
@@ -334,7 +334,7 @@ namespace org.camunda.bpm.engine
 	  /// Passes the authenticated user id and groupIds for this thread.
 	  /// All service method (from any service) invocations done by the same
 	  /// thread will have access to this authentication. Should be followed by
-	  /// a call to <seealso cref="#clearAuthentication()"/> once the interaction is terminated.
+	  /// a call to <seealso cref="clearAuthentication()"/> once the interaction is terminated.
 	  /// </summary>
 	  ///  <param name="authenticatedUserId"> the id of the current user. </param>
 	  ///  <param name="groups"> the groups of the current user. </param>
@@ -344,7 +344,7 @@ namespace org.camunda.bpm.engine
 	  /// Passes the authenticated user id, group ids and tenant ids for this thread.
 	  /// All service method (from any service) invocations done by the same
 	  /// thread will have access to this authentication. Should be followed by
-	  /// a call to <seealso cref="#clearAuthentication()"/> once the interaction is terminated.
+	  /// a call to <seealso cref="clearAuthentication()"/> once the interaction is terminated.
 	  /// </summary>
 	  ///  <param name="userId"> the id of the current user. </param>
 	  ///  <param name="groups"> the groups of the current user. </param>

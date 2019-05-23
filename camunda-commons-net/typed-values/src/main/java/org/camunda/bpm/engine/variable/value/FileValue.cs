@@ -34,7 +34,7 @@ namespace org.camunda.bpm.engine.variable.value
 	  /// <summary>
 	  /// Convenience method to save the transformation. This method will perform no
 	  /// check if the saved encoding is known to the JVM and therefore could throw
-	  /// every exception that <seealso cref="Charset#forName(String)"/> lists.
+	  /// every exception that <seealso cref="Charset.forName(string)"/> lists.
 	  /// <para>
 	  /// If no encoding has been saved it will return null.
 	  /// 

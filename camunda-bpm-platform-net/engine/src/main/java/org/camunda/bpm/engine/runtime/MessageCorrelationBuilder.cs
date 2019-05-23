@@ -88,7 +88,7 @@ namespace org.camunda.bpm.engine.runtime
 
 	  /// <summary>
 	  /// <para>Correlate the message such that a process definition with the given id is selected.
-	  /// Is only supported for <seealso cref="#correlateStartMessage()"/> or <seealso cref="#startMessageOnly()"/> flag.</para>
+	  /// Is only supported for <seealso cref="correlateStartMessage()"/> or <seealso cref="startMessageOnly()"/> flag.</para>
 	  /// </summary>
 	  /// <param name="processDefinitionId"> the id of the process definition to correlate on. </param>
 	  /// <returns> the builder </returns>
@@ -136,7 +136,7 @@ namespace org.camunda.bpm.engine.runtime
 	  /// Specify a tenant to deliver the message to. The message can only be
 	  /// received on executions or process definitions which belongs to the given
 	  /// tenant. Cannot be used in combination with
-	  /// <seealso cref="#processInstanceId(String)"/> or <seealso cref="#processDefinitionId(String)"/>.
+	  /// <seealso cref="processInstanceId(string)"/> or <seealso cref="processDefinitionId(string)"/>.
 	  /// </summary>
 	  /// <param name="tenantId">
 	  ///          the id of the tenant </param>
@@ -146,7 +146,7 @@ namespace org.camunda.bpm.engine.runtime
 	  /// <summary>
 	  /// Specify that the message can only be received on executions or process
 	  /// definitions which belongs to no tenant. Cannot be used in combination with
-	  /// <seealso cref="#processInstanceId(String)"/> or <seealso cref="#processDefinitionId(String)"/>.
+	  /// <seealso cref="processInstanceId(string)"/> or <seealso cref="processDefinitionId(string)"/>.
 	  /// </summary>
 	  /// <returns> the builder </returns>
 	  MessageCorrelationBuilder withoutTenantId();
@@ -160,7 +160,7 @@ namespace org.camunda.bpm.engine.runtime
 	  /// <summary>
 	  /// Executes the message correlation.
 	  /// </summary>
-	  /// <seealso cref= <seealso cref="#correlateWithResult()"/> </seealso>
+	  /// <seealso cref= <seealso cref="correlateWithResult()"/> </seealso>
 	  void correlate();
 
 
@@ -176,27 +176,27 @@ namespace org.camunda.bpm.engine.runtime
 	  ///     correlation or that no execution and process definition matches the correlation.</li>
 	  /// </ul>
 	  /// </para>
-	  /// The result can be identified by calling the <seealso cref="MessageCorrelationResult#getResultType"/>.
+	  /// The result can be identified by calling the <seealso cref="MessageCorrelationResult.getResultType"/>.
 	  /// </summary>
 	  /// <exception cref="MismatchingMessageCorrelationException">
 	  ///          if none or more than one execution or process definition is matched by the correlation </exception>
 	  /// <exception cref="AuthorizationException">
-	  ///          <li>if one execution is matched and the user has no <seealso cref="Permissions#UPDATE"/> permission on
-	  ///          <seealso cref="Resources#PROCESS_INSTANCE"/> or no <seealso cref="Permissions#UPDATE_INSTANCE"/> permission on
-	  ///          <seealso cref="Resources#PROCESS_DEFINITION"/>.</li>
-	  ///          <li>if one process definition is matched and the user has no <seealso cref="Permissions#CREATE"/> permission on
-	  ///          <seealso cref="Resources#PROCESS_INSTANCE"/> and no <seealso cref="Permissions#CREATE_INSTANCE"/> permission on
-	  ///          <seealso cref="Resources#PROCESS_DEFINITION"/>.</li>
+	  ///          <li>if one execution is matched and the user has no <seealso cref="Permissions.UPDATE"/> permission on
+	  ///          <seealso cref="Resources.PROCESS_INSTANCE"/> or no <seealso cref="Permissions.UPDATE_INSTANCE"/> permission on
+	  ///          <seealso cref="Resources.PROCESS_DEFINITION"/>.</li>
+	  ///          <li>if one process definition is matched and the user has no <seealso cref="Permissions.CREATE"/> permission on
+	  ///          <seealso cref="Resources.PROCESS_INSTANCE"/> and no <seealso cref="Permissions.CREATE_INSTANCE"/> permission on
+	  ///          <seealso cref="Resources.PROCESS_DEFINITION"/>.</li>
 	  /// </exception>
 	  /// <returns> The result of the message correlation. Result contains either the execution id or the start event activity id and the process definition.
 	  /// @since 7.6 </returns>
 	  MessageCorrelationResult correlateWithResult();
 
 	  /// <summary>
-	  /// Executes the message correlation. If you do not need access to the process variables, use <seealso cref="#correlateWithResult()"/>
+	  /// Executes the message correlation. If you do not need access to the process variables, use <seealso cref="correlateWithResult()"/>
 	  /// to avoid unnecessary variable access.
 	  /// </summary>
-	  /// <seealso cref= <seealso cref="#correlateWithResult()"/>
+	  /// <seealso cref= <seealso cref="correlateWithResult()"/>
 	  /// </seealso>
 	  /// <param name="deserializeValues"> if false, returned <seealso cref="SerializableValue"/>s
 	  ///   will not be deserialized (unless they are passed into this method as a
@@ -209,7 +209,7 @@ namespace org.camunda.bpm.engine.runtime
 
 	  /// <summary>
 	  /// <para>
-	  ///   Behaves like <seealso cref="#correlate()"/>, however uses pessimistic locking for correlating a waiting execution, meaning
+	  ///   Behaves like <seealso cref="correlate()"/>, however uses pessimistic locking for correlating a waiting execution, meaning
 	  ///   that two threads correlating a message to the same execution in parallel do not end up continuing the
 	  ///   process in parallel until the next wait state is reached
 	  /// </para>
@@ -231,7 +231,7 @@ namespace org.camunda.bpm.engine.runtime
 	  /// <summary>
 	  /// Executes the message correlation for multiple messages.
 	  /// </summary>
-	  /// <seealso cref= <seealso cref="#correlateAllWithResult()"/> </seealso>
+	  /// <seealso cref= <seealso cref="correlateAllWithResult()"/> </seealso>
 	  void correlateAll();
 
 	  /// <summary>
@@ -245,15 +245,15 @@ namespace org.camunda.bpm.engine.runtime
 	  /// The result list contains the start event activity ids and process definitions from all activities on that the messages was correlated to.</li>
 	  /// </ul>
 	  /// </para>
-	  /// <para>Note that the message correlates to all tenants if no tenant is specified using <seealso cref="#tenantId(String)"/> or <seealso cref="#withoutTenantId()"/>.</para>
+	  /// <para>Note that the message correlates to all tenants if no tenant is specified using <seealso cref="tenantId(string)"/> or <seealso cref="withoutTenantId()"/>.</para>
 	  /// </summary>
 	  /// <exception cref="AuthorizationException">
-	  ///          <li>if at least one execution is matched and the user has no <seealso cref="Permissions#UPDATE"/> permission on
-	  ///          <seealso cref="Resources#PROCESS_INSTANCE"/> or no <seealso cref="Permissions#UPDATE_INSTANCE"/> permission on
-	  ///          <seealso cref="Resources#PROCESS_DEFINITION"/>.</li>
-	  ///          <li>if one process definition is matched and the user has no <seealso cref="Permissions#CREATE"/> permission on
-	  ///          <seealso cref="Resources#PROCESS_INSTANCE"/> and no <seealso cref="Permissions#CREATE_INSTANCE"/> permission on
-	  ///          <seealso cref="Resources#PROCESS_DEFINITION"/>.</li>
+	  ///          <li>if at least one execution is matched and the user has no <seealso cref="Permissions.UPDATE"/> permission on
+	  ///          <seealso cref="Resources.PROCESS_INSTANCE"/> or no <seealso cref="Permissions.UPDATE_INSTANCE"/> permission on
+	  ///          <seealso cref="Resources.PROCESS_DEFINITION"/>.</li>
+	  ///          <li>if one process definition is matched and the user has no <seealso cref="Permissions.CREATE"/> permission on
+	  ///          <seealso cref="Resources.PROCESS_INSTANCE"/> and no <seealso cref="Permissions.CREATE_INSTANCE"/> permission on
+	  ///          <seealso cref="Resources.PROCESS_DEFINITION"/>.</li>
 	  /// </exception>
 	  /// <returns> The result list of the message correlations. Each result contains
 	  /// either the execution id or the start event activity id and the process definition.
@@ -261,10 +261,10 @@ namespace org.camunda.bpm.engine.runtime
 	  IList<MessageCorrelationResult> correlateAllWithResult();
 
 	  /// <summary>
-	  /// Executes the message correlation. If you do not need access to the process variables, use <seealso cref="#correlateAllWithResult()"/>
+	  /// Executes the message correlation. If you do not need access to the process variables, use <seealso cref="correlateAllWithResult()"/>
 	  /// to avoid unnecessary variable access.
 	  /// </summary>
-	  /// <seealso cref= <seealso cref="#correlateAllWithResult()"/>
+	  /// <seealso cref= <seealso cref="correlateAllWithResult()"/>
 	  /// </seealso>
 	  /// <param name="deserializeValues"> if false, returned <seealso cref="SerializableValue"/>s
 	  ///   will not be deserialized (unless they are passed into this method as a
@@ -296,10 +296,10 @@ namespace org.camunda.bpm.engine.runtime
 	  ///           if none or more than one process definition is matched by the correlation </exception>
 	  /// <exception cref="AuthorizationException">
 	  ///           if one process definition is matched and the user has no
-	  ///           <seealso cref="Permissions#CREATE"/> permission on
-	  ///           <seealso cref="Resources#PROCESS_INSTANCE"/> and no
-	  ///           <seealso cref="Permissions#CREATE_INSTANCE"/> permission on
-	  ///           <seealso cref="Resources#PROCESS_DEFINITION"/>. </exception>
+	  ///           <seealso cref="Permissions.CREATE"/> permission on
+	  ///           <seealso cref="Resources.PROCESS_INSTANCE"/> and no
+	  ///           <seealso cref="Permissions.CREATE_INSTANCE"/> permission on
+	  ///           <seealso cref="Resources.PROCESS_DEFINITION"/>. </exception>
 	  ProcessInstance correlateStartMessage();
 
 	}

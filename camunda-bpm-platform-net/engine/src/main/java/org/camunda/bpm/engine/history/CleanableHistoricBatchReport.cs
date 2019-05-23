@@ -26,7 +26,7 @@ namespace org.camunda.bpm.engine.history
 	{
 
 	  /// <summary>
-	  /// Order by finished batch operations amount (needs to be followed by <seealso cref="#asc()"/> or <seealso cref="#desc()"/>).
+	  /// Order by finished batch operations amount (needs to be followed by <seealso cref="asc()"/> or <seealso cref="desc()"/>).
 	  /// </summary>
 	  CleanableHistoricBatchReport orderByFinishedBatchOperation();
 

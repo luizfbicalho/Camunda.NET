@@ -198,7 +198,7 @@ namespace org.camunda.bpm.engine.impl.persistence.entity
 
 	  /// <summary>
 	  /// persisted reference to the current position in the diagram within the
-	  /// <seealso cref="#processDefinition"/>.
+	  /// <seealso cref="processDefinition"/>.
 	  /// </summary>
 	  /// <seealso cref= #activity </seealso>
 	  /// <seealso cref= #getActivity() </seealso>
@@ -224,7 +224,7 @@ namespace org.camunda.bpm.engine.impl.persistence.entity
 	  /// <summary>
 	  /// persisted reference to the super execution of this execution
 	  /// 
-	  /// @See <seealso cref="#getSuperExecution()"/> </summary>
+	  /// @See <seealso cref="getSuperExecution()"/> </summary>
 	  /// <seealso cref= <code>setSuperExecution(ExecutionEntity)</code> </seealso>
 	  protected internal string superExecutionId;
 
@@ -237,7 +237,7 @@ namespace org.camunda.bpm.engine.impl.persistence.entity
 	  /// <summary>
 	  /// persisted reference to the super case execution of this execution
 	  /// 
-	  /// @See <seealso cref="#getSuperCaseExecution()"/> </summary>
+	  /// @See <seealso cref="getSuperCaseExecution()"/> </summary>
 	  /// <seealso cref= <code>setSuperCaseExecution(ExecutionEntity)</code> </seealso>
 	  protected internal string superCaseExecutionId;
 

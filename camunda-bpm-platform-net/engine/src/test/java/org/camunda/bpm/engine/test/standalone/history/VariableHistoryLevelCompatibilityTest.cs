@@ -22,8 +22,8 @@ namespace org.camunda.bpm.engine.test.standalone.history
 
 	/// <summary>
 	/// This test ensures that if a user selects
-	/// <seealso cref="ProcessEngineConfiguration#HISTORY_VARIABLE"/>, the level is internally
-	/// mapped to <seealso cref="ProcessEngineConfigurationImpl#HISTORYLEVEL_ACTIVITY"/>.
+	/// <seealso cref="ProcessEngineConfiguration.HISTORY_VARIABLE"/>, the level is internally
+	/// mapped to <seealso cref="ProcessEngineConfigurationImpl.HISTORYLEVEL_ACTIVITY"/>.
 	/// 
 	/// @author Daniel Meyer
 	/// </summary>

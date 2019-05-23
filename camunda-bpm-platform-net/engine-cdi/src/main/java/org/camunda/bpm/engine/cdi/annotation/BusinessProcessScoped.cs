@@ -27,8 +27,8 @@ namespace org.camunda.bpm.engine.cdi.annotation
 	/// <p />
 	/// Note: BusinessProcessScoped is not capable of managing local process variables,
 	/// and there is currently also no respective other implementation for that. Please use
-	/// <seealso cref="org.camunda.bpm.engine.cdi.BusinessProcess#setVariableLocal(String, Object)"/>
-	/// and <seealso cref="org.camunda.bpm.engine.cdi.BusinessProcess#getVariableLocal(String)"/>
+	/// <seealso cref="org.camunda.bpm.engine.cdi.BusinessProcess.setVariableLocal(string, object)"/>
+	/// and <seealso cref="org.camunda.bpm.engine.cdi.BusinessProcess.getVariableLocal(string)"/>
 	/// or an injected Map of local process variables instead.
 	/// <p />
 	/// If no ProcessInstance is currently managed, instances of

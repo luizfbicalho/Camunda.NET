@@ -55,7 +55,7 @@ namespace org.camunda.bpm.engine.form
 	  /// <returns> a list of <seealso cref="FormFieldValidationConstraint ValidationConstraints"/>. </returns>
 	  IList<FormFieldValidationConstraint> ValidationConstraints {get;}
 
-	  /// <returns> a <seealso cref="Map"/> of additional properties. This map may be used for adding additional configuration
+	  /// <returns> a <seealso cref="System.Collections.IDictionary"/> of additional properties. This map may be used for adding additional configuration
 	  /// to a form field. An example may be layout hints such as the size of the rendered form field or information
 	  /// about an icon to prepend or append to the rendered form field. </returns>
 	  IDictionary<string, string> Properties {get;}

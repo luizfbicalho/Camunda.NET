@@ -24,7 +24,7 @@ namespace org.camunda.bpm.engine.impl.javax.el
 	/// objects of type java.util.List. It accepts any object as a property and coerces that object into
 	/// an integer index into the list. The resulting value is the value in the list at that index. This
 	/// resolver can be constructed in read-only mode, which means that isReadOnly will always return
-	/// true and <seealso cref="#setValue(ELContext, Object, Object, Object)"/> will always throw
+	/// true and <seealso cref="setValue(ELContext, object, object, object)"/> will always throw
 	/// PropertyNotWritableException. ELResolvers are combined together using <seealso cref="CompositeELResolver"/>
 	/// s, to define rich semantics for evaluating an expression. See the javadocs for <seealso cref="ELResolver"/>
 	/// for details.
@@ -171,7 +171,7 @@ namespace org.camunda.bpm.engine.impl.javax.el
 
 		/// <summary>
 		/// If the base object is a list, returns whether a call to
-		/// <seealso cref="#setValue(ELContext, Object, Object, Object)"/> will always fail. If the base is a List,
+		/// <seealso cref="setValue(ELContext, object, object, object)"/> will always fail. If the base is a List,
 		/// the propertyResolved property of the ELContext object must be set to true by this resolver,
 		/// before returning. If this property is not true after this method is called, the caller should
 		/// ignore the return value. If this resolver was constructed in read-only mode, this method will

@@ -27,12 +27,12 @@ namespace org.camunda.bpm.engine.@delegate
 	/// 
 	/// <para>The following state transition are supported on a <seealso cref="CaseInstance"/>:
 	/// <ul>
-	/// <li><seealso cref="#CREATE"/></li>
-	/// <li><seealso cref="#COMPLETE"/></li>
-	/// <li><seealso cref="#TERMINATE"/></li>
-	/// <li><seealso cref="#SUSPEND"/></li>
-	/// <li><seealso cref="#RE_ACTIVATE"/></li>
-	/// <li><seealso cref="#CLOSE"/></li>
+	/// <li><seealso cref="CREATE"/></li>
+	/// <li><seealso cref="COMPLETE"/></li>
+	/// <li><seealso cref="TERMINATE"/></li>
+	/// <li><seealso cref="SUSPEND"/></li>
+	/// <li><seealso cref="RE_ACTIVATE"/></li>
+	/// <li><seealso cref="CLOSE"/></li>
 	/// </ul>
 	/// </para>
 	/// 
@@ -40,19 +40,19 @@ namespace org.camunda.bpm.engine.@delegate
 	/// is associated with a <seealso cref="Task"/> or a <seealso cref="Stage"/> the following state transition
 	/// are supported:
 	/// <ul>
-	/// <li><seealso cref="#CREATE"/></li>
-	/// <li><seealso cref="#ENABLE"/></li>
-	/// <li><seealso cref="#DISABLE"/></li>
-	/// <li><seealso cref="#RE_ENABLE"/></li>
-	/// <li><seealso cref="#START"/></li>
-	/// <li><seealso cref="#MANUAL_START"/></li>
-	/// <li><seealso cref="#COMPLETE"/></li>
-	/// <li><seealso cref="#TERMINATE"/></li>
-	/// <li><seealso cref="#EXIT"/></li>
-	/// <li><seealso cref="#SUSPEND"/></li>
-	/// <li><seealso cref="#RESUME"/></li>
-	/// <li><seealso cref="#PARENT_SUSPEND"/></li>
-	/// <li><seealso cref="#PARENT_RESUME"/></li>
+	/// <li><seealso cref="CREATE"/></li>
+	/// <li><seealso cref="ENABLE"/></li>
+	/// <li><seealso cref="DISABLE"/></li>
+	/// <li><seealso cref="RE_ENABLE"/></li>
+	/// <li><seealso cref="START"/></li>
+	/// <li><seealso cref="MANUAL_START"/></li>
+	/// <li><seealso cref="COMPLETE"/></li>
+	/// <li><seealso cref="TERMINATE"/></li>
+	/// <li><seealso cref="EXIT"/></li>
+	/// <li><seealso cref="SUSPEND"/></li>
+	/// <li><seealso cref="RESUME"/></li>
+	/// <li><seealso cref="PARENT_SUSPEND"/></li>
+	/// <li><seealso cref="PARENT_RESUME"/></li>
 	/// </ul>
 	/// </para>
 	/// 

@@ -41,9 +41,9 @@ namespace org.camunda.bpm.engine.batch
 	  /// 
 	  /// <para>
 	  ///   See
-	  ///   <seealso cref="#getTotalJobs()"/> for the number of all batch execution jobs,
-	  ///   <seealso cref="#getCompletedJobs()"/> for the number of completed batch execution jobs and
-	  ///   <seealso cref="#getFailedJobs()"/> for the number of failed batch execution jobs.
+	  ///   <seealso cref="getTotalJobs()"/> for the number of all batch execution jobs,
+	  ///   <seealso cref="getCompletedJobs()"/> for the number of completed batch execution jobs and
+	  ///   <seealso cref="getFailedJobs()"/> for the number of failed batch execution jobs.
 	  /// </para>
 	  /// </summary>
 	  /// <returns> the number of remaining batch execution jobs </returns>
@@ -57,9 +57,9 @@ namespace org.camunda.bpm.engine.batch
 	  /// 
 	  /// <para>
 	  ///   See
-	  ///   <seealso cref="#getTotalJobs()"/> for the number of all batch execution jobs,
-	  ///   <seealso cref="#getRemainingJobs()"/> ()} for the number of remaining batch execution jobs and
-	  ///   <seealso cref="#getFailedJobs()"/> for the number of failed batch execution jobs.
+	  ///   <seealso cref="getTotalJobs()"/> for the number of all batch execution jobs,
+	  ///   <seealso cref="getRemainingJobs()"/> ()} for the number of remaining batch execution jobs and
+	  ///   <seealso cref="getFailedJobs()"/> for the number of failed batch execution jobs.
 	  /// </para>
 	  /// </summary>
 	  /// <returns> the number of completed batch execution jobs </returns>
@@ -73,9 +73,9 @@ namespace org.camunda.bpm.engine.batch
 	  /// 
 	  /// <para>
 	  ///   See
-	  ///   <seealso cref="#getTotalJobs()"/> for the number of all batch execution jobs,
-	  ///   <seealso cref="#getRemainingJobs()"/> ()} for the number of remaining batch execution jobs and
-	  ///   <seealso cref="#getCompletedJobs()"/> ()} for the number of completed batch execution jobs.
+	  ///   <seealso cref="getTotalJobs()"/> for the number of all batch execution jobs,
+	  ///   <seealso cref="getRemainingJobs()"/> ()} for the number of remaining batch execution jobs and
+	  ///   <seealso cref="getCompletedJobs()"/> ()} for the number of completed batch execution jobs.
 	  /// </para>
 	  /// </summary>
 	  /// <returns> the number of failed batch execution jobs </returns>

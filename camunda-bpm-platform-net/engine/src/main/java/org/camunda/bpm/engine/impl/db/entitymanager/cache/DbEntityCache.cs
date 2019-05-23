@@ -168,7 +168,7 @@ namespace org.camunda.bpm.engine.impl.db.entitymanager.cache
 	  }
 
 	  /// <summary>
-	  /// Put a new, <seealso cref="DbEntityState#TRANSIENT"/> object into the cache.
+	  /// Put a new, <seealso cref="DbEntityState.TRANSIENT"/> object into the cache.
 	  /// </summary>
 	  /// <param name="e"> the object to put into the cache </param>
 	  public virtual void putTransient(DbEntity e)
@@ -180,7 +180,7 @@ namespace org.camunda.bpm.engine.impl.db.entitymanager.cache
 	  }
 
 	  /// <summary>
-	  /// Put a <seealso cref="DbEntityState#PERSISTENT"/> object into the cache.
+	  /// Put a <seealso cref="DbEntityState.PERSISTENT"/> object into the cache.
 	  /// </summary>
 	  /// <param name="e"> the object to put into the cache </param>
 	  public virtual void putPersistent(DbEntity e)
@@ -195,7 +195,7 @@ namespace org.camunda.bpm.engine.impl.db.entitymanager.cache
 	  }
 
 	  /// <summary>
-	  /// Put a <seealso cref="DbEntityState#MERGED"/> object into the cache.
+	  /// Put a <seealso cref="DbEntityState.MERGED"/> object into the cache.
 	  /// </summary>
 	  /// <param name="e"> the object to put into the cache </param>
 	  public virtual void putMerged(DbEntity e)
@@ -322,11 +322,11 @@ namespace org.camunda.bpm.engine.impl.db.entitymanager.cache
 
 	  /// <summary>
 	  /// Allows checking whether the provided entity is present in the cache
-	  /// and is <seealso cref="DbEntityState#PERSISTENT"/>.
+	  /// and is <seealso cref="DbEntityState.PERSISTENT"/>.
 	  /// </summary>
 	  /// <param name="dbEntity"> the entity to check </param>
 	  /// <returns> true if the provided entity is present in the cache and is
-	  /// <seealso cref="DbEntityState#PERSISTENT"/>. </returns>
+	  /// <seealso cref="DbEntityState.PERSISTENT"/>. </returns>
 	  public virtual bool isPersistent(DbEntity dbEntity)
 	  {
 		CachedDbEntity cachedDbEntity = getCachedEntity(dbEntity);
@@ -362,11 +362,11 @@ namespace org.camunda.bpm.engine.impl.db.entitymanager.cache
 
 	  /// <summary>
 	  /// Allows checking whether the provided entity is present in the cache
-	  /// and is <seealso cref="DbEntityState#TRANSIENT"/>.
+	  /// and is <seealso cref="DbEntityState.TRANSIENT"/>.
 	  /// </summary>
 	  /// <param name="dbEntity"> the entity to check </param>
 	  /// <returns> true if the provided entity is present in the cache and is
-	  /// <seealso cref="DbEntityState#TRANSIENT"/>. </returns>
+	  /// <seealso cref="DbEntityState.TRANSIENT"/>. </returns>
 	  public virtual bool isTransient(DbEntity dbEntity)
 	  {
 		CachedDbEntity cachedDbEntity = getCachedEntity(dbEntity);

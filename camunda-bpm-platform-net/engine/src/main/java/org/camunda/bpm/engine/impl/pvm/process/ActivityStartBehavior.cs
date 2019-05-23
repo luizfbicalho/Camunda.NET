@@ -36,8 +36,8 @@ namespace org.camunda.bpm.engine.impl.pvm.process
 	  DEFAULT,
 
 	  /// <summary>
-	  /// Used for activities which <seealso cref="PvmExecutionImpl#interrupt(String) interrupt"/>
-	  /// their <seealso cref="PvmActivity#getFlowScope() flow scope"/>. Examples:
+	  /// Used for activities which <seealso cref="PvmExecutionImpl.interrupt(string) interrupt"/>
+	  /// their <seealso cref="PvmActivity.getFlowScope() flow scope"/>. Examples:
 	  /// - Terminate end event
 	  /// - Cancel end event
 	  /// 
@@ -47,20 +47,20 @@ namespace org.camunda.bpm.engine.impl.pvm.process
 
 	  /// <summary>
 	  /// Used for activities which are executed concurrently to activities
-	  /// within the same <seealso cref="ActivityImpl#getFlowScope() flowScope"/>.
+	  /// within the same <seealso cref="ActivityImpl.getFlowScope() flowScope"/>.
 	  /// </summary>
 	  CONCURRENT_IN_FLOW_SCOPE,
 
 	  /// <summary>
-	  /// Used for activities which <seealso cref="PvmExecutionImpl#interrupt(String) interrupt"/>
-	  /// their <seealso cref="PvmActivity#getEventScope() event scope"/>
+	  /// Used for activities which <seealso cref="PvmExecutionImpl.interrupt(string) interrupt"/>
+	  /// their <seealso cref="PvmActivity.getEventScope() event scope"/>
 	  /// 
 	  /// NOTE: cannot only be used for activities contained in normal flow
 	  /// </summary>
 	  INTERRUPT_EVENT_SCOPE,
 
 	  /// <summary>
-	  /// Used for activities which cancel their <seealso cref="PvmActivity#getEventScope() event scope"/>.
+	  /// Used for activities which cancel their <seealso cref="PvmActivity.getEventScope() event scope"/>.
 	  /// - Boundary events with cancelActivity=true
 	  /// 
 	  /// NOTE: cannot only be used for activities contained in normal flow

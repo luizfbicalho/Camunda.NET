@@ -63,8 +63,8 @@ namespace org.camunda.bpm.application
 
 	  /// <summary>
 	  /// Declares the context process application for all subsequent engine API invocations
-	  /// until <seealso cref="#clear()"/> is called. The context is bound to the current thread.
-	  /// This method should always be used in a try-finally block to ensure that <seealso cref="#clear()"/>
+	  /// until <seealso cref="clear()"/> is called. The context is bound to the current thread.
+	  /// This method should always be used in a try-finally block to ensure that <seealso cref="clear()"/>
 	  /// is called under any circumstances.
 	  /// </summary>
 	  /// <param name="processApplicationName"> the name of the process application to switch into </param>
@@ -78,8 +78,8 @@ namespace org.camunda.bpm.application
 
 	  /// <summary>
 	  /// Declares the context process application for all subsequent engine API invocations
-	  /// until <seealso cref="#clear()"/> is called. The context is bound to the current thread.
-	  /// This method should always be used in a try-finally block to ensure that <seealso cref="#clear()"/>
+	  /// until <seealso cref="clear()"/> is called. The context is bound to the current thread.
+	  /// This method should always be used in a try-finally block to ensure that <seealso cref="clear()"/>
 	  /// is called under any circumstances.
 	  /// </summary>
 	  /// <param name="reference"> a reference to the process application to switch into </param>
@@ -93,8 +93,8 @@ namespace org.camunda.bpm.application
 
 	  /// <summary>
 	  /// Declares the context process application for all subsequent engine API invocations
-	  /// until <seealso cref="#clear()"/> is called. The context is bound to the current thread.
-	  /// This method should always be used in a try-finally block to ensure that <seealso cref="#clear()"/>
+	  /// until <seealso cref="clear()"/> is called. The context is bound to the current thread.
+	  /// This method should always be used in a try-finally block to ensure that <seealso cref="clear()"/>
 	  /// is called under any circumstances.
 	  /// </summary>
 	  /// <param name="processApplication"> the process application to switch into </param>

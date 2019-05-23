@@ -40,7 +40,7 @@ namespace org.camunda.bpm.engine.runtime
 	  /// returns the id of the target activity
 	  /// </summary>
 	  /// @deprecated a transition instances represents a transition <b>to</b> or <b>from</b>
-	  ///  an activity; use <seealso cref="#getActivityId()"/> instead. 
+	  ///  an activity; use <seealso cref="getActivityId()"/> instead. 
 	  [Obsolete("a transition instances represents a transition <b>to</b> or <b>from</b>")]
 	  string TargetActivityId {get;}
 

@@ -61,7 +61,7 @@ namespace org.camunda.bpm.engine.impl.history.producer
 	  /// <summary>
 	  /// Creates the history event fired when a decision is evaluated. If the
 	  /// decision is evaluated while execute a process instance then you should use
-	  /// <seealso cref="#createDecisionEvaluatedEvt(DelegateExecution, DmnDecisionEvaluationEvent)"/> instead.
+	  /// <seealso cref="createDecisionEvaluatedEvt(DelegateExecution, DmnDecisionEvaluationEvent)"/> instead.
 	  /// </summary>
 	  /// <param name="decisionEvaluationEvent">
 	  ///          the evaluation event </param>

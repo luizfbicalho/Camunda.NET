@@ -61,7 +61,7 @@ namespace org.camunda.bpm.application.impl
 	/// Application and get EJB invocation semantics for the invocation. For example, if your
 	/// process application provides a <seealso cref="JavaDelegate"/> implementation, the process engine
 	/// will call the {@link EjbProcessApplication EjbProcessApplication's}
-	/// <seealso cref="#execute(java.util.concurrent.Callable)"/> Method and from that method invoke
+	/// <seealso cref="execute(java.util.concurrent.Callable)"/> Method and from that method invoke
 	/// the <seealso cref="JavaDelegate"/>. This makes sure that
 	/// <ul>
 	/// <li>the call is intercepted by the EJB container and "enters" the process application legally.</li>
@@ -86,7 +86,7 @@ namespace org.camunda.bpm.application.impl
 	/// 
 	/// <h2>Process Application Reference</h2>
 	/// <para>When the process application registers with a process engine
-	/// (see <seealso cref="ManagementService#registerProcessApplication(String, ProcessApplicationReference)"/>,
+	/// (see <seealso cref="ManagementService.registerProcessApplication(string, ProcessApplicationReference)"/>,
 	/// the process application passes a reference to itself to the process engine. This reference allows the
 	/// process engine to reference the process application. The <seealso cref="EjbProcessApplication"/> takes advantage
 	/// of the Ejb Containers naming context and passes a reference containing the EJBProcessApplication's

@@ -41,7 +41,7 @@ namespace org.camunda.bpm.engine.cdi
 	  string ActivityId {get;}
 
 	  /// <returns> the name of the transition being taken / that was taken. (null, if
-	  ///         this event is not of type <seealso cref="BusinessProcessEventType#TAKE"/> </returns>
+	  ///         this event is not of type <seealso cref="BusinessProcessEventType.TAKE"/> </returns>
 	  string TransitionName {get;}
 
 	  /// <returns> the id of the <seealso cref="ProcessInstance"/> this event corresponds to </returns>

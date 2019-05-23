@@ -79,7 +79,7 @@ namespace org.camunda.bpm.engine.history
 	  /// Returns the message of the exception that occurred by executing the associated job.
 	  /// 
 	  /// To get the full exception stacktrace,
-	  /// use <seealso cref="HistoryService#getHistoricJobLogExceptionStacktrace(String)"/>
+	  /// use <seealso cref="HistoryService.getHistoricJobLogExceptionStacktrace(string)"/>
 	  /// </summary>
 	  string JobExceptionMessage {get;}
 

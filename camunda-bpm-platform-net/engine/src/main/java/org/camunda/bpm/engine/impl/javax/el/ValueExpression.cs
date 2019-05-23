@@ -24,22 +24,22 @@ namespace org.camunda.bpm.engine.impl.javax.el
 	/// Those that cannot are referred to as r-value expressions. Not all r-value expressions can be used
 	/// as l-value expressions (e.g. "${1+1}" or "${firstName} ${lastName}"). See the EL Specification
 	/// for details. Expressions that cannot be used as l-values must always return true from
-	/// isReadOnly(). The <seealso cref="ExpressionFactory#createValueExpression(ELContext, String, Class)"/>
+	/// isReadOnly(). The <seealso cref="ExpressionFactory.createValueExpression(ELContext, string, System.Type)"/>
 	/// method can be used to parse an expression string and return a concrete instance of
 	/// ValueExpression that encapsulates the parsed expression. The <seealso cref="FunctionMapper"/> is used at
 	/// parse time, not evaluation time, so one is not needed to evaluate an expression using this class.
-	/// However, the <seealso cref="ELContext"/> is needed at evaluation time. The <seealso cref="#getValue(ELContext)"/>,
-	/// <seealso cref="#setValue(ELContext, Object)"/>, <seealso cref="#isReadOnly(ELContext)"/> and
-	/// <seealso cref="#getType(ELContext)"/> methods will evaluate the expression each time they are called. The
+	/// However, the <seealso cref="ELContext"/> is needed at evaluation time. The <seealso cref="getValue(ELContext)"/>,
+	/// <seealso cref="setValue(ELContext, object)"/>, <seealso cref="isReadOnly(ELContext)"/> and
+	/// <seealso cref="getType(ELContext)"/> methods will evaluate the expression each time they are called. The
 	/// <seealso cref="ELResolver"/> in the ELContext is used to resolve the top-level variables and to determine
 	/// the behavior of the . and [] operators. For any of the four methods, the
-	/// <seealso cref="ELResolver#getValue(ELContext, Object, Object)"/> method is used to resolve all properties
+	/// <seealso cref="ELResolver.getValue(ELContext, object, object)"/> method is used to resolve all properties
 	/// up to but excluding the last one. This provides the base object. At the last resolution, the
 	/// ValueExpression will call the corresponding
-	/// <seealso cref="ELResolver#getValue(ELContext, Object, Object)"/>,
-	/// <seealso cref="ELResolver#setValue(ELContext, Object, Object, Object)"/>,
-	/// <seealso cref="ELResolver#isReadOnly(ELContext, Object, Object)"/> or
-	/// <seealso cref="ELResolver#getType(ELContext, Object, Object)"/> method, depending on which was called on
+	/// <seealso cref="ELResolver.getValue(ELContext, object, object)"/>,
+	/// <seealso cref="ELResolver.setValue(ELContext, object, object, object)"/>,
+	/// <seealso cref="ELResolver.isReadOnly(ELContext, object, object)"/> or
+	/// <seealso cref="ELResolver.getType(ELContext, object, object)"/> method, depending on which was called on
 	/// the ValueExpression. See the notes about comparison, serialization and immutability in the
 	/// <seealso cref="Expression"/> javadocs.
 	/// </summary>
@@ -61,7 +61,7 @@ namespace org.camunda.bpm.engine.impl.javax.el
 		/// <summary>
 		/// Evaluates the expression relative to the provided context, and returns the most general type
 		/// that is acceptable for an object to be passed as the value parameter in a future call to the
-		/// <seealso cref="#setValue(ELContext, Object)"/> method. This is not always the same as
+		/// <seealso cref="setValue(ELContext, object)"/> method. This is not always the same as
 		/// getValue().getClass(). For example, in the case of an expression that references an array
 		/// element, the getType method will return the element type of the array, which might be a
 		/// superclass of the type of the actual element that is currently in the specified array
@@ -102,7 +102,7 @@ namespace org.camunda.bpm.engine.impl.javax.el
 
 		/// <summary>
 		/// Evaluates the expression relative to the provided context, and returns true if a call to
-		/// <seealso cref="#setValue(ELContext, Object)"/> will always fail.
+		/// <seealso cref="setValue(ELContext, object)"/> will always fail.
 		/// </summary>
 		/// <param name="context">
 		///            The context of this evaluation. </param>

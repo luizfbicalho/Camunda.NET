@@ -80,19 +80,19 @@ namespace org.camunda.bpm.engine.identity
 	  //sorting ////////////////////////////////////////////////////////
 
 	  /// <summary>
-	  /// Order by user id (needs to be followed by <seealso cref="#asc()"/> or <seealso cref="#desc()"/>). </summary>
+	  /// Order by user id (needs to be followed by <seealso cref="asc()"/> or <seealso cref="desc()"/>). </summary>
 	  UserQuery orderByUserId();
 
 	  /// <summary>
-	  /// Order by user first name (needs to be followed by <seealso cref="#asc()"/> or <seealso cref="#desc()"/>). </summary>
+	  /// Order by user first name (needs to be followed by <seealso cref="asc()"/> or <seealso cref="desc()"/>). </summary>
 	  UserQuery orderByUserFirstName();
 
 	  /// <summary>
-	  /// Order by user last name (needs to be followed by <seealso cref="#asc()"/> or <seealso cref="#desc()"/>). </summary>
+	  /// Order by user last name (needs to be followed by <seealso cref="asc()"/> or <seealso cref="desc()"/>). </summary>
 	  UserQuery orderByUserLastName();
 
 	  /// <summary>
-	  /// Order by user email  (needs to be followed by <seealso cref="#asc()"/> or <seealso cref="#desc()"/>). </summary>
+	  /// Order by user email  (needs to be followed by <seealso cref="asc()"/> or <seealso cref="desc()"/>). </summary>
 	  UserQuery orderByUserEmail();
 
 	}

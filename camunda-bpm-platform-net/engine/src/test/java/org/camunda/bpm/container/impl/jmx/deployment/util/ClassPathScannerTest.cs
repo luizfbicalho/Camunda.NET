@@ -77,7 +77,7 @@ namespace org.camunda.bpm.container.impl.jmx.deployment.util
 	  }
 
 	  /// <summary>
-	  /// Test method for <seealso cref="org.camunda.bpm.container.impl.deployment.scanning.ClassPathProcessApplicationScanner#scanClassPath(java.lang.ClassLoader)"/>. </summary>
+	  /// Test method for <seealso cref="org.camunda.bpm.container.impl.deployment.scanning.ClassPathProcessApplicationScanner.scanClassPath(java.lang.ClassLoader)"/>. </summary>
 	  /// <exception cref="MalformedURLException">  </exception>
 //JAVA TO C# CONVERTER TODO TASK: Most Java annotations will not have direct .NET equivalent attributes:
 //ORIGINAL LINE: @Test public void testScanClassPath() throws java.net.MalformedURLException

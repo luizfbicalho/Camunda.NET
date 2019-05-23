@@ -28,7 +28,7 @@ namespace org.camunda.bpm.engine.variable.impl.type
 
 	/// <summary>
 	/// Valuetype to save files from byte arrays, inputstreams or just files as
-	/// process variables and retrieve them via an <seealso cref="InputStream"/>.
+	/// process variables and retrieve them via an <seealso cref="System.IO.Stream_Input"/>.
 	/// 
 	/// @author Ronny Bräunlich
 	/// @since 7.4

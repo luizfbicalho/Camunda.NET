@@ -25,8 +25,8 @@ namespace org.camunda.bpm.engine.impl.core.variable.scope
 
 	/// <summary>
 	/// Wraps a variable scope as if it has no parent such that it is reduced to its local
-	/// variables. For example <seealso cref="#getVariable(String)"/> simply delegates to
-	/// <seealso cref="#getVariableLocal(String)"/>.
+	/// variables. For example <seealso cref="getVariable(string)"/> simply delegates to
+	/// <seealso cref="getVariableLocal(string)"/>.
 	/// 
 	/// @author Thorben Lindhauer
 	/// </summary>

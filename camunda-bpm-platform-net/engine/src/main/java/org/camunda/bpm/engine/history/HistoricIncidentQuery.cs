@@ -86,59 +86,59 @@ namespace org.camunda.bpm.engine.history
 	  HistoricIncidentQuery deleted();
 
 	  /// <summary>
-	  /// Order by id (needs to be followed by <seealso cref="#asc()"/> or <seealso cref="#desc()"/>). </summary>
+	  /// Order by id (needs to be followed by <seealso cref="asc()"/> or <seealso cref="desc()"/>). </summary>
 	  HistoricIncidentQuery orderByIncidentId();
 
 	  /// <summary>
-	  /// Order by message (needs to be followed by <seealso cref="#asc()"/> or <seealso cref="#desc()"/>). </summary>
+	  /// Order by message (needs to be followed by <seealso cref="asc()"/> or <seealso cref="desc()"/>). </summary>
 	  HistoricIncidentQuery orderByIncidentMessage();
 
 	  /// <summary>
-	  /// Order by create time (needs to be followed by <seealso cref="#asc()"/> or <seealso cref="#desc()"/>). </summary>
+	  /// Order by create time (needs to be followed by <seealso cref="asc()"/> or <seealso cref="desc()"/>). </summary>
 	  HistoricIncidentQuery orderByCreateTime();
 
 	  /// <summary>
-	  /// Order by end time (needs to be followed by <seealso cref="#asc()"/> or <seealso cref="#desc()"/>). </summary>
+	  /// Order by end time (needs to be followed by <seealso cref="asc()"/> or <seealso cref="desc()"/>). </summary>
 	  HistoricIncidentQuery orderByEndTime();
 
 	  /// <summary>
-	  /// Order by incidentType (needs to be followed by <seealso cref="#asc()"/> or <seealso cref="#desc()"/>). </summary>
+	  /// Order by incidentType (needs to be followed by <seealso cref="asc()"/> or <seealso cref="desc()"/>). </summary>
 	  HistoricIncidentQuery orderByIncidentType();
 
 	  /// <summary>
-	  /// Order by executionId (needs to be followed by <seealso cref="#asc()"/> or <seealso cref="#desc()"/>). </summary>
+	  /// Order by executionId (needs to be followed by <seealso cref="asc()"/> or <seealso cref="desc()"/>). </summary>
 	  HistoricIncidentQuery orderByExecutionId();
 
 	  /// <summary>
-	  /// Order by activityId (needs to be followed by <seealso cref="#asc()"/> or <seealso cref="#desc()"/>). </summary>
+	  /// Order by activityId (needs to be followed by <seealso cref="asc()"/> or <seealso cref="desc()"/>). </summary>
 	  HistoricIncidentQuery orderByActivityId();
 
 	  /// <summary>
-	  /// Order by processInstanceId (needs to be followed by <seealso cref="#asc()"/> or <seealso cref="#desc()"/>). </summary>
+	  /// Order by processInstanceId (needs to be followed by <seealso cref="asc()"/> or <seealso cref="desc()"/>). </summary>
 	  HistoricIncidentQuery orderByProcessInstanceId();
 
 	  /// <summary>
-	  /// Order by processDefinitionId (needs to be followed by <seealso cref="#asc()"/> or <seealso cref="#desc()"/>). </summary>
+	  /// Order by processDefinitionId (needs to be followed by <seealso cref="asc()"/> or <seealso cref="desc()"/>). </summary>
 	  HistoricIncidentQuery orderByProcessDefinitionId();
 
 	  /// <summary>
-	  /// Order by causeIncidentId (needs to be followed by <seealso cref="#asc()"/> or <seealso cref="#desc()"/>). </summary>
+	  /// Order by causeIncidentId (needs to be followed by <seealso cref="asc()"/> or <seealso cref="desc()"/>). </summary>
 	  HistoricIncidentQuery orderByCauseIncidentId();
 
 	  /// <summary>
-	  /// Order by rootCauseIncidentId (needs to be followed by <seealso cref="#asc()"/> or <seealso cref="#desc()"/>). </summary>
+	  /// Order by rootCauseIncidentId (needs to be followed by <seealso cref="asc()"/> or <seealso cref="desc()"/>). </summary>
 	  HistoricIncidentQuery orderByRootCauseIncidentId();
 
 	  /// <summary>
-	  /// Order by configuration (needs to be followed by <seealso cref="#asc()"/> or <seealso cref="#desc()"/>). </summary>
+	  /// Order by configuration (needs to be followed by <seealso cref="asc()"/> or <seealso cref="desc()"/>). </summary>
 	  HistoricIncidentQuery orderByConfiguration();
 
 	  /// <summary>
-	  /// Order by incidentState (needs to be followed by <seealso cref="#asc()"/> or <seealso cref="#desc()"/>). </summary>
+	  /// Order by incidentState (needs to be followed by <seealso cref="asc()"/> or <seealso cref="desc()"/>). </summary>
 	  HistoricIncidentQuery orderByIncidentState();
 
 	  /// <summary>
-	  /// Order by tenant id (needs to be followed by <seealso cref="#asc()"/> or <seealso cref="#desc()"/>).
+	  /// Order by tenant id (needs to be followed by <seealso cref="asc()"/> or <seealso cref="desc()"/>).
 	  /// Note that the ordering of incidents without tenant id is database-specific.
 	  /// </summary>
 	  HistoricIncidentQuery orderByTenantId();

@@ -45,7 +45,7 @@ namespace org.camunda.bpm.engine
 	/// </para>
 	/// 
 	/// <para>To create a process engine programatic, without a configuration file,
-	/// the first option is <seealso cref="#createStandaloneProcessEngineConfiguration()"/>
+	/// the first option is <seealso cref="createStandaloneProcessEngineConfiguration()"/>
 	/// <pre>ProcessEngine processEngine = ProcessEngineConfiguration
 	///   .createStandaloneProcessEngineConfiguration()
 	///   .buildProcessEngine();
@@ -59,7 +59,7 @@ namespace org.camunda.bpm.engine
 	/// userguide.
 	/// </para>
 	/// 
-	/// <para>The second option is great for testing: <seealso cref="#createStandaloneInMemProcessEngineConfiguration()"/>
+	/// <para>The second option is great for testing: <seealso cref="createStandaloneInMemProcessEngineConfiguration()"/>
 	/// <pre>ProcessEngine processEngine = ProcessEngineConfiguration
 	///   .createStandaloneInMemProcessEngineConfiguration()
 	///   .buildProcessEngine();
@@ -73,7 +73,7 @@ namespace org.camunda.bpm.engine
 	/// </para>
 	/// 
 	/// <para>On all forms of creating a process engine, you can first customize the configuration
-	/// before calling the <seealso cref="#buildProcessEngine()"/> method by calling any of the
+	/// before calling the <seealso cref="buildProcessEngine()"/> method by calling any of the
 	/// setters like this:
 	/// <pre>ProcessEngine processEngine = ProcessEngineConfiguration
 	///   .createProcessEngineConfigurationFromResourceDefault()
@@ -109,35 +109,35 @@ namespace org.camunda.bpm.engine
 	  public const string DB_SCHEMA_UPDATE_TRUE = "true";
 
 	  /// <summary>
-	  /// Value for <seealso cref="#setHistory(String)"/> to ensure that no history is being recorded.
+	  /// Value for <seealso cref="setHistory(string)"/> to ensure that no history is being recorded.
 	  /// </summary>
 	  public const string HISTORY_NONE = "none";
 	  /// <summary>
-	  /// Value for <seealso cref="#setHistory(String)"/> to ensure that only historic process instances and
+	  /// Value for <seealso cref="setHistory(string)"/> to ensure that only historic process instances and
 	  /// historic activity instances are being recorded.
 	  /// This means no details for those entities.
 	  /// </summary>
 	  public const string HISTORY_ACTIVITY = "activity";
 	  /// <summary>
-	  /// Value for <seealso cref="#setHistory(String)"/> to ensure that only historic process instances,
+	  /// Value for <seealso cref="setHistory(string)"/> to ensure that only historic process instances,
 	  /// historic activity instances and last process variable values are being recorded.
-	  /// <para><strong>NOTE:</strong> This history level has been deprecated. Use level <seealso cref="#HISTORY_ACTIVITY"/> instead.</para>
+	  /// <para><strong>NOTE:</strong> This history level has been deprecated. Use level <seealso cref="HISTORY_ACTIVITY"/> instead.</para>
 	  /// </summary>
 	  [Obsolete]
 	  public const string HISTORY_VARIABLE = "variable";
 	  /// <summary>
-	  /// Value for <seealso cref="#setHistory(String)"/> to ensure that only historic process instances,
+	  /// Value for <seealso cref="setHistory(string)"/> to ensure that only historic process instances,
 	  /// historic activity instances and submitted form property values are being recorded.
 	  /// </summary>
 	  public const string HISTORY_AUDIT = "audit";
 	  /// <summary>
-	  /// Value for <seealso cref="#setHistory(String)"/> to ensure that all historic information is
+	  /// Value for <seealso cref="setHistory(string)"/> to ensure that all historic information is
 	  /// being recorded, including the variable updates.
 	  /// </summary>
 	  public const string HISTORY_FULL = "full";
 
 	  /// <summary>
-	  /// Value for <seealso cref="#setHistory(String)"/>. Choosing auto causes the configuration to choose the level
+	  /// Value for <seealso cref="setHistory(string)"/>. Choosing auto causes the configuration to choose the level
 	  /// already present on the database. If none can be found, "audit" is taken.
 	  /// </summary>
 	  public const string HISTORY_AUTO = "auto";
@@ -173,7 +173,7 @@ namespace org.camunda.bpm.engine
 	  public const string HISTORY_REMOVAL_TIME_STRATEGY_NONE = "none";
 
 	  /// <summary>
-	  /// Always enables check for <seealso cref="Authorization#AUTH_TYPE_REVOKE revoke"/> authorizations.
+	  /// Always enables check for <seealso cref="Authorization.AUTH_TYPE_REVOKE revoke"/> authorizations.
 	  /// This mode is equal to the &lt; 7.5 behavior.
 	  /// <p />
 	  /// *NOTE:* Checking revoke authorizations is very expensive for resources with a high potential
@@ -184,14 +184,14 @@ namespace org.camunda.bpm.engine
 	  public const string AUTHORIZATION_CHECK_REVOKE_ALWAYS = "always";
 
 	  /// <summary>
-	  /// Never checks for <seealso cref="Authorization#AUTH_TYPE_REVOKE revoke"/> authorizations. This mode
-	  /// has best performance effectively disables the use of <seealso cref="Authorization#AUTH_TYPE_REVOKE"/>.
+	  /// Never checks for <seealso cref="Authorization.AUTH_TYPE_REVOKE revoke"/> authorizations. This mode
+	  /// has best performance effectively disables the use of <seealso cref="Authorization.AUTH_TYPE_REVOKE"/>.
 	  /// *Note*: It is strongly recommended to use this mode.
 	  /// </summary>
 	  public const string AUTHORIZATION_CHECK_REVOKE_NEVER = "never";
 
 	  /// <summary>
-	  /// This mode only checks for <seealso cref="Authorization#AUTH_TYPE_REVOKE revoke"/> authorizations if at least
+	  /// This mode only checks for <seealso cref="Authorization.AUTH_TYPE_REVOKE revoke"/> authorizations if at least
 	  /// one revoke authorization currently exits for the current user or one of the groups the user is a member
 	  /// of. To achieve this it is checked once per command whether potentially applicable revoke authorizations
 	  /// exist. Based on the outcome, the authorization check then uses revoke or not.

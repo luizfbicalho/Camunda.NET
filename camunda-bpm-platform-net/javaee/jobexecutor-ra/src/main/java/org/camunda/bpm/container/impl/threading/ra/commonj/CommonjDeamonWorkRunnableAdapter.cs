@@ -21,7 +21,7 @@ namespace org.camunda.bpm.container.impl.threading.ra.commonj
 	using Work = commonj.work.Work;
 
 	/// <summary>
-	/// <para>Long running <seealso cref="Runnable"/> adapter</para>
+	/// <para>Long running <seealso cref="System.Threading.ThreadStart"/> adapter</para>
 	/// 
 	/// @author Daniel Meyer
 	/// 

@@ -50,10 +50,10 @@ namespace org.camunda.bpm.container.impl.metadata.spi
 
 	  /// <returns> a set of additional properties. The properties are directly set on
 	  ///         the <seealso cref="ProcessEngineConfiguration"/> class (see
-	  ///         <seealso cref="#getConfigurationClass()"/>). This means that each property
+	  ///         <seealso cref="getConfigurationClass()"/>). This means that each property
 	  ///         name used here must be a bean property name on the process engine
 	  ///         configuration class and the bean property must be of type
-	  ///         <seealso cref="String"/>, <seealso cref="Integer"/> or <seealso cref="Boolean"/>. </returns>
+	  ///         <seealso cref="string"/>, <seealso cref="Integer"/> or <seealso cref="Boolean"/>. </returns>
 	  IDictionary<string, string> Properties {get;}
 
 	  /// <returns> the name of the job acquisition to be used. </returns>

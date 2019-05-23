@@ -64,7 +64,7 @@ namespace org.camunda.bpm.engine
 	  /// <para>A business key can be provided to associate the case instance with a
 	  /// certain identifier that has a clear business meaning. This business key can
 	  /// then be used to easily look up that case instance, see
-	  /// <seealso cref="CaseInstanceQuery#caseInstanceBusinessKey(String)"/>. Providing such a
+	  /// <seealso cref="CaseInstanceQuery.caseInstanceBusinessKey(string)"/>. Providing such a
 	  /// business key is definitely a best practice.</para>
 	  /// 
 	  /// <para>Note that a business key MUST be unique for the given case definition WHEN
@@ -101,7 +101,7 @@ namespace org.camunda.bpm.engine
 	  /// <para>A business key can be provided to associate the case instance with a
 	  /// certain identifier that has a clear business meaning. This business key can
 	  /// then be used to easily look up that case instance, see
-	  /// <seealso cref="CaseInstanceQuery#caseInstanceBusinessKey(String)"/>. Providing such a
+	  /// <seealso cref="CaseInstanceQuery.caseInstanceBusinessKey(string)"/>. Providing such a
 	  /// business key is definitely a best practice.</para>
 	  /// 
 	  /// <para>Note that a business key MUST be unique for the given case definition WHEN
@@ -138,7 +138,7 @@ namespace org.camunda.bpm.engine
 	  /// <para>A business key can be provided to associate the case instance with a
 	  /// certain identifier that has a clear business meaning. This business key can
 	  /// then be used to easily look up that case instance, see
-	  /// <seealso cref="CaseInstanceQuery#caseInstanceBusinessKey(String)"/>. Providing such a
+	  /// <seealso cref="CaseInstanceQuery.caseInstanceBusinessKey(string)"/>. Providing such a
 	  /// business key is definitely a best practice.</para>
 	  /// 
 	  /// <para>Note that a business key MUST be unique for the given case definition WHEN
@@ -175,7 +175,7 @@ namespace org.camunda.bpm.engine
 	  /// <para>A business key can be provided to associate the case instance with a
 	  /// certain identifier that has a clear business meaning. This business key can
 	  /// then be used to easily look up that case instance, see
-	  /// <seealso cref="CaseInstanceQuery#caseInstanceBusinessKey(String)"/>. Providing such a
+	  /// <seealso cref="CaseInstanceQuery.caseInstanceBusinessKey(string)"/>. Providing such a
 	  /// business key is definitely a best practice.</para>
 	  /// 
 	  /// <para>Note that a business key MUST be unique for the given case definition WHEN
@@ -520,7 +520,7 @@ namespace org.camunda.bpm.engine
 	  /// <para>All variables visible from the given execution scope (including parent scopes).</para>
 	  /// 
 	  /// <para>If you have many local variables and you only need a few, consider
-	  /// using <seealso cref="#getVariables(String, Collection)"/> for better performance.</para>
+	  /// using <seealso cref="getVariables(string, System.Collections.ICollection)"/> for better performance.</para>
 	  /// </summary>
 	  /// <param name="caseExecutionId"> the id of a case instance or case execution, cannot be null
 	  /// </param>
@@ -535,7 +535,7 @@ namespace org.camunda.bpm.engine
 	  /// <para>All variables visible from the given execution scope (including parent scopes).</para>
 	  /// 
 	  /// <para>If you have many local variables and you only need a few, consider
-	  /// using <seealso cref="#getVariables(String, Collection)"/> for better performance.</para>
+	  /// using <seealso cref="getVariables(string, System.Collections.ICollection)"/> for better performance.</para>
 	  /// </summary>
 	  /// <param name="caseExecutionId"> the id of a case instance or case execution, cannot be null
 	  /// </param>
@@ -550,7 +550,7 @@ namespace org.camunda.bpm.engine
 	  /// <para>All variables visible from the given execution scope (including parent scopes).</para>
 	  /// 
 	  /// <para>If you have many local variables and you only need a few, consider
-	  /// using <seealso cref="#getVariables(String, Collection)"/> for better performance.</para>
+	  /// using <seealso cref="getVariables(string, System.Collections.ICollection)"/> for better performance.</para>
 	  /// </summary>
 	  /// <param name="caseExecutionId"> the id of a case instance or case execution, cannot be null </param>
 	  /// <param name="deserializeValues"> if false, the process engine will not attempt to deserialize <seealso cref="SerializableValue SerializableValues"/>.
@@ -567,7 +567,7 @@ namespace org.camunda.bpm.engine
 	  /// taking outer scopes into account.</para>
 	  /// 
 	  /// <para>If you have many local variables and you only need a few, consider
-	  /// using <seealso cref="#getVariablesLocal(String, Collection)"/> for better performance.</para>
+	  /// using <seealso cref="getVariablesLocal(string, System.Collections.ICollection)"/> for better performance.</para>
 	  /// </summary>
 	  /// <param name="caseExecutionId"> the id of a case execution, cannot be null
 	  /// </param>
@@ -583,7 +583,7 @@ namespace org.camunda.bpm.engine
 	  /// taking outer scopes into account.</para>
 	  /// 
 	  /// <para>If you have many local variables and you only need a few, consider
-	  /// using <seealso cref="#getVariablesLocal(String, Collection)"/> for better performance.</para>
+	  /// using <seealso cref="getVariablesLocal(string, System.Collections.ICollection)"/> for better performance.</para>
 	  /// </summary>
 	  /// <param name="caseExecutionId"> the id of a case execution, cannot be null
 	  /// </param>
@@ -599,7 +599,7 @@ namespace org.camunda.bpm.engine
 	  /// taking outer scopes into account.</para>
 	  /// 
 	  /// <para>If you have many local variables and you only need a few, consider
-	  /// using <seealso cref="#getVariablesLocal(String, Collection)"/> for better performance.</para>
+	  /// using <seealso cref="getVariablesLocal(string, System.Collections.ICollection)"/> for better performance.</para>
 	  /// </summary>
 	  /// <param name="caseExecutionId"> the id of a case execution, cannot be null </param>
 	  /// <param name="deserializeValues"> if false, the process engine will not attempt to deserialize <seealso cref="SerializableValue SerializableValues"/>.

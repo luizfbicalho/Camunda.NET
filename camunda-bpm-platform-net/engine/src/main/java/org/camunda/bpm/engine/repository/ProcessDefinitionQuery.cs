@@ -84,7 +84,7 @@ namespace org.camunda.bpm.engine.repository
 
 	  /// <summary>
 	  /// Only select process definition with a certain version.
-	  /// Particulary useful when used in combination with <seealso cref="#processDefinitionKey(String)"/>
+	  /// Particulary useful when used in combination with <seealso cref="processDefinitionKey(string)"/>
 	  /// </summary>
 	  ProcessDefinitionQuery processDefinitionVersion(int? processDefinitionVersion);
 
@@ -95,8 +95,8 @@ namespace org.camunda.bpm.engine.repository
 	  /// </para>
 	  /// 
 	  /// <para>
-	  /// Can only be used in combination with <seealso cref="#processDefinitionKey(String)"/>
-	  /// of <seealso cref="#processDefinitionKeyLike(String)"/>. Can also be used without any
+	  /// Can only be used in combination with <seealso cref="processDefinitionKey(string)"/>
+	  /// of <seealso cref="processDefinitionKeyLike(string)"/>. Can also be used without any
 	  /// other criteria (ie. query.latest().list()), which will then give all the
 	  /// latest versions of all the deployed process definitions.
 	  /// </para>
@@ -106,9 +106,9 @@ namespace org.camunda.bpm.engine.repository
 	  /// process definitions are selected.</para>
 	  /// </summary>
 	  /// <exception cref="ProcessEngineException">
-	  ///           if used in combination with <seealso cref="#groupId(string)"/>,
-	  ///           <seealso cref="#processDefinitionVersion(int)"/> or
-	  ///           <seealso cref="#deploymentId(String)"/> </exception>
+	  ///           if used in combination with <seealso cref="groupId(string)"/>,
+	  ///           <seealso cref="processDefinitionVersion(int)"/> or
+	  ///           <seealso cref="deploymentId(string)"/> </exception>
 	  ProcessDefinitionQuery latestVersion();
 
 	  /// <summary>
@@ -186,7 +186,7 @@ namespace org.camunda.bpm.engine.repository
 
 	  /// <summary>
 	  /// Select process definitions which have no tenant id. Can be used in
-	  /// combination with <seealso cref="#tenantIdIn(String...)"/>.
+	  /// combination with <seealso cref="tenantIdIn(string...)"/>.
 	  /// </summary>
 	  ProcessDefinitionQuery includeProcessDefinitionsWithoutTenantId();
 
@@ -205,37 +205,37 @@ namespace org.camunda.bpm.engine.repository
 	  // ordering ////////////////////////////////////////////////////////////
 
 	  /// <summary>
-	  /// Order by the category of the process definitions (needs to be followed by <seealso cref="#asc()"/> or <seealso cref="#desc()"/>). </summary>
+	  /// Order by the category of the process definitions (needs to be followed by <seealso cref="asc()"/> or <seealso cref="desc()"/>). </summary>
 	  ProcessDefinitionQuery orderByProcessDefinitionCategory();
 
 	  /// <summary>
-	  /// Order by process definition key (needs to be followed by <seealso cref="#asc()"/> or <seealso cref="#desc()"/>). </summary>
+	  /// Order by process definition key (needs to be followed by <seealso cref="asc()"/> or <seealso cref="desc()"/>). </summary>
 	  ProcessDefinitionQuery orderByProcessDefinitionKey();
 
 	  /// <summary>
-	  /// Order by the id of the process definitions (needs to be followed by <seealso cref="#asc()"/> or <seealso cref="#desc()"/>). </summary>
+	  /// Order by the id of the process definitions (needs to be followed by <seealso cref="asc()"/> or <seealso cref="desc()"/>). </summary>
 	  ProcessDefinitionQuery orderByProcessDefinitionId();
 
 	  /// <summary>
-	  /// Order by the version of the process definitions (needs to be followed by <seealso cref="#asc()"/> or <seealso cref="#desc()"/>). </summary>
+	  /// Order by the version of the process definitions (needs to be followed by <seealso cref="asc()"/> or <seealso cref="desc()"/>). </summary>
 	  ProcessDefinitionQuery orderByProcessDefinitionVersion();
 
 	  /// <summary>
-	  /// Order by the name of the process definitions (needs to be followed by <seealso cref="#asc()"/> or <seealso cref="#desc()"/>). </summary>
+	  /// Order by the name of the process definitions (needs to be followed by <seealso cref="asc()"/> or <seealso cref="desc()"/>). </summary>
 	  ProcessDefinitionQuery orderByProcessDefinitionName();
 
 	  /// <summary>
-	  /// Order by deployment id (needs to be followed by <seealso cref="#asc()"/> or <seealso cref="#desc()"/>). </summary>
+	  /// Order by deployment id (needs to be followed by <seealso cref="asc()"/> or <seealso cref="desc()"/>). </summary>
 	  ProcessDefinitionQuery orderByDeploymentId();
 
 	  /// <summary>
-	  /// Order by tenant id (needs to be followed by <seealso cref="#asc()"/> or <seealso cref="#desc()"/>).
+	  /// Order by tenant id (needs to be followed by <seealso cref="asc()"/> or <seealso cref="desc()"/>).
 	  /// Note that the ordering of process instances without tenant id is database-specific. 
 	  /// </summary>
 	  ProcessDefinitionQuery orderByTenantId();
 
 	  /// <summary>
-	  /// Order by version tag (needs to be followed by <seealso cref="#asc()"/> or <seealso cref="#desc()"/>).
+	  /// Order by version tag (needs to be followed by <seealso cref="asc()"/> or <seealso cref="desc()"/>).
 	  /// 
 	  /// <strong>Note:</strong> sorting by versionTag is a string based sort.
 	  /// There is no interpretation of the version which can lead to a sorting like:

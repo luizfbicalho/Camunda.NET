@@ -47,10 +47,10 @@ namespace org.camunda.bpm.model.xml.impl.util
 	  }
 
 	  /// <summary>
-	  /// Convert an <seealso cref="InputStream"/> to a <seealso cref="String"/>
+	  /// Convert an <seealso cref="System.IO.Stream_Input"/> to a <seealso cref="string"/>
 	  /// </summary>
-	  /// <param name="inputStream"> the <seealso cref="InputStream"/> to convert </param>
-	  /// <returns> the resulting <seealso cref="String"/> </returns>
+	  /// <param name="inputStream"> the <seealso cref="System.IO.Stream_Input"/> to convert </param>
+	  /// <returns> the resulting <seealso cref="string"/> </returns>
 	  /// <exception cref="IOException"> </exception>
 //JAVA TO C# CONVERTER WARNING: Method 'throws' clauses are not available in .NET:
 //ORIGINAL LINE: public static String getStringFromInputStream(InputStream inputStream) throws IOException
@@ -60,11 +60,11 @@ namespace org.camunda.bpm.model.xml.impl.util
 	  }
 
 	  /// <summary>
-	  /// Convert an <seealso cref="InputStream"/> to a <seealso cref="String"/>
+	  /// Convert an <seealso cref="System.IO.Stream_Input"/> to a <seealso cref="string"/>
 	  /// </summary>
-	  /// <param name="inputStream"> the <seealso cref="InputStream"/> to convert </param>
+	  /// <param name="inputStream"> the <seealso cref="System.IO.Stream_Input"/> to convert </param>
 	  /// <param name="trim"> trigger if whitespaces are trimmed in the output </param>
-	  /// <returns> the resulting <seealso cref="String"/> </returns>
+	  /// <returns> the resulting <seealso cref="string"/> </returns>
 	  /// <exception cref="IOException"> </exception>
 //JAVA TO C# CONVERTER WARNING: Method 'throws' clauses are not available in .NET:
 //ORIGINAL LINE: private static String getStringFromInputStream(InputStream inputStream, boolean trim) throws IOException
@@ -97,11 +97,11 @@ namespace org.camunda.bpm.model.xml.impl.util
 	  }
 
 	  /// <summary>
-	  /// Converts a <seealso cref="OutputStream"/> to an <seealso cref="InputStream"/> by coping the data directly.
+	  /// Converts a <seealso cref="System.IO.Stream_Output"/> to an <seealso cref="System.IO.Stream_Input"/> by coping the data directly.
 	  /// WARNING: Do not use for large data (>100MB). Only for testing purpose.
 	  /// </summary>
-	  /// <param name="outputStream"> the <seealso cref="OutputStream"/> to convert </param>
-	  /// <returns> the resulting <seealso cref="InputStream"/> </returns>
+	  /// <param name="outputStream"> the <seealso cref="System.IO.Stream_Output"/> to convert </param>
+	  /// <returns> the resulting <seealso cref="System.IO.Stream_Input"/> </returns>
 	  public static Stream convertOutputStreamToInputStream(Stream outputStream)
 	  {
 		sbyte[] data = ((MemoryStream) outputStream).toByteArray();
@@ -121,10 +121,10 @@ namespace org.camunda.bpm.model.xml.impl.util
 	  }
 
 	  /// <summary>
-	  /// Writes a <seealso cref="DomDocument"/> to an <seealso cref="OutputStream"/> by transforming the DOM to XML.
+	  /// Writes a <seealso cref="DomDocument"/> to an <seealso cref="System.IO.Stream_Output"/> by transforming the DOM to XML.
 	  /// </summary>
 	  /// <param name="document">  the DOM document to write </param>
-	  /// <param name="outputStream">  the <seealso cref="OutputStream"/> to write to </param>
+	  /// <param name="outputStream">  the <seealso cref="System.IO.Stream_Output"/> to write to </param>
 	  public static void writeDocumentToOutputStream(DomDocument document, Stream outputStream)
 	  {
 		StreamResult result = new StreamResult(outputStream);

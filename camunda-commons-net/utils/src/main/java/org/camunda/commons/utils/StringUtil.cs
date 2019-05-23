@@ -27,7 +27,7 @@ namespace org.camunda.commons.utils
 	{
 
 	  /// <summary>
-	  /// Checks whether a <seealso cref="String"/> seams to be an expression or not
+	  /// Checks whether a <seealso cref="string"/> seams to be an expression or not
 	  /// </summary>
 	  /// <param name="text"> the text to check </param>
 	  /// <returns> true if the text seams to be an expression false otherwise </returns>
@@ -42,7 +42,7 @@ namespace org.camunda.commons.utils
 	  }
 
 	  /// <summary>
-	  /// Splits a <seealso cref="String"/> by an expression.
+	  /// Splits a <seealso cref="string"/> by an expression.
 	  /// </summary>
 	  /// <param name="text"> the text to split </param>
 	  /// <param name="regex"> the regex to split by </param>

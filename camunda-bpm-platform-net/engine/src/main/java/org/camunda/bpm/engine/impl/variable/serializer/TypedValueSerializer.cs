@@ -72,7 +72,7 @@ namespace org.camunda.bpm.engine.impl.variable.serializer
 
 	  /// <summary>
 	  /// Returns a typed value for the provided untyped value. This is used on cases where the user sets an untyped
-	  /// value which is then detected to be handled by this <seealso cref="TypedValueSerializer"/> (by invocation of <seealso cref="#canHandle(TypedValue)"/>).
+	  /// value which is then detected to be handled by this <seealso cref="TypedValueSerializer"/> (by invocation of <seealso cref="canHandle(TypedValue)"/>).
 	  /// </summary>
 	  /// <param name="untypedValue"> the untyped value </param>
 	  /// <returns> the corresponding typed value </returns>

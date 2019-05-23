@@ -24,7 +24,7 @@ namespace org.camunda.bpm.engine.impl.core.model
 	using ProcessDefinitionEntity = org.camunda.bpm.engine.impl.persistence.entity.ProcessDefinitionEntity;
 
 	/// <summary>
-	/// Default implementation for <seealso cref="BaseCallableElement#getTenantIdProvider()"/>.
+	/// Default implementation for <seealso cref="BaseCallableElement.getTenantIdProvider()"/>.
 	/// Uses the tenant id of the calling definition.
 	/// </summary>
 	public class DefaultCallableElementTenantIdProvider : ParameterValueProvider

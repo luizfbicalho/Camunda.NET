@@ -54,13 +54,13 @@ namespace org.camunda.bpm.engine.management
 	  /// Activates the provided job definitions.
 	  /// </summary>
 	  /// <exception cref="AuthorizationException">
-	  ///           <li>if the current user has no <seealso cref="Permissions#UPDATE"/>
-	  ///           permission on <seealso cref="Resources#PROCESS_DEFINITION"/></li>
-	  ///           <li>If <seealso cref="#includeJobs(boolean)"/> is set to <code>true</code>
-	  ///           and the user have no <seealso cref="Permissions#UPDATE_INSTANCE"/>
-	  ///           permission on <seealso cref="Resources#PROCESS_DEFINITION"/>
-	  ///           <seealso cref="Permissions#UPDATE"/> permission on any
-	  ///           <seealso cref="Resources#PROCESS_INSTANCE"/></li> </exception>
+	  ///           <li>if the current user has no <seealso cref="Permissions.UPDATE"/>
+	  ///           permission on <seealso cref="Resources.PROCESS_DEFINITION"/></li>
+	  ///           <li>If <seealso cref="includeJobs(bool)"/> is set to <code>true</code>
+	  ///           and the user have no <seealso cref="Permissions.UPDATE_INSTANCE"/>
+	  ///           permission on <seealso cref="Resources.PROCESS_DEFINITION"/>
+	  ///           <seealso cref="Permissions.UPDATE"/> permission on any
+	  ///           <seealso cref="Resources.PROCESS_INSTANCE"/></li> </exception>
 	  void activate();
 
 	  /// <summary>
@@ -68,13 +68,13 @@ namespace org.camunda.bpm.engine.management
 	  /// suspended, it will be ignored by the job executor.
 	  /// </summary>
 	  /// <exception cref="AuthorizationException">
-	  ///           <li>if the current user has no <seealso cref="Permissions#UPDATE"/>
-	  ///           permission on <seealso cref="Resources#PROCESS_DEFINITION"/></li>
-	  ///           <li>If <seealso cref="#includeJobs(boolean)"/> is set to <code>true</code>
-	  ///           and the user have no <seealso cref="Permissions#UPDATE_INSTANCE"/>
-	  ///           permission on <seealso cref="Resources#PROCESS_DEFINITION"/>
-	  ///           <seealso cref="Permissions#UPDATE"/> permission on any
-	  ///           <seealso cref="Resources#PROCESS_INSTANCE"/></li> </exception>
+	  ///           <li>if the current user has no <seealso cref="Permissions.UPDATE"/>
+	  ///           permission on <seealso cref="Resources.PROCESS_DEFINITION"/></li>
+	  ///           <li>If <seealso cref="includeJobs(bool)"/> is set to <code>true</code>
+	  ///           and the user have no <seealso cref="Permissions.UPDATE_INSTANCE"/>
+	  ///           permission on <seealso cref="Resources.PROCESS_DEFINITION"/>
+	  ///           <seealso cref="Permissions.UPDATE"/> permission on any
+	  ///           <seealso cref="Resources.PROCESS_INSTANCE"/></li> </exception>
 	  void suspend();
 
 	}

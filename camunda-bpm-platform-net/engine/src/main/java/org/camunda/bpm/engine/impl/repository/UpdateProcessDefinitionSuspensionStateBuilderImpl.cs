@@ -57,7 +57,7 @@ namespace org.camunda.bpm.engine.impl.repository
 
 	  /// <summary>
 	  /// Creates a builder without CommandExecutor which can not be used to update
-	  /// the suspension state via <seealso cref="#activate()"/> or <seealso cref="#suspend()"/>. Can be
+	  /// the suspension state via <seealso cref="activate()"/> or <seealso cref="suspend()"/>. Can be
 	  /// used in combination with your own command.
 	  /// </summary>
 	  public UpdateProcessDefinitionSuspensionStateBuilderImpl() : this(null)

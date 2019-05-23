@@ -25,7 +25,7 @@ namespace org.camunda.bpm.container.impl.deployment
 
 	/// <summary>
 	/// <para>Deployment operation step that is responsible for starting all process
-	/// engines declared in a <seealso cref="List"/> of <seealso cref="ProcessEngineXml"/> files.</para>
+	/// engines declared in a <seealso cref="System.Collections.IList"/> of <seealso cref="ProcessEngineXml"/> files.</para>
 	/// 
 	/// <para>This step does not start the process engines directly but rather creates
 	/// individual <seealso cref="StartProcessEngineStep"/> instances that each start a process

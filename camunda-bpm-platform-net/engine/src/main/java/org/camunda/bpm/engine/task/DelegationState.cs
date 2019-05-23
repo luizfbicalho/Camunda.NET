@@ -28,7 +28,7 @@ namespace org.camunda.bpm.engine.task
 	  /// <summary>
 	  /// The owner delegated the task and wants to review the result 
 	  /// after the assignee has resolved the task.  When the assignee 
-	  /// completes the task, the task is marked as <seealso cref="#RESOLVED"/> and 
+	  /// completes the task, the task is marked as <seealso cref="RESOLVED"/> and 
 	  /// sent back to the owner. When that happens, the owner is set as 
 	  /// the assignee so that the owner gets this task back in the ToDo.
 	  /// </summary>

@@ -46,7 +46,7 @@ namespace org.camunda.bpm.engine.cdi
 	  /// </summary>
 	  /// <exception cref="ProcessEngineCdiException">
 	  ///           if no <seealso cref="Execution"/> is associated. Use
-	  ///           <seealso cref="BusinessProcess#isAssociated()"/> to check whether an
+	  ///           <seealso cref="BusinessProcess.isAssociated()"/> to check whether an
 	  ///           association exists. </exception>
 	  /* Makes the current ProcessInstance available for injection */
 //JAVA TO C# CONVERTER TODO TASK: Most Java annotations will not have direct .NET equivalent attributes:
@@ -104,7 +104,7 @@ namespace org.camunda.bpm.engine.cdi
 	  /// </summary>
 	  /// <exception cref="ProcessEngineCdiException">
 	  ///           if no <seealso cref="Task"/> is associated. Use
-	  ///           <seealso cref="BusinessProcess#isTaskAssociated()"/> to check whether an
+	  ///           <seealso cref="BusinessProcess.isTaskAssociated()"/> to check whether an
 	  ///           association exists. </exception>
 	  /* Makes the current Task available for injection */
 //JAVA TO C# CONVERTER TODO TASK: Most Java annotations will not have direct .NET equivalent attributes:

@@ -33,16 +33,16 @@ namespace org.camunda.bpm.engine.runtime
 	/// 
 	/// <para>This fluent builder offers different points to execute a defined command:
 	///  <ul>
-	///    <li><seealso cref="#execute()"/></li>
-	///    <li><seealso cref="#manualStart()"/></li>
-	///    <li><seealso cref="#disable()"/></li>
-	///    <li><seealso cref="#reenable()"/></li>
-	///    <li><seealso cref="#complete()"/></li>
-	///    <li><seealso cref="#close()"/></li>
+	///    <li><seealso cref="execute()"/></li>
+	///    <li><seealso cref="manualStart()"/></li>
+	///    <li><seealso cref="disable()"/></li>
+	///    <li><seealso cref="reenable()"/></li>
+	///    <li><seealso cref="complete()"/></li>
+	///    <li><seealso cref="close()"/></li>
 	///  </ul>
 	/// </para>
 	/// 
-	/// <para>The entry point to use this fluent builder is <seealso cref="CaseService#withCaseExecution(String)"/>.
+	/// <para>The entry point to use this fluent builder is <seealso cref="CaseService.withCaseExecution(string)"/>.
 	/// It expects an id of a case execution as parameter.</para>
 	/// 
 	/// <para>This fluent builder can be used as follows:</para>
@@ -219,7 +219,7 @@ namespace org.camunda.bpm.engine.runtime
 	  void execute();
 
 	  /// <summary>
-	  /// <para>Additionally to <seealso cref="#execute()"/> the associated case execution will
+	  /// <para>Additionally to <seealso cref="execute()"/> the associated case execution will
 	  /// be started manually. Therefore there happens a transition from the state
 	  /// <code>ENABLED</code> to state <code>ACTIVE</code>.</para>
 	  /// 
@@ -244,7 +244,7 @@ namespace org.camunda.bpm.engine.runtime
 	  void manualStart();
 
 	  /// <summary>
-	  /// <para>Additionally to <seealso cref="#execute()"/> the associated case execution will
+	  /// <para>Additionally to <seealso cref="execute()"/> the associated case execution will
 	  /// be disabled. Therefore there happens a transition from the state <code>ENABLED</code>
 	  /// to state <code>DISABLED</code>.</para>
 	  /// 
@@ -267,7 +267,7 @@ namespace org.camunda.bpm.engine.runtime
 	  void disable();
 
 	  /// <summary>
-	  /// <para>Additionally to <seealso cref="#execute()"/> the associated case execution will
+	  /// <para>Additionally to <seealso cref="execute()"/> the associated case execution will
 	  /// be re-enabled. Therefore there happens a transition from the state <code>DISABLED</code>
 	  /// to state <code>ENABLED</code>.</para>
 	  /// 
@@ -285,7 +285,7 @@ namespace org.camunda.bpm.engine.runtime
 	  void reenable();
 
 	  /// <summary>
-	  /// <para>Additionally to <seealso cref="#execute()"/> the associated case execution will
+	  /// <para>Additionally to <seealso cref="execute()"/> the associated case execution will
 	  /// be completed. Therefore there happens a transition from the state <code>ACTIVE</code>
 	  /// to state <code>COMPLETED</code>.</para>
 	  /// 
@@ -319,7 +319,7 @@ namespace org.camunda.bpm.engine.runtime
 	  void complete();
 
 	  /// <summary>
-	  /// <para>Additionally to <seealso cref="#execute()"/> the associated case execution will
+	  /// <para>Additionally to <seealso cref="execute()"/> the associated case execution will
 	  /// be terminated. Therefore there happens a transition to state <code>TERMINATED</code>.</para>
 	  /// </summary>
 	  /// <exception cref="NotValidException"> when the given case execution id is null </exception>
@@ -332,7 +332,7 @@ namespace org.camunda.bpm.engine.runtime
 	  void terminate();
 
 	  /// <summary>
-	  /// <para>Additionally to <seealso cref="#execute()"/> the associated case instance will
+	  /// <para>Additionally to <seealso cref="execute()"/> the associated case instance will
 	  /// be closed, so that no further work or modifications is allowed for the
 	  /// associated case instance. Therefore there happens a transition from the
 	  /// state <code>COMPLETED</code> to state <code>CLOSED</code>.</para>

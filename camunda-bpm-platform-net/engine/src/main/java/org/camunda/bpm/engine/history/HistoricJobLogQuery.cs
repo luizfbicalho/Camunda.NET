@@ -112,66 +112,66 @@ namespace org.camunda.bpm.engine.history
 	  HistoricJobLogQuery deletionLog();
 
 	  /// <summary>
-	  /// Order by timestamp (needs to be followed by <seealso cref="#asc()"/> or <seealso cref="#desc()"/>). </summary>
+	  /// Order by timestamp (needs to be followed by <seealso cref="asc()"/> or <seealso cref="desc()"/>). </summary>
 	  HistoricJobLogQuery orderByTimestamp();
 
 	  /// <summary>
-	  /// Order by job id (needs to be followed by <seealso cref="#asc()"/> or <seealso cref="#desc()"/>). </summary>
+	  /// Order by job id (needs to be followed by <seealso cref="asc()"/> or <seealso cref="desc()"/>). </summary>
 	  HistoricJobLogQuery orderByJobId();
 
 	  /// <summary>
-	  /// Order by job due date (needs to be followed by <seealso cref="#asc()"/> or <seealso cref="#desc()"/>). </summary>
+	  /// Order by job due date (needs to be followed by <seealso cref="asc()"/> or <seealso cref="desc()"/>). </summary>
 	  HistoricJobLogQuery orderByJobDueDate();
 
 	  /// <summary>
-	  /// Order by job retries (needs to be followed by <seealso cref="#asc()"/> or <seealso cref="#desc()"/>). </summary>
+	  /// Order by job retries (needs to be followed by <seealso cref="asc()"/> or <seealso cref="desc()"/>). </summary>
 	  HistoricJobLogQuery orderByJobRetries();
 
 	  /// <summary>
-	  /// Order by job priority (needs to be followed by <seealso cref="#asc()"/> or <seealso cref="#desc()"/>).
+	  /// Order by job priority (needs to be followed by <seealso cref="asc()"/> or <seealso cref="desc()"/>).
 	  /// 
 	  /// @since 7.4
 	  /// </summary>
 	  HistoricJobLogQuery orderByJobPriority();
 
 	  /// <summary>
-	  /// Order by job definition id (needs to be followed by <seealso cref="#asc()"/> or <seealso cref="#desc()"/>). </summary>
+	  /// Order by job definition id (needs to be followed by <seealso cref="asc()"/> or <seealso cref="desc()"/>). </summary>
 	  HistoricJobLogQuery orderByJobDefinitionId();
 
 	  /// <summary>
-	  /// Order by activity id (needs to be followed by <seealso cref="#asc()"/> or <seealso cref="#desc()"/>). </summary>
+	  /// Order by activity id (needs to be followed by <seealso cref="asc()"/> or <seealso cref="desc()"/>). </summary>
 	  HistoricJobLogQuery orderByActivityId();
 
 	  /// <summary>
-	  /// Order by execution id (needs to be followed by <seealso cref="#asc()"/> or <seealso cref="#desc()"/>). </summary>
+	  /// Order by execution id (needs to be followed by <seealso cref="asc()"/> or <seealso cref="desc()"/>). </summary>
 	  HistoricJobLogQuery orderByExecutionId();
 
 	  /// <summary>
-	  /// Order by process instance id (needs to be followed by <seealso cref="#asc()"/> or <seealso cref="#desc()"/>). </summary>
+	  /// Order by process instance id (needs to be followed by <seealso cref="asc()"/> or <seealso cref="desc()"/>). </summary>
 	  HistoricJobLogQuery orderByProcessInstanceId();
 
 	  /// <summary>
-	  /// Order by process definition id (needs to be followed by <seealso cref="#asc()"/> or <seealso cref="#desc()"/>). </summary>
+	  /// Order by process definition id (needs to be followed by <seealso cref="asc()"/> or <seealso cref="desc()"/>). </summary>
 	  HistoricJobLogQuery orderByProcessDefinitionId();
 
 	  /// <summary>
-	  /// Order by process definition key (needs to be followed by <seealso cref="#asc()"/> or <seealso cref="#desc()"/>). </summary>
+	  /// Order by process definition key (needs to be followed by <seealso cref="asc()"/> or <seealso cref="desc()"/>). </summary>
 	  HistoricJobLogQuery orderByProcessDefinitionKey();
 
 	  /// <summary>
-	  /// Order by deployment id (needs to be followed by <seealso cref="#asc()"/> or <seealso cref="#desc()"/>). </summary>
+	  /// Order by deployment id (needs to be followed by <seealso cref="asc()"/> or <seealso cref="desc()"/>). </summary>
 	  HistoricJobLogQuery orderByDeploymentId();
 
 
 	  /// <summary>
 	  /// <para>Sort the <seealso cref="HistoricJobLog historic job logs"/> in the order in which
-	  /// they occurred and needs to be followed by <seealso cref="#asc()"/> or <seealso cref="#desc()"/>.</para>
+	  /// they occurred and needs to be followed by <seealso cref="asc()"/> or <seealso cref="desc()"/>.</para>
 	  /// 
 	  /// <para>The set of all <seealso cref="HistoricJobLog historic job logs"/> is a <strong>partially ordered
 	  /// set</strong>. Due to this fact <seealso cref="HistoricJobLog historic job logs"/> with different
-	  /// <seealso cref="HistoricJobLog#getJobId() job ids"/> are <strong>incomparable</strong>. Only {@link
-	  /// HistoricJobLog historic job logs} with the same <seealso cref="HistoricJobLog#getJobId() job id"/> can
-	  /// be <strong>totally ordered</strong> by using <seealso cref="#jobId(String)"/> and <seealso cref="#orderPartiallyByOccurrence()"/>
+	  /// <seealso cref="HistoricJobLog.getJobId() job ids"/> are <strong>incomparable</strong>. Only {@link
+	  /// HistoricJobLog historic job logs} with the same <seealso cref="HistoricJobLog.getJobId() job id"/> can
+	  /// be <strong>totally ordered</strong> by using <seealso cref="jobId(string)"/> and <seealso cref="orderPartiallyByOccurrence()"/>
 	  /// which will return a result set ordered by its occurrence.</para>
 	  /// 
 	  /// @since 7.3
@@ -179,7 +179,7 @@ namespace org.camunda.bpm.engine.history
 	  HistoricJobLogQuery orderPartiallyByOccurrence();
 
 	  /// <summary>
-	  /// Order by tenant id (needs to be followed by <seealso cref="#asc()"/> or <seealso cref="#desc()"/>).
+	  /// Order by tenant id (needs to be followed by <seealso cref="asc()"/> or <seealso cref="desc()"/>).
 	  /// Note that the ordering of job log entries without tenant id is database-specific.
 	  /// </summary>
 	  HistoricJobLogQuery orderByTenantId();

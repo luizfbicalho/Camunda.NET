@@ -44,7 +44,7 @@ namespace org.camunda.bpm.model.xml.impl.type.attribute
 
 	  /// <summary>
 	  /// the default value for this attribute: the default value is returned
-	  /// by the <seealso cref="#getValue(ModelElementInstance)"/> method in case the attribute is not set on the
+	  /// by the <seealso cref="getValue(ModelElementInstance)"/> method in case the attribute is not set on the
 	  /// domElement.
 	  /// </summary>
 	  private T defaultValue;

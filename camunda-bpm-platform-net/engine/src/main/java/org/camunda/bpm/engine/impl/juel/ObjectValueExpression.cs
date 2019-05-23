@@ -39,7 +39,7 @@ namespace org.camunda.bpm.engine.impl.juel
 		/// Wrap an object into a value expression. </summary>
 		/// <param name="converter"> type converter </param>
 		/// <param name="object"> the object to wrap </param>
-		/// <param name="type"> the expected type this object will be coerced in <seealso cref="#getValue(ELContext)"/>. </param>
+		/// <param name="type"> the expected type this object will be coerced in <seealso cref="getValue(ELContext)"/>. </param>
 		public ObjectValueExpression(TypeConverter converter, object @object, Type type) : base()
 		{
 

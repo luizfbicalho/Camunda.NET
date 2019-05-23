@@ -39,8 +39,8 @@ namespace org.camunda.bpm.engine.externaltask
 	  /// </exception>
 	  /// <exception cref="AuthorizationException"> thrown if the current user does not possess any of the following permissions:
 	  ///   <ul>
-	  ///     <li><seealso cref="Permissions#UPDATE"/> on <seealso cref="Resources#PROCESS_INSTANCE"/></li>
-	  ///     <li><seealso cref="Permissions#UPDATE_INSTANCE"/> on <seealso cref="Resources#PROCESS_DEFINITION"/></li>
+	  ///     <li><seealso cref="Permissions.UPDATE"/> on <seealso cref="Resources.PROCESS_INSTANCE"/></li>
+	  ///     <li><seealso cref="Permissions.UPDATE_INSTANCE"/> on <seealso cref="Resources.PROCESS_DEFINITION"/></li>
 	  ///   </ul> </exception>
 	  void set(int retries);
 
@@ -58,8 +58,8 @@ namespace org.camunda.bpm.engine.externaltask
 	  ///           If no external tasks are found or if a external task id is set to null
 	  /// </exception>
 	  /// <exception cref="AuthorizationException">
-	  ///           if the user has no <seealso cref="Permissions#CREATE"/> or
-	  ///           <seealso cref="BatchPermissions#CREATE_BATCH_SET_EXTERNAL_TASK_RETRIES"/> permission on <seealso cref="Resources#BATCH"/>. </exception>
+	  ///           if the user has no <seealso cref="Permissions.CREATE"/> or
+	  ///           <seealso cref="BatchPermissions.CREATE_BATCH_SET_EXTERNAL_TASK_RETRIES"/> permission on <seealso cref="Resources.BATCH"/>. </exception>
 	  Batch setAsync(int retries);
 
 	}

@@ -181,7 +181,7 @@ namespace org.camunda.bpm.engine.spring.components.aop
 		/// if there any arguments with the <seealso cref="org.camunda.bpm.engine.annotations.ProcessVariable"/> annotation,
 		/// then we feed those parameters into the business process
 		/// </summary>
-		/// <param name="invocation"> the invocation of the method as passed to the <seealso cref="org.aopalliance.intercept.MethodInterceptor#invoke(org.aopalliance.intercept.MethodInvocation)"/> method </param>
+		/// <param name="invocation"> the invocation of the method as passed to the <seealso cref="org.aopalliance.intercept.MethodInterceptor.invoke(org.aopalliance.intercept.MethodInvocation)"/> method </param>
 		/// <returns> returns the map of process variables extracted from the parameters </returns>
 		/// <exception cref="Throwable"> thrown anything goes wrong </exception>
 //JAVA TO C# CONVERTER WARNING: Method 'throws' clauses are not available in .NET:

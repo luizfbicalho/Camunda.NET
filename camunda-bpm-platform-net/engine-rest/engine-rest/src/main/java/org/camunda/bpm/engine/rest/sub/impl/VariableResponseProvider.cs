@@ -49,7 +49,7 @@ namespace org.camunda.bpm.engine.rest.sub.impl
 
 
 	  /// <summary>
-	  /// Creates a response for a variable of type <seealso cref="ValueType#FILE"/>.
+	  /// Creates a response for a variable of type <seealso cref="ValueType.FILE"/>.
 	  /// </summary>
 	  protected internal virtual Response responseForFileVariable(FileValue fileValue)
 	  {
@@ -63,7 +63,7 @@ namespace org.camunda.bpm.engine.rest.sub.impl
 	  }
 
 	  /// <summary>
-	  /// Creates a response for a variable of type <seealso cref="ValueType#BYTES"/>.
+	  /// Creates a response for a variable of type <seealso cref="ValueType.BYTES"/>.
 	  /// </summary>
 	  protected internal virtual Response responseForByteVariable(TypedValue variableInstance)
 	  {

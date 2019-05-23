@@ -695,7 +695,7 @@ namespace org.camunda.bpm.engine.impl.juel
 
 		/// <summary>
 		/// Scan next token.
-		/// After calling this method, <seealso cref="#getToken()"/> and <seealso cref="#getPosition()"/>
+		/// After calling this method, <seealso cref="getToken()"/> and <seealso cref="getPosition()"/>
 		/// can be used to retreive the token's image and input position. </summary>
 		/// <returns> scanned token </returns>
 //JAVA TO C# CONVERTER WARNING: Method 'throws' clauses are not available in .NET:

@@ -42,10 +42,10 @@ namespace org.camunda.bpm.engine.runtime
 	  ///           If no such processDefinition can be found. </exception>
 	  /// <exception cref="AuthorizationException">
 	  ///           if the user has none of the following:
-	  ///           <li><seealso cref="ProcessInstancePermissions#SUSPEND"/> permission on <seealso cref="Resources#PROCESS_INSTANCE"/></li>
-	  ///           <li><seealso cref="ProcessDefinitionPermissions#SUSPEND_INSTANCE"/> permission on <seealso cref="Resources#PROCESS_DEFINITION"/></li>
-	  ///           <li><seealso cref="Permissions#UPDATE"/> permission on <seealso cref="Resources#PROCESS_INSTANCE"/></li>
-	  ///           <li><seealso cref="Permissions#UPDATE_INSTANCE"/> permission on <seealso cref="Resources#PROCESS_DEFINITION"/></li> </exception>
+	  ///           <li><seealso cref="ProcessInstancePermissions.SUSPEND"/> permission on <seealso cref="Resources.PROCESS_INSTANCE"/></li>
+	  ///           <li><seealso cref="ProcessDefinitionPermissions.SUSPEND_INSTANCE"/> permission on <seealso cref="Resources.PROCESS_DEFINITION"/></li>
+	  ///           <li><seealso cref="Permissions.UPDATE"/> permission on <seealso cref="Resources.PROCESS_INSTANCE"/></li>
+	  ///           <li><seealso cref="Permissions.UPDATE_INSTANCE"/> permission on <seealso cref="Resources.PROCESS_DEFINITION"/></li> </exception>
 	  void activate();
 
 	  /// <summary>
@@ -85,10 +85,10 @@ namespace org.camunda.bpm.engine.runtime
 	  ///           If no such processDefinition can be found. </exception>
 	  /// <exception cref="AuthorizationException">
 	  ///            if the user has none of the following:
-	  ///           <li><seealso cref="ProcessInstancePermissions#SUSPEND"/> permission on <seealso cref="Resources#PROCESS_INSTANCE"/></li>
-	  ///           <li><seealso cref="ProcessDefinitionPermissions#SUSPEND_INSTANCE"/> permission on <seealso cref="Resources#PROCESS_DEFINITION"/></li>
-	  ///           <li><seealso cref="Permissions#UPDATE"/> permission on <seealso cref="Resources#PROCESS_INSTANCE"/></li>
-	  ///           <li><seealso cref="Permissions#UPDATE_INSTANCE"/> permission on <seealso cref="Resources#PROCESS_DEFINITION"/></li>
+	  ///           <li><seealso cref="ProcessInstancePermissions.SUSPEND"/> permission on <seealso cref="Resources.PROCESS_INSTANCE"/></li>
+	  ///           <li><seealso cref="ProcessDefinitionPermissions.SUSPEND_INSTANCE"/> permission on <seealso cref="Resources.PROCESS_DEFINITION"/></li>
+	  ///           <li><seealso cref="Permissions.UPDATE"/> permission on <seealso cref="Resources.PROCESS_INSTANCE"/></li>
+	  ///           <li><seealso cref="Permissions.UPDATE_INSTANCE"/> permission on <seealso cref="Resources.PROCESS_DEFINITION"/></li>
 	  ///  </exception>
 	  void suspend();
 

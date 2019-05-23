@@ -58,7 +58,7 @@ namespace org.camunda.bpm.application.impl
 	/// </p>
 	/// 
 	/// <h2>Invocation Semantics</h2>
-	/// <para>When the <seealso cref="#execute(java.util.concurrent.Callable)"/> method is invoked, the servlet process
+	/// <para>When the <seealso cref="execute(java.util.concurrent.Callable)"/> method is invoked, the servlet process
 	/// application modifies the context classloader of the current Thread to the classloader that loaded
 	/// the application-provided subclass of this class. This allows
 	/// <ul>

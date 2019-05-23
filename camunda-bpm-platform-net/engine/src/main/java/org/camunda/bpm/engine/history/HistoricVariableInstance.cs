@@ -58,7 +58,7 @@ namespace org.camunda.bpm.engine.history
 	  /// <summary>
 	  /// Returns the name of this variable instance.
 	  /// 
-	  /// <para>Deprecated since 7.2: use <seealso cref="#getName()"/> instead.</para>
+	  /// <para>Deprecated since 7.2: use <seealso cref="getName()"/> instead.</para>
 	  /// 
 	  /// </summary>
 	   [Obsolete]
@@ -67,7 +67,7 @@ namespace org.camunda.bpm.engine.history
 	  /// <summary>
 	  /// <para>Returns the name of the type of this variable instance</para>
 	  /// 
-	  /// <para>Deprecated since 7.2: use <seealso cref="#getTypeName()"/> instead.</para>
+	  /// <para>Deprecated since 7.2: use <seealso cref="getTypeName()"/> instead.</para>
 	  /// 
 	  /// </summary>
 	  [Obsolete]

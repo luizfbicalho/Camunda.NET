@@ -36,7 +36,7 @@ namespace org.camunda.bpm.engine.impl.scripting.engine
 	/// </para>
 	/// <para><strong>Note on backwards compatibility:</strong> before 7.2 the Script
 	/// bindings behaved in a way that all script variables were automatically exposed
-	/// as process variables. You can enable this behavior by setting <seealso cref="#autoStoreScriptVariables"/>.
+	/// as process variables. You can enable this behavior by setting <seealso cref="autoStoreScriptVariables"/>.
 	/// </para>
 	/// 
 	/// 

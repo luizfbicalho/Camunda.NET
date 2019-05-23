@@ -19,9 +19,9 @@ namespace org.camunda.bpm.model.xml.type.child
 	using ModelElementInstance = org.camunda.bpm.model.xml.instance.ModelElementInstance;
 
 	/// <summary>
-	/// A single child element (child Element collection where <seealso cref="ChildElementCollection#getMaxOccurs()"/> returns 1.
+	/// A single child element (child Element collection where <seealso cref="ChildElementCollection.getMaxOccurs()"/> returns 1.
 	/// 
-	/// The <seealso cref="Collection#add(Object)"/> operation provided by this collection has special behavior: it will
+	/// The <seealso cref="Collection.add(object)"/> operation provided by this collection has special behavior: it will
 	/// replace an existing element if it exists.
 	/// 
 	/// @author Daniel Meyer

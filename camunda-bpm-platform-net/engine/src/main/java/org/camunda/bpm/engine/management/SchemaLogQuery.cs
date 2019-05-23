@@ -31,7 +31,7 @@ namespace org.camunda.bpm.engine.management
 	  SchemaLogQuery version(string version);
 
 	  /// <summary>
-	  /// Order by task timestamp (needs to be followed by <seealso cref="#asc()"/> or <seealso cref="#desc()"/>).
+	  /// Order by task timestamp (needs to be followed by <seealso cref="asc()"/> or <seealso cref="desc()"/>).
 	  /// </summary>
 	  SchemaLogQuery orderByTimestamp();
 	}

@@ -362,91 +362,91 @@ namespace org.camunda.bpm.engine.history
 	  HistoricTaskInstanceQuery startedBefore(DateTime date);
 
 	  /// <summary>
-	  /// Order by tenant id (needs to be followed by <seealso cref="#asc()"/> or <seealso cref="#desc()"/>).
+	  /// Order by tenant id (needs to be followed by <seealso cref="asc()"/> or <seealso cref="desc()"/>).
 	  /// Note that the ordering of historic task instances without tenant id is database-specific.
 	  /// </summary>
 	  HistoricTaskInstanceQuery orderByTenantId();
 
 	  /// <summary>
-	  /// Order by task id (needs to be followed by <seealso cref="#asc()"/> or <seealso cref="#desc()"/>). </summary>
+	  /// Order by task id (needs to be followed by <seealso cref="asc()"/> or <seealso cref="desc()"/>). </summary>
 	  HistoricTaskInstanceQuery orderByTaskId();
 
 	  /// <summary>
 	  /// Order by the historic activity instance id this task was used in
-	  /// (needs to be followed by <seealso cref="#asc()"/> or <seealso cref="#desc()"/>).
+	  /// (needs to be followed by <seealso cref="asc()"/> or <seealso cref="desc()"/>).
 	  /// </summary>
 	  HistoricTaskInstanceQuery orderByHistoricActivityInstanceId();
 
 	  /// <summary>
-	  /// Order by process definition id (needs to be followed by <seealso cref="#asc()"/> or <seealso cref="#desc()"/>). </summary>
+	  /// Order by process definition id (needs to be followed by <seealso cref="asc()"/> or <seealso cref="desc()"/>). </summary>
 	  HistoricTaskInstanceQuery orderByProcessDefinitionId();
 
 	  /// <summary>
-	  /// Order by process instance id (needs to be followed by <seealso cref="#asc()"/> or <seealso cref="#desc()"/>). </summary>
+	  /// Order by process instance id (needs to be followed by <seealso cref="asc()"/> or <seealso cref="desc()"/>). </summary>
 	  HistoricTaskInstanceQuery orderByProcessInstanceId();
 
 	  /// <summary>
-	  /// Order by execution id (needs to be followed by <seealso cref="#asc()"/> or <seealso cref="#desc()"/>). </summary>
+	  /// Order by execution id (needs to be followed by <seealso cref="asc()"/> or <seealso cref="desc()"/>). </summary>
 	  HistoricTaskInstanceQuery orderByExecutionId();
 
 	  /// <summary>
-	  /// Order by duration (needs to be followed by <seealso cref="#asc()"/> or <seealso cref="#desc()"/>). </summary>
+	  /// Order by duration (needs to be followed by <seealso cref="asc()"/> or <seealso cref="desc()"/>). </summary>
 	  HistoricTaskInstanceQuery orderByHistoricTaskInstanceDuration();
 
 	  /// <summary>
-	  /// Order by end time (needs to be followed by <seealso cref="#asc()"/> or <seealso cref="#desc()"/>). </summary>
+	  /// Order by end time (needs to be followed by <seealso cref="asc()"/> or <seealso cref="desc()"/>). </summary>
 	  HistoricTaskInstanceQuery orderByHistoricTaskInstanceEndTime();
 
 	  /// <summary>
-	  /// Order by start time (needs to be followed by <seealso cref="#asc()"/> or <seealso cref="#desc()"/>). </summary>
+	  /// Order by start time (needs to be followed by <seealso cref="asc()"/> or <seealso cref="desc()"/>). </summary>
 	  HistoricTaskInstanceQuery orderByHistoricActivityInstanceStartTime();
 
 	  /// <summary>
-	  /// Order by task name (needs to be followed by <seealso cref="#asc()"/> or <seealso cref="#desc()"/>). </summary>
+	  /// Order by task name (needs to be followed by <seealso cref="asc()"/> or <seealso cref="desc()"/>). </summary>
 	  HistoricTaskInstanceQuery orderByTaskName();
 
 	  /// <summary>
-	  /// Order by task description (needs to be followed by <seealso cref="#asc()"/> or <seealso cref="#desc()"/>). </summary>
+	  /// Order by task description (needs to be followed by <seealso cref="asc()"/> or <seealso cref="desc()"/>). </summary>
 	  HistoricTaskInstanceQuery orderByTaskDescription();
 
 	  /// <summary>
-	  /// Order by task assignee (needs to be followed by <seealso cref="#asc()"/> or <seealso cref="#desc()"/>). </summary>
+	  /// Order by task assignee (needs to be followed by <seealso cref="asc()"/> or <seealso cref="desc()"/>). </summary>
 	  HistoricTaskInstanceQuery orderByTaskAssignee();
 
 	  /// <summary>
-	  /// Order by task owner (needs to be followed by <seealso cref="#asc()"/> or <seealso cref="#desc()"/>). </summary>
+	  /// Order by task owner (needs to be followed by <seealso cref="asc()"/> or <seealso cref="desc()"/>). </summary>
 	  HistoricTaskInstanceQuery orderByTaskOwner();
 
 	  /// <summary>
-	  /// Order by task due date (needs to be followed by <seealso cref="#asc()"/> or <seealso cref="#desc()"/>). </summary>
+	  /// Order by task due date (needs to be followed by <seealso cref="asc()"/> or <seealso cref="desc()"/>). </summary>
 	  HistoricTaskInstanceQuery orderByTaskDueDate();
 
 	  /// <summary>
-	  /// Order by task follow-up date (needs to be followed by <seealso cref="#asc()"/> or <seealso cref="#desc()"/>). </summary>
+	  /// Order by task follow-up date (needs to be followed by <seealso cref="asc()"/> or <seealso cref="desc()"/>). </summary>
 	  HistoricTaskInstanceQuery orderByTaskFollowUpDate();
 
 	  /// <summary>
-	  /// Order by task delete reason (needs to be followed by <seealso cref="#asc()"/> or <seealso cref="#desc()"/>). </summary>
+	  /// Order by task delete reason (needs to be followed by <seealso cref="asc()"/> or <seealso cref="desc()"/>). </summary>
 	  HistoricTaskInstanceQuery orderByDeleteReason();
 
 	  /// <summary>
-	  /// Order by task definition key (needs to be followed by <seealso cref="#asc()"/> or <seealso cref="#desc()"/>). </summary>
+	  /// Order by task definition key (needs to be followed by <seealso cref="asc()"/> or <seealso cref="desc()"/>). </summary>
 	  HistoricTaskInstanceQuery orderByTaskDefinitionKey();
 
 	  /// <summary>
-	  /// Order by task priority key (needs to be followed by <seealso cref="#asc()"/> or <seealso cref="#desc()"/>). </summary>
+	  /// Order by task priority key (needs to be followed by <seealso cref="asc()"/> or <seealso cref="desc()"/>). </summary>
 	  HistoricTaskInstanceQuery orderByTaskPriority();
 
 	  /// <summary>
-	  /// Order by case definition id (needs to be followed by <seealso cref="#asc()"/> or <seealso cref="#desc()"/>). </summary>
+	  /// Order by case definition id (needs to be followed by <seealso cref="asc()"/> or <seealso cref="desc()"/>). </summary>
 	  HistoricTaskInstanceQuery orderByCaseDefinitionId();
 
 	  /// <summary>
-	  /// Order by case instance id (needs to be followed by <seealso cref="#asc()"/> or <seealso cref="#desc()"/>). </summary>
+	  /// Order by case instance id (needs to be followed by <seealso cref="asc()"/> or <seealso cref="desc()"/>). </summary>
 	  HistoricTaskInstanceQuery orderByCaseInstanceId();
 
 	  /// <summary>
-	  /// Order by case execution id (needs to be followed by <seealso cref="#asc()"/> or <seealso cref="#desc()"/>). </summary>
+	  /// Order by case execution id (needs to be followed by <seealso cref="asc()"/> or <seealso cref="desc()"/>). </summary>
 	  HistoricTaskInstanceQuery orderByCaseExecutionId();
 
 	}

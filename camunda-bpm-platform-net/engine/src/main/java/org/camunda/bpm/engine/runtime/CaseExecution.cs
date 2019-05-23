@@ -35,7 +35,7 @@ namespace org.camunda.bpm.engine.runtime
 	  /// <summary>
 	  /// <para>Id of the root of the case execution tree representing the case instance.</para>
 	  /// 
-	  /// <para>It is the same as <seealso cref="#getId()"/> if this case execution is the case instance.</para>
+	  /// <para>It is the same as <seealso cref="getId()"/> if this case execution is the case instance.</para>
 	  /// </summary>
 	  string CaseInstanceId {get;}
 

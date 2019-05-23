@@ -44,7 +44,7 @@ namespace org.camunda.bpm.engine.repository
 	  int Version {get;}
 
 	  /// <summary>
-	  /// name of <seealso cref="RepositoryService#getResourceAsStream(String, String) the resource"/> of this definition </summary>
+	  /// name of <seealso cref="RepositoryService.getResourceAsStream(string, string) the resource"/> of this definition </summary>
 	  string ResourceName {get;}
 
 	  /// <summary>

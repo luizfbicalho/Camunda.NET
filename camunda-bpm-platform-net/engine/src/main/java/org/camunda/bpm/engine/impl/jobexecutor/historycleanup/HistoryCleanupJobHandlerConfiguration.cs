@@ -83,7 +83,7 @@ namespace org.camunda.bpm.engine.impl.jobexecutor.historycleanup
 	  }
 
 	  /// <summary>
-	  /// The delay between two "empty" runs increases twice each time until it reaches <seealso cref="HistoryCleanupJobHandlerConfiguration#MAX_DELAY"/> value. </summary>
+	  /// The delay between two "empty" runs increases twice each time until it reaches <seealso cref="HistoryCleanupJobHandlerConfiguration.MAX_DELAY"/> value. </summary>
 	  /// <param name="date"> date to count delay from </param>
 	  /// <returns> date with delay </returns>
 	  public virtual DateTime getNextRunWithDelay(DateTime date)

@@ -55,8 +55,8 @@ namespace org.camunda.bpm.engine.impl.cmmn.transformer
 
 	  void transformCase(Case element, CmmnCaseDefinition caseDefinition);
 
-	  /// @deprecated use <seealso cref="#transformCasePlanModel(org.camunda.bpm.model.cmmn.instance.CasePlanModel, CmmnActivity)"/> 
-	  [Obsolete("use <seealso cref="#transformCasePlanModel(org.camunda.bpm.model.cmmn.instance.CasePlanModel, org.camunda.bpm.engine.impl.cmmn.model.CmmnActivity)"/>")]
+	  /// @deprecated use <seealso cref="transformCasePlanModel(org.camunda.bpm.model.cmmn.instance.CasePlanModel, CmmnActivity)"/> 
+	  [Obsolete("use <seealso cref=\"transformCasePlanModel(org.camunda.bpm.model.cmmn.instance.CasePlanModel, CmmnActivity)\"/>")]
 	  void transformCasePlanModel(org.camunda.bpm.model.cmmn.impl.instance.CasePlanModel casePlanModel, CmmnActivity caseActivity);
 
 	  void transformCasePlanModel(CasePlanModel casePlanModel, CmmnActivity caseActivity);

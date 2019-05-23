@@ -28,7 +28,7 @@ namespace org.camunda.bpm.engine.spring.application
 	/// 
 	/// <para>In addition to the services provided by the <seealso cref="SpringProcessApplication"/>,
 	/// this <seealso cref="ProcessApplication"/> exposes the servlet context path of the web application
-	/// which it is a part of (see <seealso cref="ProcessApplicationInfo#PROP_SERVLET_CONTEXT_PATH"/>).</para>
+	/// which it is a part of (see <seealso cref="ProcessApplicationInfo.PROP_SERVLET_CONTEXT_PATH"/>).</para>
 	/// 
 	/// <para>This implementation should be used with Spring Web Applications.</para>
 	/// 

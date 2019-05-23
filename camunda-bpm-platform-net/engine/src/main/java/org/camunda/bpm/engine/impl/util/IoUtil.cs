@@ -123,7 +123,7 @@ namespace org.camunda.bpm.engine.impl.util
 	  }
 
 	  /// <summary>
-	  /// Closes the given stream. The same as calling <seealso cref="Closeable#close()"/>, but
+	  /// Closes the given stream. The same as calling <seealso cref="Closeable.close()"/>, but
 	  /// errors while closing are silently ignored.
 	  /// </summary>
 	  public static void closeSilently(System.IDisposable closeable)
@@ -142,7 +142,7 @@ namespace org.camunda.bpm.engine.impl.util
 	  }
 
 	  /// <summary>
-	  /// Flushes the given object. The same as calling <seealso cref="Flushable#flush()"/>, but
+	  /// Flushes the given object. The same as calling <seealso cref="Flushable.flush()"/>, but
 	  /// errors while flushing are silently ignored.
 	  /// </summary>
 	  public static void flushSilently(Flushable flushable)

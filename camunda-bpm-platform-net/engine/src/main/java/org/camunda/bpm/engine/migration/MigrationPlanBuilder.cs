@@ -43,7 +43,7 @@ namespace org.camunda.bpm.engine.migration
 	  /// </returns>
 	  /// <exception cref="MigrationPlanValidationException"> if the migration plan contains instructions that are not valid </exception>
 	  /// <exception cref="AuthorizationException">
-	  ///         if the user has no <seealso cref="Permissions#READ"/> permission on <seealso cref="Resources#PROCESS_DEFINITION"/>
+	  ///         if the user has no <seealso cref="Permissions.READ"/> permission on <seealso cref="Resources.PROCESS_DEFINITION"/>
 	  ///         for both, source and target process definition. </exception>
 	  MigrationPlan build();
 

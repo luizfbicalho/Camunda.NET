@@ -52,7 +52,7 @@ namespace org.camunda.bpm.engine.runtime
 	  ProcessInstanceModificationInstantiationBuilder startBeforeActivity(string activityId, string ancestorActivityInstanceId);
 
 	  /// <summary>
-	  /// Submits an instruction that behaves like <seealso cref="#startTransition(String,String)"/> and always instantiates
+	  /// Submits an instruction that behaves like <seealso cref="startTransition(string,string)"/> and always instantiates
 	  /// the single outgoing sequence flow of the given activity. Does not consider asyncAfter.
 	  /// </summary>
 	  /// <param name="activityId"> the activity for which the outgoing flow should be executed </param>
@@ -106,8 +106,8 @@ namespace org.camunda.bpm.engine.runtime
 	  ///   <li>transition instances entering or leaving that activity
 	  /// </ul></para>
 	  /// 
-	  /// <para>Therefore behaves like <seealso cref="#cancelActivityInstance(String)"/> for each individual
-	  /// activity instance and like <seealso cref="#cancelTransitionInstance(String)"/> for each
+	  /// <para>Therefore behaves like <seealso cref="cancelActivityInstance(string)"/> for each individual
+	  /// activity instance and like <seealso cref="cancelTransitionInstance(string)"/> for each
 	  /// individual transition instance.</para>
 	  /// 
 	  /// <para>The cancellation order of the instances is arbitrary</para>
@@ -120,11 +120,11 @@ namespace org.camunda.bpm.engine.runtime
 	  /// are executed.
 	  /// </summary>
 	  /// <exception cref="AuthorizationException">
-	  ///          if the user has no <seealso cref="Permissions#UPDATE"/> permission on <seealso cref="Resources#PROCESS_INSTANCE"/>
-	  ///          or no <seealso cref="Permissions#UPDATE_INSTANCE"/> permission on <seealso cref="Resources#PROCESS_DEFINITION"/>.
-	  ///          if the process instance will be delete and the user has no <seealso cref="Permissions#DELETE"/> permission
-	  ///          on <seealso cref="Resources#PROCESS_INSTANCE"/> or no <seealso cref="Permissions#DELETE_INSTANCE"/> permission on
-	  ///          <seealso cref="Resources#PROCESS_DEFINITION"/>. </exception>
+	  ///          if the user has no <seealso cref="Permissions.UPDATE"/> permission on <seealso cref="Resources.PROCESS_INSTANCE"/>
+	  ///          or no <seealso cref="Permissions.UPDATE_INSTANCE"/> permission on <seealso cref="Resources.PROCESS_DEFINITION"/>.
+	  ///          if the process instance will be delete and the user has no <seealso cref="Permissions.DELETE"/> permission
+	  ///          on <seealso cref="Resources.PROCESS_INSTANCE"/> or no <seealso cref="Permissions.DELETE_INSTANCE"/> permission on
+	  ///          <seealso cref="Resources.PROCESS_DEFINITION"/>. </exception>
 	  void execute();
 
 	  /// <param name="skipCustomListeners"> specifies whether custom listeners (task and execution)
@@ -133,11 +133,11 @@ namespace org.camunda.bpm.engine.runtime
 	  ///   throughout the transaction when executing the instructions
 	  /// </param>
 	  /// <exception cref="AuthorizationException">
-	  ///          if the user has no <seealso cref="Permissions#UPDATE"/> permission on <seealso cref="Resources#PROCESS_INSTANCE"/>
-	  ///          or no <seealso cref="Permissions#UPDATE_INSTANCE"/> permission on <seealso cref="Resources#PROCESS_DEFINITION"/>.
-	  ///          if the process instance will be delete and the user has no <seealso cref="Permissions#DELETE"/> permission
-	  ///          on <seealso cref="Resources#PROCESS_INSTANCE"/> or no <seealso cref="Permissions#DELETE_INSTANCE"/> permission on
-	  ///          <seealso cref="Resources#PROCESS_DEFINITION"/>. </exception>
+	  ///          if the user has no <seealso cref="Permissions.UPDATE"/> permission on <seealso cref="Resources.PROCESS_INSTANCE"/>
+	  ///          or no <seealso cref="Permissions.UPDATE_INSTANCE"/> permission on <seealso cref="Resources.PROCESS_DEFINITION"/>.
+	  ///          if the process instance will be delete and the user has no <seealso cref="Permissions.DELETE"/> permission
+	  ///          on <seealso cref="Resources.PROCESS_INSTANCE"/> or no <seealso cref="Permissions.DELETE_INSTANCE"/> permission on
+	  ///          <seealso cref="Resources.PROCESS_DEFINITION"/>. </exception>
 	  void execute(bool skipCustomListeners, bool skipIoMappings);
 
 	  /// <summary>
@@ -145,8 +145,8 @@ namespace org.camunda.bpm.engine.runtime
 	  /// are executed.
 	  /// </summary>
 	  /// <exception cref="AuthorizationException">
-	  ///              if the user has no <seealso cref="Permissions#CREATE"/> or
-	  ///              <seealso cref="BatchPermissions#CREATE_BATCH_MODIFY_PROCESS_INSTANCES"/> permission on <seealso cref="Resources#BATCH"/>.
+	  ///              if the user has no <seealso cref="Permissions.CREATE"/> or
+	  ///              <seealso cref="BatchPermissions.CREATE_BATCH_MODIFY_PROCESS_INSTANCES"/> permission on <seealso cref="Resources.BATCH"/>.
 	  /// </exception>
 	  /// <returns> a batch job to be executed by the executor </returns>
 	  Batch executeAsync();
@@ -157,8 +157,8 @@ namespace org.camunda.bpm.engine.runtime
 	  ///   throughout the transaction when executing the instructions
 	  /// </param>
 	  /// <exception cref="AuthorizationException">
-	  ///               if the user has no <seealso cref="Permissions#CREATE"/> or
-	  ///               <seealso cref="BatchPermissions#CREATE_BATCH_MODIFY_PROCESS_INSTANCES"/> permission on <seealso cref="Resources#BATCH"/>.
+	  ///               if the user has no <seealso cref="Permissions.CREATE"/> or
+	  ///               <seealso cref="BatchPermissions.CREATE_BATCH_MODIFY_PROCESS_INSTANCES"/> permission on <seealso cref="Resources.BATCH"/>.
 	  /// </exception>
 	  /// <returns> a batch job to be executed by the executor </returns>
 	  Batch executeAsync(bool skipCustomListeners, bool skipIoMappings);

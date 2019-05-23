@@ -42,7 +42,7 @@ namespace org.camunda.bpm.qa.performance.engine.framework
 	  /// Invoked before a <seealso cref="PerfTestRun"/> starts an individual
 	  /// step in the performance test.
 	  /// 
-	  /// This method is called by the same <seealso cref="Thread"/> which will
+	  /// This method is called by the same <seealso cref="System.Threading.Thread"/> which will
 	  /// execute the step.
 	  /// </summary>
 	  /// <param name="step"> the <seealso cref="PerfTestStep"/> about to be executed. </param>
@@ -53,7 +53,7 @@ namespace org.camunda.bpm.qa.performance.engine.framework
 	  /// Invoked after a <seealso cref="PerfTestRun"/> ends an individual
 	  /// step in the performance test.
 	  /// 
-	  /// This method is called by the same <seealso cref="Thread"/> which
+	  /// This method is called by the same <seealso cref="System.Threading.Thread"/> which
 	  /// executed the step.
 	  /// </summary>
 	  /// <param name="step"> the <seealso cref="PerfTestStep"/> which has been executed. </param>

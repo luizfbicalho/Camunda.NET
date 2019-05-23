@@ -73,43 +73,43 @@ namespace org.camunda.bpm.engine.history
 		HistoricIdentityLinkLogQuery tenantIdIn(params string[] tenantId);
 
 		/// <summary>
-		/// Order by time (needs to be followed by <seealso cref="#asc()"/> or <seealso cref="#desc()"/>). </summary>
+		/// Order by time (needs to be followed by <seealso cref="asc()"/> or <seealso cref="desc()"/>). </summary>
 	  HistoricIdentityLinkLogQuery orderByTime();
 
 		/// <summary>
-		/// Order by type (needs to be followed by <seealso cref="#asc()"/> or <seealso cref="#desc()"/>). </summary>
+		/// Order by type (needs to be followed by <seealso cref="asc()"/> or <seealso cref="desc()"/>). </summary>
 		HistoricIdentityLinkLogQuery orderByType();
 
 		/// <summary>
-		/// Order by userId (needs to be followed by <seealso cref="#asc()"/> or <seealso cref="#desc()"/>). </summary>
+		/// Order by userId (needs to be followed by <seealso cref="asc()"/> or <seealso cref="desc()"/>). </summary>
 		HistoricIdentityLinkLogQuery orderByUserId();
 
 		/// <summary>
-		/// Order by groupId (needs to be followed by <seealso cref="#asc()"/> or <seealso cref="#desc()"/>). </summary>
+		/// Order by groupId (needs to be followed by <seealso cref="asc()"/> or <seealso cref="desc()"/>). </summary>
 		HistoricIdentityLinkLogQuery orderByGroupId();
 
 		/// <summary>
-		/// Order by taskId (needs to be followed by <seealso cref="#asc()"/> or <seealso cref="#desc()"/>). </summary>
+		/// Order by taskId (needs to be followed by <seealso cref="asc()"/> or <seealso cref="desc()"/>). </summary>
 		HistoricIdentityLinkLogQuery orderByTaskId();
 
 		/// <summary>
-		/// Order by processDefinitionId (needs to be followed by <seealso cref="#asc()"/> or <seealso cref="#desc()"/>). </summary>
+		/// Order by processDefinitionId (needs to be followed by <seealso cref="asc()"/> or <seealso cref="desc()"/>). </summary>
 		HistoricIdentityLinkLogQuery orderByProcessDefinitionId();
 
 		/// <summary>
-		/// Order by processDefinitionKey (needs to be followed by <seealso cref="#asc()"/> or <seealso cref="#desc()"/>). </summary>
+		/// Order by processDefinitionKey (needs to be followed by <seealso cref="asc()"/> or <seealso cref="desc()"/>). </summary>
 	  HistoricIdentityLinkLogQuery orderByProcessDefinitionKey();
 
 		/// <summary>
-		/// Order by operationType (needs to be followed by <seealso cref="#asc()"/> or <seealso cref="#desc()"/>). </summary>
+		/// Order by operationType (needs to be followed by <seealso cref="asc()"/> or <seealso cref="desc()"/>). </summary>
 		HistoricIdentityLinkLogQuery orderByOperationType();
 
 		/// <summary>
-		/// Order by assignerId (needs to be followed by <seealso cref="#asc()"/> or <seealso cref="#desc()"/>). </summary>
+		/// Order by assignerId (needs to be followed by <seealso cref="asc()"/> or <seealso cref="desc()"/>). </summary>
 		HistoricIdentityLinkLogQuery orderByAssignerId();
 
 		 /// <summary>
-		 /// Order by tenantId (needs to be followed by <seealso cref="#asc()"/> or <seealso cref="#desc()"/>). </summary>
+		 /// Order by tenantId (needs to be followed by <seealso cref="asc()"/> or <seealso cref="desc()"/>). </summary>
 	  HistoricIdentityLinkLogQuery orderByTenantId();
 
 	}

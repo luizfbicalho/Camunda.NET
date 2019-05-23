@@ -78,7 +78,7 @@ namespace org.camunda.bpm.engine.runtime
 	  /// <summary>
 	  /// Only select variables instances which have the given name and value. The type
 	  /// of variable is determined based on the value, using types configured in
-	  /// <seealso cref="ProcessEngineConfiguration#getVariableSerializers()"/>.
+	  /// <seealso cref="ProcessEngineConfiguration.getVariableSerializers()"/>.
 	  /// Byte-arrays and <seealso cref="Serializable"/> objects (which are not primitive type wrappers)
 	  /// are not supported. </summary>
 	  /// <param name="name"> name of the variable, cannot be null. </param>
@@ -156,19 +156,19 @@ namespace org.camunda.bpm.engine.runtime
 	  VariableInstanceQuery tenantIdIn(params string[] tenantIds);
 
 	  /// <summary>
-	  /// Order by variable name (needs to be followed by <seealso cref="#asc()"/> or <seealso cref="#desc()"/>). </summary>
+	  /// Order by variable name (needs to be followed by <seealso cref="asc()"/> or <seealso cref="desc()"/>). </summary>
 	  VariableInstanceQuery orderByVariableName();
 
 	  /// <summary>
-	  /// Order by variable type (needs to be followed by <seealso cref="#asc()"/> or <seealso cref="#desc()"/>). </summary>
+	  /// Order by variable type (needs to be followed by <seealso cref="asc()"/> or <seealso cref="desc()"/>). </summary>
 	  VariableInstanceQuery orderByVariableType();
 
 	  /// <summary>
-	  /// Order by activity instance id (needs to be followed by <seealso cref="#asc()"/> or <seealso cref="#desc()"/>). </summary>
+	  /// Order by activity instance id (needs to be followed by <seealso cref="asc()"/> or <seealso cref="desc()"/>). </summary>
 	  VariableInstanceQuery orderByActivityInstanceId();
 
 	  /// <summary>
-	  /// Order by tenant id (needs to be followed by <seealso cref="#asc()"/> or <seealso cref="#desc()"/>).
+	  /// Order by tenant id (needs to be followed by <seealso cref="asc()"/> or <seealso cref="desc()"/>).
 	  /// Note that the ordering of variable instances without tenant id is database-specific.
 	  /// </summary>
 	  VariableInstanceQuery orderByTenantId();

@@ -50,12 +50,12 @@ namespace org.camunda.bpm.engine.batch
 	  BatchQuery suspended();
 
 	  /// <summary>
-	  /// Returns batches sorted by id; must be followed by an invocation of <seealso cref="#asc()"/> or <seealso cref="#desc()"/>.
+	  /// Returns batches sorted by id; must be followed by an invocation of <seealso cref="asc()"/> or <seealso cref="desc()"/>.
 	  /// </summary>
 	  BatchQuery orderById();
 
 	  /// <summary>
-	  /// Returns batches sorted by tenant id; must be followed by an invocation of <seealso cref="#asc()"/> or <seealso cref="#desc()"/>.
+	  /// Returns batches sorted by tenant id; must be followed by an invocation of <seealso cref="asc()"/> or <seealso cref="desc()"/>.
 	  /// </summary>
 	  BatchQuery orderByTenantId();
 

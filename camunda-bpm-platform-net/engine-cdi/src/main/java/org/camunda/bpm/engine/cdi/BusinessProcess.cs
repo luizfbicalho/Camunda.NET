@@ -270,10 +270,10 @@ namespace org.camunda.bpm.engine.cdi
 	  }
 
 	  /// <summary>
-	  /// Signals the current execution, see <seealso cref="RuntimeService#signal(String)"/>
+	  /// Signals the current execution, see <seealso cref="RuntimeService.signal(string)"/>
 	  /// <p/>
 	  /// Ends the current unit of work (flushes changes to process variables set
-	  /// using <seealso cref="#setVariable(String, Object)"/> or made on
+	  /// using <seealso cref="setVariable(string, object)"/> or made on
 	  /// <seealso cref="BusinessProcessScoped @BusinessProcessScoped"/> beans).
 	  /// </summary>
 	  /// <exception cref="ProcessEngineCdiException">
@@ -347,10 +347,10 @@ namespace org.camunda.bpm.engine.cdi
 	  }
 
 	  /// <summary>
-	  /// Completes the current UserTask, see <seealso cref="TaskService#complete(String)"/>
+	  /// Completes the current UserTask, see <seealso cref="TaskService.complete(string)"/>
 	  /// <p/>
 	  /// Ends the current unit of work (flushes changes to process variables set
-	  /// using <seealso cref="#setVariable(String, Object)"/> or made on
+	  /// using <seealso cref="setVariable(string, object)"/> or made on
 	  /// <seealso cref="BusinessProcessScoped @BusinessProcessScoped"/> beans).
 	  /// </summary>
 	  /// <exception cref="ProcessEngineCdiException">
@@ -409,8 +409,8 @@ namespace org.camunda.bpm.engine.cdi
 	  /// 
 	  /// <para>NOTE: this method does not flush any changes.</para>
 	  /// <ul>
-	  ///  <li>If you want to flush changes to process variables, call <seealso cref="#flushVariableCache()"/> prior to calling this method,</li>
-	  ///  <li>If you need to flush changes to the task object, use <seealso cref="#saveTask()"/> prior to calling this method.</li>
+	  ///  <li>If you want to flush changes to process variables, call <seealso cref="flushVariableCache()"/> prior to calling this method,</li>
+	  ///  <li>If you need to flush changes to the task object, use <seealso cref="saveTask()"/> prior to calling this method.</li>
 	  /// </ul>
 	  /// </summary>
 	  /// <exception cref="ProcessEngineCdiException"> if called from a process engine command or if no Task is currently associated. </exception>
@@ -426,8 +426,8 @@ namespace org.camunda.bpm.engine.cdi
 	  /// 
 	  /// <para>NOTE: this method does not flush any changes.</para>
 	  /// <ul>
-	  ///  <li>If you want to flush changes to process variables, call <seealso cref="#flushVariableCache()"/> prior to calling this method,</li>
-	  ///  <li>If you need to flush changes to the task object, use <seealso cref="#saveTask()"/> prior to calling this method.</li>
+	  ///  <li>If you want to flush changes to process variables, call <seealso cref="flushVariableCache()"/> prior to calling this method,</li>
+	  ///  <li>If you need to flush changes to the task object, use <seealso cref="saveTask()"/> prior to calling this method.</li>
 	  /// </ul>
 	  /// 
 	  /// <para>This method allows you to optionally end the current conversation</para>
@@ -520,8 +520,8 @@ namespace org.camunda.bpm.engine.cdi
 	  /// Get the map of cached variables and clear the internal variable cache.
 	  /// </summary>
 	  /// <returns> the map of cached variables </returns>
-	  /// @deprecated use <seealso cref="#getAndClearCachedVariableMap()"/> instead 
-	  [Obsolete("use <seealso cref="#getAndClearCachedVariableMap()"/> instead")]
+	  /// @deprecated use <seealso cref="getAndClearCachedVariableMap()"/> instead 
+	  [Obsolete("use <seealso cref=\"getAndClearCachedVariableMap()\"/> instead")]
 	  public virtual IDictionary<string, object> AndClearVariableCache
 	  {
 		  get
@@ -548,8 +548,8 @@ namespace org.camunda.bpm.engine.cdi
 	  /// Get a copy of the map of cached variables.
 	  /// </summary>
 	  /// <returns> a copy of the map of cached variables. </returns>
-	  /// @deprecated use <seealso cref="#getCachedVariableMap()"/> instead 
-	  [Obsolete("use <seealso cref="#getCachedVariableMap()"/> instead")]
+	  /// @deprecated use <seealso cref="getCachedVariableMap()"/> instead 
+	  [Obsolete("use <seealso cref=\"getCachedVariableMap()\"/> instead")]
 	  public virtual IDictionary<string, object> VariableCache
 	  {
 		  get
@@ -633,8 +633,8 @@ namespace org.camunda.bpm.engine.cdi
 	  /// Get the map of local cached variables and clear the internal variable cache.
 	  /// </summary>
 	  /// <returns> the map of cached variables </returns>
-	  /// @deprecated use <seealso cref="#getAndClearCachedLocalVariableMap()"/> instead 
-	  [Obsolete("use <seealso cref="#getAndClearCachedLocalVariableMap()"/> instead")]
+	  /// @deprecated use <seealso cref="getAndClearCachedLocalVariableMap()"/> instead 
+	  [Obsolete("use <seealso cref=\"getAndClearCachedLocalVariableMap()\"/> instead")]
 	  public virtual IDictionary<string, object> AndClearVariableLocalCache
 	  {
 		  get
@@ -661,8 +661,8 @@ namespace org.camunda.bpm.engine.cdi
 	  /// Get a copy of the map of local cached variables.
 	  /// </summary>
 	  /// <returns> a copy of the map of local cached variables. </returns>
-	  /// @deprecated use <seealso cref="#getCachedLocalVariableMap()"/> instead 
-	  [Obsolete("use <seealso cref="#getCachedLocalVariableMap()"/> instead")]
+	  /// @deprecated use <seealso cref="getCachedLocalVariableMap()"/> instead 
+	  [Obsolete("use <seealso cref=\"getCachedLocalVariableMap()\"/> instead")]
 	  public virtual IDictionary<string, object> VariableLocalCache
 	  {
 		  get
@@ -676,9 +676,9 @@ namespace org.camunda.bpm.engine.cdi
 	  /// 
 	  /// <ul>
 	  ///   <li>If a Task instance is currently associated,
-	  ///       the variables will be flushed using <seealso cref="TaskService#setVariables(String, Map)"/></li>
+	  ///       the variables will be flushed using <seealso cref="TaskService.setVariables(string, System.Collections.IDictionary)"/></li>
 	  ///   <li>If an Execution instance is currently associated,
-	  ///       the variables will be flushed using <seealso cref="RuntimeService#setVariables(String, Map)"/></li>
+	  ///       the variables will be flushed using <seealso cref="RuntimeService.setVariables(string, System.Collections.IDictionary)"/></li>
 	  ///   <li>If neither a Task nor an Execution is currently associated,
 	  ///       ProcessEngineCdiException is thrown.</li>
 	  /// </ul>
@@ -777,7 +777,7 @@ namespace org.camunda.bpm.engine.cdi
 	  /// </summary>
 	  /// <exception cref="ProcessEngineCdiException">
 	  ///           if no <seealso cref="Execution"/> is associated. Use
-	  ///           <seealso cref="#isAssociated()"/> to check whether an association exists. </exception>
+	  ///           <seealso cref="isAssociated()"/> to check whether an association exists. </exception>
 	  public virtual ProcessInstance ProcessInstance
 	  {
 		  get

@@ -173,12 +173,12 @@ namespace org.camunda.bpm.engine.history
 
 	  /// <summary>
 	  /// Order by the time when the decisions was evaluated
-	  /// (needs to be followed by <seealso cref="#asc()"/> or <seealso cref="#desc()"/>). 
+	  /// (needs to be followed by <seealso cref="asc()"/> or <seealso cref="desc()"/>). 
 	  /// </summary>
 	  HistoricDecisionInstanceQuery orderByEvaluationTime();
 
 	  /// <summary>
-	  /// Order by tenant id (needs to be followed by <seealso cref="#asc()"/> or <seealso cref="#desc()"/>).
+	  /// Order by tenant id (needs to be followed by <seealso cref="asc()"/> or <seealso cref="desc()"/>).
 	  /// Note that the ordering of historic decision instances without tenant id is database-specific.
 	  /// </summary>
 	  HistoricDecisionInstanceQuery orderByTenantId();

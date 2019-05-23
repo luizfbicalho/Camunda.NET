@@ -104,7 +104,7 @@ namespace org.camunda.bpm.engine.history
 	  DateTime EndTime {get;}
 
 	  /// <summary>
-	  /// Difference between <seealso cref="#getEndTime()"/> and <seealso cref="#getStartTime()"/> in milliseconds. </summary>
+	  /// Difference between <seealso cref="getEndTime()"/> and <seealso cref="getStartTime()"/> in milliseconds. </summary>
 	  long? DurationInMillis {get;}
 
 	  /// <summary>

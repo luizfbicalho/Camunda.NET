@@ -23,8 +23,8 @@ namespace org.camunda.bpm.engine.cdi.impl
 	/// java.util.Map<String,Object>
 	/// <p/>
 	/// The map delegates changes to
-	/// <seealso cref="BusinessProcess#setVariableLocal(String, Object)"/> and
-	/// <seealso cref="BusinessProcess#getVariableLocal(String)"/>, so that they are not flushed
+	/// <seealso cref="BusinessProcess.setVariableLocal(string, object)"/> and
+	/// <seealso cref="BusinessProcess.getVariableLocal(string)"/>, so that they are not flushed
 	/// prematurely.
 	/// 
 	/// @author Michael Scholz

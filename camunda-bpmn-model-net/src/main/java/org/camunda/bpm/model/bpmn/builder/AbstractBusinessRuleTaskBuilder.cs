@@ -103,7 +103,7 @@ namespace org.camunda.bpm.model.bpmn.builder
 
 	  /// <summary>
 	  /// Sets the camunda topic attribute. This is only meaningful when
-	  /// the <seealso cref="#camundaType(String)"/> attribute has the value <code>external</code>.
+	  /// the <seealso cref="camundaType(string)"/> attribute has the value <code>external</code>.
 	  /// </summary>
 	  /// <param name="camundaTopic"> the topic to set </param>
 	  /// <returns> the builder object </returns>
@@ -192,7 +192,7 @@ namespace org.camunda.bpm.model.bpmn.builder
 
 	  /// <summary>
 	  /// Sets the camunda task priority attribute. This is only meaningful when
-	  /// the <seealso cref="#camundaType(String)"/> attribute has the value <code>external</code>.
+	  /// the <seealso cref="camundaType(string)"/> attribute has the value <code>external</code>.
 	  /// 
 	  /// </summary>
 	  /// <param name="taskPriority"> the priority for the external task </param>

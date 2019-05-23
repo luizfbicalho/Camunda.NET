@@ -85,7 +85,7 @@ namespace org.camunda.bpm.engine.repository
 
 	  /// <summary>
 	  /// Only select case definition with a certain version.
-	  /// Particularly useful when used in combination with <seealso cref="#caseDefinitionKey(String)"/>
+	  /// Particularly useful when used in combination with <seealso cref="caseDefinitionKey(string)"/>
 	  /// </summary>
 	  /// <param name="caseDefinitionVersion"> the version of the case definition </param>
 	  CaseDefinitionQuery caseDefinitionVersion(int? caseDefinitionVersion);
@@ -94,8 +94,8 @@ namespace org.camunda.bpm.engine.repository
 	  /// Only select the case definitions which are the latest deployed
 	  /// (ie. which have the highest version number for the given key).
 	  /// 
-	  /// Can only be used in combination with <seealso cref="#caseDefinitionKey(String)"/>
-	  /// or <seealso cref="#caseDefinitionKeyLike(String)"/>. Can also be used without any
+	  /// Can only be used in combination with <seealso cref="caseDefinitionKey(string)"/>
+	  /// or <seealso cref="caseDefinitionKeyLike(string)"/>. Can also be used without any
 	  /// other criteria (ie. query.latest().list()), which will then give all the
 	  /// latest versions of all the deployed case definitions.
 	  /// 
@@ -125,7 +125,7 @@ namespace org.camunda.bpm.engine.repository
 
 	  /// <summary>
 	  /// Select case definitions which have no tenant id. Can be used in
-	  /// combination with <seealso cref="#tenantIdIn(String...)"/>.
+	  /// combination with <seealso cref="tenantIdIn(string...)"/>.
 	  /// </summary>
 	  CaseDefinitionQuery includeCaseDefinitionsWithoutTenantId();
 
@@ -133,42 +133,42 @@ namespace org.camunda.bpm.engine.repository
 
 	  /// <summary>
 	  /// Order by the category of the case definitions (needs to be followed by
-	  /// <seealso cref="#asc()"/> or <seealso cref="#desc()"/>). 
+	  /// <seealso cref="asc()"/> or <seealso cref="desc()"/>). 
 	  /// </summary>
 	  CaseDefinitionQuery orderByCaseDefinitionCategory();
 
 	  /// <summary>
-	  /// Order by case definition key (needs to be followed by <seealso cref="#asc()"/> or
-	  /// <seealso cref="#desc()"/>). 
+	  /// Order by case definition key (needs to be followed by <seealso cref="asc()"/> or
+	  /// <seealso cref="desc()"/>). 
 	  /// </summary>
 	  CaseDefinitionQuery orderByCaseDefinitionKey();
 
 	  /// <summary>
 	  /// Order by the id of the case definitions (needs to be followed by
-	  /// <seealso cref="#asc()"/> or <seealso cref="#desc()"/>). 
+	  /// <seealso cref="asc()"/> or <seealso cref="desc()"/>). 
 	  /// </summary>
 	  CaseDefinitionQuery orderByCaseDefinitionId();
 
 	  /// <summary>
 	  /// Order by the version of the case definitions (needs to be followed
-	  /// by <seealso cref="#asc()"/> or <seealso cref="#desc()"/>). 
+	  /// by <seealso cref="asc()"/> or <seealso cref="desc()"/>). 
 	  /// </summary>
 	  CaseDefinitionQuery orderByCaseDefinitionVersion();
 
 	  /// <summary>
 	  /// Order by the name of the case definitions (needs to be followed by
-	  /// <seealso cref="#asc()"/> or <seealso cref="#desc()"/>). 
+	  /// <seealso cref="asc()"/> or <seealso cref="desc()"/>). 
 	  /// </summary>
 	  CaseDefinitionQuery orderByCaseDefinitionName();
 
 	  /// <summary>
-	  /// Order by deployment id (needs to be followed by <seealso cref="#asc()"/>
-	  /// or <seealso cref="#desc()"/>). 
+	  /// Order by deployment id (needs to be followed by <seealso cref="asc()"/>
+	  /// or <seealso cref="desc()"/>). 
 	  /// </summary>
 	  CaseDefinitionQuery orderByDeploymentId();
 
 	  /// <summary>
-	  /// Order by tenant id (needs to be followed by <seealso cref="#asc()"/> or <seealso cref="#desc()"/>).
+	  /// Order by tenant id (needs to be followed by <seealso cref="asc()"/> or <seealso cref="desc()"/>).
 	  /// Note that the ordering of case instances without tenant id is database-specific. 
 	  /// </summary>
 	  CaseDefinitionQuery orderByTenantId();

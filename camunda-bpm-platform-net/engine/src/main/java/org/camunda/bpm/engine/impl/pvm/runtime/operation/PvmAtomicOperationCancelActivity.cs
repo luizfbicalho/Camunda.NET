@@ -19,7 +19,7 @@ namespace org.camunda.bpm.engine.impl.pvm.runtime.operation
 	using ActivityStartBehavior = org.camunda.bpm.engine.impl.pvm.process.ActivityStartBehavior;
 
 	/// <summary>
-	/// Implements <seealso cref="ActivityStartBehavior#CANCEL_EVENT_SCOPE"/>.
+	/// Implements <seealso cref="ActivityStartBehavior.CANCEL_EVENT_SCOPE"/>.
 	/// 
 	/// @author Throben Lindhauer
 	/// @author Daniel Meyer

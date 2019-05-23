@@ -51,8 +51,8 @@ namespace org.camunda.bpm.engine
 	  ///           when the given decision definition id is null.
 	  /// </exception>
 	  /// <exception cref="AuthorizationException">
-	  ///           if the user has no <seealso cref="Permissions#CREATE_INSTANCE"/> permission
-	  ///           on <seealso cref="Resources#DECISION_DEFINITION"/>. </exception>
+	  ///           if the user has no <seealso cref="Permissions.CREATE_INSTANCE"/> permission
+	  ///           on <seealso cref="Resources.DECISION_DEFINITION"/>. </exception>
 	  DmnDecisionTableResult evaluateDecisionTableById(string decisionDefinitionId, IDictionary<string, object> variables);
 
 	  /// <summary>
@@ -71,8 +71,8 @@ namespace org.camunda.bpm.engine
 	  ///           when the given decision definition key is null.
 	  /// </exception>
 	  /// <exception cref="AuthorizationException">
-	  ///           if the user has no <seealso cref="Permissions#CREATE_INSTANCE"/> permission
-	  ///           on <seealso cref="Resources#DECISION_DEFINITION"/>. </exception>
+	  ///           if the user has no <seealso cref="Permissions.CREATE_INSTANCE"/> permission
+	  ///           on <seealso cref="Resources.DECISION_DEFINITION"/>. </exception>
 	  DmnDecisionTableResult evaluateDecisionTableByKey(string decisionDefinitionKey, IDictionary<string, object> variables);
 
 	  /// <summary>
@@ -97,8 +97,8 @@ namespace org.camunda.bpm.engine
 	  ///           when the given decision definition key is null.
 	  /// </exception>
 	  /// <exception cref="AuthorizationException">
-	  ///           if the user has no <seealso cref="Permissions#CREATE_INSTANCE"/> permission
-	  ///           on <seealso cref="Resources#DECISION_DEFINITION"/>. </exception>
+	  ///           if the user has no <seealso cref="Permissions.CREATE_INSTANCE"/> permission
+	  ///           on <seealso cref="Resources.DECISION_DEFINITION"/>. </exception>
 	  DmnDecisionTableResult evaluateDecisionTableByKeyAndVersion(string decisionDefinitionKey, int? version, IDictionary<string, object> variables);
 
 	  /// <summary>

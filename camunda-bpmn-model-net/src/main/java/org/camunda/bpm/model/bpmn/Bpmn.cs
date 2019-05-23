@@ -124,9 +124,9 @@ namespace org.camunda.bpm.model.bpmn
 	  }
 
 	  /// <summary>
-	  /// Allows reading a <seealso cref="BpmnModelInstance"/> from an <seealso cref="InputStream"/>
+	  /// Allows reading a <seealso cref="BpmnModelInstance"/> from an <seealso cref="System.IO.Stream_Input"/>
 	  /// </summary>
-	  /// <param name="stream"> the <seealso cref="InputStream"/> to read the <seealso cref="BpmnModelInstance"/> from </param>
+	  /// <param name="stream"> the <seealso cref="System.IO.Stream_Input"/> to read the <seealso cref="BpmnModelInstance"/> from </param>
 	  /// <returns> the model read </returns>
 	  /// <exception cref="ModelParseException"> if the model cannot be read </exception>
 	  public static BpmnModelInstance readModelFromStream(Stream stream)
@@ -148,10 +148,10 @@ namespace org.camunda.bpm.model.bpmn
 	  }
 
 	  /// <summary>
-	  /// Allows writing a <seealso cref="BpmnModelInstance"/> to an <seealso cref="OutputStream"/>. It will be
+	  /// Allows writing a <seealso cref="BpmnModelInstance"/> to an <seealso cref="System.IO.Stream_Output"/>. It will be
 	  /// validated before writing.
 	  /// </summary>
-	  /// <param name="stream"> the <seealso cref="OutputStream"/> to write the <seealso cref="BpmnModelInstance"/> to </param>
+	  /// <param name="stream"> the <seealso cref="System.IO.Stream_Output"/> to write the <seealso cref="BpmnModelInstance"/> to </param>
 	  /// <param name="modelInstance"> the <seealso cref="BpmnModelInstance"/> to write </param>
 	  /// <exception cref="ModelException"> if the model cannot be written </exception>
 	  /// <exception cref="ModelValidationException"> if the model is not valid </exception>
@@ -161,7 +161,7 @@ namespace org.camunda.bpm.model.bpmn
 	  }
 
 	  /// <summary>
-	  /// Allows the conversion of a <seealso cref="BpmnModelInstance"/> to an <seealso cref="String"/>. It will
+	  /// Allows the conversion of a <seealso cref="BpmnModelInstance"/> to an <seealso cref="string"/>. It will
 	  /// be validated before conversion.
 	  /// </summary>
 	  /// <param name="modelInstance">  the model instance to convert </param>

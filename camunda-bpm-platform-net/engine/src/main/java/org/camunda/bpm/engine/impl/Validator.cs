@@ -18,7 +18,7 @@ namespace org.camunda.bpm.engine.impl
 {
 
 	/// <summary>
-	/// Validators must be equal (in terms of <seealso cref="#equals(Object)"/>) if they validate
+	/// Validators must be equal (in terms of <seealso cref="equals(object)"/>) if they validate
 	/// the exact same thing.
 	/// 
 	/// @author Thorben Lindhauer

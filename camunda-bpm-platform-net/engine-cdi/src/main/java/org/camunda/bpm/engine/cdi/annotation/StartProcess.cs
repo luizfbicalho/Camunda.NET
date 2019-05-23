@@ -23,7 +23,7 @@ namespace org.camunda.bpm.engine.cdi.annotation
 	/// instance is subsequently managed.
 	/// <p/>
 	/// Each process variable set through
-	/// <seealso cref="BusinessProcess#setVariable(String, Object)"/> within this
+	/// <seealso cref="BusinessProcess.setVariable(string, object)"/> within this
 	/// conversation is flushed to the process instance at process instantiation. The
 	/// same is true for instances of <seealso cref="BusinessProcessScoped"/> beans.
 	/// 

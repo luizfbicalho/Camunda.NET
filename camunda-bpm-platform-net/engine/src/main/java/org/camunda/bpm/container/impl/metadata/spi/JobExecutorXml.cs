@@ -30,7 +30,7 @@ namespace org.camunda.bpm.container.impl.metadata.spi
 	{
 
 	  /// <summary>
-	  /// The time in milliseconds that threads over <seealso cref="#CORE_POOL_SIZE"/> will be kept alive.
+	  /// The time in milliseconds that threads over <seealso cref="CORE_POOL_SIZE"/> will be kept alive.
 	  /// </summary>
 	  /// <returns> a list of configured JobAcquisitions. </returns>
 	  IList<JobAcquisitionXml> JobAcquisitions {get;}

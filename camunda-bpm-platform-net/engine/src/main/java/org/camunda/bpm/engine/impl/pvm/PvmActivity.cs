@@ -39,16 +39,16 @@ namespace org.camunda.bpm.engine.impl.pvm
 
 	  /// <summary>
 	  /// The inner behavior of an activity. The inner behavior is the logic which is executed after
-	  /// the <seealso cref="ExecutionListener#EVENTNAME_START start"/> listeners have been executed.
+	  /// the <seealso cref="ExecutionListener.EVENTNAME_START start"/> listeners have been executed.
 	  /// 
-	  /// In case the activity <seealso cref="#isScope() is scope"/>, a new execution will be created
+	  /// In case the activity <seealso cref="isScope() is scope"/>, a new execution will be created
 	  /// </summary>
 	  /// <returns> the inner behavior of the activity </returns>
 	  ActivityBehavior ActivityBehavior {get;}
 
 	  /// <summary>
 	  /// The start behavior of an activity. The start behavior is executed before the
-	  /// <seealso cref="ExecutionListener#EVENTNAME_START start"/> listeners of the activity are executed.
+	  /// <seealso cref="ExecutionListener.EVENTNAME_START start"/> listeners of the activity are executed.
 	  /// </summary>
 	  /// <returns> the start behavior of an activity. </returns>
 	  ActivityStartBehavior ActivityStartBehavior {get;}
@@ -67,15 +67,15 @@ namespace org.camunda.bpm.engine.impl.pvm
 
 	  /// <summary>
 	  /// Indicates whether the activity is executed asynchronously.
-	  /// This can be done <em>after</em> the <seealso cref="#getActivityStartBehavior() activity start behavior"/> and
-	  /// <em>before</em> the <seealso cref="ExecutionListener#EVENTNAME_START start"/> listeners are invoked.
+	  /// This can be done <em>after</em> the <seealso cref="getActivityStartBehavior() activity start behavior"/> and
+	  /// <em>before</em> the <seealso cref="ExecutionListener.EVENTNAME_START start"/> listeners are invoked.
 	  /// </summary>
 	  /// <returns> true if the activity is executed asynchronously. </returns>
 	  bool AsyncBefore {get;}
 
 	  /// <summary>
 	  /// Indicates whether execution after this execution should continue asynchronously.
-	  /// This can be done <em>after</em> the <seealso cref="ExecutionListener#EVENTNAME_END end"/> listeners are invoked. </summary>
+	  /// This can be done <em>after</em> the <seealso cref="ExecutionListener.EVENTNAME_END end"/> listeners are invoked. </summary>
 	  /// <returns> true if execution after this activity continues asynchronously. </returns>
 	  bool AsyncAfter {get;}
 	}

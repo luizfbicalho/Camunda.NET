@@ -81,7 +81,7 @@ namespace org.camunda.bpm.engine.repository
 
 	  /// <summary>
 	  /// Only select decision definition with a certain version.
-	  /// Particularly useful when used in combination with <seealso cref="#decisionDefinitionKey(String)"/>
+	  /// Particularly useful when used in combination with <seealso cref="decisionDefinitionKey(string)"/>
 	  /// </summary>
 	  /// <param name="decisionDefinitionVersion"> the version of the decision definition </param>
 	  DecisionDefinitionQuery decisionDefinitionVersion(int? decisionDefinitionVersion);
@@ -90,8 +90,8 @@ namespace org.camunda.bpm.engine.repository
 	  /// Only select the decision definitions which are the latest deployed
 	  /// (ie. which have the highest version number for the given key).
 	  /// 
-	  /// Can only be used in combination with <seealso cref="#decisionDefinitionKey(String)"/>
-	  /// or <seealso cref="#decisionDefinitionKeyLike(String)"/>. Can also be used without any
+	  /// Can only be used in combination with <seealso cref="decisionDefinitionKey(string)"/>
+	  /// or <seealso cref="decisionDefinitionKeyLike(string)"/>. Can also be used without any
 	  /// other criteria (ie. query.latest().list()), which will then give all the
 	  /// latest versions of all the deployed decision definitions.
 	  /// 
@@ -138,7 +138,7 @@ namespace org.camunda.bpm.engine.repository
 
 	  /// <summary>
 	  /// Select decision definitions which have no tenant id. Can be used in
-	  /// combination with <seealso cref="#tenantIdIn(String...)"/>.
+	  /// combination with <seealso cref="tenantIdIn(string...)"/>.
 	  /// </summary>
 	  DecisionDefinitionQuery includeDecisionDefinitionsWithoutTenantId();
 
@@ -156,48 +156,48 @@ namespace org.camunda.bpm.engine.repository
 
 	  /// <summary>
 	  /// Order by the category of the decision definitions (needs to be followed by
-	  /// <seealso cref="#asc()"/> or <seealso cref="#desc()"/>). 
+	  /// <seealso cref="asc()"/> or <seealso cref="desc()"/>). 
 	  /// </summary>
 	  DecisionDefinitionQuery orderByDecisionDefinitionCategory();
 
 	  /// <summary>
-	  /// Order by decision definition key (needs to be followed by <seealso cref="#asc()"/> or
-	  /// <seealso cref="#desc()"/>). 
+	  /// Order by decision definition key (needs to be followed by <seealso cref="asc()"/> or
+	  /// <seealso cref="desc()"/>). 
 	  /// </summary>
 	  DecisionDefinitionQuery orderByDecisionDefinitionKey();
 
 	  /// <summary>
 	  /// Order by the id of the decision definitions (needs to be followed by
-	  /// <seealso cref="#asc()"/> or <seealso cref="#desc()"/>). 
+	  /// <seealso cref="asc()"/> or <seealso cref="desc()"/>). 
 	  /// </summary>
 	  DecisionDefinitionQuery orderByDecisionDefinitionId();
 
 	  /// <summary>
 	  /// Order by the version of the decision definitions (needs to be followed
-	  /// by <seealso cref="#asc()"/> or <seealso cref="#desc()"/>). 
+	  /// by <seealso cref="asc()"/> or <seealso cref="desc()"/>). 
 	  /// </summary>
 	  DecisionDefinitionQuery orderByDecisionDefinitionVersion();
 
 	  /// <summary>
 	  /// Order by the name of the decision definitions (needs to be followed by
-	  /// <seealso cref="#asc()"/> or <seealso cref="#desc()"/>). 
+	  /// <seealso cref="asc()"/> or <seealso cref="desc()"/>). 
 	  /// </summary>
 	  DecisionDefinitionQuery orderByDecisionDefinitionName();
 
 	  /// <summary>
-	  /// Order by deployment id (needs to be followed by <seealso cref="#asc()"/>
-	  /// or <seealso cref="#desc()"/>). 
+	  /// Order by deployment id (needs to be followed by <seealso cref="asc()"/>
+	  /// or <seealso cref="desc()"/>). 
 	  /// </summary>
 	  DecisionDefinitionQuery orderByDeploymentId();
 
 	  /// <summary>
-	  /// Order by tenant id (needs to be followed by <seealso cref="#asc()"/> or <seealso cref="#desc()"/>).
+	  /// Order by tenant id (needs to be followed by <seealso cref="asc()"/> or <seealso cref="desc()"/>).
 	  /// Note that the ordering of decision definitions without tenant id is database-specific. 
 	  /// </summary>
 	  DecisionDefinitionQuery orderByTenantId();
 
 	  /// <summary>
-	  /// Order by version tag (needs to be followed by <seealso cref="#asc()"/> or <seealso cref="#desc()"/>).
+	  /// Order by version tag (needs to be followed by <seealso cref="asc()"/> or <seealso cref="desc()"/>).
 	  /// 
 	  /// <strong>Note:</strong> sorting by versionTag is a string based sort.
 	  /// There is no interpretation of the version which can lead to a sorting like:

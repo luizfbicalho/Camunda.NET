@@ -663,7 +663,7 @@ namespace org.camunda.bpm.engine.impl.pvm.runtime
 	  public abstract PvmExecutionImpl ReplacedBy {get;}
 
 	  /// <summary>
-	  /// Instead of <seealso cref="#getReplacedBy()"/>, which returns the execution that this execution was directly replaced with,
+	  /// Instead of <seealso cref="getReplacedBy()"/>, which returns the execution that this execution was directly replaced with,
 	  /// this resolves the chain of replacements (i.e. in the case the replacedBy execution itself was replaced again)
 	  /// </summary>
 	  public virtual PvmExecutionImpl resolveReplacedBy()
@@ -714,7 +714,7 @@ namespace org.camunda.bpm.engine.impl.pvm.runtime
 	  }
 
 	  /// <summary>
-	  /// <para>Replace an execution by this execution. The replaced execution has a pointer (<seealso cref="#getReplacedBy()"/>) to this execution.
+	  /// <para>Replace an execution by this execution. The replaced execution has a pointer (<seealso cref="getReplacedBy()"/>) to this execution.
 	  /// This pointer is maintained until the replaced execution is removed or this execution is removed/ended.</para>
 	  /// <para>
 	  /// </para>
@@ -831,15 +831,15 @@ namespace org.camunda.bpm.engine.impl.pvm.runtime
 	  /// Cannot be called for activities contained in normal flow.
 	  /// <para>
 	  /// First, the ActivityStartBehavior is evaluated.
-	  /// In case the start behavior is not <seealso cref="ActivityStartBehavior#DEFAULT"/>, the corresponding start
+	  /// In case the start behavior is not <seealso cref="ActivityStartBehavior.DEFAULT"/>, the corresponding start
 	  /// behavior is executed before executing the activity.
 	  /// </para>
 	  /// <para>
 	  /// For a given activity, the execution on which this method must be called depends on the type of the start behavior:
 	  /// <ul>
-	  /// <li>CONCURRENT_IN_FLOW_SCOPE: scope execution for <seealso cref="PvmActivity#getFlowScope()"/></li>
-	  /// <li>INTERRUPT_EVENT_SCOPE: scope execution for <seealso cref="PvmActivity#getEventScope()"/></li>
-	  /// <li>CANCEL_EVENT_SCOPE: scope execution for <seealso cref="PvmActivity#getEventScope()"/></li>
+	  /// <li>CONCURRENT_IN_FLOW_SCOPE: scope execution for <seealso cref="PvmActivity.getFlowScope()"/></li>
+	  /// <li>INTERRUPT_EVENT_SCOPE: scope execution for <seealso cref="PvmActivity.getEventScope()"/></li>
+	  /// <li>CANCEL_EVENT_SCOPE: scope execution for <seealso cref="PvmActivity.getEventScope()"/></li>
 	  /// </ul>
 	  /// 
 	  /// </para>

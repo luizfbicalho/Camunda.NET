@@ -21,7 +21,7 @@ namespace org.camunda.bpm.model.xml.validation
 
 	/// <summary>
 	/// SPI which can be implemented to print out a summary of a validation result.
-	/// See <seealso cref="ValidationResults#write(StringWriter, ValidationResultFormatter)"/>
+	/// See <seealso cref="ValidationResults.write(StringWriter, ValidationResultFormatter)"/>
 	/// 
 	/// @author Daniel Meyer
 	/// @since 7.6

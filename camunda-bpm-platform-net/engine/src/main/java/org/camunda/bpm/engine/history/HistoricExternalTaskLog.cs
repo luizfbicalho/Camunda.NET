@@ -73,7 +73,7 @@ namespace org.camunda.bpm.engine.history
 	  /// Returns the message of the error that occurred by executing the associated external task.
 	  /// 
 	  /// To get the full error details,
-	  /// use <seealso cref="HistoryService#getHistoricExternalTaskLogErrorDetails(String)"/>
+	  /// use <seealso cref="HistoryService.getHistoricExternalTaskLogErrorDetails(string)"/>
 	  /// </summary>
 	  string ErrorMessage {get;}
 

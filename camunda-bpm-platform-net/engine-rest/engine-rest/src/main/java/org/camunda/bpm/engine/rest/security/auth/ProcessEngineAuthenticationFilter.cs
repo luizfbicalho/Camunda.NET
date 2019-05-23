@@ -46,7 +46,7 @@ namespace org.camunda.bpm.engine.rest.security.auth
 	///      <td>{@value #SERVLET_PATH_PREFIX}</td>
 	///      <td>no</td>
 	///      <td>The expected servlet path. Should only be set, if the underlying JAX-RS application is not deployed as a servlet (e.g. Resteasy allows deployments
-	///      as a servlet filter). Value has to match what would be the <seealso cref="HttpServletRequest#getServletPath()"/> if it was deployed as a servlet.</td></tr>
+	///      as a servlet filter). Value has to match what would be the <seealso cref="HttpServletRequest.getServletPath()"/> if it was deployed as a servlet.</td></tr>
 	/// </tbody>
 	/// </table>
 	/// 

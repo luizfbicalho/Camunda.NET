@@ -20,7 +20,7 @@ namespace org.camunda.bpm.engine.variable.value
 {
 
 	/// <summary>
-	/// <para>A <seealso cref="PrimitiveValue"/> corresponding to the Java type <seealso cref="Date"/>.</para>
+	/// <para>A <seealso cref="PrimitiveValue"/> corresponding to the Java type <seealso cref="System.DateTime"/>.</para>
 	/// 
 	/// @author Daniel Meyer
 	/// @since 7.2

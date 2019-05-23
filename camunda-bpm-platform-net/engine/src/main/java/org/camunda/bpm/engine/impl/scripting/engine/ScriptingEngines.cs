@@ -34,12 +34,12 @@ namespace org.camunda.bpm.engine.impl.scripting.engine
 	/// 
 	/// <para><strong>Resolving a script engine:</strong>
 	/// This class supports resolving a script engine for a given 'language name' (eg. 'groovy').
-	/// If the configuration option <seealso cref="#enableScriptEngineCaching"/> is set to true,
+	/// If the configuration option <seealso cref="enableScriptEngineCaching"/> is set to true,
 	/// the class will attempt to cache 'cachable' script engines. We assume a <seealso cref="ScriptEngine"/> is
-	/// 'cachable' if it declares to be threadsafe (see <seealso cref="#isCachable(ScriptEngine)"/>)</para>
+	/// 'cachable' if it declares to be threadsafe (see <seealso cref="isCachable(ScriptEngine)"/>)</para>
 	/// 
 	/// <para><strong>Custom Bindings:</strong> this class supports custom <seealso cref="Bindings"/>
-	/// implementations through the <seealso cref="#scriptBindingsFactory"/>. See <seealso cref="ScriptBindingsFactory"/>.</para>
+	/// implementations through the <seealso cref="scriptBindingsFactory"/>. See <seealso cref="ScriptBindingsFactory"/>.</para>
 	/// </p>
 	/// 
 	/// @author Tom Baeyens

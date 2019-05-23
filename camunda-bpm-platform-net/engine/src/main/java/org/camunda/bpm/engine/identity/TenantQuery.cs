@@ -53,18 +53,18 @@ namespace org.camunda.bpm.engine.identity
 
 	  /// <summary>
 	  /// Selects the <seealso cref="Tenant"/>s which belongs to one of the user's groups.
-	  /// Can only be used in combination with <seealso cref="#userMember(String)"/> 
+	  /// Can only be used in combination with <seealso cref="userMember(string)"/> 
 	  /// </summary>
 	  TenantQuery includingGroupsOfUser(bool includingGroups);
 
 	  //sorting ////////////////////////////////////////////////////////
 
 	  /// <summary>
-	  /// Order by tenant id (needs to be followed by <seealso cref="#asc()"/> or <seealso cref="#desc()"/>). </summary>
+	  /// Order by tenant id (needs to be followed by <seealso cref="asc()"/> or <seealso cref="desc()"/>). </summary>
 	  TenantQuery orderByTenantId();
 
 	  /// <summary>
-	  /// Order by tenant name (needs to be followed by <seealso cref="#asc()"/> or <seealso cref="#desc()"/>). </summary>
+	  /// Order by tenant name (needs to be followed by <seealso cref="asc()"/> or <seealso cref="desc()"/>). </summary>
 	  TenantQuery orderByTenantName();
 
 	}

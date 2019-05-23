@@ -60,7 +60,7 @@ namespace org.camunda.bpm.engine.impl.juel
 		ValueReference getValueReference(Bindings bindings, ELContext context);
 
 		/// <summary>
-		/// Get the value type accepted in <seealso cref="#setValue(Bindings, ELContext, Object)"/>.
+		/// Get the value type accepted in <seealso cref="setValue(Bindings, ELContext, object)"/>.
 		/// </summary>
 		/// <param name="bindings">
 		///            bindings containing variables and functions </param>
@@ -70,7 +70,7 @@ namespace org.camunda.bpm.engine.impl.juel
 		Type getType(Bindings bindings, ELContext context);
 
 		/// <summary>
-		/// Determine whether <seealso cref="#setValue(Bindings, ELContext, Object)"/> will throw a
+		/// Determine whether <seealso cref="setValue(Bindings, ELContext, object)"/> will throw a
 		/// <seealso cref="org.camunda.bpm.engine.impl.javax.el.PropertyNotWritableException"/>.
 		/// </summary>
 		/// <param name="bindings">

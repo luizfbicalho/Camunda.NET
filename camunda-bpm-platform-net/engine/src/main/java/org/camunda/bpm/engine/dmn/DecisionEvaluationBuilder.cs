@@ -69,8 +69,8 @@ namespace org.camunda.bpm.engine.dmn
 	  ///           when the given decision definition id / key is null.
 	  /// </exception>
 	  /// <exception cref="AuthorizationException">
-	  ///           if the user has no <seealso cref="Permissions#CREATE_INSTANCE"/> permission
-	  ///           on <seealso cref="Resources#DECISION_DEFINITION"/>. </exception>
+	  ///           if the user has no <seealso cref="Permissions.CREATE_INSTANCE"/> permission
+	  ///           on <seealso cref="Resources.DECISION_DEFINITION"/>. </exception>
 	  DmnDecisionTableResult evaluate();
 
 	}

@@ -194,8 +194,8 @@ namespace org.camunda.bpm.engine.rest.dto.repository
 		  }
 	  }
 
-	  /// @deprecated use <seealso cref="#setLatestVersion(Boolean)"/> 
-	  [Obsolete("use <seealso cref="#setLatestVersion(bool?)"/>"), CamundaQueryParam(value : "latest", converter : org.camunda.bpm.engine.rest.dto.converter.BooleanConverter.class)]
+	  /// @deprecated use <seealso cref="setLatestVersion(Boolean)"/> 
+	  [Obsolete("use <seealso cref=\"setLatestVersion(Boolean)\"/>"), CamundaQueryParam(value : "latest", converter : org.camunda.bpm.engine.rest.dto.converter.BooleanConverter.class)]
 	  public virtual bool? Latest
 	  {
 		  set

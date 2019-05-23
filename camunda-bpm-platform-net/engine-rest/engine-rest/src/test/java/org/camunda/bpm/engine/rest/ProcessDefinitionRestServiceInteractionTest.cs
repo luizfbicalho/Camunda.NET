@@ -1074,7 +1074,7 @@ namespace org.camunda.bpm.engine.rest
 	  }
 
 	  /// <summary>
-	  /// <seealso cref="RuntimeService#startProcessInstanceById(String, Map)"/> throws an <seealso cref="ProcessEngineException"/>, if a definition with the given id does not exist.
+	  /// <seealso cref="RuntimeService.startProcessInstanceById(string, System.Collections.IDictionary)"/> throws an <seealso cref="ProcessEngineException"/>, if a definition with the given id does not exist.
 	  /// </summary>
 //JAVA TO C# CONVERTER TODO TASK: Most Java annotations will not have direct .NET equivalent attributes:
 //ORIGINAL LINE: @Test public void testUnsuccessfulInstantiation()
@@ -2319,7 +2319,7 @@ namespace org.camunda.bpm.engine.rest
 	  }
 
 	  /// <summary>
-	  /// <seealso cref="RuntimeService#startProcessInstanceById(String, Map)"/> throws an <seealso cref="ProcessEngineException"/>, if a definition with the given id does not exist.
+	  /// <seealso cref="RuntimeService.startProcessInstanceById(string, System.Collections.IDictionary)"/> throws an <seealso cref="ProcessEngineException"/>, if a definition with the given id does not exist.
 	  /// </summary>
 //JAVA TO C# CONVERTER TODO TASK: Most Java annotations will not have direct .NET equivalent attributes:
 //ORIGINAL LINE: @Test public void testUnsuccessfulInstantiation_ByKey()

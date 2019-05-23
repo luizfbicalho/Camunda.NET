@@ -85,7 +85,7 @@ namespace org.camunda.bpm.engine.impl.javax.el
 		public abstract FunctionMapper FunctionMapper {get;}
 
 		/// <summary>
-		/// Get the Locale stored by a previous invocation to <seealso cref="#setLocale(Locale)"/>. If this method
+		/// Get the Locale stored by a previous invocation to <seealso cref="setLocale(Locale)"/>. If this method
 		/// returns non null, this Locale must be used for all localization needs in the implementation.
 		/// The Locale must not be cached to allow for applications that change Locale dynamically.
 		/// </summary>

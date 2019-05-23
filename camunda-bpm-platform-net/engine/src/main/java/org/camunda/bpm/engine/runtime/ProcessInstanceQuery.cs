@@ -110,7 +110,7 @@ namespace org.camunda.bpm.engine.runtime
 	  /// <summary>
 	  /// Only select process instances which have a global variable with the given value. The type
 	  /// of variable is determined based on the value, using types configured in
-	  /// <seealso cref="ProcessEngineConfiguration#getVariableSerializers()"/>.
+	  /// <seealso cref="ProcessEngineConfiguration.getVariableSerializers()"/>.
 	  /// Byte-arrays and <seealso cref="Serializable"/> objects (which are not primitive type wrappers)
 	  /// are not supported. </summary>
 	  /// <param name="name"> name of the variable, cannot be null. </param>
@@ -241,25 +241,25 @@ namespace org.camunda.bpm.engine.runtime
 	  //ordering /////////////////////////////////////////////////////////////////
 
 	  /// <summary>
-	  /// Order by id (needs to be followed by <seealso cref="#asc()"/> or <seealso cref="#desc()"/>). </summary>
+	  /// Order by id (needs to be followed by <seealso cref="asc()"/> or <seealso cref="desc()"/>). </summary>
 	  ProcessInstanceQuery orderByProcessInstanceId();
 
 	  /// <summary>
-	  /// Order by process definition key (needs to be followed by <seealso cref="#asc()"/> or <seealso cref="#desc()"/>). </summary>
+	  /// Order by process definition key (needs to be followed by <seealso cref="asc()"/> or <seealso cref="desc()"/>). </summary>
 	  ProcessInstanceQuery orderByProcessDefinitionKey();
 
 	  /// <summary>
-	  /// Order by process definition id (needs to be followed by <seealso cref="#asc()"/> or <seealso cref="#desc()"/>). </summary>
+	  /// Order by process definition id (needs to be followed by <seealso cref="asc()"/> or <seealso cref="desc()"/>). </summary>
 	  ProcessInstanceQuery orderByProcessDefinitionId();
 
 	  /// <summary>
-	  /// Order by tenant id (needs to be followed by <seealso cref="#asc()"/> or <seealso cref="#desc()"/>).
+	  /// Order by tenant id (needs to be followed by <seealso cref="asc()"/> or <seealso cref="desc()"/>).
 	  /// Note that the ordering of process instances without tenant id is database-specific.
 	  /// </summary>
 	  ProcessInstanceQuery orderByTenantId();
 
 	  /// <summary>
-	  /// Order by the business key (needs to be followed by <seealso cref="#asc()"/> or <seealso cref="#desc()"/>). </summary>
+	  /// Order by the business key (needs to be followed by <seealso cref="asc()"/> or <seealso cref="desc()"/>). </summary>
 	  ProcessInstanceQuery orderByBusinessKey();
 	}
 

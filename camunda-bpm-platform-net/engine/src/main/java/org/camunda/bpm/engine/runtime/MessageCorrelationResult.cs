@@ -20,7 +20,7 @@ namespace org.camunda.bpm.engine.runtime
 	/// <para>The result of a message correlation. A message may be correlated to either
 	/// a waiting execution (BPMN receive message event) or a process definition
 	/// (BPMN message start event). The type of the correlation (execution vs.
-	/// processDefinition) can be obtained using <seealso cref="#getResultType()"/></para>
+	/// processDefinition) can be obtained using <seealso cref="getResultType()"/></para>
 	/// 
 	/// @author Christopher Zell <christopher.zell@camunda.com>
 	/// @since 7.6

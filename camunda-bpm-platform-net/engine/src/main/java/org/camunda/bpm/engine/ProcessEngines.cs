@@ -33,17 +33,17 @@ namespace org.camunda.bpm.engine
 	/// All created <seealso cref="ProcessEngine"/>s will be registered with this class.
 	/// <br>
 	/// The activiti-webapp-init webapp will
-	/// call the <seealso cref="#init()"/> method when the webapp is deployed and it will call the
-	/// <seealso cref="#destroy()"/> method when the webapp is destroyed, using a context-listener
+	/// call the <seealso cref="init()"/> method when the webapp is deployed and it will call the
+	/// <seealso cref="destroy()"/> method when the webapp is destroyed, using a context-listener
 	/// (<code>org.camunda.bpm.engine.test.impl.servlet.listener.ProcessEnginesServletContextListener</code>).  That way,
-	/// all applications can just use the <seealso cref="#getProcessEngines()"/> to
+	/// all applications can just use the <seealso cref="getProcessEngines()"/> to
 	/// obtain pre-initialized and cached process engines. <br>
 	/// <br>
 	/// Please note that there is <b>no lazy initialization</b> of process engines, so make sure the
 	/// context-listener is configured or <seealso cref="ProcessEngine"/>s are already created so they were registered
 	/// on this class.<br>
 	/// <br>
-	/// The <seealso cref="#init()"/> method will try to build one <seealso cref="ProcessEngine"/> for
+	/// The <seealso cref="init()"/> method will try to build one <seealso cref="ProcessEngine"/> for
 	/// each camunda.cfg.xml file found on the classpath.  If you have more then one,
 	/// make sure you specify different process.engine.name values.
 	/// 
@@ -177,7 +177,7 @@ namespace org.camunda.bpm.engine
 	  /// <summary>
 	  /// Registers the given process engine. No <seealso cref="ProcessEngineInfo"/> will be
 	  /// available for this process engine. An engine that is registered will be closed
-	  /// when the <seealso cref="ProcessEngines#destroy()"/> is called.
+	  /// when the <seealso cref="ProcessEngines.destroy()"/> is called.
 	  /// </summary>
 	  public static void registerProcessEngine(ProcessEngine processEngine)
 	  {
@@ -270,7 +270,7 @@ namespace org.camunda.bpm.engine
 
 	  /// <summary>
 	  /// Get initialization results. Only info will we available for process engines
-	  /// which were added in the <seealso cref="ProcessEngines#init()"/>. No <seealso cref="ProcessEngineInfo"/>
+	  /// which were added in the <seealso cref="ProcessEngines.init()"/>. No <seealso cref="ProcessEngineInfo"/>
 	  /// is available for engines which were registered programatically.
 	  /// </summary>
 	  public static ProcessEngineInfo getProcessEngineInfo(string processEngineName)

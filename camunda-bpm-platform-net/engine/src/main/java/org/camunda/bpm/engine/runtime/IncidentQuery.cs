@@ -73,51 +73,51 @@ namespace org.camunda.bpm.engine.runtime
 	  IncidentQuery jobDefinitionIdIn(params string[] jobDefinitionIds);
 
 	  /// <summary>
-	  /// Order by id (needs to be followed by <seealso cref="#asc()"/> or <seealso cref="#desc()"/>). </summary>
+	  /// Order by id (needs to be followed by <seealso cref="asc()"/> or <seealso cref="desc()"/>). </summary>
 	  IncidentQuery orderByIncidentId();
 
 	  /// <summary>
-	  /// Order by incidentTimestamp (needs to be followed by <seealso cref="#asc()"/> or <seealso cref="#desc()"/>). </summary>
+	  /// Order by incidentTimestamp (needs to be followed by <seealso cref="asc()"/> or <seealso cref="desc()"/>). </summary>
 	  IncidentQuery orderByIncidentTimestamp();
 
 	  /// <summary>
-	  /// Order by incident message (needs to be followed by <seealso cref="#asc()"/> or <seealso cref="#desc()"/>). </summary>
+	  /// Order by incident message (needs to be followed by <seealso cref="asc()"/> or <seealso cref="desc()"/>). </summary>
 	  IncidentQuery orderByIncidentMessage();
 
 	  /// <summary>
-	  /// Order by incidentType (needs to be followed by <seealso cref="#asc()"/> or <seealso cref="#desc()"/>). </summary>
+	  /// Order by incidentType (needs to be followed by <seealso cref="asc()"/> or <seealso cref="desc()"/>). </summary>
 	  IncidentQuery orderByIncidentType();
 
 	  /// <summary>
-	  /// Order by executionId (needs to be followed by <seealso cref="#asc()"/> or <seealso cref="#desc()"/>). </summary>
+	  /// Order by executionId (needs to be followed by <seealso cref="asc()"/> or <seealso cref="desc()"/>). </summary>
 	  IncidentQuery orderByExecutionId();
 
 	  /// <summary>
-	  /// Order by activityId (needs to be followed by <seealso cref="#asc()"/> or <seealso cref="#desc()"/>). </summary>
+	  /// Order by activityId (needs to be followed by <seealso cref="asc()"/> or <seealso cref="desc()"/>). </summary>
 	  IncidentQuery orderByActivityId();
 
 	  /// <summary>
-	  /// Order by processInstanceId (needs to be followed by <seealso cref="#asc()"/> or <seealso cref="#desc()"/>). </summary>
+	  /// Order by processInstanceId (needs to be followed by <seealso cref="asc()"/> or <seealso cref="desc()"/>). </summary>
 	  IncidentQuery orderByProcessInstanceId();
 
 	  /// <summary>
-	  /// Order by processDefinitionId (needs to be followed by <seealso cref="#asc()"/> or <seealso cref="#desc()"/>). </summary>
+	  /// Order by processDefinitionId (needs to be followed by <seealso cref="asc()"/> or <seealso cref="desc()"/>). </summary>
 	  IncidentQuery orderByProcessDefinitionId();
 
 	  /// <summary>
-	  /// Order by causeIncidentId (needs to be followed by <seealso cref="#asc()"/> or <seealso cref="#desc()"/>). </summary>
+	  /// Order by causeIncidentId (needs to be followed by <seealso cref="asc()"/> or <seealso cref="desc()"/>). </summary>
 	  IncidentQuery orderByCauseIncidentId();
 
 	  /// <summary>
-	  /// Order by rootCauseIncidentId (needs to be followed by <seealso cref="#asc()"/> or <seealso cref="#desc()"/>). </summary>
+	  /// Order by rootCauseIncidentId (needs to be followed by <seealso cref="asc()"/> or <seealso cref="desc()"/>). </summary>
 	  IncidentQuery orderByRootCauseIncidentId();
 
 	  /// <summary>
-	  /// Order by configuration (needs to be followed by <seealso cref="#asc()"/> or <seealso cref="#desc()"/>). </summary>
+	  /// Order by configuration (needs to be followed by <seealso cref="asc()"/> or <seealso cref="desc()"/>). </summary>
 	  IncidentQuery orderByConfiguration();
 
 	  /// <summary>
-	  /// Order by tenant id (needs to be followed by <seealso cref="#asc()"/> or <seealso cref="#desc()"/>).
+	  /// Order by tenant id (needs to be followed by <seealso cref="asc()"/> or <seealso cref="desc()"/>).
 	  /// Note that the ordering of incidents without tenant id is database-specific.
 	  /// </summary>
 	  IncidentQuery orderByTenantId();

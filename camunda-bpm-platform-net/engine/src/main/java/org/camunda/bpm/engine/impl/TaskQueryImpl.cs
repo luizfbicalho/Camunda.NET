@@ -284,7 +284,7 @@ namespace org.camunda.bpm.engine.impl
 		return this;
 	  }
 
-	  /// <seealso cref= <seealso cref="#taskUnassigned"/> </seealso>
+	  /// <seealso cref= <seealso cref="taskUnassigned"/> </seealso>
 	  [Obsolete]
 	  public virtual TaskQuery taskUnnassigned()
 	  {

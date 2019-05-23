@@ -37,7 +37,7 @@ namespace org.camunda.bpm.model.xml.impl.type.reference
 	  protected internal AttributeImpl<string> referenceTargetAttribute;
 
 	  /// <summary>
-	  /// the actual type, may be different (a subtype of) <seealso cref="AttributeImpl#getOwningElementType()"/> </summary>
+	  /// the actual type, may be different (a subtype of) <seealso cref="AttributeImpl.getOwningElementType()"/> </summary>
 	  private ModelElementTypeImpl referenceTargetElementType;
 
 

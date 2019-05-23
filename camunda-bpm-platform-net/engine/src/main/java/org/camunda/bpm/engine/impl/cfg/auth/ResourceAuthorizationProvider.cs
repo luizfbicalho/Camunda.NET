@@ -184,7 +184,7 @@ namespace org.camunda.bpm.engine.impl.cfg.auth
 	  /// </summary>
 	  /// <param name="task"> the task on which a new identity link has been added </param>
 	  /// <param name="userId"> the user for which the identity link has been created </param>
-	  /// <param name="type"> the type of the identity link (e.g. <seealso cref="IdentityLinkType#CANDIDATE"/>)
+	  /// <param name="type"> the type of the identity link (e.g. <seealso cref="IdentityLinkType.CANDIDATE"/>)
 	  /// </param>
 	  /// <returns> a list of authorizations to be automatically added when
 	  ///          a new user identity link has been added. </returns>
@@ -195,7 +195,7 @@ namespace org.camunda.bpm.engine.impl.cfg.auth
 	  /// </summary>
 	  /// <param name="task"> the task on which a new identity link has been added </param>
 	  /// <param name="groupId"> the group for which the identity link has been created </param>
-	  /// <param name="type"> the type of the identity link (e.g. <seealso cref="IdentityLinkType#CANDIDATE"/>)
+	  /// <param name="type"> the type of the identity link (e.g. <seealso cref="IdentityLinkType.CANDIDATE"/>)
 	  /// </param>
 	  /// <returns> a list of authorizations to be automatically added when
 	  ///          a new group identity link has been added. </returns>
@@ -206,7 +206,7 @@ namespace org.camunda.bpm.engine.impl.cfg.auth
 	  /// </summary>
 	  /// <param name="task"> the task on which the identity link has been deleted </param>
 	  /// <param name="userId"> the user for which the identity link has been deleted </param>
-	  /// <param name="type"> the type of the identity link (e.g. <seealso cref="IdentityLinkType#CANDIDATE"/>)
+	  /// <param name="type"> the type of the identity link (e.g. <seealso cref="IdentityLinkType.CANDIDATE"/>)
 	  /// </param>
 	  /// <returns> a list of authorizations to be automatically deleted when
 	  ///          a user identity link has been deleted. </returns>
@@ -217,7 +217,7 @@ namespace org.camunda.bpm.engine.impl.cfg.auth
 	  /// </summary>
 	  /// <param name="task"> the task on which the identity link has been deleted </param>
 	  /// <param name="groupId"> the group for which the identity link has been deleted </param>
-	  /// <param name="type"> the type of the identity link (e.g. <seealso cref="IdentityLinkType#CANDIDATE"/>)
+	  /// <param name="type"> the type of the identity link (e.g. <seealso cref="IdentityLinkType.CANDIDATE"/>)
 	  /// </param>
 	  /// <returns> a list of authorizations to be automatically deleted when
 	  ///          a group identity link has been deleted. </returns>

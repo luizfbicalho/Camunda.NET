@@ -48,12 +48,12 @@ namespace org.camunda.bpm.engine.batch
 	  BatchStatisticsQuery suspended();
 
 	  /// <summary>
-	  /// Returns batch statistics sorted by batch id; must be followed by an invocation of <seealso cref="#asc()"/> or <seealso cref="#desc()"/>.
+	  /// Returns batch statistics sorted by batch id; must be followed by an invocation of <seealso cref="asc()"/> or <seealso cref="desc()"/>.
 	  /// </summary>
 	  BatchStatisticsQuery orderById();
 
 	  /// <summary>
-	  /// Returns batch statistics sorted by tenant id; must be followed by an invocation of <seealso cref="#asc()"/> or <seealso cref="#desc()"/>.
+	  /// Returns batch statistics sorted by tenant id; must be followed by an invocation of <seealso cref="asc()"/> or <seealso cref="desc()"/>.
 	  /// </summary>
 	  BatchStatisticsQuery orderByTenantId();
 

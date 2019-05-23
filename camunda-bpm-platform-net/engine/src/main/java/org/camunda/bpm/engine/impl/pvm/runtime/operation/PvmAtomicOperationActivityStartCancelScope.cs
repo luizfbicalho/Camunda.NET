@@ -19,7 +19,7 @@ namespace org.camunda.bpm.engine.impl.pvm.runtime.operation
 	using ActivityImpl = org.camunda.bpm.engine.impl.pvm.process.ActivityImpl;
 
 	/// <summary>
-	/// Cancel scope operation performed when an execution starts at an <seealso cref="ActivityImpl#isCancelActivity()"/>
+	/// Cancel scope operation performed when an execution starts at an <seealso cref="ActivityImpl.isCancelActivity()"/>
 	/// activity. This is used when an execution is set to the activity without entering it through a transition.
 	/// See <seealso cref="PvmAtomicOperationCancelActivity"/> for more details on "cancel scope" behavior.
 	/// 

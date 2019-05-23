@@ -46,7 +46,7 @@ namespace org.camunda.bpm.engine.impl.juel
 			/// Method invocations as in <code>${foo.bar(1)}</code> as specified in JSR 245,
 			/// maintenance release 2.
 			/// The method to be invoked is resolved at evaluation time by calling
-			/// <seealso cref="ELResolver#invoke(javax.el.ELContext, Object, Object, Class[], Object[])"/>.
+			/// <seealso cref="ELResolver.invoke(javax.el.ELContext, object, object, Class[], Object[])"/>.
 			/// </summary>
 			METHOD_INVOCATIONS,
 			/// <summary>

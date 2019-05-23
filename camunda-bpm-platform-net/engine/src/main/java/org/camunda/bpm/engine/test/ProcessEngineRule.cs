@@ -51,7 +51,7 @@ namespace org.camunda.bpm.engine.test
 	/// through the getters of the processEngineRule. The processEngine will be
 	/// initialized by default with the camunda.cfg.xml resource on the classpath. To
 	/// specify a different configuration file, pass the resource location in
-	/// <seealso cref="#ProcessEngineRule(String) the appropriate constructor"/>. Process
+	/// <seealso cref="ProcessEngineRule(string) the appropriate constructor"/>. Process
 	/// engines will be cached statically. Right before the first time the setUp is
 	/// called for a given configuration resource, the process engine will be
 	/// constructed.

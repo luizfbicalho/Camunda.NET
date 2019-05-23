@@ -26,7 +26,7 @@ namespace org.camunda.bpm.engine.impl.juel
 
 	/// <summary>
 	/// Parsed expression, usually created by a <seealso cref="org.camunda.bpm.engine.impl.juel.TreeBuilder"/>.
-	/// The <seealso cref="#bind(FunctionMapper, VariableMapper)"/> method is used to create
+	/// The <seealso cref="bind(FunctionMapper, VariableMapper)"/> method is used to create
 	/// <seealso cref="org.camunda.bpm.engine.impl.juel.Bindings"/>, which are needed at evaluation time to
 	/// lookup functions and variables. The tree itself does not contain such information,
 	/// because it would make the tree depend on the function/variable mapper supplied at

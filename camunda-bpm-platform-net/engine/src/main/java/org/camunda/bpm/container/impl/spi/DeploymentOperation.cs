@@ -32,7 +32,7 @@ namespace org.camunda.bpm.container.impl.spi
 	/// sure that
 	/// <ul>
 	///  <li>all successfully completed steps are notified by calling their
-	///  <seealso cref="DeploymentOperationStep#cancelOperationStep(DeploymentOperation)"/>
+	///  <seealso cref="DeploymentOperationStep.cancelOperationStep(DeploymentOperation)"/>
 	///  method.</li>
 	///  <li>all services installed in the context of the operation are removed from the container.</li>
 	/// </ul>
@@ -63,7 +63,7 @@ namespace org.camunda.bpm.container.impl.spi
 	  protected internal readonly IList<DeploymentOperationStep> successfulSteps = new List<DeploymentOperationStep>();
 
 	  /// <summary>
-	  /// the list of services installed by this operation. The <seealso cref="#rollbackOperation()"/> must make sure
+	  /// the list of services installed by this operation. The <seealso cref="rollbackOperation()"/> must make sure
 	  /// all these services are removed if the operation fails. 
 	  /// </summary>
 	  protected internal IList<string> installedServices = new List<string>();

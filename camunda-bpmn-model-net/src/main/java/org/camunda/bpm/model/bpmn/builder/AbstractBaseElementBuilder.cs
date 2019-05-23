@@ -405,8 +405,8 @@ namespace org.camunda.bpm.model.bpmn.builder
 		  }
 	  }
 
-	  /// @deprecated use <seealso cref="#createEdge(BaseElement)"/> instead 
-	  [Obsolete("use <seealso cref="#createEdge(BaseElement)"/> instead")]
+	  /// @deprecated use <seealso cref="createEdge(BaseElement)"/> instead 
+	  [Obsolete("use <seealso cref=\"createEdge(BaseElement)\"/> instead")]
 	  public virtual BpmnEdge createBpmnEdge(SequenceFlow sequenceFlow)
 	  {
 		return createEdge(sequenceFlow);

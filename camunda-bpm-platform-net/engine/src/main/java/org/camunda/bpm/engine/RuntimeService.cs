@@ -75,8 +75,8 @@ namespace org.camunda.bpm.engine
 	  /// <exception cref="ProcessEngineException">
 	  ///          when no process definition is deployed with the given key. </exception>
 	  /// <exception cref="AuthorizationException">
-	  ///          if the user has no <seealso cref="Permissions#CREATE"/> permission on <seealso cref="Resources#PROCESS_INSTANCE"/>
-	  ///          and no <seealso cref="Permissions#CREATE_INSTANCE"/> permission on <seealso cref="Resources#PROCESS_DEFINITION"/>. </exception>
+	  ///          if the user has no <seealso cref="Permissions.CREATE"/> permission on <seealso cref="Resources.PROCESS_INSTANCE"/>
+	  ///          and no <seealso cref="Permissions.CREATE_INSTANCE"/> permission on <seealso cref="Resources.PROCESS_DEFINITION"/>. </exception>
 	  ProcessInstance startProcessInstanceByKey(string processDefinitionKey);
 
 	  /// <summary>
@@ -87,7 +87,7 @@ namespace org.camunda.bpm.engine
 	  /// certain identifier that has a clear business meaning. For example in an
 	  /// order process, the business key could be an order id. This business key can
 	  /// then be used to easily look up that process instance , see
-	  /// <seealso cref="ProcessInstanceQuery#processInstanceBusinessKey(String)"/>. Providing such a business
+	  /// <seealso cref="ProcessInstanceQuery.processInstanceBusinessKey(string)"/>. Providing such a business
 	  /// key is definitely a best practice.
 	  /// 
 	  /// Note that a business key MUST be unique for the given process definition WHEN you have added
@@ -104,8 +104,8 @@ namespace org.camunda.bpm.engine
 	  /// <exception cref="ProcessEngineException">
 	  ///          when no process definition is deployed with the given key. </exception>
 	  /// <exception cref="AuthorizationException">
-	  ///          if the user has no <seealso cref="Permissions#CREATE"/> permission on <seealso cref="Resources#PROCESS_INSTANCE"/>
-	  ///          and no <seealso cref="Permissions#CREATE_INSTANCE"/> permission on <seealso cref="Resources#PROCESS_DEFINITION"/>. </exception>
+	  ///          if the user has no <seealso cref="Permissions.CREATE"/> permission on <seealso cref="Resources.PROCESS_INSTANCE"/>
+	  ///          and no <seealso cref="Permissions.CREATE_INSTANCE"/> permission on <seealso cref="Resources.PROCESS_DEFINITION"/>. </exception>
 	  ProcessInstance startProcessInstanceByKey(string processDefinitionKey, string businessKey);
 
 	  /// <summary>
@@ -116,7 +116,7 @@ namespace org.camunda.bpm.engine
 	  /// certain identifier that has a clear business meaning. For example in an
 	  /// order process, the business key could be an order id. This business key can
 	  /// then be used to easily look up that process instance , see
-	  /// <seealso cref="ProcessInstanceQuery#processInstanceBusinessKey(String)"/>. Providing such a business
+	  /// <seealso cref="ProcessInstanceQuery.processInstanceBusinessKey(string)"/>. Providing such a business
 	  /// key is definitely a best practice.
 	  /// 
 	  /// Note that a business key MUST be unique for the given process definition WHEN you have added
@@ -136,8 +136,8 @@ namespace org.camunda.bpm.engine
 	  /// <exception cref="ProcessEngineException">
 	  ///          when no process definition is deployed with the given key. </exception>
 	  /// <exception cref="AuthorizationException">
-	  ///          if the user has no <seealso cref="Permissions#CREATE"/> permission on <seealso cref="Resources#PROCESS_INSTANCE"/>
-	  ///          and no <seealso cref="Permissions#CREATE_INSTANCE"/> permission on <seealso cref="Resources#PROCESS_DEFINITION"/>. </exception>
+	  ///          if the user has no <seealso cref="Permissions.CREATE"/> permission on <seealso cref="Resources.PROCESS_INSTANCE"/>
+	  ///          and no <seealso cref="Permissions.CREATE_INSTANCE"/> permission on <seealso cref="Resources.PROCESS_DEFINITION"/>. </exception>
 	  ProcessInstance startProcessInstanceByKey(string processDefinitionKey, string businessKey, string caseInstanceId);
 
 	  /// <summary>
@@ -149,8 +149,8 @@ namespace org.camunda.bpm.engine
 	  /// <exception cref="ProcessEngineException">
 	  ///          when no process definition is deployed with the given key. </exception>
 	  /// <exception cref="AuthorizationException">
-	  ///          if the user has no <seealso cref="Permissions#CREATE"/> permission on <seealso cref="Resources#PROCESS_INSTANCE"/>
-	  ///          and no <seealso cref="Permissions#CREATE_INSTANCE"/> permission on <seealso cref="Resources#PROCESS_DEFINITION"/>. </exception>
+	  ///          if the user has no <seealso cref="Permissions.CREATE"/> permission on <seealso cref="Resources.PROCESS_INSTANCE"/>
+	  ///          and no <seealso cref="Permissions.CREATE_INSTANCE"/> permission on <seealso cref="Resources.PROCESS_DEFINITION"/>. </exception>
 	  ProcessInstance startProcessInstanceByKey(string processDefinitionKey, IDictionary<string, object> variables);
 
 	  /// <summary>
@@ -160,7 +160,7 @@ namespace org.camunda.bpm.engine
 	  /// certain identifier that has a clear business meaning. For example in an
 	  /// order process, the business key could be an order id. This business key can
 	  /// then be used to easily look up that process instance , see
-	  /// <seealso cref="ProcessInstanceQuery#processInstanceBusinessKey(String)"/>. Providing such a business
+	  /// <seealso cref="ProcessInstanceQuery.processInstanceBusinessKey(string)"/>. Providing such a business
 	  /// key is definitely a best practice.
 	  /// 
 	  /// Note that a business key MUST be unique for the given process definition WHEN you have added a
@@ -178,8 +178,8 @@ namespace org.camunda.bpm.engine
 	  /// <exception cref="ProcessEngineException">
 	  ///          when no process definition is deployed with the given key. </exception>
 	  /// <exception cref="AuthorizationException">
-	  ///          if the user has no <seealso cref="Permissions#CREATE"/> permission on <seealso cref="Resources#PROCESS_INSTANCE"/>
-	  ///          and no <seealso cref="Permissions#CREATE_INSTANCE"/> permission on <seealso cref="Resources#PROCESS_DEFINITION"/>. </exception>
+	  ///          if the user has no <seealso cref="Permissions.CREATE"/> permission on <seealso cref="Resources.PROCESS_INSTANCE"/>
+	  ///          and no <seealso cref="Permissions.CREATE_INSTANCE"/> permission on <seealso cref="Resources.PROCESS_DEFINITION"/>. </exception>
 	  ProcessInstance startProcessInstanceByKey(string processDefinitionKey, string businessKey, IDictionary<string, object> variables);
 
 	  /// <summary>
@@ -189,7 +189,7 @@ namespace org.camunda.bpm.engine
 	  /// certain identifier that has a clear business meaning. For example in an
 	  /// order process, the business key could be an order id. This business key can
 	  /// then be used to easily look up that process instance , see
-	  /// <seealso cref="ProcessInstanceQuery#processInstanceBusinessKey(String)"/>. Providing such a business
+	  /// <seealso cref="ProcessInstanceQuery.processInstanceBusinessKey(string)"/>. Providing such a business
 	  /// key is definitely a best practice.
 	  /// 
 	  /// Note that a business key MUST be unique for the given process definition WHEN you have added a
@@ -209,8 +209,8 @@ namespace org.camunda.bpm.engine
 	  /// <exception cref="ProcessEngineException">
 	  ///          when no process definition is deployed with the given key. </exception>
 	  /// <exception cref="AuthorizationException">
-	  ///          if the user has no <seealso cref="Permissions#CREATE"/> permission on <seealso cref="Resources#PROCESS_INSTANCE"/>
-	  ///          and no <seealso cref="Permissions#CREATE_INSTANCE"/> permission on <seealso cref="Resources#PROCESS_DEFINITION"/>. </exception>
+	  ///          if the user has no <seealso cref="Permissions.CREATE"/> permission on <seealso cref="Resources.PROCESS_INSTANCE"/>
+	  ///          and no <seealso cref="Permissions.CREATE_INSTANCE"/> permission on <seealso cref="Resources.PROCESS_DEFINITION"/>. </exception>
 	  ProcessInstance startProcessInstanceByKey(string processDefinitionKey, string businessKey, string caseInstanceId, IDictionary<string, object> variables);
 
 	  /// <summary>
@@ -221,8 +221,8 @@ namespace org.camunda.bpm.engine
 	  /// <exception cref="ProcessEngineException">
 	  ///          when no process definition is deployed with the given key. </exception>
 	  /// <exception cref="AuthorizationException">
-	  ///          if the user has no <seealso cref="Permissions#CREATE"/> permission on <seealso cref="Resources#PROCESS_INSTANCE"/>
-	  ///          and no <seealso cref="Permissions#CREATE_INSTANCE"/> permission on <seealso cref="Resources#PROCESS_DEFINITION"/>. </exception>
+	  ///          if the user has no <seealso cref="Permissions.CREATE"/> permission on <seealso cref="Resources.PROCESS_INSTANCE"/>
+	  ///          and no <seealso cref="Permissions.CREATE_INSTANCE"/> permission on <seealso cref="Resources.PROCESS_DEFINITION"/>. </exception>
 	  ProcessInstance startProcessInstanceById(string processDefinitionId);
 
 	  /// <summary>
@@ -232,7 +232,7 @@ namespace org.camunda.bpm.engine
 	  /// certain identifier that has a clear business meaning. For example in an
 	  /// order process, the business key could be an order id. This business key can
 	  /// then be used to easily look up that process instance , see
-	  /// <seealso cref="ProcessInstanceQuery#processInstanceBusinessKey(String)"/>. Providing such a business
+	  /// <seealso cref="ProcessInstanceQuery.processInstanceBusinessKey(string)"/>. Providing such a business
 	  /// key is definitely a best practice.
 	  /// 
 	  /// Note that a business key MUST be unique for the given process definition WHEN you have added
@@ -247,8 +247,8 @@ namespace org.camunda.bpm.engine
 	  /// <exception cref="ProcessEngineException">
 	  ///          when no process definition is deployed with the given key. </exception>
 	  /// <exception cref="AuthorizationException">
-	  ///          if the user has no <seealso cref="Permissions#CREATE"/> permission on <seealso cref="Resources#PROCESS_INSTANCE"/>
-	  ///          and no <seealso cref="Permissions#CREATE_INSTANCE"/> permission on <seealso cref="Resources#PROCESS_DEFINITION"/>. </exception>
+	  ///          if the user has no <seealso cref="Permissions.CREATE"/> permission on <seealso cref="Resources.PROCESS_INSTANCE"/>
+	  ///          and no <seealso cref="Permissions.CREATE_INSTANCE"/> permission on <seealso cref="Resources.PROCESS_DEFINITION"/>. </exception>
 	  ProcessInstance startProcessInstanceById(string processDefinitionId, string businessKey);
 
 	  /// <summary>
@@ -258,7 +258,7 @@ namespace org.camunda.bpm.engine
 	  /// certain identifier that has a clear business meaning. For example in an
 	  /// order process, the business key could be an order id. This business key can
 	  /// then be used to easily look up that process instance , see
-	  /// <seealso cref="ProcessInstanceQuery#processInstanceBusinessKey(String)"/>. Providing such a business
+	  /// <seealso cref="ProcessInstanceQuery.processInstanceBusinessKey(string)"/>. Providing such a business
 	  /// key is definitely a best practice.
 	  /// 
 	  /// Note that a business key MUST be unique for the given process definition WHEN you have added
@@ -276,8 +276,8 @@ namespace org.camunda.bpm.engine
 	  /// <exception cref="ProcessEngineException">
 	  ///          when no process definition is deployed with the given key. </exception>
 	  /// <exception cref="AuthorizationException">
-	  ///          if the user has no <seealso cref="Permissions#CREATE"/> permission on <seealso cref="Resources#PROCESS_INSTANCE"/>
-	  ///          and no <seealso cref="Permissions#CREATE_INSTANCE"/> permission on <seealso cref="Resources#PROCESS_DEFINITION"/>. </exception>
+	  ///          if the user has no <seealso cref="Permissions.CREATE"/> permission on <seealso cref="Resources.PROCESS_INSTANCE"/>
+	  ///          and no <seealso cref="Permissions.CREATE_INSTANCE"/> permission on <seealso cref="Resources.PROCESS_DEFINITION"/>. </exception>
 	  ProcessInstance startProcessInstanceById(string processDefinitionId, string businessKey, string caseInstanceId);
 
 	  /// <summary>
@@ -289,8 +289,8 @@ namespace org.camunda.bpm.engine
 	  /// <exception cref="ProcessEngineException">
 	  ///          when no process definition is deployed with the given key. </exception>
 	  /// <exception cref="AuthorizationException">
-	  ///          if the user has no <seealso cref="Permissions#CREATE"/> permission on <seealso cref="Resources#PROCESS_INSTANCE"/>
-	  ///          and no <seealso cref="Permissions#CREATE_INSTANCE"/> permission on <seealso cref="Resources#PROCESS_DEFINITION"/>. </exception>
+	  ///          if the user has no <seealso cref="Permissions.CREATE"/> permission on <seealso cref="Resources.PROCESS_INSTANCE"/>
+	  ///          and no <seealso cref="Permissions.CREATE_INSTANCE"/> permission on <seealso cref="Resources.PROCESS_DEFINITION"/>. </exception>
 	  ProcessInstance startProcessInstanceById(string processDefinitionId, IDictionary<string, object> variables);
 
 	  /// <summary>
@@ -300,7 +300,7 @@ namespace org.camunda.bpm.engine
 	  /// certain identifier that has a clear business meaning. For example in an
 	  /// order process, the business key could be an order id. This business key can
 	  /// then be used to easily look up that process instance , see
-	  /// <seealso cref="ProcessInstanceQuery#processInstanceBusinessKey(String)"/>. Providing such a business
+	  /// <seealso cref="ProcessInstanceQuery.processInstanceBusinessKey(string)"/>. Providing such a business
 	  /// key is definitely a best practice.
 	  /// 
 	  /// Note that a business key MUST be unique for the given process definition WHEN you have added
@@ -316,8 +316,8 @@ namespace org.camunda.bpm.engine
 	  /// <exception cref="ProcessEngineException">
 	  ///          when no process definition is deployed with the given key. </exception>
 	  /// <exception cref="AuthorizationException">
-	  ///          if the user has no <seealso cref="Permissions#CREATE"/> permission on <seealso cref="Resources#PROCESS_INSTANCE"/>
-	  ///          and no <seealso cref="Permissions#CREATE_INSTANCE"/> permission on <seealso cref="Resources#PROCESS_DEFINITION"/>. </exception>
+	  ///          if the user has no <seealso cref="Permissions.CREATE"/> permission on <seealso cref="Resources.PROCESS_INSTANCE"/>
+	  ///          and no <seealso cref="Permissions.CREATE_INSTANCE"/> permission on <seealso cref="Resources.PROCESS_DEFINITION"/>. </exception>
 	  ProcessInstance startProcessInstanceById(string processDefinitionId, string businessKey, IDictionary<string, object> variables);
 
 	  /// <summary>
@@ -327,7 +327,7 @@ namespace org.camunda.bpm.engine
 	  /// certain identifier that has a clear business meaning. For example in an
 	  /// order process, the business key could be an order id. This business key can
 	  /// then be used to easily look up that process instance , see
-	  /// <seealso cref="ProcessInstanceQuery#processInstanceBusinessKey(String)"/>. Providing such a business
+	  /// <seealso cref="ProcessInstanceQuery.processInstanceBusinessKey(string)"/>. Providing such a business
 	  /// key is definitely a best practice.
 	  /// 
 	  /// Note that a business key MUST be unique for the given process definition WHEN you have added
@@ -346,8 +346,8 @@ namespace org.camunda.bpm.engine
 	  /// <exception cref="ProcessEngineException">
 	  ///          when no process definition is deployed with the given key. </exception>
 	  /// <exception cref="AuthorizationException">
-	  ///          if the user has no <seealso cref="Permissions#CREATE"/> permission on <seealso cref="Resources#PROCESS_INSTANCE"/>
-	  ///          and no <seealso cref="Permissions#CREATE_INSTANCE"/> permission on <seealso cref="Resources#PROCESS_DEFINITION"/>. </exception>
+	  ///          if the user has no <seealso cref="Permissions.CREATE"/> permission on <seealso cref="Resources.PROCESS_INSTANCE"/>
+	  ///          and no <seealso cref="Permissions.CREATE_INSTANCE"/> permission on <seealso cref="Resources.PROCESS_DEFINITION"/>. </exception>
 	  ProcessInstance startProcessInstanceById(string processDefinitionId, string businessKey, string caseInstanceId, IDictionary<string, object> variables);
 
 	  /// <summary>
@@ -372,8 +372,8 @@ namespace org.camunda.bpm.engine
 	  /// <exception cref="ProcessEngineException">
 	  ///          if no subscription to a message with the given name exists </exception>
 	  /// <exception cref="AuthorizationException">
-	  ///          if the user has no <seealso cref="Permissions#CREATE"/> permission on <seealso cref="Resources#PROCESS_INSTANCE"/>
-	  ///          and no <seealso cref="Permissions#CREATE_INSTANCE"/> permission on <seealso cref="Resources#PROCESS_DEFINITION"/>.
+	  ///          if the user has no <seealso cref="Permissions.CREATE"/> permission on <seealso cref="Resources.PROCESS_INSTANCE"/>
+	  ///          and no <seealso cref="Permissions.CREATE_INSTANCE"/> permission on <seealso cref="Resources.PROCESS_DEFINITION"/>.
 	  /// 
 	  /// @since 5.9 </exception>
 	  ProcessInstance startProcessInstanceByMessage(string messageName);
@@ -382,7 +382,7 @@ namespace org.camunda.bpm.engine
 	  /// <para>Signals the process engine that a message is received and starts a new
 	  /// <seealso cref="ProcessInstance"/>.</para>
 	  /// 
-	  /// See <seealso cref="#startProcessInstanceByMessage(String, Map)"/>. This method allows
+	  /// See <seealso cref="startProcessInstanceByMessage(string, System.Collections.IDictionary)"/>. This method allows
 	  /// specifying a business key.
 	  /// </summary>
 	  /// <param name="messageName">
@@ -394,8 +394,8 @@ namespace org.camunda.bpm.engine
 	  /// <exception cref="ProcessEngineException">
 	  ///          if no subscription to a message with the given name exists </exception>
 	  /// <exception cref="AuthorizationException">
-	  ///          if the user has no <seealso cref="Permissions#CREATE"/> permission on <seealso cref="Resources#PROCESS_INSTANCE"/>
-	  ///          and no <seealso cref="Permissions#CREATE_INSTANCE"/> permission on <seealso cref="Resources#PROCESS_DEFINITION"/>.
+	  ///          if the user has no <seealso cref="Permissions.CREATE"/> permission on <seealso cref="Resources.PROCESS_INSTANCE"/>
+	  ///          and no <seealso cref="Permissions.CREATE_INSTANCE"/> permission on <seealso cref="Resources.PROCESS_DEFINITION"/>.
 	  /// 
 	  /// @since 5.10 </exception>
 	  ProcessInstance startProcessInstanceByMessage(string messageName, string businessKey);
@@ -404,7 +404,7 @@ namespace org.camunda.bpm.engine
 	  /// <para>Signals the process engine that a message is received and starts a new
 	  /// <seealso cref="ProcessInstance"/>.</para>
 	  /// 
-	  /// See <seealso cref="#startProcessInstanceByMessage(String)"/>. In addition, this method allows
+	  /// See <seealso cref="startProcessInstanceByMessage(string)"/>. In addition, this method allows
 	  /// specifying a the payload of the message as a map of process variables.
 	  /// </summary>
 	  /// <param name="messageName">
@@ -419,8 +419,8 @@ namespace org.camunda.bpm.engine
 	  /// <exception cref="ProcessEngineException">
 	  ///          if no subscription to a message with the given name exists </exception>
 	  /// <exception cref="AuthorizationException">
-	  ///          if the user has no <seealso cref="Permissions#CREATE"/> permission on <seealso cref="Resources#PROCESS_INSTANCE"/>
-	  ///          and no <seealso cref="Permissions#CREATE_INSTANCE"/> permission on <seealso cref="Resources#PROCESS_DEFINITION"/>.
+	  ///          if the user has no <seealso cref="Permissions.CREATE"/> permission on <seealso cref="Resources.PROCESS_INSTANCE"/>
+	  ///          and no <seealso cref="Permissions.CREATE_INSTANCE"/> permission on <seealso cref="Resources.PROCESS_DEFINITION"/>.
 	  /// 
 	  /// @since 5.9 </exception>
 	  ProcessInstance startProcessInstanceByMessage(string messageName, IDictionary<string, object> processVariables);
@@ -429,7 +429,7 @@ namespace org.camunda.bpm.engine
 	  /// <para>Signals the process engine that a message is received and starts a new
 	  /// <seealso cref="ProcessInstance"/>.</para>
 	  /// 
-	  /// See <seealso cref="#startProcessInstanceByMessage(String, Map)"/>. In addition, this method allows
+	  /// See <seealso cref="startProcessInstanceByMessage(string, System.Collections.IDictionary)"/>. In addition, this method allows
 	  /// specifying a business key.
 	  /// </summary>
 	  /// <param name="messageName">
@@ -446,8 +446,8 @@ namespace org.camunda.bpm.engine
 	  /// <exception cref="ProcessEngineException">
 	  ///          if no subscription to a message with the given name exists </exception>
 	  /// <exception cref="AuthorizationException">
-	  ///          if the user has no <seealso cref="Permissions#CREATE"/> permission on <seealso cref="Resources#PROCESS_INSTANCE"/>
-	  ///          and no <seealso cref="Permissions#CREATE_INSTANCE"/> permission on <seealso cref="Resources#PROCESS_DEFINITION"/>.
+	  ///          if the user has no <seealso cref="Permissions.CREATE"/> permission on <seealso cref="Resources.PROCESS_INSTANCE"/>
+	  ///          and no <seealso cref="Permissions.CREATE_INSTANCE"/> permission on <seealso cref="Resources.PROCESS_DEFINITION"/>.
 	  /// 
 	  /// @since 5.9 </exception>
 	  ProcessInstance startProcessInstanceByMessage(string messageName, string businessKey, IDictionary<string, object> processVariables);
@@ -456,7 +456,7 @@ namespace org.camunda.bpm.engine
 	  /// <para>Signals the process engine that a message is received and starts a new
 	  /// <seealso cref="ProcessInstance"/>.</para>
 	  /// 
-	  /// See <seealso cref="#startProcessInstanceByMessage(String)"/>. In addition, this method allows
+	  /// See <seealso cref="startProcessInstanceByMessage(string)"/>. In addition, this method allows
 	  /// specifying the exactly version of the process definition with the given id.
 	  /// </summary>
 	  /// <param name="messageName">
@@ -471,8 +471,8 @@ namespace org.camunda.bpm.engine
 	  ///          if no subscription to a message with the given name exists for the
 	  ///          specified version of process definition. </exception>
 	  /// <exception cref="AuthorizationException">
-	  ///          if the user has no <seealso cref="Permissions#CREATE"/> permission on <seealso cref="Resources#PROCESS_INSTANCE"/>
-	  ///          and no <seealso cref="Permissions#CREATE_INSTANCE"/> permission on <seealso cref="Resources#PROCESS_DEFINITION"/>.
+	  ///          if the user has no <seealso cref="Permissions.CREATE"/> permission on <seealso cref="Resources.PROCESS_INSTANCE"/>
+	  ///          and no <seealso cref="Permissions.CREATE_INSTANCE"/> permission on <seealso cref="Resources.PROCESS_DEFINITION"/>.
 	  /// 
 	  /// @since 7.3 </exception>
 	  ProcessInstance startProcessInstanceByMessageAndProcessDefinitionId(string messageName, string processDefinitionId);
@@ -481,7 +481,7 @@ namespace org.camunda.bpm.engine
 	  /// <para>Signals the process engine that a message is received and starts a new
 	  /// <seealso cref="ProcessInstance"/>.</para>
 	  /// 
-	  /// See <seealso cref="#startProcessInstanceByMessage(String, String)"/>. In addition, this method allows
+	  /// See <seealso cref="startProcessInstanceByMessage(string, string)"/>. In addition, this method allows
 	  /// specifying the exactly version of the process definition with the given id.
 	  /// </summary>
 	  /// <param name="messageName">
@@ -498,8 +498,8 @@ namespace org.camunda.bpm.engine
 	  ///          if no subscription to a message with the given name exists for the
 	  ///          specified version of process definition. </exception>
 	  /// <exception cref="AuthorizationException">
-	  ///          if the user has no <seealso cref="Permissions#CREATE"/> permission on <seealso cref="Resources#PROCESS_INSTANCE"/>
-	  ///          and no <seealso cref="Permissions#CREATE_INSTANCE"/> permission on <seealso cref="Resources#PROCESS_DEFINITION"/>.
+	  ///          if the user has no <seealso cref="Permissions.CREATE"/> permission on <seealso cref="Resources.PROCESS_INSTANCE"/>
+	  ///          and no <seealso cref="Permissions.CREATE_INSTANCE"/> permission on <seealso cref="Resources.PROCESS_DEFINITION"/>.
 	  /// 
 	  /// @since 7.3 </exception>
 	  ProcessInstance startProcessInstanceByMessageAndProcessDefinitionId(string messageName, string processDefinitionId, string businessKey);
@@ -508,7 +508,7 @@ namespace org.camunda.bpm.engine
 	  /// <para>Signals the process engine that a message is received and starts a new
 	  /// <seealso cref="ProcessInstance"/>.</para>
 	  /// 
-	  /// See <seealso cref="#startProcessInstanceByMessage(String, Map)"/>. In addition, this method allows
+	  /// See <seealso cref="startProcessInstanceByMessage(string, System.Collections.IDictionary)"/>. In addition, this method allows
 	  /// specifying the exactly version of the process definition with the given id.
 	  /// </summary>
 	  /// <param name="messageName">
@@ -527,8 +527,8 @@ namespace org.camunda.bpm.engine
 	  ///          specified version of process definition.
 	  /// </exception>
 	  /// <exception cref="AuthorizationException">
-	  ///          if the user has no <seealso cref="Permissions#CREATE"/> permission on <seealso cref="Resources#PROCESS_INSTANCE"/>
-	  ///          and no <seealso cref="Permissions#CREATE_INSTANCE"/> permission on <seealso cref="Resources#PROCESS_DEFINITION"/>.
+	  ///          if the user has no <seealso cref="Permissions.CREATE"/> permission on <seealso cref="Resources.PROCESS_INSTANCE"/>
+	  ///          and no <seealso cref="Permissions.CREATE_INSTANCE"/> permission on <seealso cref="Resources.PROCESS_DEFINITION"/>.
 	  /// 
 	  /// @since 7.3 </exception>
 	  ProcessInstance startProcessInstanceByMessageAndProcessDefinitionId(string messageName, string processDefinitionId, IDictionary<string, object> processVariables);
@@ -537,7 +537,7 @@ namespace org.camunda.bpm.engine
 	  /// <para>Signals the process engine that a message is received and starts a new
 	  /// <seealso cref="ProcessInstance"/>.</para>
 	  /// 
-	  /// See <seealso cref="#startProcessInstanceByMessage(String, String, Map)"/>. In addition, this method allows
+	  /// See <seealso cref="startProcessInstanceByMessage(string, string, System.Collections.IDictionary)"/>. In addition, this method allows
 	  /// specifying the exactly version of the process definition with the given id.
 	  /// </summary>
 	  /// <param name="messageName">
@@ -557,8 +557,8 @@ namespace org.camunda.bpm.engine
 	  ///          if no subscription to a message with the given name exists for the
 	  ///          specified version of process definition. </exception>
 	  /// <exception cref="AuthorizationException">
-	  ///          if the user has no <seealso cref="Permissions#CREATE"/> permission on <seealso cref="Resources#PROCESS_INSTANCE"/>
-	  ///          and no <seealso cref="Permissions#CREATE_INSTANCE"/> permission on <seealso cref="Resources#PROCESS_DEFINITION"/>.
+	  ///          if the user has no <seealso cref="Permissions.CREATE"/> permission on <seealso cref="Resources.PROCESS_INSTANCE"/>
+	  ///          and no <seealso cref="Permissions.CREATE_INSTANCE"/> permission on <seealso cref="Resources.PROCESS_DEFINITION"/>.
 	  /// 
 	  /// @since 7.3 </exception>
 	  ProcessInstance startProcessInstanceByMessageAndProcessDefinitionId(string messageName, string processDefinitionId, string businessKey, IDictionary<string, object> processVariables);
@@ -574,8 +574,8 @@ namespace org.camunda.bpm.engine
 	  /// <exception cref="BadUserRequestException">
 	  ///          when no process instance is found with the given id or id is null. </exception>
 	  /// <exception cref="AuthorizationException">
-	  ///          if the user has no <seealso cref="Permissions#DELETE"/> permission on <seealso cref="Resources#PROCESS_INSTANCE"/>
-	  ///          or no <seealso cref="Permissions#DELETE_INSTANCE"/> permission on <seealso cref="Resources#PROCESS_DEFINITION"/>. </exception>
+	  ///          if the user has no <seealso cref="Permissions.DELETE"/> permission on <seealso cref="Resources.PROCESS_INSTANCE"/>
+	  ///          or no <seealso cref="Permissions.DELETE_INSTANCE"/> permission on <seealso cref="Resources.PROCESS_DEFINITION"/>. </exception>
 	  void deleteProcessInstance(string processInstanceId, string deleteReason);
 
 	  /// <summary>
@@ -591,8 +591,8 @@ namespace org.camunda.bpm.engine
 	  /// <exception cref="BadUserRequestException">
 	  ///          when no process instance is found with the given id or id is null. </exception>
 	  /// <exception cref="AuthorizationException">
-	  ///          If the user has no <seealso cref="Permissions#CREATE"/> or
-	  ///          <seealso cref="BatchPermissions#CREATE_BATCH_DELETE_RUNNING_PROCESS_INSTANCES"/> permission on <seealso cref="Resources#BATCH"/>. </exception>
+	  ///          If the user has no <seealso cref="Permissions.CREATE"/> or
+	  ///          <seealso cref="BatchPermissions.CREATE_BATCH_DELETE_RUNNING_PROCESS_INSTANCES"/> permission on <seealso cref="Resources.BATCH"/>. </exception>
 	  Batch deleteProcessInstancesAsync(IList<string> processInstanceIds, ProcessInstanceQuery processInstanceQuery, string deleteReason);
 
 	  /// <summary>
@@ -608,8 +608,8 @@ namespace org.camunda.bpm.engine
 	  /// <exception cref="BadUserRequestException">
 	  ///          when no process instance is found with the given id or id is null. </exception>
 	  /// <exception cref="AuthorizationException">
-	  ///          If the user has no <seealso cref="Permissions#CREATE"/> or
-	  ///          <seealso cref="BatchPermissions#CREATE_BATCH_DELETE_RUNNING_PROCESS_INSTANCES"/> permission on <seealso cref="Resources#BATCH"/>. </exception>
+	  ///          If the user has no <seealso cref="Permissions.CREATE"/> or
+	  ///          <seealso cref="BatchPermissions.CREATE_BATCH_DELETE_RUNNING_PROCESS_INSTANCES"/> permission on <seealso cref="Resources.BATCH"/>. </exception>
 	  Batch deleteProcessInstancesAsync(IList<string> processInstanceIds, ProcessInstanceQuery processInstanceQuery, string deleteReason, bool skipCustomListeners);
 
 	  /// <summary>
@@ -627,8 +627,8 @@ namespace org.camunda.bpm.engine
 	  /// <exception cref="BadUserRequestException">
 	  ///          when no process instance is found with the given id or id is null. </exception>
 	  /// <exception cref="AuthorizationException">
-	  ///          If the user has no <seealso cref="Permissions#CREATE"/> or
-	  ///          <seealso cref="BatchPermissions#CREATE_BATCH_DELETE_RUNNING_PROCESS_INSTANCES"/> permission on <seealso cref="Resources#BATCH"/>. </exception>
+	  ///          If the user has no <seealso cref="Permissions.CREATE"/> or
+	  ///          <seealso cref="BatchPermissions.CREATE_BATCH_DELETE_RUNNING_PROCESS_INSTANCES"/> permission on <seealso cref="Resources.BATCH"/>. </exception>
 	  Batch deleteProcessInstancesAsync(IList<string> processInstanceIds, ProcessInstanceQuery processInstanceQuery, string deleteReason, bool skipCustomListeners, bool skipSubprocesses);
 
 	  /// <summary>
@@ -643,8 +643,8 @@ namespace org.camunda.bpm.engine
 	  /// <exception cref="BadUserRequestException">
 	  ///          when no process instance is found with the given id or id is null. </exception>
 	  /// <exception cref="AuthorizationException">
-	  ///          If the user has no <seealso cref="Permissions#CREATE"/> or
-	  ///          <seealso cref="BatchPermissions#CREATE_BATCH_DELETE_RUNNING_PROCESS_INSTANCES"/> permission on <seealso cref="Resources#BATCH"/>. </exception>
+	  ///          If the user has no <seealso cref="Permissions.CREATE"/> or
+	  ///          <seealso cref="BatchPermissions.CREATE_BATCH_DELETE_RUNNING_PROCESS_INSTANCES"/> permission on <seealso cref="Resources.BATCH"/>. </exception>
 	  Batch deleteProcessInstancesAsync(ProcessInstanceQuery processInstanceQuery, string deleteReason);
 
 	  /// <summary>
@@ -661,8 +661,8 @@ namespace org.camunda.bpm.engine
 	  /// <exception cref="BadUserRequestException">
 	  ///          when no process instance is found with the given id or id is null. </exception>
 	  /// <exception cref="AuthorizationException">
-	  ///          If the user has no <seealso cref="Permissions#CREATE"/> or
-	  ///          <seealso cref="BatchPermissions#CREATE_BATCH_DELETE_RUNNING_PROCESS_INSTANCES"/> permission on <seealso cref="Resources#BATCH"/>. </exception>
+	  ///          If the user has no <seealso cref="Permissions.CREATE"/> or
+	  ///          <seealso cref="BatchPermissions.CREATE_BATCH_DELETE_RUNNING_PROCESS_INSTANCES"/> permission on <seealso cref="Resources.BATCH"/>. </exception>
 	  Batch deleteProcessInstancesAsync(IList<string> processInstanceIds, string deleteReason);
 
 	  /// <summary>
@@ -673,13 +673,13 @@ namespace org.camunda.bpm.engine
 	  /// <param name="processInstanceId"> id of process instance to delete, cannot be null. </param>
 	  /// <param name="deleteReason"> reason for deleting, which will be stored in the history. Can be null. </param>
 	  /// <param name="skipCustomListeners"> if true, only the built-in <seealso cref="ExecutionListener"/>s
-	  /// are notified with the <seealso cref="ExecutionListener#EVENTNAME_END"/> event.
+	  /// are notified with the <seealso cref="ExecutionListener.EVENTNAME_END"/> event.
 	  /// </param>
 	  /// <exception cref="BadUserRequestException">
 	  ///          when no process instance is found with the given id or id is null. </exception>
 	  /// <exception cref="AuthorizationException">
-	  ///          if the user has no <seealso cref="Permissions#DELETE"/> permission on <seealso cref="Resources#PROCESS_INSTANCE"/>
-	  ///          or no <seealso cref="Permissions#DELETE_INSTANCE"/> permission on <seealso cref="Resources#PROCESS_DEFINITION"/>. </exception>
+	  ///          if the user has no <seealso cref="Permissions.DELETE"/> permission on <seealso cref="Resources.PROCESS_INSTANCE"/>
+	  ///          or no <seealso cref="Permissions.DELETE_INSTANCE"/> permission on <seealso cref="Resources.PROCESS_DEFINITION"/>. </exception>
 	  void deleteProcessInstance(string processInstanceId, string deleteReason, bool skipCustomListeners);
 
 	  /// <summary>
@@ -690,7 +690,7 @@ namespace org.camunda.bpm.engine
 	  /// <param name="processInstanceId"> id of process instance to delete, cannot be null. </param>
 	  /// <param name="deleteReason"> reason for deleting, which will be stored in the history. Can be null. </param>
 	  /// <param name="skipCustomListeners"> if true, only the built-in <seealso cref="ExecutionListener"/>s
-	  /// are notified with the <seealso cref="ExecutionListener#EVENTNAME_END"/> event. </param>
+	  /// are notified with the <seealso cref="ExecutionListener.EVENTNAME_END"/> event. </param>
 	  /// <param name="externallyTerminated"> indicator if deletion triggered from external context, for instance
 	  ///                             REST API call
 	  /// 
@@ -698,8 +698,8 @@ namespace org.camunda.bpm.engine
 	  /// <exception cref="BadUserRequestException">
 	  ///          when no process instance is found with the given id or id is null. </exception>
 	  /// <exception cref="AuthorizationException">
-	  ///          if the user has no <seealso cref="Permissions#DELETE"/> permission on <seealso cref="Resources#PROCESS_INSTANCE"/>
-	  ///          or no <seealso cref="Permissions#DELETE_INSTANCE"/> permission on <seealso cref="Resources#PROCESS_DEFINITION"/>. </exception>
+	  ///          if the user has no <seealso cref="Permissions.DELETE"/> permission on <seealso cref="Resources.PROCESS_INSTANCE"/>
+	  ///          or no <seealso cref="Permissions.DELETE_INSTANCE"/> permission on <seealso cref="Resources.PROCESS_DEFINITION"/>. </exception>
 	  void deleteProcessInstance(string processInstanceId, string deleteReason, bool skipCustomListeners, bool externallyTerminated);
 
 
@@ -711,7 +711,7 @@ namespace org.camunda.bpm.engine
 	  /// <param name="processInstanceIds"> ids of process instance to delete, cannot be null. </param>
 	  /// <param name="deleteReason"> reason for deleting, which will be stored in the history. Can be null. </param>
 	  /// <param name="skipCustomListeners"> if true, only the built-in <seealso cref="ExecutionListener"/>s
-	  /// are notified with the <seealso cref="ExecutionListener#EVENTNAME_END"/> event. </param>
+	  /// are notified with the <seealso cref="ExecutionListener.EVENTNAME_END"/> event. </param>
 	  /// <param name="externallyTerminated"> indicator if deletion triggered from external context, for instance
 	  ///                             REST API call
 	  /// 
@@ -719,8 +719,8 @@ namespace org.camunda.bpm.engine
 	  /// <exception cref="BadUserRequestException">
 	  ///          when no process instance is found with the given id or id is null. </exception>
 	  /// <exception cref="AuthorizationException">
-	  ///          if the user has no <seealso cref="Permissions#DELETE"/> permission on <seealso cref="Resources#PROCESS_INSTANCE"/>
-	  ///          or no <seealso cref="Permissions#DELETE_INSTANCE"/> permission on <seealso cref="Resources#PROCESS_DEFINITION"/>. </exception>
+	  ///          if the user has no <seealso cref="Permissions.DELETE"/> permission on <seealso cref="Resources.PROCESS_INSTANCE"/>
+	  ///          or no <seealso cref="Permissions.DELETE_INSTANCE"/> permission on <seealso cref="Resources.PROCESS_DEFINITION"/>. </exception>
 	  void deleteProcessInstances(IList<string> processInstanceIds, string deleteReason, bool skipCustomListeners, bool externallyTerminated);
 
 	  /// <summary>
@@ -731,7 +731,7 @@ namespace org.camunda.bpm.engine
 	  /// <param name="processInstanceIds"> ids of process instance to delete, cannot be null. </param>
 	  /// <param name="deleteReason"> reason for deleting, which will be stored in the history. Can be null. </param>
 	  /// <param name="skipCustomListeners"> if true, only the built-in <seealso cref="ExecutionListener"/>s
-	  /// are notified with the <seealso cref="ExecutionListener#EVENTNAME_END"/> event. </param>
+	  /// are notified with the <seealso cref="ExecutionListener.EVENTNAME_END"/> event. </param>
 	  /// <param name="externallyTerminated"> indicator if deletion triggered from external context, for instance
 	  ///                             REST API call </param>
 	  /// <param name="skipSubprocesses"> specifies whether subprocesses should be deleted
@@ -740,8 +740,8 @@ namespace org.camunda.bpm.engine
 	  /// <exception cref="BadUserRequestException">
 	  ///          when no process instance is found with the given id or id is null. </exception>
 	  /// <exception cref="AuthorizationException">
-	  ///          if the user has no <seealso cref="Permissions#DELETE"/> permission on <seealso cref="Resources#PROCESS_INSTANCE"/>
-	  ///          or no <seealso cref="Permissions#DELETE_INSTANCE"/> permission on <seealso cref="Resources#PROCESS_DEFINITION"/>. </exception>
+	  ///          if the user has no <seealso cref="Permissions.DELETE"/> permission on <seealso cref="Resources.PROCESS_INSTANCE"/>
+	  ///          or no <seealso cref="Permissions.DELETE_INSTANCE"/> permission on <seealso cref="Resources.PROCESS_DEFINITION"/>. </exception>
 	  void deleteProcessInstances(IList<string> processInstanceIds, string deleteReason, bool skipCustomListeners, bool externallyTerminated, bool skipSubprocesses);
 
 	  /// <summary>
@@ -754,7 +754,7 @@ namespace org.camunda.bpm.engine
 	  /// <param name="processInstanceIds"> ids of process instance to delete, cannot be null. </param>
 	  /// <param name="deleteReason"> reason for deleting, which will be stored in the history. Can be null. </param>
 	  /// <param name="skipCustomListeners"> if true, only the built-in <seealso cref="ExecutionListener"/>s
-	  /// are notified with the <seealso cref="ExecutionListener#EVENTNAME_END"/> event. </param>
+	  /// are notified with the <seealso cref="ExecutionListener.EVENTNAME_END"/> event. </param>
 	  /// <param name="externallyTerminated"> indicator if deletion triggered from external context, for instance
 	  ///                             REST API call </param>
 	  /// <param name="skipSubprocesses"> specifies whether subprocesses should be deleted
@@ -763,8 +763,8 @@ namespace org.camunda.bpm.engine
 	  /// <exception cref="BadUserRequestException">
 	  ///          when no process instance is found with the given id or id is null. </exception>
 	  /// <exception cref="AuthorizationException">
-	  ///          if the user has no <seealso cref="Permissions#DELETE"/> permission on <seealso cref="Resources#PROCESS_INSTANCE"/>
-	  ///          or no <seealso cref="Permissions#DELETE_INSTANCE"/> permission on <seealso cref="Resources#PROCESS_DEFINITION"/>. </exception>
+	  ///          if the user has no <seealso cref="Permissions.DELETE"/> permission on <seealso cref="Resources.PROCESS_INSTANCE"/>
+	  ///          or no <seealso cref="Permissions.DELETE_INSTANCE"/> permission on <seealso cref="Resources.PROCESS_DEFINITION"/>. </exception>
 	  void deleteProcessInstancesIfExists(IList<string> processInstanceIds, string deleteReason, bool skipCustomListeners, bool externallyTerminated, bool skipSubprocesses);
 
 	  /// <summary>
@@ -775,7 +775,7 @@ namespace org.camunda.bpm.engine
 	  /// <param name="processInstanceId"> id of process instance to delete, cannot be null. </param>
 	  /// <param name="deleteReason"> reason for deleting, which will be stored in the history. Can be null. </param>
 	  /// <param name="skipCustomListeners"> if true, only the built-in <seealso cref="ExecutionListener"/>s
-	  /// are notified with the <seealso cref="ExecutionListener#EVENTNAME_END"/> event. </param>
+	  /// are notified with the <seealso cref="ExecutionListener.EVENTNAME_END"/> event. </param>
 	  /// <param name="externallyTerminated"> indicator if deletion triggered from external context, for instance
 	  ///                             REST API call </param>
 	  /// <param name="skipIoMappings"> specifies whether input/output mappings for tasks should be invoked
@@ -784,8 +784,8 @@ namespace org.camunda.bpm.engine
 	  /// <exception cref="BadUserRequestException">
 	  ///          when no process instance is found with the given id or id is null. </exception>
 	  /// <exception cref="AuthorizationException">
-	  ///          if the user has no <seealso cref="Permissions#DELETE"/> permission on <seealso cref="Resources#PROCESS_INSTANCE"/>
-	  ///          or no <seealso cref="Permissions#DELETE_INSTANCE"/> permission on <seealso cref="Resources#PROCESS_DEFINITION"/>. </exception>
+	  ///          if the user has no <seealso cref="Permissions.DELETE"/> permission on <seealso cref="Resources.PROCESS_INSTANCE"/>
+	  ///          or no <seealso cref="Permissions.DELETE_INSTANCE"/> permission on <seealso cref="Resources.PROCESS_DEFINITION"/>. </exception>
 	  void deleteProcessInstance(string processInstanceId, string deleteReason, bool skipCustomListeners, bool externallyTerminated, bool skipIoMappings);
 
 	  /// <summary>
@@ -796,7 +796,7 @@ namespace org.camunda.bpm.engine
 	  /// <param name="processInstanceId"> id of process instance to delete, cannot be null. </param>
 	  /// <param name="deleteReason"> reason for deleting, which will be stored in the history. Can be null. </param>
 	  /// <param name="skipCustomListeners"> if true, only the built-in <seealso cref="ExecutionListener"/>s
-	  /// are notified with the <seealso cref="ExecutionListener#EVENTNAME_END"/> event. </param>
+	  /// are notified with the <seealso cref="ExecutionListener.EVENTNAME_END"/> event. </param>
 	  /// <param name="externallyTerminated"> indicator if deletion triggered from external context, for instance
 	  ///                             REST API call </param>
 	  /// <param name="skipIoMappings"> specifies whether input/output mappings for tasks should be invoked </param>
@@ -806,8 +806,8 @@ namespace org.camunda.bpm.engine
 	  /// <exception cref="BadUserRequestException">
 	  ///          when no process instance is found with the given id or id is null. </exception>
 	  /// <exception cref="AuthorizationException">
-	  ///          if the user has no <seealso cref="Permissions#DELETE"/> permission on <seealso cref="Resources#PROCESS_INSTANCE"/>
-	  ///          or no <seealso cref="Permissions#DELETE_INSTANCE"/> permission on <seealso cref="Resources#PROCESS_DEFINITION"/>. </exception>
+	  ///          if the user has no <seealso cref="Permissions.DELETE"/> permission on <seealso cref="Resources.PROCESS_INSTANCE"/>
+	  ///          or no <seealso cref="Permissions.DELETE_INSTANCE"/> permission on <seealso cref="Resources.PROCESS_DEFINITION"/>. </exception>
 	  void deleteProcessInstance(string processInstanceId, string deleteReason, bool skipCustomListeners, bool externallyTerminated, bool skipIoMappings, bool skipSubprocesses);
 
 	  /// <summary>
@@ -820,7 +820,7 @@ namespace org.camunda.bpm.engine
 	  /// <param name="processInstanceId"> id of process instance to delete, cannot be null. </param>
 	  /// <param name="deleteReason"> reason for deleting, which will be stored in the history. Can be null. </param>
 	  /// <param name="skipCustomListeners"> if true, only the built-in <seealso cref="ExecutionListener"/>s
-	  /// are notified with the <seealso cref="ExecutionListener#EVENTNAME_END"/> event. </param>
+	  /// are notified with the <seealso cref="ExecutionListener.EVENTNAME_END"/> event. </param>
 	  /// <param name="externallyTerminated"> indicator if deletion triggered from external context, for instance
 	  ///                             REST API call </param>
 	  /// <param name="skipIoMappings"> specifies whether input/output mappings for tasks should be invoked </param>
@@ -830,8 +830,8 @@ namespace org.camunda.bpm.engine
 	  /// <exception cref="BadUserRequestException">
 	  ///          when no process instance is found with the given id or id is null. </exception>
 	  /// <exception cref="AuthorizationException">
-	  ///          if the user has no <seealso cref="Permissions#DELETE"/> permission on <seealso cref="Resources#PROCESS_INSTANCE"/>
-	  ///          or no <seealso cref="Permissions#DELETE_INSTANCE"/> permission on <seealso cref="Resources#PROCESS_DEFINITION"/>. </exception>
+	  ///          if the user has no <seealso cref="Permissions.DELETE"/> permission on <seealso cref="Resources.PROCESS_INSTANCE"/>
+	  ///          or no <seealso cref="Permissions.DELETE_INSTANCE"/> permission on <seealso cref="Resources.PROCESS_DEFINITION"/>. </exception>
 	  void deleteProcessInstanceIfExists(string processInstanceId, string deleteReason, bool skipCustomListeners, bool externallyTerminated, bool skipIoMappings, bool skipSubprocesses);
 
 	  /// <summary>
@@ -845,8 +845,8 @@ namespace org.camunda.bpm.engine
 	  /// <exception cref="ProcessEngineException">
 	  ///          when no execution exists with the given executionId. </exception>
 	  /// <exception cref="AuthorizationException">
-	  ///          if the user has no <seealso cref="Permissions#READ"/> permission on <seealso cref="Resources#PROCESS_INSTANCE"/>
-	  ///          or no <seealso cref="Permissions#READ_INSTANCE"/> permission on <seealso cref="Resources#PROCESS_DEFINITION"/>. </exception>
+	  ///          if the user has no <seealso cref="Permissions.READ"/> permission on <seealso cref="Resources.PROCESS_INSTANCE"/>
+	  ///          or no <seealso cref="Permissions.READ_INSTANCE"/> permission on <seealso cref="Resources.PROCESS_DEFINITION"/>. </exception>
 	  IList<string> getActiveActivityIds(string executionId);
 
 	  /// <summary>
@@ -895,8 +895,8 @@ namespace org.camunda.bpm.engine
 	  /// <exception cref="ProcessEngineException">
 	  ///          if processInstanceId is 'null' or an internal error occurs. </exception>
 	  /// <exception cref="AuthorizationException">
-	  ///          if the user has no <seealso cref="Permissions#READ"/> permission on <seealso cref="Resources#PROCESS_INSTANCE"/>
-	  ///          or no <seealso cref="Permissions#READ_INSTANCE"/> permission on <seealso cref="Resources#PROCESS_DEFINITION"/>.
+	  ///          if the user has no <seealso cref="Permissions.READ"/> permission on <seealso cref="Resources.PROCESS_INSTANCE"/>
+	  ///          or no <seealso cref="Permissions.READ_INSTANCE"/> permission on <seealso cref="Resources.PROCESS_DEFINITION"/>.
 	  /// 
 	  /// @since 7.0 </exception>
 	  ActivityInstance getActivityInstance(string processInstanceId);
@@ -914,8 +914,8 @@ namespace org.camunda.bpm.engine
 	  /// <exception cref="SuspendedEntityInteractionException">
 	  ///          when the execution is suspended. </exception>
 	  /// <exception cref="AuthorizationException">
-	  ///          if the user has no <seealso cref="Permissions#UPDATE"/> permission on <seealso cref="Resources#PROCESS_INSTANCE"/>
-	  ///          or no <seealso cref="Permissions#UPDATE_INSTANCE"/> permission on <seealso cref="Resources#PROCESS_DEFINITION"/>. </exception>
+	  ///          if the user has no <seealso cref="Permissions.UPDATE"/> permission on <seealso cref="Resources.PROCESS_INSTANCE"/>
+	  ///          or no <seealso cref="Permissions.UPDATE_INSTANCE"/> permission on <seealso cref="Resources.PROCESS_DEFINITION"/>. </exception>
 	  void signal(string executionId);
 
 	  /// <summary>
@@ -932,8 +932,8 @@ namespace org.camunda.bpm.engine
 	  /// <exception cref="ProcessEngineException">
 	  ///          when no execution is found for the given executionId. </exception>
 	  /// <exception cref="AuthorizationException">
-	  ///          if the user has no <seealso cref="Permissions#UPDATE"/> permission on <seealso cref="Resources#PROCESS_INSTANCE"/>
-	  ///          or no <seealso cref="Permissions#UPDATE_INSTANCE"/> permission on <seealso cref="Resources#PROCESS_DEFINITION"/>. </exception>
+	  ///          if the user has no <seealso cref="Permissions.UPDATE"/> permission on <seealso cref="Resources.PROCESS_INSTANCE"/>
+	  ///          or no <seealso cref="Permissions.UPDATE_INSTANCE"/> permission on <seealso cref="Resources.PROCESS_DEFINITION"/>. </exception>
 	  void signal(string executionId, string signalName, object signalData, IDictionary<string, object> processVariables);
 
 	  /// <summary>
@@ -950,8 +950,8 @@ namespace org.camunda.bpm.engine
 	  /// <exception cref="SuspendedEntityInteractionException">
 	  ///          when the execution is suspended. </exception>
 	  /// <exception cref="AuthorizationException">
-	  ///          if the user has no <seealso cref="Permissions#UPDATE"/> permission on <seealso cref="Resources#PROCESS_INSTANCE"/>
-	  ///          or no <seealso cref="Permissions#UPDATE_INSTANCE"/> permission on <seealso cref="Resources#PROCESS_DEFINITION"/>. </exception>
+	  ///          if the user has no <seealso cref="Permissions.UPDATE"/> permission on <seealso cref="Resources.PROCESS_INSTANCE"/>
+	  ///          or no <seealso cref="Permissions.UPDATE_INSTANCE"/> permission on <seealso cref="Resources.PROCESS_DEFINITION"/>. </exception>
 	  void signal(string executionId, IDictionary<string, object> processVariables);
 
 	  // Variables ////////////////////////////////////////////////////////////////////
@@ -966,10 +966,10 @@ namespace org.camunda.bpm.engine
 	  /// <exception cref="ProcessEngineException">
 	  ///          when no execution is found for the given executionId. </exception>
 	  /// <exception cref="AuthorizationException">
-	  ///          <li>if the user has no <seealso cref="Permissions#READ"/> permission on <seealso cref="Resources#PROCESS_INSTANCE"/> or
-	  ///          no <seealso cref="Permissions#READ_INSTANCE"/> permission on <seealso cref="Resources#PROCESS_DEFINITION"/></li>
-	  ///          <li> In case <seealso cref="ProcessEngineConfiguration#enforceSpecificVariablePermission this"/> config is enabled and
-	  ///          the user has no <seealso cref="ProcessDefinitionPermisions#READ_INSTANCE_VARIABLE"/> permission on <seealso cref="Resources#PROCESS_DEFINITION"/></li> </exception>
+	  ///          <li>if the user has no <seealso cref="Permissions.READ"/> permission on <seealso cref="Resources.PROCESS_INSTANCE"/> or
+	  ///          no <seealso cref="Permissions.READ_INSTANCE"/> permission on <seealso cref="Resources.PROCESS_DEFINITION"/></li>
+	  ///          <li> In case <seealso cref="ProcessEngineConfiguration.enforceSpecificVariablePermission this"/> config is enabled and
+	  ///          the user has no <seealso cref="ProcessDefinitionPermisions.READ_INSTANCE_VARIABLE"/> permission on <seealso cref="Resources.PROCESS_DEFINITION"/></li> </exception>
 	  IDictionary<string, object> getVariables(string executionId);
 
 	  /// <summary>
@@ -982,10 +982,10 @@ namespace org.camunda.bpm.engine
 	  /// <exception cref="ProcessEngineException">
 	  ///          when no execution is found for the given executionId. </exception>
 	  /// <exception cref="AuthorizationException">
-	  ///          <li>if the user has no <seealso cref="Permissions#READ"/> permission on <seealso cref="Resources#PROCESS_INSTANCE"/> or
-	  ///          no <seealso cref="Permissions#READ_INSTANCE"/> permission on <seealso cref="Resources#PROCESS_DEFINITION"/></li>
-	  ///          <li> In case <seealso cref="ProcessEngineConfiguration#enforceSpecificVariablePermission this"/> config is enabled and
-	  ///          the user has no <seealso cref="ProcessDefinitionPermisions#READ_INSTANCE_VARIABLE"/> permission on <seealso cref="Resources#PROCESS_DEFINITION"/></li>
+	  ///          <li>if the user has no <seealso cref="Permissions.READ"/> permission on <seealso cref="Resources.PROCESS_INSTANCE"/> or
+	  ///          no <seealso cref="Permissions.READ_INSTANCE"/> permission on <seealso cref="Resources.PROCESS_DEFINITION"/></li>
+	  ///          <li> In case <seealso cref="ProcessEngineConfiguration.enforceSpecificVariablePermission this"/> config is enabled and
+	  ///          the user has no <seealso cref="ProcessDefinitionPermisions.READ_INSTANCE_VARIABLE"/> permission on <seealso cref="Resources.PROCESS_DEFINITION"/></li>
 	  /// 
 	  /// @since 7.2
 	  ///  </exception>
@@ -1002,10 +1002,10 @@ namespace org.camunda.bpm.engine
 	  /// <exception cref="ProcessEngineException">
 	  ///          when no execution is found for the given executionId. </exception>
 	  /// <exception cref="AuthorizationException">
-	  ///          <li>if the user has no <seealso cref="Permissions#READ"/> permission on <seealso cref="Resources#PROCESS_INSTANCE"/> or
-	  ///          no <seealso cref="Permissions#READ_INSTANCE"/> permission on <seealso cref="Resources#PROCESS_DEFINITION"/></li>
-	  ///          <li> In case <seealso cref="ProcessEngineConfiguration#enforceSpecificVariablePermission this"/> config is enabled and
-	  ///          the user has no <seealso cref="ProcessDefinitionPermisions#READ_INSTANCE_VARIABLE"/> permission on <seealso cref="Resources#PROCESS_DEFINITION"/></li>
+	  ///          <li>if the user has no <seealso cref="Permissions.READ"/> permission on <seealso cref="Resources.PROCESS_INSTANCE"/> or
+	  ///          no <seealso cref="Permissions.READ_INSTANCE"/> permission on <seealso cref="Resources.PROCESS_DEFINITION"/></li>
+	  ///          <li> In case <seealso cref="ProcessEngineConfiguration.enforceSpecificVariablePermission this"/> config is enabled and
+	  ///          the user has no <seealso cref="ProcessDefinitionPermisions.READ_INSTANCE_VARIABLE"/> permission on <seealso cref="Resources.PROCESS_DEFINITION"/></li>
 	  /// 
 	  /// @since 7.2
 	  ///  </exception>
@@ -1013,7 +1013,7 @@ namespace org.camunda.bpm.engine
 
 	  /// <summary>
 	  /// All variable values that are defined in the execution scope, without taking outer scopes into account.
-	  /// If you have many task local variables and you only need a few, consider using <seealso cref="#getVariablesLocal(String, Collection)"/>
+	  /// If you have many task local variables and you only need a few, consider using <seealso cref="getVariablesLocal(string, System.Collections.ICollection)"/>
 	  /// for better performance. </summary>
 	  /// <param name="executionId"> id of execution, cannot be null.
 	  /// </param>
@@ -1022,15 +1022,15 @@ namespace org.camunda.bpm.engine
 	  /// <exception cref="ProcessEngineException">
 	  ///          when no execution is found for the given executionId. </exception>
 	  /// <exception cref="AuthorizationException">
-	  ///          <li>if the user has no <seealso cref="Permissions#READ"/> permission on <seealso cref="Resources#PROCESS_INSTANCE"/> or
-	  ///          no <seealso cref="Permissions#READ_INSTANCE"/> permission on <seealso cref="Resources#PROCESS_DEFINITION"/></li>
-	  ///          <li> In case <seealso cref="ProcessEngineConfiguration#enforceSpecificVariablePermission this"/> config is enabled and
-	  ///          the user has no <seealso cref="ProcessDefinitionPermisions#READ_INSTANCE_VARIABLE"/> permission on <seealso cref="Resources#PROCESS_DEFINITION"/></li> </exception>
+	  ///          <li>if the user has no <seealso cref="Permissions.READ"/> permission on <seealso cref="Resources.PROCESS_INSTANCE"/> or
+	  ///          no <seealso cref="Permissions.READ_INSTANCE"/> permission on <seealso cref="Resources.PROCESS_DEFINITION"/></li>
+	  ///          <li> In case <seealso cref="ProcessEngineConfiguration.enforceSpecificVariablePermission this"/> config is enabled and
+	  ///          the user has no <seealso cref="ProcessDefinitionPermisions.READ_INSTANCE_VARIABLE"/> permission on <seealso cref="Resources.PROCESS_DEFINITION"/></li> </exception>
 	  IDictionary<string, object> getVariablesLocal(string executionId);
 
 	  /// <summary>
 	  /// All variable values that are defined in the execution scope, without taking outer scopes into account.
-	  /// If you have many task local variables and you only need a few, consider using <seealso cref="#getVariablesLocal(String, Collection)"/>
+	  /// If you have many task local variables and you only need a few, consider using <seealso cref="getVariablesLocal(string, System.Collections.ICollection)"/>
 	  /// for better performance.
 	  /// </summary>
 	  /// <param name="executionId"> id of execution, cannot be null.
@@ -1040,15 +1040,15 @@ namespace org.camunda.bpm.engine
 	  /// <exception cref="ProcessEngineException">
 	  ///          when no execution is found for the given executionId. </exception>
 	  /// <exception cref="AuthorizationException">
-	  ///          <li>if the user has no <seealso cref="Permissions#READ"/> permission on <seealso cref="Resources#PROCESS_INSTANCE"/> or
-	  ///          no <seealso cref="Permissions#READ_INSTANCE"/> permission on <seealso cref="Resources#PROCESS_DEFINITION"/></li>
-	  ///          <li> In case <seealso cref="ProcessEngineConfiguration#enforceSpecificVariablePermission this"/> config is enabled and
-	  ///          the user has no <seealso cref="ProcessDefinitionPermisions#READ_INSTANCE_VARIABLE"/> permission on <seealso cref="Resources#PROCESS_DEFINITION"/></li> </exception>
+	  ///          <li>if the user has no <seealso cref="Permissions.READ"/> permission on <seealso cref="Resources.PROCESS_INSTANCE"/> or
+	  ///          no <seealso cref="Permissions.READ_INSTANCE"/> permission on <seealso cref="Resources.PROCESS_DEFINITION"/></li>
+	  ///          <li> In case <seealso cref="ProcessEngineConfiguration.enforceSpecificVariablePermission this"/> config is enabled and
+	  ///          the user has no <seealso cref="ProcessDefinitionPermisions.READ_INSTANCE_VARIABLE"/> permission on <seealso cref="Resources.PROCESS_DEFINITION"/></li> </exception>
 	  VariableMap getVariablesLocalTyped(string executionId);
 
 	  /// <summary>
 	  /// All variable values that are defined in the execution scope, without taking outer scopes into account.
-	  /// If you have many task local variables and you only need a few, consider using <seealso cref="#getVariablesLocal(String, Collection)"/>
+	  /// If you have many task local variables and you only need a few, consider using <seealso cref="getVariablesLocal(string, System.Collections.ICollection)"/>
 	  /// for better performance.
 	  /// </summary>
 	  /// <param name="executionId"> id of execution, cannot be null. </param>
@@ -1059,10 +1059,10 @@ namespace org.camunda.bpm.engine
 	  /// <exception cref="ProcessEngineException">
 	  ///          when no execution is found for the given executionId. </exception>
 	  /// <exception cref="AuthorizationException">
-	  ///          <li>if the user has no <seealso cref="Permissions#READ"/> permission on <seealso cref="Resources#PROCESS_INSTANCE"/> or
-	  ///          no <seealso cref="Permissions#READ_INSTANCE"/> permission on <seealso cref="Resources#PROCESS_DEFINITION"/></li>
-	  ///          <li> In case <seealso cref="ProcessEngineConfiguration#enforceSpecificVariablePermission this"/> config is enabled and
-	  ///          the user has no <seealso cref="ProcessDefinitionPermisions#READ_INSTANCE_VARIABLE"/> permission on <seealso cref="Resources#PROCESS_DEFINITION"/></li>
+	  ///          <li>if the user has no <seealso cref="Permissions.READ"/> permission on <seealso cref="Resources.PROCESS_INSTANCE"/> or
+	  ///          no <seealso cref="Permissions.READ_INSTANCE"/> permission on <seealso cref="Resources.PROCESS_DEFINITION"/></li>
+	  ///          <li> In case <seealso cref="ProcessEngineConfiguration.enforceSpecificVariablePermission this"/> config is enabled and
+	  ///          the user has no <seealso cref="ProcessDefinitionPermisions.READ_INSTANCE_VARIABLE"/> permission on <seealso cref="Resources.PROCESS_DEFINITION"/></li>
 	  /// 
 	  /// @since 7.2 </exception>
 	  VariableMap getVariablesLocalTyped(string executionId, bool deserializeValues);
@@ -1078,10 +1078,10 @@ namespace org.camunda.bpm.engine
 	  /// <exception cref="ProcessEngineException">
 	  ///          when no execution is found for the given executionId. </exception>
 	  /// <exception cref="AuthorizationException">
-	  ///          <li>if the user has no <seealso cref="Permissions#READ"/> permission on <seealso cref="Resources#PROCESS_INSTANCE"/> or
-	  ///          no <seealso cref="Permissions#READ_INSTANCE"/> permission on <seealso cref="Resources#PROCESS_DEFINITION"/></li>
-	  ///          <li> In case <seealso cref="ProcessEngineConfiguration#enforceSpecificVariablePermission this"/> config is enabled and
-	  ///          the user has no <seealso cref="ProcessDefinitionPermisions#READ_INSTANCE_VARIABLE"/> permission on <seealso cref="Resources#PROCESS_DEFINITION"/></li> </exception>
+	  ///          <li>if the user has no <seealso cref="Permissions.READ"/> permission on <seealso cref="Resources.PROCESS_INSTANCE"/> or
+	  ///          no <seealso cref="Permissions.READ_INSTANCE"/> permission on <seealso cref="Resources.PROCESS_DEFINITION"/></li>
+	  ///          <li> In case <seealso cref="ProcessEngineConfiguration.enforceSpecificVariablePermission this"/> config is enabled and
+	  ///          the user has no <seealso cref="ProcessDefinitionPermisions.READ_INSTANCE_VARIABLE"/> permission on <seealso cref="Resources.PROCESS_DEFINITION"/></li> </exception>
 	  IDictionary<string, object> getVariables(string executionId, ICollection<string> variableNames);
 
 	  /// <summary>
@@ -1095,10 +1095,10 @@ namespace org.camunda.bpm.engine
 	  /// <exception cref="ProcessEngineException">
 	  ///          when no execution is found for the given executionId. </exception>
 	  /// <exception cref="AuthorizationException">
-	  ///          <li>if the user has no <seealso cref="Permissions#READ"/> permission on <seealso cref="Resources#PROCESS_INSTANCE"/> or
-	  ///          no <seealso cref="Permissions#READ_INSTANCE"/> permission on <seealso cref="Resources#PROCESS_DEFINITION"/></li>
-	  ///          <li> In case <seealso cref="ProcessEngineConfiguration#enforceSpecificVariablePermission this"/> config is enabled and
-	  ///          the user has no <seealso cref="ProcessDefinitionPermisions#READ_INSTANCE_VARIABLE"/> permission on <seealso cref="Resources#PROCESS_DEFINITION"/></li>
+	  ///          <li>if the user has no <seealso cref="Permissions.READ"/> permission on <seealso cref="Resources.PROCESS_INSTANCE"/> or
+	  ///          no <seealso cref="Permissions.READ_INSTANCE"/> permission on <seealso cref="Resources.PROCESS_DEFINITION"/></li>
+	  ///          <li> In case <seealso cref="ProcessEngineConfiguration.enforceSpecificVariablePermission this"/> config is enabled and
+	  ///          the user has no <seealso cref="ProcessDefinitionPermisions.READ_INSTANCE_VARIABLE"/> permission on <seealso cref="Resources.PROCESS_DEFINITION"/></li>
 	  /// 
 	  /// @since 7.2
 	  ///  </exception>
@@ -1115,10 +1115,10 @@ namespace org.camunda.bpm.engine
 	  /// <exception cref="ProcessEngineException">
 	  ///          when no execution is found for the given executionId. </exception>
 	  /// <exception cref="AuthorizationException">
-	  ///          <li>if the user has no <seealso cref="Permissions#READ"/> permission on <seealso cref="Resources#PROCESS_INSTANCE"/> or
-	  ///          no <seealso cref="Permissions#READ_INSTANCE"/> permission on <seealso cref="Resources#PROCESS_DEFINITION"/></li>
-	  ///          <li> In case <seealso cref="ProcessEngineConfiguration#enforceSpecificVariablePermission this"/> config is enabled and
-	  ///          the user has no <seealso cref="ProcessDefinitionPermisions#READ_INSTANCE_VARIABLE"/> permission on <seealso cref="Resources#PROCESS_DEFINITION"/></li> </exception>
+	  ///          <li>if the user has no <seealso cref="Permissions.READ"/> permission on <seealso cref="Resources.PROCESS_INSTANCE"/> or
+	  ///          no <seealso cref="Permissions.READ_INSTANCE"/> permission on <seealso cref="Resources.PROCESS_DEFINITION"/></li>
+	  ///          <li> In case <seealso cref="ProcessEngineConfiguration.enforceSpecificVariablePermission this"/> config is enabled and
+	  ///          the user has no <seealso cref="ProcessDefinitionPermisions.READ_INSTANCE_VARIABLE"/> permission on <seealso cref="Resources.PROCESS_DEFINITION"/></li> </exception>
 	  IDictionary<string, object> getVariablesLocal(string executionId, ICollection<string> variableNames);
 
 	  /// <summary>
@@ -1132,10 +1132,10 @@ namespace org.camunda.bpm.engine
 	  /// <exception cref="ProcessEngineException">
 	  ///          when no execution is found for the given executionId. </exception>
 	  /// <exception cref="AuthorizationException">
-	  ///          <li>if the user has no <seealso cref="Permissions#READ"/> permission on <seealso cref="Resources#PROCESS_INSTANCE"/> or
-	  ///          no <seealso cref="Permissions#READ_INSTANCE"/> permission on <seealso cref="Resources#PROCESS_DEFINITION"/></li>
-	  ///          <li> In case <seealso cref="ProcessEngineConfiguration#enforceSpecificVariablePermission this"/> config is enabled and
-	  ///          the user has no <seealso cref="ProcessDefinitionPermisions#READ_INSTANCE_VARIABLE"/> permission on <seealso cref="Resources#PROCESS_DEFINITION"/></li>
+	  ///          <li>if the user has no <seealso cref="Permissions.READ"/> permission on <seealso cref="Resources.PROCESS_INSTANCE"/> or
+	  ///          no <seealso cref="Permissions.READ_INSTANCE"/> permission on <seealso cref="Resources.PROCESS_DEFINITION"/></li>
+	  ///          <li> In case <seealso cref="ProcessEngineConfiguration.enforceSpecificVariablePermission this"/> config is enabled and
+	  ///          the user has no <seealso cref="ProcessDefinitionPermisions.READ_INSTANCE_VARIABLE"/> permission on <seealso cref="Resources.PROCESS_DEFINITION"/></li>
 	  /// 
 	  /// @since 7.2
 	  ///  </exception>
@@ -1153,10 +1153,10 @@ namespace org.camunda.bpm.engine
 	  /// <exception cref="ProcessEngineException">
 	  ///          when no execution is found for the given executionId. </exception>
 	  /// <exception cref="AuthorizationException">
-	  ///          <li>if the user has no <seealso cref="Permissions#READ"/> permission on <seealso cref="Resources#PROCESS_INSTANCE"/> or
-	  ///          no <seealso cref="Permissions#READ_INSTANCE"/> permission on <seealso cref="Resources#PROCESS_DEFINITION"/></li>
-	  ///          <li> In case <seealso cref="ProcessEngineConfiguration#enforceSpecificVariablePermission this"/> config is enabled and
-	  ///          the user has no <seealso cref="ProcessDefinitionPermisions#READ_INSTANCE_VARIABLE"/> permission on <seealso cref="Resources#PROCESS_DEFINITION"/></li> </exception>
+	  ///          <li>if the user has no <seealso cref="Permissions.READ"/> permission on <seealso cref="Resources.PROCESS_INSTANCE"/> or
+	  ///          no <seealso cref="Permissions.READ_INSTANCE"/> permission on <seealso cref="Resources.PROCESS_DEFINITION"/></li>
+	  ///          <li> In case <seealso cref="ProcessEngineConfiguration.enforceSpecificVariablePermission this"/> config is enabled and
+	  ///          the user has no <seealso cref="ProcessDefinitionPermisions.READ_INSTANCE_VARIABLE"/> permission on <seealso cref="Resources.PROCESS_DEFINITION"/></li> </exception>
 	  object getVariable(string executionId, string variableName);
 
 	  /// <summary>
@@ -1171,10 +1171,10 @@ namespace org.camunda.bpm.engine
 	  /// <exception cref="ProcessEngineException">
 	  ///          when no execution is found for the given executionId. </exception>
 	  /// <exception cref="AuthorizationException">
-	  ///          <li>if the user has no <seealso cref="Permissions#READ"/> permission on <seealso cref="Resources#PROCESS_INSTANCE"/> or
-	  ///          no <seealso cref="Permissions#READ_INSTANCE"/> permission on <seealso cref="Resources#PROCESS_DEFINITION"/></li>
-	  ///          <li> In case <seealso cref="ProcessEngineConfiguration#enforceSpecificVariablePermission this"/> config is enabled and
-	  ///          the user has no <seealso cref="ProcessDefinitionPermisions#READ_INSTANCE_VARIABLE"/> permission on <seealso cref="Resources#PROCESS_DEFINITION"/></li>
+	  ///          <li>if the user has no <seealso cref="Permissions.READ"/> permission on <seealso cref="Resources.PROCESS_INSTANCE"/> or
+	  ///          no <seealso cref="Permissions.READ_INSTANCE"/> permission on <seealso cref="Resources.PROCESS_DEFINITION"/></li>
+	  ///          <li> In case <seealso cref="ProcessEngineConfiguration.enforceSpecificVariablePermission this"/> config is enabled and
+	  ///          the user has no <seealso cref="ProcessDefinitionPermisions.READ_INSTANCE_VARIABLE"/> permission on <seealso cref="Resources.PROCESS_DEFINITION"/></li>
 	  /// 
 	  /// @since 7.2
 	  ///  </exception>
@@ -1193,10 +1193,10 @@ namespace org.camunda.bpm.engine
 	  /// <exception cref="ProcessEngineException">
 	  ///          when no execution is found for the given executionId. </exception>
 	  /// <exception cref="AuthorizationException">
-	  ///          <li>if the user has no <seealso cref="Permissions#READ"/> permission on <seealso cref="Resources#PROCESS_INSTANCE"/> or
-	  ///          no <seealso cref="Permissions#READ_INSTANCE"/> permission on <seealso cref="Resources#PROCESS_DEFINITION"/></li>
-	  ///          <li> In case <seealso cref="ProcessEngineConfiguration#enforceSpecificVariablePermission this"/> config is enabled and
-	  ///          the user has no <seealso cref="ProcessDefinitionPermisions#READ_INSTANCE_VARIABLE"/> permission on <seealso cref="Resources#PROCESS_DEFINITION"/></li>
+	  ///          <li>if the user has no <seealso cref="Permissions.READ"/> permission on <seealso cref="Resources.PROCESS_INSTANCE"/> or
+	  ///          no <seealso cref="Permissions.READ_INSTANCE"/> permission on <seealso cref="Resources.PROCESS_DEFINITION"/></li>
+	  ///          <li> In case <seealso cref="ProcessEngineConfiguration.enforceSpecificVariablePermission this"/> config is enabled and
+	  ///          the user has no <seealso cref="ProcessDefinitionPermisions.READ_INSTANCE_VARIABLE"/> permission on <seealso cref="Resources.PROCESS_DEFINITION"/></li>
 	  /// 
 	  /// @since 7.2
 	  ///  </exception>
@@ -1214,10 +1214,10 @@ namespace org.camunda.bpm.engine
 	  /// <exception cref="ProcessEngineException">
 	  ///          when no execution is found for the given executionId. </exception>
 	  /// <exception cref="AuthorizationException">
-	  ///          <li>if the user has no <seealso cref="Permissions#READ"/> permission on <seealso cref="Resources#PROCESS_INSTANCE"/> or
-	  ///          no <seealso cref="Permissions#READ_INSTANCE"/> permission on <seealso cref="Resources#PROCESS_DEFINITION"/></li>
-	  ///          <li> In case <seealso cref="ProcessEngineConfiguration#enforceSpecificVariablePermission this"/> config is enabled and
-	  ///          the user has no <seealso cref="ProcessDefinitionPermisions#READ_INSTANCE_VARIABLE"/> permission on <seealso cref="Resources#PROCESS_DEFINITION"/></li> </exception>
+	  ///          <li>if the user has no <seealso cref="Permissions.READ"/> permission on <seealso cref="Resources.PROCESS_INSTANCE"/> or
+	  ///          no <seealso cref="Permissions.READ_INSTANCE"/> permission on <seealso cref="Resources.PROCESS_DEFINITION"/></li>
+	  ///          <li> In case <seealso cref="ProcessEngineConfiguration.enforceSpecificVariablePermission this"/> config is enabled and
+	  ///          the user has no <seealso cref="ProcessDefinitionPermisions.READ_INSTANCE_VARIABLE"/> permission on <seealso cref="Resources.PROCESS_DEFINITION"/></li> </exception>
 	  object getVariableLocal(string executionId, string variableName);
 
 	  /// <summary>
@@ -1232,10 +1232,10 @@ namespace org.camunda.bpm.engine
 	  /// <exception cref="ProcessEngineException">
 	  ///          when no execution is found for the given executionId. </exception>
 	  /// <exception cref="AuthorizationException">
-	  ///          <li>if the user has no <seealso cref="Permissions#READ"/> permission on <seealso cref="Resources#PROCESS_INSTANCE"/> or
-	  ///          no <seealso cref="Permissions#READ_INSTANCE"/> permission on <seealso cref="Resources#PROCESS_DEFINITION"/></li>
-	  ///          <li> In case <seealso cref="ProcessEngineConfiguration#enforceSpecificVariablePermission this"/> config is enabled and
-	  ///          the user has no <seealso cref="ProcessDefinitionPermisions#READ_INSTANCE_VARIABLE"/> permission on <seealso cref="Resources#PROCESS_DEFINITION"/></li>
+	  ///          <li>if the user has no <seealso cref="Permissions.READ"/> permission on <seealso cref="Resources.PROCESS_INSTANCE"/> or
+	  ///          no <seealso cref="Permissions.READ_INSTANCE"/> permission on <seealso cref="Resources.PROCESS_DEFINITION"/></li>
+	  ///          <li> In case <seealso cref="ProcessEngineConfiguration.enforceSpecificVariablePermission this"/> config is enabled and
+	  ///          the user has no <seealso cref="ProcessDefinitionPermisions.READ_INSTANCE_VARIABLE"/> permission on <seealso cref="Resources.PROCESS_DEFINITION"/></li>
 	  /// 
 	  /// @since 7.2
 	  ///  </exception>
@@ -1254,10 +1254,10 @@ namespace org.camunda.bpm.engine
 	  /// <exception cref="ProcessEngineException">
 	  ///          when no execution is found for the given executionId. </exception>
 	  /// <exception cref="AuthorizationException">
-	  ///          <li>if the user has no <seealso cref="Permissions#READ"/> permission on <seealso cref="Resources#PROCESS_INSTANCE"/> or
-	  ///          no <seealso cref="Permissions#READ_INSTANCE"/> permission on <seealso cref="Resources#PROCESS_DEFINITION"/></li>
-	  ///          <li> In case <seealso cref="ProcessEngineConfiguration#enforceSpecificVariablePermission this"/> config is enabled and
-	  ///          the user has no <seealso cref="ProcessDefinitionPermisions#READ_INSTANCE_VARIABLE"/> permission on <seealso cref="Resources#PROCESS_DEFINITION"/></li>
+	  ///          <li>if the user has no <seealso cref="Permissions.READ"/> permission on <seealso cref="Resources.PROCESS_INSTANCE"/> or
+	  ///          no <seealso cref="Permissions.READ_INSTANCE"/> permission on <seealso cref="Resources.PROCESS_DEFINITION"/></li>
+	  ///          <li> In case <seealso cref="ProcessEngineConfiguration.enforceSpecificVariablePermission this"/> config is enabled and
+	  ///          the user has no <seealso cref="ProcessDefinitionPermisions.READ_INSTANCE_VARIABLE"/> permission on <seealso cref="Resources.PROCESS_DEFINITION"/></li>
 	  /// 
 	  /// @since 7.2
 	  ///  </exception>
@@ -1277,10 +1277,10 @@ namespace org.camunda.bpm.engine
 	  ///          when no execution is found for the given executionId. </exception>
 	  /// <exception cref="AuthorizationException">
 	  ///          if the user has none of the following:
-	  ///          <li><seealso cref="ProcessInstancePermissions#UPDATE_VARIABLE"/> permission on <seealso cref="Resources#PROCESS_INSTANCE"/></li>
-	  ///          <li><seealso cref="ProcessDefinitionPermissions#UPDATE_INSTANCE_VARIABLE"/> permission on <seealso cref="Resources#PROCESS_DEFINITION"/></li>
-	  ///          <li><seealso cref="Permissions#UPDATE"/> permission on <seealso cref="Resources#PROCESS_INSTANCE"/></li>
-	  ///          <li><seealso cref="Permissions#UPDATE_INSTANCE"/> permission on <seealso cref="Resources#PROCESS_DEFINITION"/></li> </exception>
+	  ///          <li><seealso cref="ProcessInstancePermissions.UPDATE_VARIABLE"/> permission on <seealso cref="Resources.PROCESS_INSTANCE"/></li>
+	  ///          <li><seealso cref="ProcessDefinitionPermissions.UPDATE_INSTANCE_VARIABLE"/> permission on <seealso cref="Resources.PROCESS_DEFINITION"/></li>
+	  ///          <li><seealso cref="Permissions.UPDATE"/> permission on <seealso cref="Resources.PROCESS_INSTANCE"/></li>
+	  ///          <li><seealso cref="Permissions.UPDATE_INSTANCE"/> permission on <seealso cref="Resources.PROCESS_DEFINITION"/></li> </exception>
 	  void setVariable(string executionId, string variableName, object value);
 
 	  /// <summary>
@@ -1296,10 +1296,10 @@ namespace org.camunda.bpm.engine
 	  ///          when no execution is found for the given executionId. </exception>
 	  /// <exception cref="AuthorizationException">
 	  ///          if the user has none of the following:
-	  ///          <li><seealso cref="ProcessInstancePermissions#UPDATE_VARIABLE"/> permission on <seealso cref="Resources#PROCESS_INSTANCE"/></li>
-	  ///          <li><seealso cref="ProcessDefinitionPermissions#UPDATE_INSTANCE_VARIABLE"/> permission on <seealso cref="Resources#PROCESS_DEFINITION"/></li>
-	  ///          <li><seealso cref="Permissions#UPDATE"/> permission on <seealso cref="Resources#PROCESS_INSTANCE"/></li>
-	  ///          <li><seealso cref="Permissions#UPDATE_INSTANCE"/> permission on <seealso cref="Resources#PROCESS_DEFINITION"/></li> </exception>
+	  ///          <li><seealso cref="ProcessInstancePermissions.UPDATE_VARIABLE"/> permission on <seealso cref="Resources.PROCESS_INSTANCE"/></li>
+	  ///          <li><seealso cref="ProcessDefinitionPermissions.UPDATE_INSTANCE_VARIABLE"/> permission on <seealso cref="Resources.PROCESS_DEFINITION"/></li>
+	  ///          <li><seealso cref="Permissions.UPDATE"/> permission on <seealso cref="Resources.PROCESS_INSTANCE"/></li>
+	  ///          <li><seealso cref="Permissions.UPDATE_INSTANCE"/> permission on <seealso cref="Resources.PROCESS_DEFINITION"/></li> </exception>
 	  void setVariableLocal(string executionId, string variableName, object value);
 
 	  /// <summary>
@@ -1313,10 +1313,10 @@ namespace org.camunda.bpm.engine
 	  ///          when no execution is found for the given executionId. </exception>
 	  /// <exception cref="AuthorizationException">
 	  ///          if the user has none of the following:
-	  ///          <li><seealso cref="ProcessInstancePermissions#UPDATE_VARIABLE"/> permission on <seealso cref="Resources#PROCESS_INSTANCE"/></li>
-	  ///          <li><seealso cref="ProcessDefinitionPermissions#UPDATE_INSTANCE_VARIABLE"/> permission on <seealso cref="Resources#PROCESS_DEFINITION"/></li>
-	  ///          <li><seealso cref="Permissions#UPDATE"/> permission on <seealso cref="Resources#PROCESS_INSTANCE"/></li>
-	  ///          <li><seealso cref="Permissions#UPDATE_INSTANCE"/> permission on <seealso cref="Resources#PROCESS_DEFINITION"/></li> </exception>
+	  ///          <li><seealso cref="ProcessInstancePermissions.UPDATE_VARIABLE"/> permission on <seealso cref="Resources.PROCESS_INSTANCE"/></li>
+	  ///          <li><seealso cref="ProcessDefinitionPermissions.UPDATE_INSTANCE_VARIABLE"/> permission on <seealso cref="Resources.PROCESS_DEFINITION"/></li>
+	  ///          <li><seealso cref="Permissions.UPDATE"/> permission on <seealso cref="Resources.PROCESS_INSTANCE"/></li>
+	  ///          <li><seealso cref="Permissions.UPDATE_INSTANCE"/> permission on <seealso cref="Resources.PROCESS_DEFINITION"/></li> </exception>
 	  void setVariables<T1>(string executionId, IDictionary<T1> variables);
 
 	  /// <summary>
@@ -1329,10 +1329,10 @@ namespace org.camunda.bpm.engine
 	  ///          when no execution is found for the given executionId. </exception>
 	  /// <exception cref="AuthorizationException">
 	  ///          if the user has none of the following:
-	  ///          <li><seealso cref="ProcessInstancePermissions#UPDATE_VARIABLE"/> permission on <seealso cref="Resources#PROCESS_INSTANCE"/></li>
-	  ///          <li><seealso cref="ProcessDefinitionPermissions#UPDATE_INSTANCE_VARIABLE"/> permission on <seealso cref="Resources#PROCESS_DEFINITION"/></li>
-	  ///          <li><seealso cref="Permissions#UPDATE"/> permission on <seealso cref="Resources#PROCESS_INSTANCE"/></li>
-	  ///          <li><seealso cref="Permissions#UPDATE_INSTANCE"/> permission on <seealso cref="Resources#PROCESS_DEFINITION"/></li> </exception>
+	  ///          <li><seealso cref="ProcessInstancePermissions.UPDATE_VARIABLE"/> permission on <seealso cref="Resources.PROCESS_INSTANCE"/></li>
+	  ///          <li><seealso cref="ProcessDefinitionPermissions.UPDATE_INSTANCE_VARIABLE"/> permission on <seealso cref="Resources.PROCESS_DEFINITION"/></li>
+	  ///          <li><seealso cref="Permissions.UPDATE"/> permission on <seealso cref="Resources.PROCESS_INSTANCE"/></li>
+	  ///          <li><seealso cref="Permissions.UPDATE_INSTANCE"/> permission on <seealso cref="Resources.PROCESS_DEFINITION"/></li> </exception>
 	  void setVariablesLocal<T1>(string executionId, IDictionary<T1> variables);
 
 	  /// <summary>
@@ -1345,10 +1345,10 @@ namespace org.camunda.bpm.engine
 	  ///          when no execution is found for the given executionId. </exception>
 	  /// <exception cref="AuthorizationException">
 	  ///          if the user has none of the following:
-	  ///          <li><seealso cref="ProcessInstancePermissions#UPDATE_VARIABLE"/> permission on <seealso cref="Resources#PROCESS_INSTANCE"/></li>
-	  ///          <li><seealso cref="ProcessDefinitionPermissions#UPDATE_INSTANCE_VARIABLE"/> permission on <seealso cref="Resources#PROCESS_DEFINITION"/></li>
-	  ///          <li><seealso cref="Permissions#UPDATE"/> permission on <seealso cref="Resources#PROCESS_INSTANCE"/></li>
-	  ///          <li><seealso cref="Permissions#UPDATE_INSTANCE"/> permission on <seealso cref="Resources#PROCESS_DEFINITION"/></li> </exception>
+	  ///          <li><seealso cref="ProcessInstancePermissions.UPDATE_VARIABLE"/> permission on <seealso cref="Resources.PROCESS_INSTANCE"/></li>
+	  ///          <li><seealso cref="ProcessDefinitionPermissions.UPDATE_INSTANCE_VARIABLE"/> permission on <seealso cref="Resources.PROCESS_DEFINITION"/></li>
+	  ///          <li><seealso cref="Permissions.UPDATE"/> permission on <seealso cref="Resources.PROCESS_INSTANCE"/></li>
+	  ///          <li><seealso cref="Permissions.UPDATE_INSTANCE"/> permission on <seealso cref="Resources.PROCESS_DEFINITION"/></li> </exception>
 	  void removeVariable(string executionId, string variableName);
 
 	  /// <summary>
@@ -1361,10 +1361,10 @@ namespace org.camunda.bpm.engine
 	  ///          when no execution is found for the given executionId. </exception>
 	  /// <exception cref="AuthorizationException">
 	  ///          if the user has none of the following:
-	  ///          <li><seealso cref="ProcessInstancePermissions#UPDATE_VARIABLE"/> permission on <seealso cref="Resources#PROCESS_INSTANCE"/></li>
-	  ///          <li><seealso cref="ProcessDefinitionPermissions#UPDATE_INSTANCE_VARIABLE"/> permission on <seealso cref="Resources#PROCESS_DEFINITION"/></li>
-	  ///          <li><seealso cref="Permissions#UPDATE"/> permission on <seealso cref="Resources#PROCESS_INSTANCE"/></li>
-	  ///          <li><seealso cref="Permissions#UPDATE_INSTANCE"/> permission on <seealso cref="Resources#PROCESS_DEFINITION"/></li> </exception>
+	  ///          <li><seealso cref="ProcessInstancePermissions.UPDATE_VARIABLE"/> permission on <seealso cref="Resources.PROCESS_INSTANCE"/></li>
+	  ///          <li><seealso cref="ProcessDefinitionPermissions.UPDATE_INSTANCE_VARIABLE"/> permission on <seealso cref="Resources.PROCESS_DEFINITION"/></li>
+	  ///          <li><seealso cref="Permissions.UPDATE"/> permission on <seealso cref="Resources.PROCESS_INSTANCE"/></li>
+	  ///          <li><seealso cref="Permissions.UPDATE_INSTANCE"/> permission on <seealso cref="Resources.PROCESS_DEFINITION"/></li> </exception>
 	  void removeVariableLocal(string executionId, string variableName);
 
 	  /// <summary>
@@ -1377,10 +1377,10 @@ namespace org.camunda.bpm.engine
 	  ///          when no execution is found for the given executionId. </exception>
 	  /// <exception cref="AuthorizationException">
 	  ///          if the user has none of the following:
-	  ///          <li><seealso cref="ProcessInstancePermissions#UPDATE_VARIABLE"/> permission on <seealso cref="Resources#PROCESS_INSTANCE"/></li>
-	  ///          <li><seealso cref="ProcessDefinitionPermissions#UPDATE_INSTANCE_VARIABLE"/> permission on <seealso cref="Resources#PROCESS_DEFINITION"/></li>
-	  ///          <li><seealso cref="Permissions#UPDATE"/> permission on <seealso cref="Resources#PROCESS_INSTANCE"/></li>
-	  ///          <li><seealso cref="Permissions#UPDATE_INSTANCE"/> permission on <seealso cref="Resources#PROCESS_DEFINITION"/></li> </exception>
+	  ///          <li><seealso cref="ProcessInstancePermissions.UPDATE_VARIABLE"/> permission on <seealso cref="Resources.PROCESS_INSTANCE"/></li>
+	  ///          <li><seealso cref="ProcessDefinitionPermissions.UPDATE_INSTANCE_VARIABLE"/> permission on <seealso cref="Resources.PROCESS_DEFINITION"/></li>
+	  ///          <li><seealso cref="Permissions.UPDATE"/> permission on <seealso cref="Resources.PROCESS_INSTANCE"/></li>
+	  ///          <li><seealso cref="Permissions.UPDATE_INSTANCE"/> permission on <seealso cref="Resources.PROCESS_DEFINITION"/></li> </exception>
 	  void removeVariables(string executionId, ICollection<string> variableNames);
 
 	  /// <summary>
@@ -1393,10 +1393,10 @@ namespace org.camunda.bpm.engine
 	  ///          when no execution is found for the given executionId. </exception>
 	  /// <exception cref="AuthorizationException">
 	  ///          if the user has none of the following:
-	  ///          <li><seealso cref="ProcessInstancePermissions#UPDATE_VARIABLE"/> permission on <seealso cref="Resources#PROCESS_INSTANCE"/></li>
-	  ///          <li><seealso cref="ProcessDefinitionPermissions#UPDATE_INSTANCE_VARIABLE"/> permission on <seealso cref="Resources#PROCESS_DEFINITION"/></li>
-	  ///          <li><seealso cref="Permissions#UPDATE"/> permission on <seealso cref="Resources#PROCESS_INSTANCE"/></li>
-	  ///          <li><seealso cref="Permissions#UPDATE_INSTANCE"/> permission on <seealso cref="Resources#PROCESS_DEFINITION"/></li> </exception>
+	  ///          <li><seealso cref="ProcessInstancePermissions.UPDATE_VARIABLE"/> permission on <seealso cref="Resources.PROCESS_INSTANCE"/></li>
+	  ///          <li><seealso cref="ProcessDefinitionPermissions.UPDATE_INSTANCE_VARIABLE"/> permission on <seealso cref="Resources.PROCESS_DEFINITION"/></li>
+	  ///          <li><seealso cref="Permissions.UPDATE"/> permission on <seealso cref="Resources.PROCESS_INSTANCE"/></li>
+	  ///          <li><seealso cref="Permissions.UPDATE_INSTANCE"/> permission on <seealso cref="Resources.PROCESS_DEFINITION"/></li> </exception>
 	  void removeVariablesLocal(string executionId, ICollection<string> variableNames);
 
 	  // Queries ////////////////////////////////////////////////////////
@@ -1470,16 +1470,16 @@ namespace org.camunda.bpm.engine
 	  /// one process instance from the hierarchy will not suspend other
 	  /// process instances from that hierarchy.</para>
 	  /// 
-	  /// <para>Note: for more complex suspend commands use <seealso cref="#updateProcessInstanceSuspensionState()"/>.</para>
+	  /// <para>Note: for more complex suspend commands use <seealso cref="updateProcessInstanceSuspensionState()"/>.</para>
 	  /// </summary>
 	  /// <exception cref="ProcessEngineException">
 	  ///          if no such processInstance can be found. </exception>
 	  /// <exception cref="AuthorizationException">
 	  ///          if the user has none of the following:
-	  ///          <li><seealso cref="ProcessInstancePermissions#SUSPEND"/> permission on <seealso cref="Resources#PROCESS_INSTANCE"/></li>
-	  ///          <li><seealso cref="ProcessDefinitionPermissions#SUSPEND_INSTANCE"/> permission on <seealso cref="Resources#PROCESS_DEFINITION"/></li>
-	  ///          <li><seealso cref="Permissions#UPDATE"/> permission on <seealso cref="Resources#PROCESS_INSTANCE"/></li>
-	  ///          <li><seealso cref="Permissions#UPDATE_INSTANCE"/> permission on <seealso cref="Resources#PROCESS_DEFINITION"/></li> </exception>
+	  ///          <li><seealso cref="ProcessInstancePermissions.SUSPEND"/> permission on <seealso cref="Resources.PROCESS_INSTANCE"/></li>
+	  ///          <li><seealso cref="ProcessDefinitionPermissions.SUSPEND_INSTANCE"/> permission on <seealso cref="Resources.PROCESS_DEFINITION"/></li>
+	  ///          <li><seealso cref="Permissions.UPDATE"/> permission on <seealso cref="Resources.PROCESS_INSTANCE"/></li>
+	  ///          <li><seealso cref="Permissions.UPDATE_INSTANCE"/> permission on <seealso cref="Resources.PROCESS_DEFINITION"/></li> </exception>
 	  void suspendProcessInstanceById(string processInstanceId);
 
 	  /// <summary>
@@ -1507,16 +1507,16 @@ namespace org.camunda.bpm.engine
 	  /// one process instance from the hierarchy will not suspend other
 	  /// process instances from that hierarchy.</para>
 	  /// 
-	  /// <para>Note: for more complex suspend commands use <seealso cref="#updateProcessInstanceSuspensionState()"/>.</para>
+	  /// <para>Note: for more complex suspend commands use <seealso cref="updateProcessInstanceSuspensionState()"/>.</para>
 	  /// </summary>
 	  /// <exception cref="ProcessEngineException">
 	  ///          if no such processInstance can be found. </exception>
 	  /// <exception cref="AuthorizationException">
 	  ///          if the user has none of the following:
-	  ///          <li><seealso cref="ProcessInstancePermissions#SUSPEND"/> permission on <seealso cref="Resources#PROCESS_INSTANCE"/></li>
-	  ///          <li><seealso cref="ProcessDefinitionPermissions#SUSPEND_INSTANCE"/> permission on <seealso cref="Resources#PROCESS_DEFINITION"/></li>
-	  ///          <li><seealso cref="Permissions#UPDATE"/> permission on <seealso cref="Resources#PROCESS_INSTANCE"/></li>
-	  ///          <li><seealso cref="Permissions#UPDATE_INSTANCE"/> permission on <seealso cref="Resources#PROCESS_DEFINITION"/></li> </exception>
+	  ///          <li><seealso cref="ProcessInstancePermissions.SUSPEND"/> permission on <seealso cref="Resources.PROCESS_INSTANCE"/></li>
+	  ///          <li><seealso cref="ProcessDefinitionPermissions.SUSPEND_INSTANCE"/> permission on <seealso cref="Resources.PROCESS_DEFINITION"/></li>
+	  ///          <li><seealso cref="Permissions.UPDATE"/> permission on <seealso cref="Resources.PROCESS_INSTANCE"/></li>
+	  ///          <li><seealso cref="Permissions.UPDATE_INSTANCE"/> permission on <seealso cref="Resources.PROCESS_DEFINITION"/></li> </exception>
 	  void suspendProcessInstanceByProcessDefinitionId(string processDefinitionId);
 
 	  /// <summary>
@@ -1544,16 +1544,16 @@ namespace org.camunda.bpm.engine
 	  /// one process instance from the hierarchy will not suspend other
 	  /// process instances from that hierarchy.</para>
 	  /// 
-	  /// <para>Note: for more complex suspend commands use <seealso cref="#updateProcessInstanceSuspensionState()"/>.</para>
+	  /// <para>Note: for more complex suspend commands use <seealso cref="updateProcessInstanceSuspensionState()"/>.</para>
 	  /// </summary>
 	  /// <exception cref="ProcessEngineException">
 	  ///          if no such processInstance can be found. </exception>
 	  /// <exception cref="AuthorizationException">
 	  ///          if the user has none of the following:
-	  ///          <li><seealso cref="ProcessInstancePermissions#SUSPEND"/> permission on <seealso cref="Resources#PROCESS_INSTANCE"/></li>
-	  ///          <li><seealso cref="ProcessDefinitionPermissions#SUSPEND_INSTANCE"/> permission on <seealso cref="Resources#PROCESS_DEFINITION"/></li>
-	  ///          <li><seealso cref="Permissions#UPDATE"/> permission on <seealso cref="Resources#PROCESS_INSTANCE"/></li>
-	  ///          <li><seealso cref="Permissions#UPDATE_INSTANCE"/> permission on <seealso cref="Resources#PROCESS_DEFINITION"/></li> </exception>
+	  ///          <li><seealso cref="ProcessInstancePermissions.SUSPEND"/> permission on <seealso cref="Resources.PROCESS_INSTANCE"/></li>
+	  ///          <li><seealso cref="ProcessDefinitionPermissions.SUSPEND_INSTANCE"/> permission on <seealso cref="Resources.PROCESS_DEFINITION"/></li>
+	  ///          <li><seealso cref="Permissions.UPDATE"/> permission on <seealso cref="Resources.PROCESS_INSTANCE"/></li>
+	  ///          <li><seealso cref="Permissions.UPDATE_INSTANCE"/> permission on <seealso cref="Resources.PROCESS_DEFINITION"/></li> </exception>
 	  void suspendProcessInstanceByProcessDefinitionKey(string processDefinitionKey);
 
 	  /// <summary>
@@ -1563,16 +1563,16 @@ namespace org.camunda.bpm.engine
 	  /// one process instance from the hierarchy will not activate other
 	  /// process instances from that hierarchy.</para>
 	  /// 
-	  /// <para>Note: for more complex activate commands use <seealso cref="#updateProcessInstanceSuspensionState()"/>.</para>
+	  /// <para>Note: for more complex activate commands use <seealso cref="updateProcessInstanceSuspensionState()"/>.</para>
 	  /// </summary>
 	  /// <exception cref="ProcessEngineException">
 	  ///          if no such processInstance can be found. </exception>
 	  /// <exception cref="AuthorizationException">
 	  ///          if the user has none of the following:
-	  ///          <li><seealso cref="ProcessInstancePermissions#SUSPEND"/> permission on <seealso cref="Resources#PROCESS_INSTANCE"/></li>
-	  ///          <li><seealso cref="ProcessDefinitionPermissions#SUSPEND_INSTANCE"/> permission on <seealso cref="Resources#PROCESS_DEFINITION"/></li>
-	  ///          <li><seealso cref="Permissions#UPDATE"/> permission on <seealso cref="Resources#PROCESS_INSTANCE"/></li>
-	  ///          <li><seealso cref="Permissions#UPDATE_INSTANCE"/> permission on <seealso cref="Resources#PROCESS_DEFINITION"/></li> </exception>
+	  ///          <li><seealso cref="ProcessInstancePermissions.SUSPEND"/> permission on <seealso cref="Resources.PROCESS_INSTANCE"/></li>
+	  ///          <li><seealso cref="ProcessDefinitionPermissions.SUSPEND_INSTANCE"/> permission on <seealso cref="Resources.PROCESS_DEFINITION"/></li>
+	  ///          <li><seealso cref="Permissions.UPDATE"/> permission on <seealso cref="Resources.PROCESS_INSTANCE"/></li>
+	  ///          <li><seealso cref="Permissions.UPDATE_INSTANCE"/> permission on <seealso cref="Resources.PROCESS_DEFINITION"/></li> </exception>
 	  void activateProcessInstanceById(string processInstanceId);
 
 	  /// <summary>
@@ -1582,16 +1582,16 @@ namespace org.camunda.bpm.engine
 	  /// one process instance from the hierarchy will not activate other
 	  /// process instances from that hierarchy.</para>
 	  /// 
-	  /// <para>Note: for more complex activate commands use <seealso cref="#updateProcessInstanceSuspensionState()"/>.</para>
+	  /// <para>Note: for more complex activate commands use <seealso cref="updateProcessInstanceSuspensionState()"/>.</para>
 	  /// </summary>
 	  /// <exception cref="ProcessEngineException">
 	  ///          if the process definition id is null </exception>
 	  /// <exception cref="AuthorizationException">
 	  ///          if the user has none of the following:
-	  ///          <li><seealso cref="ProcessInstancePermissions#SUSPEND"/> permission on <seealso cref="Resources#PROCESS_INSTANCE"/></li>
-	  ///          <li><seealso cref="ProcessDefinitionPermissions#SUSPEND_INSTANCE"/> permission on <seealso cref="Resources#PROCESS_DEFINITION"/></li>
-	  ///          <li><seealso cref="Permissions#UPDATE"/> permission on <seealso cref="Resources#PROCESS_INSTANCE"/></li>
-	  ///          <li><seealso cref="Permissions#UPDATE_INSTANCE"/> permission on <seealso cref="Resources#PROCESS_DEFINITION"/></li> </exception>
+	  ///          <li><seealso cref="ProcessInstancePermissions.SUSPEND"/> permission on <seealso cref="Resources.PROCESS_INSTANCE"/></li>
+	  ///          <li><seealso cref="ProcessDefinitionPermissions.SUSPEND_INSTANCE"/> permission on <seealso cref="Resources.PROCESS_DEFINITION"/></li>
+	  ///          <li><seealso cref="Permissions.UPDATE"/> permission on <seealso cref="Resources.PROCESS_INSTANCE"/></li>
+	  ///          <li><seealso cref="Permissions.UPDATE_INSTANCE"/> permission on <seealso cref="Resources.PROCESS_DEFINITION"/></li> </exception>
 	  void activateProcessInstanceByProcessDefinitionId(string processDefinitionId);
 
 	  /// <summary>
@@ -1601,24 +1601,24 @@ namespace org.camunda.bpm.engine
 	  /// one process instance from the hierarchy will not activate other
 	  /// process instances from that hierarchy.</para>
 	  /// 
-	  /// <para>Note: for more complex activate commands use <seealso cref="#updateProcessInstanceSuspensionState()"/>.</para>
+	  /// <para>Note: for more complex activate commands use <seealso cref="updateProcessInstanceSuspensionState()"/>.</para>
 	  /// </summary>
 	  /// <exception cref="ProcessEngineException">
 	  ///          if the process definition id is null </exception>
 	  /// <exception cref="AuthorizationException">
 	  ///          if the user has none of the following:
-	  ///          <li><seealso cref="ProcessInstancePermissions#SUSPEND"/> permission on <seealso cref="Resources#PROCESS_INSTANCE"/></li>
-	  ///          <li><seealso cref="ProcessDefinitionPermissions#SUSPEND_INSTANCE"/> permission on <seealso cref="Resources#PROCESS_DEFINITION"/></li>
-	  ///          <li><seealso cref="Permissions#UPDATE"/> permission on <seealso cref="Resources#PROCESS_INSTANCE"/></li>
-	  ///          <li><seealso cref="Permissions#UPDATE_INSTANCE"/> permission on <seealso cref="Resources#PROCESS_DEFINITION"/></li> </exception>
+	  ///          <li><seealso cref="ProcessInstancePermissions.SUSPEND"/> permission on <seealso cref="Resources.PROCESS_INSTANCE"/></li>
+	  ///          <li><seealso cref="ProcessDefinitionPermissions.SUSPEND_INSTANCE"/> permission on <seealso cref="Resources.PROCESS_DEFINITION"/></li>
+	  ///          <li><seealso cref="Permissions.UPDATE"/> permission on <seealso cref="Resources.PROCESS_INSTANCE"/></li>
+	  ///          <li><seealso cref="Permissions.UPDATE_INSTANCE"/> permission on <seealso cref="Resources.PROCESS_DEFINITION"/></li> </exception>
 	  void activateProcessInstanceByProcessDefinitionKey(string processDefinitionKey);
 
 	  /// <summary>
 	  /// Activate or suspend process instances using a fluent builder. Specify the
 	  /// instances by calling one of the <i>by</i> methods, like
 	  /// <i>byProcessInstanceId</i>. To update the suspension state call
-	  /// <seealso cref="UpdateProcessInstanceSuspensionStateBuilder#activate()"/> or
-	  /// <seealso cref="UpdateProcessInstanceSuspensionStateBuilder#suspend()"/>.
+	  /// <seealso cref="UpdateProcessInstanceSuspensionStateBuilder.activate()"/> or
+	  /// <seealso cref="UpdateProcessInstanceSuspensionStateBuilder.suspend()"/>.
 	  /// </summary>
 	  /// <returns> the builder to update the suspension state </returns>
 	  UpdateProcessInstanceSuspensionStateSelectBuilder updateProcessInstanceSuspensionState();
@@ -1636,10 +1636,10 @@ namespace org.camunda.bpm.engine
 	  ///          the name of the signal event
 	  /// </param>
 	  /// <exception cref="AuthorizationException">
-	  ///          <li>if notify an execution and the user has no <seealso cref="Permissions#UPDATE"/> permission on <seealso cref="Resources#PROCESS_INSTANCE"/>
-	  ///          or no <seealso cref="Permissions#UPDATE_INSTANCE"/> permission on <seealso cref="Resources#PROCESS_DEFINITION"/>.</li>
-	  ///          <li>if start a new process instance and the user has no <seealso cref="Permissions#CREATE"/> permission on <seealso cref="Resources#PROCESS_INSTANCE"/>
-	  ///          and no <seealso cref="Permissions#CREATE_INSTANCE"/> permission on <seealso cref="Resources#PROCESS_DEFINITION"/>.</li> </exception>
+	  ///          <li>if notify an execution and the user has no <seealso cref="Permissions.UPDATE"/> permission on <seealso cref="Resources.PROCESS_INSTANCE"/>
+	  ///          or no <seealso cref="Permissions.UPDATE_INSTANCE"/> permission on <seealso cref="Resources.PROCESS_DEFINITION"/>.</li>
+	  ///          <li>if start a new process instance and the user has no <seealso cref="Permissions.CREATE"/> permission on <seealso cref="Resources.PROCESS_INSTANCE"/>
+	  ///          and no <seealso cref="Permissions.CREATE_INSTANCE"/> permission on <seealso cref="Resources.PROCESS_DEFINITION"/>.</li> </exception>
 	  void signalEventReceived(string signalName);
 
 	  /// <summary>
@@ -1655,10 +1655,10 @@ namespace org.camunda.bpm.engine
 	  ///          a map of variables added to the execution(s)
 	  /// </param>
 	  /// <exception cref="AuthorizationException">
-	  ///          <li>if notify an execution and the user has no <seealso cref="Permissions#UPDATE"/> permission on <seealso cref="Resources#PROCESS_INSTANCE"/>
-	  ///          or no <seealso cref="Permissions#UPDATE_INSTANCE"/> permission on <seealso cref="Resources#PROCESS_DEFINITION"/>.</li>
-	  ///          <li>if start a new process instance and the user has no <seealso cref="Permissions#CREATE"/> permission on <seealso cref="Resources#PROCESS_INSTANCE"/>
-	  ///          and no <seealso cref="Permissions#CREATE_INSTANCE"/> permission on <seealso cref="Resources#PROCESS_DEFINITION"/>.</li> </exception>
+	  ///          <li>if notify an execution and the user has no <seealso cref="Permissions.UPDATE"/> permission on <seealso cref="Resources.PROCESS_INSTANCE"/>
+	  ///          or no <seealso cref="Permissions.UPDATE_INSTANCE"/> permission on <seealso cref="Resources.PROCESS_DEFINITION"/>.</li>
+	  ///          <li>if start a new process instance and the user has no <seealso cref="Permissions.CREATE"/> permission on <seealso cref="Resources.PROCESS_INSTANCE"/>
+	  ///          and no <seealso cref="Permissions.CREATE_INSTANCE"/> permission on <seealso cref="Resources.PROCESS_DEFINITION"/>.</li> </exception>
 	  void signalEventReceived(string signalName, IDictionary<string, object> processVariables);
 
 	  /// <summary>
@@ -1679,8 +1679,8 @@ namespace org.camunda.bpm.engine
 	  ///          if no such execution exists or if the execution
 	  ///          has not subscribed to the signal </exception>
 	  /// <exception cref="AuthorizationException">
-	  ///          if the user has no <seealso cref="Permissions#UPDATE"/> permission on <seealso cref="Resources#PROCESS_INSTANCE"/>
-	  ///          or no <seealso cref="Permissions#UPDATE_INSTANCE"/> permission on <seealso cref="Resources#PROCESS_DEFINITION"/>. </exception>
+	  ///          if the user has no <seealso cref="Permissions.UPDATE"/> permission on <seealso cref="Resources.PROCESS_INSTANCE"/>
+	  ///          or no <seealso cref="Permissions.UPDATE_INSTANCE"/> permission on <seealso cref="Resources.PROCESS_DEFINITION"/>. </exception>
 	  void signalEventReceived(string signalName, string executionId);
 
 	  /// <summary>
@@ -1703,8 +1703,8 @@ namespace org.camunda.bpm.engine
 	  ///          if no such execution exists or if the execution
 	  ///          has not subscribed to the signal </exception>
 	  /// <exception cref="AuthorizationException">
-	  ///          if the user has no <seealso cref="Permissions#UPDATE"/> permission on <seealso cref="Resources#PROCESS_INSTANCE"/>
-	  ///          or no <seealso cref="Permissions#UPDATE_INSTANCE"/> permission on <seealso cref="Resources#PROCESS_DEFINITION"/>. </exception>
+	  ///          if the user has no <seealso cref="Permissions.UPDATE"/> permission on <seealso cref="Resources.PROCESS_INSTANCE"/>
+	  ///          or no <seealso cref="Permissions.UPDATE_INSTANCE"/> permission on <seealso cref="Resources.PROCESS_DEFINITION"/>. </exception>
 	  void signalEventReceived(string signalName, string executionId, IDictionary<string, object> processVariables);
 
 	  /// <summary>
@@ -1734,8 +1734,8 @@ namespace org.camunda.bpm.engine
 	  ///          if no such execution exists or if the execution
 	  ///          has not subscribed to the signal </exception>
 	  /// <exception cref="AuthorizationException">
-	  ///          if the user has no <seealso cref="Permissions#UPDATE"/> permission on <seealso cref="Resources#PROCESS_INSTANCE"/>
-	  ///          or no <seealso cref="Permissions#UPDATE_INSTANCE"/> permission on <seealso cref="Resources#PROCESS_DEFINITION"/>. </exception>
+	  ///          if the user has no <seealso cref="Permissions.UPDATE"/> permission on <seealso cref="Resources.PROCESS_INSTANCE"/>
+	  ///          or no <seealso cref="Permissions.UPDATE_INSTANCE"/> permission on <seealso cref="Resources.PROCESS_DEFINITION"/>. </exception>
 	  void messageEventReceived(string messageName, string executionId);
 
 	  /// <summary>
@@ -1758,8 +1758,8 @@ namespace org.camunda.bpm.engine
 	  ///          if no such execution exists or if the execution
 	  ///          has not subscribed to the signal </exception>
 	  /// <exception cref="AuthorizationException">
-	  ///          if the user has no <seealso cref="Permissions#UPDATE"/> permission on <seealso cref="Resources#PROCESS_INSTANCE"/>
-	  ///          or no <seealso cref="Permissions#UPDATE_INSTANCE"/> permission on <seealso cref="Resources#PROCESS_DEFINITION"/>. </exception>
+	  ///          if the user has no <seealso cref="Permissions.UPDATE"/> permission on <seealso cref="Resources.PROCESS_INSTANCE"/>
+	  ///          or no <seealso cref="Permissions.UPDATE_INSTANCE"/> permission on <seealso cref="Resources.PROCESS_DEFINITION"/>. </exception>
 	  void messageEventReceived(string messageName, string executionId, IDictionary<string, object> processVariables);
 
 	  /// <summary>
@@ -1786,8 +1786,8 @@ namespace org.camunda.bpm.engine
 	  /// <exception cref="ProcessEngineException">
 	  ///          if messageName is null </exception>
 	  /// <exception cref="AuthorizationException">
-	  ///          if the user has no <seealso cref="Permissions#UPDATE"/> permission on <seealso cref="Resources#PROCESS_INSTANCE"/>
-	  ///          or no <seealso cref="Permissions#UPDATE_INSTANCE"/> permission on <seealso cref="Resources#PROCESS_DEFINITION"/>. </exception>
+	  ///          if the user has no <seealso cref="Permissions.UPDATE"/> permission on <seealso cref="Resources.PROCESS_INSTANCE"/>
+	  ///          or no <seealso cref="Permissions.UPDATE_INSTANCE"/> permission on <seealso cref="Resources.PROCESS_DEFINITION"/>. </exception>
 	  void correlateMessage(string messageName);
 
 	  /// <summary>
@@ -1813,8 +1813,8 @@ namespace org.camunda.bpm.engine
 	  /// <exception cref="ProcessEngineException">
 	  ///          if messageName is null and businessKey is null </exception>
 	  /// <exception cref="AuthorizationException">
-	  ///          if the user has no <seealso cref="Permissions#UPDATE"/> permission on <seealso cref="Resources#PROCESS_INSTANCE"/>
-	  ///          or no <seealso cref="Permissions#UPDATE_INSTANCE"/> permission on <seealso cref="Resources#PROCESS_DEFINITION"/>. </exception>
+	  ///          if the user has no <seealso cref="Permissions.UPDATE"/> permission on <seealso cref="Resources.PROCESS_INSTANCE"/>
+	  ///          or no <seealso cref="Permissions.UPDATE_INSTANCE"/> permission on <seealso cref="Resources.PROCESS_DEFINITION"/>. </exception>
 	  void correlateMessage(string messageName, string businessKey);
 
 	  /// <summary>
@@ -1841,8 +1841,8 @@ namespace org.camunda.bpm.engine
 	  /// <exception cref="ProcessEngineException">
 	  ///          if messageName is null and correlationKeys is null </exception>
 	  /// <exception cref="AuthorizationException">
-	  ///          if the user has no <seealso cref="Permissions#UPDATE"/> permission on <seealso cref="Resources#PROCESS_INSTANCE"/>
-	  ///          or no <seealso cref="Permissions#UPDATE_INSTANCE"/> permission on <seealso cref="Resources#PROCESS_DEFINITION"/>. </exception>
+	  ///          if the user has no <seealso cref="Permissions.UPDATE"/> permission on <seealso cref="Resources.PROCESS_INSTANCE"/>
+	  ///          or no <seealso cref="Permissions.UPDATE_INSTANCE"/> permission on <seealso cref="Resources.PROCESS_DEFINITION"/>. </exception>
 	  void correlateMessage(string messageName, IDictionary<string, object> correlationKeys);
 
 	  /// <summary>
@@ -1871,8 +1871,8 @@ namespace org.camunda.bpm.engine
 	  /// <exception cref="ProcessEngineException">
 	  ///          if messageName is null and businessKey is null </exception>
 	  /// <exception cref="AuthorizationException">
-	  ///          if the user has no <seealso cref="Permissions#UPDATE"/> permission on <seealso cref="Resources#PROCESS_INSTANCE"/>
-	  ///          or no <seealso cref="Permissions#UPDATE_INSTANCE"/> permission on <seealso cref="Resources#PROCESS_DEFINITION"/>. </exception>
+	  ///          if the user has no <seealso cref="Permissions.UPDATE"/> permission on <seealso cref="Resources.PROCESS_INSTANCE"/>
+	  ///          or no <seealso cref="Permissions.UPDATE_INSTANCE"/> permission on <seealso cref="Resources.PROCESS_DEFINITION"/>. </exception>
 	  void correlateMessage(string messageName, string businessKey, IDictionary<string, object> processVariables);
 
 	  /// <summary>
@@ -1902,8 +1902,8 @@ namespace org.camunda.bpm.engine
 	  /// <exception cref="ProcessEngineException">
 	  ///          if messageName is null and correlationKeys is null </exception>
 	  /// <exception cref="AuthorizationException">
-	  ///          if the user has no <seealso cref="Permissions#UPDATE"/> permission on <seealso cref="Resources#PROCESS_INSTANCE"/>
-	  ///          or no <seealso cref="Permissions#UPDATE_INSTANCE"/> permission on <seealso cref="Resources#PROCESS_DEFINITION"/>. </exception>
+	  ///          if the user has no <seealso cref="Permissions.UPDATE"/> permission on <seealso cref="Resources.PROCESS_INSTANCE"/>
+	  ///          or no <seealso cref="Permissions.UPDATE_INSTANCE"/> permission on <seealso cref="Resources.PROCESS_DEFINITION"/>. </exception>
 	  void correlateMessage(string messageName, IDictionary<string, object> correlationKeys, IDictionary<string, object> processVariables);
 
 	  /// <summary>
@@ -1936,8 +1936,8 @@ namespace org.camunda.bpm.engine
 	  /// <exception cref="ProcessEngineException">
 	  ///          if messageName is null and businessKey is null and correlationKeys is null </exception>
 	  /// <exception cref="AuthorizationException">
-	  ///          if the user has no <seealso cref="Permissions#UPDATE"/> permission on <seealso cref="Resources#PROCESS_INSTANCE"/>
-	  ///          or no <seealso cref="Permissions#UPDATE_INSTANCE"/> permission on <seealso cref="Resources#PROCESS_DEFINITION"/>. </exception>
+	  ///          if the user has no <seealso cref="Permissions.UPDATE"/> permission on <seealso cref="Resources.PROCESS_INSTANCE"/>
+	  ///          or no <seealso cref="Permissions.UPDATE_INSTANCE"/> permission on <seealso cref="Resources.PROCESS_DEFINITION"/>. </exception>
 	  void correlateMessage(string messageName, string businessKey, IDictionary<string, object> correlationKeys, IDictionary<string, object> processVariables);
 
 	  /// <summary>
@@ -2029,9 +2029,9 @@ namespace org.camunda.bpm.engine
 	  /// <exception cref="AuthorizationException">
 	  ///          if the user has not all of the following permissions
 	  ///     <ul>
-	  ///       <li><seealso cref="Permissions#CREATE"/> permission on <seealso cref="Resources#PROCESS_INSTANCE"/></li>
-	  ///       <li><seealso cref="Permissions#CREATE_INSTANCE"/> permission on <seealso cref="Resources#PROCESS_DEFINITION"/></li>
-	  ///       <li><seealso cref="Permissions#READ_HISTORY"/> permission on <seealso cref="Resources#PROCESS_DEFINITION"/></li>
+	  ///       <li><seealso cref="Permissions.CREATE"/> permission on <seealso cref="Resources.PROCESS_INSTANCE"/></li>
+	  ///       <li><seealso cref="Permissions.CREATE_INSTANCE"/> permission on <seealso cref="Resources.PROCESS_DEFINITION"/></li>
+	  ///       <li><seealso cref="Permissions.READ_HISTORY"/> permission on <seealso cref="Resources.PROCESS_DEFINITION"/></li>
 	  ///     </ul> </exception>
 	  RestartProcessInstanceBuilder restartProcessInstances(string processDefinitionId);
 
@@ -2045,8 +2045,8 @@ namespace org.camunda.bpm.engine
 	  /// <returns> a new incident
 	  /// </returns>
 	  /// <exception cref="AuthorizationException">
-	  ///          if the user has no <seealso cref="Permissions#UPDATE"/> permission on <seealso cref="Resources#PROCESS_INSTANCE"/>
-	  ///          and no <seealso cref="Permissions#UPDATE_INSTANCE"/> permission on <seealso cref="Resources#PROCESS_DEFINITION"/>. </exception>
+	  ///          if the user has no <seealso cref="Permissions.UPDATE"/> permission on <seealso cref="Resources.PROCESS_INSTANCE"/>
+	  ///          and no <seealso cref="Permissions.UPDATE_INSTANCE"/> permission on <seealso cref="Resources.PROCESS_DEFINITION"/>. </exception>
 	  Incident createIncident(string incidentType, string executionId, string configuration);
 
 	  /// <summary>
@@ -2060,8 +2060,8 @@ namespace org.camunda.bpm.engine
 	  /// <returns> a new incident
 	  /// </returns>
 	  /// <exception cref="AuthorizationException">
-	  ///          if the user has no <seealso cref="Permissions#UPDATE"/> permission on <seealso cref="Resources#PROCESS_INSTANCE"/>
-	  ///          and no <seealso cref="Permissions#UPDATE_INSTANCE"/> permission on <seealso cref="Resources#PROCESS_DEFINITION"/>. </exception>
+	  ///          if the user has no <seealso cref="Permissions.UPDATE"/> permission on <seealso cref="Resources.PROCESS_INSTANCE"/>
+	  ///          and no <seealso cref="Permissions.UPDATE_INSTANCE"/> permission on <seealso cref="Resources.PROCESS_DEFINITION"/>. </exception>
 	  Incident createIncident(string incidentType, string executionId, string configuration, string message);
 
 	  /// <summary>
@@ -2070,8 +2070,8 @@ namespace org.camunda.bpm.engine
 	  /// <param name="incidentId"> the id of an incident to resolve
 	  /// </param>
 	  /// <exception cref="AuthorizationException">
-	  ///          if the user has no <seealso cref="Permissions#UPDATE"/> permission on <seealso cref="Resources#PROCESS_INSTANCE"/>
-	  ///          and no <seealso cref="Permissions#UPDATE_INSTANCE"/> permission on <seealso cref="Resources#PROCESS_DEFINITION"/>. </exception>
+	  ///          if the user has no <seealso cref="Permissions.UPDATE"/> permission on <seealso cref="Resources.PROCESS_INSTANCE"/>
+	  ///          and no <seealso cref="Permissions.UPDATE_INSTANCE"/> permission on <seealso cref="Resources.PROCESS_DEFINITION"/>. </exception>
 	  void resolveIncident(string incidentId);
 
 	  /// <summary>

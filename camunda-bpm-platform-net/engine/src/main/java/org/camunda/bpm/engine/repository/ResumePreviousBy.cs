@@ -20,7 +20,7 @@ namespace org.camunda.bpm.engine.repository
 {
 
 	/// <summary>
-	/// Contains the constants for the possible values the property <seealso cref="ProcessApplicationDeploymentBuilder#resumePreviousVersionsBy(String)"/>.
+	/// Contains the constants for the possible values the property <seealso cref="ProcessApplicationDeploymentBuilder.resumePreviousVersionsBy(string)"/>.
 	/// </summary>
 	public sealed class ResumePreviousBy
 	{

@@ -36,14 +36,14 @@ namespace org.camunda.bpm.engine
 	  /// Creates a new task filter.
 	  /// </summary>
 	  /// <returns> a new task filter </returns>
-	  /// <exception cref="AuthorizationException"> if the user has no <seealso cref="Permissions#CREATE"/> permissions on <seealso cref="Resources#FILTER"/>. </exception>
+	  /// <exception cref="AuthorizationException"> if the user has no <seealso cref="Permissions.CREATE"/> permissions on <seealso cref="Resources.FILTER"/>. </exception>
 	  Filter newTaskFilter();
 
 	  /// <summary>
 	  /// Creates a new task filter with a given name.
 	  /// </summary>
 	  /// <returns> a new task filter with a name </returns>
-	  /// <exception cref="AuthorizationException"> if the user has no <seealso cref="Permissions#CREATE"/> permissions on <seealso cref="Resources#FILTER"/>. </exception>
+	  /// <exception cref="AuthorizationException"> if the user has no <seealso cref="Permissions.CREATE"/> permissions on <seealso cref="Resources.FILTER"/>. </exception>
 	  Filter newTaskFilter(string filterName);
 
 	  /// <summary>
@@ -64,8 +64,8 @@ namespace org.camunda.bpm.engine
 	  /// </summary>
 	  /// <param name="filter"> the filter to save </param>
 	  /// <returns> return the saved filter </returns>
-	  /// <exception cref="AuthorizationException"> if the user has no <seealso cref="Permissions#CREATE"/> permissions on <seealso cref="Resources#FILTER"/> (save new filter)
-	  /// or if user has no <seealso cref="Permissions#UPDATE"/> permissions on <seealso cref="Resources#FILTER"/> (update existing filter). </exception>
+	  /// <exception cref="AuthorizationException"> if the user has no <seealso cref="Permissions.CREATE"/> permissions on <seealso cref="Resources.FILTER"/> (save new filter)
+	  /// or if user has no <seealso cref="Permissions.UPDATE"/> permissions on <seealso cref="Resources.FILTER"/> (update existing filter). </exception>
 	  /// <exception cref="BadUserRequestException">
 	  ///  <ul><li>When the filter query uses expressions and expression evaluation is deactivated for stored queries.
 	  ///  Expression evaluation can be activated by setting the process engine configuration properties
@@ -78,14 +78,14 @@ namespace org.camunda.bpm.engine
 	  /// </summary>
 	  /// <param name="filterId"> the id of the filter </param>
 	  /// <returns> the filter </returns>
-	  /// <exception cref="AuthorizationException"> if the user has no <seealso cref="Permissions#READ"/> permissions on <seealso cref="Resources#FILTER"/>. </exception>
+	  /// <exception cref="AuthorizationException"> if the user has no <seealso cref="Permissions.READ"/> permissions on <seealso cref="Resources.FILTER"/>. </exception>
 	  Filter getFilter(string filterId);
 
 	  /// <summary>
 	  /// Deletes a filter by its id.
 	  /// </summary>
 	  /// <param name="filterId"> the id of the filter </param>
-	  /// <exception cref="AuthorizationException"> if the user has no <seealso cref="Permissions#DELETE"/> permissions on <seealso cref="Resources#FILTER"/>. </exception>
+	  /// <exception cref="AuthorizationException"> if the user has no <seealso cref="Permissions.DELETE"/> permissions on <seealso cref="Resources.FILTER"/>. </exception>
 	  void deleteFilter(string filterId);
 
 	  /// <summary>
@@ -93,7 +93,7 @@ namespace org.camunda.bpm.engine
 	  /// </summary>
 	  /// <param name="filterId"> the the id of the filter </param>
 	  /// <returns> the query result as list </returns>
-	  /// <exception cref="AuthorizationException"> if the user has no <seealso cref="Permissions#READ"/> permissions on <seealso cref="Resources#FILTER"/>. </exception>
+	  /// <exception cref="AuthorizationException"> if the user has no <seealso cref="Permissions.READ"/> permissions on <seealso cref="Resources.FILTER"/>. </exception>
 	  /// <exception cref="BadUserRequestException">
 	  ///   <ul><li>When the filter query uses expressions and expression evaluation is deactivated for stored queries.
 	  ///  Expression evaluation can be activated by setting the process engine configuration properties
@@ -107,7 +107,7 @@ namespace org.camunda.bpm.engine
 	  /// <param name="filterId"> the id of the filter </param>
 	  /// <param name="extendingQuery"> additional query to extend the filter query </param>
 	  /// <returns> the query result as list </returns>
-	  /// <exception cref="AuthorizationException"> if the user has no <seealso cref="Permissions#READ"/> permissions on <seealso cref="Resources#FILTER"/>. </exception>
+	  /// <exception cref="AuthorizationException"> if the user has no <seealso cref="Permissions.READ"/> permissions on <seealso cref="Resources.FILTER"/>. </exception>
 	  /// <exception cref="BadUserRequestException">
 	  ///   <ul><li>When the filter query uses expressions and expression evaluation is deactivated for stored queries.
 	  ///   <li>When the extending query uses expressions and expression evaluation is deactivated for adhoc queries.
@@ -125,7 +125,7 @@ namespace org.camunda.bpm.engine
 	  /// <param name="firstResult"> first result to select </param>
 	  /// <param name="maxResults"> maximal number of results </param>
 	  /// <returns> the query result as list </returns>
-	  /// <exception cref="AuthorizationException"> if the user has no <seealso cref="Permissions#READ"/> permissions on <seealso cref="Resources#FILTER"/>. </exception>
+	  /// <exception cref="AuthorizationException"> if the user has no <seealso cref="Permissions.READ"/> permissions on <seealso cref="Resources.FILTER"/>. </exception>
 	  /// <exception cref="BadUserRequestException">
 	  ///  <ul><li>When the filter query uses expressions and expression evaluation is deactivated for stored queries.
 	  ///  Expression evaluation can be activated by setting the process engine configuration properties
@@ -141,7 +141,7 @@ namespace org.camunda.bpm.engine
 	  /// <param name="firstResult"> first result to select </param>
 	  /// <param name="maxResults"> maximal number of results </param>
 	  /// <returns> the query result as list </returns>
-	  /// <exception cref="AuthorizationException"> if the user has no <seealso cref="Permissions#READ"/> permissions on <seealso cref="Resources#FILTER"/>. </exception>
+	  /// <exception cref="AuthorizationException"> if the user has no <seealso cref="Permissions.READ"/> permissions on <seealso cref="Resources.FILTER"/>. </exception>
 	  /// <exception cref="BadUserRequestException">
 	  ///  <ul><li>When the filter query uses expressions and expression evaluation is deactivated for stored queries.
 	  ///  <li>When the extending query uses expressions and expression evaluation is deactivated for adhoc queries.
@@ -157,7 +157,7 @@ namespace org.camunda.bpm.engine
 	  /// </summary>
 	  /// <param name="filterId"> the the id of the filter </param>
 	  /// <returns> the single query result </returns>
-	  /// <exception cref="AuthorizationException"> if the user has no <seealso cref="Permissions#READ"/> permissions on <seealso cref="Resources#FILTER"/>. </exception>
+	  /// <exception cref="AuthorizationException"> if the user has no <seealso cref="Permissions.READ"/> permissions on <seealso cref="Resources.FILTER"/>. </exception>
 	  /// <exception cref="BadUserRequestException">
 	  ///  <ul><li>When the filter query uses expressions and expression evaluation is deactivated for stored queries.
 	  ///  Expression evaluation can be activated by setting the process engine configuration properties
@@ -171,7 +171,7 @@ namespace org.camunda.bpm.engine
 	  /// <param name="filterId"> the the id of the filter </param>
 	  /// <param name="extendingQuery"> additional query to extend the filter query </param>
 	  /// <returns> the single query result </returns>
-	  /// <exception cref="AuthorizationException"> if the user has no <seealso cref="Permissions#READ"/> permissions on <seealso cref="Resources#FILTER"/>. </exception>
+	  /// <exception cref="AuthorizationException"> if the user has no <seealso cref="Permissions.READ"/> permissions on <seealso cref="Resources.FILTER"/>. </exception>
 	  /// <exception cref="BadUserRequestException">
 	  ///  <ul><li>When the filter query uses expressions and expression evaluation is deactivated for stored queries.
 	  ///  <li>When the extending query uses expressions and expression evaluation is deactivated for adhoc queries.
@@ -187,7 +187,7 @@ namespace org.camunda.bpm.engine
 	  /// </summary>
 	  /// <param name="filterId"> the the id of the filter </param>
 	  /// <returns> the result count </returns>
-	  /// <exception cref="AuthorizationException"> if the user has no <seealso cref="Permissions#READ"/> permissions on <seealso cref="Resources#FILTER"/>. </exception>
+	  /// <exception cref="AuthorizationException"> if the user has no <seealso cref="Permissions.READ"/> permissions on <seealso cref="Resources.FILTER"/>. </exception>
 	  /// <exception cref="BadUserRequestException">
 	  ///  <ul><li>When the filter query uses expressions and expression evaluation is deactivated for stored queries.
 	  ///  Expression evaluation can be activated by setting the process engine configuration properties
@@ -201,7 +201,7 @@ namespace org.camunda.bpm.engine
 	  /// <param name="filterId"> the the id of the filter </param>
 	  /// <param name="extendingQuery"> additional query to extend the filter query </param>
 	  /// <returns> the result count </returns>
-	  /// <exception cref="AuthorizationException"> if the user has no <seealso cref="Permissions#READ"/> permissions on <seealso cref="Resources#FILTER"/>. </exception>
+	  /// <exception cref="AuthorizationException"> if the user has no <seealso cref="Permissions.READ"/> permissions on <seealso cref="Resources.FILTER"/>. </exception>
 	  /// <exception cref="BadUserRequestException">
 	  ///  <ul><li>When the filter query uses expressions and expression evaluation is deactivated for stored queries.
 	  ///  <li>When the extending query uses expressions and expression evaluation is deactivated for adhoc queries.

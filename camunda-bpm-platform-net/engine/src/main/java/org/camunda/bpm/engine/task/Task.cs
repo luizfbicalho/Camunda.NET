@@ -54,16 +54,16 @@ namespace org.camunda.bpm.engine.task
 
 
 	  /// <summary>
-	  /// The <seealso cref="User#getId() userId"/> of the person that is responsible for this task.
-	  /// This is used when a task is <seealso cref="TaskService#delegateTask(String, String) delegated"/>. 
+	  /// The <seealso cref="User.getId() userId"/> of the person that is responsible for this task.
+	  /// This is used when a task is <seealso cref="TaskService.delegateTask(string, string) delegated"/>. 
 	  /// </summary>
 	  string Owner {get;set;}
 
 
 	  /// <summary>
-	  /// The <seealso cref="User#getId() userId"/> of the person to which this task is
-	  /// <seealso cref="TaskService#setAssignee(String, String) assigned"/> or
-	  /// <seealso cref="TaskService#delegateTask(String, String) delegated"/>. 
+	  /// The <seealso cref="User.getId() userId"/> of the person to which this task is
+	  /// <seealso cref="TaskService.setAssignee(string, string) assigned"/> or
+	  /// <seealso cref="TaskService.delegateTask(string, string) delegated"/>. 
 	  /// </summary>
 	  string Assignee {get;set;}
 
@@ -117,7 +117,7 @@ namespace org.camunda.bpm.engine.task
 
 
 		/// <summary>
-		/// delegates this task to the given user and sets the <seealso cref="#getDelegationState() delegationState"/> to <seealso cref="DelegationState#PENDING"/>.
+		/// delegates this task to the given user and sets the <seealso cref="getDelegationState() delegationState"/> to <seealso cref="DelegationState.PENDING"/>.
 		/// If no owner is set on the task, the owner is set to the current assignee of the task. 
 		/// </summary>
 	  void @delegate(string userId);
@@ -135,8 +135,8 @@ namespace org.camunda.bpm.engine.task
 	  /// Provides the form key for the task.
 	  /// 
 	  /// <para><strong>NOTE:</strong> If the task instance us obtained through a query, this property is only populated in case the
-	  /// <seealso cref="TaskQuery#initializeFormKeys()"/> method is called. If this method is called without a prior call to
-	  /// <seealso cref="TaskQuery#initializeFormKeys()"/>, it will throw a <seealso cref="BadUserRequestException"/>.</para>
+	  /// <seealso cref="TaskQuery.initializeFormKeys()"/> method is called. If this method is called without a prior call to
+	  /// <seealso cref="TaskQuery.initializeFormKeys()"/>, it will throw a <seealso cref="BadUserRequestException"/>.</para>
 	  /// </summary>
 	  /// <returns> the form key for this task </returns>
 	  /// <exception cref="BadUserRequestException"> in case the form key is not initialized. </exception>

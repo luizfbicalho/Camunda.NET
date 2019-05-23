@@ -48,10 +48,10 @@ namespace org.camunda.bpm.engine.authorization
 	/// <seealso cref="ProcessInstancePermissions"/>, <seealso cref="TaskPermissions"/>,
 	/// all can be found in <seealso cref="org.camunda.bpm.engine.authorization authorization"/> package).
 	/// In order to define a custom permission, you must provide
-	/// an implementation of this interface such that the <seealso cref="#getValue()"/> 
+	/// an implementation of this interface such that the <seealso cref="getValue()"/> 
 	/// method returns an integer which is a power of two and not yet used by any of the
 	/// built-in Permissions. Keep the Permission's names unique as well.
-	/// You must implement also <seealso cref="#getTypes()"/> and make sure that
+	/// You must implement also <seealso cref="getTypes()"/> and make sure that
 	/// the permission values are not already reserved for the desired
 	/// <seealso cref="Resource"/>.</para>
 	/// 

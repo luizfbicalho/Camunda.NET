@@ -45,8 +45,8 @@ namespace org.camunda.bpm.application
 	  /// <summary>
 	  /// Returns the location(s) of the <code>processes.xml</code> deployment descriptors.
 	  /// The default value is<code>{META-INF/processes.xml}</code>. The provided path(s)
-	  /// must be resolvable through the <seealso cref="ClassLoader#getResourceAsStream(String)"/>-Method
-	  /// of the classloader returned  by the <seealso cref="AbstractProcessApplication#getProcessApplicationClassloader()"/>
+	  /// must be resolvable through the <seealso cref="ClassLoader.getResourceAsStream(string)"/>-Method
+	  /// of the classloader returned  by the <seealso cref="AbstractProcessApplication.getProcessApplicationClassloader()"/>
 	  /// method provided by the process application.
 	  /// </summary>
 	  /// <returns> the location of the <code>processes.xml</code> file. </returns>

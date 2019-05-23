@@ -122,9 +122,9 @@ namespace org.camunda.bpm.engine
 	  /// Creates a new programmatic query to search for <seealso cref="HistoricVariableInstance"/>s.
 	  /// <para>
 	  /// The result of the query is empty:
-	  /// <li>if the user has no <seealso cref="Permissions#READ_HISTORY"/> permission on <seealso cref="Resources#PROCESS_DEFINITION"/> or</li>
-	  /// <li>the user has no <seealso cref="ProcessDefinitionPermissions#READ_HISTORY_VARIABLE"/> permission on <seealso cref="Resources#PROCESS_DEFINITION"/>
-	  /// in case <seealso cref="ProcessEngineConfiguration#enforceSpecificVariablePermission"/> is enabled.</li>
+	  /// <li>if the user has no <seealso cref="Permissions.READ_HISTORY"/> permission on <seealso cref="Resources.PROCESS_DEFINITION"/> or</li>
+	  /// <li>the user has no <seealso cref="ProcessDefinitionPermissions.READ_HISTORY_VARIABLE"/> permission on <seealso cref="Resources.PROCESS_DEFINITION"/>
+	  /// in case <seealso cref="ProcessEngineConfiguration.enforceSpecificVariablePermission"/> is enabled.</li>
 	  /// </para>
 	  /// </summary>
 	  HistoricVariableInstanceQuery createHistoricVariableInstanceQuery();
@@ -152,19 +152,19 @@ namespace org.camunda.bpm.engine
 	  /// <summary>
 	  /// Creates a new programmatic query to search for <seealso cref="HistoricDecisionInstance"/>s.
 	  /// 
-	  /// If the user has no <seealso cref="Permissions#READ_HISTORY"/> permission on <seealso cref="Resources#DECISION_DEFINITION"/>
+	  /// If the user has no <seealso cref="Permissions.READ_HISTORY"/> permission on <seealso cref="Resources.DECISION_DEFINITION"/>
 	  /// then the result of the query is empty.
 	  /// </summary>
 	  HistoricDecisionInstanceQuery createHistoricDecisionInstanceQuery();
 
 	  /// <summary>
 	  /// Deletes historic task instance.  This might be useful for tasks that are
-	  /// <seealso cref="TaskService#newTask() dynamically created"/> and then <seealso cref="TaskService#complete(String) completed"/>.
+	  /// <seealso cref="TaskService.newTask() dynamically created"/> and then <seealso cref="TaskService.complete(string) completed"/>.
 	  /// If the historic task instance doesn't exist, no exception is thrown and the
 	  /// method returns normal.
 	  /// </summary>
 	  /// <exception cref="AuthorizationException">
-	  ///          If the user has no <seealso cref="Permissions#DELETE_HISTORY"/> permission on <seealso cref="Resources#PROCESS_DEFINITION"/>. </exception>
+	  ///          If the user has no <seealso cref="Permissions.DELETE_HISTORY"/> permission on <seealso cref="Resources.PROCESS_DEFINITION"/>. </exception>
 	  void deleteHistoricTaskInstance(string taskId);
 
 	  /// <summary>
@@ -172,7 +172,7 @@ namespace org.camunda.bpm.engine
 	  /// historic details (variable updates, form properties) are deleted as well.
 	  /// </summary>
 	  /// <exception cref="AuthorizationException">
-	  ///          If the user has no <seealso cref="Permissions#DELETE_HISTORY"/> permission on <seealso cref="Resources#PROCESS_DEFINITION"/>. </exception>
+	  ///          If the user has no <seealso cref="Permissions.DELETE_HISTORY"/> permission on <seealso cref="Resources.PROCESS_DEFINITION"/>. </exception>
 	  void deleteHistoricProcessInstance(string processInstanceId);
 
 	  /// <summary>
@@ -181,7 +181,7 @@ namespace org.camunda.bpm.engine
 	  /// Does not fail if a process instance was not found.
 	  /// </summary>
 	  /// <exception cref="AuthorizationException">
-	  ///          If the user has no <seealso cref="Permissions#DELETE_HISTORY"/> permission on <seealso cref="Resources#PROCESS_DEFINITION"/>. </exception>
+	  ///          If the user has no <seealso cref="Permissions.DELETE_HISTORY"/> permission on <seealso cref="Resources.PROCESS_DEFINITION"/>. </exception>
 	  void deleteHistoricProcessInstanceIfExists(string processInstanceId);
 
 	  /// <summary>
@@ -191,7 +191,7 @@ namespace org.camunda.bpm.engine
 	  /// <exception cref="BadUserRequestException">
 	  ///          when no process instances are found with the given ids or ids are null. </exception>
 	  /// <exception cref="AuthorizationException">
-	  ///          If the user has no <seealso cref="Permissions#DELETE_HISTORY"/> permission on <seealso cref="Resources#PROCESS_DEFINITION"/>. </exception>
+	  ///          If the user has no <seealso cref="Permissions.DELETE_HISTORY"/> permission on <seealso cref="Resources.PROCESS_DEFINITION"/>. </exception>
 	  void deleteHistoricProcessInstances(IList<string> processInstanceIds);
 
 	  /// <summary>
@@ -200,7 +200,7 @@ namespace org.camunda.bpm.engine
 	  /// fail if a process instance was not found.
 	  /// </summary>
 	  /// <exception cref="AuthorizationException">
-	  ///          If the user has no <seealso cref="Permissions#DELETE_HISTORY"/> permission on <seealso cref="Resources#PROCESS_DEFINITION"/>. </exception>
+	  ///          If the user has no <seealso cref="Permissions.DELETE_HISTORY"/> permission on <seealso cref="Resources.PROCESS_DEFINITION"/>. </exception>
 	  void deleteHistoricProcessInstancesIfExists(IList<string> processInstanceIds);
 
 	  /// <summary>
@@ -212,38 +212,38 @@ namespace org.camunda.bpm.engine
 	  /// <exception cref="BadUserRequestException">
 	  ///          when no process instances are found with the given ids or ids are null or when some of the process instances are not finished yet </exception>
 	  /// <exception cref="AuthorizationException">
-	  ///          If the user has no <seealso cref="Permissions#DELETE_HISTORY"/> permission on <seealso cref="Resources#PROCESS_DEFINITION"/>. </exception>
+	  ///          If the user has no <seealso cref="Permissions.DELETE_HISTORY"/> permission on <seealso cref="Resources.PROCESS_DEFINITION"/>. </exception>
 	  void deleteHistoricProcessInstancesBulk(IList<string> processInstanceIds);
 
 	  /// <summary>
 	  /// Schedules history cleanup job at batch window start time. The job will delete historic data for
-	  /// finished process, decision and case instances, and batch operations taking into account <seealso cref="ProcessDefinition#getHistoryTimeToLive()"/>,
-	  /// <seealso cref="DecisionDefinition#getHistoryTimeToLive()"/>, <seealso cref="CaseDefinition#getHistoryTimeToLive()"/>, <seealso cref="ProcessEngineConfigurationImpl#getBatchOperationHistoryTimeToLive()"/>
-	  /// and <seealso cref="ProcessEngineConfigurationImpl#getBatchOperationsForHistoryCleanup()"/> values.
+	  /// finished process, decision and case instances, and batch operations taking into account <seealso cref="ProcessDefinition.getHistoryTimeToLive()"/>,
+	  /// <seealso cref="DecisionDefinition.getHistoryTimeToLive()"/>, <seealso cref="CaseDefinition.getHistoryTimeToLive()"/>, <seealso cref="ProcessEngineConfigurationImpl.getBatchOperationHistoryTimeToLive()"/>
+	  /// and <seealso cref="ProcessEngineConfigurationImpl.getBatchOperationsForHistoryCleanup()"/> values.
 	  /// </summary>
 	  /// <exception cref="AuthorizationException">
-	  ///          If the user has no <seealso cref="Permissions#DELETE_HISTORY"/> permission on <seealso cref="Resources#PROCESS_DEFINITION"/> </exception>
-	  /// <returns> history cleanup job. NB! As of v. 7.9.0, method does not guarantee to return a job. Use <seealso cref="#findHistoryCleanupJobs()"/> instead. </returns>
+	  ///          If the user has no <seealso cref="Permissions.DELETE_HISTORY"/> permission on <seealso cref="Resources.PROCESS_DEFINITION"/> </exception>
+	  /// <returns> history cleanup job. NB! As of v. 7.9.0, method does not guarantee to return a job. Use <seealso cref="findHistoryCleanupJobs()"/> instead. </returns>
 	  Job cleanUpHistoryAsync();
 
 	  /// <summary>
 	  /// Schedules history cleanup job at batch window start time. The job will delete historic data for
-	  /// finished process, decision and case instances, and batch operations taking into account <seealso cref="ProcessDefinition#getHistoryTimeToLive()"/>,
-	  /// <seealso cref="DecisionDefinition#getHistoryTimeToLive()"/>, <seealso cref="CaseDefinition#getHistoryTimeToLive()"/>, <seealso cref="ProcessEngineConfigurationImpl#getBatchOperationHistoryTimeToLive()"/>
-	  /// and <seealso cref="ProcessEngineConfigurationImpl#getBatchOperationsForHistoryCleanup()"/> values.
+	  /// finished process, decision and case instances, and batch operations taking into account <seealso cref="ProcessDefinition.getHistoryTimeToLive()"/>,
+	  /// <seealso cref="DecisionDefinition.getHistoryTimeToLive()"/>, <seealso cref="CaseDefinition.getHistoryTimeToLive()"/>, <seealso cref="ProcessEngineConfigurationImpl.getBatchOperationHistoryTimeToLive()"/>
+	  /// and <seealso cref="ProcessEngineConfigurationImpl.getBatchOperationsForHistoryCleanup()"/> values.
 	  /// </summary>
 	  /// <param name="immediatelyDue"> must be true if cleanup must be scheduled at once, otherwise is will be scheduled according to configured batch window </param>
 	  /// <exception cref="AuthorizationException">
-	  ///      If the user has no <seealso cref="Permissions#DELETE_HISTORY"/> permission on <seealso cref="Resources#PROCESS_DEFINITION"/> </exception>
+	  ///      If the user has no <seealso cref="Permissions.DELETE_HISTORY"/> permission on <seealso cref="Resources.PROCESS_DEFINITION"/> </exception>
 	  /// <returns> history cleanup job. Job id can be used to check job logs, incident etc.
 	  ///  </returns>
 	  Job cleanUpHistoryAsync(bool immediatelyDue);
 
 	  /// <summary>
 	  /// Finds history cleanup job, if present. </summary>
-	  /// @deprecated As of v. 7.9.0, because there can be more than one history cleanup job at once, use <seealso cref="#findHistoryCleanupJobs"/> instead. 
+	  /// @deprecated As of v. 7.9.0, because there can be more than one history cleanup job at once, use <seealso cref="findHistoryCleanupJobs"/> instead. 
 	  /// <returns> job entity </returns>
-	  [Obsolete("As of v. 7.9.0, because there can be more than one history cleanup job at once, use <seealso cref="#findHistoryCleanupJobs"/> instead.")]
+	  [Obsolete("As of v. 7.9.0, because there can be more than one history cleanup job at once, use <seealso cref=\"findHistoryCleanupJobs\"/> instead.")]
 	  Job findHistoryCleanupJob();
 
 	  /// <summary>
@@ -258,8 +258,8 @@ namespace org.camunda.bpm.engine
 	  /// <exception cref="BadUserRequestException">
 	  ///          when no process instances is found with the given ids or ids are null. </exception>
 	  /// <exception cref="AuthorizationException">
-	  ///          If the user has no <seealso cref="Permissions#CREATE"/> or
-	  ///          <seealso cref="BatchPermissions#CREATE_BATCH_DELETE_FINISHED_PROCESS_INSTANCES"/> permission on <seealso cref="Resources#BATCH"/>. </exception>
+	  ///          If the user has no <seealso cref="Permissions.CREATE"/> or
+	  ///          <seealso cref="BatchPermissions.CREATE_BATCH_DELETE_FINISHED_PROCESS_INSTANCES"/> permission on <seealso cref="Resources.BATCH"/>. </exception>
 	  Batch deleteHistoricProcessInstancesAsync(IList<string> processInstanceIds, string deleteReason);
 
 	  /// <summary>
@@ -269,8 +269,8 @@ namespace org.camunda.bpm.engine
 	  /// <exception cref="BadUserRequestException">
 	  ///          when no process instances is found with the given ids or ids are null. </exception>
 	  /// <exception cref="AuthorizationException">
-	  ///          If the user has no <seealso cref="Permissions#CREATE"/> or
-	  ///          <seealso cref="BatchPermissions#CREATE_BATCH_DELETE_FINISHED_PROCESS_INSTANCES"/> permission on <seealso cref="Resources#BATCH"/>. </exception>
+	  ///          If the user has no <seealso cref="Permissions.CREATE"/> or
+	  ///          <seealso cref="BatchPermissions.CREATE_BATCH_DELETE_FINISHED_PROCESS_INSTANCES"/> permission on <seealso cref="Resources.BATCH"/>. </exception>
 	  Batch deleteHistoricProcessInstancesAsync(HistoricProcessInstanceQuery query, string deleteReason);
 
 	  /// <summary>
@@ -281,8 +281,8 @@ namespace org.camunda.bpm.engine
 	  /// <exception cref="BadUserRequestException">
 	  ///          when no process instances is found with the given ids or ids are null. </exception>
 	  /// <exception cref="AuthorizationException">
-	  ///          If the user has no <seealso cref="Permissions#CREATE"/> or
-	  ///          <seealso cref="BatchPermissions#CREATE_BATCH_DELETE_FINISHED_PROCESS_INSTANCES"/> permission on <seealso cref="Resources#BATCH"/>. </exception>
+	  ///          If the user has no <seealso cref="Permissions.CREATE"/> or
+	  ///          <seealso cref="BatchPermissions.CREATE_BATCH_DELETE_FINISHED_PROCESS_INSTANCES"/> permission on <seealso cref="Resources.BATCH"/>. </exception>
 	  Batch deleteHistoricProcessInstancesAsync(IList<string> processInstanceIds, HistoricProcessInstanceQuery query, string deleteReason);
 
 	  /// <summary>
@@ -290,13 +290,13 @@ namespace org.camunda.bpm.engine
 	  /// </summary>
 	  /// <exception cref="AuthorizationException">
 	  ///           For entries related to process definition keys: If the user has
-	  ///           neither <seealso cref="Permissions#DELETE_HISTORY"/> permission on
-	  ///           <seealso cref="Resources#PROCESS_DEFINITION"/> nor
-	  ///           <seealso cref="UserOperationLogCategoryPermissions#DELETE"/> permission on
-	  ///           <seealso cref="Resources#OPERATION_LOG_CATEGORY"/>. For entries not related
+	  ///           neither <seealso cref="Permissions.DELETE_HISTORY"/> permission on
+	  ///           <seealso cref="Resources.PROCESS_DEFINITION"/> nor
+	  ///           <seealso cref="UserOperationLogCategoryPermissions.DELETE"/> permission on
+	  ///           <seealso cref="Resources.OPERATION_LOG_CATEGORY"/>. For entries not related
 	  ///           to process definition keys: If the user has no
-	  ///           <seealso cref="UserOperationLogCategoryPermissions#DELETE"/> permission on
-	  ///           <seealso cref="Resources#OPERATION_LOG_CATEGORY"/>. </exception>
+	  ///           <seealso cref="UserOperationLogCategoryPermissions.DELETE"/> permission on
+	  ///           <seealso cref="Resources.OPERATION_LOG_CATEGORY"/>. </exception>
 	  void deleteUserOperationLogEntry(string entryId);
 
 	  /// <summary>
@@ -317,14 +317,14 @@ namespace org.camunda.bpm.engine
 	  /// decision inputs and outputs are deleted as well.
 	  /// </summary>
 	  /// @deprecated Note that this method name is not expressive enough, because it is also possible to delete the historic
-	  /// decision instance by the instance id. Therefore use <seealso cref="#deleteHistoricDecisionInstanceByDefinitionId"/> instead
+	  /// decision instance by the instance id. Therefore use <seealso cref="deleteHistoricDecisionInstanceByDefinitionId"/> instead
 	  /// to delete the historic decision instance by the definition id.
 	  /// 
 	  /// <param name="decisionDefinitionId">
 	  ///          the id of the decision definition
 	  /// </param>
 	  /// <exception cref="AuthorizationException">
-	  ///          If the user has no <seealso cref="Permissions#DELETE_HISTORY"/> permission on <seealso cref="Resources#DECISION_DEFINITION"/>. </exception>
+	  ///          If the user has no <seealso cref="Permissions.DELETE_HISTORY"/> permission on <seealso cref="Resources.DECISION_DEFINITION"/>. </exception>
 	  [Obsolete("Note that this method name is not expressive enough, because it is also possible to delete the historic")]
 	  void deleteHistoricDecisionInstance(string decisionDefinitionId);
 
@@ -335,7 +335,7 @@ namespace org.camunda.bpm.engine
 	  /// <param name="decisionInstanceIds"> list of decision instance ids for removal.
 	  /// </param>
 	  /// <exception cref="AuthorizationException">
-	  ///          If the user has no <seealso cref="Permissions#DELETE_HISTORY"/> permission on <seealso cref="Resources#DECISION_DEFINITION"/>. </exception>
+	  ///          If the user has no <seealso cref="Permissions.DELETE_HISTORY"/> permission on <seealso cref="Resources.DECISION_DEFINITION"/>. </exception>
 	  void deleteHistoricDecisionInstancesBulk(IList<string> decisionInstanceIds);
 
 	  /// <summary>
@@ -346,7 +346,7 @@ namespace org.camunda.bpm.engine
 	  ///          the id of the decision definition
 	  /// </param>
 	  /// <exception cref="AuthorizationException">
-	  ///          If the user has no <seealso cref="Permissions#DELETE_HISTORY"/> permission on <seealso cref="Resources#DECISION_DEFINITION"/>. </exception>
+	  ///          If the user has no <seealso cref="Permissions.DELETE_HISTORY"/> permission on <seealso cref="Resources.DECISION_DEFINITION"/>. </exception>
 	  void deleteHistoricDecisionInstanceByDefinitionId(string decisionDefinitionId);
 
 
@@ -357,7 +357,7 @@ namespace org.camunda.bpm.engine
 	  /// <param name="historicDecisionInstanceId">
 	  ///          the id of the historic decision instance </param>
 	  /// <exception cref="AuthorizationException">
-	  ///          If the user has no <seealso cref="Permissions#DELETE_HISTORY"/> permission on <seealso cref="Resources#DECISION_DEFINITION"/>. </exception>
+	  ///          If the user has no <seealso cref="Permissions.DELETE_HISTORY"/> permission on <seealso cref="Resources.DECISION_DEFINITION"/>. </exception>
 	  void deleteHistoricDecisionInstanceByInstanceId(string historicDecisionInstanceId);
 
 	  /// <summary>
@@ -366,8 +366,8 @@ namespace org.camunda.bpm.engine
 	  /// <exception cref="BadUserRequestException">
 	  ///          when no decision instances are found with the given ids or ids are null. </exception>
 	  /// <exception cref="AuthorizationException">
-	  ///          If the user has no <seealso cref="Permissions#CREATE"/> or
-	  ///          <seealso cref="BatchPermissions#CREATE_BATCH_DELETE_DECISION_INSTANCES"/> permission on <seealso cref="Resources#BATCH"/>. </exception>
+	  ///          If the user has no <seealso cref="Permissions.CREATE"/> or
+	  ///          <seealso cref="BatchPermissions.CREATE_BATCH_DELETE_DECISION_INSTANCES"/> permission on <seealso cref="Resources.BATCH"/>. </exception>
 	  Batch deleteHistoricDecisionInstancesAsync(IList<string> decisionInstanceIds, string deleteReason);
 
 	  /// <summary>
@@ -376,8 +376,8 @@ namespace org.camunda.bpm.engine
 	  /// <exception cref="BadUserRequestException">
 	  ///          when no decision instances are found with the given ids or ids are null. </exception>
 	  /// <exception cref="AuthorizationException">
-	  ///          If the user has no <seealso cref="Permissions#CREATE"/> or
-	  ///          <seealso cref="BatchPermissions#CREATE_BATCH_DELETE_DECISION_INSTANCES"/> permission on <seealso cref="Resources#BATCH"/>. </exception>
+	  ///          If the user has no <seealso cref="Permissions.CREATE"/> or
+	  ///          <seealso cref="BatchPermissions.CREATE_BATCH_DELETE_DECISION_INSTANCES"/> permission on <seealso cref="Resources.BATCH"/>. </exception>
 	  Batch deleteHistoricDecisionInstancesAsync(HistoricDecisionInstanceQuery query, string deleteReason);
 
 	  /// <summary>
@@ -387,8 +387,8 @@ namespace org.camunda.bpm.engine
 	  /// <exception cref="BadUserRequestException">
 	  ///          when no decision instances are found with the given ids or ids are null. </exception>
 	  /// <exception cref="AuthorizationException">
-	  ///          If the user has no <seealso cref="Permissions#CREATE"/> or
-	  ///          <seealso cref="BatchPermissions#CREATE_BATCH_DELETE_DECISION_INSTANCES"/> permission on <seealso cref="Resources#BATCH"/>. </exception>
+	  ///          If the user has no <seealso cref="Permissions.CREATE"/> or
+	  ///          <seealso cref="BatchPermissions.CREATE_BATCH_DELETE_DECISION_INSTANCES"/> permission on <seealso cref="Resources.BATCH"/>. </exception>
 	  Batch deleteHistoricDecisionInstancesAsync(IList<string> decisionInstanceIds, HistoricDecisionInstanceQuery query, string deleteReason);
 
 	  /// <summary>
@@ -402,8 +402,8 @@ namespace org.camunda.bpm.engine
 	  ///           or if id is null </exception>
 	  /// <exception cref="AuthorizationException">
 	  ///           If the variable instance has a process definition key and
-	  ///           the user has no <seealso cref="Permissions#DELETE_HISTORY"/> permission on
-	  ///           <seealso cref="Resources#PROCESS_DEFINITION"/>. </exception>
+	  ///           the user has no <seealso cref="Permissions.DELETE_HISTORY"/> permission on
+	  ///           <seealso cref="Resources.PROCESS_DEFINITION"/>. </exception>
 	  void deleteHistoricVariableInstance(string variableInstanceId);
 
 	  /// <summary>
@@ -412,7 +412,7 @@ namespace org.camunda.bpm.engine
 	  /// <param name="processInstanceId">
 	  ///          the id of the process instance </param>
 	  /// <exception cref="AuthorizationException">
-	  ///          If the user has no <seealso cref="Permissions#DELETE_HISTORY"/> permission on <seealso cref="Resources#PROCESS_DEFINITION"/>. </exception>
+	  ///          If the user has no <seealso cref="Permissions.DELETE_HISTORY"/> permission on <seealso cref="Resources.PROCESS_DEFINITION"/>. </exception>
 	  void deleteHistoricVariableInstancesByProcessInstanceId(string processInstanceId);
 
 	  /// <summary>
@@ -466,7 +466,7 @@ namespace org.camunda.bpm.engine
 	  /// <exception cref="ProcessEngineException"> when no historic job log exists with the given id.
 	  /// </exception>
 	  /// <exception cref="AuthorizationException">
-	  ///          If the user has no <seealso cref="Permissions#READ_HISTORY"/> permission on <seealso cref="Resources#PROCESS_DEFINITION"/>.
+	  ///          If the user has no <seealso cref="Permissions.READ_HISTORY"/> permission on <seealso cref="Resources.PROCESS_DEFINITION"/>.
 	  /// 
 	  /// @since 7.3 </exception>
 	  string getHistoricJobLogExceptionStacktrace(string historicJobLogId);
@@ -526,7 +526,7 @@ namespace org.camunda.bpm.engine
 	  /// @since 7.5
 	  /// </summary>
 	  /// <exception cref="AuthorizationException">
-	  ///          If the user has no <seealso cref="Permissions#DELETE"/> permission on <seealso cref="Resources#BATCH"/> </exception>
+	  ///          If the user has no <seealso cref="Permissions.DELETE"/> permission on <seealso cref="Resources.BATCH"/> </exception>
 	  void deleteHistoricBatch(string id);
 
 
@@ -553,7 +553,7 @@ namespace org.camunda.bpm.engine
 	  /// <exception cref="ProcessEngineException"> when no historic external task log exists with the given id.
 	  /// </exception>
 	  /// <exception cref="AuthorizationException">
-	  ///          If the user has no <seealso cref="Permissions#READ_HISTORY"/> permission on <seealso cref="Resources#PROCESS_DEFINITION"/>.
+	  ///          If the user has no <seealso cref="Permissions.READ_HISTORY"/> permission on <seealso cref="Resources.PROCESS_DEFINITION"/>.
 	  /// 
 	  /// @since 7.7 </exception>
 	  string getHistoricExternalTaskLogErrorDetails(string historicExternalTaskLogId);
@@ -564,26 +564,26 @@ namespace org.camunda.bpm.engine
 	  /// 
 	  /// </para>
 	  /// <para>Historic process instances can be specified by passing a query to
-	  /// <seealso cref="SetRemovalTimeToHistoricProcessInstancesBuilder#byQuery(HistoricProcessInstanceQuery)"/>.
+	  /// <seealso cref="SetRemovalTimeToHistoricProcessInstancesBuilder.byQuery(HistoricProcessInstanceQuery)"/>.
 	  /// 
 	  /// </para>
 	  /// <para>An absolute time can be specified via
-	  /// <seealso cref="SetRemovalTimeSelectModeForHistoricProcessInstancesBuilder#absoluteRemovalTime(Date)"/>.
+	  /// <seealso cref="SetRemovalTimeSelectModeForHistoricProcessInstancesBuilder.absoluteRemovalTime(System.DateTime)"/>.
 	  /// Pass {@code null} to clear the removal time.
 	  /// 
 	  /// </para>
 	  /// <para>As an alternative, the removal time can also be calculated via
-	  /// <seealso cref="SetRemovalTimeSelectModeForHistoricProcessInstancesBuilder#calculatedRemovalTime()"/>
+	  /// <seealso cref="SetRemovalTimeSelectModeForHistoricProcessInstancesBuilder.calculatedRemovalTime()"/>
 	  /// based on the configured time to live values.
 	  /// 
 	  /// </para>
 	  /// <para>To additionally take those historic process instances into account that are part of
 	  /// a hierarchy, enable the flag
-	  /// <seealso cref="SetRemovalTimeToHistoricProcessInstancesBuilder#hierarchical()"/>
+	  /// <seealso cref="SetRemovalTimeToHistoricProcessInstancesBuilder.hierarchical()"/>
 	  /// 
 	  /// </para>
 	  /// <para>To create the batch and complete the configuration chain, call
-	  /// <seealso cref="SetRemovalTimeToHistoricProcessInstancesBuilder#executeAsync()"/>.
+	  /// <seealso cref="SetRemovalTimeToHistoricProcessInstancesBuilder.executeAsync()"/>.
 	  /// 
 	  /// @since 7.11
 	  /// </para>
@@ -596,26 +596,26 @@ namespace org.camunda.bpm.engine
 	  /// 
 	  /// </para>
 	  /// <para>Historic decision instances can be specified by passing a query to
-	  /// <seealso cref="SetRemovalTimeToHistoricDecisionInstancesBuilder#byQuery(HistoricDecisionInstanceQuery)"/>.
+	  /// <seealso cref="SetRemovalTimeToHistoricDecisionInstancesBuilder.byQuery(HistoricDecisionInstanceQuery)"/>.
 	  /// 
 	  /// </para>
 	  /// <para>An absolute time can be specified via
-	  /// <seealso cref="SetRemovalTimeSelectModeForHistoricDecisionInstancesBuilder#absoluteRemovalTime(Date)"/>.
+	  /// <seealso cref="SetRemovalTimeSelectModeForHistoricDecisionInstancesBuilder.absoluteRemovalTime(System.DateTime)"/>.
 	  /// Pass {@code null} to clear the removal time.
 	  /// 
 	  /// </para>
 	  /// <para>As an alternative, the removal time can also be calculated via
-	  /// <seealso cref="SetRemovalTimeSelectModeForHistoricDecisionInstancesBuilder#calculatedRemovalTime()"/>
+	  /// <seealso cref="SetRemovalTimeSelectModeForHistoricDecisionInstancesBuilder.calculatedRemovalTime()"/>
 	  /// based on the configured time to live values.
 	  /// 
 	  /// </para>
 	  /// <para>To additionally take those historic decision instances into account that are part of
 	  /// a hierarchy, enable the flag
-	  /// <seealso cref="SetRemovalTimeToHistoricProcessInstancesBuilder#hierarchical()"/>
+	  /// <seealso cref="SetRemovalTimeToHistoricProcessInstancesBuilder.hierarchical()"/>
 	  /// 
 	  /// </para>
 	  /// <para>To create the batch and complete the configuration chain, call
-	  /// <seealso cref="SetRemovalTimeToHistoricDecisionInstancesBuilder#executeAsync()"/>.
+	  /// <seealso cref="SetRemovalTimeToHistoricDecisionInstancesBuilder.executeAsync()"/>.
 	  /// 
 	  /// @since 7.11
 	  /// </para>
@@ -628,21 +628,21 @@ namespace org.camunda.bpm.engine
 	  /// 
 	  /// </para>
 	  /// <para>Historic batches can be specified by passing a query to
-	  /// <seealso cref="SetRemovalTimeToHistoricBatchesBuilder#byQuery(HistoricBatchQuery)"/>.
+	  /// <seealso cref="SetRemovalTimeToHistoricBatchesBuilder.byQuery(HistoricBatchQuery)"/>.
 	  /// 
 	  /// </para>
 	  /// <para>An absolute time can be specified via
-	  /// <seealso cref="SetRemovalTimeSelectModeForHistoricBatchesBuilder#absoluteRemovalTime(Date)"/>.
+	  /// <seealso cref="SetRemovalTimeSelectModeForHistoricBatchesBuilder.absoluteRemovalTime(System.DateTime)"/>.
 	  /// Pass {@code null} to clear the removal time.
 	  /// 
 	  /// </para>
 	  /// <para>As an alternative, the removal time can also be calculated via
-	  /// <seealso cref="SetRemovalTimeSelectModeForHistoricBatchesBuilder#calculatedRemovalTime()"/>
+	  /// <seealso cref="SetRemovalTimeSelectModeForHistoricBatchesBuilder.calculatedRemovalTime()"/>
 	  /// based on the configured time to live values.
 	  /// 
 	  /// </para>
 	  /// <para>To create the batch and complete the configuration chain, call
-	  /// <seealso cref="SetRemovalTimeToHistoricBatchesBuilder#executeAsync()"/>.
+	  /// <seealso cref="SetRemovalTimeToHistoricBatchesBuilder.executeAsync()"/>.
 	  /// 
 	  /// @since 7.11
 	  /// </para>

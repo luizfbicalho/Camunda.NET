@@ -29,8 +29,8 @@ namespace org.camunda.bpm.engine.repository
 	/// (possibly) unneeded bytes over the wire.
 	/// 
 	/// To retrieve the actual bytes of a deployment resource use the operations on the
-	/// <seealso cref="RepositoryService#getDeploymentResourceNames(String)"/>
-	/// and <seealso cref="RepositoryService#getResourceAsStream(String, String)"/>
+	/// <seealso cref="RepositoryService.getDeploymentResourceNames(string)"/>
+	/// and <seealso cref="RepositoryService.getResourceAsStream(string, string)"/>
 	/// 
 	/// @author Tom Baeyens
 	/// @author Joram Barrez
@@ -77,32 +77,32 @@ namespace org.camunda.bpm.engine.repository
 
 	  /// <summary>
 	  /// Select deployments which have no tenant id. Can be used in
-	  /// combination with <seealso cref="#tenantIdIn(String...)"/>.
+	  /// combination with <seealso cref="tenantIdIn(string...)"/>.
 	  /// </summary>
 	  DeploymentQuery includeDeploymentsWithoutTenantId();
 
 	  //sorting ////////////////////////////////////////////////////////
 
 	  /// <summary>
-	  /// Order by deployment id (needs to be followed by <seealso cref="#asc()"/> or <seealso cref="#desc()"/>). </summary>
+	  /// Order by deployment id (needs to be followed by <seealso cref="asc()"/> or <seealso cref="desc()"/>). </summary>
 	  DeploymentQuery orderByDeploymentId();
 
 	  /// <summary>
-	  /// Order by deployment name (needs to be followed by <seealso cref="#asc()"/> or <seealso cref="#desc()"/>). </summary>
+	  /// Order by deployment name (needs to be followed by <seealso cref="asc()"/> or <seealso cref="desc()"/>). </summary>
 	  DeploymentQuery orderByDeploymentName();
 
 	  /// <summary>
-	  /// Order by deployment time (needs to be followed by <seealso cref="#asc()"/> or <seealso cref="#desc()"/>). </summary>
-	  /// @deprecated Use <seealso cref="#orderByDeploymentTime()"/> instead</p> 
-	  [Obsolete("Use <seealso cref="#orderByDeploymentTime()"/> instead</p>")]
+	  /// Order by deployment time (needs to be followed by <seealso cref="asc()"/> or <seealso cref="desc()"/>). </summary>
+	  /// @deprecated Use <seealso cref="orderByDeploymentTime()"/> instead</p> 
+	  [Obsolete("Use <seealso cref=\"orderByDeploymentTime()\"/> instead</p>")]
 	  DeploymentQuery orderByDeploymenTime();
 
 	  /// <summary>
-	  /// Order by deployment time (needs to be followed by <seealso cref="#asc()"/> or <seealso cref="#desc()"/>). </summary>
+	  /// Order by deployment time (needs to be followed by <seealso cref="asc()"/> or <seealso cref="desc()"/>). </summary>
 	  DeploymentQuery orderByDeploymentTime();
 
 	  /// <summary>
-	  /// Order by tenant id (needs to be followed by <seealso cref="#asc()"/> or <seealso cref="#desc()"/>).
+	  /// Order by tenant id (needs to be followed by <seealso cref="asc()"/> or <seealso cref="desc()"/>).
 	  /// Note that the ordering of process instances without tenant id is database-specific. 
 	  /// </summary>
 	  DeploymentQuery orderByTenantId();

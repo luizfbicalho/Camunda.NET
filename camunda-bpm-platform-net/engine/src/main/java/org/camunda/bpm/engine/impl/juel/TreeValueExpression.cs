@@ -27,8 +27,8 @@ namespace org.camunda.bpm.engine.impl.juel
 
 	/// <summary>
 	/// A value expression is ready to be evaluated (by calling either
-	/// <seealso cref="#getType(ELContext)"/>, <seealso cref="#getValue(ELContext)"/>, <seealso cref="#isReadOnly(ELContext)"/>
-	/// or <seealso cref="#setValue(ELContext, Object)"/>.
+	/// <seealso cref="getType(ELContext)"/>, <seealso cref="getValue(ELContext)"/>, <seealso cref="isReadOnly(ELContext)"/>
+	/// or <seealso cref="setValue(ELContext, object)"/>.
 	/// 
 	/// Instances of this class are usually created using an <seealso cref="ExpressionFactoryImpl"/>.
 	/// 
@@ -130,11 +130,11 @@ namespace org.camunda.bpm.engine.impl.juel
 		}
 
 		/// <summary>
-		/// Evaluates the expression as an lvalue and determines if <seealso cref="#setValue(ELContext, Object)"/>
+		/// Evaluates the expression as an lvalue and determines if <seealso cref="setValue(ELContext, object)"/>
 		/// will always fail. </summary>
 		/// <param name="context"> used to resolve properties (<code>base.property</code> and <code>base[property]</code>)
 		/// and to determine the result from the last base/property pair </param>
-		/// <returns> <code>true</code> if <seealso cref="#setValue(ELContext, Object)"/> always fails. </returns>
+		/// <returns> <code>true</code> if <seealso cref="setValue(ELContext, object)"/> always fails. </returns>
 		/// <exception cref="ELException"> if evaluation fails (e.g. property not found, type conversion failed, ...) </exception>
 //JAVA TO C# CONVERTER WARNING: Method 'throws' clauses are not available in .NET:
 //ORIGINAL LINE: @Override public boolean isReadOnly(org.camunda.bpm.engine.impl.javax.el.ELContext context) throws org.camunda.bpm.engine.impl.javax.el.ELException

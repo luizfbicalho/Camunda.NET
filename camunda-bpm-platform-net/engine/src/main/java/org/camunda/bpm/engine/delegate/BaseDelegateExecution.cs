@@ -31,7 +31,7 @@ namespace org.camunda.bpm.engine.@delegate
 	  string Id {get;}
 
 	  /// <summary>
-	  /// The <seealso cref="ExecutionListener#EVENTNAME_START event name"/> in case this execution is passed in for an <seealso cref="ExecutionListener"/> </summary>
+	  /// The <seealso cref="ExecutionListener.EVENTNAME_START event name"/> in case this execution is passed in for an <seealso cref="ExecutionListener"/> </summary>
 	  string EventName {get;}
 
 	  /// <summary>

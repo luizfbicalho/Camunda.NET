@@ -71,7 +71,7 @@ namespace org.camunda.bpm.engine.impl.history.handler
 	  }
 
 	  /// <summary>
-	  /// Initialize <seealso cref="#historyEventHandlers"/> with data transfered from constructor
+	  /// Initialize <seealso cref="historyEventHandlers"/> with data transfered from constructor
 	  /// </summary>
 	  /// <param name="historyEventHandlers"> </param>
 //JAVA TO C# CONVERTER WARNING: 'final' parameters are not available in .NET:

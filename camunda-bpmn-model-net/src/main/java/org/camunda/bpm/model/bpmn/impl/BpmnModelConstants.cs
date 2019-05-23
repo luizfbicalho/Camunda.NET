@@ -58,8 +58,8 @@ namespace org.camunda.bpm.model.bpmn.impl
 
 	  public const string XPATH_NS = "http://www.w3.org/1999/XPath";
 
-	  /// @deprecated use <seealso cref="#CAMUNDA_NS"/> 
-	  [Obsolete("use <seealso cref="#CAMUNDA_NS"/>")]
+	  /// @deprecated use <seealso cref="CAMUNDA_NS"/> 
+	  [Obsolete("use <seealso cref=\"CAMUNDA_NS\"/>")]
 	  public const string ACTIVITI_NS = "http://activiti.org/bpmn";
 
 	  /// <summary>

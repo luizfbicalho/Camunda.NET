@@ -120,8 +120,8 @@ namespace org.camunda.bpm.engine.impl.context
 		getStack(processEngineConfigurationStackThreadLocal).Pop();
 	  }
 
-	  /// @deprecated since 7.2, use <seealso cref="#getBpmnExecutionContext()"/> 
-	  [Obsolete("since 7.2, use <seealso cref="#getBpmnExecutionContext()"/>")]
+	  /// @deprecated since 7.2, use <seealso cref="getBpmnExecutionContext()"/> 
+	  [Obsolete("since 7.2, use <seealso cref=\"getBpmnExecutionContext()\"/>")]
 	  public static ExecutionContext getExecutionContext()
 	  {
 		return BpmnExecutionContext;
@@ -237,7 +237,7 @@ namespace org.camunda.bpm.engine.impl.context
 	  }
 
 	  /// <summary>
-	  /// Use <seealso cref="#executeWithinProcessApplication(Callable, ProcessApplicationReference, InvocationContext)"/>
+	  /// Use <seealso cref="executeWithinProcessApplication(Callable, ProcessApplicationReference, InvocationContext)"/>
 	  /// instead if an <seealso cref="InvocationContext"/> is available.
 	  /// </summary>
 	  public static T executeWithinProcessApplication<T>(Callable<T> callback, ProcessApplicationReference processApplicationReference)

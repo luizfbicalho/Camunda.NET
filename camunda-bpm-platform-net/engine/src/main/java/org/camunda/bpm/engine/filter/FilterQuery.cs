@@ -48,19 +48,19 @@ namespace org.camunda.bpm.engine.filter
 	  // ordering ////////////////////////////////////////////////////////////
 
 	  /// <summary>
-	  /// Order by filter id (needs to be followed by <seealso cref="#asc()"/> or <seealso cref="#desc()"/>). </summary>
+	  /// Order by filter id (needs to be followed by <seealso cref="asc()"/> or <seealso cref="desc()"/>). </summary>
 	  FilterQuery orderByFilterId();
 
 	  /// <summary>
-	  /// Order by filter id (needs to be followed by <seealso cref="#asc()"/> or <seealso cref="#desc()"/>). </summary>
+	  /// Order by filter id (needs to be followed by <seealso cref="asc()"/> or <seealso cref="desc()"/>). </summary>
 	  FilterQuery orderByFilterResourceType();
 
 	  /// <summary>
-	  /// Order by filter id (needs to be followed by <seealso cref="#asc()"/> or <seealso cref="#desc()"/>). </summary>
+	  /// Order by filter id (needs to be followed by <seealso cref="asc()"/> or <seealso cref="desc()"/>). </summary>
 	  FilterQuery orderByFilterName();
 
 	  /// <summary>
-	  /// Order by filter id (needs to be followed by <seealso cref="#asc()"/> or <seealso cref="#desc()"/>). </summary>
+	  /// Order by filter id (needs to be followed by <seealso cref="asc()"/> or <seealso cref="desc()"/>). </summary>
 	  FilterQuery orderByFilterOwner();
 
 	}

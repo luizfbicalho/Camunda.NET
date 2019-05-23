@@ -19,7 +19,7 @@
 namespace org.camunda.bpm.engine.authorization
 {
 	/// <summary>
-	/// The set of built-in <seealso cref="Permission Permissions"/> for <seealso cref="Resources#OPERATION_LOG_CATEGORY User operation log based on categories"/> in Camunda BPM.
+	/// The set of built-in <seealso cref="Permission Permissions"/> for <seealso cref="Resources.OPERATION_LOG_CATEGORY User operation log based on categories"/> in Camunda BPM.
 	/// 
 	/// @author Tobias Metzke
 	/// 

@@ -24,7 +24,7 @@ namespace org.camunda.bpm.engine.impl.bpmn.diagram
 	/// <summary>
 	/// XML <seealso cref="NamespaceContext"/> containing the namespaces used by BPMN 2.0 XML documents.
 	/// 
-	/// Can be used in <seealso cref="XPath#setNamespaceContext(NamespaceContext)"/>.
+	/// Can be used in <seealso cref="XPath.setNamespaceContext(NamespaceContext)"/>.
 	/// 
 	/// @author Falko Menge
 	/// </summary>

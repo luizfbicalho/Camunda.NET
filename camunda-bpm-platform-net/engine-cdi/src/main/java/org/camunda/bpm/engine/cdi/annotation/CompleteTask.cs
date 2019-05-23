@@ -22,7 +22,7 @@ namespace org.camunda.bpm.engine.cdi.annotation
 	/// Annotation signaling that a task is to be completed after the annotated
 	/// method returns. Requires that the current unit of work (conversation 
 	/// or request) is associated with a task. This has the same effect as
-	/// calling <seealso cref="BusinessProcess#completeTask()"/>.
+	/// calling <seealso cref="BusinessProcess.completeTask()"/>.
 	/// 
 	/// <p />
 	/// Example: after this method returns, the current task is completed 

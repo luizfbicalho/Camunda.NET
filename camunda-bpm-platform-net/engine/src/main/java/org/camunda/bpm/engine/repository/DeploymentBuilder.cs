@@ -31,9 +31,9 @@ namespace org.camunda.bpm.engine.repository
 	/// <summary>
 	/// <para>Builder for creating new deployments.</para>
 	/// 
-	/// <para>A builder instance can be obtained through <seealso cref="org.camunda.bpm.engine.RepositoryService#createDeployment()"/>.</para>
+	/// <para>A builder instance can be obtained through <seealso cref="org.camunda.bpm.engine.RepositoryService.createDeployment()"/>.</para>
 	/// 
-	/// <para>Multiple resources can be added to one deployment before calling the <seealso cref="#deploy()"/>
+	/// <para>Multiple resources can be added to one deployment before calling the <seealso cref="deploy()"/>
 	/// operation.</para>
 	/// 
 	/// <para>After deploying, no more changes can be made to the returned deployment
@@ -132,14 +132,14 @@ namespace org.camunda.bpm.engine.repository
 	  /// Gives the deployment the given name.
 	  /// </summary>
 	  /// <exception cref="NotValidException">
-	  ///    if <seealso cref="#nameFromDeployment(String)"/> has been called before. </exception>
+	  ///    if <seealso cref="nameFromDeployment(string)"/> has been called before. </exception>
 	  DeploymentBuilder name(string name);
 
 	  /// <summary>
 	  /// Sets the deployment id to retrieve the deployment name from it.
 	  /// </summary>
 	  /// <exception cref="NotValidException">
-	  ///    if <seealso cref="#name(String)"/> has been called before. </exception>
+	  ///    if <seealso cref="name(string)"/> has been called before. </exception>
 	  DeploymentBuilder nameFromDeployment(string deploymentId);
 
 	  /// <summary>
@@ -149,7 +149,7 @@ namespace org.camunda.bpm.engine.repository
 	  /// is different to the existing resources, <i>all</i> resources are re-deployed.
 	  /// </para>
 	  /// 
-	  /// <para><b>Deprecated</b>: use <seealso cref="#enableDuplicateFiltering(boolean)"/></para>
+	  /// <para><b>Deprecated</b>: use <seealso cref="enableDuplicateFiltering(bool)"/></para>
 	  /// </summary>
 	  [Obsolete]
 	  DeploymentBuilder enableDuplicateFiltering();
@@ -177,7 +177,7 @@ namespace org.camunda.bpm.engine.repository
 	  /// 
 	  /// <para>
 	  /// Furthermore if duplicate check of deployment resources is enabled (by calling
-	  /// <seealso cref="#enableDuplicateFiltering(boolean)"/>) then only previous deployments
+	  /// <seealso cref="enableDuplicateFiltering(bool)"/>) then only previous deployments
 	  /// with the same given source are considered to perform the duplicate check.
 	  /// </para>
 	  /// </summary>
@@ -188,15 +188,15 @@ namespace org.camunda.bpm.engine.repository
 	  /// 
 	  /// 
 	  /// <para> The returned <seealso cref="Deployment"/> instance has no information about the definitions, which are deployed
-	  /// with that deployment. To access this information you can use the <seealso cref="#deployWithResult()"/> method.
+	  /// with that deployment. To access this information you can use the <seealso cref="deployWithResult()"/> method.
 	  /// This method will return an instance of <seealso cref="DeploymentWithDefinitions"/>, which contains the information
 	  /// about the successful deployed definitions.
 	  /// </para>
 	  /// </summary>
 	  /// <exception cref="NotFoundException"> thrown
 	  ///  <ul>
-	  ///    <li>if the deployment specified by <seealso cref="#nameFromDeployment(String)"/> does not exist or</li>
-	  ///    <li>if at least one of given deployments provided by <seealso cref="#addDeploymentResources(String)"/> does not exist.</li>
+	  ///    <li>if the deployment specified by <seealso cref="nameFromDeployment(string)"/> does not exist or</li>
+	  ///    <li>if at least one of given deployments provided by <seealso cref="addDeploymentResources(string)"/> does not exist.</li>
 	  ///  </ul>
 	  /// </exception>
 	  /// <exception cref="NotValidException">
@@ -205,8 +205,8 @@ namespace org.camunda.bpm.engine.repository
 	  /// <exception cref="AuthorizationException">
 	  ///  thrown if the current user does not possess the following permissions:
 	  ///   <ul>
-	  ///     <li><seealso cref="Permissions#CREATE"/> on <seealso cref="Resources#DEPLOYMENT"/></li>
-	  ///     <li><seealso cref="Permissions#READ"/> on <seealso cref="Resources#DEPLOYMENT"/> (if resources from previous deployments are redeployed)</li>
+	  ///     <li><seealso cref="Permissions.CREATE"/> on <seealso cref="Resources.DEPLOYMENT"/></li>
+	  ///     <li><seealso cref="Permissions.READ"/> on <seealso cref="Resources.DEPLOYMENT"/> (if resources from previous deployments are redeployed)</li>
 	  ///   </ul> </exception>
 	  /// <returns> the created deployment </returns>
 	  Deployment deploy();
@@ -216,8 +216,8 @@ namespace org.camunda.bpm.engine.repository
 	  /// </summary>
 	  /// <exception cref="NotFoundException"> thrown
 	  ///  <ul>
-	  ///    <li>if the deployment specified by <seealso cref="#nameFromDeployment(String)"/> does not exist or</li>
-	  ///    <li>if at least one of given deployments provided by <seealso cref="#addDeploymentResources(String)"/> does not exist.</li>
+	  ///    <li>if the deployment specified by <seealso cref="nameFromDeployment(string)"/> does not exist or</li>
+	  ///    <li>if at least one of given deployments provided by <seealso cref="addDeploymentResources(string)"/> does not exist.</li>
 	  ///  </ul>
 	  /// </exception>
 	  /// <exception cref="NotValidException">
@@ -226,8 +226,8 @@ namespace org.camunda.bpm.engine.repository
 	  /// <exception cref="AuthorizationException">
 	  ///  thrown if the current user does not possess the following permissions:
 	  ///   <ul>
-	  ///     <li><seealso cref="Permissions#CREATE"/> on <seealso cref="Resources#DEPLOYMENT"/></li>
-	  ///     <li><seealso cref="Permissions#READ"/> on <seealso cref="Resources#DEPLOYMENT"/> (if resources from previous deployments are redeployed)</li>
+	  ///     <li><seealso cref="Permissions.CREATE"/> on <seealso cref="Resources.DEPLOYMENT"/></li>
+	  ///     <li><seealso cref="Permissions.READ"/> on <seealso cref="Resources.DEPLOYMENT"/> (if resources from previous deployments are redeployed)</li>
 	  ///   </ul> </exception>
 	  /// <returns> the created deployment, contains the deployed definitions </returns>
 	  DeploymentWithDefinitions deployWithResult();

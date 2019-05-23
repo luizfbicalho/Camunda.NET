@@ -728,8 +728,8 @@ namespace org.camunda.bpm.engine.impl.db.entitymanager
 
 	  /// <summary>
 	  /// Several update operations added by this method will be executed preserving the order of method calls, no matter what entity type they refer to.
-	  /// They will though be executed after all "not-bulk" operations (e.g. <seealso cref="DbEntityManager#insert(DbEntity)"/> or <seealso cref="DbEntityManager#merge(DbEntity)"/>)
-	  /// and after those updates added by <seealso cref="DbEntityManager#update(Class, String, Object)"/>. </summary>
+	  /// They will though be executed after all "not-bulk" operations (e.g. <seealso cref="DbEntityManager.insert(DbEntity)"/> or <seealso cref="DbEntityManager.merge(DbEntity)"/>)
+	  /// and after those updates added by <seealso cref="DbEntityManager.update(System.Type, string, object)"/>. </summary>
 	  /// <param name="entityType"> </param>
 	  /// <param name="statement"> </param>
 	  /// <param name="parameter"> </param>
@@ -745,8 +745,8 @@ namespace org.camunda.bpm.engine.impl.db.entitymanager
 
 	  /// <summary>
 	  /// Several delete operations added by this method will be executed preserving the order of method calls, no matter what entity type they refer to.
-	  /// They will though be executed after all "not-bulk" operations (e.g. <seealso cref="DbEntityManager#insert(DbEntity)"/> or <seealso cref="DbEntityManager#merge(DbEntity)"/>)
-	  /// and after those deletes added by <seealso cref="DbEntityManager#delete(Class, String, Object)"/>. </summary>
+	  /// They will though be executed after all "not-bulk" operations (e.g. <seealso cref="DbEntityManager.insert(DbEntity)"/> or <seealso cref="DbEntityManager.merge(DbEntity)"/>)
+	  /// and after those deletes added by <seealso cref="DbEntityManager.delete(System.Type, string, object)"/>. </summary>
 	  /// <param name="entityType"> </param>
 	  /// <param name="statement"> </param>
 	  /// <param name="parameter"> </param>

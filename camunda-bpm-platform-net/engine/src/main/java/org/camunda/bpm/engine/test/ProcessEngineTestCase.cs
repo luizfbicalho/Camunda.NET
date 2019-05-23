@@ -34,13 +34,13 @@ namespace org.camunda.bpm.engine.test
 	/// <para>The ProcessEngine and the services available to subclasses through protected member fields.
 	/// The processEngine will be initialized by default with the camunda.cfg.xml resource
 	/// on the classpath.  To specify a different configuration file, override the
-	/// <seealso cref="#getConfigurationResource()"/> method.
+	/// <seealso cref="getConfigurationResource()"/> method.
 	/// Process engines will be cached statically.  The first time the setUp is called for a given
 	/// configuration resource, the process engine will be constructed.</para>
 	/// 
 	/// <para>You can declare a deployment with the <seealso cref="Deployment"/> annotation.
 	/// This base class will make sure that this deployment gets deployed in the
-	/// setUp and <seealso cref="RepositoryService#deleteDeploymentCascade(String, boolean) cascade deleted"/>
+	/// setUp and <seealso cref="RepositoryService.deleteDeploymentCascade(string, bool) cascade deleted"/>
 	/// in the tearDown.
 	/// </para>
 	/// 

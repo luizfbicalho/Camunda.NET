@@ -57,7 +57,7 @@ namespace org.camunda.bpm.application.impl.metadata.spi
 
 	  /// <summary>
 	  /// <para> The resource root of the proccess archive. This property is used when scanning for process definitions
-	  /// (if <seealso cref="#PROP_IS_SCAN_FOR_PROCESS_DEFINITIONS"/> is set to true).</para>
+	  /// (if <seealso cref="PROP_IS_SCAN_FOR_PROCESS_DEFINITIONS"/> is set to true).</para>
 	  /// 
 	  /// <para> The path is interpreted as
 	  /// <ul>

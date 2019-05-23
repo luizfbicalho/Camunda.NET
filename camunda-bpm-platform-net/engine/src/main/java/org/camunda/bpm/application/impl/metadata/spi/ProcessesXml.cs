@@ -31,10 +31,10 @@ namespace org.camunda.bpm.application.impl.metadata.spi
 	public interface ProcessesXml
 	{
 
-	  /// <returns> A <seealso cref="List"/> of <seealso cref="ProcessEngineXml"/> Metadata Items representing process engine configurations. </returns>
+	  /// <returns> A <seealso cref="System.Collections.IList"/> of <seealso cref="ProcessEngineXml"/> Metadata Items representing process engine configurations. </returns>
 	  IList<ProcessEngineXml> ProcessEngines {get;}
 
-	  /// <returns> A <seealso cref="List"/> of <seealso cref="ProcessArchiveXml"/> Metadata Items representing process archive deployments. </returns>
+	  /// <returns> A <seealso cref="System.Collections.IList"/> of <seealso cref="ProcessArchiveXml"/> Metadata Items representing process archive deployments. </returns>
 	  IList<ProcessArchiveXml> ProcessArchives {get;}
 
 	  /// <summary>

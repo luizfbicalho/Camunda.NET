@@ -36,7 +36,7 @@ namespace org.camunda.bpm.engine.repository
 
 	  /// <summary>
 	  /// Only the built-in <seealso cref="ExecutionListener"/>s are notified with the
-	  /// <seealso cref="ExecutionListener#EVENTNAME_END"/> event.
+	  /// <seealso cref="ExecutionListener.EVENTNAME_END"/> event.
 	  /// Is only applied in conjunction with the cascade method.
 	  /// </summary>
 	  /// <returns> the builder </returns>
@@ -54,11 +54,11 @@ namespace org.camunda.bpm.engine.repository
 	  /// <exception cref="ProcessEngineException">
 	  ///           If no such processDefinition can be found. </exception>
 	  /// <exception cref="AuthorizationException">
-	  ///           <ul><li>if the user has no <seealso cref="Permissions#UPDATE"/> permission on
-	  ///           <seealso cref="Resources#PROCESS_DEFINITION"/></li>
-	  ///           <li>if <seealso cref="#cascade()"/> is applied and the user has
-	  ///           no <seealso cref="Permissions#UPDATE"/> permission on <seealso cref="Resources#PROCESS_INSTANCE"/> or
-	  ///           no <seealso cref="Permissions#UPDATE_INSTANCE"/> permission on <seealso cref="Resources#PROCESS_DEFINITION"/>.</li></ul> </exception>
+	  ///           <ul><li>if the user has no <seealso cref="Permissions.UPDATE"/> permission on
+	  ///           <seealso cref="Resources.PROCESS_DEFINITION"/></li>
+	  ///           <li>if <seealso cref="cascade()"/> is applied and the user has
+	  ///           no <seealso cref="Permissions.UPDATE"/> permission on <seealso cref="Resources.PROCESS_INSTANCE"/> or
+	  ///           no <seealso cref="Permissions.UPDATE_INSTANCE"/> permission on <seealso cref="Resources.PROCESS_DEFINITION"/>.</li></ul> </exception>
 	  void delete();
 
 	}

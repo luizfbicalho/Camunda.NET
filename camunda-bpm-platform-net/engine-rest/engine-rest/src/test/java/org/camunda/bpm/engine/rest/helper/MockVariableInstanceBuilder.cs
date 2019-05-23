@@ -29,8 +29,8 @@ namespace org.camunda.bpm.engine.rest.helper
 	/// <summary>
 	/// Creates variable mocks and simultaneously provides a ResponseSpecification
 	/// to assert a result of this mock in json; expectations can be overriden using the
-	/// methods <seealso cref="JsonSpec#setMatcher(String, org.hamcrest.Matcher)"/> and
-	/// <seealso cref="JsonSpec#setEnclosedJsonSpec(String, JsonSpec)"/>.
+	/// methods <seealso cref="JsonSpec.setMatcher(string, org.hamcrest.Matcher)"/> and
+	/// <seealso cref="JsonSpec.setEnclosedJsonSpec(string, JsonSpec)"/>.
 	/// 
 	/// @author Thorben Lindhauer
 	/// </summary>

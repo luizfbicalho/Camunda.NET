@@ -124,47 +124,47 @@ namespace org.camunda.bpm.engine.history
 
 	  // ordering /////////////////////////////////////////////////////////////////
 	  /// <summary>
-	  /// Order by id (needs to be followed by <seealso cref="#asc()"/> or <seealso cref="#desc()"/>). </summary>
+	  /// Order by id (needs to be followed by <seealso cref="asc()"/> or <seealso cref="desc()"/>). </summary>
 	  HistoricCaseActivityInstanceQuery orderByHistoricCaseActivityInstanceId();
 
 	  /// <summary>
-	  /// Order by caseInstanceId (needs to be followed by <seealso cref="#asc()"/> or <seealso cref="#desc()"/>). </summary>
+	  /// Order by caseInstanceId (needs to be followed by <seealso cref="asc()"/> or <seealso cref="desc()"/>). </summary>
 	  HistoricCaseActivityInstanceQuery orderByCaseInstanceId();
 
 	  /// <summary>
-	  /// Order by caseExecutionId (needs to be followed by <seealso cref="#asc()"/> or <seealso cref="#desc()"/>). </summary>
+	  /// Order by caseExecutionId (needs to be followed by <seealso cref="asc()"/> or <seealso cref="desc()"/>). </summary>
 	  HistoricCaseActivityInstanceQuery orderByCaseExecutionId();
 
 	  /// <summary>
-	  /// Order by caseActivityId (needs to be followed by <seealso cref="#asc()"/> or <seealso cref="#desc()"/>). </summary>
+	  /// Order by caseActivityId (needs to be followed by <seealso cref="asc()"/> or <seealso cref="desc()"/>). </summary>
 	  HistoricCaseActivityInstanceQuery orderByCaseActivityId();
 
 	  /// <summary>
-	  /// Order by caseActivityName (needs to be followed by <seealso cref="#asc()"/> or <seealso cref="#desc()"/>). </summary>
+	  /// Order by caseActivityName (needs to be followed by <seealso cref="asc()"/> or <seealso cref="desc()"/>). </summary>
 	  HistoricCaseActivityInstanceQuery orderByCaseActivityName();
 
 	  /// <summary>
-	  /// Order by caseActivityType (needs to be followed by <seealso cref="#asc()"/> or <seealso cref="#desc()"/>). </summary>
+	  /// Order by caseActivityType (needs to be followed by <seealso cref="asc()"/> or <seealso cref="desc()"/>). </summary>
 	  HistoricCaseActivityInstanceQuery orderByCaseActivityType();
 
 	  /// <summary>
-	  /// Order by create time (needs to be followed by <seealso cref="#asc()"/> or <seealso cref="#desc()"/>). </summary>
+	  /// Order by create time (needs to be followed by <seealso cref="asc()"/> or <seealso cref="desc()"/>). </summary>
 	  HistoricCaseActivityInstanceQuery orderByHistoricCaseActivityInstanceCreateTime();
 
 	  /// <summary>
-	  /// Order by end time (needs to be followed by <seealso cref="#asc()"/> or <seealso cref="#desc()"/>). </summary>
+	  /// Order by end time (needs to be followed by <seealso cref="asc()"/> or <seealso cref="desc()"/>). </summary>
 	  HistoricCaseActivityInstanceQuery orderByHistoricCaseActivityInstanceEndTime();
 
 	  /// <summary>
-	  /// Order by duration (needs to be followed by <seealso cref="#asc()"/> or <seealso cref="#desc()"/>). </summary>
+	  /// Order by duration (needs to be followed by <seealso cref="asc()"/> or <seealso cref="desc()"/>). </summary>
 	  HistoricCaseActivityInstanceQuery orderByHistoricCaseActivityInstanceDuration();
 
 	  /// <summary>
-	  /// Order by caseDefinitionId (needs to be followed by <seealso cref="#asc()"/> or <seealso cref="#desc()"/>). </summary>
+	  /// Order by caseDefinitionId (needs to be followed by <seealso cref="asc()"/> or <seealso cref="desc()"/>). </summary>
 	  HistoricCaseActivityInstanceQuery orderByCaseDefinitionId();
 
 	  /// <summary>
-	  /// Order by tenant id (needs to be followed by <seealso cref="#asc()"/> or <seealso cref="#desc()"/>).
+	  /// Order by tenant id (needs to be followed by <seealso cref="asc()"/> or <seealso cref="desc()"/>).
 	  /// Note that the ordering of historic case activity instances without tenant id is database-specific.
 	  /// </summary>
 	  HistoricCaseActivityInstanceQuery orderByTenantId();

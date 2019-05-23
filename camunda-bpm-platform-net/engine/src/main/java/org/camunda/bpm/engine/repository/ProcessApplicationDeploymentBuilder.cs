@@ -35,7 +35,7 @@ namespace org.camunda.bpm.engine.repository
 	/// all process definitions contained in the deployment in the context of the process
 	/// application (by calling the process application's
 	/// </para>
-	/// <seealso cref="ProcessApplicationInterface#execute(java.util.concurrent.Callable)"/> method.<para>
+	/// <seealso cref="ProcessApplicationInterface.execute(java.util.concurrent.Callable)"/> method.<para>
 	/// 
 	/// @author Daniel Meyer
 	/// 
@@ -52,7 +52,7 @@ namespace org.camunda.bpm.engine.repository
 
 	  /// <summary>
 	  /// This method defines on what additional registrations will be based.
-	  /// The value will only be recognized if <seealso cref="#resumePreviousVersions()"/> is set.
+	  /// The value will only be recognized if <seealso cref="resumePreviousVersions()"/> is set.
 	  /// <para>
 	  /// </para>
 	  /// </summary>

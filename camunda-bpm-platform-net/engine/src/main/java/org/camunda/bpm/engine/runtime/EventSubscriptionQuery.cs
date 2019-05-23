@@ -63,16 +63,16 @@ namespace org.camunda.bpm.engine.runtime
 
 	  /// <summary>
 	  /// Select subscriptions which have no tenant id. Can be used in combination
-	  /// with <seealso cref="#tenantIdIn(String...)"/>.
+	  /// with <seealso cref="tenantIdIn(string...)"/>.
 	  /// </summary>
 	  EventSubscriptionQuery includeEventSubscriptionsWithoutTenantId();
 
 	  /// <summary>
-	  /// Order by event subscription creation date (needs to be followed by <seealso cref="#asc()"/> or <seealso cref="#desc()"/>). </summary>
+	  /// Order by event subscription creation date (needs to be followed by <seealso cref="asc()"/> or <seealso cref="desc()"/>). </summary>
 	  EventSubscriptionQuery orderByCreated();
 
 	  /// <summary>
-	  /// Order by tenant id (needs to be followed by <seealso cref="#asc()"/> or <seealso cref="#desc()"/>).
+	  /// Order by tenant id (needs to be followed by <seealso cref="asc()"/> or <seealso cref="desc()"/>).
 	  /// Note that the ordering of subscriptions without tenant id is database-specific.
 	  /// </summary>
 	  EventSubscriptionQuery orderByTenantId();

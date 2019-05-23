@@ -60,15 +60,15 @@ namespace org.camunda.bpm.engine.repository
 	  /// <exception cref="AuthorizationException">
 	  ///           <li>if the user has none of the following:</li>
 	  ///           <ul>
-	  ///           <li><seealso cref="ProcessDefinitionPermissions#SUSPEND"/> permission on <seealso cref="Resources#PROCESS_DEFINITION"/></li>
-	  ///           <li><seealso cref="Permissions#UPDATE"/> permission on <seealso cref="Resources#PROCESS_DEFINITION"/></li>
+	  ///           <li><seealso cref="ProcessDefinitionPermissions.SUSPEND"/> permission on <seealso cref="Resources.PROCESS_DEFINITION"/></li>
+	  ///           <li><seealso cref="Permissions.UPDATE"/> permission on <seealso cref="Resources.PROCESS_DEFINITION"/></li>
 	  ///           </ul>
-	  ///           <li>if <seealso cref="#includeProcessInstances(boolean)"/> is set to <code>true</code> and the user has none of the following:</li>
+	  ///           <li>if <seealso cref="includeProcessInstances(bool)"/> is set to <code>true</code> and the user has none of the following:</li>
 	  ///           <ul>
-	  ///           <li><seealso cref="ProcessInstancePermissions#SUSPEND"/> permission on <seealso cref="Resources#PROCESS_INSTANCE"/></li>
-	  ///           <li><seealso cref="ProcessDefinitionPermissions#SUSPEND_INSTANCE"/> permission on <seealso cref="Resources#PROCESS_DEFINITION"/></li>
-	  ///           <li><seealso cref="Permissions#UPDATE"/> permission on <seealso cref="Resources#PROCESS_INSTANCE"/></li>
-	  ///           <li><seealso cref="Permissions#UPDATE_INSTANCE"/> permission on <seealso cref="Resources#PROCESS_DEFINITION"/></li>
+	  ///           <li><seealso cref="ProcessInstancePermissions.SUSPEND"/> permission on <seealso cref="Resources.PROCESS_INSTANCE"/></li>
+	  ///           <li><seealso cref="ProcessDefinitionPermissions.SUSPEND_INSTANCE"/> permission on <seealso cref="Resources.PROCESS_DEFINITION"/></li>
+	  ///           <li><seealso cref="Permissions.UPDATE"/> permission on <seealso cref="Resources.PROCESS_INSTANCE"/></li>
+	  ///           <li><seealso cref="Permissions.UPDATE_INSTANCE"/> permission on <seealso cref="Resources.PROCESS_DEFINITION"/></li>
 	  ///           </ul> </exception>
 	  void activate();
 
@@ -82,15 +82,15 @@ namespace org.camunda.bpm.engine.repository
 	  /// <exception cref="AuthorizationException">
 	  ///           <li>if the user has none of the following:</li>
 	  ///           <ul>
-	  ///           <li><seealso cref="ProcessDefinitionPermissions#SUSPEND"/> permission on <seealso cref="Resources#PROCESS_DEFINITION"/></li>
-	  ///           <li><seealso cref="Permissions#UPDATE"/> permission on <seealso cref="Resources#PROCESS_DEFINITION"/></li>
+	  ///           <li><seealso cref="ProcessDefinitionPermissions.SUSPEND"/> permission on <seealso cref="Resources.PROCESS_DEFINITION"/></li>
+	  ///           <li><seealso cref="Permissions.UPDATE"/> permission on <seealso cref="Resources.PROCESS_DEFINITION"/></li>
 	  ///           </ul>
-	  ///           <li>if <seealso cref="#includeProcessInstances(boolean)"/> is set to <code>true</code> and the user has none of the following:</li>
+	  ///           <li>if <seealso cref="includeProcessInstances(bool)"/> is set to <code>true</code> and the user has none of the following:</li>
 	  ///           <ul>
-	  ///           <li><seealso cref="ProcessInstancePermissions#SUSPEND"/> permission on <seealso cref="Resources#PROCESS_INSTANCE"/></li>
-	  ///           <li><seealso cref="ProcessDefinitionPermissions#SUSPEND_INSTANCE"/> permission on <seealso cref="Resources#PROCESS_DEFINITION"/></li>
-	  ///           <li><seealso cref="Permissions#UPDATE"/> permission on <seealso cref="Resources#PROCESS_INSTANCE"/></li>
-	  ///           <li><seealso cref="Permissions#UPDATE_INSTANCE"/> permission on <seealso cref="Resources#PROCESS_DEFINITION"/></li>
+	  ///           <li><seealso cref="ProcessInstancePermissions.SUSPEND"/> permission on <seealso cref="Resources.PROCESS_INSTANCE"/></li>
+	  ///           <li><seealso cref="ProcessDefinitionPermissions.SUSPEND_INSTANCE"/> permission on <seealso cref="Resources.PROCESS_DEFINITION"/></li>
+	  ///           <li><seealso cref="Permissions.UPDATE"/> permission on <seealso cref="Resources.PROCESS_INSTANCE"/></li>
+	  ///           <li><seealso cref="Permissions.UPDATE_INSTANCE"/> permission on <seealso cref="Resources.PROCESS_DEFINITION"/></li>
 	  ///           </ul> </exception>
 	  void suspend();
 

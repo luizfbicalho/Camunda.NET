@@ -33,7 +33,7 @@ namespace org.camunda.bpm.engine.impl.bpmn.diagram
 
 	/// <summary>
 	/// Provides positions and dimensions of elements in a process diagram as
-	/// provided by <seealso cref="RepositoryService#getProcessDiagram(String)"/>.
+	/// provided by <seealso cref="RepositoryService.getProcessDiagram(string)"/>.
 	/// 
 	/// @author Falko Menge
 	/// </summary>
@@ -61,7 +61,7 @@ namespace org.camunda.bpm.engine.impl.bpmn.diagram
 
 	  /// <summary>
 	  /// Provides positions and dimensions of elements in a process diagram as
-	  /// provided by <seealso cref="RepositoryService#getProcessDiagram(String)"/>.
+	  /// provided by <seealso cref="RepositoryService.getProcessDiagram(string)"/>.
 	  /// 
 	  /// Currently, it only supports BPMN 2.0 models.
 	  /// </summary>
@@ -80,7 +80,7 @@ namespace org.camunda.bpm.engine.impl.bpmn.diagram
 
 	  /// <summary>
 	  /// Provides positions and dimensions of elements in a BPMN process diagram as
-	  /// provided by <seealso cref="RepositoryService#getProcessDiagram(String)"/>.
+	  /// provided by <seealso cref="RepositoryService.getProcessDiagram(string)"/>.
 	  /// </summary>
 	  /// <param name="bpmnModel">
 	  ///          BPMN 2.0 XML document </param>

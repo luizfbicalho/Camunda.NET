@@ -31,8 +31,8 @@ namespace org.camunda.bpm.engine.variable.value
 	  /// Returns true in case the object is deserialized. If this method returns true,
 	  /// it is safe to call the methods
 	  /// <ul>
-	  ///   <li><seealso cref="#getValue()"/> and <seealso cref="#getValue(Class)"/></li>
-	  ///   <li><seealso cref="#getObjectType()"/></li>
+	  ///   <li><seealso cref="getValue()"/> and <seealso cref="getValue(System.Type)"/></li>
+	  ///   <li><seealso cref="getObjectType()"/></li>
 	  /// </ul>
 	  /// </summary>
 	  /// <returns> true if the object is deserialized. </returns>
@@ -42,7 +42,7 @@ namespace org.camunda.bpm.engine.variable.value
 	  /// Returns the Object or null in case the value is null.
 	  /// </summary>
 	  /// <returns> the object represented by this TypedValue. </returns>
-	  /// <exception cref="IllegalStateException"> in case the object is not deserialized. See <seealso cref="#isDeserialized()"/>. </exception>
+	  /// <exception cref="IllegalStateException"> in case the object is not deserialized. See <seealso cref="isDeserialized()"/>. </exception>
 	  object Value {get;}
 
 	  /// <summary>
@@ -51,14 +51,14 @@ namespace org.camunda.bpm.engine.variable.value
 	  /// </summary>
 	  /// <param name="type"> the java class the value should be cast to </param>
 	  /// <returns> the object represented by this TypedValue. </returns>
-	  /// <exception cref="IllegalStateException"> in case the object is not deserialized. See <seealso cref="#isDeserialized()"/>. </exception>
+	  /// <exception cref="IllegalStateException"> in case the object is not deserialized. See <seealso cref="isDeserialized()"/>. </exception>
 	  T getValue<T>(Type type);
 
 	  /// <summary>
 	  /// Returns the Class this object is an instance of.
 	  /// </summary>
 	  /// <returns> the Class this object is an instance of </returns>
-	  /// <exception cref="IllegalStateException"> in case the object is not deserialized. See <seealso cref="#isDeserialized()"/>. </exception>
+	  /// <exception cref="IllegalStateException"> in case the object is not deserialized. See <seealso cref="isDeserialized()"/>. </exception>
 	  Type ObjectType {get;}
 
 	  /// <summary>

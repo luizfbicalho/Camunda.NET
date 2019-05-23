@@ -40,7 +40,7 @@ namespace org.camunda.bpm.engine.rest
 	  object getTasks(Request request, UriInfo uriInfo, int? firstResult, int? maxResults);
 
 	  /// <summary>
-	  /// Expects the same parameters as <seealso cref="TaskRestService#getTasks(UriInfo, Integer, Integer)"/> (as
+	  /// Expects the same parameters as <seealso cref="TaskRestService.getTasks(UriInfo, Integer, Integer)"/> (as
 	  /// JSON message body) and allows more than one variable check. </summary>
 	  /// <param name="query"> </param>
 	  /// <param name="firstResult"> </param>

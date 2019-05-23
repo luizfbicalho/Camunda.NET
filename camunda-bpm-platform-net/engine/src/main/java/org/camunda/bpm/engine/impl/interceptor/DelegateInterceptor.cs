@@ -34,7 +34,7 @@ namespace org.camunda.bpm.engine.impl.interceptor
 	/// 
 	/// The interceptor is passed in an instance of <seealso cref="DelegateInvocation"/>.
 	/// Implementations are responsible for calling
-	/// <seealso cref="DelegateInvocation#proceed()"/>.
+	/// <seealso cref="DelegateInvocation.proceed()"/>.
 	/// 
 	/// @author Daniel Meyer
 	/// </summary>

@@ -118,7 +118,7 @@ namespace org.camunda.bpm.engine.runtime
 	  /// <summary>
 	  /// Only select cases instances which have a global variable with the given value. The type
 	  /// of variable is determined based on the value, using types configured in
-	  /// <seealso cref="ProcessEngineConfigurationImpl#getVariableSerializers()"/>.
+	  /// <seealso cref="ProcessEngineConfigurationImpl.getVariableSerializers()"/>.
 	  /// 
 	  /// Byte-arrays and <seealso cref="Serializable"/> objects (which are not primitive type wrappers)
 	  /// are not supported.
@@ -221,19 +221,19 @@ namespace org.camunda.bpm.engine.runtime
 	  //ordering /////////////////////////////////////////////////////////////////
 
 	  /// <summary>
-	  /// Order by id (needs to be followed by <seealso cref="#asc()"/> or <seealso cref="#desc()"/>). </summary>
+	  /// Order by id (needs to be followed by <seealso cref="asc()"/> or <seealso cref="desc()"/>). </summary>
 	  CaseInstanceQuery orderByCaseInstanceId();
 
 	  /// <summary>
-	  /// Order by case definition key (needs to be followed by <seealso cref="#asc()"/> or <seealso cref="#desc()"/>). </summary>
+	  /// Order by case definition key (needs to be followed by <seealso cref="asc()"/> or <seealso cref="desc()"/>). </summary>
 	  CaseInstanceQuery orderByCaseDefinitionKey();
 
 	  /// <summary>
-	  /// Order by case definition id (needs to be followed by <seealso cref="#asc()"/> or <seealso cref="#desc()"/>). </summary>
+	  /// Order by case definition id (needs to be followed by <seealso cref="asc()"/> or <seealso cref="desc()"/>). </summary>
 	  CaseInstanceQuery orderByCaseDefinitionId();
 
 	  /// <summary>
-	  /// Order by tenant id (needs to be followed by <seealso cref="#asc()"/> or <seealso cref="#desc()"/>).
+	  /// Order by tenant id (needs to be followed by <seealso cref="asc()"/> or <seealso cref="desc()"/>).
 	  /// Note that the ordering of case instances without tenant id is database-specific.
 	  /// </summary>
 	  CaseInstanceQuery orderByTenantId();

@@ -55,7 +55,7 @@ namespace org.camunda.bpm.engine.cdi.jsf
 	  /// 
 	  /// <param name="taskId"> </param>
 	  /// <param name="callbackUrl"> </param>
-	  [Obsolete("use <seealso cref="startTaskForm()"/> instead")]
+	  [Obsolete("use <seealso cref=\"startTaskForm()\"/> instead")]
 	  public virtual void startTask(string taskId, string callbackUrl)
 	  {
 		if (string.ReferenceEquals(taskId, null) || string.ReferenceEquals(callbackUrl, null))
@@ -127,7 +127,7 @@ namespace org.camunda.bpm.engine.cdi.jsf
 	  /// 
 	  /// <param name="processDefinitionId"> </param>
 	  /// <param name="callbackUrl"> </param>
-	  [Obsolete("use <seealso cref="startProcessInstanceByIdForm()"/> instead")]
+	  [Obsolete("use <seealso cref=\"startProcessInstanceByIdForm()\"/> instead")]
 	  public virtual void startProcessInstanceByIdForm(string processDefinitionId, string callbackUrl)
 	  {
 		this.url = callbackUrl;
@@ -162,7 +162,7 @@ namespace org.camunda.bpm.engine.cdi.jsf
 	  /// 
 	  /// <param name="processDefinitionKey"> </param>
 	  /// <param name="callbackUrl"> </param>
-	  [Obsolete("use <seealso cref="startProcessInstanceByKeyForm()"/> instead")]
+	  [Obsolete("use <seealso cref=\"startProcessInstanceByKeyForm()\"/> instead")]
 	  public virtual void startProcessInstanceByKeyForm(string processDefinitionKey, string callbackUrl)
 	  {
 		this.url = callbackUrl;

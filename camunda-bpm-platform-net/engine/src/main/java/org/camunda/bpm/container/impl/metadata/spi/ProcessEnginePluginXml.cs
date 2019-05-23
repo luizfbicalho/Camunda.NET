@@ -36,10 +36,10 @@ namespace org.camunda.bpm.container.impl.metadata.spi
 
 	  /// <returns> a set of additional properties. The properties are directly set on
 	  ///         the <seealso cref="ProcessEnginePlugin"/> class (see
-	  ///         <seealso cref="#getPluginClass()"/>). This means that each property
+	  ///         <seealso cref="getPluginClass()"/>). This means that each property
 	  ///         name used here must be a bean property name on the plugin class 
 	  ///         and the bean property must be of type
-	  ///         <seealso cref="String"/>, <seealso cref="Integer"/> or <seealso cref="Boolean"/>. </returns>
+	  ///         <seealso cref="string"/>, <seealso cref="Integer"/> or <seealso cref="Boolean"/>. </returns>
 	  IDictionary<string, string> Properties {get;}
 
 	}

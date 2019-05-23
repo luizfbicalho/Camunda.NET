@@ -403,8 +403,8 @@ namespace org.camunda.bpm.engine.variable
 
 	  /// <summary>
 	  /// Creates an abstract Number value. Note that this value cannot be used to set variables.
-	  /// Use the specific methods <seealso cref="Variables#integerValue(Integer)"/>, <seealso cref="#shortValue(Short)"/>,
-	  /// <seealso cref="#longValue(Long)"/> and <seealso cref="#doubleValue(Double)"/> instead.
+	  /// Use the specific methods <seealso cref="Variables.integerValue(Integer)"/>, <seealso cref="shortValue(Short)"/>,
+	  /// <seealso cref="longValue(Long)"/> and <seealso cref="doubleValue(Double)"/> instead.
 	  /// </summary>
 	  public static NumberValue numberValue(Number numberValue)
 	  {
@@ -413,8 +413,8 @@ namespace org.camunda.bpm.engine.variable
 
 	  /// <summary>
 	  /// Creates an abstract Number value. Note that this value cannot be used to set variables.
-	  /// Use the specific methods <seealso cref="Variables#integerValue(Integer)"/>, <seealso cref="#shortValue(Short)"/>,
-	  /// <seealso cref="#longValue(Long)"/> and <seealso cref="#doubleValue(Double)"/> instead.
+	  /// Use the specific methods <seealso cref="Variables.integerValue(Integer)"/>, <seealso cref="shortValue(Short)"/>,
+	  /// <seealso cref="longValue(Long)"/> and <seealso cref="doubleValue(Double)"/> instead.
 	  /// </summary>
 	  public static NumberValue numberValue(Number numberValue, bool isTransient)
 	  {
@@ -422,7 +422,7 @@ namespace org.camunda.bpm.engine.variable
 	  }
 
 	  /// <summary>
-	  /// Creates a <seealso cref="TypedValue"/> with value {@code null} and type <seealso cref="ValueType#NULL"/>
+	  /// Creates a <seealso cref="TypedValue"/> with value {@code null} and type <seealso cref="ValueType.NULL"/>
 	  /// </summary>
 	  public static TypedValue untypedNullValue()
 	  {
@@ -430,7 +430,7 @@ namespace org.camunda.bpm.engine.variable
 	  }
 
 	  /// <summary>
-	  /// Creates a <seealso cref="TypedValue"/> with value {@code null} and type <seealso cref="ValueType#NULL"/>
+	  /// Creates a <seealso cref="TypedValue"/> with value {@code null} and type <seealso cref="ValueType.NULL"/>
 	  /// </summary>
 	  public static TypedValue untypedNullValue(bool isTransient)
 	  {
@@ -445,7 +445,7 @@ namespace org.camunda.bpm.engine.variable
 	  }
 
 	  /// <summary>
-	  /// Creates an untyped value, i.e. <seealso cref="TypedValue#getType()"/> returns <code>null</code>
+	  /// Creates an untyped value, i.e. <seealso cref="TypedValue.getType()"/> returns <code>null</code>
 	  /// for the returned instance.
 	  /// </summary>
 	  public static TypedValue untypedValue(object value)
@@ -461,7 +461,7 @@ namespace org.camunda.bpm.engine.variable
 	  }
 
 	  /// <summary>
-	  /// Creates an untyped value, i.e. <seealso cref="TypedValue#getType()"/> returns <code>null</code>
+	  /// Creates an untyped value, i.e. <seealso cref="TypedValue.getType()"/> returns <code>null</code>
 	  /// for the returned instance.
 	  /// </summary>
 	  public static TypedValue untypedValue(object value, bool isTransient)

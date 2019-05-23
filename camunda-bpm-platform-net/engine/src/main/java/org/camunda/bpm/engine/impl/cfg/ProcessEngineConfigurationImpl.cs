@@ -350,7 +350,7 @@ namespace org.camunda.bpm.engine.impl.cfg
 
 	  // Command executor and interceptor stack
 	  /// <summary>
-	  /// the configurable list which will be <seealso cref="#initInterceptorChain(java.util.List) processed"/> to build the <seealso cref="#commandExecutorTxRequired"/>
+	  /// the configurable list which will be <seealso cref="initInterceptorChain(System.Collections.IList) processed"/> to build the <seealso cref="commandExecutorTxRequired"/>
 	  /// </summary>
 	  protected internal IList<CommandInterceptor> customPreCommandInterceptorsTxRequired;
 	  protected internal IList<CommandInterceptor> customPostCommandInterceptorsTxRequired;
@@ -363,7 +363,7 @@ namespace org.camunda.bpm.engine.impl.cfg
 	  protected internal CommandExecutor commandExecutorTxRequired;
 
 	  /// <summary>
-	  /// the configurable list which will be <seealso cref="#initInterceptorChain(List) processed"/> to build the <seealso cref="#commandExecutorTxRequiresNew"/>
+	  /// the configurable list which will be <seealso cref="initInterceptorChain(System.Collections.IList) processed"/> to build the <seealso cref="commandExecutorTxRequiresNew"/>
 	  /// </summary>
 	  protected internal IList<CommandInterceptor> customPreCommandInterceptorsTxRequiresNew;
 	  protected internal IList<CommandInterceptor> customPostCommandInterceptorsTxRequiresNew;
@@ -727,7 +727,7 @@ namespace org.camunda.bpm.engine.impl.cfg
 	  protected internal string historyCleanupStrategy;
 
 	  /// <summary>
-	  /// Size of batch in which history cleanup data will be deleted. <seealso cref="HistoryCleanupBatch#MAX_BATCH_SIZE"/> must be respected.
+	  /// Size of batch in which history cleanup data will be deleted. <seealso cref="HistoryCleanupBatch.MAX_BATCH_SIZE"/> must be respected.
 	  /// </summary>
 	  private int historyCleanupBatchSize = 500;
 	  /// <summary>
@@ -3559,8 +3559,8 @@ namespace org.camunda.bpm.engine.impl.cfg
 	  }
 
 
-	  /// @deprecated use <seealso cref="#getCustomPreBPMNParseListeners"/> instead. 
-	  [Obsolete("use <seealso cref="#getCustomPreBPMNParseListeners"/> instead.")]
+	  /// @deprecated use <seealso cref="getCustomPreBPMNParseListeners"/> instead. 
+	  [Obsolete("use <seealso cref=\"getCustomPreBPMNParseListeners\"/> instead.")]
 	  public virtual IList<BpmnParseListener> PreParseListeners
 	  {
 		  get
@@ -3574,8 +3574,8 @@ namespace org.camunda.bpm.engine.impl.cfg
 	  }
 
 
-	  /// @deprecated use <seealso cref="#getCustomPostBPMNParseListeners"/> instead. 
-	  [Obsolete("use <seealso cref="#getCustomPostBPMNParseListeners"/> instead.")]
+	  /// @deprecated use <seealso cref="getCustomPostBPMNParseListeners"/> instead. 
+	  [Obsolete("use <seealso cref=\"getCustomPostBPMNParseListeners\"/> instead.")]
 	  public virtual IList<BpmnParseListener> PostParseListeners
 	  {
 		  get
@@ -3929,8 +3929,8 @@ namespace org.camunda.bpm.engine.impl.cfg
 	  /// <para>
 	  /// <p/>
 	  /// <strong>NOTE: the prefix is not respected by automatic database schema management. If you use
-	  /// <seealso cref="ProcessEngineConfiguration#DB_SCHEMA_UPDATE_CREATE_DROP"/>
-	  /// or <seealso cref="ProcessEngineConfiguration#DB_SCHEMA_UPDATE_TRUE"/>, activiti will create the database tables
+	  /// <seealso cref="ProcessEngineConfiguration.DB_SCHEMA_UPDATE_CREATE_DROP"/>
+	  /// or <seealso cref="ProcessEngineConfiguration.DB_SCHEMA_UPDATE_TRUE"/>, activiti will create the database tables
 	  /// using the default names, regardless of the prefix configured here.</strong>
 	  /// 
 	  /// @since 5.9

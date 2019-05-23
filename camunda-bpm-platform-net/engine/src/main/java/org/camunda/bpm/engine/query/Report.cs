@@ -47,8 +47,8 @@ namespace org.camunda.bpm.engine.query
 	  /// <returns> a list of <seealso cref="DurationReportResult"/>s
 	  /// </returns>
 	  /// <exception cref="AuthorizationException">
-	  ///          If the user has no <seealso cref="Permissions#READ_HISTORY"/> permission
-	  ///          on any <seealso cref="Resources#PROCESS_DEFINITION"/>. </exception>
+	  ///          If the user has no <seealso cref="Permissions.READ_HISTORY"/> permission
+	  ///          on any <seealso cref="Resources.PROCESS_DEFINITION"/>. </exception>
 	  /// <exception cref="NotValidException">
 	  ///          When the given period unit is null. </exception>
 	  IList<DurationReportResult> duration(PeriodUnit periodUnit);

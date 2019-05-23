@@ -41,10 +41,10 @@ namespace org.camunda.bpm.engine.impl.interceptor
 	/// you are currently running an 'inner' command or an 'outer' command as well as your current stack size.
 	/// Existing code may rely on this behavior.</para>
 	/// 
-	/// <para>The interceptor can be configured using the property <seealso cref="#alwaysOpenNew"/>.
+	/// <para>The interceptor can be configured using the property <seealso cref="alwaysOpenNew"/>.
 	/// If this property is set to true, we will always open a new context regardless whether there already
 	/// exists an active context or not. This is required for properly supporting REQUIRES_NEW semantics for
-	/// commands run through the <seealso cref="ProcessEngineConfigurationImpl#getCommandInterceptorsTxRequiresNew()"/>
+	/// commands run through the <seealso cref="ProcessEngineConfigurationImpl.getCommandInterceptorsTxRequiresNew()"/>
 	/// chain. In that context the 'inner' command must be able to succeed / fail independently from the
 	/// 'outer' command.</para>
 	/// 

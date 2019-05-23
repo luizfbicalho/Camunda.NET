@@ -50,7 +50,7 @@ namespace org.camunda.bpm.engine.rest.dto.runtime
 
 	  /// <summary>
 	  /// The id of the parent activity instance. If the activity is the process definition,
-	  /// <seealso cref="#getId()"/> and <seealso cref="#getParentActivityInstanceId()"/> return the same value 
+	  /// <seealso cref="getId()"/> and <seealso cref="getParentActivityInstanceId()"/> return the same value 
 	  /// </summary>
 	  public virtual string ParentActivityInstanceId
 	  {

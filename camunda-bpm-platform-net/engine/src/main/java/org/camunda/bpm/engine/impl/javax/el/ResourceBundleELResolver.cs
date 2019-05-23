@@ -60,8 +60,8 @@ namespace org.camunda.bpm.engine.impl.javax.el
 		/// </ul>
 		/// In addition, the following named attributes must be set in the returned FeatureDescriptors:
 		/// <ul>
-		/// <li><seealso cref="ELResolver#TYPE"/> - String.class.</li>
-		/// <li><seealso cref="ELResolver#RESOLVABLE_AT_DESIGN_TIME"/> - true</li>
+		/// <li><seealso cref="ELResolver.TYPE"/> - String.class.</li>
+		/// <li><seealso cref="ELResolver.RESOLVABLE_AT_DESIGN_TIME"/> - true</li>
 		/// </ul>
 		/// </summary>
 		/// <param name="context">

@@ -46,7 +46,7 @@ namespace org.camunda.bpm.engine.impl.digest
 	  /// <summary>
 	  /// In order to distinguish which algorithm was used to hash the
 	  /// password, it needs a unique id. In particular, this is needed
-	  /// for <seealso cref="#check"/>.
+	  /// for <seealso cref="check"/>.
 	  /// </summary>
 	  /// <returns> the name of the algorithm </returns>
 	  string hashAlgorithmName();

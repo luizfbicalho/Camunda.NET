@@ -25,7 +25,7 @@ namespace org.camunda.bpm.qa.performance.engine.steps
 
 	/// <summary>
 	/// <para><seealso cref="TaskListener"/> recording the current task id in the <seealso cref="PerfTestRunContext"/>
-	/// using the key <seealso cref="PerfTestConstants#TASK_ID"/>.</para>
+	/// using the key <seealso cref="PerfTestConstants.TASK_ID"/>.</para>
 	/// 
 	/// <para>This is mainly used for removing the necessity for querying for the task Id.</para>
 	/// 

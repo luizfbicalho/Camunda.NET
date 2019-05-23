@@ -29,10 +29,10 @@ namespace org.camunda.bpm.engine.impl.history
 	/// <para><strong>Built-in history levels:</strong> The process engine provides a set of built-in history levels
 	/// as default configuration. The built-in history levels are:
 	/// <ul>
-	///   <li><seealso cref="#HISTORY_LEVEL_NONE"/></li>
-	///   <li><seealso cref="#HISTORY_LEVEL_ACTIVITY"/></li>
-	///   <li><seealso cref="#HISTORY_LEVEL_AUDIT"/></li>
-	///   <li><seealso cref="#HISTORY_LEVEL_FULL"/></li>
+	///   <li><seealso cref="HISTORY_LEVEL_NONE"/></li>
+	///   <li><seealso cref="HISTORY_LEVEL_ACTIVITY"/></li>
+	///   <li><seealso cref="HISTORY_LEVEL_AUDIT"/></li>
+	///   <li><seealso cref="HISTORY_LEVEL_FULL"/></li>
 	/// </ul>
 	/// This class provides singleton instances of these history levels as constants.
 	/// </para>
@@ -41,11 +41,11 @@ namespace org.camunda.bpm.engine.impl.history
 	/// the following steps are necessary:
 	/// <ul>
 	///   <li>Provide a custom implementation of this interface. Note: Make sure you choose unique values for
-	///   <seealso cref="#getName()"/> and <seealso cref="#getId()"/></li>
+	///   <seealso cref="getName()"/> and <seealso cref="getId()"/></li>
 	///   <li>Add an instance of the custom implementation through
-	///   <seealso cref="ProcessEngineConfigurationImpl#setCustomHistoryLevels(java.util.List)"/></li>
-	///   <li>use the name of your history level (as returned by <seealso cref="#getName()"/> as value for
-	///   <seealso cref="ProcessEngineConfiguration#setHistory(String)"/></li>
+	///   <seealso cref="ProcessEngineConfigurationImpl.setCustomHistoryLevels(System.Collections.IList)"/></li>
+	///   <li>use the name of your history level (as returned by <seealso cref="getName()"/> as value for
+	///   <seealso cref="ProcessEngineConfiguration.setHistory(string)"/></li>
 	/// </ul>
 	/// </para>
 	/// 
@@ -64,7 +64,7 @@ namespace org.camunda.bpm.engine.impl.history
 	  /// <summary>
 	  /// An unique name identifying the history level.
 	  /// The name of the history level can be used when configuring the process engine. </summary>
-	  /// <seealso cref= <seealso cref="ProcessEngineConfiguration#setHistory(String)"/> </seealso>
+	  /// <seealso cref= <seealso cref="ProcessEngineConfiguration.setHistory(string)"/> </seealso>
 	  string Name {get;}
 
 	  /// <summary>

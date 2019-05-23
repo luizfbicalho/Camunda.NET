@@ -33,11 +33,11 @@ namespace org.camunda.bpm.application.impl.@event
 	/// <seealso cref="ProcessApplicationInterface ProcessApplication"/>.</para>
 	/// 
 	/// <para>If the process application does not provide an execution listener (ie.
-	/// <seealso cref="ProcessApplicationInterface#getExecutionListener()"/> returns null), the
+	/// <seealso cref="ProcessApplicationInterface.getExecutionListener()"/> returns null), the
 	/// request is silently ignored.</para>
 	/// 
 	/// <para>If the process application does not provide a task listener (ie.
-	/// <seealso cref="ProcessApplicationInterface#getTaskListener()"/> returns null), the
+	/// <seealso cref="ProcessApplicationInterface.getTaskListener()"/> returns null), the
 	/// request is silently ignored.</para>
 	/// 
 	/// 

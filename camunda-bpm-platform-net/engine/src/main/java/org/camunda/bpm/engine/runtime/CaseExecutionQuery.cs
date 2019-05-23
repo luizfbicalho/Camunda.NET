@@ -105,7 +105,7 @@ namespace org.camunda.bpm.engine.runtime
 	  /// <summary>
 	  /// Only select case executions which have a local variable with the given value. The type
 	  /// of variable is determined based on the value, using types configured in
-	  /// <seealso cref="ProcessEngineConfigurationImpl#getVariableSerializers()"/>.
+	  /// <seealso cref="ProcessEngineConfigurationImpl.getVariableSerializers()"/>.
 	  /// 
 	  /// Byte-arrays and <seealso cref="Serializable"/> objects (which are not primitive type wrappers)
 	  /// are not supported.
@@ -202,7 +202,7 @@ namespace org.camunda.bpm.engine.runtime
 	  /// <summary>
 	  /// Only select case executions which are part of a case instance that have a variable
 	  /// with the given name set to the given value. The type of variable is determined based
-	  /// on the value, using types configured in <seealso cref="ProcessEngineConfiguration#getVariableSerializers()"/>.
+	  /// on the value, using types configured in <seealso cref="ProcessEngineConfiguration.getVariableSerializers()"/>.
 	  /// 
 	  /// Byte-arrays and <seealso cref="Serializable"/> objects (which are not primitive type wrappers)
 	  /// are not supported.
@@ -311,19 +311,19 @@ namespace org.camunda.bpm.engine.runtime
 	  // ordering //////////////////////////////////////////////////////////////
 
 	  /// <summary>
-	  /// Order by id (needs to be followed by <seealso cref="#asc()"/> or <seealso cref="#desc()"/>). </summary>
+	  /// Order by id (needs to be followed by <seealso cref="asc()"/> or <seealso cref="desc()"/>). </summary>
 	  CaseExecutionQuery orderByCaseExecutionId();
 
 	  /// <summary>
-	  /// Order by case definition key (needs to be followed by <seealso cref="#asc()"/> or <seealso cref="#desc()"/>). </summary>
+	  /// Order by case definition key (needs to be followed by <seealso cref="asc()"/> or <seealso cref="desc()"/>). </summary>
 	  CaseExecutionQuery orderByCaseDefinitionKey();
 
 	  /// <summary>
-	  /// Order by case definition id (needs to be followed by <seealso cref="#asc()"/> or <seealso cref="#desc()"/>). </summary>
+	  /// Order by case definition id (needs to be followed by <seealso cref="asc()"/> or <seealso cref="desc()"/>). </summary>
 	  CaseExecutionQuery orderByCaseDefinitionId();
 
 	  /// <summary>
-	  /// Order by tenant id (needs to be followed by <seealso cref="#asc()"/> or <seealso cref="#desc()"/>).
+	  /// Order by tenant id (needs to be followed by <seealso cref="asc()"/> or <seealso cref="desc()"/>).
 	  /// Note that the ordering of case executions without tenant id is database-specific.
 	  /// </summary>
 	  CaseExecutionQuery orderByTenantId();

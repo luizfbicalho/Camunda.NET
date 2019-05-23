@@ -35,7 +35,7 @@ namespace org.camunda.bpm.engine.runtime
 	  /// <para>A business key can be provided to associate the case instance with a
 	  /// certain identifier that has a clear business meaning. This business key can
 	  /// then be used to easily look up that case instance, see
-	  /// <seealso cref="CaseInstanceQuery#caseInstanceBusinessKey(String)"/>. Providing such a
+	  /// <seealso cref="CaseInstanceQuery.caseInstanceBusinessKey(string)"/>. Providing such a
 	  /// business key is definitely a best practice.</para>
 	  /// 
 	  /// <para>Note that a business key MUST be unique for the given case definition WHEN

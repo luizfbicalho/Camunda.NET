@@ -221,31 +221,31 @@ namespace org.camunda.bpm.engine.history
 	  HistoricCaseInstanceQuery variableValueLike(string name, string value);
 
 	  /// <summary>
-	  /// Order by the case instance id (needs to be followed by <seealso cref="#asc()"/> or <seealso cref="#desc()"/>). </summary>
+	  /// Order by the case instance id (needs to be followed by <seealso cref="asc()"/> or <seealso cref="desc()"/>). </summary>
 	  HistoricCaseInstanceQuery orderByCaseInstanceId();
 
 	  /// <summary>
-	  /// Order by the case definition id (needs to be followed by <seealso cref="#asc()"/> or <seealso cref="#desc()"/>). </summary>
+	  /// Order by the case definition id (needs to be followed by <seealso cref="asc()"/> or <seealso cref="desc()"/>). </summary>
 	  HistoricCaseInstanceQuery orderByCaseDefinitionId();
 
 	  /// <summary>
-	  /// Order by the business key (needs to be followed by <seealso cref="#asc()"/> or <seealso cref="#desc()"/>). </summary>
+	  /// Order by the business key (needs to be followed by <seealso cref="asc()"/> or <seealso cref="desc()"/>). </summary>
 	  HistoricCaseInstanceQuery orderByCaseInstanceBusinessKey();
 
 	  /// <summary>
-	  /// Order by the create time (needs to be followed by <seealso cref="#asc()"/> or <seealso cref="#desc()"/>). </summary>
+	  /// Order by the create time (needs to be followed by <seealso cref="asc()"/> or <seealso cref="desc()"/>). </summary>
 	  HistoricCaseInstanceQuery orderByCaseInstanceCreateTime();
 
 	  /// <summary>
-	  /// Order by the close time (needs to be followed by <seealso cref="#asc()"/> or <seealso cref="#desc()"/>). </summary>
+	  /// Order by the close time (needs to be followed by <seealso cref="asc()"/> or <seealso cref="desc()"/>). </summary>
 	  HistoricCaseInstanceQuery orderByCaseInstanceCloseTime();
 
 	  /// <summary>
-	  /// Order by the duration of the case instance (needs to be followed by <seealso cref="#asc()"/> or <seealso cref="#desc()"/>). </summary>
+	  /// Order by the duration of the case instance (needs to be followed by <seealso cref="asc()"/> or <seealso cref="desc()"/>). </summary>
 	  HistoricCaseInstanceQuery orderByCaseInstanceDuration();
 
 	  /// <summary>
-	  /// Order by tenant id (needs to be followed by <seealso cref="#asc()"/> or <seealso cref="#desc()"/>).
+	  /// Order by tenant id (needs to be followed by <seealso cref="asc()"/> or <seealso cref="desc()"/>).
 	  /// Note that the ordering of historic case instances without tenant id is database-specific.
 	  /// </summary>
 	  HistoricCaseInstanceQuery orderByTenantId();

@@ -31,14 +31,14 @@ namespace org.camunda.bpm.container
 	{
 
 	  /// <summary>
-	  /// <para>Passes a <seealso cref="Runnable"/> to the runtime container for execution. Some runtime
+	  /// <para>Passes a <seealso cref="System.Threading.ThreadStart"/> to the runtime container for execution. Some runtime
 	  /// containers (like a Java EE container offer container provided
 	  /// infrastructure for executing background work (such as a JCA WorkManager).
 	  /// This method allows the process engine to take advantage of container
 	  /// infrastructure for doing background work.</para>
 	  /// </summary>
 	  /// <param name="runnable">
-	  ///          the <seealso cref="Runnable"/> to be executed. </param>
+	  ///          the <seealso cref="System.Threading.ThreadStart"/> to be executed. </param>
 	  /// <param name="isLongRunning">
 	  ///          indicates whether the runnable is a daemon. </param>
 	  /// <returns> true if the runnable could be successfully scheduled for execution.

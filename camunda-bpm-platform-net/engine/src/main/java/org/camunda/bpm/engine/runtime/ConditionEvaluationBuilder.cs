@@ -32,7 +32,7 @@ namespace org.camunda.bpm.engine.runtime
 	  /// Correlate the condition such that the process instance has a business key with
 	  /// the given name. If the condition is correlated to a conditional start
 	  /// event then the given business key is set on the created process instance.
-	  /// Is only supported for <seealso cref="#evaluateStartConditions()"/>.</para>
+	  /// Is only supported for <seealso cref="evaluateStartConditions()"/>.</para>
 	  /// </summary>
 	  /// <param name="businessKey">
 	  ///          the businessKey to correlate on. </param>
@@ -41,7 +41,7 @@ namespace org.camunda.bpm.engine.runtime
 
 	  /// <summary>
 	  /// <para>Correlate the condition such that a process definition with the given id is selected.
-	  /// Is only supported for <seealso cref="#evaluateStartConditions()"/>.</para>
+	  /// Is only supported for <seealso cref="evaluateStartConditions()"/>.</para>
 	  /// </summary>
 	  /// <param name="processDefinitionId"> the id of the process definition to correlate on. </param>
 	  /// <returns> the builder </returns>

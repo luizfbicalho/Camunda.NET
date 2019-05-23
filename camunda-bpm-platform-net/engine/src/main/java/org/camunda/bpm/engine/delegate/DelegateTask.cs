@@ -149,13 +149,13 @@ namespace org.camunda.bpm.engine.@delegate
 	  void addGroupIdentityLink(string groupId, string identityLinkType);
 
 	  /// <summary>
-	  /// Convenience shorthand for <seealso cref="#deleteUserIdentityLink(String, String)"/>; with type <seealso cref="IdentityLinkType#CANDIDATE"/> </summary>
+	  /// Convenience shorthand for <seealso cref="deleteUserIdentityLink(string, string)"/>; with type <seealso cref="IdentityLinkType.CANDIDATE"/> </summary>
 	  /// <param name="userId"> id of the user to use as candidate, cannot be null. </param>
 	  /// <exception cref="ProcessEngineException"> when the task or user doesn't exist. </exception>
 	  void deleteCandidateUser(string userId);
 
 	  /// <summary>
-	  /// Convenience shorthand for <seealso cref="#deleteGroupIdentityLink(String, String, String)"/>; with type <seealso cref="IdentityLinkType#CANDIDATE"/> </summary>
+	  /// Convenience shorthand for <seealso cref="deleteGroupIdentityLink(string, string, string)"/>; with type <seealso cref="IdentityLinkType.CANDIDATE"/> </summary>
 	  /// <param name="groupId"> id of the group to use as candidate, cannot be null. </param>
 	  /// <exception cref="ProcessEngineException"> when the task or group doesn't exist. </exception>
 	  void deleteCandidateGroup(string groupId);
@@ -176,7 +176,7 @@ namespace org.camunda.bpm.engine.@delegate
 
 	  /// <summary>
 	  /// Retrieves the candidate users and groups associated with the task. </summary>
-	  /// <returns> set of <seealso cref="IdentityLink"/>s of type <seealso cref="IdentityLinkType#CANDIDATE"/>. </returns>
+	  /// <returns> set of <seealso cref="IdentityLink"/>s of type <seealso cref="IdentityLinkType.CANDIDATE"/>. </returns>
 	  ISet<IdentityLink> Candidates {get;}
 
 	  /// <summary>

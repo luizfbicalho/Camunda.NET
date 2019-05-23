@@ -32,7 +32,7 @@ namespace org.camunda.bpm.container
 	/// </ul>
 	/// 
 	/// </para>
-	/// <para>The current <seealso cref="RuntimeContainerDelegate"/> can be obtained through the static <seealso cref="#INSTANCE"/> field.</para>
+	/// <para>The current <seealso cref="RuntimeContainerDelegate"/> can be obtained through the static <seealso cref="INSTANCE"/> field.</para>
 	/// 
 	/// @author Daniel Meyer
 	/// 

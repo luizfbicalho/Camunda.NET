@@ -53,11 +53,11 @@ namespace org.camunda.bpm.engine.runtime
 	  /// </summary>
 	  /// <returns> the newly created process instance </returns>
 	  /// <exception cref="AuthorizationException">
-	  ///           if the user has no <seealso cref="Permissions#CREATE"/> permission on
-	  ///           <seealso cref="Resources#PROCESS_INSTANCE"/> and no
-	  ///           <seealso cref="Permissions#CREATE_INSTANCE"/> permission on
-	  ///           <seealso cref="Resources#PROCESS_DEFINITION"/>. </exception>
-	  /// <seealso cref= also <seealso cref="#executeWithVariablesInReturn()"/>. </seealso>
+	  ///           if the user has no <seealso cref="Permissions.CREATE"/> permission on
+	  ///           <seealso cref="Resources.PROCESS_INSTANCE"/> and no
+	  ///           <seealso cref="Permissions.CREATE_INSTANCE"/> permission on
+	  ///           <seealso cref="Resources.PROCESS_DEFINITION"/>. </exception>
+	  /// <seealso cref= also <seealso cref="executeWithVariablesInReturn()"/>. </seealso>
 	  ProcessInstance execute();
 
 	  /// <summary>
@@ -72,7 +72,7 @@ namespace org.camunda.bpm.engine.runtime
 	  ///          invoked throughout the transaction when executing the
 	  ///          instructions. Only supported for instructions. </param>
 	  /// <returns> the newly created process instance </returns>
-	  /// <seealso cref= also <seealso cref="#executeWithVariablesInReturn(boolean, boolean)"/>. </seealso>
+	  /// <seealso cref= also <seealso cref="executeWithVariablesInReturn(bool, bool)"/>. </seealso>
 	  ProcessInstance execute(bool skipCustomListeners, bool skipIoMappings);
 
 	  /// <summary>
@@ -84,10 +84,10 @@ namespace org.camunda.bpm.engine.runtime
 	  /// <returns> the newly created process instance with the latest variables
 	  /// </returns>
 	  /// <exception cref="AuthorizationException">
-	  ///           if the user has no <seealso cref="Permissions#CREATE"/> permission on
-	  ///           <seealso cref="Resources#PROCESS_INSTANCE"/> and no
-	  ///           <seealso cref="Permissions#CREATE_INSTANCE"/> permission on
-	  ///           <seealso cref="Resources#PROCESS_DEFINITION"/>. </exception>
+	  ///           if the user has no <seealso cref="Permissions.CREATE"/> permission on
+	  ///           <seealso cref="Resources.PROCESS_INSTANCE"/> and no
+	  ///           <seealso cref="Permissions.CREATE_INSTANCE"/> permission on
+	  ///           <seealso cref="Resources.PROCESS_DEFINITION"/>. </exception>
 	  ProcessInstanceWithVariables executeWithVariablesInReturn();
 
 	  /// <summary>
@@ -106,16 +106,16 @@ namespace org.camunda.bpm.engine.runtime
 	  /// <returns> the newly created process instance with the latest variables
 	  /// </returns>
 	  /// <exception cref="AuthorizationException">
-	  ///           if the user has no <seealso cref="Permissions#CREATE"/> permission on
-	  ///           <seealso cref="Resources#PROCESS_INSTANCE"/> and no
-	  ///           <seealso cref="Permissions#CREATE_INSTANCE"/> permission on
-	  ///           <seealso cref="Resources#PROCESS_DEFINITION"/>.
+	  ///           if the user has no <seealso cref="Permissions.CREATE"/> permission on
+	  ///           <seealso cref="Resources.PROCESS_INSTANCE"/> and no
+	  ///           <seealso cref="Permissions.CREATE_INSTANCE"/> permission on
+	  ///           <seealso cref="Resources.PROCESS_DEFINITION"/>.
 	  /// </exception>
 	  /// <exception cref="ProcessEngineException">
 	  ///           if {@code skipCustomListeners} or {@code skipIoMappings} is set
 	  ///           to true but no instructions are submitted. Both options are not
 	  ///           supported when the instance starts at the default start activity.
-	  ///           Use <seealso cref="#execute()"/> instead.
+	  ///           Use <seealso cref="execute()"/> instead.
 	  ///  </exception>
 	  ProcessInstanceWithVariables executeWithVariablesInReturn(bool skipCustomListeners, bool skipIoMappings);
 	}

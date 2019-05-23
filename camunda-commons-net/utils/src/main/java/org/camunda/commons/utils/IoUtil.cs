@@ -31,20 +31,20 @@ namespace org.camunda.commons.utils
 	  public static readonly Charset ENCODING_CHARSET = Charset.forName("UTF-8");
 
 	  /// <summary>
-	  /// Returns the input stream as <seealso cref="String"/>.
+	  /// Returns the input stream as <seealso cref="string"/>.
 	  /// </summary>
 	  /// <param name="inputStream"> the input stream </param>
-	  /// <returns> the input stream as <seealso cref="String"/>. </returns>
+	  /// <returns> the input stream as <seealso cref="string"/>. </returns>
 	  public static string inputStreamAsString(Stream inputStream)
 	  {
 		return StringHelper.NewString(inputStreamAsByteArray(inputStream), ENCODING_CHARSET);
 	  }
 
 	  /// <summary>
-	  /// Returns the input stream as <seealso cref="byte[]"/>.
+	  /// Returns the input stream as <seealso cref="sbyte[]"/>.
 	  /// </summary>
 	  /// <param name="inputStream"> the input stream </param>
-	  /// <returns> the input stream as <seealso cref="byte[]"/>. </returns>
+	  /// <returns> the input stream as <seealso cref="sbyte[]"/>. </returns>
 	  public static sbyte[] inputStreamAsByteArray(Stream inputStream)
 	  {
 		MemoryStream os = new MemoryStream();
@@ -69,10 +69,10 @@ namespace org.camunda.commons.utils
 	  }
 
 	  /// <summary>
-	  /// Returns the <seealso cref="Reader"/> content as <seealso cref="String"/>.
+	  /// Returns the <seealso cref="Reader"/> content as <seealso cref="string"/>.
 	  /// </summary>
 	  /// <param name="reader"> the <seealso cref="Reader"/> </param>
-	  /// <returns> the <seealso cref="Reader"/> content as <seealso cref="String"/> </returns>
+	  /// <returns> the <seealso cref="Reader"/> content as <seealso cref="string"/> </returns>
 	  public static string readerAsString(Reader reader)
 	  {
 		StringBuilder buffer = new StringBuilder();
@@ -97,10 +97,10 @@ namespace org.camunda.commons.utils
 	  }
 
 	  /// <summary>
-	  /// Returns the <seealso cref="String"/> as <seealso cref="InputStream"/>.
+	  /// Returns the <seealso cref="string"/> as <seealso cref="System.IO.Stream_Input"/>.
 	  /// </summary>
-	  /// <param name="string"> the <seealso cref="String"/> to convert </param>
-	  /// <returns> the <seealso cref="InputStream"/> containing the <seealso cref="String"/> </returns>
+	  /// <param name="string"> the <seealso cref="string"/> to convert </param>
+	  /// <returns> the <seealso cref="System.IO.Stream_Input"/> containing the <seealso cref="string"/> </returns>
 	  public static Stream stringAsInputStream(string @string)
 	  {
 		return new MemoryStream(@string.GetBytes(ENCODING_CHARSET));
@@ -129,7 +129,7 @@ namespace org.camunda.commons.utils
 	  /// Returns the content of a file with specified filename
 	  /// </summary>
 	  /// <param name="filename"> name of the file to load </param>
-	  /// <returns> Content of the file as <seealso cref="String"/> </returns>
+	  /// <returns> Content of the file as <seealso cref="string"/> </returns>
 	  public static string fileAsString(string filename)
 	  {
 		File classpathFile = getClasspathFile(filename);
@@ -140,7 +140,7 @@ namespace org.camunda.commons.utils
 	  /// Returns the content of a <seealso cref="File"/>.
 	  /// </summary>
 	  /// <param name="file"> the file to load </param>
-	  /// <returns> Content of the file as <seealso cref="String"/> </returns>
+	  /// <returns> Content of the file as <seealso cref="string"/> </returns>
 	  public static string fileAsString(File file)
 	  {
 		try
@@ -157,7 +157,7 @@ namespace org.camunda.commons.utils
 	  /// Returns the content of a <seealso cref="File"/>.
 	  /// </summary>
 	  /// <param name="file"> the file to load </param>
-	  /// <returns> Content of the file as <seealso cref="String"/> </returns>
+	  /// <returns> Content of the file as <seealso cref="string"/> </returns>
 	  public static sbyte[] fileAsByteArray(File file)
 	  {
 		try

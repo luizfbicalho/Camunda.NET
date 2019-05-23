@@ -99,7 +99,7 @@ namespace org.camunda.bpm.engine.history
 	  HistoricVariableInstanceQuery tenantIdIn(params string[] tenantIds);
 
 	  /// <summary>
-	  /// Order by tenant id (needs to be followed by <seealso cref="#asc()"/> or <seealso cref="#desc()"/>).
+	  /// Order by tenant id (needs to be followed by <seealso cref="asc()"/> or <seealso cref="desc()"/>).
 	  /// Note that the ordering of historic variable instances without tenant id is database-specific.
 	  /// </summary>
 	  HistoricVariableInstanceQuery orderByTenantId();

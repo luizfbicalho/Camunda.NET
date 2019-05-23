@@ -29,7 +29,7 @@ namespace org.camunda.bpm.engine.variable.value
 
 	  /// <summary>
 	  /// Returns true in case the value is deserialized. If this method returns true,
-	  /// it is safe to call the <seealso cref="#getValue()"/> method
+	  /// it is safe to call the <seealso cref="getValue()"/> method
 	  /// </summary>
 	  /// <returns> true if the object is deserialized. </returns>
 	  bool Deserialized {get;}
@@ -38,12 +38,12 @@ namespace org.camunda.bpm.engine.variable.value
 	  /// Returns the value or null in case the value is null.
 	  /// </summary>
 	  /// <returns> the value represented by this TypedValue. </returns>
-	  /// <exception cref="IllegalStateException"> in case the value is not deserialized. See <seealso cref="#isDeserialized()"/>. </exception>
+	  /// <exception cref="IllegalStateException"> in case the value is not deserialized. See <seealso cref="isDeserialized()"/>. </exception>
 	  object Value {get;}
 
 	  /// <summary>
 	  /// Returns the serialized value. In case the serializaton data format
-	  /// (as returned by <seealso cref="#getSerializationDataFormat()"/>) is not text based,
+	  /// (as returned by <seealso cref="getSerializationDataFormat()"/>) is not text based,
 	  /// a base 64 encoded representation of the value is returned
 	  /// 
 	  /// The serialized value is a snapshot of the state of the value as it is

@@ -71,11 +71,11 @@ namespace org.camunda.bpm.engine.task
 	  /// An attachment was deleted with the attachment name as message. </summary>
 
 	  /// <summary>
-	  /// Indicates the type of of action and also indicates the meaning of the parts as exposed in <seealso cref="#getMessageParts()"/> </summary>
+	  /// Indicates the type of of action and also indicates the meaning of the parts as exposed in <seealso cref="getMessageParts()"/> </summary>
 	  string Action {get;}
 
 	  /// <summary>
-	  /// The meaning of the message parts is defined by the action as you can find in <seealso cref="#getAction()"/> </summary>
+	  /// The meaning of the message parts is defined by the action as you can find in <seealso cref="getAction()"/> </summary>
 	  IList<string> MessageParts {get;}
 
 	  /// <summary>

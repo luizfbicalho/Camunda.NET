@@ -52,7 +52,7 @@ namespace org.camunda.bpm.engine.rest
 
 	  /// <summary>
 	  /// Expects the same parameters as
-	  /// <seealso cref="CaseExecutionRestService#getCaseExecutions(UriInfo, Integer, Integer)"/> (as a JSON message body)
+	  /// <seealso cref="CaseExecutionRestService.getCaseExecutions(UriInfo, Integer, Integer)"/> (as a JSON message body)
 	  /// and allows for any number of variable checks.
 	  /// </summary>
 	  /// <param name="query"> </param>

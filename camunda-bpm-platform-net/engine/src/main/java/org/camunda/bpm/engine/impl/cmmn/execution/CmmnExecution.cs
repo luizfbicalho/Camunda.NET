@@ -185,7 +185,7 @@ namespace org.camunda.bpm.engine.impl.cmmn.execution
 
 	  /// <summary>
 	  /// This property will be used if <code>this</code>
-	  /// <seealso cref="CmmnExecution"/> is in state <seealso cref="CaseExecutionState#NEW"/>
+	  /// <seealso cref="CmmnExecution"/> is in state <seealso cref="CaseExecutionState.NEW"/>
 	  /// to note that an entry criterion is satisfied.
 	  /// </summary>
 	  protected internal bool entryCriterionSatisfied = false;

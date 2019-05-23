@@ -25,9 +25,9 @@ namespace org.camunda.bpm.engine.impl.util
 	/// <para>
 	/// Implementation Notes:
 	/// <ul>
-	/// <li><seealso cref="#await(long)"/> may spuriously return before the deadline is reached.</li>
-	/// <li>if <seealso cref="#signal()"/> is called before the consumer thread calls <seealso cref="#await(long)"/>,
-	/// the next call to <seealso cref="#await(long)"/> returns immediately.</li>
+	/// <li><seealso cref="await(long)"/> may spuriously return before the deadline is reached.</li>
+	/// <li>if <seealso cref="signal()"/> is called before the consumer thread calls <seealso cref="await(long)"/>,
+	/// the next call to <seealso cref="await(long)"/> returns immediately.</li>
 	/// </ul>
 	/// </para>
 	/// </summary>

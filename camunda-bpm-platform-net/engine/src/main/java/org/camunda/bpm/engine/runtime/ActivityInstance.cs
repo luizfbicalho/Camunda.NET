@@ -20,7 +20,7 @@ namespace org.camunda.bpm.engine.runtime
 	/// <summary>
 	/// <para>An activity instance represents an instance of an activity.</para>
 	/// 
-	/// <para>For documentation, see <seealso cref="RuntimeService#getActivityInstance(String)"/></para>
+	/// <para>For documentation, see <seealso cref="RuntimeService.getActivityInstance(string)"/></para>
 	/// 
 	/// @author Daniel Meyer
 	/// 

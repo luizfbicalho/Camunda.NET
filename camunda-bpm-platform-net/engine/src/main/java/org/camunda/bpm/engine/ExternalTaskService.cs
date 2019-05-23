@@ -47,7 +47,7 @@ namespace org.camunda.bpm.engine
 	  /// <param name="maxTasks"> the maximum number of tasks to return </param>
 	  /// <param name="workerId"> the id of the worker to lock the tasks for </param>
 	  /// <returns> a builder to define and execute an external task fetching operation </returns>
-	  /// <seealso cref= <seealso cref="ExternalTaskService#fetchAndLock(int, java.lang.String, boolean)"/>. </seealso>
+	  /// <seealso cref= <seealso cref="ExternalTaskService.fetchAndLock(int, string, bool)"/>. </seealso>
 	  ExternalTaskQueryBuilder fetchAndLock(int maxTasks, string workerId);
 
 	  /// <summary>
@@ -77,12 +77,12 @@ namespace org.camunda.bpm.engine
 	  ///   permission out of all of the following groups for:
 	  /// 
 	  ///   <ul>
-	  ///     <li><seealso cref="Permissions#READ"/> on <seealso cref="Resources#PROCESS_INSTANCE"/></li>
-	  ///     <li><seealso cref="Permissions#READ_INSTANCE"/> on <seealso cref="Resources#PROCESS_DEFINITION"/></li>
+	  ///     <li><seealso cref="Permissions.READ"/> on <seealso cref="Resources.PROCESS_INSTANCE"/></li>
+	  ///     <li><seealso cref="Permissions.READ_INSTANCE"/> on <seealso cref="Resources.PROCESS_DEFINITION"/></li>
 	  ///   </ul>
 	  ///   <ul>
-	  ///     <li><seealso cref="Permissions#UPDATE"/> on <seealso cref="Resources#PROCESS_INSTANCE"/></li>
-	  ///     <li><seealso cref="Permissions#UPDATE_INSTANCE"/> on <seealso cref="Resources#PROCESS_DEFINITION"/></li>
+	  ///     <li><seealso cref="Permissions.UPDATE"/> on <seealso cref="Resources.PROCESS_INSTANCE"/></li>
+	  ///     <li><seealso cref="Permissions.UPDATE_INSTANCE"/> on <seealso cref="Resources.PROCESS_DEFINITION"/></li>
 	  ///   </ul>
 	  /// </para>
 	  /// </summary>
@@ -102,8 +102,8 @@ namespace org.camunda.bpm.engine
 	  /// <exception cref="BadUserRequestException"> if the task is assigned to a different worker </exception>
 	  /// <exception cref="AuthorizationException"> thrown if the current user does not possess any of the following permissions:
 	  ///   <ul>
-	  ///     <li><seealso cref="Permissions#UPDATE"/> on <seealso cref="Resources#PROCESS_INSTANCE"/></li>
-	  ///     <li><seealso cref="Permissions#UPDATE_INSTANCE"/> on <seealso cref="Resources#PROCESS_DEFINITION"/></li>
+	  ///     <li><seealso cref="Permissions.UPDATE"/> on <seealso cref="Resources.PROCESS_INSTANCE"/></li>
+	  ///     <li><seealso cref="Permissions.UPDATE_INSTANCE"/> on <seealso cref="Resources.PROCESS_DEFINITION"/></li>
 	  ///   </ul> </exception>
 	  void complete(string externalTaskId, string workerId);
 
@@ -121,8 +121,8 @@ namespace org.camunda.bpm.engine
 	  /// <exception cref="BadUserRequestException"> if the task is assigned to a different worker </exception>
 	  /// <exception cref="AuthorizationException"> thrown if the current user does not possess any of the following permissions:
 	  ///   <ul>
-	  ///     <li><seealso cref="Permissions#UPDATE"/> on <seealso cref="Resources#PROCESS_INSTANCE"/></li>
-	  ///     <li><seealso cref="Permissions#UPDATE_INSTANCE"/> on <seealso cref="Resources#PROCESS_DEFINITION"/></li>
+	  ///     <li><seealso cref="Permissions.UPDATE"/> on <seealso cref="Resources.PROCESS_INSTANCE"/></li>
+	  ///     <li><seealso cref="Permissions.UPDATE_INSTANCE"/> on <seealso cref="Resources.PROCESS_DEFINITION"/></li>
 	  ///   </ul> </exception>
 	  void complete(string externalTaskId, string workerId, IDictionary<string, object> variables);
 
@@ -141,8 +141,8 @@ namespace org.camunda.bpm.engine
 	  /// <exception cref="BadUserRequestException"> if the task is assigned to a different worker </exception>
 	  /// <exception cref="AuthorizationException"> thrown if the current user does not possess any of the following permissions:
 	  ///   <ul>
-	  ///     <li><seealso cref="Permissions#UPDATE"/> on <seealso cref="Resources#PROCESS_INSTANCE"/></li>
-	  ///     <li><seealso cref="Permissions#UPDATE_INSTANCE"/> on <seealso cref="Resources#PROCESS_DEFINITION"/></li>
+	  ///     <li><seealso cref="Permissions.UPDATE"/> on <seealso cref="Resources.PROCESS_INSTANCE"/></li>
+	  ///     <li><seealso cref="Permissions.UPDATE_INSTANCE"/> on <seealso cref="Resources.PROCESS_DEFINITION"/></li>
 	  ///   </ul> </exception>
 	  void complete(string externalTaskId, string workerId, IDictionary<string, object> variables, IDictionary<string, object> localVariables);
 
@@ -157,8 +157,8 @@ namespace org.camunda.bpm.engine
 	  /// <exception cref="BadUserRequestException"> if the task is assigned to a different worker </exception>
 	  /// <exception cref="AuthorizationException"> thrown if the current user does not possess any of the following permissions:
 	  ///   <ul>
-	  ///     <li><seealso cref="Permissions#UPDATE"/> on <seealso cref="Resources#PROCESS_INSTANCE"/></li>
-	  ///     <li><seealso cref="Permissions#UPDATE_INSTANCE"/> on <seealso cref="Resources#PROCESS_DEFINITION"/></li>
+	  ///     <li><seealso cref="Permissions.UPDATE"/> on <seealso cref="Resources.PROCESS_INSTANCE"/></li>
+	  ///     <li><seealso cref="Permissions.UPDATE_INSTANCE"/> on <seealso cref="Resources.PROCESS_DEFINITION"/></li>
 	  ///   </ul> </exception>
 	  void extendLock(string externalTaskId, string workerId, long newLockDuration);
 
@@ -173,7 +173,7 @@ namespace org.camunda.bpm.engine
 	  /// <param name="externalTaskId"> the id of the external task to report a failure for </param>
 	  /// <param name="workerId"> the id of the worker that reports the failure </param>
 	  /// <param name="errorMessage"> short error message related to this failure. This message can be retrieved via
-	  ///   <seealso cref="ExternalTask#getErrorMessage()"/> and is used as the incident message in case <code>retries</code> is <code>null</code>.
+	  ///   <seealso cref="ExternalTask.getErrorMessage()"/> and is used as the incident message in case <code>retries</code> is <code>null</code>.
 	  ///   May be <code>null</code>. </param>
 	  /// <param name="retries"> the number of retries left. External tasks with 0 retries cannot be fetched anymore unless
 	  ///   the number of retries is increased via API. Must be >= 0. </param>
@@ -183,8 +183,8 @@ namespace org.camunda.bpm.engine
 	  /// <exception cref="BadUserRequestException"> if the task is assigned to a different worker </exception>
 	  /// <exception cref="AuthorizationException"> thrown if the current user does not possess any of the following permissions:
 	  ///   <ul>
-	  ///     <li><seealso cref="Permissions#UPDATE"/> on <seealso cref="Resources#PROCESS_INSTANCE"/></li>
-	  ///     <li><seealso cref="Permissions#UPDATE_INSTANCE"/> on <seealso cref="Resources#PROCESS_DEFINITION"/></li>
+	  ///     <li><seealso cref="Permissions.UPDATE"/> on <seealso cref="Resources.PROCESS_INSTANCE"/></li>
+	  ///     <li><seealso cref="Permissions.UPDATE_INSTANCE"/> on <seealso cref="Resources.PROCESS_DEFINITION"/></li>
 	  ///   </ul> </exception>
 	  void handleFailure(string externalTaskId, string workerId, string errorMessage, int retries, long retryTimeout);
 
@@ -199,10 +199,10 @@ namespace org.camunda.bpm.engine
 	  /// <param name="externalTaskId"> the id of the external task to report a failure for </param>
 	  /// <param name="workerId"> the id of the worker that reports the failure </param>
 	  /// <param name="errorMessage"> short error message related to this failure. This message can be retrieved via
-	  ///   <seealso cref="ExternalTask#getErrorMessage()"/> and is used as the incident message in case <code>retries</code> is <code>null</code>.
+	  ///   <seealso cref="ExternalTask.getErrorMessage()"/> and is used as the incident message in case <code>retries</code> is <code>null</code>.
 	  ///   May be <code>null</code>. </param>
 	  /// <param name="errorDetails"> full error message related to this failure. This message can be retrieved via
-	  ///   <seealso cref="ExternalTaskService#getExternalTaskErrorDetails(String)"/> ()} </param>
+	  ///   <seealso cref="ExternalTaskService.getExternalTaskErrorDetails(string)"/> ()} </param>
 	  /// <param name="retries"> the number of retries left. External tasks with 0 retries cannot be fetched anymore unless
 	  ///   the number of retries is increased via API. Must be >= 0. </param>
 	  /// <param name="retryTimeout"> the timeout before the task can be fetched again. Must be >= 0.
@@ -211,8 +211,8 @@ namespace org.camunda.bpm.engine
 	  /// <exception cref="BadUserRequestException"> if the task is assigned to a different worker </exception>
 	  /// <exception cref="AuthorizationException"> thrown if the current user does not possess any of the following permissions:
 	  ///   <ul>
-	  ///     <li><seealso cref="Permissions#UPDATE"/> on <seealso cref="Resources#PROCESS_INSTANCE"/></li>
-	  ///     <li><seealso cref="Permissions#UPDATE_INSTANCE"/> on <seealso cref="Resources#PROCESS_DEFINITION"/></li>
+	  ///     <li><seealso cref="Permissions.UPDATE"/> on <seealso cref="Resources.PROCESS_INSTANCE"/></li>
+	  ///     <li><seealso cref="Permissions.UPDATE_INSTANCE"/> on <seealso cref="Resources.PROCESS_DEFINITION"/></li>
 	  ///   </ul> </exception>
 	  void handleFailure(string externalTaskId, string workerId, string errorMessage, string errorDetails, int retries, long retryTimeout);
 
@@ -231,8 +231,8 @@ namespace org.camunda.bpm.engine
 	  /// <exception cref="BadUserRequestException"> if the task is assigned to a different worker </exception>
 	  /// <exception cref="AuthorizationException"> thrown if the current user does not possess any of the following permissions:
 	  ///   <ul>
-	  ///     <li><seealso cref="Permissions#UPDATE"/> on <seealso cref="Resources#PROCESS_INSTANCE"/></li>
-	  ///     <li><seealso cref="Permissions#UPDATE_INSTANCE"/> on <seealso cref="Resources#PROCESS_DEFINITION"/></li>
+	  ///     <li><seealso cref="Permissions.UPDATE"/> on <seealso cref="Resources.PROCESS_INSTANCE"/></li>
+	  ///     <li><seealso cref="Permissions.UPDATE_INSTANCE"/> on <seealso cref="Resources.PROCESS_DEFINITION"/></li>
 	  ///   </ul> </exception>
 	  void handleBpmnError(string externalTaskId, string workerId, string errorCode);
 
@@ -252,8 +252,8 @@ namespace org.camunda.bpm.engine
 	  /// <exception cref="BadUserRequestException"> if the task is assigned to a different worker </exception>
 	  /// <exception cref="AuthorizationException"> thrown if the current user does not possess any of the following permissions:
 	  ///   <ul>
-	  ///     <li><seealso cref="Permissions#UPDATE"/> on <seealso cref="Resources#PROCESS_INSTANCE"/></li>
-	  ///     <li><seealso cref="Permissions#UPDATE_INSTANCE"/> on <seealso cref="Resources#PROCESS_DEFINITION"/></li>
+	  ///     <li><seealso cref="Permissions.UPDATE"/> on <seealso cref="Resources.PROCESS_INSTANCE"/></li>
+	  ///     <li><seealso cref="Permissions.UPDATE_INSTANCE"/> on <seealso cref="Resources.PROCESS_DEFINITION"/></li>
 	  ///   </ul> </exception>
 	  void handleBpmnError(string externalTaskId, string workerId, string errorCode, string errorMessage);
 
@@ -275,8 +275,8 @@ namespace org.camunda.bpm.engine
 	  /// <exception cref="BadUserRequestException"> if the task is assigned to a different worker </exception>
 	  /// <exception cref="AuthorizationException"> thrown if the current user does not possess any of the following permissions:
 	  ///   <ul>
-	  ///     <li><seealso cref="Permissions#UPDATE"/> on <seealso cref="Resources#PROCESS_INSTANCE"/></li>
-	  ///     <li><seealso cref="Permissions#UPDATE_INSTANCE"/> on <seealso cref="Resources#PROCESS_DEFINITION"/></li>
+	  ///     <li><seealso cref="Permissions.UPDATE"/> on <seealso cref="Resources.PROCESS_INSTANCE"/></li>
+	  ///     <li><seealso cref="Permissions.UPDATE_INSTANCE"/> on <seealso cref="Resources.PROCESS_DEFINITION"/></li>
 	  ///   </ul> </exception>
 	  void handleBpmnError(string externalTaskId, string workerId, string errorCode, string errorMessage, IDictionary<string, object> variables);
 
@@ -287,8 +287,8 @@ namespace org.camunda.bpm.engine
 	  /// <exception cref="NotFoundException"> if no external task with the given id exists </exception>
 	  /// <exception cref="AuthorizationException"> thrown if the current user does not possess any of the following permissions:
 	  ///   <ul>
-	  ///     <li><seealso cref="Permissions#UPDATE"/> on <seealso cref="Resources#PROCESS_INSTANCE"/></li>
-	  ///     <li><seealso cref="Permissions#UPDATE_INSTANCE"/> on <seealso cref="Resources#PROCESS_DEFINITION"/></li>
+	  ///     <li><seealso cref="Permissions.UPDATE"/> on <seealso cref="Resources.PROCESS_INSTANCE"/></li>
+	  ///     <li><seealso cref="Permissions.UPDATE_INSTANCE"/> on <seealso cref="Resources.PROCESS_DEFINITION"/></li>
 	  ///   </ul> </exception>
 	  void unlock(string externalTaskId);
 
@@ -302,8 +302,8 @@ namespace org.camunda.bpm.engine
 	  /// <exception cref="NotFoundException"> if no external task with the given id exists </exception>
 	  /// <exception cref="AuthorizationException"> thrown if the current user does not possess any of the following permissions:
 	  ///   <ul>
-	  ///     <li><seealso cref="Permissions#UPDATE"/> on <seealso cref="Resources#PROCESS_INSTANCE"/></li>
-	  ///     <li><seealso cref="Permissions#UPDATE_INSTANCE"/> on <seealso cref="Resources#PROCESS_DEFINITION"/></li>
+	  ///     <li><seealso cref="Permissions.UPDATE"/> on <seealso cref="Resources.PROCESS_INSTANCE"/></li>
+	  ///     <li><seealso cref="Permissions.UPDATE_INSTANCE"/> on <seealso cref="Resources.PROCESS_DEFINITION"/></li>
 	  ///   </ul> </exception>
 	  void setRetries(string externalTaskId, int retries);
 
@@ -318,8 +318,8 @@ namespace org.camunda.bpm.engine
 	  /// <exception cref="BadUserRequestException"> if the ids are null or the number of retries is negative </exception>
 	  /// <exception cref="AuthorizationException"> thrown if the current user does not possess any of the following permissions:
 	  ///   <ul>
-	  ///     <li><seealso cref="Permissions#UPDATE"/> on <seealso cref="Resources#PROCESS_INSTANCE"/></li>
-	  ///     <li><seealso cref="Permissions#UPDATE_INSTANCE"/> on <seealso cref="Resources#PROCESS_DEFINITION"/></li>
+	  ///     <li><seealso cref="Permissions.UPDATE"/> on <seealso cref="Resources.PROCESS_INSTANCE"/></li>
+	  ///     <li><seealso cref="Permissions.UPDATE_INSTANCE"/> on <seealso cref="Resources.PROCESS_DEFINITION"/></li>
 	  ///   </ul> </exception>
 	  void setRetries(IList<string> externalTaskIds, int retries);
 
@@ -338,8 +338,8 @@ namespace org.camunda.bpm.engine
 	  /// <exception cref="NotFoundException"> if no external task with one of the given id exists </exception>
 	  /// <exception cref="BadUserRequestException"> if the ids are null or the number of retries is negative </exception>
 	  /// <exception cref="AuthorizationException">
-	  ///          If the user has no <seealso cref="Permissions#CREATE"/> or
-	  ///          <seealso cref="BatchPermissions#CREATE_BATCH_SET_EXTERNAL_TASK_RETRIES"/> permission on <seealso cref="Resources#BATCH"/>. </exception>
+	  ///          If the user has no <seealso cref="Permissions.CREATE"/> or
+	  ///          <seealso cref="BatchPermissions.CREATE_BATCH_SET_EXTERNAL_TASK_RETRIES"/> permission on <seealso cref="Resources.BATCH"/>. </exception>
 	  Batch setRetriesAsync(IList<string> externalTaskIds, ExternalTaskQuery externalTaskQuery, int retries);
 
 	  /// <summary>
@@ -347,8 +347,8 @@ namespace org.camunda.bpm.engine
 	  /// 
 	  /// Specify the instances by calling one of the following methods, like
 	  /// <i>externalTaskIds</i>. To set the retries call
-	  /// <seealso cref="UpdateExternalTaskRetriesBuilder#set(int)"/> or
-	  /// <seealso cref="UpdateExternalTaskRetriesBuilder#setAsync(int)"/>.
+	  /// <seealso cref="UpdateExternalTaskRetriesBuilder.set(int)"/> or
+	  /// <seealso cref="UpdateExternalTaskRetriesBuilder.setAsync(int)"/>.
 	  /// 
 	  /// @since 7.8
 	  /// </summary>
@@ -362,8 +362,8 @@ namespace org.camunda.bpm.engine
 	  /// <exception cref="NotFoundException"> if no external task with the given id exists </exception>
 	  /// <exception cref="AuthorizationException"> thrown if the current user does not possess any of the following permissions:
 	  ///   <ul>
-	  ///     <li><seealso cref="Permissions#UPDATE"/> on <seealso cref="Resources#PROCESS_INSTANCE"/></li>
-	  ///     <li><seealso cref="Permissions#UPDATE_INSTANCE"/> on <seealso cref="Resources#PROCESS_DEFINITION"/></li>
+	  ///     <li><seealso cref="Permissions.UPDATE"/> on <seealso cref="Resources.PROCESS_INSTANCE"/></li>
+	  ///     <li><seealso cref="Permissions.UPDATE_INSTANCE"/> on <seealso cref="Resources.PROCESS_DEFINITION"/></li>
 	  ///   </ul> </exception>
 	  void setPriority(string externalTaskId, long priority);
 
@@ -373,8 +373,8 @@ namespace org.camunda.bpm.engine
 	  ///   of the following permissions for:
 	  /// 
 	  ///   <ul>
-	  ///     <li><seealso cref="Permissions#READ"/> on <seealso cref="Resources#PROCESS_INSTANCE"/></li>
-	  ///     <li><seealso cref="Permissions#READ_INSTANCE"/> on <seealso cref="Resources#PROCESS_DEFINITION"/></li>
+	  ///     <li><seealso cref="Permissions.READ"/> on <seealso cref="Resources.PROCESS_INSTANCE"/></li>
+	  ///     <li><seealso cref="Permissions.READ_INSTANCE"/> on <seealso cref="Resources.PROCESS_DEFINITION"/></li>
 	  ///   </ul>
 	  /// </para>
 	  /// </summary>
@@ -391,8 +391,8 @@ namespace org.camunda.bpm.engine
 	  /// <exception cref="ProcessEngineException">
 	  ///          When no external task exists with the given id. </exception>
 	  /// <exception cref="AuthorizationException">
-	  ///          If the user has no <seealso cref="Permissions#READ"/> permission on <seealso cref="Resources#PROCESS_INSTANCE"/>
-	  ///          or no <seealso cref="Permissions#READ_INSTANCE"/> permission on <seealso cref="Resources#PROCESS_DEFINITION"/>.
+	  ///          If the user has no <seealso cref="Permissions.READ"/> permission on <seealso cref="Resources.PROCESS_INSTANCE"/>
+	  ///          or no <seealso cref="Permissions.READ_INSTANCE"/> permission on <seealso cref="Resources.PROCESS_DEFINITION"/>.
 	  /// @since 7.6 </exception>
 	  string getExternalTaskErrorDetails(string externalTaskId);
 	}

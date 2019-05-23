@@ -156,7 +156,7 @@ namespace org.camunda.bpm.engine.impl.history.producer
 	  /// a process instance, ...
 	  /// </summary>
 	  /// <param name="context"> the <seealso cref="UserOperationLogContext"/> providing the needed informations </param>
-	  /// <returns> a <seealso cref="List"/> of <seealso cref="HistoryEvent"/>s </returns>
+	  /// <returns> a <seealso cref="System.Collections.IList"/> of <seealso cref="HistoryEvent"/>s </returns>
 	  IList<HistoryEvent> createUserOperationLogEvents(UserOperationLogContext context);
 
 	  // HistoricVariableUpdateEventEntity //////////////////////

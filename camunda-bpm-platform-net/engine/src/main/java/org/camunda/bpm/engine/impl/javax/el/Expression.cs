@@ -58,7 +58,7 @@ namespace org.camunda.bpm.engine.impl.javax.el
 		public abstract string ExpressionString {get;}
 
 		/// <summary>
-		/// Returns the hash code for this Expression. See the note in the <seealso cref="#equals(Object)"/> method
+		/// Returns the hash code for this Expression. See the note in the <seealso cref="equals(object)"/> method
 		/// on how two expressions can be equal if their expression Strings are different. Recall that if
 		/// two objects are equal according to the equals(Object) method, then calling the hashCode
 		/// method on each of the two objects must produce the same integer result. Implementations must

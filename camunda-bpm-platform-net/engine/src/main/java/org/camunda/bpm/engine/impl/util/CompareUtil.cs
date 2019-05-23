@@ -29,10 +29,10 @@ namespace org.camunda.bpm.engine.impl.util
 	{
 
 	  /// <summary>
-	  /// Checks if any of the values are not in an ascending order. The check is done based on the <seealso cref="Comparable#compareTo(Object)"/> method.
+	  /// Checks if any of the values are not in an ascending order. The check is done based on the <seealso cref="Comparable.compareTo(object)"/> method.
 	  /// 
 	  /// E.g. if we have {@code minPriority = 10}, {@code priority = 13} and {@code maxPriority = 5} and
-	  /// {@code Integer[] values = {minPriority, priority, maxPriority}}. Then a call to <seealso cref="CompareUtil#areNotInAscendingOrder(Comparable[] values)"/>
+	  /// {@code Integer[] values = {minPriority, priority, maxPriority}}. Then a call to <seealso cref="CompareUtil.areNotInAscendingOrder(System.IComparable[] values)"/>
 	  /// will return {@code true}
 	  /// </summary>
 	  /// <param name="values"> to validate </param>
@@ -49,10 +49,10 @@ namespace org.camunda.bpm.engine.impl.util
 	  }
 
 	  /// <summary>
-	  /// Checks if any of the values are not in an ascending order. The check is done based on the <seealso cref="Comparable#compareTo(Object)"/> method.
+	  /// Checks if any of the values are not in an ascending order. The check is done based on the <seealso cref="Comparable.compareTo(object)"/> method.
 	  /// 
 	  /// E.g. if we have {@code minPriority = 10}, {@code priority = 13} and {@code maxPriority = 5} and
-	  /// {@code List<Integer> values = {minPriority, priority, maxPriority}}. Then a call to <seealso cref="CompareUtil#areNotInAscendingOrder(List values)"/>
+	  /// {@code List<Integer> values = {minPriority, priority, maxPriority}}. Then a call to <seealso cref="CompareUtil.areNotInAscendingOrder(System.Collections.IList values)"/>
 	  /// will return {@code true}
 	  /// </summary>
 	  /// <param name="values"> to validate </param>

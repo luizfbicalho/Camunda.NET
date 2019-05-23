@@ -255,7 +255,7 @@ namespace org.camunda.bpm.application
 	  }
 
 	  /// <summary>
-	  /// see <seealso cref="ProcessApplicationScriptEnvironment#getScriptEngineForName(String, boolean)"/>
+	  /// see <seealso cref="ProcessApplicationScriptEnvironment.getScriptEngineForName(string, bool)"/>
 	  /// </summary>
 	  public virtual ScriptEngine getScriptEngineForName(string name, bool cache)
 	  {
@@ -263,7 +263,7 @@ namespace org.camunda.bpm.application
 	  }
 
 	  /// <summary>
-	  /// see <seealso cref="ProcessApplicationScriptEnvironment#getEnvironmentScripts()"/>
+	  /// see <seealso cref="ProcessApplicationScriptEnvironment.getEnvironmentScripts()"/>
 	  /// </summary>
 	  public virtual IDictionary<string, IList<ExecutableScript>> EnvironmentScripts
 	  {

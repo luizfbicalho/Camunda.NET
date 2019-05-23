@@ -58,8 +58,8 @@ namespace org.camunda.bpm.engine.task
 
 	  /// <summary>
 	  /// the remote URL in case this is remote content.  If the attachment content was 
-	  /// <seealso cref="TaskService#createAttachment(String, String, String, String, String, java.io.InputStream) uploaded with an input stream"/>, 
-	  /// then this method returns null and the content can be fetched with <seealso cref="TaskService#getAttachmentContent(String)"/>. 
+	  /// <seealso cref="TaskService.createAttachment(string, string, string, string, string, System.IO.Stream_Input) uploaded with an input stream"/>, 
+	  /// then this method returns null and the content can be fetched with <seealso cref="TaskService.getAttachmentContent(string)"/>. 
 	  /// </summary>
 	  string Url {get;}
 

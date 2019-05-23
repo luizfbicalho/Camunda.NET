@@ -35,7 +35,7 @@ namespace org.camunda.bpm.engine.runtime
 	{
 
 	  /// <param name="query"> a query which selects the historic process instances to restart.
-	  ///   Query results are restricted to process instances for which the user has <seealso cref="Permissions#READ_HISTORY"/> permission. </param>
+	  ///   Query results are restricted to process instances for which the user has <seealso cref="Permissions.READ_HISTORY"/> permission. </param>
 	  RestartProcessInstanceBuilder historicProcessInstanceQuery(HistoricProcessInstanceQuery query);
 
 	  /// <param name="processInstanceIds"> the process instance ids to restart. </param>
@@ -78,7 +78,7 @@ namespace org.camunda.bpm.engine.runtime
 	  /// <exception cref="AuthorizationException">
 	  ///   if the user has not all of the following permissions
 	  ///   <ul>
-	  ///     <li><seealso cref="Permissions#CREATE"/> or <seealso cref="BatchPermissions#CREATE_BATCH_RESTART_PROCESS_INSTANCES"/> permission on <seealso cref="Resources#BATCH"/></li>
+	  ///     <li><seealso cref="Permissions.CREATE"/> or <seealso cref="BatchPermissions.CREATE_BATCH_RESTART_PROCESS_INSTANCES"/> permission on <seealso cref="Resources.BATCH"/></li>
 	  ///   </ul> </exception>
 	  Batch executeAsync();
 

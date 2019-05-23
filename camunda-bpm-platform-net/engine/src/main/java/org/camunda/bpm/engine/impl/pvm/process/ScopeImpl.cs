@@ -26,8 +26,8 @@ namespace org.camunda.bpm.engine.impl.pvm.process
 
 	/// <summary>
 	/// A Bpmn scope. The scope has references to two lists of activities:
-	/// - the flow activities (activities for which the <seealso cref="ActivityImpl#getFlowScope() flow scope"/> is this scope
-	/// - event listener activities (activities for which the <seealso cref="ActivityImpl#getEventScope() event scope"/> is this scope.
+	/// - the flow activities (activities for which the <seealso cref="ActivityImpl.getFlowScope() flow scope"/> is this scope
+	/// - event listener activities (activities for which the <seealso cref="ActivityImpl.getEventScope() event scope"/> is this scope.
 	/// 
 	/// @author Tom Baeyens
 	/// @author Daniel Meyer
