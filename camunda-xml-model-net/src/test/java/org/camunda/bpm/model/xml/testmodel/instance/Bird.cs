@@ -44,7 +44,7 @@ namespace org.camunda.bpm.model.xml.testmodel.instance
 	  protected internal static ElementReference<Bird, SpouseRef> spouseRefsColl;
 	  protected internal static ElementReferenceCollection<Egg, GuardEgg> guardEggRefCollection;
 //JAVA TO C# CONVERTER NOTE: Fields cannot have the same name as methods:
-	  protected internal static Attribute<bool> canHazExtendedWings_Renamed;
+	  protected internal static Attribute<bool> canHazExtendedWings_Conflict;
 	  protected internal static ChildElement<Wings> wings;
 
 	  public static void registerType(ModelBuilder modelBuilder)
@@ -59,7 +59,7 @@ namespace org.camunda.bpm.model.xml.testmodel.instance
 
 		guardEggRefCollection = sequence.elementCollection(typeof(GuardEgg)).idsElementReferenceCollection(typeof(Egg)).build();
 
-		canHazExtendedWings_Renamed = typeBuilder.booleanAttribute("canHazExtendedWings").@namespace(TestModelConstants.NEWER_NAMESPACE).build();
+		canHazExtendedWings_Conflict = typeBuilder.booleanAttribute("canHazExtendedWings").@namespace(TestModelConstants.NEWER_NAMESPACE).build();
 
 		wings = sequence.element(typeof(Wings)).build();
 
@@ -131,14 +131,14 @@ namespace org.camunda.bpm.model.xml.testmodel.instance
 
 	  public virtual bool? canHazExtendedWings()
 	  {
-		return canHazExtendedWings_Renamed.getValue(this);
+		return canHazExtendedWings_Conflict.getValue(this);
 	  }
 
 	  public virtual bool CanHazExtendedWings
 	  {
 		  set
 		  {
-			canHazExtendedWings_Renamed.setValue(this, value);
+			canHazExtendedWings_Conflict.setValue(this, value);
 		  }
 	  }
 
