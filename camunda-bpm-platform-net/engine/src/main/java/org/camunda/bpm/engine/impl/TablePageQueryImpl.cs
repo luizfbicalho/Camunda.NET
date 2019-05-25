@@ -40,7 +40,7 @@ namespace org.camunda.bpm.engine.impl
 	  internal CommandExecutor commandExecutor;
 
 //JAVA TO C# CONVERTER NOTE: Fields cannot have the same name as methods:
-	  protected internal string tableName_Renamed;
+	  protected internal string tableName_Conflict;
 	  protected internal string order;
 	  protected internal int firstResult;
 	  protected internal int maxResults;
@@ -56,7 +56,7 @@ namespace org.camunda.bpm.engine.impl
 
 	  public virtual TablePageQueryImpl tableName(string tableName)
 	  {
-		this.tableName_Renamed = tableName;
+		this.tableName_Conflict = tableName;
 		return this;
 	  }
 
@@ -76,7 +76,7 @@ namespace org.camunda.bpm.engine.impl
 	  {
 		  get
 		  {
-			return tableName_Renamed;
+			return tableName_Conflict;
 		  }
 	  }
 

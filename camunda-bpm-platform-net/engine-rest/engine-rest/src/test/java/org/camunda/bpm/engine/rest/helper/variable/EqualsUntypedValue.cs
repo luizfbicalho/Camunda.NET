@@ -30,11 +30,11 @@ namespace org.camunda.bpm.engine.rest.helper.variable
 	{
 
 //JAVA TO C# CONVERTER NOTE: Fields cannot have the same name as methods:
-	  protected internal object value_Renamed;
+	  protected internal object value_Conflict;
 
 	  public virtual EqualsUntypedValue value(object value)
 	  {
-		this.value_Renamed = value;
+		this.value_Conflict = value;
 		return this;
 	  }
 
@@ -52,7 +52,7 @@ namespace org.camunda.bpm.engine.rest.helper.variable
 		  return false;
 		}
 
-		if (value_Renamed == null)
+		if (value_Conflict == null)
 		{
 		  if (typedValue.Value != null)
 		  {
@@ -61,7 +61,7 @@ namespace org.camunda.bpm.engine.rest.helper.variable
 		}
 		else
 		{
-		  if (!value_Renamed.Equals(typedValue.Value))
+		  if (!value_Conflict.Equals(typedValue.Value))
 		  {
 			return false;
 		  }
@@ -81,7 +81,7 @@ namespace org.camunda.bpm.engine.rest.helper.variable
 		sb.Append(this.GetType().Name);
 		sb.Append(": ");
 		sb.Append("value=");
-		sb.Append(value_Renamed);
+		sb.Append(value_Conflict);
 
 		description.appendText(sb.ToString());
 	  }

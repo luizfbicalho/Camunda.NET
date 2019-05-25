@@ -69,7 +69,7 @@ namespace org.camunda.bpm.engine.impl.repository
 	  protected internal DateTime processDefinitionsActivationDate;
 
 //JAVA TO C# CONVERTER NOTE: Fields cannot have the same name as methods:
-	  protected internal string nameFromDeployment_Renamed;
+	  protected internal string nameFromDeployment_Conflict;
 	  protected internal ISet<string> deployments = new HashSet<string>();
 	  protected internal IDictionary<string, ISet<string>> deploymentResourcesById = new Dictionary<string, ISet<string>>();
 	  protected internal IDictionary<string, ISet<string>> deploymentResourcesByName = new Dictionary<string, ISet<string>>();
@@ -234,9 +234,9 @@ namespace org.camunda.bpm.engine.impl.repository
 
 	  public virtual DeploymentBuilder name(string name)
 	  {
-		if (!string.ReferenceEquals(nameFromDeployment_Renamed, null) && nameFromDeployment_Renamed.Length > 0)
+		if (!string.ReferenceEquals(nameFromDeployment_Conflict, null) && nameFromDeployment_Conflict.Length > 0)
 		{
-		  string message = string.Format("Cannot set the deployment name to '{0}', because the property 'nameForDeployment' has been already set to '{1}'.", name, nameFromDeployment_Renamed);
+		  string message = string.Format("Cannot set the deployment name to '{0}', because the property 'nameForDeployment' has been already set to '{1}'.", name, nameFromDeployment_Conflict);
 		  throw new NotValidException(message);
 		}
 		deployment.Name = name;
@@ -251,7 +251,7 @@ namespace org.camunda.bpm.engine.impl.repository
 		  string message = string.Format("Cannot set the given deployment id '{0}' to get the name from it, because the deployment name has been already set to '{1}'.", deploymentId, name);
 		  throw new NotValidException(message);
 		}
-		nameFromDeployment_Renamed = deploymentId;
+		nameFromDeployment_Conflict = deploymentId;
 		return this;
 	  }
 
@@ -349,7 +349,7 @@ namespace org.camunda.bpm.engine.impl.repository
 	  {
 		  get
 		  {
-			return nameFromDeployment_Renamed;
+			return nameFromDeployment_Conflict;
 		  }
 	  }
 

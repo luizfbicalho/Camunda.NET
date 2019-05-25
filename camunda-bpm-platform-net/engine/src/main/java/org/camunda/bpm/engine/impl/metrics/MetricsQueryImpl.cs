@@ -40,19 +40,19 @@ namespace org.camunda.bpm.engine.impl.metrics
 	  private const long serialVersionUID = 1L;
 
 //JAVA TO C# CONVERTER NOTE: Fields cannot have the same name as methods:
-	  protected internal string name_Renamed;
+	  protected internal string name_Conflict;
 //JAVA TO C# CONVERTER NOTE: Fields cannot have the same name as methods:
-	  protected internal string reporter_Renamed;
+	  protected internal string reporter_Conflict;
 //JAVA TO C# CONVERTER NOTE: Fields cannot have the same name as methods:
-	  protected internal DateTime startDate_Renamed;
+	  protected internal DateTime startDate_Conflict;
 //JAVA TO C# CONVERTER NOTE: Fields cannot have the same name as methods:
-	  protected internal DateTime endDate_Renamed;
+	  protected internal DateTime endDate_Conflict;
 	  protected internal long? startDateMilliseconds;
 	  protected internal long? endDateMilliseconds;
 //JAVA TO C# CONVERTER NOTE: Fields cannot have the same name as methods:
-	  protected internal long? interval_Renamed;
+	  protected internal long? interval_Conflict;
 //JAVA TO C# CONVERTER NOTE: Fields cannot have the same name as methods:
-	  protected internal bool? aggregateByReporter_Renamed;
+	  protected internal bool? aggregateByReporter_Conflict;
 
 	  [NonSerialized]
 	  protected internal CommandExecutor commandExecutor;
@@ -61,31 +61,31 @@ namespace org.camunda.bpm.engine.impl.metrics
 	  {
 		this.commandExecutor = commandExecutor;
 		this.maxResults = DEFAULT_LIMIT_SELECT_INTERVAL;
-		this.interval_Renamed = DEFAULT_SELECT_INTERVAL;
+		this.interval_Conflict = DEFAULT_SELECT_INTERVAL;
 	  }
 
 	  public virtual MetricsQueryImpl name(string name)
 	  {
-		this.name_Renamed = name;
+		this.name_Conflict = name;
 		return this;
 	  }
 
 	  public virtual MetricsQuery reporter(string reporter)
 	  {
-		this.reporter_Renamed = reporter;
+		this.reporter_Conflict = reporter;
 		return this;
 	  }
 
 	  public virtual MetricsQueryImpl startDate(DateTime startDate)
 	  {
-		this.startDate_Renamed = startDate;
+		this.startDate_Conflict = startDate;
 		this.startDateMilliseconds = startDate.Ticks;
 		return this;
 	  }
 
 	  public virtual MetricsQueryImpl endDate(DateTime endDate)
 	  {
-		this.endDate_Renamed = endDate;
+		this.endDate_Conflict = endDate;
 		this.endDateMilliseconds = endDate.Ticks;
 		return this;
 	  }
@@ -122,7 +122,7 @@ namespace org.camunda.bpm.engine.impl.metrics
 
 	  public virtual IList<MetricIntervalValue> interval(long interval)
 	  {
-		this.interval_Renamed = interval;
+		this.interval_Conflict = interval;
 		return interval();
 	  }
 
@@ -171,7 +171,7 @@ namespace org.camunda.bpm.engine.impl.metrics
 
 	  public virtual MetricsQuery aggregateByReporter()
 	  {
-		aggregateByReporter_Renamed = true;
+		aggregateByReporter_Conflict = true;
 		return this;
 	  }
 
@@ -199,7 +199,7 @@ namespace org.camunda.bpm.engine.impl.metrics
 	  {
 		  get
 		  {
-			return startDate_Renamed;
+			return startDate_Conflict;
 		  }
 	  }
 
@@ -207,7 +207,7 @@ namespace org.camunda.bpm.engine.impl.metrics
 	  {
 		  get
 		  {
-			return endDate_Renamed;
+			return endDate_Conflict;
 		  }
 	  }
 
@@ -231,7 +231,7 @@ namespace org.camunda.bpm.engine.impl.metrics
 	  {
 		  get
 		  {
-			return name_Renamed;
+			return name_Conflict;
 		  }
 	  }
 
@@ -239,7 +239,7 @@ namespace org.camunda.bpm.engine.impl.metrics
 	  {
 		  get
 		  {
-			return reporter_Renamed;
+			return reporter_Conflict;
 		  }
 	  }
 
@@ -247,11 +247,11 @@ namespace org.camunda.bpm.engine.impl.metrics
 	  {
 		  get
 		  {
-			if (interval_Renamed == null)
+			if (interval_Conflict == null)
 			{
 			  return DEFAULT_SELECT_INTERVAL;
 			}
-			return interval_Renamed;
+			return interval_Conflict;
 		  }
 	  }
 

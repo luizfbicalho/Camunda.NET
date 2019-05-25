@@ -43,7 +43,7 @@ namespace org.camunda.bpm.engine.impl.dmn.entity.repository
 	  protected internal string name;
 	  protected internal string nameLike;
 //JAVA TO C# CONVERTER NOTE: Fields cannot have the same name as methods:
-	  protected internal string deploymentId_Renamed;
+	  protected internal string deploymentId_Conflict;
 	  protected internal string key;
 	  protected internal string keyLike;
 	  protected internal string resourceName;
@@ -52,20 +52,20 @@ namespace org.camunda.bpm.engine.impl.dmn.entity.repository
 	  protected internal bool latest = false;
 
 //JAVA TO C# CONVERTER NOTE: Fields cannot have the same name as methods:
-	  protected internal string decisionRequirementsDefinitionId_Renamed;
+	  protected internal string decisionRequirementsDefinitionId_Conflict;
 //JAVA TO C# CONVERTER NOTE: Fields cannot have the same name as methods:
-	  protected internal string decisionRequirementsDefinitionKey_Renamed;
+	  protected internal string decisionRequirementsDefinitionKey_Conflict;
 //JAVA TO C# CONVERTER NOTE: Fields cannot have the same name as methods:
-	  protected internal bool withoutDecisionRequirementsDefinition_Renamed = false;
+	  protected internal bool withoutDecisionRequirementsDefinition_Conflict = false;
 
 	  protected internal bool isTenantIdSet = false;
 	  protected internal string[] tenantIds;
 	  protected internal bool includeDefinitionsWithoutTenantId = false;
 
 //JAVA TO C# CONVERTER NOTE: Fields cannot have the same name as methods:
-	  protected internal string versionTag_Renamed;
+	  protected internal string versionTag_Conflict;
 //JAVA TO C# CONVERTER NOTE: Fields cannot have the same name as methods:
-	  protected internal string versionTagLike_Renamed;
+	  protected internal string versionTagLike_Conflict;
 
 	  public DecisionDefinitionQueryImpl()
 	  {
@@ -135,7 +135,7 @@ namespace org.camunda.bpm.engine.impl.dmn.entity.repository
 	  public virtual DecisionDefinitionQuery deploymentId(string deploymentId)
 	  {
 		ensureNotNull(typeof(NotValidException), "deploymentId", deploymentId);
-		this.deploymentId_Renamed = deploymentId;
+		this.deploymentId_Conflict = deploymentId;
 		return this;
 	  }
 
@@ -170,34 +170,34 @@ namespace org.camunda.bpm.engine.impl.dmn.entity.repository
 	  public virtual DecisionDefinitionQuery decisionRequirementsDefinitionId(string decisionRequirementsDefinitionId)
 	  {
 		ensureNotNull(typeof(NotValidException), "decisionRequirementsDefinitionId", decisionRequirementsDefinitionId);
-		this.decisionRequirementsDefinitionId_Renamed = decisionRequirementsDefinitionId;
+		this.decisionRequirementsDefinitionId_Conflict = decisionRequirementsDefinitionId;
 		return this;
 	  }
 
 	  public virtual DecisionDefinitionQuery decisionRequirementsDefinitionKey(string decisionRequirementsDefinitionKey)
 	  {
 		ensureNotNull(typeof(NotValidException), "decisionRequirementsDefinitionKey", decisionRequirementsDefinitionKey);
-		this.decisionRequirementsDefinitionKey_Renamed = decisionRequirementsDefinitionKey;
+		this.decisionRequirementsDefinitionKey_Conflict = decisionRequirementsDefinitionKey;
 		return this;
 	  }
 
 	  public virtual DecisionDefinitionQuery versionTag(string versionTag)
 	  {
 		ensureNotNull(typeof(NotValidException), "versionTag", versionTag);
-		this.versionTag_Renamed = versionTag;
+		this.versionTag_Conflict = versionTag;
 		return this;
 	  }
 
 	  public virtual DecisionDefinitionQuery versionTagLike(string versionTagLike)
 	  {
 		ensureNotNull(typeof(NotValidException), "versionTagLike", versionTagLike);
-		this.versionTagLike_Renamed = versionTagLike;
+		this.versionTagLike_Conflict = versionTagLike;
 		return this;
 	  }
 
 	  public virtual DecisionDefinitionQuery withoutDecisionRequirementsDefinition()
 	  {
-		withoutDecisionRequirementsDefinition_Renamed = true;
+		withoutDecisionRequirementsDefinition_Conflict = true;
 		return this;
 	  }
 
@@ -287,7 +287,7 @@ namespace org.camunda.bpm.engine.impl.dmn.entity.repository
 		base.checkQueryOk();
 
 		// latest() makes only sense when used with key() or keyLike()
-		if (latest && ((!string.ReferenceEquals(id, null)) || (!string.ReferenceEquals(name, null)) || (!string.ReferenceEquals(nameLike, null)) || (version != null) || (!string.ReferenceEquals(deploymentId_Renamed, null))))
+		if (latest && ((!string.ReferenceEquals(id, null)) || (!string.ReferenceEquals(name, null)) || (!string.ReferenceEquals(nameLike, null)) || (version != null) || (!string.ReferenceEquals(deploymentId_Conflict, null))))
 		{
 		  throw new NotValidException("Calling latest() can only be used in combination with key(String) and keyLike(String)");
 		}
@@ -347,7 +347,7 @@ namespace org.camunda.bpm.engine.impl.dmn.entity.repository
 	  {
 		  get
 		  {
-			return deploymentId_Renamed;
+			return deploymentId_Conflict;
 		  }
 	  }
 
@@ -395,7 +395,7 @@ namespace org.camunda.bpm.engine.impl.dmn.entity.repository
 	  {
 		  get
 		  {
-			return versionTag_Renamed;
+			return versionTag_Conflict;
 		  }
 	  }
 
@@ -403,7 +403,7 @@ namespace org.camunda.bpm.engine.impl.dmn.entity.repository
 	  {
 		  get
 		  {
-			return versionTagLike_Renamed;
+			return versionTagLike_Conflict;
 		  }
 	  }
 

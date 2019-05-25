@@ -37,25 +37,25 @@ namespace org.camunda.bpm.engine.impl
 
 	  private const long serialVersionUID = 1L;
 //JAVA TO C# CONVERTER NOTE: Fields cannot have the same name as methods:
-	  protected internal DateTime dateBefore_Renamed;
+	  protected internal DateTime dateBefore_Conflict;
 //JAVA TO C# CONVERTER NOTE: Fields cannot have the same name as methods:
-	  protected internal DateTime dateAfter_Renamed;
+	  protected internal DateTime dateAfter_Conflict;
 //JAVA TO C# CONVERTER NOTE: Fields cannot have the same name as methods:
-	  protected internal string type_Renamed;
+	  protected internal string type_Conflict;
 //JAVA TO C# CONVERTER NOTE: Fields cannot have the same name as methods:
-	  protected internal string userId_Renamed;
+	  protected internal string userId_Conflict;
 //JAVA TO C# CONVERTER NOTE: Fields cannot have the same name as methods:
-	  protected internal string groupId_Renamed;
+	  protected internal string groupId_Conflict;
 //JAVA TO C# CONVERTER NOTE: Fields cannot have the same name as methods:
-	  protected internal string taskId_Renamed;
+	  protected internal string taskId_Conflict;
 //JAVA TO C# CONVERTER NOTE: Fields cannot have the same name as methods:
-	  protected internal string processDefinitionId_Renamed;
+	  protected internal string processDefinitionId_Conflict;
 //JAVA TO C# CONVERTER NOTE: Fields cannot have the same name as methods:
-	  protected internal string processDefinitionKey_Renamed;
+	  protected internal string processDefinitionKey_Conflict;
 //JAVA TO C# CONVERTER NOTE: Fields cannot have the same name as methods:
-	  protected internal string operationType_Renamed;
+	  protected internal string operationType_Conflict;
 //JAVA TO C# CONVERTER NOTE: Fields cannot have the same name as methods:
-	  protected internal string assignerId_Renamed;
+	  protected internal string assignerId_Conflict;
 	  protected internal string[] tenantIds;
 
 	  public HistoricIdentityLinkLogQueryImpl()
@@ -70,7 +70,7 @@ namespace org.camunda.bpm.engine.impl
 	  {
 		  get
 		  {
-			return type_Renamed;
+			return type_Conflict;
 		  }
 	  }
 
@@ -78,7 +78,7 @@ namespace org.camunda.bpm.engine.impl
 	  {
 		  get
 		  {
-			return userId_Renamed;
+			return userId_Conflict;
 		  }
 	  }
 
@@ -86,7 +86,7 @@ namespace org.camunda.bpm.engine.impl
 	  {
 		  get
 		  {
-			return groupId_Renamed;
+			return groupId_Conflict;
 		  }
 	  }
 
@@ -94,7 +94,7 @@ namespace org.camunda.bpm.engine.impl
 	  {
 		  get
 		  {
-			return taskId_Renamed;
+			return taskId_Conflict;
 		  }
 	  }
 
@@ -102,7 +102,7 @@ namespace org.camunda.bpm.engine.impl
 	  {
 		  get
 		  {
-			return processDefinitionId_Renamed;
+			return processDefinitionId_Conflict;
 		  }
 	  }
 
@@ -110,7 +110,7 @@ namespace org.camunda.bpm.engine.impl
 	  {
 		  get
 		  {
-			return processDefinitionKey_Renamed;
+			return processDefinitionKey_Conflict;
 		  }
 	  }
 
@@ -118,7 +118,7 @@ namespace org.camunda.bpm.engine.impl
 	  {
 		  get
 		  {
-			return operationType_Renamed;
+			return operationType_Conflict;
 		  }
 	  }
 
@@ -126,7 +126,7 @@ namespace org.camunda.bpm.engine.impl
 	  {
 		  get
 		  {
-			return assignerId_Renamed;
+			return assignerId_Conflict;
 		  }
 	  }
 
@@ -141,7 +141,7 @@ namespace org.camunda.bpm.engine.impl
 	  {
 		  get
 		  {
-			return dateBefore_Renamed;
+			return dateBefore_Conflict;
 		  }
 	  }
 
@@ -149,77 +149,77 @@ namespace org.camunda.bpm.engine.impl
 	  {
 		  get
 		  {
-			return dateAfter_Renamed;
+			return dateAfter_Conflict;
 		  }
 	  }
 
 	  public virtual HistoricIdentityLinkLogQuery type(string type)
 	  {
 		ensureNotNull("type", type);
-		this.type_Renamed = type;
+		this.type_Conflict = type;
 		return this;
 	  }
 
 	  public virtual HistoricIdentityLinkLogQuery dateBefore(DateTime dateBefore)
 	  {
 		ensureNotNull("dateBefore", dateBefore);
-		this.dateBefore_Renamed = dateBefore;
+		this.dateBefore_Conflict = dateBefore;
 		return this;
 	  }
 
 	  public virtual HistoricIdentityLinkLogQuery dateAfter(DateTime dateAfter)
 	  {
 		ensureNotNull("dateAfter", dateAfter);
-		this.dateAfter_Renamed = dateAfter;
+		this.dateAfter_Conflict = dateAfter;
 		return this;
 	  }
 
 	  public virtual HistoricIdentityLinkLogQuery userId(string userId)
 	  {
 		ensureNotNull("userId", userId);
-		this.userId_Renamed = userId;
+		this.userId_Conflict = userId;
 		return this;
 	  }
 
 	  public virtual HistoricIdentityLinkLogQuery groupId(string groupId)
 	  {
 		ensureNotNull("groupId", groupId);
-		this.groupId_Renamed = groupId;
+		this.groupId_Conflict = groupId;
 		return this;
 	  }
 
 	  public virtual HistoricIdentityLinkLogQuery taskId(string taskId)
 	  {
 		ensureNotNull("taskId", taskId);
-		this.taskId_Renamed = taskId;
+		this.taskId_Conflict = taskId;
 		return this;
 	  }
 
 	  public virtual HistoricIdentityLinkLogQuery processDefinitionId(string processDefinitionId)
 	  {
 		ensureNotNull("processDefinitionId", processDefinitionId);
-		this.processDefinitionId_Renamed = processDefinitionId;
+		this.processDefinitionId_Conflict = processDefinitionId;
 		return this;
 	  }
 
 	  public virtual HistoricIdentityLinkLogQuery processDefinitionKey(string processDefinitionKey)
 	  {
 		ensureNotNull("processDefinitionKey", processDefinitionKey);
-		this.processDefinitionKey_Renamed = processDefinitionKey;
+		this.processDefinitionKey_Conflict = processDefinitionKey;
 		return this;
 	  }
 
 	  public virtual HistoricIdentityLinkLogQuery operationType(string operationType)
 	  {
 		ensureNotNull("operationType", operationType);
-		this.operationType_Renamed = operationType;
+		this.operationType_Conflict = operationType;
 		return this;
 	  }
 
 	  public virtual HistoricIdentityLinkLogQuery assignerId(string assignerId)
 	  {
 		ensureNotNull("assignerId", assignerId);
-		this.assignerId_Renamed = assignerId;
+		this.assignerId_Conflict = assignerId;
 		return this;
 	  }
 

@@ -44,12 +44,12 @@ namespace org.camunda.bpm.engine.impl
 	  private const long serialVersionUID = 1L;
 
 //JAVA TO C# CONVERTER NOTE: Fields cannot have the same name as methods:
-	  protected internal string variableId_Renamed;
+	  protected internal string variableId_Conflict;
 //JAVA TO C# CONVERTER NOTE: Fields cannot have the same name as methods:
-	  protected internal string variableName_Renamed;
+	  protected internal string variableName_Conflict;
 	  protected internal string[] variableNames;
 //JAVA TO C# CONVERTER NOTE: Fields cannot have the same name as methods:
-	  protected internal string variableNameLike_Renamed;
+	  protected internal string variableNameLike_Conflict;
 	  protected internal string[] executionIds;
 	  protected internal string[] processInstanceIds;
 	  protected internal string[] caseExecutionIds;
@@ -73,13 +73,13 @@ namespace org.camunda.bpm.engine.impl
 	  public virtual VariableInstanceQuery variableId(string id)
 	  {
 		ensureNotNull("id", id);
-		this.variableId_Renamed = id;
+		this.variableId_Conflict = id;
 		return this;
 	  }
 
 	  public virtual VariableInstanceQuery variableName(string variableName)
 	  {
-		this.variableName_Renamed = variableName;
+		this.variableName_Conflict = variableName;
 		return this;
 	  }
 
@@ -91,7 +91,7 @@ namespace org.camunda.bpm.engine.impl
 
 	  public virtual VariableInstanceQuery variableNameLike(string variableNameLike)
 	  {
-		this.variableNameLike_Renamed = variableNameLike;
+		this.variableNameLike_Conflict = variableNameLike;
 		return this;
 	  }
 
@@ -184,7 +184,7 @@ namespace org.camunda.bpm.engine.impl
 
 	  protected internal override bool hasExcludingConditions()
 	  {
-		return base.hasExcludingConditions() || CompareUtil.elementIsNotContainedInArray(variableName_Renamed, variableNames);
+		return base.hasExcludingConditions() || CompareUtil.elementIsNotContainedInArray(variableName_Conflict, variableNames);
 	  }
 
 	  // results ////////////////////////////////////////////////////
@@ -243,7 +243,7 @@ namespace org.camunda.bpm.engine.impl
 	  {
 		  get
 		  {
-			return variableId_Renamed;
+			return variableId_Conflict;
 		  }
 	  }
 
@@ -251,7 +251,7 @@ namespace org.camunda.bpm.engine.impl
 	  {
 		  get
 		  {
-			return variableName_Renamed;
+			return variableName_Conflict;
 		  }
 	  }
 
@@ -267,7 +267,7 @@ namespace org.camunda.bpm.engine.impl
 	  {
 		  get
 		  {
-			return variableNameLike_Renamed;
+			return variableNameLike_Conflict;
 		  }
 	  }
 

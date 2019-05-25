@@ -38,19 +38,19 @@ namespace org.camunda.bpm.engine.impl.cmmn.entity.runtime
 	  private const long serialVersionUID = 1L;
 
 //JAVA TO C# CONVERTER NOTE: Fields cannot have the same name as methods:
-	  protected internal string caseDefinitionId_Renamed;
+	  protected internal string caseDefinitionId_Conflict;
 //JAVA TO C# CONVERTER NOTE: Fields cannot have the same name as methods:
-	  protected internal string caseDefinitionKey_Renamed;
+	  protected internal string caseDefinitionKey_Conflict;
 //JAVA TO C# CONVERTER NOTE: Fields cannot have the same name as methods:
-	  protected internal string activityId_Renamed;
+	  protected internal string activityId_Conflict;
 //JAVA TO C# CONVERTER NOTE: Fields cannot have the same name as methods:
-	  protected internal string caseExecutionId_Renamed;
+	  protected internal string caseExecutionId_Conflict;
 //JAVA TO C# CONVERTER NOTE: Fields cannot have the same name as methods:
-	  protected internal string caseInstanceId_Renamed;
+	  protected internal string caseInstanceId_Conflict;
 	  protected internal string businessKey;
 	  protected internal CaseExecutionState state;
 //JAVA TO C# CONVERTER NOTE: Fields cannot have the same name as methods:
-	  protected internal bool? required_Renamed = false;
+	  protected internal bool? required_Conflict = false;
 
 	  protected internal bool isTenantIdSet = false;
 	  protected internal string[] tenantIds;
@@ -73,21 +73,21 @@ namespace org.camunda.bpm.engine.impl.cmmn.entity.runtime
 	  public virtual CaseExecutionQuery caseInstanceId(string caseInstanceId)
 	  {
 		ensureNotNull(typeof(NotValidException), "caseInstanceId", caseInstanceId);
-		this.caseInstanceId_Renamed = caseInstanceId;
+		this.caseInstanceId_Conflict = caseInstanceId;
 		return this;
 	  }
 
 	  public virtual CaseExecutionQuery caseDefinitionId(string caseDefinitionId)
 	  {
 		ensureNotNull(typeof(NotValidException), "caseDefinitionId", caseDefinitionId);
-		this.caseDefinitionId_Renamed = caseDefinitionId;
+		this.caseDefinitionId_Conflict = caseDefinitionId;
 		return this;
 	  }
 
 	  public virtual CaseExecutionQuery caseDefinitionKey(string caseDefinitionKey)
 	  {
 		ensureNotNull(typeof(NotValidException), "caseDefinitionKey", caseDefinitionKey);
-		this.caseDefinitionKey_Renamed = caseDefinitionKey;
+		this.caseDefinitionKey_Conflict = caseDefinitionKey;
 		return this;
 	  }
 
@@ -101,14 +101,14 @@ namespace org.camunda.bpm.engine.impl.cmmn.entity.runtime
 	  public virtual CaseExecutionQuery caseExecutionId(string caseExecutionId)
 	  {
 		ensureNotNull(typeof(NotValidException), "caseExecutionId", caseExecutionId);
-		this.caseExecutionId_Renamed = caseExecutionId;
+		this.caseExecutionId_Conflict = caseExecutionId;
 		return this;
 	  }
 
 	  public virtual CaseExecutionQuery activityId(string activityId)
 	  {
 		ensureNotNull(typeof(NotValidException), "activityId", activityId);
-		this.activityId_Renamed = activityId;
+		this.activityId_Conflict = activityId;
 		return this;
 	  }
 
@@ -129,7 +129,7 @@ namespace org.camunda.bpm.engine.impl.cmmn.entity.runtime
 
 	  public virtual CaseExecutionQuery required()
 	  {
-		this.required_Renamed = true;
+		this.required_Conflict = true;
 		return this;
 	  }
 
@@ -257,7 +257,7 @@ namespace org.camunda.bpm.engine.impl.cmmn.entity.runtime
 	  {
 		  get
 		  {
-			return caseDefinitionId_Renamed;
+			return caseDefinitionId_Conflict;
 		  }
 	  }
 
@@ -265,7 +265,7 @@ namespace org.camunda.bpm.engine.impl.cmmn.entity.runtime
 	  {
 		  get
 		  {
-			return caseDefinitionKey_Renamed;
+			return caseDefinitionKey_Conflict;
 		  }
 	  }
 
@@ -273,7 +273,7 @@ namespace org.camunda.bpm.engine.impl.cmmn.entity.runtime
 	  {
 		  get
 		  {
-			return activityId_Renamed;
+			return activityId_Conflict;
 		  }
 	  }
 
@@ -281,7 +281,7 @@ namespace org.camunda.bpm.engine.impl.cmmn.entity.runtime
 	  {
 		  get
 		  {
-			return caseExecutionId_Renamed;
+			return caseExecutionId_Conflict;
 		  }
 	  }
 
@@ -289,7 +289,7 @@ namespace org.camunda.bpm.engine.impl.cmmn.entity.runtime
 	  {
 		  get
 		  {
-			return caseInstanceId_Renamed;
+			return caseInstanceId_Conflict;
 		  }
 	  }
 
@@ -361,7 +361,7 @@ namespace org.camunda.bpm.engine.impl.cmmn.entity.runtime
 	  {
 		  get
 		  {
-			return required_Renamed;
+			return required_Conflict;
 		  }
 	  }
 

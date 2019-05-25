@@ -45,38 +45,38 @@ namespace org.camunda.bpm.engine.impl
 
 	  private const long serialVersionUID = 1L;
 //JAVA TO C# CONVERTER NOTE: Fields cannot have the same name as methods:
-	  protected internal string processInstanceId_Renamed;
+	  protected internal string processInstanceId_Conflict;
 	  protected internal string businessKey;
 	  protected internal string businessKeyLike;
 //JAVA TO C# CONVERTER NOTE: Fields cannot have the same name as methods:
-	  protected internal string processDefinitionId_Renamed;
+	  protected internal string processDefinitionId_Conflict;
 //JAVA TO C# CONVERTER NOTE: Fields cannot have the same name as methods:
-	  protected internal ISet<string> processInstanceIds_Renamed;
+	  protected internal ISet<string> processInstanceIds_Conflict;
 //JAVA TO C# CONVERTER NOTE: Fields cannot have the same name as methods:
-	  protected internal string processDefinitionKey_Renamed;
+	  protected internal string processDefinitionKey_Conflict;
 //JAVA TO C# CONVERTER NOTE: Fields cannot have the same name as methods:
-	  protected internal string deploymentId_Renamed;
+	  protected internal string deploymentId_Conflict;
 //JAVA TO C# CONVERTER NOTE: Fields cannot have the same name as methods:
-	  protected internal string superProcessInstanceId_Renamed;
+	  protected internal string superProcessInstanceId_Conflict;
 //JAVA TO C# CONVERTER NOTE: Fields cannot have the same name as methods:
-	  protected internal string subProcessInstanceId_Renamed;
+	  protected internal string subProcessInstanceId_Conflict;
 	  protected internal SuspensionState suspensionState;
 //JAVA TO C# CONVERTER NOTE: Fields cannot have the same name as methods:
-	  protected internal bool withIncident_Renamed;
+	  protected internal bool withIncident_Conflict;
 //JAVA TO C# CONVERTER NOTE: Fields cannot have the same name as methods:
-	  protected internal string incidentType_Renamed;
+	  protected internal string incidentType_Conflict;
 //JAVA TO C# CONVERTER NOTE: Fields cannot have the same name as methods:
-	  protected internal string incidentId_Renamed;
+	  protected internal string incidentId_Conflict;
 //JAVA TO C# CONVERTER NOTE: Fields cannot have the same name as methods:
-	  protected internal string incidentMessage_Renamed;
+	  protected internal string incidentMessage_Conflict;
 //JAVA TO C# CONVERTER NOTE: Fields cannot have the same name as methods:
-	  protected internal string incidentMessageLike_Renamed;
+	  protected internal string incidentMessageLike_Conflict;
 //JAVA TO C# CONVERTER NOTE: Fields cannot have the same name as methods:
-	  protected internal string caseInstanceId_Renamed;
+	  protected internal string caseInstanceId_Conflict;
 //JAVA TO C# CONVERTER NOTE: Fields cannot have the same name as methods:
-	  protected internal string superCaseInstanceId_Renamed;
+	  protected internal string superCaseInstanceId_Conflict;
 //JAVA TO C# CONVERTER NOTE: Fields cannot have the same name as methods:
-	  protected internal string subCaseInstanceId_Renamed;
+	  protected internal string subCaseInstanceId_Conflict;
 	  protected internal string[] activityIds;
 	  protected internal bool isRootProcessInstances;
 	  protected internal bool isLeafProcessInstances;
@@ -96,14 +96,14 @@ namespace org.camunda.bpm.engine.impl
 	  public virtual ProcessInstanceQueryImpl processInstanceId(string processInstanceId)
 	  {
 		ensureNotNull("Process instance id", processInstanceId);
-		this.processInstanceId_Renamed = processInstanceId;
+		this.processInstanceId_Conflict = processInstanceId;
 		return this;
 	  }
 
 	  public virtual ProcessInstanceQuery processInstanceIds(ISet<string> processInstanceIds)
 	  {
 		ensureNotEmpty("Set of process instance ids", processInstanceIds);
-		this.processInstanceIds_Renamed = processInstanceIds;
+		this.processInstanceIds_Conflict = processInstanceIds;
 		return this;
 	  }
 
@@ -118,7 +118,7 @@ namespace org.camunda.bpm.engine.impl
 	  {
 		ensureNotNull("Business key", businessKey);
 		this.businessKey = businessKey;
-		this.processDefinitionKey_Renamed = processDefinitionKey;
+		this.processDefinitionKey_Conflict = processDefinitionKey;
 		return this;
 	  }
 
@@ -131,21 +131,21 @@ namespace org.camunda.bpm.engine.impl
 	  public virtual ProcessInstanceQueryImpl processDefinitionId(string processDefinitionId)
 	  {
 		ensureNotNull("Process definition id", processDefinitionId);
-		this.processDefinitionId_Renamed = processDefinitionId;
+		this.processDefinitionId_Conflict = processDefinitionId;
 		return this;
 	  }
 
 	  public virtual ProcessInstanceQueryImpl processDefinitionKey(string processDefinitionKey)
 	  {
 		ensureNotNull("Process definition key", processDefinitionKey);
-		this.processDefinitionKey_Renamed = processDefinitionKey;
+		this.processDefinitionKey_Conflict = processDefinitionKey;
 		return this;
 	  }
 
 	  public virtual ProcessInstanceQuery deploymentId(string deploymentId)
 	  {
 		ensureNotNull("Deployment id", deploymentId);
-		this.deploymentId_Renamed = deploymentId;
+		this.deploymentId_Conflict = deploymentId;
 		return this;
 	  }
 
@@ -155,34 +155,34 @@ namespace org.camunda.bpm.engine.impl
 		{
 		  throw new ProcessEngineException("Invalid query usage: cannot set both rootProcessInstances and superProcessInstanceId");
 		}
-		this.superProcessInstanceId_Renamed = superProcessInstanceId;
+		this.superProcessInstanceId_Conflict = superProcessInstanceId;
 		return this;
 	  }
 
 	  public virtual ProcessInstanceQuery subProcessInstanceId(string subProcessInstanceId)
 	  {
-		this.subProcessInstanceId_Renamed = subProcessInstanceId;
+		this.subProcessInstanceId_Conflict = subProcessInstanceId;
 		return this;
 	  }
 
 	  public virtual ProcessInstanceQuery caseInstanceId(string caseInstanceId)
 	  {
 		ensureNotNull("caseInstanceId", caseInstanceId);
-		this.caseInstanceId_Renamed = caseInstanceId;
+		this.caseInstanceId_Conflict = caseInstanceId;
 		return this;
 	  }
 
 	  public virtual ProcessInstanceQuery superCaseInstanceId(string superCaseInstanceId)
 	  {
 		ensureNotNull("superCaseInstanceId", superCaseInstanceId);
-		this.superCaseInstanceId_Renamed = superCaseInstanceId;
+		this.superCaseInstanceId_Conflict = superCaseInstanceId;
 		return this;
 	  }
 
 	  public virtual ProcessInstanceQuery subCaseInstanceId(string subCaseInstanceId)
 	  {
 		ensureNotNull("subCaseInstanceId", subCaseInstanceId);
-		this.subCaseInstanceId_Renamed = subCaseInstanceId;
+		this.subCaseInstanceId_Conflict = subCaseInstanceId;
 		return this;
 	  }
 
@@ -230,35 +230,35 @@ namespace org.camunda.bpm.engine.impl
 
 	  public virtual ProcessInstanceQuery withIncident()
 	  {
-		this.withIncident_Renamed = true;
+		this.withIncident_Conflict = true;
 		return this;
 	  }
 
 	  public virtual ProcessInstanceQuery incidentType(string incidentType)
 	  {
 		ensureNotNull("incident type", incidentType);
-		this.incidentType_Renamed = incidentType;
+		this.incidentType_Conflict = incidentType;
 		return this;
 	  }
 
 	  public virtual ProcessInstanceQuery incidentId(string incidentId)
 	  {
 		ensureNotNull("incident id", incidentId);
-		this.incidentId_Renamed = incidentId;
+		this.incidentId_Conflict = incidentId;
 		return this;
 	  }
 
 	  public virtual ProcessInstanceQuery incidentMessage(string incidentMessage)
 	  {
 		ensureNotNull("incident message", incidentMessage);
-		this.incidentMessage_Renamed = incidentMessage;
+		this.incidentMessage_Conflict = incidentMessage;
 		return this;
 	  }
 
 	  public virtual ProcessInstanceQuery incidentMessageLike(string incidentMessageLike)
 	  {
 		ensureNotNull("incident messageLike", incidentMessageLike);
-		this.incidentMessageLike_Renamed = incidentMessageLike;
+		this.incidentMessageLike_Conflict = incidentMessageLike;
 		return this;
 	  }
 
@@ -286,7 +286,7 @@ namespace org.camunda.bpm.engine.impl
 
 	  public virtual ProcessInstanceQuery rootProcessInstances()
 	  {
-		if (!string.ReferenceEquals(superProcessInstanceId_Renamed, null))
+		if (!string.ReferenceEquals(superProcessInstanceId_Conflict, null))
 		{
 		  throw new ProcessEngineException("Invalid query usage: cannot set both rootProcessInstances and superProcessInstanceId");
 		}
@@ -296,7 +296,7 @@ namespace org.camunda.bpm.engine.impl
 
 	  public virtual ProcessInstanceQuery leafProcessInstances()
 	  {
-		if (!string.ReferenceEquals(subProcessInstanceId_Renamed, null))
+		if (!string.ReferenceEquals(subProcessInstanceId_Conflict, null))
 		{
 		  throw new ProcessEngineException("Invalid query usage: cannot set both leafProcessInstances and subProcessInstanceId");
 		}
@@ -339,7 +339,7 @@ namespace org.camunda.bpm.engine.impl
 	  {
 		  get
 		  {
-			return processInstanceId_Renamed;
+			return processInstanceId_Conflict;
 		  }
 	  }
 
@@ -347,7 +347,7 @@ namespace org.camunda.bpm.engine.impl
 	  {
 		  get
 		  {
-			return processInstanceIds_Renamed;
+			return processInstanceIds_Conflict;
 		  }
 	  }
 
@@ -371,7 +371,7 @@ namespace org.camunda.bpm.engine.impl
 	  {
 		  get
 		  {
-			return processDefinitionId_Renamed;
+			return processDefinitionId_Conflict;
 		  }
 	  }
 
@@ -379,7 +379,7 @@ namespace org.camunda.bpm.engine.impl
 	  {
 		  get
 		  {
-			return processDefinitionKey_Renamed;
+			return processDefinitionKey_Conflict;
 		  }
 	  }
 
@@ -387,7 +387,7 @@ namespace org.camunda.bpm.engine.impl
 	  {
 		  get
 		  {
-			return deploymentId_Renamed;
+			return deploymentId_Conflict;
 		  }
 	  }
 
@@ -395,7 +395,7 @@ namespace org.camunda.bpm.engine.impl
 	  {
 		  get
 		  {
-			return superProcessInstanceId_Renamed;
+			return superProcessInstanceId_Conflict;
 		  }
 	  }
 
@@ -403,7 +403,7 @@ namespace org.camunda.bpm.engine.impl
 	  {
 		  get
 		  {
-			return subProcessInstanceId_Renamed;
+			return subProcessInstanceId_Conflict;
 		  }
 	  }
 
@@ -424,7 +424,7 @@ namespace org.camunda.bpm.engine.impl
 	  {
 		  get
 		  {
-			return withIncident_Renamed;
+			return withIncident_Conflict;
 		  }
 	  }
 
@@ -432,7 +432,7 @@ namespace org.camunda.bpm.engine.impl
 	  {
 		  get
 		  {
-			return incidentId_Renamed;
+			return incidentId_Conflict;
 		  }
 	  }
 
@@ -440,7 +440,7 @@ namespace org.camunda.bpm.engine.impl
 	  {
 		  get
 		  {
-			return incidentType_Renamed;
+			return incidentType_Conflict;
 		  }
 	  }
 
@@ -448,7 +448,7 @@ namespace org.camunda.bpm.engine.impl
 	  {
 		  get
 		  {
-			return incidentMessage_Renamed;
+			return incidentMessage_Conflict;
 		  }
 	  }
 
@@ -456,7 +456,7 @@ namespace org.camunda.bpm.engine.impl
 	  {
 		  get
 		  {
-			return incidentMessageLike_Renamed;
+			return incidentMessageLike_Conflict;
 		  }
 	  }
 
@@ -464,7 +464,7 @@ namespace org.camunda.bpm.engine.impl
 	  {
 		  get
 		  {
-			return caseInstanceId_Renamed;
+			return caseInstanceId_Conflict;
 		  }
 	  }
 
@@ -472,7 +472,7 @@ namespace org.camunda.bpm.engine.impl
 	  {
 		  get
 		  {
-			return superCaseInstanceId_Renamed;
+			return superCaseInstanceId_Conflict;
 		  }
 	  }
 
@@ -480,7 +480,7 @@ namespace org.camunda.bpm.engine.impl
 	  {
 		  get
 		  {
-			return subCaseInstanceId_Renamed;
+			return subCaseInstanceId_Conflict;
 		  }
 	  }
 

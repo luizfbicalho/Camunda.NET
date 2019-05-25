@@ -35,9 +35,9 @@ namespace org.camunda.bpm.engine.impl.batch
 	  private const long serialVersionUID = 1L;
 
 //JAVA TO C# CONVERTER NOTE: Fields cannot have the same name as methods:
-	  protected internal string batchId_Renamed;
+	  protected internal string batchId_Conflict;
 //JAVA TO C# CONVERTER NOTE: Fields cannot have the same name as methods:
-	  protected internal string type_Renamed;
+	  protected internal string type_Conflict;
 	  protected internal bool isTenantIdSet = false;
 	  protected internal string[] tenantIds;
 	  protected internal SuspensionState suspensionState;
@@ -49,7 +49,7 @@ namespace org.camunda.bpm.engine.impl.batch
 	  public virtual BatchQuery batchId(string batchId)
 	  {
 		ensureNotNull("Batch id", batchId);
-		this.batchId_Renamed = batchId;
+		this.batchId_Conflict = batchId;
 		return this;
 	  }
 
@@ -57,14 +57,14 @@ namespace org.camunda.bpm.engine.impl.batch
 	  {
 		  get
 		  {
-			return batchId_Renamed;
+			return batchId_Conflict;
 		  }
 	  }
 
 	  public virtual BatchQuery type(string type)
 	  {
 		ensureNotNull("Type", type);
-		this.type_Renamed = type;
+		this.type_Conflict = type;
 		return this;
 	  }
 
@@ -72,7 +72,7 @@ namespace org.camunda.bpm.engine.impl.batch
 	  {
 		  get
 		  {
-			return type_Renamed;
+			return type_Conflict;
 		  }
 	  }
 

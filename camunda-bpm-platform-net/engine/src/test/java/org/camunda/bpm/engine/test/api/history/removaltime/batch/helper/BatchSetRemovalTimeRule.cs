@@ -181,12 +181,12 @@ namespace org.camunda.bpm.engine.test.api.history.removaltime.batch.helper
 		internal StartEventBuilder startEventBuilder;
 		internal ProcessBuilder rootProcessBuilder = null;
 //JAVA TO C# CONVERTER NOTE: Fields cannot have the same name as methods:
-		internal int? ttl_Renamed;
+		internal int? ttl_Conflict;
 		internal CallActivityBuilder callActivityBuilder;
 
 		public virtual TestProcessBuilder ttl(int? ttl)
 		{
-		  this.ttl_Renamed = ttl;
+		  this.ttl_Conflict = ttl;
 		  return this;
 		}
 
@@ -262,15 +262,15 @@ namespace org.camunda.bpm.engine.test.api.history.removaltime.batch.helper
 
 		public virtual TestProcessBuilder deploy()
 		{
-		  if (ttl_Renamed != null)
+		  if (ttl_Conflict != null)
 		  {
 			if (rootProcessBuilder != null)
 			{
-			  rootProcessBuilder.camundaHistoryTimeToLive(ttl_Renamed);
+			  rootProcessBuilder.camundaHistoryTimeToLive(ttl_Conflict);
 			}
 			else
 			{
-			  builder.camundaHistoryTimeToLive(ttl_Renamed);
+			  builder.camundaHistoryTimeToLive(ttl_Conflict);
 			}
 		  }
 

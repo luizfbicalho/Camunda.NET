@@ -39,27 +39,27 @@ namespace org.camunda.bpm.engine.impl.oplog
 	{
 
 //JAVA TO C# CONVERTER NOTE: Fields cannot have the same name as methods:
-	  protected internal UserOperationLogContextEntry entry_Renamed;
+	  protected internal UserOperationLogContextEntry entry_Conflict;
 
 	  public static UserOperationLogContextEntryBuilder entry(string operationType, string entityType)
 	  {
 		UserOperationLogContextEntryBuilder builder = new UserOperationLogContextEntryBuilder();
-		builder.entry_Renamed = new UserOperationLogContextEntry(operationType, entityType);
+		builder.entry_Conflict = new UserOperationLogContextEntry(operationType, entityType);
 		return builder;
 	  }
 
 	  public virtual UserOperationLogContextEntryBuilder inContextOf(JobEntity job)
 	  {
-		entry_Renamed.JobDefinitionId = job.JobDefinitionId;
-		entry_Renamed.ProcessInstanceId = job.ProcessInstanceId;
-		entry_Renamed.ProcessDefinitionId = job.ProcessDefinitionId;
-		entry_Renamed.ProcessDefinitionKey = job.ProcessDefinitionKey;
-		entry_Renamed.DeploymentId = job.DeploymentId;
+		entry_Conflict.JobDefinitionId = job.JobDefinitionId;
+		entry_Conflict.ProcessInstanceId = job.ProcessInstanceId;
+		entry_Conflict.ProcessDefinitionId = job.ProcessDefinitionId;
+		entry_Conflict.ProcessDefinitionKey = job.ProcessDefinitionKey;
+		entry_Conflict.DeploymentId = job.DeploymentId;
 
 		ExecutionEntity execution = job.Execution;
 		if (execution != null)
 		{
-		  entry_Renamed.RootProcessInstanceId = execution.RootProcessInstanceId;
+		  entry_Conflict.RootProcessInstanceId = execution.RootProcessInstanceId;
 		}
 
 		return this;
@@ -67,14 +67,14 @@ namespace org.camunda.bpm.engine.impl.oplog
 
 	  public virtual UserOperationLogContextEntryBuilder inContextOf(JobDefinitionEntity jobDefinition)
 	  {
-		entry_Renamed.JobDefinitionId = jobDefinition.Id;
-		entry_Renamed.ProcessDefinitionId = jobDefinition.ProcessDefinitionId;
-		entry_Renamed.ProcessDefinitionKey = jobDefinition.ProcessDefinitionKey;
+		entry_Conflict.JobDefinitionId = jobDefinition.Id;
+		entry_Conflict.ProcessDefinitionId = jobDefinition.ProcessDefinitionId;
+		entry_Conflict.ProcessDefinitionKey = jobDefinition.ProcessDefinitionKey;
 
 		if (!string.ReferenceEquals(jobDefinition.ProcessDefinitionId, null))
 		{
 		  ProcessDefinitionEntity processDefinition = Context.ProcessEngineConfiguration.DeploymentCache.findDeployedProcessDefinitionById(jobDefinition.ProcessDefinitionId);
-		  entry_Renamed.DeploymentId = processDefinition.DeploymentId;
+		  entry_Conflict.DeploymentId = processDefinition.DeploymentId;
 		}
 
 		return this;
@@ -82,22 +82,22 @@ namespace org.camunda.bpm.engine.impl.oplog
 
 	  public virtual UserOperationLogContextEntryBuilder inContextOf(ExecutionEntity execution)
 	  {
-		entry_Renamed.ProcessInstanceId = execution.ProcessInstanceId;
-		entry_Renamed.RootProcessInstanceId = execution.RootProcessInstanceId;
-		entry_Renamed.ProcessDefinitionId = execution.ProcessDefinitionId;
+		entry_Conflict.ProcessInstanceId = execution.ProcessInstanceId;
+		entry_Conflict.RootProcessInstanceId = execution.RootProcessInstanceId;
+		entry_Conflict.ProcessDefinitionId = execution.ProcessDefinitionId;
 
 		ProcessDefinitionEntity processDefinition = (ProcessDefinitionEntity) execution.getProcessDefinition();
-		entry_Renamed.ProcessDefinitionKey = processDefinition.Key;
-		entry_Renamed.DeploymentId = processDefinition.DeploymentId;
+		entry_Conflict.ProcessDefinitionKey = processDefinition.Key;
+		entry_Conflict.DeploymentId = processDefinition.DeploymentId;
 
 		return this;
 	  }
 
 	  public virtual UserOperationLogContextEntryBuilder inContextOf(ProcessDefinitionEntity processDefinition)
 	  {
-		entry_Renamed.ProcessDefinitionId = processDefinition.Id;
-		entry_Renamed.ProcessDefinitionKey = processDefinition.Key;
-		entry_Renamed.DeploymentId = processDefinition.DeploymentId;
+		entry_Conflict.ProcessDefinitionId = processDefinition.Id;
+		entry_Conflict.ProcessDefinitionKey = processDefinition.Key;
+		entry_Conflict.DeploymentId = processDefinition.DeploymentId;
 
 		return this;
 	  }
@@ -107,36 +107,36 @@ namespace org.camunda.bpm.engine.impl.oplog
 
 		if (propertyChanges == null || propertyChanges.Count == 0)
 		{
-		  if (OPERATION_TYPE_CREATE.Equals(entry_Renamed.OperationType))
+		  if (OPERATION_TYPE_CREATE.Equals(entry_Conflict.OperationType))
 		  {
 			propertyChanges = Arrays.asList(PropertyChange.EMPTY_CHANGE);
 		  }
 		}
-		entry_Renamed.PropertyChanges = propertyChanges;
+		entry_Conflict.PropertyChanges = propertyChanges;
 
 		ProcessDefinitionEntity definition = task.ProcessDefinition;
 		if (definition != null)
 		{
-		  entry_Renamed.ProcessDefinitionKey = definition.Key;
-		  entry_Renamed.DeploymentId = definition.DeploymentId;
+		  entry_Conflict.ProcessDefinitionKey = definition.Key;
+		  entry_Conflict.DeploymentId = definition.DeploymentId;
 		}
 		else if (!string.ReferenceEquals(task.CaseDefinitionId, null))
 		{
-		  entry_Renamed.DeploymentId = task.CaseDefinition.DeploymentId;
+		  entry_Conflict.DeploymentId = task.CaseDefinition.DeploymentId;
 		}
 
-		entry_Renamed.ProcessDefinitionId = task.ProcessDefinitionId;
-		entry_Renamed.ProcessInstanceId = task.ProcessInstanceId;
-		entry_Renamed.ExecutionId = task.ExecutionId;
-		entry_Renamed.CaseDefinitionId = task.CaseDefinitionId;
-		entry_Renamed.CaseInstanceId = task.CaseInstanceId;
-		entry_Renamed.CaseExecutionId = task.CaseExecutionId;
-		entry_Renamed.TaskId = task.Id;
+		entry_Conflict.ProcessDefinitionId = task.ProcessDefinitionId;
+		entry_Conflict.ProcessInstanceId = task.ProcessInstanceId;
+		entry_Conflict.ExecutionId = task.ExecutionId;
+		entry_Conflict.CaseDefinitionId = task.CaseDefinitionId;
+		entry_Conflict.CaseInstanceId = task.CaseInstanceId;
+		entry_Conflict.CaseExecutionId = task.CaseExecutionId;
+		entry_Conflict.TaskId = task.Id;
 
 		ExecutionEntity execution = task.getExecution();
 		if (execution != null)
 		{
-		  entry_Renamed.RootProcessInstanceId = execution.RootProcessInstanceId;
+		  entry_Conflict.RootProcessInstanceId = execution.RootProcessInstanceId;
 		}
 
 		return this;
@@ -147,22 +147,22 @@ namespace org.camunda.bpm.engine.impl.oplog
 
 		if (propertyChanges == null || propertyChanges.Count == 0)
 		{
-		  if (OPERATION_TYPE_CREATE.Equals(entry_Renamed.OperationType))
+		  if (OPERATION_TYPE_CREATE.Equals(entry_Conflict.OperationType))
 		  {
 			propertyChanges = Arrays.asList(PropertyChange.EMPTY_CHANGE);
 		  }
 		}
-		entry_Renamed.PropertyChanges = propertyChanges;
+		entry_Conflict.PropertyChanges = propertyChanges;
 
-		entry_Renamed.ProcessDefinitionKey = task.ProcessDefinitionKey;
-		entry_Renamed.ProcessDefinitionId = task.ProcessDefinitionId;
-		entry_Renamed.ProcessInstanceId = task.ProcessInstanceId;
-		entry_Renamed.ExecutionId = task.ExecutionId;
-		entry_Renamed.CaseDefinitionId = task.CaseDefinitionId;
-		entry_Renamed.CaseInstanceId = task.CaseInstanceId;
-		entry_Renamed.CaseExecutionId = task.CaseExecutionId;
-		entry_Renamed.TaskId = task.Id;
-		entry_Renamed.RootProcessInstanceId = task.RootProcessInstanceId;
+		entry_Conflict.ProcessDefinitionKey = task.ProcessDefinitionKey;
+		entry_Conflict.ProcessDefinitionId = task.ProcessDefinitionId;
+		entry_Conflict.ProcessInstanceId = task.ProcessInstanceId;
+		entry_Conflict.ExecutionId = task.ExecutionId;
+		entry_Conflict.CaseDefinitionId = task.CaseDefinitionId;
+		entry_Conflict.CaseInstanceId = task.CaseInstanceId;
+		entry_Conflict.CaseExecutionId = task.CaseExecutionId;
+		entry_Conflict.TaskId = task.Id;
+		entry_Conflict.RootProcessInstanceId = task.RootProcessInstanceId;
 
 		return this;
 	  }
@@ -172,23 +172,23 @@ namespace org.camunda.bpm.engine.impl.oplog
 
 		if (propertyChanges == null || propertyChanges.Count == 0)
 		{
-		  if (OPERATION_TYPE_CREATE.Equals(entry_Renamed.OperationType))
+		  if (OPERATION_TYPE_CREATE.Equals(entry_Conflict.OperationType))
 		  {
 			propertyChanges = Arrays.asList(PropertyChange.EMPTY_CHANGE);
 		  }
 		}
-		entry_Renamed.PropertyChanges = propertyChanges;
-		entry_Renamed.RootProcessInstanceId = processInstance.RootProcessInstanceId;
-		entry_Renamed.ProcessInstanceId = processInstance.ProcessInstanceId;
-		entry_Renamed.ProcessDefinitionId = processInstance.ProcessDefinitionId;
-		entry_Renamed.ExecutionId = processInstance.Id;
-		entry_Renamed.CaseInstanceId = processInstance.CaseInstanceId;
+		entry_Conflict.PropertyChanges = propertyChanges;
+		entry_Conflict.RootProcessInstanceId = processInstance.RootProcessInstanceId;
+		entry_Conflict.ProcessInstanceId = processInstance.ProcessInstanceId;
+		entry_Conflict.ProcessDefinitionId = processInstance.ProcessDefinitionId;
+		entry_Conflict.ExecutionId = processInstance.Id;
+		entry_Conflict.CaseInstanceId = processInstance.CaseInstanceId;
 
 		ProcessDefinitionEntity definition = processInstance.getProcessDefinition();
 		if (definition != null)
 		{
-		  entry_Renamed.ProcessDefinitionKey = definition.Key;
-		  entry_Renamed.DeploymentId = definition.DeploymentId;
+		  entry_Conflict.ProcessDefinitionKey = definition.Key;
+		  entry_Conflict.DeploymentId = definition.DeploymentId;
 		}
 
 		return this;
@@ -199,27 +199,27 @@ namespace org.camunda.bpm.engine.impl.oplog
 
 		if (propertyChanges == null || propertyChanges.Count == 0)
 		{
-		  if (OPERATION_TYPE_CREATE.Equals(entry_Renamed.OperationType))
+		  if (OPERATION_TYPE_CREATE.Equals(entry_Conflict.OperationType))
 		  {
 			propertyChanges = Arrays.asList(PropertyChange.EMPTY_CHANGE);
 		  }
 		}
-		entry_Renamed.PropertyChanges = propertyChanges;
-		entry_Renamed.RootProcessInstanceId = historyEvent.RootProcessInstanceId;
-		entry_Renamed.ProcessDefinitionId = historyEvent.ProcessDefinitionId;
-		entry_Renamed.ProcessInstanceId = historyEvent.ProcessInstanceId;
-		entry_Renamed.ExecutionId = historyEvent.ExecutionId;
-		entry_Renamed.CaseDefinitionId = historyEvent.CaseDefinitionId;
-		entry_Renamed.CaseInstanceId = historyEvent.CaseInstanceId;
-		entry_Renamed.CaseExecutionId = historyEvent.CaseExecutionId;
+		entry_Conflict.PropertyChanges = propertyChanges;
+		entry_Conflict.RootProcessInstanceId = historyEvent.RootProcessInstanceId;
+		entry_Conflict.ProcessDefinitionId = historyEvent.ProcessDefinitionId;
+		entry_Conflict.ProcessInstanceId = historyEvent.ProcessInstanceId;
+		entry_Conflict.ExecutionId = historyEvent.ExecutionId;
+		entry_Conflict.CaseDefinitionId = historyEvent.CaseDefinitionId;
+		entry_Conflict.CaseInstanceId = historyEvent.CaseInstanceId;
+		entry_Conflict.CaseExecutionId = historyEvent.CaseExecutionId;
 
 		if (definition != null)
 		{
 		  if (definition is ProcessDefinitionEntity)
 		  {
-			entry_Renamed.ProcessDefinitionKey = definition.Key;
+			entry_Conflict.ProcessDefinitionKey = definition.Key;
 		  }
-		  entry_Renamed.DeploymentId = definition.DeploymentId;
+		  entry_Conflict.DeploymentId = definition.DeploymentId;
 		}
 
 		return this;
@@ -230,28 +230,28 @@ namespace org.camunda.bpm.engine.impl.oplog
 
 		if (propertyChanges == null || propertyChanges.Count == 0)
 		{
-		  if (OPERATION_TYPE_CREATE.Equals(entry_Renamed.OperationType))
+		  if (OPERATION_TYPE_CREATE.Equals(entry_Conflict.OperationType))
 		  {
 			propertyChanges = Arrays.asList(PropertyChange.EMPTY_CHANGE);
 		  }
 		}
-		entry_Renamed.PropertyChanges = propertyChanges;
-		entry_Renamed.RootProcessInstanceId = variable.RootProcessInstanceId;
-		entry_Renamed.ProcessDefinitionId = variable.ProcessDefinitionId;
-		entry_Renamed.ProcessInstanceId = variable.ProcessInstanceId;
-		entry_Renamed.ExecutionId = variable.ExecutionId;
-		entry_Renamed.CaseDefinitionId = variable.CaseDefinitionId;
-		entry_Renamed.CaseInstanceId = variable.CaseInstanceId;
-		entry_Renamed.CaseExecutionId = variable.CaseExecutionId;
-		entry_Renamed.TaskId = variable.TaskId;
+		entry_Conflict.PropertyChanges = propertyChanges;
+		entry_Conflict.RootProcessInstanceId = variable.RootProcessInstanceId;
+		entry_Conflict.ProcessDefinitionId = variable.ProcessDefinitionId;
+		entry_Conflict.ProcessInstanceId = variable.ProcessInstanceId;
+		entry_Conflict.ExecutionId = variable.ExecutionId;
+		entry_Conflict.CaseDefinitionId = variable.CaseDefinitionId;
+		entry_Conflict.CaseInstanceId = variable.CaseInstanceId;
+		entry_Conflict.CaseExecutionId = variable.CaseExecutionId;
+		entry_Conflict.TaskId = variable.TaskId;
 
 		if (definition != null)
 		{
 		  if (definition is ProcessDefinitionEntity)
 		  {
-			entry_Renamed.ProcessDefinitionKey = definition.Key;
+			entry_Conflict.ProcessDefinitionKey = definition.Key;
 		  }
-		  entry_Renamed.DeploymentId = definition.DeploymentId;
+		  entry_Conflict.DeploymentId = definition.DeploymentId;
 		}
 
 		return this;
@@ -267,13 +267,13 @@ namespace org.camunda.bpm.engine.impl.oplog
 		{
 		  inContextOf(definition);
 		}
-		entry_Renamed.ExternalTaskId = task.Id;
+		entry_Conflict.ExternalTaskId = task.Id;
 		return this;
 	  }
 
 	  public virtual UserOperationLogContextEntryBuilder propertyChanges(IList<PropertyChange> propertyChanges)
 	  {
-		entry_Renamed.PropertyChanges = propertyChanges;
+		entry_Conflict.PropertyChanges = propertyChanges;
 		return this;
 	  }
 
@@ -281,78 +281,78 @@ namespace org.camunda.bpm.engine.impl.oplog
 	  {
 		IList<PropertyChange> propertyChanges = new List<PropertyChange>();
 		propertyChanges.Add(propertyChange);
-		entry_Renamed.PropertyChanges = propertyChanges;
+		entry_Conflict.PropertyChanges = propertyChanges;
 		return this;
 	  }
 
 	  public virtual UserOperationLogContextEntry create()
 	  {
-		return entry_Renamed;
+		return entry_Conflict;
 	  }
 
 	  public virtual UserOperationLogContextEntryBuilder jobId(string jobId)
 	  {
-		entry_Renamed.JobId = jobId;
+		entry_Conflict.JobId = jobId;
 		return this;
 	  }
 
 	  public virtual UserOperationLogContextEntryBuilder jobDefinitionId(string jobDefinitionId)
 	  {
-		entry_Renamed.JobDefinitionId = jobDefinitionId;
+		entry_Conflict.JobDefinitionId = jobDefinitionId;
 		return this;
 	  }
 
 	  public virtual UserOperationLogContextEntryBuilder processDefinitionId(string processDefinitionId)
 	  {
-		entry_Renamed.ProcessDefinitionId = processDefinitionId;
+		entry_Conflict.ProcessDefinitionId = processDefinitionId;
 		return this;
 	  }
 
 	  public virtual UserOperationLogContextEntryBuilder processDefinitionKey(string processDefinitionKey)
 	  {
-		entry_Renamed.ProcessDefinitionKey = processDefinitionKey;
+		entry_Conflict.ProcessDefinitionKey = processDefinitionKey;
 		return this;
 	  }
 
 	  public virtual UserOperationLogContextEntryBuilder processInstanceId(string processInstanceId)
 	  {
-		entry_Renamed.ProcessInstanceId = processInstanceId;
+		entry_Conflict.ProcessInstanceId = processInstanceId;
 		return this;
 	  }
 
 	  public virtual UserOperationLogContextEntryBuilder caseDefinitionId(string caseDefinitionId)
 	  {
-		entry_Renamed.CaseDefinitionId = caseDefinitionId;
+		entry_Conflict.CaseDefinitionId = caseDefinitionId;
 		return this;
 	  }
 
 	  public virtual UserOperationLogContextEntryBuilder deploymentId(string deploymentId)
 	  {
-		entry_Renamed.DeploymentId = deploymentId;
+		entry_Conflict.DeploymentId = deploymentId;
 		return this;
 	  }
 
 	  public virtual UserOperationLogContextEntryBuilder batchId(string batchId)
 	  {
-		entry_Renamed.BatchId = batchId;
+		entry_Conflict.BatchId = batchId;
 		return this;
 	  }
 
 	  public virtual UserOperationLogContextEntryBuilder taskId(string taskId)
 	  {
-		entry_Renamed.TaskId = taskId;
+		entry_Conflict.TaskId = taskId;
 		return this;
 	  }
 
 	  public virtual UserOperationLogContextEntryBuilder caseInstanceId(string caseInstanceId)
 	  {
-		entry_Renamed.CaseInstanceId = caseInstanceId;
+		entry_Conflict.CaseInstanceId = caseInstanceId;
 		return this;
 	  }
 
 	  public virtual UserOperationLogContextEntryBuilder category(string category)
 	  {
-		entry_Renamed.Category = category;
+		entry_Conflict.Category = category;
 		return this;
 	  }
 

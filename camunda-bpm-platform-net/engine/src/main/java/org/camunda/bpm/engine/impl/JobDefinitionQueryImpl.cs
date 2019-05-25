@@ -41,21 +41,21 @@ namespace org.camunda.bpm.engine.impl
 	  protected internal string id;
 	  protected internal string[] activityIds;
 //JAVA TO C# CONVERTER NOTE: Fields cannot have the same name as methods:
-	  protected internal string processDefinitionId_Renamed;
+	  protected internal string processDefinitionId_Conflict;
 //JAVA TO C# CONVERTER NOTE: Fields cannot have the same name as methods:
-	  protected internal string processDefinitionKey_Renamed;
+	  protected internal string processDefinitionKey_Conflict;
 //JAVA TO C# CONVERTER NOTE: Fields cannot have the same name as methods:
-	  protected internal string jobType_Renamed;
+	  protected internal string jobType_Conflict;
 //JAVA TO C# CONVERTER NOTE: Fields cannot have the same name as methods:
-	  protected internal string jobConfiguration_Renamed;
+	  protected internal string jobConfiguration_Conflict;
 	  protected internal SuspensionState suspensionState;
 //JAVA TO C# CONVERTER NOTE: Fields cannot have the same name as methods:
-	  protected internal bool? withOverridingJobPriority_Renamed;
+	  protected internal bool? withOverridingJobPriority_Conflict;
 
 	  protected internal bool isTenantIdSet = false;
 	  protected internal string[] tenantIds;
 //JAVA TO C# CONVERTER NOTE: Fields cannot have the same name as methods:
-	  protected internal bool includeJobDefinitionsWithoutTenantId_Renamed = false;
+	  protected internal bool includeJobDefinitionsWithoutTenantId_Conflict = false;
 
 	  public JobDefinitionQueryImpl()
 	  {
@@ -82,28 +82,28 @@ namespace org.camunda.bpm.engine.impl
 	  public virtual JobDefinitionQuery processDefinitionId(string processDefinitionId)
 	  {
 		ensureNotNull("Process definition id", processDefinitionId);
-		this.processDefinitionId_Renamed = processDefinitionId;
+		this.processDefinitionId_Conflict = processDefinitionId;
 		return this;
 	  }
 
 	  public virtual JobDefinitionQuery processDefinitionKey(string processDefinitionKey)
 	  {
 		ensureNotNull("Process definition key", processDefinitionKey);
-		this.processDefinitionKey_Renamed = processDefinitionKey;
+		this.processDefinitionKey_Conflict = processDefinitionKey;
 		return this;
 	  }
 
 	  public virtual JobDefinitionQuery jobType(string jobType)
 	  {
 		ensureNotNull("Job type", jobType);
-		this.jobType_Renamed = jobType;
+		this.jobType_Conflict = jobType;
 		return this;
 	  }
 
 	  public virtual JobDefinitionQuery jobConfiguration(string jobConfiguration)
 	  {
 		ensureNotNull("Job configuration", jobConfiguration);
-		this.jobConfiguration_Renamed = jobConfiguration;
+		this.jobConfiguration_Conflict = jobConfiguration;
 		return this;
 	  }
 
@@ -121,7 +121,7 @@ namespace org.camunda.bpm.engine.impl
 
 	  public virtual JobDefinitionQuery withOverridingJobPriority()
 	  {
-		this.withOverridingJobPriority_Renamed = true;
+		this.withOverridingJobPriority_Conflict = true;
 		return this;
 	  }
 
@@ -142,7 +142,7 @@ namespace org.camunda.bpm.engine.impl
 
 	  public virtual JobDefinitionQuery includeJobDefinitionsWithoutTenantId()
 	  {
-		this.includeJobDefinitionsWithoutTenantId_Renamed = true;
+		this.includeJobDefinitionsWithoutTenantId_Conflict = true;
 		return this;
 	  }
 
@@ -219,7 +219,7 @@ namespace org.camunda.bpm.engine.impl
 	  {
 		  get
 		  {
-			return processDefinitionId_Renamed;
+			return processDefinitionId_Conflict;
 		  }
 	  }
 
@@ -227,7 +227,7 @@ namespace org.camunda.bpm.engine.impl
 	  {
 		  get
 		  {
-			return processDefinitionKey_Renamed;
+			return processDefinitionKey_Conflict;
 		  }
 	  }
 
@@ -235,7 +235,7 @@ namespace org.camunda.bpm.engine.impl
 	  {
 		  get
 		  {
-			return jobType_Renamed;
+			return jobType_Conflict;
 		  }
 	  }
 
@@ -243,7 +243,7 @@ namespace org.camunda.bpm.engine.impl
 	  {
 		  get
 		  {
-			return jobConfiguration_Renamed;
+			return jobConfiguration_Conflict;
 		  }
 	  }
 
@@ -259,7 +259,7 @@ namespace org.camunda.bpm.engine.impl
 	  {
 		  get
 		  {
-			return withOverridingJobPriority_Renamed;
+			return withOverridingJobPriority_Conflict;
 		  }
 	  }
 

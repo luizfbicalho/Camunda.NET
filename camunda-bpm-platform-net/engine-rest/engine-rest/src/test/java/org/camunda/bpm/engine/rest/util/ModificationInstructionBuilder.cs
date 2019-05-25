@@ -32,22 +32,22 @@ namespace org.camunda.bpm.engine.rest.util
 	  }
 
 //JAVA TO C# CONVERTER NOTE: Fields cannot have the same name as methods:
-	  protected internal IDictionary<string, object> variables_Renamed;
+	  protected internal IDictionary<string, object> variables_Conflict;
 
 	  protected internal string type;
 //JAVA TO C# CONVERTER NOTE: Fields cannot have the same name as methods:
-	  protected internal string activityId_Renamed;
+	  protected internal string activityId_Conflict;
 //JAVA TO C# CONVERTER NOTE: Fields cannot have the same name as methods:
-	  protected internal string activityInstanceId_Renamed;
+	  protected internal string activityInstanceId_Conflict;
 //JAVA TO C# CONVERTER NOTE: Fields cannot have the same name as methods:
-	  protected internal string transitionInstanceId_Renamed;
+	  protected internal string transitionInstanceId_Conflict;
 //JAVA TO C# CONVERTER NOTE: Fields cannot have the same name as methods:
-	  protected internal string ancestorActivityInstanceId_Renamed;
+	  protected internal string ancestorActivityInstanceId_Conflict;
 //JAVA TO C# CONVERTER NOTE: Fields cannot have the same name as methods:
-	  protected internal string transitionId_Renamed;
+	  protected internal string transitionId_Conflict;
 	  protected internal bool isFlagSet;
 //JAVA TO C# CONVERTER NOTE: Fields cannot have the same name as methods:
-	  protected internal bool cancelCurrentActiveActivityInstances_Renamed;
+	  protected internal bool cancelCurrentActiveActivityInstances_Conflict;
 
 	  public static ModificationInstructionBuilder cancellation()
 	  {
@@ -71,44 +71,44 @@ namespace org.camunda.bpm.engine.rest.util
 
 	  public virtual ModificationInstructionBuilder variables(IDictionary<string, object> variables)
 	  {
-		this.variables_Renamed = variables;
+		this.variables_Conflict = variables;
 		return this;
 	  }
 
 	  public virtual ModificationInstructionBuilder activityId(string activityId)
 	  {
-		this.activityId_Renamed = activityId;
+		this.activityId_Conflict = activityId;
 		return this;
 	  }
 
 	  public virtual ModificationInstructionBuilder activityInstanceId(string activityInstanceId)
 	  {
-		this.activityInstanceId_Renamed = activityInstanceId;
+		this.activityInstanceId_Conflict = activityInstanceId;
 		return this;
 	  }
 
 	  public virtual ModificationInstructionBuilder transitionInstanceId(string transitionInstanceId)
 	  {
-		this.transitionInstanceId_Renamed = transitionInstanceId;
+		this.transitionInstanceId_Conflict = transitionInstanceId;
 		return this;
 	  }
 
 	  public virtual ModificationInstructionBuilder ancestorActivityInstanceId(string ancestorActivityInstanceId)
 	  {
-		this.ancestorActivityInstanceId_Renamed = ancestorActivityInstanceId;
+		this.ancestorActivityInstanceId_Conflict = ancestorActivityInstanceId;
 		return this;
 	  }
 
 	  public virtual ModificationInstructionBuilder transitionId(string transitionId)
 	  {
-		this.transitionId_Renamed = transitionId;
+		this.transitionId_Conflict = transitionId;
 		return this;
 	  }
 
 	  public virtual ModificationInstructionBuilder cancelCurrentActiveActivityInstances(bool cancelCurrentActiveActivityInstances)
 	  {
 		isFlagSet = true;
-		this.cancelCurrentActiveActivityInstances_Renamed = cancelCurrentActiveActivityInstances;
+		this.cancelCurrentActiveActivityInstances_Conflict = cancelCurrentActiveActivityInstances;
 		return this;
 	  }
 
@@ -119,16 +119,16 @@ namespace org.camunda.bpm.engine.rest.util
 			IDictionary<string, object> json = new Dictionary<string, object>();
     
 			json["type"] = type;
-			json["activityId"] = activityId_Renamed;
-			json["activityInstanceId"] = activityInstanceId_Renamed;
-			json["transitionInstanceId"] = transitionInstanceId_Renamed;
-			json["ancestorActivityInstanceId"] = ancestorActivityInstanceId_Renamed;
-			json["variables"] = variables_Renamed;
-			json["transitionId"] = transitionId_Renamed;
+			json["activityId"] = activityId_Conflict;
+			json["activityInstanceId"] = activityInstanceId_Conflict;
+			json["transitionInstanceId"] = transitionInstanceId_Conflict;
+			json["ancestorActivityInstanceId"] = ancestorActivityInstanceId_Conflict;
+			json["variables"] = variables_Conflict;
+			json["transitionId"] = transitionId_Conflict;
     
 			if (type.Equals("cancel") && isFlagSet)
 			{
-			  json["cancelCurrentActiveActivityInstances"] = cancelCurrentActiveActivityInstances_Renamed;
+			  json["cancelCurrentActiveActivityInstances"] = cancelCurrentActiveActivityInstances_Conflict;
 			}
 			return json;
 		  }

@@ -59,26 +59,26 @@ namespace org.camunda.bpm.engine.impl
 	  protected internal string[] caseActivityIds;
 
 //JAVA TO C# CONVERTER NOTE: Fields cannot have the same name as methods:
-	  protected internal string caseInstanceId_Renamed;
+	  protected internal string caseInstanceId_Conflict;
 //JAVA TO C# CONVERTER NOTE: Fields cannot have the same name as methods:
-	  protected internal string caseDefinitionId_Renamed;
+	  protected internal string caseDefinitionId_Conflict;
 //JAVA TO C# CONVERTER NOTE: Fields cannot have the same name as methods:
-	  protected internal string caseActivityName_Renamed;
+	  protected internal string caseActivityName_Conflict;
 //JAVA TO C# CONVERTER NOTE: Fields cannot have the same name as methods:
-	  protected internal string caseActivityType_Renamed;
+	  protected internal string caseActivityType_Conflict;
 //JAVA TO C# CONVERTER NOTE: Fields cannot have the same name as methods:
-	  protected internal DateTime createdBefore_Renamed;
+	  protected internal DateTime createdBefore_Conflict;
 //JAVA TO C# CONVERTER NOTE: Fields cannot have the same name as methods:
-	  protected internal DateTime createdAfter_Renamed;
+	  protected internal DateTime createdAfter_Conflict;
 //JAVA TO C# CONVERTER NOTE: Fields cannot have the same name as methods:
-	  protected internal DateTime endedBefore_Renamed;
+	  protected internal DateTime endedBefore_Conflict;
 //JAVA TO C# CONVERTER NOTE: Fields cannot have the same name as methods:
-	  protected internal DateTime endedAfter_Renamed;
+	  protected internal DateTime endedAfter_Conflict;
 //JAVA TO C# CONVERTER NOTE: Fields cannot have the same name as methods:
-	  protected internal bool? ended_Renamed;
+	  protected internal bool? ended_Conflict;
 	  protected internal int? caseActivityInstanceState;
 //JAVA TO C# CONVERTER NOTE: Fields cannot have the same name as methods:
-	  protected internal bool? required_Renamed;
+	  protected internal bool? required_Conflict;
 	  protected internal string[] tenantIds;
 
 	  public HistoricCaseActivityInstanceQueryImpl()
@@ -117,14 +117,14 @@ namespace org.camunda.bpm.engine.impl
 	  public virtual HistoricCaseActivityInstanceQuery caseInstanceId(string caseInstanceId)
 	  {
 		ensureNotNull(typeof(NotValidException), "caseInstanceId", caseInstanceId);
-		this.caseInstanceId_Renamed = caseInstanceId;
+		this.caseInstanceId_Conflict = caseInstanceId;
 		return this;
 	  }
 
 	  public virtual HistoricCaseActivityInstanceQuery caseDefinitionId(string caseDefinitionId)
 	  {
 		ensureNotNull(typeof(NotValidException), "caseDefinitionId", caseDefinitionId);
-		this.caseDefinitionId_Renamed = caseDefinitionId;
+		this.caseDefinitionId_Conflict = caseDefinitionId;
 		return this;
 	  }
 
@@ -150,60 +150,60 @@ namespace org.camunda.bpm.engine.impl
 	  public virtual HistoricCaseActivityInstanceQuery caseActivityName(string caseActivityName)
 	  {
 		ensureNotNull(typeof(NotValidException), "caseActivityName", caseActivityName);
-		this.caseActivityName_Renamed = caseActivityName;
+		this.caseActivityName_Conflict = caseActivityName;
 		return this;
 	  }
 
 	  public virtual HistoricCaseActivityInstanceQuery caseActivityType(string caseActivityType)
 	  {
 		ensureNotNull(typeof(NotValidException), "caseActivityType", caseActivityType);
-		this.caseActivityType_Renamed = caseActivityType;
+		this.caseActivityType_Conflict = caseActivityType;
 		return this;
 	  }
 
 	  public virtual HistoricCaseActivityInstanceQuery createdBefore(DateTime date)
 	  {
 		ensureNotNull(typeof(NotValidException), "createdBefore", date);
-		this.createdBefore_Renamed = date;
+		this.createdBefore_Conflict = date;
 		return this;
 	  }
 
 	  public virtual HistoricCaseActivityInstanceQuery createdAfter(DateTime date)
 	  {
 		ensureNotNull(typeof(NotValidException), "createdAfter", date);
-		this.createdAfter_Renamed = date;
+		this.createdAfter_Conflict = date;
 		return this;
 	  }
 
 	  public virtual HistoricCaseActivityInstanceQuery endedBefore(DateTime date)
 	  {
 		ensureNotNull(typeof(NotValidException), "finishedBefore", date);
-		this.endedBefore_Renamed = date;
+		this.endedBefore_Conflict = date;
 		return this;
 	  }
 
 	  public virtual HistoricCaseActivityInstanceQuery endedAfter(DateTime date)
 	  {
 		ensureNotNull(typeof(NotValidException), "finishedAfter", date);
-		this.endedAfter_Renamed = date;
+		this.endedAfter_Conflict = date;
 		return this;
 	  }
 
 	  public virtual HistoricCaseActivityInstanceQuery required()
 	  {
-		this.required_Renamed = true;
+		this.required_Conflict = true;
 		return this;
 	  }
 
 	  public virtual HistoricCaseActivityInstanceQuery ended()
 	  {
-		this.ended_Renamed = true;
+		this.ended_Conflict = true;
 		return this;
 	  }
 
 	  public virtual HistoricCaseActivityInstanceQuery notEnded()
 	  {
-		this.ended_Renamed = false;
+		this.ended_Conflict = false;
 		return this;
 	  }
 
@@ -265,7 +265,7 @@ namespace org.camunda.bpm.engine.impl
 
 	  protected internal override bool hasExcludingConditions()
 	  {
-		return base.hasExcludingConditions() || CompareUtil.areNotInAscendingOrder(createdAfter_Renamed, createdBefore_Renamed) || CompareUtil.areNotInAscendingOrder(endedAfter_Renamed, endedBefore_Renamed);
+		return base.hasExcludingConditions() || CompareUtil.areNotInAscendingOrder(createdAfter_Conflict, createdBefore_Conflict) || CompareUtil.areNotInAscendingOrder(endedAfter_Conflict, endedBefore_Conflict);
 	  }
 
 	  // ordering
@@ -349,7 +349,7 @@ namespace org.camunda.bpm.engine.impl
 	  {
 		  get
 		  {
-			return caseInstanceId_Renamed;
+			return caseInstanceId_Conflict;
 		  }
 	  }
 
@@ -357,7 +357,7 @@ namespace org.camunda.bpm.engine.impl
 	  {
 		  get
 		  {
-			return caseDefinitionId_Renamed;
+			return caseDefinitionId_Conflict;
 		  }
 	  }
 
@@ -373,7 +373,7 @@ namespace org.camunda.bpm.engine.impl
 	  {
 		  get
 		  {
-			return caseActivityName_Renamed;
+			return caseActivityName_Conflict;
 		  }
 	  }
 
@@ -381,7 +381,7 @@ namespace org.camunda.bpm.engine.impl
 	  {
 		  get
 		  {
-			return caseActivityType_Renamed;
+			return caseActivityType_Conflict;
 		  }
 	  }
 
@@ -389,7 +389,7 @@ namespace org.camunda.bpm.engine.impl
 	  {
 		  get
 		  {
-			return createdBefore_Renamed;
+			return createdBefore_Conflict;
 		  }
 	  }
 
@@ -397,7 +397,7 @@ namespace org.camunda.bpm.engine.impl
 	  {
 		  get
 		  {
-			return createdAfter_Renamed;
+			return createdAfter_Conflict;
 		  }
 	  }
 
@@ -405,7 +405,7 @@ namespace org.camunda.bpm.engine.impl
 	  {
 		  get
 		  {
-			return endedBefore_Renamed;
+			return endedBefore_Conflict;
 		  }
 	  }
 
@@ -413,7 +413,7 @@ namespace org.camunda.bpm.engine.impl
 	  {
 		  get
 		  {
-			return endedAfter_Renamed;
+			return endedAfter_Conflict;
 		  }
 	  }
 
@@ -421,7 +421,7 @@ namespace org.camunda.bpm.engine.impl
 	  {
 		  get
 		  {
-			return ended_Renamed;
+			return ended_Conflict;
 		  }
 	  }
 
@@ -437,7 +437,7 @@ namespace org.camunda.bpm.engine.impl
 	  {
 		  get
 		  {
-			return required_Renamed;
+			return required_Conflict;
 		  }
 	  }
 

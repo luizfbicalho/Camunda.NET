@@ -46,14 +46,14 @@ namespace org.camunda.bpm.engine.impl
 	  protected internal string processDefinitionKey;
 
 //JAVA TO C# CONVERTER NOTE: Fields cannot have the same name as methods:
-	  protected internal string businessKey_Renamed;
+	  protected internal string businessKey_Conflict;
 //JAVA TO C# CONVERTER NOTE: Fields cannot have the same name as methods:
-	  protected internal string caseInstanceId_Renamed;
+	  protected internal string caseInstanceId_Conflict;
 //JAVA TO C# CONVERTER NOTE: Fields cannot have the same name as methods:
-	  protected internal string tenantId_Renamed;
+	  protected internal string tenantId_Conflict;
 
 //JAVA TO C# CONVERTER NOTE: Fields cannot have the same name as methods:
-	  protected internal string processDefinitionTenantId_Renamed;
+	  protected internal string processDefinitionTenantId_Conflict;
 	  protected internal bool isProcessDefinitionTenantIdSet = false;
 
 	  protected internal ProcessInstanceModificationBuilderImpl modificationBuilder;
@@ -115,32 +115,32 @@ namespace org.camunda.bpm.engine.impl
 
 	  public virtual ProcessInstantiationBuilder businessKey(string businessKey)
 	  {
-		this.businessKey_Renamed = businessKey;
+		this.businessKey_Conflict = businessKey;
 		return this;
 	  }
 
 	  public virtual ProcessInstantiationBuilder caseInstanceId(string caseInstanceId)
 	  {
-		this.caseInstanceId_Renamed = caseInstanceId;
+		this.caseInstanceId_Conflict = caseInstanceId;
 		return this;
 	  }
 
 	  public virtual ProcessInstantiationBuilder tenantId(string tenantId)
 	  {
-		this.tenantId_Renamed = tenantId;
+		this.tenantId_Conflict = tenantId;
 		return this;
 	  }
 
 	  public virtual ProcessInstantiationBuilder processDefinitionTenantId(string tenantId)
 	  {
-		this.processDefinitionTenantId_Renamed = tenantId;
+		this.processDefinitionTenantId_Conflict = tenantId;
 		isProcessDefinitionTenantIdSet = true;
 		return this;
 	  }
 
 	  public virtual ProcessInstantiationBuilder processDefinitionWithoutTenantId()
 	  {
-		this.processDefinitionTenantId_Renamed = null;
+		this.processDefinitionTenantId_Conflict = null;
 		isProcessDefinitionTenantIdSet = true;
 		return this;
 	  }
@@ -226,7 +226,7 @@ namespace org.camunda.bpm.engine.impl
 	  {
 		  get
 		  {
-			return businessKey_Renamed;
+			return businessKey_Conflict;
 		  }
 	  }
 
@@ -234,7 +234,7 @@ namespace org.camunda.bpm.engine.impl
 	  {
 		  get
 		  {
-			return caseInstanceId_Renamed;
+			return caseInstanceId_Conflict;
 		  }
 	  }
 
@@ -250,7 +250,7 @@ namespace org.camunda.bpm.engine.impl
 	  {
 		  get
 		  {
-			return tenantId_Renamed;
+			return tenantId_Conflict;
 		  }
 	  }
 
@@ -258,7 +258,7 @@ namespace org.camunda.bpm.engine.impl
 	  {
 		  get
 		  {
-			return processDefinitionTenantId_Renamed;
+			return processDefinitionTenantId_Conflict;
 		  }
 	  }
 

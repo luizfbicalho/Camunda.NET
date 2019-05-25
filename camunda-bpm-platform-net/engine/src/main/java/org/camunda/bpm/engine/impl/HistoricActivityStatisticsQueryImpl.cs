@@ -43,20 +43,20 @@ namespace org.camunda.bpm.engine.impl
 	  protected internal string processDefinitionId;
 
 //JAVA TO C# CONVERTER NOTE: Fields cannot have the same name as methods:
-	  protected internal bool includeFinished_Renamed;
+	  protected internal bool includeFinished_Conflict;
 //JAVA TO C# CONVERTER NOTE: Fields cannot have the same name as methods:
-	  protected internal bool includeCanceled_Renamed;
+	  protected internal bool includeCanceled_Conflict;
 //JAVA TO C# CONVERTER NOTE: Fields cannot have the same name as methods:
-	  protected internal bool includeCompleteScope_Renamed;
+	  protected internal bool includeCompleteScope_Conflict;
 
 //JAVA TO C# CONVERTER NOTE: Fields cannot have the same name as methods:
-	  protected internal DateTime startedBefore_Renamed;
+	  protected internal DateTime startedBefore_Conflict;
 //JAVA TO C# CONVERTER NOTE: Fields cannot have the same name as methods:
-	  protected internal DateTime startedAfter_Renamed;
+	  protected internal DateTime startedAfter_Conflict;
 //JAVA TO C# CONVERTER NOTE: Fields cannot have the same name as methods:
-	  protected internal DateTime finishedBefore_Renamed;
+	  protected internal DateTime finishedBefore_Conflict;
 //JAVA TO C# CONVERTER NOTE: Fields cannot have the same name as methods:
-	  protected internal DateTime finishedAfter_Renamed;
+	  protected internal DateTime finishedAfter_Conflict;
 
 	  public HistoricActivityStatisticsQueryImpl(string processDefinitionId, CommandExecutor commandExecutor) : base(commandExecutor)
 	  {
@@ -65,43 +65,43 @@ namespace org.camunda.bpm.engine.impl
 
 	  public virtual HistoricActivityStatisticsQuery includeFinished()
 	  {
-		includeFinished_Renamed = true;
+		includeFinished_Conflict = true;
 		return this;
 	  }
 
 	  public virtual HistoricActivityStatisticsQuery includeCanceled()
 	  {
-		includeCanceled_Renamed = true;
+		includeCanceled_Conflict = true;
 		return this;
 	  }
 
 	  public virtual HistoricActivityStatisticsQuery includeCompleteScope()
 	  {
-		includeCompleteScope_Renamed = true;
+		includeCompleteScope_Conflict = true;
 		return this;
 	  }
 
 	  public virtual HistoricActivityStatisticsQuery startedAfter(DateTime date)
 	  {
-		startedAfter_Renamed = date;
+		startedAfter_Conflict = date;
 		return this;
 	  }
 
 	  public virtual HistoricActivityStatisticsQuery startedBefore(DateTime date)
 	  {
-		startedBefore_Renamed = date;
+		startedBefore_Conflict = date;
 		return this;
 	  }
 
 	  public virtual HistoricActivityStatisticsQuery finishedAfter(DateTime date)
 	  {
-		finishedAfter_Renamed = date;
+		finishedAfter_Conflict = date;
 		return this;
 	  }
 
 	  public virtual HistoricActivityStatisticsQuery finishedBefore(DateTime date)
 	  {
-		finishedBefore_Renamed = date;
+		finishedBefore_Conflict = date;
 		return this;
 	  }
 
@@ -142,7 +142,7 @@ namespace org.camunda.bpm.engine.impl
 	  {
 		  get
 		  {
-			return includeFinished_Renamed;
+			return includeFinished_Conflict;
 		  }
 	  }
 
@@ -150,7 +150,7 @@ namespace org.camunda.bpm.engine.impl
 	  {
 		  get
 		  {
-			return includeCanceled_Renamed;
+			return includeCanceled_Conflict;
 		  }
 	  }
 
@@ -158,7 +158,7 @@ namespace org.camunda.bpm.engine.impl
 	  {
 		  get
 		  {
-			return includeCompleteScope_Renamed;
+			return includeCompleteScope_Conflict;
 		  }
 	  }
 

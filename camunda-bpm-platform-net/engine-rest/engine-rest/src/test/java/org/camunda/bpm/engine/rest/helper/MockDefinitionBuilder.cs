@@ -27,135 +27,135 @@ namespace org.camunda.bpm.engine.rest.helper
 	{
 
 //JAVA TO C# CONVERTER NOTE: Fields cannot have the same name as methods:
-	  private string id_Renamed = null;
+	  private string id_Conflict = null;
 //JAVA TO C# CONVERTER NOTE: Fields cannot have the same name as methods:
-	  private string key_Renamed = null;
+	  private string key_Conflict = null;
 //JAVA TO C# CONVERTER NOTE: Fields cannot have the same name as methods:
-	  private string category_Renamed = null;
+	  private string category_Conflict = null;
 //JAVA TO C# CONVERTER NOTE: Fields cannot have the same name as methods:
-	  private string description_Renamed = null;
+	  private string description_Conflict = null;
 //JAVA TO C# CONVERTER NOTE: Fields cannot have the same name as methods:
-	  private string name_Renamed = null;
+	  private string name_Conflict = null;
 //JAVA TO C# CONVERTER NOTE: Fields cannot have the same name as methods:
-	  private int version_Renamed = 0;
+	  private int version_Conflict = 0;
 //JAVA TO C# CONVERTER NOTE: Fields cannot have the same name as methods:
-	  private string resource_Renamed = null;
+	  private string resource_Conflict = null;
 //JAVA TO C# CONVERTER NOTE: Fields cannot have the same name as methods:
-	  private string deploymentId_Renamed = null;
+	  private string deploymentId_Conflict = null;
 //JAVA TO C# CONVERTER NOTE: Fields cannot have the same name as methods:
-	  private string diagram_Renamed = null;
+	  private string diagram_Conflict = null;
 //JAVA TO C# CONVERTER NOTE: Fields cannot have the same name as methods:
-	  private bool suspended_Renamed = false;
+	  private bool suspended_Conflict = false;
 //JAVA TO C# CONVERTER NOTE: Fields cannot have the same name as methods:
-	  private bool startFormKey_Renamed = false;
+	  private bool startFormKey_Conflict = false;
 //JAVA TO C# CONVERTER NOTE: Fields cannot have the same name as methods:
-	  private string tenantId_Renamed = null;
+	  private string tenantId_Conflict = null;
 //JAVA TO C# CONVERTER NOTE: Fields cannot have the same name as methods:
-	  private string versionTag_Renamed = null;
+	  private string versionTag_Conflict = null;
 //JAVA TO C# CONVERTER NOTE: Fields cannot have the same name as methods:
-	  private bool isStartableInTasklist_Renamed = true;
+	  private bool isStartableInTasklist_Conflict = true;
 
 	  public virtual MockDefinitionBuilder id(string id)
 	  {
-		this.id_Renamed = id;
+		this.id_Conflict = id;
 		return this;
 	  }
 
 	  public virtual MockDefinitionBuilder key(string key)
 	  {
-		this.key_Renamed = key;
+		this.key_Conflict = key;
 		return this;
 	  }
 
 	  public virtual MockDefinitionBuilder category(string category)
 	  {
-		this.category_Renamed = category;
+		this.category_Conflict = category;
 		return this;
 	  }
 
 	  public virtual MockDefinitionBuilder description(string description)
 	  {
-		this.description_Renamed = description;
+		this.description_Conflict = description;
 		return this;
 	  }
 
 	  public virtual MockDefinitionBuilder name(string name)
 	  {
-		this.name_Renamed = name;
+		this.name_Conflict = name;
 		return this;
 	  }
 
 	  public virtual MockDefinitionBuilder version(int version)
 	  {
-		this.version_Renamed = version;
+		this.version_Conflict = version;
 		return this;
 	  }
 
 	  public virtual MockDefinitionBuilder resource(string resource)
 	  {
-		this.resource_Renamed = resource;
+		this.resource_Conflict = resource;
 		return this;
 	  }
 
 	  public virtual MockDefinitionBuilder deploymentId(string deploymentId)
 	  {
-		this.deploymentId_Renamed = deploymentId;
+		this.deploymentId_Conflict = deploymentId;
 		return this;
 	  }
 
 	  public virtual MockDefinitionBuilder diagram(string diagram)
 	  {
-		this.diagram_Renamed = diagram;
+		this.diagram_Conflict = diagram;
 		return this;
 	  }
 
 	  public virtual MockDefinitionBuilder suspended(bool suspended)
 	  {
-		this.suspended_Renamed = suspended;
+		this.suspended_Conflict = suspended;
 		return this;
 	  }
 
 	  public virtual MockDefinitionBuilder startFormKey(bool startFormKey)
 	  {
-		this.startFormKey_Renamed = startFormKey;
+		this.startFormKey_Conflict = startFormKey;
 		return this;
 	  }
 
 	  public virtual MockDefinitionBuilder tenantId(string tenantId)
 	  {
-		this.tenantId_Renamed = tenantId;
+		this.tenantId_Conflict = tenantId;
 		return this;
 	  }
 
 	  public virtual MockDefinitionBuilder versionTag(string versionTag)
 	  {
-		this.versionTag_Renamed = versionTag;
+		this.versionTag_Conflict = versionTag;
 		return this;
 	  }
 
 	  public virtual MockDefinitionBuilder isStartableInTasklist(bool isStartableInTasklist)
 	  {
-		this.isStartableInTasklist_Renamed = isStartableInTasklist;
+		this.isStartableInTasklist_Conflict = isStartableInTasklist;
 		return this;
 	  }
 
 	  public virtual ProcessDefinition build()
 	  {
 		ProcessDefinition mockDefinition = mock(typeof(ProcessDefinition));
-		when(mockDefinition.Id).thenReturn(id_Renamed);
-		when(mockDefinition.Category).thenReturn(category_Renamed);
-		when(mockDefinition.Name).thenReturn(name_Renamed);
-		when(mockDefinition.Key).thenReturn(key_Renamed);
-		when(mockDefinition.Description).thenReturn(description_Renamed);
-		when(mockDefinition.Version).thenReturn(version_Renamed);
-		when(mockDefinition.ResourceName).thenReturn(resource_Renamed);
-		when(mockDefinition.DeploymentId).thenReturn(deploymentId_Renamed);
-		when(mockDefinition.DiagramResourceName).thenReturn(diagram_Renamed);
-		when(mockDefinition.Suspended).thenReturn(suspended_Renamed);
-		when(mockDefinition.hasStartFormKey()).thenReturn(startFormKey_Renamed);
-		when(mockDefinition.TenantId).thenReturn(tenantId_Renamed);
-		when(mockDefinition.VersionTag).thenReturn(versionTag_Renamed);
-		when(mockDefinition.StartableInTasklist).thenReturn(isStartableInTasklist_Renamed);
+		when(mockDefinition.Id).thenReturn(id_Conflict);
+		when(mockDefinition.Category).thenReturn(category_Conflict);
+		when(mockDefinition.Name).thenReturn(name_Conflict);
+		when(mockDefinition.Key).thenReturn(key_Conflict);
+		when(mockDefinition.Description).thenReturn(description_Conflict);
+		when(mockDefinition.Version).thenReturn(version_Conflict);
+		when(mockDefinition.ResourceName).thenReturn(resource_Conflict);
+		when(mockDefinition.DeploymentId).thenReturn(deploymentId_Conflict);
+		when(mockDefinition.DiagramResourceName).thenReturn(diagram_Conflict);
+		when(mockDefinition.Suspended).thenReturn(suspended_Conflict);
+		when(mockDefinition.hasStartFormKey()).thenReturn(startFormKey_Conflict);
+		when(mockDefinition.TenantId).thenReturn(tenantId_Conflict);
+		when(mockDefinition.VersionTag).thenReturn(versionTag_Conflict);
+		when(mockDefinition.StartableInTasklist).thenReturn(isStartableInTasklist_Conflict);
 		return mockDefinition;
 	  }
 	}

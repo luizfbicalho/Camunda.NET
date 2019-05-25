@@ -62,7 +62,7 @@ namespace org.camunda.bpm.engine.impl.persistence.entity
 	  protected internal bool isGraphicalNotationDefined;
 	  protected internal IDictionary<string, TaskDefinition> taskDefinitions;
 //JAVA TO C# CONVERTER NOTE: Fields cannot have the same name as methods:
-	  protected internal bool hasStartFormKey_Renamed;
+	  protected internal bool hasStartFormKey_Conflict;
 	  protected internal int suspensionState = SuspensionState_Fields.ACTIVE.StateCode;
 	  protected internal string tenantId;
 	  protected internal string versionTag;
@@ -456,18 +456,18 @@ namespace org.camunda.bpm.engine.impl.persistence.entity
 
 	  public virtual bool hasStartFormKey()
 	  {
-		return hasStartFormKey_Renamed;
+		return hasStartFormKey_Conflict;
 	  }
 
 	  public virtual bool HasStartFormKey
 	  {
 		  get
 		  {
-			return hasStartFormKey_Renamed;
+			return hasStartFormKey_Conflict;
 		  }
 		  set
 		  {
-			this.hasStartFormKey_Renamed = value;
+			this.hasStartFormKey_Conflict = value;
 		  }
 	  }
 
@@ -475,7 +475,7 @@ namespace org.camunda.bpm.engine.impl.persistence.entity
 	  {
 		  set
 		  {
-			this.hasStartFormKey_Renamed = value;
+			this.hasStartFormKey_Conflict = value;
 		  }
 	  }
 

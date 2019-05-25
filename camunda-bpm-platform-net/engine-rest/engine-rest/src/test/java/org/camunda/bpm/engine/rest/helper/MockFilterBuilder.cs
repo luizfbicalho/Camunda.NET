@@ -33,51 +33,51 @@ namespace org.camunda.bpm.engine.rest.helper
 	{
 
 //JAVA TO C# CONVERTER NOTE: Fields cannot have the same name as methods:
-	  protected internal string id_Renamed;
+	  protected internal string id_Conflict;
 //JAVA TO C# CONVERTER NOTE: Fields cannot have the same name as methods:
-	  protected internal string resourceType_Renamed;
+	  protected internal string resourceType_Conflict;
 //JAVA TO C# CONVERTER NOTE: Fields cannot have the same name as methods:
-	  protected internal string name_Renamed;
+	  protected internal string name_Conflict;
 //JAVA TO C# CONVERTER NOTE: Fields cannot have the same name as methods:
-	  protected internal string owner_Renamed;
+	  protected internal string owner_Conflict;
 //JAVA TO C# CONVERTER NOTE: Fields cannot have the same name as methods:
-	  protected internal Query query_Renamed;
+	  protected internal Query query_Conflict;
 //JAVA TO C# CONVERTER NOTE: Fields cannot have the same name as methods:
-	  protected internal IDictionary<string, object> properties_Renamed;
+	  protected internal IDictionary<string, object> properties_Conflict;
 
 	  public virtual MockFilterBuilder id(string id)
 	  {
-		this.id_Renamed = id;
+		this.id_Conflict = id;
 		return this;
 	  }
 
 	  public virtual MockFilterBuilder resourceType(string resourceType)
 	  {
-		this.resourceType_Renamed = resourceType;
+		this.resourceType_Conflict = resourceType;
 		return this;
 	  }
 
 	  public virtual MockFilterBuilder name(string name)
 	  {
-		this.name_Renamed = name;
+		this.name_Conflict = name;
 		return this;
 	  }
 
 	  public virtual MockFilterBuilder owner(string owner)
 	  {
-		this.owner_Renamed = owner;
+		this.owner_Conflict = owner;
 		return this;
 	  }
 
 	  public virtual MockFilterBuilder query<T1>(Query<T1> query)
 	  {
-		this.query_Renamed = query;
+		this.query_Conflict = query;
 		return this;
 	  }
 
 	  public virtual MockFilterBuilder properties(IDictionary<string, object> properties)
 	  {
-		this.properties_Renamed = properties;
+		this.properties_Conflict = properties;
 		return this;
 	  }
 
@@ -86,12 +86,12 @@ namespace org.camunda.bpm.engine.rest.helper
 	  public virtual Filter build()
 	  {
 		Filter filter = mock(typeof(Filter));
-		when(filter.Id).thenReturn(id_Renamed);
-		when(filter.ResourceType).thenReturn(resourceType_Renamed);
-		when(filter.Name).thenReturn(name_Renamed);
-		when(filter.Owner).thenReturn(owner_Renamed);
-		when(filter.Query).thenReturn(query_Renamed);
-		when(filter.Properties).thenReturn(properties_Renamed);
+		when(filter.Id).thenReturn(id_Conflict);
+		when(filter.ResourceType).thenReturn(resourceType_Conflict);
+		when(filter.Name).thenReturn(name_Conflict);
+		when(filter.Owner).thenReturn(owner_Conflict);
+		when(filter.Query).thenReturn(query_Conflict);
+		when(filter.Properties).thenReturn(properties_Conflict);
 		return filter;
 	  }
 

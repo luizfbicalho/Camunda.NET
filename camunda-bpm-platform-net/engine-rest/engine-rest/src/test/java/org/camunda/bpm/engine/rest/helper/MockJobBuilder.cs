@@ -29,126 +29,126 @@ namespace org.camunda.bpm.engine.rest.helper
 	{
 
 //JAVA TO C# CONVERTER NOTE: Fields cannot have the same name as methods:
-	  protected internal string id_Renamed;
+	  protected internal string id_Conflict;
 //JAVA TO C# CONVERTER NOTE: Fields cannot have the same name as methods:
-		protected internal DateTime dueDate_Renamed;
+		protected internal DateTime dueDate_Conflict;
 //JAVA TO C# CONVERTER NOTE: Fields cannot have the same name as methods:
-		protected internal string exceptionMessage_Renamed;
+		protected internal string exceptionMessage_Conflict;
 //JAVA TO C# CONVERTER NOTE: Fields cannot have the same name as methods:
-		protected internal string executionId_Renamed;
+		protected internal string executionId_Conflict;
 //JAVA TO C# CONVERTER NOTE: Fields cannot have the same name as methods:
-		protected internal string processInstanceId_Renamed;
+		protected internal string processInstanceId_Conflict;
 //JAVA TO C# CONVERTER NOTE: Fields cannot have the same name as methods:
-		protected internal string processDefinitionId_Renamed;
+		protected internal string processDefinitionId_Conflict;
 //JAVA TO C# CONVERTER NOTE: Fields cannot have the same name as methods:
-		protected internal string processDefinitionKey_Renamed;
+		protected internal string processDefinitionKey_Conflict;
 //JAVA TO C# CONVERTER NOTE: Fields cannot have the same name as methods:
-		protected internal int retries_Renamed;
+		protected internal int retries_Conflict;
 //JAVA TO C# CONVERTER NOTE: Fields cannot have the same name as methods:
-		protected internal bool suspended_Renamed;
+		protected internal bool suspended_Conflict;
 //JAVA TO C# CONVERTER NOTE: Fields cannot have the same name as methods:
-		protected internal long priority_Renamed;
+		protected internal long priority_Conflict;
 //JAVA TO C# CONVERTER NOTE: Fields cannot have the same name as methods:
-		protected internal string jobDefinitionId_Renamed;
+		protected internal string jobDefinitionId_Conflict;
 //JAVA TO C# CONVERTER NOTE: Fields cannot have the same name as methods:
-		protected internal string tenantId_Renamed;
+		protected internal string tenantId_Conflict;
 //JAVA TO C# CONVERTER NOTE: Fields cannot have the same name as methods:
-		protected internal DateTime createTime_Renamed;
+		protected internal DateTime createTime_Conflict;
 
 		public virtual MockJobBuilder id(string id)
 		{
-			this.id_Renamed = id;
+			this.id_Conflict = id;
 			return this;
 		}
 
 		public virtual MockJobBuilder dueDate(DateTime dueDate)
 		{
-			this.dueDate_Renamed = dueDate;
+			this.dueDate_Conflict = dueDate;
 			return this;
 		}
 
 		public virtual MockJobBuilder exceptionMessage(string exceptionMessage)
 		{
-			this.exceptionMessage_Renamed = exceptionMessage;
+			this.exceptionMessage_Conflict = exceptionMessage;
 			return this;
 		}
 
 		public virtual MockJobBuilder executionId(string executionId)
 		{
-			this.executionId_Renamed = executionId;
+			this.executionId_Conflict = executionId;
 			return this;
 		}
 
 		public virtual MockJobBuilder processInstanceId(string processInstanceId)
 		{
-			this.processInstanceId_Renamed = processInstanceId;
+			this.processInstanceId_Conflict = processInstanceId;
 			return this;
 		}
 
 	  public virtual MockJobBuilder processDefinitionId(string processDefinitionId)
 	  {
-		this.processDefinitionId_Renamed = processDefinitionId;
+		this.processDefinitionId_Conflict = processDefinitionId;
 		return this;
 	  }
 
 	  public virtual MockJobBuilder processDefinitionKey(string processDefinitionKey)
 	  {
-		this.processDefinitionKey_Renamed = processDefinitionKey;
+		this.processDefinitionKey_Conflict = processDefinitionKey;
 		return this;
 	  }
 
 	  public virtual MockJobBuilder suspended(bool suspended)
 	  {
-		this.suspended_Renamed = suspended;
+		this.suspended_Conflict = suspended;
 		return this;
 	  }
 
 	  public virtual MockJobBuilder priority(long priority)
 	  {
-		this.priority_Renamed = priority;
+		this.priority_Conflict = priority;
 		return this;
 	  }
 
 		public virtual MockJobBuilder retries(int retries)
 		{
-			this.retries_Renamed = retries;
+			this.retries_Conflict = retries;
 			return this;
 		}
 
 		public virtual MockJobBuilder jobDefinitionId(string jobDefinitionId)
 		{
-		  this.jobDefinitionId_Renamed = jobDefinitionId;
+		  this.jobDefinitionId_Conflict = jobDefinitionId;
 		  return this;
 		}
 
 		public virtual MockJobBuilder tenantId(string tenantId)
 		{
-		  this.tenantId_Renamed = tenantId;
+		  this.tenantId_Conflict = tenantId;
 		  return this;
 		}
 
 		public virtual MockJobBuilder createTime(DateTime createTime)
 		{
-			this.createTime_Renamed = createTime;
+			this.createTime_Conflict = createTime;
 			return this;
 		}
 
 		public virtual Job build()
 		{
 			Job mockJob = mock(typeof(Job));
-			when(mockJob.Id).thenReturn(id_Renamed);
-			when(mockJob.Duedate).thenReturn(dueDate_Renamed);
-			when(mockJob.ExceptionMessage).thenReturn(exceptionMessage_Renamed);
-			when(mockJob.ExecutionId).thenReturn(executionId_Renamed);
-			when(mockJob.ProcessInstanceId).thenReturn(processInstanceId_Renamed);
-			when(mockJob.ProcessDefinitionId).thenReturn(processDefinitionId_Renamed);
-			when(mockJob.ProcessDefinitionKey).thenReturn(processDefinitionKey_Renamed);
-			when(mockJob.Retries).thenReturn(retries_Renamed);
-			when(mockJob.Suspended).thenReturn(suspended_Renamed);
-			when(mockJob.Priority).thenReturn(priority_Renamed);
-			when(mockJob.JobDefinitionId).thenReturn(jobDefinitionId_Renamed);
-			when(mockJob.TenantId).thenReturn(tenantId_Renamed);
-			when(mockJob.CreateTime).thenReturn(createTime_Renamed);
+			when(mockJob.Id).thenReturn(id_Conflict);
+			when(mockJob.Duedate).thenReturn(dueDate_Conflict);
+			when(mockJob.ExceptionMessage).thenReturn(exceptionMessage_Conflict);
+			when(mockJob.ExecutionId).thenReturn(executionId_Conflict);
+			when(mockJob.ProcessInstanceId).thenReturn(processInstanceId_Conflict);
+			when(mockJob.ProcessDefinitionId).thenReturn(processDefinitionId_Conflict);
+			when(mockJob.ProcessDefinitionKey).thenReturn(processDefinitionKey_Conflict);
+			when(mockJob.Retries).thenReturn(retries_Conflict);
+			when(mockJob.Suspended).thenReturn(suspended_Conflict);
+			when(mockJob.Priority).thenReturn(priority_Conflict);
+			when(mockJob.JobDefinitionId).thenReturn(jobDefinitionId_Conflict);
+			when(mockJob.TenantId).thenReturn(tenantId_Conflict);
+			when(mockJob.CreateTime).thenReturn(createTime_Conflict);
 			return mockJob;
 		}
 

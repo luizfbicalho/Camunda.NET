@@ -23,102 +23,102 @@ namespace org.camunda.bpm.engine.test.api.runtime.util
 	{
 
 //JAVA TO C# CONVERTER NOTE: Fields cannot have the same name as methods:
-	  protected internal string name_Renamed;
+	  protected internal string name_Conflict;
 //JAVA TO C# CONVERTER NOTE: Fields cannot have the same name as methods:
-	  protected internal object value_Renamed;
+	  protected internal object value_Conflict;
 //JAVA TO C# CONVERTER NOTE: Fields cannot have the same name as methods:
-	  protected internal string variableTypeName_Renamed;
+	  protected internal string variableTypeName_Conflict;
 //JAVA TO C# CONVERTER NOTE: Fields cannot have the same name as methods:
-	  protected internal string valueTypeName_Renamed;
+	  protected internal string valueTypeName_Conflict;
 //JAVA TO C# CONVERTER NOTE: Fields cannot have the same name as methods:
-	  protected internal object serializedValue_Renamed;
+	  protected internal object serializedValue_Conflict;
 //JAVA TO C# CONVERTER NOTE: Fields cannot have the same name as methods:
-	  protected internal bool? storesCustomObjects_Renamed;
+	  protected internal bool? storesCustomObjects_Conflict;
 //JAVA TO C# CONVERTER NOTE: Fields cannot have the same name as methods:
-	  protected internal IDictionary<string, object> configuration_Renamed;
+	  protected internal IDictionary<string, object> configuration_Conflict;
 
 	  public virtual string Name
 	  {
 		  get
 		  {
-			return name_Renamed;
+			return name_Conflict;
 		  }
 	  }
 	  public virtual VariableSpec name(string name)
 	  {
-		this.name_Renamed = name;
+		this.name_Conflict = name;
 		return this;
 	  }
 	  public virtual object Value
 	  {
 		  get
 		  {
-			return value_Renamed;
+			return value_Conflict;
 		  }
 	  }
 	  public virtual VariableSpec value(object value)
 	  {
-		this.value_Renamed = value;
+		this.value_Conflict = value;
 		return this;
 	  }
 	  public virtual string VariableTypeName
 	  {
 		  get
 		  {
-			return variableTypeName_Renamed;
+			return variableTypeName_Conflict;
 		  }
 	  }
 	  public virtual VariableSpec variableTypeName(string variableTypeName)
 	  {
-		this.variableTypeName_Renamed = variableTypeName;
+		this.variableTypeName_Conflict = variableTypeName;
 		return this;
 	  }
 	  public virtual string ValueTypeName
 	  {
 		  get
 		  {
-			return valueTypeName_Renamed;
+			return valueTypeName_Conflict;
 		  }
 	  }
 	  public virtual VariableSpec valueTypeName(string valueTypeName)
 	  {
-		this.valueTypeName_Renamed = valueTypeName;
+		this.valueTypeName_Conflict = valueTypeName;
 		return this;
 	  }
 	  public virtual object SerializedValue
 	  {
 		  get
 		  {
-			return serializedValue_Renamed;
+			return serializedValue_Conflict;
 		  }
 	  }
 	  public virtual VariableSpec serializedValue(object serializedValue)
 	  {
-		this.serializedValue_Renamed = serializedValue;
+		this.serializedValue_Conflict = serializedValue;
 		return this;
 	  }
 	  public virtual IDictionary<string, object> Configuration
 	  {
 		  get
 		  {
-			return configuration_Renamed;
+			return configuration_Conflict;
 		  }
 	  }
 	  public virtual VariableSpec configuration(IDictionary<string, object> configuration)
 	  {
-		this.configuration_Renamed = configuration;
+		this.configuration_Conflict = configuration;
 		return this;
 	  }
 	  public virtual bool StoresCustomObjects
 	  {
 		  get
 		  {
-			return storesCustomObjects_Renamed.Value;
+			return storesCustomObjects_Conflict.Value;
 		  }
 	  }
 	  public virtual VariableSpec storesCustomObjects(bool storesCustomObjects)
 	  {
-		this.storesCustomObjects_Renamed = storesCustomObjects;
+		this.storesCustomObjects_Conflict = storesCustomObjects;
 		return this;
 	  }
 

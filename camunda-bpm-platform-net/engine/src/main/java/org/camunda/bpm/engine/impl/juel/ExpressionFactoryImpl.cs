@@ -113,7 +113,7 @@ namespace org.camunda.bpm.engine.impl.juel
 
 			internal Profile(string name, InnerEnum innerEnum, java.util.EnumSet<org.camunda.bpm.engine.impl.juel.Builder.Feature> features)
 			{
-				this.features_Renamed = features;
+				this.features_Conflict = features;
 
 				nameValue = name;
 				ordinalValue = nextOrdinal++;
@@ -122,12 +122,12 @@ namespace org.camunda.bpm.engine.impl.juel
 
 			internal org.camunda.bpm.engine.impl.juel.Builder.Feature[] features()
 			{
-				return features_Renamed.toArray(new Feature[features_Renamed.size()]);
+				return features_Conflict.toArray(new Feature[features_Conflict.size()]);
 			}
 
 			internal bool contains(org.camunda.bpm.engine.impl.juel.Builder.Feature feature)
 			{
-				return features_Renamed.contains(feature);
+				return features_Conflict.contains(feature);
 			}
 
 			public static IList<Profile> values()

@@ -38,23 +38,23 @@ namespace org.camunda.bpm.engine.impl
 
 	  protected internal string id;
 //JAVA TO C# CONVERTER NOTE: Fields cannot have the same name as methods:
-	  protected internal string incidentType_Renamed;
+	  protected internal string incidentType_Conflict;
 //JAVA TO C# CONVERTER NOTE: Fields cannot have the same name as methods:
-	  protected internal string incidentMessage_Renamed;
+	  protected internal string incidentMessage_Conflict;
 //JAVA TO C# CONVERTER NOTE: Fields cannot have the same name as methods:
-	  protected internal string executionId_Renamed;
+	  protected internal string executionId_Conflict;
 //JAVA TO C# CONVERTER NOTE: Fields cannot have the same name as methods:
-	  protected internal string activityId_Renamed;
+	  protected internal string activityId_Conflict;
 //JAVA TO C# CONVERTER NOTE: Fields cannot have the same name as methods:
-	  protected internal string processInstanceId_Renamed;
+	  protected internal string processInstanceId_Conflict;
 //JAVA TO C# CONVERTER NOTE: Fields cannot have the same name as methods:
-	  protected internal string processDefinitionId_Renamed;
+	  protected internal string processDefinitionId_Conflict;
 //JAVA TO C# CONVERTER NOTE: Fields cannot have the same name as methods:
-	  protected internal string causeIncidentId_Renamed;
+	  protected internal string causeIncidentId_Conflict;
 //JAVA TO C# CONVERTER NOTE: Fields cannot have the same name as methods:
-	  protected internal string rootCauseIncidentId_Renamed;
+	  protected internal string rootCauseIncidentId_Conflict;
 //JAVA TO C# CONVERTER NOTE: Fields cannot have the same name as methods:
-	  protected internal string configuration_Renamed;
+	  protected internal string configuration_Conflict;
 	  protected internal IncidentState incidentState;
 	  protected internal string[] tenantIds;
 	  protected internal string[] jobDefinitionIds;
@@ -77,56 +77,56 @@ namespace org.camunda.bpm.engine.impl
 	  public virtual HistoricIncidentQuery incidentType(string incidentType)
 	  {
 		ensureNotNull("incidentType", incidentType);
-		this.incidentType_Renamed = incidentType;
+		this.incidentType_Conflict = incidentType;
 		return this;
 	  }
 
 	  public virtual HistoricIncidentQuery incidentMessage(string incidentMessage)
 	  {
 		ensureNotNull("incidentMessage", incidentMessage);
-		this.incidentMessage_Renamed = incidentMessage;
+		this.incidentMessage_Conflict = incidentMessage;
 		return this;
 	  }
 
 	  public virtual HistoricIncidentQuery executionId(string executionId)
 	  {
 		ensureNotNull("executionId", executionId);
-		this.executionId_Renamed = executionId;
+		this.executionId_Conflict = executionId;
 		return this;
 	  }
 
 	  public virtual HistoricIncidentQuery activityId(string activityId)
 	  {
 		ensureNotNull("activityId", activityId);
-		this.activityId_Renamed = activityId;
+		this.activityId_Conflict = activityId;
 		return this;
 	  }
 
 	  public virtual HistoricIncidentQuery processInstanceId(string processInstanceId)
 	  {
 		ensureNotNull("processInstanceId", processInstanceId);
-		this.processInstanceId_Renamed = processInstanceId;
+		this.processInstanceId_Conflict = processInstanceId;
 		return this;
 	  }
 
 	  public virtual HistoricIncidentQuery processDefinitionId(string processDefinitionId)
 	  {
 		ensureNotNull("processDefinitionId", processDefinitionId);
-		this.processDefinitionId_Renamed = processDefinitionId;
+		this.processDefinitionId_Conflict = processDefinitionId;
 		return this;
 	  }
 
 	  public virtual HistoricIncidentQuery causeIncidentId(string causeIncidentId)
 	  {
 		ensureNotNull("causeIncidentId", causeIncidentId);
-		this.causeIncidentId_Renamed = causeIncidentId;
+		this.causeIncidentId_Conflict = causeIncidentId;
 		return this;
 	  }
 
 	  public virtual HistoricIncidentQuery rootCauseIncidentId(string rootCauseIncidentId)
 	  {
 		ensureNotNull("rootCauseIncidentId", rootCauseIncidentId);
-		this.rootCauseIncidentId_Renamed = rootCauseIncidentId;
+		this.rootCauseIncidentId_Conflict = rootCauseIncidentId;
 		return this;
 	  }
 
@@ -140,7 +140,7 @@ namespace org.camunda.bpm.engine.impl
 	  public virtual HistoricIncidentQuery configuration(string configuration)
 	  {
 		ensureNotNull("configuration", configuration);
-		this.configuration_Renamed = configuration;
+		this.configuration_Conflict = configuration;
 		return this;
 	  }
 
@@ -296,7 +296,7 @@ namespace org.camunda.bpm.engine.impl
 	  {
 		  get
 		  {
-			return incidentType_Renamed;
+			return incidentType_Conflict;
 		  }
 	  }
 
@@ -304,7 +304,7 @@ namespace org.camunda.bpm.engine.impl
 	  {
 		  get
 		  {
-			return incidentMessage_Renamed;
+			return incidentMessage_Conflict;
 		  }
 	  }
 
@@ -312,7 +312,7 @@ namespace org.camunda.bpm.engine.impl
 	  {
 		  get
 		  {
-			return executionId_Renamed;
+			return executionId_Conflict;
 		  }
 	  }
 
@@ -320,7 +320,7 @@ namespace org.camunda.bpm.engine.impl
 	  {
 		  get
 		  {
-			return activityId_Renamed;
+			return activityId_Conflict;
 		  }
 	  }
 
@@ -328,7 +328,7 @@ namespace org.camunda.bpm.engine.impl
 	  {
 		  get
 		  {
-			return processInstanceId_Renamed;
+			return processInstanceId_Conflict;
 		  }
 	  }
 
@@ -336,7 +336,7 @@ namespace org.camunda.bpm.engine.impl
 	  {
 		  get
 		  {
-			return processDefinitionId_Renamed;
+			return processDefinitionId_Conflict;
 		  }
 	  }
 
@@ -344,7 +344,7 @@ namespace org.camunda.bpm.engine.impl
 	  {
 		  get
 		  {
-			return causeIncidentId_Renamed;
+			return causeIncidentId_Conflict;
 		  }
 	  }
 
@@ -352,7 +352,7 @@ namespace org.camunda.bpm.engine.impl
 	  {
 		  get
 		  {
-			return rootCauseIncidentId_Renamed;
+			return rootCauseIncidentId_Conflict;
 		  }
 	  }
 
@@ -360,7 +360,7 @@ namespace org.camunda.bpm.engine.impl
 	  {
 		  get
 		  {
-			return configuration_Renamed;
+			return configuration_Conflict;
 		  }
 	  }
 

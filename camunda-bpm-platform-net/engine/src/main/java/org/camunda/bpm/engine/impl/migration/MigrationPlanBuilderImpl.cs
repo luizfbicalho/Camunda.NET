@@ -40,7 +40,7 @@ namespace org.camunda.bpm.engine.impl.migration
 	  protected internal IList<MigrationInstructionImpl> explicitMigrationInstructions;
 
 //JAVA TO C# CONVERTER NOTE: Fields cannot have the same name as methods:
-	  protected internal bool mapEqualActivities_Renamed = false;
+	  protected internal bool mapEqualActivities_Conflict = false;
 	  protected internal bool updateEventTriggersForGeneratedInstructions = false;
 
 	  public MigrationPlanBuilderImpl(CommandExecutor commandExecutor, string sourceProcessDefinitionId, string targetProcessDefinitionId)
@@ -53,7 +53,7 @@ namespace org.camunda.bpm.engine.impl.migration
 
 	  public virtual MigrationInstructionsBuilder mapEqualActivities()
 	  {
-		this.mapEqualActivities_Renamed = true;
+		this.mapEqualActivities_Conflict = true;
 		return this;
 	  }
 
@@ -96,7 +96,7 @@ namespace org.camunda.bpm.engine.impl.migration
 	  {
 		  get
 		  {
-			return mapEqualActivities_Renamed;
+			return mapEqualActivities_Conflict;
 		  }
 	  }
 

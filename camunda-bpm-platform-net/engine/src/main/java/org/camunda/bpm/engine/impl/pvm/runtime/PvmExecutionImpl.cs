@@ -138,7 +138,7 @@ namespace org.camunda.bpm.engine.impl.pvm.runtime
 	  /// </ul>
 	  /// </summary>
 //JAVA TO C# CONVERTER NOTE: Fields cannot have the same name as methods:
-	  protected internal bool isActive_Renamed = true;
+	  protected internal bool isActive_Conflict = true;
 	  protected internal bool isScope = true;
 	  protected internal bool isConcurrent = false;
 	  protected internal bool isEnded = false;
@@ -336,7 +336,7 @@ namespace org.camunda.bpm.engine.impl.pvm.runtime
 
 		// fire activity end on active activity
 		PvmActivity activity = getActivity();
-		if (isActive_Renamed && activity != null)
+		if (isActive_Conflict && activity != null)
 		{
 		  // set activity instance state to cancel
 		  if (activityInstanceState != ENDING.StateCode)
@@ -377,7 +377,7 @@ namespace org.camunda.bpm.engine.impl.pvm.runtime
 
 		CompleteScope = completeScope;
 
-		isActive_Renamed = false;
+		isActive_Conflict = false;
 		isEnded = true;
 
 		if (hasReplacedParent())
@@ -452,7 +452,7 @@ namespace org.camunda.bpm.engine.impl.pvm.runtime
 
 		}
 
-		isActive_Renamed = false;
+		isActive_Conflict = false;
 		isEnded = true;
 
 		if (hasReplacedParent())
@@ -766,7 +766,7 @@ namespace org.camunda.bpm.engine.impl.pvm.runtime
 	  {
 		// activity instance id handling
 		this.activityInstanceId = execution.ActivityInstanceId;
-		this.isActive_Renamed = execution.isActive_Renamed;
+		this.isActive_Conflict = execution.isActive_Conflict;
 
 		this.replacedBy = null;
 		execution.replacedBy = this;
@@ -860,7 +860,7 @@ namespace org.camunda.bpm.engine.impl.pvm.runtime
 
 		PvmActivity activityImpl = activity;
 		this.isEnded = false;
-		this.isActive_Renamed = true;
+		this.isActive_Conflict = true;
 
 		switch (activityStartBehavior)
 		{
@@ -1122,7 +1122,7 @@ namespace org.camunda.bpm.engine.impl.pvm.runtime
 		  propagatingExecution = ReplacedBy;
 		}
 
-		propagatingExecution.isActive_Renamed = true;
+		propagatingExecution.isActive_Conflict = true;
 		propagatingExecution.isEnded = false;
 
 		if (_transitions.Count == 0)
@@ -1145,7 +1145,7 @@ namespace org.camunda.bpm.engine.impl.pvm.runtime
 
 	  public virtual void inactivate()
 	  {
-		this.isActive_Renamed = false;
+		this.isActive_Conflict = false;
 	  }
 
 	  // executions ///////////////////////////////////////////////////////////////
@@ -1252,7 +1252,7 @@ namespace org.camunda.bpm.engine.impl.pvm.runtime
 	  protected internal virtual void collectActiveActivityIds(IList<string> activeActivityIds)
 	  {
 		ActivityImpl activity = getActivity();
-		if (isActive_Renamed && activity != null)
+		if (isActive_Conflict && activity != null)
 		{
 		  activeActivityIds.Add(activity.Id);
 		}
@@ -2112,11 +2112,11 @@ namespace org.camunda.bpm.engine.impl.pvm.runtime
 	  {
 		  get
 		  {
-			return isActive_Renamed;
+			return isActive_Conflict;
 		  }
 		  set
 		  {
-			this.isActive_Renamed = value;
+			this.isActive_Conflict = value;
 		  }
 	  }
 

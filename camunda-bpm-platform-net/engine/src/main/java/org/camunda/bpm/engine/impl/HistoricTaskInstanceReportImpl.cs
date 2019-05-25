@@ -42,9 +42,9 @@ namespace org.camunda.bpm.engine.impl
 	{
 
 //JAVA TO C# CONVERTER NOTE: Fields cannot have the same name as methods:
-	  protected internal DateTime completedAfter_Renamed;
+	  protected internal DateTime completedAfter_Conflict;
 //JAVA TO C# CONVERTER NOTE: Fields cannot have the same name as methods:
-	  protected internal DateTime completedBefore_Renamed;
+	  protected internal DateTime completedBefore_Conflict;
 
 	  protected internal PeriodUnit durationPeriodUnit;
 
@@ -195,7 +195,7 @@ namespace org.camunda.bpm.engine.impl
 	  {
 		  get
 		  {
-			return completedAfter_Renamed;
+			return completedAfter_Conflict;
 		  }
 	  }
 
@@ -203,21 +203,21 @@ namespace org.camunda.bpm.engine.impl
 	  {
 		  get
 		  {
-			return completedBefore_Renamed;
+			return completedBefore_Conflict;
 		  }
 	  }
 
 	  public virtual HistoricTaskInstanceReport completedAfter(DateTime completedAfter)
 	  {
 		ensureNotNull(typeof(NotValidException), "completedAfter", completedAfter);
-		this.completedAfter_Renamed = completedAfter;
+		this.completedAfter_Conflict = completedAfter;
 		return this;
 	  }
 
 	  public virtual HistoricTaskInstanceReport completedBefore(DateTime completedBefore)
 	  {
 		ensureNotNull(typeof(NotValidException), "completedBefore", completedBefore);
-		this.completedBefore_Renamed = completedBefore;
+		this.completedBefore_Conflict = completedBefore;
 		return this;
 	  }
 

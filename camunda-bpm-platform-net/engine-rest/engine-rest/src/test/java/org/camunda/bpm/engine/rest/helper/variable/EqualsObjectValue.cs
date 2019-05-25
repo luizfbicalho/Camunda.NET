@@ -31,35 +31,35 @@ namespace org.camunda.bpm.engine.rest.helper.variable
 	{
 
 //JAVA TO C# CONVERTER NOTE: Fields cannot have the same name as methods:
-	  protected internal string serializationFormat_Renamed;
+	  protected internal string serializationFormat_Conflict;
 //JAVA TO C# CONVERTER NOTE: Fields cannot have the same name as methods:
-	  protected internal string objectTypeName_Renamed;
+	  protected internal string objectTypeName_Conflict;
 //JAVA TO C# CONVERTER NOTE: Fields cannot have the same name as methods:
-	  protected internal string serializedValue_Renamed;
+	  protected internal string serializedValue_Conflict;
 //JAVA TO C# CONVERTER NOTE: Fields cannot have the same name as methods:
-	  protected internal object value_Renamed;
+	  protected internal object value_Conflict;
 	  protected internal bool isDeserialized = false;
 
 	  public EqualsObjectValue()
 	  {
-		this.type_Renamed = ValueType.OBJECT;
+		this.type_Conflict = ValueType.OBJECT;
 	  }
 
 	  public virtual EqualsObjectValue serializationFormat(string serializationFormat)
 	  {
-		this.serializationFormat_Renamed = serializationFormat;
+		this.serializationFormat_Conflict = serializationFormat;
 		return this;
 	  }
 
 	  public virtual EqualsObjectValue objectTypeName(string objectTypeName)
 	  {
-		this.objectTypeName_Renamed = objectTypeName;
+		this.objectTypeName_Conflict = objectTypeName;
 		return this;
 	  }
 
 	  public virtual EqualsObjectValue value(object value)
 	  {
-		this.value_Renamed = value;
+		this.value_Conflict = value;
 		return this;
 	  }
 
@@ -74,7 +74,7 @@ namespace org.camunda.bpm.engine.rest.helper.variable
 
 	  public virtual EqualsObjectValue serializedValue(string serializedValue)
 	  {
-		this.serializedValue_Renamed = serializedValue;
+		this.serializedValue_Conflict = serializedValue;
 		return this;
 	  }
 
@@ -99,7 +99,7 @@ namespace org.camunda.bpm.engine.rest.helper.variable
 			return false;
 		  }
 
-		  if (value_Renamed == null)
+		  if (value_Conflict == null)
 		  {
 			if (objectValue.Value != null)
 			{
@@ -108,7 +108,7 @@ namespace org.camunda.bpm.engine.rest.helper.variable
 		  }
 		  else
 		  {
-			if (!value_Renamed.Equals(objectValue.Value))
+			if (!value_Conflict.Equals(objectValue.Value))
 			{
 			  return false;
 			}
@@ -123,7 +123,7 @@ namespace org.camunda.bpm.engine.rest.helper.variable
 		  }
 
 
-		  if (string.ReferenceEquals(serializationFormat_Renamed, null))
+		  if (string.ReferenceEquals(serializationFormat_Conflict, null))
 		  {
 			if (objectValue.SerializationDataFormat != null)
 			{
@@ -132,13 +132,13 @@ namespace org.camunda.bpm.engine.rest.helper.variable
 		  }
 		  else
 		  {
-			if (!serializationFormat_Renamed.Equals(objectValue.SerializationDataFormat))
+			if (!serializationFormat_Conflict.Equals(objectValue.SerializationDataFormat))
 			{
 			  return false;
 			}
 		  }
 
-		  if (string.ReferenceEquals(objectTypeName_Renamed, null))
+		  if (string.ReferenceEquals(objectTypeName_Conflict, null))
 		  {
 			if (objectValue.ObjectTypeName != null)
 			{
@@ -147,13 +147,13 @@ namespace org.camunda.bpm.engine.rest.helper.variable
 		  }
 		  else
 		  {
-			if (!objectTypeName_Renamed.Equals(objectValue.ObjectTypeName))
+			if (!objectTypeName_Conflict.Equals(objectValue.ObjectTypeName))
 			{
 			  return false;
 			}
 		  }
 
-		  if (string.ReferenceEquals(serializedValue_Renamed, null))
+		  if (string.ReferenceEquals(serializedValue_Conflict, null))
 		  {
 			if (objectValue.ValueSerialized != null)
 			{
@@ -162,7 +162,7 @@ namespace org.camunda.bpm.engine.rest.helper.variable
 		  }
 		  else
 		  {
-			if (!serializedValue_Renamed.Equals(objectValue.ValueSerialized))
+			if (!serializedValue_Conflict.Equals(objectValue.ValueSerialized))
 			{
 			  return false;
 			}
@@ -184,11 +184,11 @@ namespace org.camunda.bpm.engine.rest.helper.variable
 		sb.Append(this.GetType().Name);
 		sb.Append(": ");
 		sb.Append("serializedValue=");
-		sb.Append(serializedValue_Renamed);
+		sb.Append(serializedValue_Conflict);
 		sb.Append(", objectTypeName=");
-		sb.Append(objectTypeName_Renamed);
+		sb.Append(objectTypeName_Conflict);
 		sb.Append(", serializationFormat=");
-		sb.Append(serializationFormat_Renamed);
+		sb.Append(serializationFormat_Conflict);
 		sb.Append(", isDeserialized=false");
 
 		description.appendText(sb.ToString());

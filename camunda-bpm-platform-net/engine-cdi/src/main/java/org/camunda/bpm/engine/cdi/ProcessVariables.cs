@@ -47,7 +47,7 @@ namespace org.camunda.bpm.engine.cdi
 //JAVA TO C# CONVERTER TODO TASK: Most Java annotations will not have direct .NET equivalent attributes:
 //ORIGINAL LINE: @Inject private org.camunda.bpm.engine.cdi.impl.ProcessVariableMap processVariableMap;
 //JAVA TO C# CONVERTER NOTE: Fields cannot have the same name as methods:
-	  private ProcessVariableMap processVariableMap_Renamed;
+	  private ProcessVariableMap processVariableMap_Conflict;
 //JAVA TO C# CONVERTER TODO TASK: Most Java annotations will not have direct .NET equivalent attributes:
 //ORIGINAL LINE: @Inject private org.camunda.bpm.engine.cdi.impl.ProcessVariableLocalMap processVariableLocalMap;
 	  private ProcessVariableLocalMap processVariableLocalMap;
@@ -107,7 +107,7 @@ namespace org.camunda.bpm.engine.cdi
 //ORIGINAL LINE: @Produces @Named protected java.util.Map<String, Object> processVariables()
 	  protected internal virtual IDictionary<string, object> processVariables()
 	  {
-		return processVariableMap_Renamed;
+		return processVariableMap_Conflict;
 	  }
 
 	  /// <summary>
@@ -117,7 +117,7 @@ namespace org.camunda.bpm.engine.cdi
 //ORIGINAL LINE: @Produces @Named protected org.camunda.bpm.engine.variable.VariableMap processVariableMap()
 	  protected internal virtual VariableMap processVariableMap()
 	  {
-		return processVariableMap_Renamed;
+		return processVariableMap_Conflict;
 	  }
 
 	  protected internal virtual string getVariableLocalName(InjectionPoint ip)

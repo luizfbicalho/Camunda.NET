@@ -49,13 +49,13 @@ namespace org.camunda.bpm.engine.impl.dmn.configuration
 	  protected internal readonly DefaultDmnEngineConfiguration dmnEngineConfiguration;
 
 //JAVA TO C# CONVERTER NOTE: Fields cannot have the same name as methods:
-	  protected internal HistoryLevel historyLevel_Renamed;
+	  protected internal HistoryLevel historyLevel_Conflict;
 //JAVA TO C# CONVERTER NOTE: Fields cannot have the same name as methods:
-	  protected internal DmnHistoryEventProducer dmnHistoryEventProducer_Renamed;
+	  protected internal DmnHistoryEventProducer dmnHistoryEventProducer_Conflict;
 //JAVA TO C# CONVERTER NOTE: Fields cannot have the same name as methods:
-	  protected internal DmnScriptEngineResolver scriptEngineResolver_Renamed;
+	  protected internal DmnScriptEngineResolver scriptEngineResolver_Conflict;
 //JAVA TO C# CONVERTER NOTE: Fields cannot have the same name as methods:
-	  protected internal ExpressionManager expressionManager_Renamed;
+	  protected internal ExpressionManager expressionManager_Conflict;
 
 	  /// <summary>
 	  /// Creates a new builder to modify the given DMN engine configuration.
@@ -69,28 +69,28 @@ namespace org.camunda.bpm.engine.impl.dmn.configuration
 
 	  public virtual DmnEngineConfigurationBuilder historyLevel(HistoryLevel historyLevel)
 	  {
-		this.historyLevel_Renamed = historyLevel;
+		this.historyLevel_Conflict = historyLevel;
 
 		return this;
 	  }
 
 	  public virtual DmnEngineConfigurationBuilder dmnHistoryEventProducer(DmnHistoryEventProducer dmnHistoryEventProducer)
 	  {
-		this.dmnHistoryEventProducer_Renamed = dmnHistoryEventProducer;
+		this.dmnHistoryEventProducer_Conflict = dmnHistoryEventProducer;
 
 		return this;
 	  }
 
 	  public virtual DmnEngineConfigurationBuilder scriptEngineResolver(DmnScriptEngineResolver scriptEngineResolver)
 	  {
-		this.scriptEngineResolver_Renamed = scriptEngineResolver;
+		this.scriptEngineResolver_Conflict = scriptEngineResolver;
 
 		return this;
 	  }
 
 	  public virtual DmnEngineConfigurationBuilder expressionManager(ExpressionManager expressionManager)
 	  {
-		this.expressionManager_Renamed = expressionManager;
+		this.expressionManager_Conflict = expressionManager;
 
 		return this;
 	  }
@@ -112,17 +112,17 @@ namespace org.camunda.bpm.engine.impl.dmn.configuration
 		// do not override the script engine resolver if set
 		if (dmnEngineConfiguration.ScriptEngineResolver == null)
 		{
-		  ensureNotNull("scriptEngineResolver", scriptEngineResolver_Renamed);
+		  ensureNotNull("scriptEngineResolver", scriptEngineResolver_Conflict);
 
-		  dmnEngineConfiguration.ScriptEngineResolver = scriptEngineResolver_Renamed;
+		  dmnEngineConfiguration.ScriptEngineResolver = scriptEngineResolver_Conflict;
 		}
 
 		// do not override the el provider if set
 		if (dmnEngineConfiguration.ElProvider == null)
 		{
-		  ensureNotNull("expressionManager", expressionManager_Renamed);
+		  ensureNotNull("expressionManager", expressionManager_Conflict);
 
-		  ProcessEngineElProvider elProvider = new ProcessEngineElProvider(expressionManager_Renamed);
+		  ProcessEngineElProvider elProvider = new ProcessEngineElProvider(expressionManager_Conflict);
 		  dmnEngineConfiguration.ElProvider = elProvider;
 		}
 
@@ -131,10 +131,10 @@ namespace org.camunda.bpm.engine.impl.dmn.configuration
 
 	  protected internal virtual IList<DmnDecisionEvaluationListener> createCustomPostDecisionEvaluationListeners()
 	  {
-		ensureNotNull("dmnHistoryEventProducer", dmnHistoryEventProducer_Renamed);
+		ensureNotNull("dmnHistoryEventProducer", dmnHistoryEventProducer_Conflict);
 		// note that the history level may be null - see CAM-5165
 
-		HistoryDecisionEvaluationListener historyDecisionEvaluationListener = new HistoryDecisionEvaluationListener(dmnHistoryEventProducer_Renamed, historyLevel_Renamed);
+		HistoryDecisionEvaluationListener historyDecisionEvaluationListener = new HistoryDecisionEvaluationListener(dmnHistoryEventProducer_Conflict, historyLevel_Conflict);
 
 		IList<DmnDecisionEvaluationListener> customPostDecisionEvaluationListeners = dmnEngineConfiguration.CustomPostDecisionEvaluationListeners;
 		customPostDecisionEvaluationListeners.Add(new MetricsDecisionEvaluationListener());

@@ -47,13 +47,13 @@ namespace org.camunda.bpm.engine.impl
 	  private const long serialVersionUID = 1L;
 
 //JAVA TO C# CONVERTER NOTE: Fields cannot have the same name as methods:
-	  protected internal DateTime startedAfter_Renamed;
+	  protected internal DateTime startedAfter_Conflict;
 //JAVA TO C# CONVERTER NOTE: Fields cannot have the same name as methods:
-	  protected internal DateTime startedBefore_Renamed;
+	  protected internal DateTime startedBefore_Conflict;
 //JAVA TO C# CONVERTER NOTE: Fields cannot have the same name as methods:
-	  protected internal string[] processDefinitionIdIn_Renamed;
+	  protected internal string[] processDefinitionIdIn_Conflict;
 //JAVA TO C# CONVERTER NOTE: Fields cannot have the same name as methods:
-	  protected internal string[] processDefinitionKeyIn_Renamed;
+	  protected internal string[] processDefinitionKeyIn_Conflict;
 
 	  protected internal PeriodUnit durationPeriodUnit;
 
@@ -71,28 +71,28 @@ namespace org.camunda.bpm.engine.impl
 	  public virtual HistoricProcessInstanceReport startedAfter(DateTime startedAfter)
 	  {
 		ensureNotNull(typeof(NotValidException), "startedAfter", startedAfter);
-		this.startedAfter_Renamed = startedAfter;
+		this.startedAfter_Conflict = startedAfter;
 		return this;
 	  }
 
 	  public virtual HistoricProcessInstanceReport startedBefore(DateTime startedBefore)
 	  {
 		ensureNotNull(typeof(NotValidException), "startedBefore", startedBefore);
-		this.startedBefore_Renamed = startedBefore;
+		this.startedBefore_Conflict = startedBefore;
 		return this;
 	  }
 
 	  public virtual HistoricProcessInstanceReport processDefinitionIdIn(params string[] processDefinitionIds)
 	  {
 		ensureNotNull(typeof(NotValidException), "", "processDefinitionIdIn", (object[]) processDefinitionIds);
-		this.processDefinitionIdIn_Renamed = processDefinitionIds;
+		this.processDefinitionIdIn_Conflict = processDefinitionIds;
 		return this;
 	  }
 
 	  public virtual HistoricProcessInstanceReport processDefinitionKeyIn(params string[] processDefinitionKeys)
 	  {
 		ensureNotNull(typeof(NotValidException), "", "processDefinitionKeyIn", (object[]) processDefinitionKeys);
-		this.processDefinitionKeyIn_Renamed = processDefinitionKeys;
+		this.processDefinitionKeyIn_Conflict = processDefinitionKeys;
 		return this;
 	  }
 
@@ -141,7 +141,7 @@ namespace org.camunda.bpm.engine.impl
 
 		doAuthCheck(commandContext);
 
-		if (areNotInAscendingOrder(startedAfter_Renamed, startedBefore_Renamed))
+		if (areNotInAscendingOrder(startedAfter_Conflict, startedBefore_Conflict))
 		{
 		  return Collections.emptyList();
 		}
@@ -156,21 +156,21 @@ namespace org.camunda.bpm.engine.impl
 		// data, the authorization check will be performed here
 		foreach (CommandChecker checker in commandContext.ProcessEngineConfiguration.CommandCheckers)
 		{
-		  if (processDefinitionIdIn_Renamed == null && processDefinitionKeyIn_Renamed == null)
+		  if (processDefinitionIdIn_Conflict == null && processDefinitionKeyIn_Conflict == null)
 		  {
 			checker.checkReadHistoryAnyProcessDefinition();
 		  }
 		  else
 		  {
 			IList<string> processDefinitionKeys = new List<string>();
-			if (processDefinitionKeyIn_Renamed != null)
+			if (processDefinitionKeyIn_Conflict != null)
 			{
-			  ((IList<string>)processDefinitionKeys).AddRange(Arrays.asList(processDefinitionKeyIn_Renamed));
+			  ((IList<string>)processDefinitionKeys).AddRange(Arrays.asList(processDefinitionKeyIn_Conflict));
 			}
 
-			if (processDefinitionIdIn_Renamed != null)
+			if (processDefinitionIdIn_Conflict != null)
 			{
-			  foreach (string processDefinitionId in processDefinitionIdIn_Renamed)
+			  foreach (string processDefinitionId in processDefinitionIdIn_Conflict)
 			  {
 				ProcessDefinition processDefinition = commandContext.ProcessDefinitionManager.findLatestProcessDefinitionById(processDefinitionId);
 
@@ -198,7 +198,7 @@ namespace org.camunda.bpm.engine.impl
 	  {
 		  get
 		  {
-			return startedAfter_Renamed;
+			return startedAfter_Conflict;
 		  }
 	  }
 
@@ -206,7 +206,7 @@ namespace org.camunda.bpm.engine.impl
 	  {
 		  get
 		  {
-			return startedBefore_Renamed;
+			return startedBefore_Conflict;
 		  }
 	  }
 
@@ -214,7 +214,7 @@ namespace org.camunda.bpm.engine.impl
 	  {
 		  get
 		  {
-			return processDefinitionIdIn_Renamed;
+			return processDefinitionIdIn_Conflict;
 		  }
 	  }
 
@@ -222,7 +222,7 @@ namespace org.camunda.bpm.engine.impl
 	  {
 		  get
 		  {
-			return processDefinitionKeyIn_Renamed;
+			return processDefinitionKeyIn_Conflict;
 		  }
 	  }
 

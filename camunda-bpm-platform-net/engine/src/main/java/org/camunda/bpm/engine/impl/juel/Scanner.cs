@@ -331,7 +331,7 @@ namespace org.camunda.bpm.engine.impl.juel
 		}
 
 //JAVA TO C# CONVERTER NOTE: Fields cannot have the same name as methods:
-		private Token token_Renamed; // current token
+		private Token token_Conflict; // current token
 		 private int position; // start position of current token
 		private readonly string input;
 
@@ -356,7 +356,7 @@ namespace org.camunda.bpm.engine.impl.juel
 		/// <returns> current token </returns>
 		public virtual Token getToken()
 		{
-			return token_Renamed;
+			return token_Conflict;
 		}
 
 		/// <returns> current input position </returns>
@@ -397,7 +397,7 @@ namespace org.camunda.bpm.engine.impl.juel
 		{
 			get
 			{
-				return token_Renamed != null && token_Renamed.Symbol != Symbol.TEXT && token_Renamed.Symbol != Symbol.END_EVAL;
+				return token_Conflict != null && token_Conflict.Symbol != Symbol.TEXT && token_Conflict.Symbol != Symbol.END_EVAL;
 			}
 		}
 
@@ -702,9 +702,9 @@ namespace org.camunda.bpm.engine.impl.juel
 //ORIGINAL LINE: public Token next() throws ScanException
 		public virtual Token next()
 		{
-			if (token_Renamed != null)
+			if (token_Conflict != null)
 			{
-				position += token_Renamed.Size;
+				position += token_Conflict.Size;
 			}
 
 			int length = input.Length;
@@ -719,10 +719,10 @@ namespace org.camunda.bpm.engine.impl.juel
 
 			if (position == length)
 			{
-				return token_Renamed = @fixed(Symbol.EOF);
+				return token_Conflict = @fixed(Symbol.EOF);
 			}
 
-			return token_Renamed = nextToken();
+			return token_Conflict = nextToken();
 		}
 	}
 

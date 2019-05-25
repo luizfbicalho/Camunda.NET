@@ -40,7 +40,7 @@ namespace org.camunda.bpm.engine.impl.repository
 	  protected internal readonly ProcessApplicationReference processApplicationReference;
 	  protected internal bool isResumePreviousVersions = false;
 //JAVA TO C# CONVERTER NOTE: Fields cannot have the same name as methods:
-	  protected internal string resumePreviousVersionsBy_Renamed = ResumePreviousBy.RESUME_BY_PROCESS_DEFINITION_KEY;
+	  protected internal string resumePreviousVersionsBy_Conflict = ResumePreviousBy.RESUME_BY_PROCESS_DEFINITION_KEY;
 
 	  public ProcessApplicationDeploymentBuilderImpl(RepositoryServiceImpl repositoryService, ProcessApplicationReference reference) : base(repositoryService)
 	  {
@@ -56,7 +56,7 @@ namespace org.camunda.bpm.engine.impl.repository
 
 	  public virtual ProcessApplicationDeploymentBuilder resumePreviousVersionsBy(string resumePreviousVersionsBy)
 	  {
-		this.resumePreviousVersionsBy_Renamed = resumePreviousVersionsBy;
+		this.resumePreviousVersionsBy_Conflict = resumePreviousVersionsBy;
 		return this;
 	  }
 	  // overrides from parent ////////////////////////////////////////////////
@@ -173,7 +173,7 @@ namespace org.camunda.bpm.engine.impl.repository
 	  {
 		  get
 		  {
-			return resumePreviousVersionsBy_Renamed;
+			return resumePreviousVersionsBy_Conflict;
 		  }
 	  }
 

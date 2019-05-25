@@ -56,7 +56,7 @@ namespace org.camunda.bpm.engine.impl
 
 	  private const long serialVersionUID = 1L;
 //JAVA TO C# CONVERTER NOTE: Fields cannot have the same name as methods:
-	  protected internal string taskId_Renamed;
+	  protected internal string taskId_Conflict;
 	  protected internal string name;
 	  protected internal string nameNotEqual;
 	  protected internal string nameLike;
@@ -78,21 +78,21 @@ namespace org.camunda.bpm.engine.impl
 	  protected internal string candidateGroup;
 	  protected internal IList<string> candidateGroups;
 //JAVA TO C# CONVERTER NOTE: Fields cannot have the same name as methods:
-	  protected internal bool? withCandidateGroups_Renamed;
+	  protected internal bool? withCandidateGroups_Conflict;
 //JAVA TO C# CONVERTER NOTE: Fields cannot have the same name as methods:
-	  protected internal bool? withoutCandidateGroups_Renamed;
+	  protected internal bool? withoutCandidateGroups_Conflict;
 //JAVA TO C# CONVERTER NOTE: Fields cannot have the same name as methods:
-	  protected internal bool? withCandidateUsers_Renamed;
+	  protected internal bool? withCandidateUsers_Conflict;
 //JAVA TO C# CONVERTER NOTE: Fields cannot have the same name as methods:
-	  protected internal bool? withoutCandidateUsers_Renamed;
+	  protected internal bool? withoutCandidateUsers_Conflict;
 //JAVA TO C# CONVERTER NOTE: Fields cannot have the same name as methods:
-	  protected internal bool? includeAssignedTasks_Renamed;
+	  protected internal bool? includeAssignedTasks_Conflict;
 //JAVA TO C# CONVERTER NOTE: Fields cannot have the same name as methods:
-	  protected internal string processInstanceId_Renamed;
+	  protected internal string processInstanceId_Conflict;
 //JAVA TO C# CONVERTER NOTE: Fields cannot have the same name as methods:
-	  protected internal string executionId_Renamed;
+	  protected internal string executionId_Conflict;
 //JAVA TO C# CONVERTER NOTE: Fields cannot have the same name as methods:
-	  protected internal string[] activityInstanceIdIn_Renamed;
+	  protected internal string[] activityInstanceIdIn_Conflict;
 	  protected internal DateTime createTime;
 	  protected internal DateTime createTimeBefore;
 	  protected internal DateTime createTimeAfter;
@@ -100,40 +100,40 @@ namespace org.camunda.bpm.engine.impl
 	  protected internal string keyLike;
 	  protected internal string[] taskDefinitionKeys;
 //JAVA TO C# CONVERTER NOTE: Fields cannot have the same name as methods:
-	  protected internal string processDefinitionKey_Renamed;
+	  protected internal string processDefinitionKey_Conflict;
 	  protected internal string[] processDefinitionKeys;
 //JAVA TO C# CONVERTER NOTE: Fields cannot have the same name as methods:
-	  protected internal string processDefinitionId_Renamed;
+	  protected internal string processDefinitionId_Conflict;
 //JAVA TO C# CONVERTER NOTE: Fields cannot have the same name as methods:
-	  protected internal string processDefinitionName_Renamed;
+	  protected internal string processDefinitionName_Conflict;
 //JAVA TO C# CONVERTER NOTE: Fields cannot have the same name as methods:
-	  protected internal string processDefinitionNameLike_Renamed;
+	  protected internal string processDefinitionNameLike_Conflict;
 //JAVA TO C# CONVERTER NOTE: Fields cannot have the same name as methods:
-	  protected internal string processInstanceBusinessKey_Renamed;
+	  protected internal string processInstanceBusinessKey_Conflict;
 	  protected internal string[] processInstanceBusinessKeys;
 //JAVA TO C# CONVERTER NOTE: Fields cannot have the same name as methods:
-	  protected internal string processInstanceBusinessKeyLike_Renamed;
+	  protected internal string processInstanceBusinessKeyLike_Conflict;
 	  protected internal IList<TaskQueryVariableValue> variables = new List<TaskQueryVariableValue>();
 //JAVA TO C# CONVERTER NOTE: Fields cannot have the same name as methods:
-	  protected internal DateTime dueDate_Renamed;
+	  protected internal DateTime dueDate_Conflict;
 //JAVA TO C# CONVERTER NOTE: Fields cannot have the same name as methods:
-	  protected internal DateTime dueBefore_Renamed;
+	  protected internal DateTime dueBefore_Conflict;
 //JAVA TO C# CONVERTER NOTE: Fields cannot have the same name as methods:
-	  protected internal DateTime dueAfter_Renamed;
+	  protected internal DateTime dueAfter_Conflict;
 //JAVA TO C# CONVERTER NOTE: Fields cannot have the same name as methods:
-	  protected internal DateTime followUpDate_Renamed;
+	  protected internal DateTime followUpDate_Conflict;
 //JAVA TO C# CONVERTER NOTE: Fields cannot have the same name as methods:
-	  protected internal DateTime followUpBefore_Renamed;
+	  protected internal DateTime followUpBefore_Conflict;
 	  protected internal bool followUpNullAccepted = false;
 //JAVA TO C# CONVERTER NOTE: Fields cannot have the same name as methods:
-	  protected internal DateTime followUpAfter_Renamed;
+	  protected internal DateTime followUpAfter_Conflict;
 //JAVA TO C# CONVERTER NOTE: Fields cannot have the same name as methods:
-	  protected internal bool excludeSubtasks_Renamed = false;
+	  protected internal bool excludeSubtasks_Conflict = false;
 	  protected internal SuspensionState suspensionState;
 //JAVA TO C# CONVERTER NOTE: Fields cannot have the same name as methods:
-	  protected internal bool initializeFormKeys_Renamed = false;
+	  protected internal bool initializeFormKeys_Conflict = false;
 //JAVA TO C# CONVERTER NOTE: Fields cannot have the same name as methods:
-	  protected internal bool taskNameCaseInsensitive_Renamed = false;
+	  protected internal bool taskNameCaseInsensitive_Conflict = false;
 
 	  protected internal bool? variableNamesIgnoreCase;
 	  protected internal bool? variableValuesIgnoreCase;
@@ -144,21 +144,21 @@ namespace org.camunda.bpm.engine.impl
 	  protected internal string[] tenantIds;
 	  // case management /////////////////////////////
 //JAVA TO C# CONVERTER NOTE: Fields cannot have the same name as methods:
-	  protected internal string caseDefinitionKey_Renamed;
+	  protected internal string caseDefinitionKey_Conflict;
 //JAVA TO C# CONVERTER NOTE: Fields cannot have the same name as methods:
-	  protected internal string caseDefinitionId_Renamed;
+	  protected internal string caseDefinitionId_Conflict;
 //JAVA TO C# CONVERTER NOTE: Fields cannot have the same name as methods:
-	  protected internal string caseDefinitionName_Renamed;
+	  protected internal string caseDefinitionName_Conflict;
 //JAVA TO C# CONVERTER NOTE: Fields cannot have the same name as methods:
-	  protected internal string caseDefinitionNameLike_Renamed;
+	  protected internal string caseDefinitionNameLike_Conflict;
 //JAVA TO C# CONVERTER NOTE: Fields cannot have the same name as methods:
-	  protected internal string caseInstanceId_Renamed;
+	  protected internal string caseInstanceId_Conflict;
 //JAVA TO C# CONVERTER NOTE: Fields cannot have the same name as methods:
-	  protected internal string caseInstanceBusinessKey_Renamed;
+	  protected internal string caseInstanceBusinessKey_Conflict;
 //JAVA TO C# CONVERTER NOTE: Fields cannot have the same name as methods:
-	  protected internal string caseInstanceBusinessKeyLike_Renamed;
+	  protected internal string caseInstanceBusinessKeyLike_Conflict;
 //JAVA TO C# CONVERTER NOTE: Fields cannot have the same name as methods:
-	  protected internal string caseExecutionId_Renamed;
+	  protected internal string caseExecutionId_Conflict;
 
 	  protected internal IList<string> cachedCandidateGroups;
 
@@ -187,7 +187,7 @@ namespace org.camunda.bpm.engine.impl
 	  public virtual TaskQueryImpl taskId(string taskId)
 	  {
 		ensureNotNull("Task id", taskId);
-		this.taskId_Renamed = taskId;
+		this.taskId_Conflict = taskId;
 		return this;
 	  }
 
@@ -375,7 +375,7 @@ namespace org.camunda.bpm.engine.impl
 		  throw new ProcessEngineException("Invalid query usage: cannot set withCandidateGroups() within 'or' query");
 		}
 
-		this.withCandidateGroups_Renamed = true;
+		this.withCandidateGroups_Conflict = true;
 		return this;
 	  }
 
@@ -386,7 +386,7 @@ namespace org.camunda.bpm.engine.impl
 		  throw new ProcessEngineException("Invalid query usage: cannot set withoutCandidateGroups() within 'or' query");
 		}
 
-		this.withoutCandidateGroups_Renamed = true;
+		this.withoutCandidateGroups_Conflict = true;
 		return this;
 	  }
 
@@ -397,7 +397,7 @@ namespace org.camunda.bpm.engine.impl
 		  throw new ProcessEngineException("Invalid query usage: cannot set withCandidateUsers() within 'or' query");
 		}
 
-		this.withCandidateUsers_Renamed = true;
+		this.withCandidateUsers_Conflict = true;
 		return this;
 	  }
 
@@ -408,7 +408,7 @@ namespace org.camunda.bpm.engine.impl
 		  throw new ProcessEngineException("Invalid query usage: cannot set withoutCandidateUsers() within 'or' query");
 		}
 
-		this.withoutCandidateUsers_Renamed = true;
+		this.withoutCandidateUsers_Conflict = true;
 		return this;
 	  }
 
@@ -485,25 +485,25 @@ namespace org.camunda.bpm.engine.impl
 		  throw new ProcessEngineException("Invalid query usage: candidateUser, candidateGroup, candidateGroupIn, withCandidateGroups, withoutCandidateGroups, withCandidateUsers, withoutCandidateUsers has to be called before 'includeAssignedTasks'.");
 		}
 
-		includeAssignedTasks_Renamed = true;
+		includeAssignedTasks_Conflict = true;
 		return this;
 	  }
 
 	  public virtual TaskQuery includeAssignedTasksInternal()
 	  {
-		includeAssignedTasks_Renamed = true;
+		includeAssignedTasks_Conflict = true;
 		return this;
 	  }
 
 	  public virtual TaskQueryImpl processInstanceId(string processInstanceId)
 	  {
-		this.processInstanceId_Renamed = processInstanceId;
+		this.processInstanceId_Conflict = processInstanceId;
 		return this;
 	  }
 
 	  public virtual TaskQueryImpl processInstanceBusinessKey(string processInstanceBusinessKey)
 	  {
-		this.processInstanceBusinessKey_Renamed = processInstanceBusinessKey;
+		this.processInstanceBusinessKey_Conflict = processInstanceBusinessKey;
 		expressions.Remove("processInstanceBusinessKey");
 		return this;
 	  }
@@ -523,7 +523,7 @@ namespace org.camunda.bpm.engine.impl
 
 	  public virtual TaskQuery processInstanceBusinessKeyLike(string processInstanceBusinessKey)
 	  {
-		this.processInstanceBusinessKeyLike_Renamed = processInstanceBusinessKey;
+		this.processInstanceBusinessKeyLike_Conflict = processInstanceBusinessKey;
 		expressions.Remove("processInstanceBusinessKeyLike");
 		  return this;
 	  }
@@ -537,13 +537,13 @@ namespace org.camunda.bpm.engine.impl
 
 	  public virtual TaskQueryImpl executionId(string executionId)
 	  {
-		this.executionId_Renamed = executionId;
+		this.executionId_Conflict = executionId;
 		return this;
 	  }
 
 	  public virtual TaskQuery activityInstanceIdIn(params string[] activityInstanceIds)
 	  {
-		this.activityInstanceIdIn_Renamed = activityInstanceIds;
+		this.activityInstanceIdIn_Conflict = activityInstanceIds;
 		return this;
 	  }
 
@@ -628,56 +628,56 @@ namespace org.camunda.bpm.engine.impl
 	  public virtual TaskQuery caseInstanceId(string caseInstanceId)
 	  {
 		ensureNotNull("caseInstanceId", caseInstanceId);
-		this.caseInstanceId_Renamed = caseInstanceId;
+		this.caseInstanceId_Conflict = caseInstanceId;
 		return this;
 	  }
 
 	  public virtual TaskQuery caseInstanceBusinessKey(string caseInstanceBusinessKey)
 	  {
 		ensureNotNull("caseInstanceBusinessKey", caseInstanceBusinessKey);
-		this.caseInstanceBusinessKey_Renamed = caseInstanceBusinessKey;
+		this.caseInstanceBusinessKey_Conflict = caseInstanceBusinessKey;
 		return this;
 	  }
 
 	  public virtual TaskQuery caseInstanceBusinessKeyLike(string caseInstanceBusinessKeyLike)
 	  {
 		ensureNotNull("caseInstanceBusinessKeyLike", caseInstanceBusinessKeyLike);
-		this.caseInstanceBusinessKeyLike_Renamed = caseInstanceBusinessKeyLike;
+		this.caseInstanceBusinessKeyLike_Conflict = caseInstanceBusinessKeyLike;
 		return this;
 	  }
 
 	  public virtual TaskQuery caseExecutionId(string caseExecutionId)
 	  {
 		ensureNotNull("caseExecutionId", caseExecutionId);
-		this.caseExecutionId_Renamed = caseExecutionId;
+		this.caseExecutionId_Conflict = caseExecutionId;
 		return this;
 	  }
 
 	  public virtual TaskQuery caseDefinitionId(string caseDefinitionId)
 	  {
 		ensureNotNull("caseDefinitionId", caseDefinitionId);
-		this.caseDefinitionId_Renamed = caseDefinitionId;
+		this.caseDefinitionId_Conflict = caseDefinitionId;
 		return this;
 	  }
 
 	  public virtual TaskQuery caseDefinitionKey(string caseDefinitionKey)
 	  {
 		ensureNotNull("caseDefinitionKey", caseDefinitionKey);
-		this.caseDefinitionKey_Renamed = caseDefinitionKey;
+		this.caseDefinitionKey_Conflict = caseDefinitionKey;
 		return this;
 	  }
 
 	  public virtual TaskQuery caseDefinitionName(string caseDefinitionName)
 	  {
 		ensureNotNull("caseDefinitionName", caseDefinitionName);
-		this.caseDefinitionName_Renamed = caseDefinitionName;
+		this.caseDefinitionName_Conflict = caseDefinitionName;
 		return this;
 	  }
 
 	  public virtual TaskQuery caseDefinitionNameLike(string caseDefinitionNameLike)
 	  {
 		ensureNotNull("caseDefinitionNameLike", caseDefinitionNameLike);
-		this.caseDefinitionNameLike_Renamed = caseDefinitionNameLike;
+		this.caseDefinitionNameLike_Conflict = caseDefinitionNameLike;
 		return this;
 	  }
 
@@ -809,7 +809,7 @@ namespace org.camunda.bpm.engine.impl
 
 	  public virtual TaskQuery processDefinitionKey(string processDefinitionKey)
 	  {
-		this.processDefinitionKey_Renamed = processDefinitionKey;
+		this.processDefinitionKey_Conflict = processDefinitionKey;
 		return this;
 	  }
 
@@ -821,25 +821,25 @@ namespace org.camunda.bpm.engine.impl
 
 	  public virtual TaskQuery processDefinitionId(string processDefinitionId)
 	  {
-		this.processDefinitionId_Renamed = processDefinitionId;
+		this.processDefinitionId_Conflict = processDefinitionId;
 		return this;
 	  }
 
 	  public virtual TaskQuery processDefinitionName(string processDefinitionName)
 	  {
-		this.processDefinitionName_Renamed = processDefinitionName;
+		this.processDefinitionName_Conflict = processDefinitionName;
 		return this;
 	  }
 
 	  public virtual TaskQuery processDefinitionNameLike(string processDefinitionName)
 	  {
-		this.processDefinitionNameLike_Renamed = processDefinitionName;
+		this.processDefinitionNameLike_Conflict = processDefinitionName;
 		  return this;
 	  }
 
 	  public virtual TaskQuery dueDate(DateTime dueDate)
 	  {
-		this.dueDate_Renamed = dueDate;
+		this.dueDate_Conflict = dueDate;
 		expressions.Remove("dueDate");
 		return this;
 	  }
@@ -852,7 +852,7 @@ namespace org.camunda.bpm.engine.impl
 
 	  public virtual TaskQuery dueBefore(DateTime dueBefore)
 	  {
-		this.dueBefore_Renamed = dueBefore;
+		this.dueBefore_Conflict = dueBefore;
 		expressions.Remove("dueBefore");
 		return this;
 	  }
@@ -865,7 +865,7 @@ namespace org.camunda.bpm.engine.impl
 
 	  public virtual TaskQuery dueAfter(DateTime dueAfter)
 	  {
-		this.dueAfter_Renamed = dueAfter;
+		this.dueAfter_Conflict = dueAfter;
 		expressions.Remove("dueAfter");
 		return this;
 	  }
@@ -878,7 +878,7 @@ namespace org.camunda.bpm.engine.impl
 
 	  public virtual TaskQuery followUpDate(DateTime followUpDate)
 	  {
-		this.followUpDate_Renamed = followUpDate;
+		this.followUpDate_Conflict = followUpDate;
 		expressions.Remove("followUpDate");
 		return this;
 	  }
@@ -891,7 +891,7 @@ namespace org.camunda.bpm.engine.impl
 
 	  public virtual TaskQuery followUpBefore(DateTime followUpBefore)
 	  {
-		this.followUpBefore_Renamed = followUpBefore;
+		this.followUpBefore_Conflict = followUpBefore;
 		this.followUpNullAccepted = false;
 		expressions.Remove("followUpBefore");
 		return this;
@@ -906,7 +906,7 @@ namespace org.camunda.bpm.engine.impl
 
 	  public virtual TaskQuery followUpBeforeOrNotExistent(DateTime followUpDate)
 	  {
-		this.followUpBefore_Renamed = followUpDate;
+		this.followUpBefore_Conflict = followUpDate;
 		this.followUpNullAccepted = true;
 		expressions.Remove("followUpBeforeOrNotExistent");
 		return this;
@@ -933,7 +933,7 @@ namespace org.camunda.bpm.engine.impl
 
 	  public virtual TaskQuery followUpAfter(DateTime followUpAfter)
 	  {
-		this.followUpAfter_Renamed = followUpAfter;
+		this.followUpAfter_Conflict = followUpAfter;
 		expressions.Remove("followUpAfter");
 		return this;
 	  }
@@ -946,7 +946,7 @@ namespace org.camunda.bpm.engine.impl
 
 	  public virtual TaskQuery excludeSubtasks()
 	  {
-		this.excludeSubtasks_Renamed = true;
+		this.excludeSubtasks_Conflict = true;
 		return this;
 	  }
 
@@ -969,19 +969,19 @@ namespace org.camunda.bpm.engine.impl
 		  throw new ProcessEngineException("Invalid query usage: cannot set initializeFormKeys() within 'or' query");
 		}
 
-		this.initializeFormKeys_Renamed = true;
+		this.initializeFormKeys_Conflict = true;
 		return this;
 	  }
 
 	  public virtual TaskQuery taskNameCaseInsensitive()
 	  {
-		this.taskNameCaseInsensitive_Renamed = true;
+		this.taskNameCaseInsensitive_Conflict = true;
 		return this;
 	  }
 
 	  protected internal override bool hasExcludingConditions()
 	  {
-		return base.hasExcludingConditions() || CompareUtil.areNotInAscendingOrder(minPriority, priority, maxPriority) || CompareUtil.areNotInAscendingOrder(dueAfter_Renamed, dueDate_Renamed, dueBefore_Renamed) || CompareUtil.areNotInAscendingOrder(followUpAfter_Renamed, followUpDate_Renamed, followUpBefore_Renamed) || CompareUtil.areNotInAscendingOrder(createTimeAfter, createTime, createTimeBefore) || CompareUtil.elementIsNotContainedInArray(key, taskDefinitionKeys) || CompareUtil.elementIsNotContainedInArray(processDefinitionKey_Renamed, processDefinitionKeys) || CompareUtil.elementIsNotContainedInArray(processInstanceBusinessKey_Renamed, processInstanceBusinessKeys);
+		return base.hasExcludingConditions() || CompareUtil.areNotInAscendingOrder(minPriority, priority, maxPriority) || CompareUtil.areNotInAscendingOrder(dueAfter_Conflict, dueDate_Conflict, dueBefore_Conflict) || CompareUtil.areNotInAscendingOrder(followUpAfter_Conflict, followUpDate_Conflict, followUpBefore_Conflict) || CompareUtil.areNotInAscendingOrder(createTimeAfter, createTime, createTimeBefore) || CompareUtil.elementIsNotContainedInArray(key, taskDefinitionKeys) || CompareUtil.elementIsNotContainedInArray(processDefinitionKey_Conflict, processDefinitionKeys) || CompareUtil.elementIsNotContainedInArray(processInstanceBusinessKey_Conflict, processInstanceBusinessKeys);
 	  }
 
 	  public virtual IList<string> CandidateGroups
@@ -1044,13 +1044,13 @@ namespace org.camunda.bpm.engine.impl
 	  {
 		  get
 		  {
-			if (withCandidateGroups_Renamed == null)
+			if (withCandidateGroups_Conflict == null)
 			{
 			  return false;
 			}
 			else
 			{
-			  return withCandidateGroups_Renamed;
+			  return withCandidateGroups_Conflict;
 			}
 		  }
 	  }
@@ -1059,13 +1059,13 @@ namespace org.camunda.bpm.engine.impl
 	  {
 		  get
 		  {
-			if (withCandidateUsers_Renamed == null)
+			if (withCandidateUsers_Conflict == null)
 			{
 			  return false;
 			}
 			else
 			{
-			  return withCandidateUsers_Renamed;
+			  return withCandidateUsers_Conflict;
 			}
 		  }
 	  }
@@ -1074,7 +1074,7 @@ namespace org.camunda.bpm.engine.impl
 	  {
 		  get
 		  {
-			return withCandidateGroups_Renamed;
+			return withCandidateGroups_Conflict;
 		  }
 	  }
 
@@ -1082,13 +1082,13 @@ namespace org.camunda.bpm.engine.impl
 	  {
 		  get
 		  {
-			if (withoutCandidateGroups_Renamed == null)
+			if (withoutCandidateGroups_Conflict == null)
 			{
 			  return false;
 			}
 			else
 			{
-			  return withoutCandidateGroups_Renamed;
+			  return withoutCandidateGroups_Conflict;
 			}
 		  }
 	  }
@@ -1097,13 +1097,13 @@ namespace org.camunda.bpm.engine.impl
 	  {
 		  get
 		  {
-			if (withoutCandidateUsers_Renamed == null)
+			if (withoutCandidateUsers_Conflict == null)
 			{
 			  return false;
 			}
 			else
 			{
-			  return withoutCandidateUsers_Renamed;
+			  return withoutCandidateUsers_Conflict;
 			}
 		  }
 	  }
@@ -1112,7 +1112,7 @@ namespace org.camunda.bpm.engine.impl
 	  {
 		  get
 		  {
-			return withoutCandidateGroups_Renamed;
+			return withoutCandidateGroups_Conflict;
 		  }
 	  }
 
@@ -1438,7 +1438,7 @@ namespace org.camunda.bpm.engine.impl
 
 		IList<Task> taskList = commandContext.TaskManager.findTasksByQueryCriteria(this);
 
-		if (initializeFormKeys_Renamed)
+		if (initializeFormKeys_Conflict)
 		{
 		  foreach (Task task in taskList)
 		  {
@@ -1631,7 +1631,7 @@ namespace org.camunda.bpm.engine.impl
 	  {
 		  get
 		  {
-			return includeAssignedTasks_Renamed != null ? includeAssignedTasks_Renamed.Value : false;
+			return includeAssignedTasks_Conflict != null ? includeAssignedTasks_Conflict.Value : false;
 		  }
 	  }
 
@@ -1639,7 +1639,7 @@ namespace org.camunda.bpm.engine.impl
 	  {
 		  get
 		  {
-			return includeAssignedTasks_Renamed;
+			return includeAssignedTasks_Conflict;
 		  }
 	  }
 
@@ -1647,7 +1647,7 @@ namespace org.camunda.bpm.engine.impl
 	  {
 		  get
 		  {
-			return processInstanceId_Renamed;
+			return processInstanceId_Conflict;
 		  }
 	  }
 
@@ -1655,7 +1655,7 @@ namespace org.camunda.bpm.engine.impl
 	  {
 		  get
 		  {
-			return executionId_Renamed;
+			return executionId_Conflict;
 		  }
 	  }
 
@@ -1663,7 +1663,7 @@ namespace org.camunda.bpm.engine.impl
 	  {
 		  get
 		  {
-			return activityInstanceIdIn_Renamed;
+			return activityInstanceIdIn_Conflict;
 		  }
 	  }
 
@@ -1679,7 +1679,7 @@ namespace org.camunda.bpm.engine.impl
 	  {
 		  get
 		  {
-			return taskId_Renamed;
+			return taskId_Conflict;
 		  }
 	  }
 
@@ -1791,7 +1791,7 @@ namespace org.camunda.bpm.engine.impl
 	  {
 		  get
 		  {
-			return processDefinitionKey_Renamed;
+			return processDefinitionKey_Conflict;
 		  }
 	  }
 
@@ -1807,7 +1807,7 @@ namespace org.camunda.bpm.engine.impl
 	  {
 		  get
 		  {
-			return processDefinitionId_Renamed;
+			return processDefinitionId_Conflict;
 		  }
 	  }
 
@@ -1815,7 +1815,7 @@ namespace org.camunda.bpm.engine.impl
 	  {
 		  get
 		  {
-			return processDefinitionName_Renamed;
+			return processDefinitionName_Conflict;
 		  }
 	  }
 
@@ -1823,7 +1823,7 @@ namespace org.camunda.bpm.engine.impl
 	  {
 		  get
 		  {
-			return processDefinitionNameLike_Renamed;
+			return processDefinitionNameLike_Conflict;
 		  }
 	  }
 
@@ -1831,7 +1831,7 @@ namespace org.camunda.bpm.engine.impl
 	  {
 		  get
 		  {
-			return processInstanceBusinessKey_Renamed;
+			return processInstanceBusinessKey_Conflict;
 		  }
 	  }
 
@@ -1847,7 +1847,7 @@ namespace org.camunda.bpm.engine.impl
 	  {
 		  get
 		  {
-			return processInstanceBusinessKeyLike_Renamed;
+			return processInstanceBusinessKeyLike_Conflict;
 		  }
 	  }
 
@@ -1855,7 +1855,7 @@ namespace org.camunda.bpm.engine.impl
 	  {
 		  get
 		  {
-			return dueDate_Renamed;
+			return dueDate_Conflict;
 		  }
 	  }
 
@@ -1863,7 +1863,7 @@ namespace org.camunda.bpm.engine.impl
 	  {
 		  get
 		  {
-			return dueBefore_Renamed;
+			return dueBefore_Conflict;
 		  }
 	  }
 
@@ -1871,7 +1871,7 @@ namespace org.camunda.bpm.engine.impl
 	  {
 		  get
 		  {
-			return dueAfter_Renamed;
+			return dueAfter_Conflict;
 		  }
 	  }
 
@@ -1879,7 +1879,7 @@ namespace org.camunda.bpm.engine.impl
 	  {
 		  get
 		  {
-			return followUpDate_Renamed;
+			return followUpDate_Conflict;
 		  }
 	  }
 
@@ -1887,7 +1887,7 @@ namespace org.camunda.bpm.engine.impl
 	  {
 		  get
 		  {
-			return followUpBefore_Renamed;
+			return followUpBefore_Conflict;
 		  }
 	  }
 
@@ -1895,7 +1895,7 @@ namespace org.camunda.bpm.engine.impl
 	  {
 		  get
 		  {
-			return followUpAfter_Renamed;
+			return followUpAfter_Conflict;
 		  }
 	  }
 
@@ -1903,7 +1903,7 @@ namespace org.camunda.bpm.engine.impl
 	  {
 		  get
 		  {
-			return excludeSubtasks_Renamed;
+			return excludeSubtasks_Conflict;
 		  }
 	  }
 
@@ -1919,7 +1919,7 @@ namespace org.camunda.bpm.engine.impl
 	  {
 		  get
 		  {
-			return caseInstanceId_Renamed;
+			return caseInstanceId_Conflict;
 		  }
 	  }
 
@@ -1927,7 +1927,7 @@ namespace org.camunda.bpm.engine.impl
 	  {
 		  get
 		  {
-			return caseInstanceBusinessKey_Renamed;
+			return caseInstanceBusinessKey_Conflict;
 		  }
 	  }
 
@@ -1935,7 +1935,7 @@ namespace org.camunda.bpm.engine.impl
 	  {
 		  get
 		  {
-			return caseInstanceBusinessKeyLike_Renamed;
+			return caseInstanceBusinessKeyLike_Conflict;
 		  }
 	  }
 
@@ -1943,7 +1943,7 @@ namespace org.camunda.bpm.engine.impl
 	  {
 		  get
 		  {
-			return caseExecutionId_Renamed;
+			return caseExecutionId_Conflict;
 		  }
 	  }
 
@@ -1951,7 +1951,7 @@ namespace org.camunda.bpm.engine.impl
 	  {
 		  get
 		  {
-			return caseDefinitionId_Renamed;
+			return caseDefinitionId_Conflict;
 		  }
 	  }
 
@@ -1959,7 +1959,7 @@ namespace org.camunda.bpm.engine.impl
 	  {
 		  get
 		  {
-			return caseDefinitionKey_Renamed;
+			return caseDefinitionKey_Conflict;
 		  }
 	  }
 
@@ -1967,7 +1967,7 @@ namespace org.camunda.bpm.engine.impl
 	  {
 		  get
 		  {
-			return caseDefinitionName_Renamed;
+			return caseDefinitionName_Conflict;
 		  }
 	  }
 
@@ -1975,7 +1975,7 @@ namespace org.camunda.bpm.engine.impl
 	  {
 		  get
 		  {
-			return caseDefinitionNameLike_Renamed;
+			return caseDefinitionNameLike_Conflict;
 		  }
 	  }
 
@@ -1983,7 +1983,7 @@ namespace org.camunda.bpm.engine.impl
 	  {
 		  get
 		  {
-			return initializeFormKeys_Renamed;
+			return initializeFormKeys_Conflict;
 		  }
 	  }
 
@@ -1991,7 +1991,7 @@ namespace org.camunda.bpm.engine.impl
 	  {
 		  get
 		  {
-			return taskNameCaseInsensitive_Renamed;
+			return taskNameCaseInsensitive_Conflict;
 		  }
 	  }
 

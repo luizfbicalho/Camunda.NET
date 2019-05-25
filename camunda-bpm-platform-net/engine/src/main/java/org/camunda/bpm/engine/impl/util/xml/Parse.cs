@@ -48,7 +48,7 @@ namespace org.camunda.bpm.engine.impl.util.xml
 
 	  protected internal Parser parser;
 //JAVA TO C# CONVERTER NOTE: Fields cannot have the same name as methods:
-	  protected internal string name_Renamed;
+	  protected internal string name_Conflict;
 	  protected internal StreamSource streamSource;
 	  protected internal Element rootElement = null;
 	  protected internal IList<Problem> errors = new List<Problem>();
@@ -63,13 +63,13 @@ namespace org.camunda.bpm.engine.impl.util.xml
 
 	  public virtual Parse name(string name)
 	  {
-		this.name_Renamed = name;
+		this.name_Conflict = name;
 		return this;
 	  }
 
 	  public virtual Parse sourceInputStream(Stream inputStream)
 	  {
-		if (string.ReferenceEquals(name_Renamed, null))
+		if (string.ReferenceEquals(name_Conflict, null))
 		{
 		  name("inputStream");
 		}
@@ -84,7 +84,7 @@ namespace org.camunda.bpm.engine.impl.util.xml
 
 	  public virtual Parse sourceUrl(URL url)
 	  {
-		if (string.ReferenceEquals(name_Renamed, null))
+		if (string.ReferenceEquals(name_Conflict, null))
 		{
 		  name(url.ToString());
 		}
@@ -106,7 +106,7 @@ namespace org.camunda.bpm.engine.impl.util.xml
 
 	  public virtual Parse sourceResource(string resource, ClassLoader classLoader)
 	  {
-		if (string.ReferenceEquals(name_Renamed, null))
+		if (string.ReferenceEquals(name_Conflict, null))
 		{
 		  name(resource);
 		}
@@ -116,7 +116,7 @@ namespace org.camunda.bpm.engine.impl.util.xml
 
 	  public virtual Parse sourceString(string @string)
 	  {
-		if (string.ReferenceEquals(name_Renamed, null))
+		if (string.ReferenceEquals(name_Conflict, null))
 		{
 		  name("string");
 		}
@@ -175,7 +175,7 @@ namespace org.camunda.bpm.engine.impl.util.xml
 		}
 		catch (Exception e)
 		{
-		  throw LOG.parsingFailureException(name_Renamed, e);
+		  throw LOG.parsingFailureException(name_Conflict, e);
 		}
 
 		return this;
@@ -199,17 +199,17 @@ namespace org.camunda.bpm.engine.impl.util.xml
 
 	  public virtual void addError(SAXParseException e)
 	  {
-		errors.Add(new Problem(e, name_Renamed));
+		errors.Add(new Problem(e, name_Conflict));
 	  }
 
 	  public virtual void addError(string errorMessage, Element element)
 	  {
-		errors.Add(new Problem(errorMessage, name_Renamed, element));
+		errors.Add(new Problem(errorMessage, name_Conflict, element));
 	  }
 
 	  public virtual void addError(BpmnParseException e)
 	  {
-		errors.Add(new Problem(e, name_Renamed));
+		errors.Add(new Problem(e, name_Conflict));
 	  }
 
 	  public virtual bool hasErrors()
@@ -219,12 +219,12 @@ namespace org.camunda.bpm.engine.impl.util.xml
 
 	  public virtual void addWarning(SAXParseException e)
 	  {
-		warnings.Add(new Problem(e, name_Renamed));
+		warnings.Add(new Problem(e, name_Conflict));
 	  }
 
 	  public virtual void addWarning(string errorMessage, Element element)
 	  {
-		warnings.Add(new Problem(errorMessage, name_Renamed, element));
+		warnings.Add(new Problem(errorMessage, name_Conflict, element));
 	  }
 
 	  public virtual bool hasWarnings()

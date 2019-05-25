@@ -97,9 +97,9 @@ namespace org.camunda.bpm.engine.test.util
 			  notFound.Remove(instructionAssert);
 			  notExpected.Remove(instruction);
 			  assertEquals("Target activity ids do not match for instruction " + instruction, instructionAssert.targetActivityId, instruction.TargetActivityId);
-			  if (instructionAssert.updateEventTrigger_Renamed != null)
+			  if (instructionAssert.updateEventTrigger_Conflict != null)
 			  {
-				assertEquals("Expected instruction to update event trigger: " + instructionAssert.updateEventTrigger_Renamed + " but is: " + instruction.UpdateEventTrigger, instructionAssert.updateEventTrigger_Renamed, instruction.UpdateEventTrigger);
+				assertEquals("Expected instruction to update event trigger: " + instructionAssert.updateEventTrigger_Conflict + " but is: " + instruction.UpdateEventTrigger, instructionAssert.updateEventTrigger_Conflict, instruction.UpdateEventTrigger);
 			  }
 			}
 		  }
@@ -148,7 +148,7 @@ namespace org.camunda.bpm.engine.test.util
 		protected internal string sourceActivityId;
 		protected internal string targetActivityId;
 //JAVA TO C# CONVERTER NOTE: Fields cannot have the same name as methods:
-		protected internal bool? updateEventTrigger_Renamed;
+		protected internal bool? updateEventTrigger_Conflict;
 
 		public virtual MigrationInstructionAssert from(string sourceActivityId)
 		{
@@ -164,7 +164,7 @@ namespace org.camunda.bpm.engine.test.util
 
 		public virtual MigrationInstructionAssert updateEventTrigger(bool updateEventTrigger)
 		{
-		  this.updateEventTrigger_Renamed = updateEventTrigger;
+		  this.updateEventTrigger_Conflict = updateEventTrigger;
 		  return this;
 		}
 

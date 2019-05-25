@@ -38,43 +38,43 @@ namespace org.camunda.bpm.engine.impl
 
 	  private const long serialVersionUID = 1L;
 //JAVA TO C# CONVERTER NOTE: Fields cannot have the same name as methods:
-	  protected internal string deploymentId_Renamed;
+	  protected internal string deploymentId_Conflict;
 //JAVA TO C# CONVERTER NOTE: Fields cannot have the same name as methods:
-	  protected internal string processDefinitionId_Renamed;
+	  protected internal string processDefinitionId_Conflict;
 //JAVA TO C# CONVERTER NOTE: Fields cannot have the same name as methods:
-	  protected internal string processDefinitionKey_Renamed;
+	  protected internal string processDefinitionKey_Conflict;
 //JAVA TO C# CONVERTER NOTE: Fields cannot have the same name as methods:
-	  protected internal string processInstanceId_Renamed;
+	  protected internal string processInstanceId_Conflict;
 //JAVA TO C# CONVERTER NOTE: Fields cannot have the same name as methods:
-	  protected internal string executionId_Renamed;
+	  protected internal string executionId_Conflict;
 //JAVA TO C# CONVERTER NOTE: Fields cannot have the same name as methods:
-	  protected internal string caseDefinitionId_Renamed;
+	  protected internal string caseDefinitionId_Conflict;
 //JAVA TO C# CONVERTER NOTE: Fields cannot have the same name as methods:
-	  protected internal string caseInstanceId_Renamed;
+	  protected internal string caseInstanceId_Conflict;
 //JAVA TO C# CONVERTER NOTE: Fields cannot have the same name as methods:
-	  protected internal string caseExecutionId_Renamed;
+	  protected internal string caseExecutionId_Conflict;
 //JAVA TO C# CONVERTER NOTE: Fields cannot have the same name as methods:
-	  protected internal string taskId_Renamed;
+	  protected internal string taskId_Conflict;
 //JAVA TO C# CONVERTER NOTE: Fields cannot have the same name as methods:
-	  protected internal string jobId_Renamed;
+	  protected internal string jobId_Conflict;
 //JAVA TO C# CONVERTER NOTE: Fields cannot have the same name as methods:
-	  protected internal string jobDefinitionId_Renamed;
+	  protected internal string jobDefinitionId_Conflict;
 //JAVA TO C# CONVERTER NOTE: Fields cannot have the same name as methods:
-	  protected internal string batchId_Renamed;
+	  protected internal string batchId_Conflict;
 //JAVA TO C# CONVERTER NOTE: Fields cannot have the same name as methods:
-	  protected internal string userId_Renamed;
+	  protected internal string userId_Conflict;
 //JAVA TO C# CONVERTER NOTE: Fields cannot have the same name as methods:
-	  protected internal string operationId_Renamed;
+	  protected internal string operationId_Conflict;
 //JAVA TO C# CONVERTER NOTE: Fields cannot have the same name as methods:
-	  protected internal string externalTaskId_Renamed;
+	  protected internal string externalTaskId_Conflict;
 //JAVA TO C# CONVERTER NOTE: Fields cannot have the same name as methods:
-	  protected internal string operationType_Renamed;
+	  protected internal string operationType_Conflict;
 //JAVA TO C# CONVERTER NOTE: Fields cannot have the same name as methods:
-	  protected internal string property_Renamed;
+	  protected internal string property_Conflict;
 //JAVA TO C# CONVERTER NOTE: Fields cannot have the same name as methods:
-	  protected internal string entityType_Renamed;
+	  protected internal string entityType_Conflict;
 //JAVA TO C# CONVERTER NOTE: Fields cannot have the same name as methods:
-	  protected internal string category_Renamed;
+	  protected internal string category_Conflict;
 	  protected internal DateTime timestampAfter;
 	  protected internal DateTime timestampBefore;
 
@@ -92,56 +92,56 @@ namespace org.camunda.bpm.engine.impl
 	  public virtual UserOperationLogQuery deploymentId(string deploymentId)
 	  {
 		ensureNotNull("deploymentId", deploymentId);
-		this.deploymentId_Renamed = deploymentId;
+		this.deploymentId_Conflict = deploymentId;
 		return this;
 	  }
 
 	  public virtual UserOperationLogQuery processDefinitionId(string processDefinitionId)
 	  {
 		ensureNotNull("processDefinitionId", processDefinitionId);
-		this.processDefinitionId_Renamed = processDefinitionId;
+		this.processDefinitionId_Conflict = processDefinitionId;
 		return this;
 	  }
 
 	  public virtual UserOperationLogQuery processDefinitionKey(string processDefinitionKey)
 	  {
 		ensureNotNull("processDefinitionKey", processDefinitionKey);
-		this.processDefinitionKey_Renamed = processDefinitionKey;
+		this.processDefinitionKey_Conflict = processDefinitionKey;
 		return this;
 	  }
 
 	  public virtual UserOperationLogQuery processInstanceId(string processInstanceId)
 	  {
 		ensureNotNull("processInstanceId", processInstanceId);
-		this.processInstanceId_Renamed = processInstanceId;
+		this.processInstanceId_Conflict = processInstanceId;
 		return this;
 	  }
 
 	  public virtual UserOperationLogQuery executionId(string executionId)
 	  {
 		ensureNotNull("executionId", executionId);
-		this.executionId_Renamed = executionId;
+		this.executionId_Conflict = executionId;
 		return this;
 	  }
 
 	  public virtual UserOperationLogQuery caseDefinitionId(string caseDefinitionId)
 	  {
 		ensureNotNull("caseDefinitionId", caseDefinitionId);
-		this.caseDefinitionId_Renamed = caseDefinitionId;
+		this.caseDefinitionId_Conflict = caseDefinitionId;
 		return this;
 	  }
 
 	  public virtual UserOperationLogQuery caseInstanceId(string caseInstanceId)
 	  {
 		ensureNotNull("caseInstanceId", caseInstanceId);
-		this.caseInstanceId_Renamed = caseInstanceId;
+		this.caseInstanceId_Conflict = caseInstanceId;
 		return this;
 	  }
 
 	  public virtual UserOperationLogQuery caseExecutionId(string caseExecutionId)
 	  {
 		ensureNotNull("caseExecutionId", caseExecutionId);
-		this.caseExecutionId_Renamed = caseExecutionId;
+		this.caseExecutionId_Conflict = caseExecutionId;
 		return this;
 	  }
 
@@ -149,70 +149,70 @@ namespace org.camunda.bpm.engine.impl
 	  public virtual UserOperationLogQuery taskId(string taskId)
 	  {
 		ensureNotNull("taskId", taskId);
-		this.taskId_Renamed = taskId;
+		this.taskId_Conflict = taskId;
 		return this;
 	  }
 
 	  public virtual UserOperationLogQuery jobId(string jobId)
 	  {
 		ensureNotNull("jobId", jobId);
-		this.jobId_Renamed = jobId;
+		this.jobId_Conflict = jobId;
 		return this;
 	  }
 
 	  public virtual UserOperationLogQuery jobDefinitionId(string jobDefinitionId)
 	  {
 		ensureNotNull("jobDefinitionId", jobDefinitionId);
-		this.jobDefinitionId_Renamed = jobDefinitionId;
+		this.jobDefinitionId_Conflict = jobDefinitionId;
 		return this;
 	  }
 
 	  public virtual UserOperationLogQuery batchId(string batchId)
 	  {
 		ensureNotNull("batchId", batchId);
-		this.batchId_Renamed = batchId;
+		this.batchId_Conflict = batchId;
 		return this;
 	  }
 
 	  public virtual UserOperationLogQuery userId(string userId)
 	  {
 		ensureNotNull("userId", userId);
-		this.userId_Renamed = userId;
+		this.userId_Conflict = userId;
 		return this;
 	  }
 
 	  public virtual UserOperationLogQuery operationId(string operationId)
 	  {
 		ensureNotNull("operationId", operationId);
-		this.operationId_Renamed = operationId;
+		this.operationId_Conflict = operationId;
 		return this;
 	  }
 
 	  public virtual UserOperationLogQuery externalTaskId(string externalTaskId)
 	  {
 		ensureNotNull("externalTaskId", externalTaskId);
-		this.externalTaskId_Renamed = externalTaskId;
+		this.externalTaskId_Conflict = externalTaskId;
 		return this;
 	  }
 
 	  public virtual UserOperationLogQuery operationType(string operationType)
 	  {
 		ensureNotNull("operationType", operationType);
-		this.operationType_Renamed = operationType;
+		this.operationType_Conflict = operationType;
 		return this;
 	  }
 
 	  public virtual UserOperationLogQuery property(string property)
 	  {
 		ensureNotNull("property", property);
-		this.property_Renamed = property;
+		this.property_Conflict = property;
 		return this;
 	  }
 
 	  public virtual UserOperationLogQuery entityType(string entityType)
 	  {
 		ensureNotNull("entityType", entityType);
-		this.entityType_Renamed = entityType;
+		this.entityType_Conflict = entityType;
 		return this;
 	  }
 
@@ -226,7 +226,7 @@ namespace org.camunda.bpm.engine.impl
 	  public virtual UserOperationLogQuery category(string category)
 	  {
 		ensureNotNull("category", category);
-		this.category_Renamed = category;
+		this.category_Conflict = category;
 		return this;
 	  }
 

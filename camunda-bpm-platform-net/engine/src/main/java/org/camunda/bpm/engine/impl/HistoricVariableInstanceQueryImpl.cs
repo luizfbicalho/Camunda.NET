@@ -44,19 +44,19 @@ namespace org.camunda.bpm.engine.impl
 	  private const long serialVersionUID = 1L;
 
 //JAVA TO C# CONVERTER NOTE: Fields cannot have the same name as methods:
-	  protected internal string variableId_Renamed;
+	  protected internal string variableId_Conflict;
 //JAVA TO C# CONVERTER NOTE: Fields cannot have the same name as methods:
-	  protected internal string processInstanceId_Renamed;
+	  protected internal string processInstanceId_Conflict;
 //JAVA TO C# CONVERTER NOTE: Fields cannot have the same name as methods:
-	  protected internal string processDefinitionId_Renamed;
+	  protected internal string processDefinitionId_Conflict;
 //JAVA TO C# CONVERTER NOTE: Fields cannot have the same name as methods:
-	  protected internal string processDefinitionKey_Renamed;
+	  protected internal string processDefinitionKey_Conflict;
 //JAVA TO C# CONVERTER NOTE: Fields cannot have the same name as methods:
-	  protected internal string caseInstanceId_Renamed;
+	  protected internal string caseInstanceId_Conflict;
 //JAVA TO C# CONVERTER NOTE: Fields cannot have the same name as methods:
-	  protected internal string variableName_Renamed;
+	  protected internal string variableName_Conflict;
 //JAVA TO C# CONVERTER NOTE: Fields cannot have the same name as methods:
-	  protected internal string variableNameLike_Renamed;
+	  protected internal string variableNameLike_Conflict;
 	  protected internal QueryVariableValue queryVariableValue;
 	  protected internal string[] variableTypes;
 	  protected internal string[] taskIds;
@@ -67,7 +67,7 @@ namespace org.camunda.bpm.engine.impl
 	  protected internal string[] tenantIds;
 	  protected internal string[] processInstanceIds;
 //JAVA TO C# CONVERTER NOTE: Fields cannot have the same name as methods:
-	  protected internal bool includeDeleted_Renamed = false;
+	  protected internal bool includeDeleted_Conflict = false;
 
 	  protected internal bool isByteArrayFetchingEnabled = true;
 	  protected internal bool isCustomObjectDeserializationEnabled = true;
@@ -83,34 +83,34 @@ namespace org.camunda.bpm.engine.impl
 	  public virtual HistoricVariableInstanceQuery variableId(string id)
 	  {
 		ensureNotNull("variableId", id);
-		this.variableId_Renamed = id;
+		this.variableId_Conflict = id;
 		return this;
 	  }
 
 	  public virtual HistoricVariableInstanceQueryImpl processInstanceId(string processInstanceId)
 	  {
 		ensureNotNull("processInstanceId", processInstanceId);
-		this.processInstanceId_Renamed = processInstanceId;
+		this.processInstanceId_Conflict = processInstanceId;
 		return this;
 	  }
 
 	  public virtual HistoricVariableInstanceQuery processDefinitionId(string processDefinitionId)
 	  {
 		ensureNotNull("processDefinitionId", processDefinitionId);
-		this.processDefinitionId_Renamed = processDefinitionId;
+		this.processDefinitionId_Conflict = processDefinitionId;
 		return this;
 	  }
 
 	  public virtual HistoricVariableInstanceQuery processDefinitionKey(string processDefinitionKey)
 	  {
-		this.processDefinitionKey_Renamed = processDefinitionKey;
+		this.processDefinitionKey_Conflict = processDefinitionKey;
 		return this;
 	  }
 
 	  public virtual HistoricVariableInstanceQuery caseInstanceId(string caseInstanceId)
 	  {
 		ensureNotNull("caseInstanceId", caseInstanceId);
-		this.caseInstanceId_Renamed = caseInstanceId;
+		this.caseInstanceId_Conflict = caseInstanceId;
 		return this;
 	  }
 
@@ -177,7 +177,7 @@ namespace org.camunda.bpm.engine.impl
 	  public virtual HistoricVariableInstanceQuery variableName(string variableName)
 	  {
 		ensureNotNull("variableName", variableName);
-		this.variableName_Renamed = variableName;
+		this.variableName_Conflict = variableName;
 		return this;
 	  }
 
@@ -185,7 +185,7 @@ namespace org.camunda.bpm.engine.impl
 	  {
 		ensureNotNull("variableName", variableName);
 		ensureNotNull("variableValue", variableValue);
-		this.variableName_Renamed = variableName;
+		this.variableName_Conflict = variableName;
 		queryVariableValue = new QueryVariableValue(variableName, variableValue, QueryOperator.EQUALS, true);
 		return this;
 	  }
@@ -193,7 +193,7 @@ namespace org.camunda.bpm.engine.impl
 	  public virtual HistoricVariableInstanceQuery variableNameLike(string variableNameLike)
 	  {
 		ensureNotNull("variableNameLike", variableNameLike);
-		this.variableNameLike_Renamed = variableNameLike;
+		this.variableNameLike_Conflict = variableNameLike;
 		return this;
 	  }
 
@@ -295,7 +295,7 @@ namespace org.camunda.bpm.engine.impl
 	  {
 		  get
 		  {
-			return processInstanceId_Renamed;
+			return processInstanceId_Conflict;
 		  }
 	  }
 
@@ -303,7 +303,7 @@ namespace org.camunda.bpm.engine.impl
 	  {
 		  get
 		  {
-			return caseInstanceId_Renamed;
+			return caseInstanceId_Conflict;
 		  }
 	  }
 
@@ -359,7 +359,7 @@ namespace org.camunda.bpm.engine.impl
 	  {
 		  get
 		  {
-			return variableName_Renamed;
+			return variableName_Conflict;
 		  }
 	  }
 
@@ -367,7 +367,7 @@ namespace org.camunda.bpm.engine.impl
 	  {
 		  get
 		  {
-			return variableNameLike_Renamed;
+			return variableNameLike_Conflict;
 		  }
 	  }
 
@@ -381,7 +381,7 @@ namespace org.camunda.bpm.engine.impl
 
 	  public virtual HistoricVariableInstanceQuery includeDeleted()
 	  {
-		includeDeleted_Renamed = true;
+		includeDeleted_Conflict = true;
 		return this;
 	  }
 
@@ -389,7 +389,7 @@ namespace org.camunda.bpm.engine.impl
 	  {
 		  get
 		  {
-			return processDefinitionId_Renamed;
+			return processDefinitionId_Conflict;
 		  }
 	  }
 
@@ -397,7 +397,7 @@ namespace org.camunda.bpm.engine.impl
 	  {
 		  get
 		  {
-			return processDefinitionKey_Renamed;
+			return processDefinitionKey_Conflict;
 		  }
 	  }
 	}

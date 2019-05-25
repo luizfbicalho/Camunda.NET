@@ -517,25 +517,25 @@ namespace org.camunda.bpm.engine.test.api.identity
 
 
 //JAVA TO C# CONVERTER NOTE: Fields cannot have the same name as methods:
-		internal string resourceName_Renamed;
+		internal string resourceName_Conflict;
 //JAVA TO C# CONVERTER NOTE: Fields cannot have the same name as methods:
-		internal int resourceType_Renamed;
+		internal int resourceType_Conflict;
 
 		public ResourceImpl(AuthorizationServiceAuthorizationsTest outerInstance, string resourceName, int resourceType)
 		{
 			this.outerInstance = outerInstance;
-		  this.resourceName_Renamed = resourceName;
-		  this.resourceType_Renamed = resourceType;
+		  this.resourceName_Conflict = resourceName;
+		  this.resourceType_Conflict = resourceType;
 		}
 
 		public virtual string resourceName()
 		{
-		  return resourceName_Renamed;
+		  return resourceName_Conflict;
 		}
 
 		public virtual int resourceType()
 		{
-		  return resourceType_Renamed;
+		  return resourceType_Conflict;
 		}
 
 	  }

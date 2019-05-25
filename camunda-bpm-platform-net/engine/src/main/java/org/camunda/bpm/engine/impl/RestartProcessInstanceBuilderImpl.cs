@@ -42,17 +42,17 @@ namespace org.camunda.bpm.engine.impl
 
 	  protected internal CommandExecutor commandExecutor;
 //JAVA TO C# CONVERTER NOTE: Fields cannot have the same name as methods:
-	  protected internal IList<string> processInstanceIds_Renamed;
+	  protected internal IList<string> processInstanceIds_Conflict;
 	  protected internal IList<AbstractProcessInstanceModificationCommand> instructions;
 	  protected internal string processDefinitionId;
 	  protected internal HistoricProcessInstanceQuery query;
 	  protected internal bool initialVariables;
 //JAVA TO C# CONVERTER NOTE: Fields cannot have the same name as methods:
-	  protected internal bool skipCustomListeners_Renamed;
+	  protected internal bool skipCustomListeners_Conflict;
 //JAVA TO C# CONVERTER NOTE: Fields cannot have the same name as methods:
-	  protected internal bool skipIoMappings_Renamed;
+	  protected internal bool skipIoMappings_Conflict;
 //JAVA TO C# CONVERTER NOTE: Fields cannot have the same name as methods:
-	  protected internal bool withoutBusinessKey_Renamed;
+	  protected internal bool withoutBusinessKey_Conflict;
 
 	  public RestartProcessInstanceBuilderImpl(CommandExecutor commandExecutor, string processDefinitionId)
 	  {
@@ -60,7 +60,7 @@ namespace org.camunda.bpm.engine.impl
 		this.commandExecutor = commandExecutor;
 		this.instructions = new List<AbstractProcessInstanceModificationCommand>();
 		this.processDefinitionId = processDefinitionId;
-		this.processInstanceIds_Renamed = new List<string>();
+		this.processInstanceIds_Conflict = new List<string>();
 	  }
 
 	  public override RestartProcessInstanceBuilder startBeforeActivity(string activityId)
@@ -115,13 +115,13 @@ namespace org.camunda.bpm.engine.impl
 	  {
 		  get
 		  {
-			return processInstanceIds_Renamed;
+			return processInstanceIds_Conflict;
 		  }
 	  }
 
 	  public virtual RestartProcessInstanceBuilder processInstanceIds(params string[] processInstanceIds)
 	  {
-		((IList<string>)this.processInstanceIds_Renamed).AddRange(Arrays.asList(processInstanceIds));
+		((IList<string>)this.processInstanceIds_Conflict).AddRange(Arrays.asList(processInstanceIds));
 		return this;
 	  }
 
@@ -155,7 +155,7 @@ namespace org.camunda.bpm.engine.impl
 
 	  public virtual RestartProcessInstanceBuilder processInstanceIds(IList<string> processInstanceIds)
 	  {
-		((IList<string>)this.processInstanceIds_Renamed).AddRange(processInstanceIds);
+		((IList<string>)this.processInstanceIds_Conflict).AddRange(processInstanceIds);
 		return this;
 	  }
 
@@ -175,13 +175,13 @@ namespace org.camunda.bpm.engine.impl
 
 	  public virtual RestartProcessInstanceBuilder skipCustomListeners()
 	  {
-		this.skipCustomListeners_Renamed = true;
+		this.skipCustomListeners_Conflict = true;
 		return this;
 	  }
 
 	  public virtual RestartProcessInstanceBuilder skipIoMappings()
 	  {
-		this.skipIoMappings_Renamed = true;
+		this.skipIoMappings_Conflict = true;
 		return this;
 	  }
 
@@ -189,7 +189,7 @@ namespace org.camunda.bpm.engine.impl
 	  {
 		  get
 		  {
-			return skipCustomListeners_Renamed;
+			return skipCustomListeners_Conflict;
 		  }
 	  }
 
@@ -197,13 +197,13 @@ namespace org.camunda.bpm.engine.impl
 	  {
 		  get
 		  {
-			return skipIoMappings_Renamed;
+			return skipIoMappings_Conflict;
 		  }
 	  }
 
 	  public virtual RestartProcessInstanceBuilder withoutBusinessKey()
 	  {
-		withoutBusinessKey_Renamed = true;
+		withoutBusinessKey_Conflict = true;
 		return this;
 	  }
 
@@ -211,7 +211,7 @@ namespace org.camunda.bpm.engine.impl
 	  {
 		  get
 		  {
-			return withoutBusinessKey_Renamed;
+			return withoutBusinessKey_Conflict;
 		  }
 	  }
 	}

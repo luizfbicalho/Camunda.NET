@@ -68,7 +68,7 @@ namespace org.camunda.bpm.engine.impl.persistence.entity
 
 	  public override string ToString()
 	  {
-		return this.GetType().Name + "[instances=" + instances + ", failedJobs=" + failedJobs + ", id=" + id + ", deploymentId=" + deploymentId + ", description=" + description + ", historyLevel=" + historyLevel + ", category=" + category + ", hasStartFormKey=" + hasStartFormKey_Renamed + ", diagramResourceName=" + diagramResourceName + ", key=" + key + ", name=" + name + ", resourceName=" + resourceName + ", revision=" + revision + ", version=" + version + ", suspensionState=" + suspensionState + "]";
+		return this.GetType().Name + "[instances=" + instances + ", failedJobs=" + failedJobs + ", id=" + id + ", deploymentId=" + deploymentId + ", description=" + description + ", historyLevel=" + historyLevel + ", category=" + category + ", hasStartFormKey=" + hasStartFormKey_Conflict + ", diagramResourceName=" + diagramResourceName + ", key=" + key + ", name=" + name + ", resourceName=" + resourceName + ", revision=" + revision + ", version=" + version + ", suspensionState=" + suspensionState + "]";
 	  }
 	}
 

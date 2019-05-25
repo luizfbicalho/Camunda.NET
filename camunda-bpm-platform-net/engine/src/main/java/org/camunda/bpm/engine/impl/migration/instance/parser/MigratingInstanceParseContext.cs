@@ -54,22 +54,22 @@ namespace org.camunda.bpm.engine.impl.migration.instance.parser
 	  protected internal IDictionary<string, MigratingExternalTaskInstance> migratingExternalTasks = new Dictionary<string, MigratingExternalTaskInstance>();
 
 //JAVA TO C# CONVERTER NOTE: Fields cannot have the same name as methods:
-	  protected internal ICollection<EventSubscriptionEntity> eventSubscriptions_Renamed;
+	  protected internal ICollection<EventSubscriptionEntity> eventSubscriptions_Conflict;
 //JAVA TO C# CONVERTER NOTE: Fields cannot have the same name as methods:
-	  protected internal ICollection<IncidentEntity> incidents_Renamed;
+	  protected internal ICollection<IncidentEntity> incidents_Conflict;
 //JAVA TO C# CONVERTER NOTE: Fields cannot have the same name as methods:
-	  protected internal ICollection<JobEntity> jobs_Renamed;
+	  protected internal ICollection<JobEntity> jobs_Conflict;
 //JAVA TO C# CONVERTER NOTE: Fields cannot have the same name as methods:
-	  protected internal ICollection<TaskEntity> tasks_Renamed;
+	  protected internal ICollection<TaskEntity> tasks_Conflict;
 //JAVA TO C# CONVERTER NOTE: Fields cannot have the same name as methods:
-	  protected internal ICollection<ExternalTaskEntity> externalTasks_Renamed;
+	  protected internal ICollection<ExternalTaskEntity> externalTasks_Conflict;
 //JAVA TO C# CONVERTER NOTE: Fields cannot have the same name as methods:
-	  protected internal ICollection<VariableInstanceEntity> variables_Renamed;
+	  protected internal ICollection<VariableInstanceEntity> variables_Conflict;
 
 	  protected internal ProcessDefinitionEntity sourceProcessDefinition;
 	  protected internal ProcessDefinitionEntity targetProcessDefinition;
 //JAVA TO C# CONVERTER NOTE: Fields cannot have the same name as methods:
-	  protected internal IDictionary<string, IList<JobDefinitionEntity>> targetJobDefinitions_Renamed;
+	  protected internal IDictionary<string, IList<JobDefinitionEntity>> targetJobDefinitions_Conflict;
 	  protected internal ActivityExecutionTreeMapping mapping;
 	  protected internal IDictionary<string, IList<MigrationInstruction>> instructionsBySourceScope;
 
@@ -87,48 +87,48 @@ namespace org.camunda.bpm.engine.impl.migration.instance.parser
 
 	  public virtual MigratingInstanceParseContext jobs(ICollection<JobEntity> jobs)
 	  {
-		this.jobs_Renamed = new HashSet<JobEntity>(jobs);
+		this.jobs_Conflict = new HashSet<JobEntity>(jobs);
 		return this;
 	  }
 
 	  public virtual MigratingInstanceParseContext incidents(ICollection<IncidentEntity> incidents)
 	  {
-		this.incidents_Renamed = new HashSet<IncidentEntity>(incidents);
+		this.incidents_Conflict = new HashSet<IncidentEntity>(incidents);
 		return this;
 	  }
 
 	  public virtual MigratingInstanceParseContext tasks(ICollection<TaskEntity> tasks)
 	  {
-		this.tasks_Renamed = new HashSet<TaskEntity>(tasks);
+		this.tasks_Conflict = new HashSet<TaskEntity>(tasks);
 		return this;
 	  }
 
 	  public virtual MigratingInstanceParseContext externalTasks(ICollection<ExternalTaskEntity> externalTasks)
 	  {
-		this.externalTasks_Renamed = new HashSet<ExternalTaskEntity>(externalTasks);
+		this.externalTasks_Conflict = new HashSet<ExternalTaskEntity>(externalTasks);
 		return this;
 	  }
 
 	  public virtual MigratingInstanceParseContext eventSubscriptions(ICollection<EventSubscriptionEntity> eventSubscriptions)
 	  {
-		this.eventSubscriptions_Renamed = new HashSet<EventSubscriptionEntity>(eventSubscriptions);
+		this.eventSubscriptions_Conflict = new HashSet<EventSubscriptionEntity>(eventSubscriptions);
 		return this;
 	  }
 
 	  public virtual MigratingInstanceParseContext targetJobDefinitions(ICollection<JobDefinitionEntity> jobDefinitions)
 	  {
-		this.targetJobDefinitions_Renamed = new Dictionary<string, IList<JobDefinitionEntity>>();
+		this.targetJobDefinitions_Conflict = new Dictionary<string, IList<JobDefinitionEntity>>();
 
 		foreach (JobDefinitionEntity jobDefinition in jobDefinitions)
 		{
-		  CollectionUtil.addToMapOfLists(this.targetJobDefinitions_Renamed, jobDefinition.ActivityId, jobDefinition);
+		  CollectionUtil.addToMapOfLists(this.targetJobDefinitions_Conflict, jobDefinition.ActivityId, jobDefinition);
 		}
 		return this;
 	  }
 
 	  public virtual MigratingInstanceParseContext variables(ICollection<VariableInstanceEntity> variables)
 	  {
-		this.variables_Renamed = new HashSet<VariableInstanceEntity>(variables);
+		this.variables_Conflict = new HashSet<VariableInstanceEntity>(variables);
 		return this;
 	  }
 
@@ -158,32 +158,32 @@ namespace org.camunda.bpm.engine.impl.migration.instance.parser
 
 	  public virtual void consume(TaskEntity task)
 	  {
-		tasks_Renamed.remove(task);
+		tasks_Conflict.remove(task);
 	  }
 
 	  public virtual void consume(ExternalTaskEntity externalTask)
 	  {
-		externalTasks_Renamed.remove(externalTask);
+		externalTasks_Conflict.remove(externalTask);
 	  }
 
 	  public virtual void consume(IncidentEntity incident)
 	  {
-		incidents_Renamed.remove(incident);
+		incidents_Conflict.remove(incident);
 	  }
 
 	  public virtual void consume(JobEntity job)
 	  {
-		jobs_Renamed.remove(job);
+		jobs_Conflict.remove(job);
 	  }
 
 	  public virtual void consume(EventSubscriptionEntity eventSubscription)
 	  {
-		eventSubscriptions_Renamed.remove(eventSubscription);
+		eventSubscriptions_Conflict.remove(eventSubscription);
 	  }
 
 	  public virtual void consume(VariableInstanceEntity variableInstance)
 	  {
-		variables_Renamed.remove(variableInstance);
+		variables_Conflict.remove(variableInstance);
 	  }
 
 	  public virtual MigratingProcessInstance MigratingProcessInstance
@@ -232,7 +232,7 @@ namespace org.camunda.bpm.engine.impl.migration.instance.parser
 
 	  public virtual JobDefinitionEntity getTargetJobDefinition(string activityId, string jobHandlerType)
 	  {
-		IList<JobDefinitionEntity> jobDefinitionsForActivity = targetJobDefinitions_Renamed[activityId];
+		IList<JobDefinitionEntity> jobDefinitionsForActivity = targetJobDefinitions_Conflict[activityId];
 
 		if (jobDefinitionsForActivity != null)
 		{
@@ -348,12 +348,12 @@ namespace org.camunda.bpm.engine.impl.migration.instance.parser
 	  {
 		processInstanceReport.ProcessInstanceId = migratingProcessInstance.ProcessInstanceId;
 
-		ensureNoEntitiesAreLeft("tasks", tasks_Renamed, processInstanceReport);
-		ensureNoEntitiesAreLeft("externalTask", externalTasks_Renamed, processInstanceReport);
-		ensureNoEntitiesAreLeft("incidents", incidents_Renamed, processInstanceReport);
-		ensureNoEntitiesAreLeft("jobs", jobs_Renamed, processInstanceReport);
-		ensureNoEntitiesAreLeft("event subscriptions", eventSubscriptions_Renamed, processInstanceReport);
-		ensureNoEntitiesAreLeft("variables", variables_Renamed, processInstanceReport);
+		ensureNoEntitiesAreLeft("tasks", tasks_Conflict, processInstanceReport);
+		ensureNoEntitiesAreLeft("externalTask", externalTasks_Conflict, processInstanceReport);
+		ensureNoEntitiesAreLeft("incidents", incidents_Conflict, processInstanceReport);
+		ensureNoEntitiesAreLeft("jobs", jobs_Conflict, processInstanceReport);
+		ensureNoEntitiesAreLeft("event subscriptions", eventSubscriptions_Conflict, processInstanceReport);
+		ensureNoEntitiesAreLeft("variables", variables_Conflict, processInstanceReport);
 	  }
 
 	  public virtual void ensureNoEntitiesAreLeft<T1>(string entityName, ICollection<T1> dbEntities, MigratingProcessInstanceValidationReportImpl processInstanceReport) where T1 : org.camunda.bpm.engine.impl.db.DbEntity

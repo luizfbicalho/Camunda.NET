@@ -36,7 +36,7 @@ namespace org.camunda.bpm.engine.impl.filter
 
 	  private const long serialVersionUID = 1L;
 //JAVA TO C# CONVERTER NOTE: Fields cannot have the same name as methods:
-	  protected internal string filterId_Renamed;
+	  protected internal string filterId_Conflict;
 	  protected internal string resourceType;
 	  protected internal string name;
 	  protected internal string nameLike;
@@ -53,7 +53,7 @@ namespace org.camunda.bpm.engine.impl.filter
 	  public virtual FilterQuery filterId(string filterId)
 	  {
 		ensureNotNull("filterId", filterId);
-		this.filterId_Renamed = filterId;
+		this.filterId_Conflict = filterId;
 		return this;
 	  }
 

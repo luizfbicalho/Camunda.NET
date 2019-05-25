@@ -43,7 +43,7 @@ namespace org.camunda.bpm.engine.impl.dmn.entity.repository
 	  protected internal string name;
 	  protected internal string nameLike;
 //JAVA TO C# CONVERTER NOTE: Fields cannot have the same name as methods:
-	  protected internal string deploymentId_Renamed;
+	  protected internal string deploymentId_Conflict;
 	  protected internal string key;
 	  protected internal string keyLike;
 	  protected internal string resourceName;
@@ -123,7 +123,7 @@ namespace org.camunda.bpm.engine.impl.dmn.entity.repository
 	  public virtual DecisionRequirementsDefinitionQuery deploymentId(string deploymentId)
 	  {
 		ensureNotNull(typeof(NotValidException), "deploymentId", deploymentId);
-		this.deploymentId_Renamed = deploymentId;
+		this.deploymentId_Conflict = deploymentId;
 		return this;
 	  }
 
@@ -236,7 +236,7 @@ namespace org.camunda.bpm.engine.impl.dmn.entity.repository
 		base.checkQueryOk();
 
 		// latest() makes only sense when used with key() or keyLike()
-		if (latest && ((!string.ReferenceEquals(id, null)) || (!string.ReferenceEquals(name, null)) || (!string.ReferenceEquals(nameLike, null)) || (version != null) || (!string.ReferenceEquals(deploymentId_Renamed, null))))
+		if (latest && ((!string.ReferenceEquals(id, null)) || (!string.ReferenceEquals(name, null)) || (!string.ReferenceEquals(nameLike, null)) || (version != null) || (!string.ReferenceEquals(deploymentId_Conflict, null))))
 		{
 		  throw new NotValidException("Calling latest() can only be used in combination with key(String) and keyLike(String)");
 		}
@@ -296,7 +296,7 @@ namespace org.camunda.bpm.engine.impl.dmn.entity.repository
 	  {
 		  get
 		  {
-			return deploymentId_Renamed;
+			return deploymentId_Conflict;
 		  }
 	  }
 

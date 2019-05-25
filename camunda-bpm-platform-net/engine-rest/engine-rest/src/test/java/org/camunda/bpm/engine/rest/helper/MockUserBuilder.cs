@@ -27,43 +27,43 @@ namespace org.camunda.bpm.engine.rest.helper
 	{
 
 //JAVA TO C# CONVERTER NOTE: Fields cannot have the same name as methods:
-	  protected internal string id_Renamed;
+	  protected internal string id_Conflict;
 //JAVA TO C# CONVERTER NOTE: Fields cannot have the same name as methods:
-	  protected internal string firstName_Renamed;
+	  protected internal string firstName_Conflict;
 //JAVA TO C# CONVERTER NOTE: Fields cannot have the same name as methods:
-	  protected internal string lastName_Renamed;
+	  protected internal string lastName_Conflict;
 //JAVA TO C# CONVERTER NOTE: Fields cannot have the same name as methods:
-	  protected internal string email_Renamed;
+	  protected internal string email_Conflict;
 //JAVA TO C# CONVERTER NOTE: Fields cannot have the same name as methods:
-	  protected internal string password_Renamed;
+	  protected internal string password_Conflict;
 
 	  public virtual MockUserBuilder id(string id)
 	  {
-		this.id_Renamed = id;
+		this.id_Conflict = id;
 		return this;
 	  }
 
 	  public virtual MockUserBuilder firstName(string firstName)
 	  {
-		this.firstName_Renamed = firstName;
+		this.firstName_Conflict = firstName;
 		return this;
 	  }
 
 	  public virtual MockUserBuilder lastName(string lastName)
 	  {
-		this.lastName_Renamed = lastName;
+		this.lastName_Conflict = lastName;
 		return this;
 	  }
 
 	  public virtual MockUserBuilder email(string email)
 	  {
-		this.email_Renamed = email;
+		this.email_Conflict = email;
 		return this;
 	  }
 
 	  public virtual MockUserBuilder password(string password)
 	  {
-		this.password_Renamed = password;
+		this.password_Conflict = password;
 		return this;
 	  }
 
@@ -72,11 +72,11 @@ namespace org.camunda.bpm.engine.rest.helper
 	  public virtual User build()
 	  {
 		User user = mock(typeof(User));
-		when(user.Id).thenReturn(id_Renamed);
-		when(user.FirstName).thenReturn(firstName_Renamed);
-		when(user.LastName).thenReturn(lastName_Renamed);
-		when(user.Email).thenReturn(email_Renamed);
-		when(user.Password).thenReturn(password_Renamed);
+		when(user.Id).thenReturn(id_Conflict);
+		when(user.FirstName).thenReturn(firstName_Conflict);
+		when(user.LastName).thenReturn(lastName_Conflict);
+		when(user.Email).thenReturn(email_Conflict);
+		when(user.Password).thenReturn(password_Conflict);
 		return user;
 	  }
 

@@ -44,13 +44,13 @@ namespace org.camunda.bpm.engine.impl.management
 	  protected internal string processDefinitionId;
 
 //JAVA TO C# CONVERTER NOTE: Fields cannot have the same name as methods:
-	  protected internal string processDefinitionTenantId_Renamed;
+	  protected internal string processDefinitionTenantId_Conflict;
 	  protected internal bool isProcessDefinitionTenantIdSet = false;
 
 //JAVA TO C# CONVERTER NOTE: Fields cannot have the same name as methods:
-	  protected internal bool includeJobs_Renamed = false;
+	  protected internal bool includeJobs_Conflict = false;
 //JAVA TO C# CONVERTER NOTE: Fields cannot have the same name as methods:
-	  protected internal DateTime executionDate_Renamed;
+	  protected internal DateTime executionDate_Conflict;
 
 	  public UpdateJobDefinitionSuspensionStateBuilderImpl(CommandExecutor commandExecutor)
 	  {
@@ -89,7 +89,7 @@ namespace org.camunda.bpm.engine.impl.management
 
 	  public virtual UpdateJobDefinitionSuspensionStateBuilderImpl processDefinitionWithoutTenantId()
 	  {
-		this.processDefinitionTenantId_Renamed = null;
+		this.processDefinitionTenantId_Conflict = null;
 		this.isProcessDefinitionTenantIdSet = true;
 		return this;
 	  }
@@ -98,20 +98,20 @@ namespace org.camunda.bpm.engine.impl.management
 	  {
 		ensureNotNull("tenantId", tenantId);
 
-		this.processDefinitionTenantId_Renamed = tenantId;
+		this.processDefinitionTenantId_Conflict = tenantId;
 		this.isProcessDefinitionTenantIdSet = true;
 		return this;
 	  }
 
 	  public virtual UpdateJobDefinitionSuspensionStateBuilderImpl includeJobs(bool includeJobs)
 	  {
-		this.includeJobs_Renamed = includeJobs;
+		this.includeJobs_Conflict = includeJobs;
 		return this;
 	  }
 
 	  public virtual UpdateJobDefinitionSuspensionStateBuilderImpl executionDate(DateTime executionDate)
 	  {
-		this.executionDate_Renamed = executionDate;
+		this.executionDate_Conflict = executionDate;
 		return this;
 	  }
 
@@ -164,7 +164,7 @@ namespace org.camunda.bpm.engine.impl.management
 	  {
 		  get
 		  {
-			return processDefinitionTenantId_Renamed;
+			return processDefinitionTenantId_Conflict;
 		  }
 	  }
 
@@ -188,7 +188,7 @@ namespace org.camunda.bpm.engine.impl.management
 	  {
 		  get
 		  {
-			return includeJobs_Renamed;
+			return includeJobs_Conflict;
 		  }
 	  }
 
@@ -196,7 +196,7 @@ namespace org.camunda.bpm.engine.impl.management
 	  {
 		  get
 		  {
-			return executionDate_Renamed;
+			return executionDate_Conflict;
 		  }
 	  }
 

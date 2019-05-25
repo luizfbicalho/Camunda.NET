@@ -41,36 +41,36 @@ namespace org.camunda.bpm.engine.impl
 	  private const long serialVersionUID = 1L;
 
 //JAVA TO C# CONVERTER NOTE: Fields cannot have the same name as methods:
-	  protected internal string externalTaskId_Renamed;
+	  protected internal string externalTaskId_Conflict;
 //JAVA TO C# CONVERTER NOTE: Fields cannot have the same name as methods:
-	  protected internal string workerId_Renamed;
+	  protected internal string workerId_Conflict;
 //JAVA TO C# CONVERTER NOTE: Fields cannot have the same name as methods:
-	  protected internal DateTime lockExpirationBefore_Renamed;
+	  protected internal DateTime lockExpirationBefore_Conflict;
 //JAVA TO C# CONVERTER NOTE: Fields cannot have the same name as methods:
-	  protected internal DateTime lockExpirationAfter_Renamed;
+	  protected internal DateTime lockExpirationAfter_Conflict;
 //JAVA TO C# CONVERTER NOTE: Fields cannot have the same name as methods:
-	  protected internal string topicName_Renamed;
+	  protected internal string topicName_Conflict;
 //JAVA TO C# CONVERTER NOTE: Fields cannot have the same name as methods:
-	  protected internal bool? locked_Renamed;
+	  protected internal bool? locked_Conflict;
 //JAVA TO C# CONVERTER NOTE: Fields cannot have the same name as methods:
-	  protected internal bool? notLocked_Renamed;
+	  protected internal bool? notLocked_Conflict;
 //JAVA TO C# CONVERTER NOTE: Fields cannot have the same name as methods:
-	  protected internal string executionId_Renamed;
+	  protected internal string executionId_Conflict;
 //JAVA TO C# CONVERTER NOTE: Fields cannot have the same name as methods:
-	  protected internal string processInstanceId_Renamed;
+	  protected internal string processInstanceId_Conflict;
 //JAVA TO C# CONVERTER NOTE: Fields cannot have the same name as methods:
-	  protected internal string[] processInstanceIdIn_Renamed;
+	  protected internal string[] processInstanceIdIn_Conflict;
 //JAVA TO C# CONVERTER NOTE: Fields cannot have the same name as methods:
-	  protected internal string processDefinitionId_Renamed;
+	  protected internal string processDefinitionId_Conflict;
 //JAVA TO C# CONVERTER NOTE: Fields cannot have the same name as methods:
-	  protected internal string activityId_Renamed;
+	  protected internal string activityId_Conflict;
 //JAVA TO C# CONVERTER NOTE: Fields cannot have the same name as methods:
-	  protected internal string[] activityIdIn_Renamed;
+	  protected internal string[] activityIdIn_Conflict;
 	  protected internal SuspensionState suspensionState;
 //JAVA TO C# CONVERTER NOTE: Fields cannot have the same name as methods:
-	  protected internal long? priorityHigherThanOrEquals_Renamed;
+	  protected internal long? priorityHigherThanOrEquals_Conflict;
 //JAVA TO C# CONVERTER NOTE: Fields cannot have the same name as methods:
-	  protected internal long? priorityLowerThanOrEquals_Renamed;
+	  protected internal long? priorityLowerThanOrEquals_Conflict;
 	  protected internal bool? retriesLeft;
 	  protected internal string[] tenantIds;
 
@@ -85,100 +85,100 @@ namespace org.camunda.bpm.engine.impl
 	  public virtual ExternalTaskQuery externalTaskId(string externalTaskId)
 	  {
 		ensureNotNull("externalTaskId", externalTaskId);
-		this.externalTaskId_Renamed = externalTaskId;
+		this.externalTaskId_Conflict = externalTaskId;
 		return this;
 	  }
 
 	  public virtual ExternalTaskQuery workerId(string workerId)
 	  {
 		ensureNotNull("workerId", workerId);
-		this.workerId_Renamed = workerId;
+		this.workerId_Conflict = workerId;
 		return this;
 	  }
 
 	  public virtual ExternalTaskQuery lockExpirationBefore(DateTime lockExpirationDate)
 	  {
 		ensureNotNull("lockExpirationBefore", lockExpirationDate);
-		this.lockExpirationBefore_Renamed = lockExpirationDate;
+		this.lockExpirationBefore_Conflict = lockExpirationDate;
 		return this;
 	  }
 
 	  public virtual ExternalTaskQuery lockExpirationAfter(DateTime lockExpirationDate)
 	  {
 		ensureNotNull("lockExpirationAfter", lockExpirationDate);
-		this.lockExpirationAfter_Renamed = lockExpirationDate;
+		this.lockExpirationAfter_Conflict = lockExpirationDate;
 		return this;
 	  }
 
 	  public virtual ExternalTaskQuery topicName(string topicName)
 	  {
 		ensureNotNull("topicName", topicName);
-		this.topicName_Renamed = topicName;
+		this.topicName_Conflict = topicName;
 		return this;
 	  }
 
 	  public virtual ExternalTaskQuery locked()
 	  {
-		this.locked_Renamed = true;
+		this.locked_Conflict = true;
 		return this;
 	  }
 
 	  public virtual ExternalTaskQuery notLocked()
 	  {
-		this.notLocked_Renamed = true;
+		this.notLocked_Conflict = true;
 		return this;
 	  }
 
 	  public virtual ExternalTaskQuery executionId(string executionId)
 	  {
 		ensureNotNull("executionId", executionId);
-		this.executionId_Renamed = executionId;
+		this.executionId_Conflict = executionId;
 		return this;
 	  }
 
 	  public virtual ExternalTaskQuery processInstanceId(string processInstanceId)
 	  {
 		ensureNotNull("processInstanceId", processInstanceId);
-		this.processInstanceId_Renamed = processInstanceId;
+		this.processInstanceId_Conflict = processInstanceId;
 		return this;
 	  }
 
 	  public virtual ExternalTaskQuery processInstanceIdIn(params string[] processInstanceIdIn)
 	  {
 		ensureNotNull("processInstanceIdIn", (object[]) processInstanceIdIn);
-		this.processInstanceIdIn_Renamed = processInstanceIdIn;
+		this.processInstanceIdIn_Conflict = processInstanceIdIn;
 		return this;
 	  }
 
 	  public virtual ExternalTaskQuery processDefinitionId(string processDefinitionId)
 	  {
 		ensureNotNull("processDefinitionId", processDefinitionId);
-		this.processDefinitionId_Renamed = processDefinitionId;
+		this.processDefinitionId_Conflict = processDefinitionId;
 		return this;
 	  }
 
 	  public virtual ExternalTaskQuery activityId(string activityId)
 	  {
 		ensureNotNull("activityId", activityId);
-		this.activityId_Renamed = activityId;
+		this.activityId_Conflict = activityId;
 		return this;
 	  }
 
 	  public virtual ExternalTaskQuery activityIdIn(params string[] activityIdIn)
 	  {
 		ensureNotNull("activityIdIn", (object[]) activityIdIn);
-		this.activityIdIn_Renamed = activityIdIn;
+		this.activityIdIn_Conflict = activityIdIn;
 		return this;
 	  }
 	  public virtual ExternalTaskQuery priorityHigherThanOrEquals(long priority)
 	  {
-		this.priorityHigherThanOrEquals_Renamed = priority;
+		this.priorityHigherThanOrEquals_Conflict = priority;
 		return this;
 	  }
 
 	  public virtual ExternalTaskQuery priorityLowerThanOrEquals(long priority)
 	  {
-		this.priorityLowerThanOrEquals_Renamed = priority;
+		this.priorityLowerThanOrEquals_Conflict = priority;
 		return this;
 	  }
 
@@ -209,7 +209,7 @@ namespace org.camunda.bpm.engine.impl
 
 	  protected internal override bool hasExcludingConditions()
 	  {
-		return base.hasExcludingConditions() || CompareUtil.areNotInAscendingOrder(priorityHigherThanOrEquals_Renamed, priorityLowerThanOrEquals_Renamed);
+		return base.hasExcludingConditions() || CompareUtil.areNotInAscendingOrder(priorityHigherThanOrEquals_Conflict, priorityLowerThanOrEquals_Conflict);
 	  }
 
 	  public virtual ExternalTaskQuery tenantIdIn(params string[] tenantIds)
@@ -275,7 +275,7 @@ namespace org.camunda.bpm.engine.impl
 	  {
 		  get
 		  {
-			return externalTaskId_Renamed;
+			return externalTaskId_Conflict;
 		  }
 	  }
 
@@ -283,7 +283,7 @@ namespace org.camunda.bpm.engine.impl
 	  {
 		  get
 		  {
-			return workerId_Renamed;
+			return workerId_Conflict;
 		  }
 	  }
 
@@ -291,7 +291,7 @@ namespace org.camunda.bpm.engine.impl
 	  {
 		  get
 		  {
-			return lockExpirationBefore_Renamed;
+			return lockExpirationBefore_Conflict;
 		  }
 	  }
 
@@ -299,7 +299,7 @@ namespace org.camunda.bpm.engine.impl
 	  {
 		  get
 		  {
-			return lockExpirationAfter_Renamed;
+			return lockExpirationAfter_Conflict;
 		  }
 	  }
 
@@ -307,7 +307,7 @@ namespace org.camunda.bpm.engine.impl
 	  {
 		  get
 		  {
-			return topicName_Renamed;
+			return topicName_Conflict;
 		  }
 	  }
 
@@ -315,7 +315,7 @@ namespace org.camunda.bpm.engine.impl
 	  {
 		  get
 		  {
-			return locked_Renamed;
+			return locked_Conflict;
 		  }
 	  }
 
@@ -323,7 +323,7 @@ namespace org.camunda.bpm.engine.impl
 	  {
 		  get
 		  {
-			return notLocked_Renamed;
+			return notLocked_Conflict;
 		  }
 	  }
 
@@ -331,7 +331,7 @@ namespace org.camunda.bpm.engine.impl
 	  {
 		  get
 		  {
-			return executionId_Renamed;
+			return executionId_Conflict;
 		  }
 	  }
 
@@ -339,7 +339,7 @@ namespace org.camunda.bpm.engine.impl
 	  {
 		  get
 		  {
-			return processInstanceId_Renamed;
+			return processInstanceId_Conflict;
 		  }
 	  }
 
@@ -347,7 +347,7 @@ namespace org.camunda.bpm.engine.impl
 	  {
 		  get
 		  {
-			return processDefinitionId_Renamed;
+			return processDefinitionId_Conflict;
 		  }
 	  }
 
@@ -355,7 +355,7 @@ namespace org.camunda.bpm.engine.impl
 	  {
 		  get
 		  {
-			return activityId_Renamed;
+			return activityId_Conflict;
 		  }
 	  }
 

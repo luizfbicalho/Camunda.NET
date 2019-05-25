@@ -22,32 +22,32 @@ namespace org.camunda.bpm.engine.rest.util
 	{
 
 //JAVA TO C# CONVERTER NOTE: Fields cannot have the same name as methods:
-	  protected internal string resourceName_Renamed;
+	  protected internal string resourceName_Conflict;
 //JAVA TO C# CONVERTER NOTE: Fields cannot have the same name as methods:
-	  protected internal int resourceType_Renamed;
+	  protected internal int resourceType_Conflict;
 
 	  public ResourceUtil(string resourceName, int resourceType)
 	  {
-		this.resourceName_Renamed = resourceName;
-		this.resourceType_Renamed = resourceType;
+		this.resourceName_Conflict = resourceName;
+		this.resourceType_Conflict = resourceType;
 	  }
 
 	  public virtual string resourceName()
 	  {
-		return resourceName_Renamed;
+		return resourceName_Conflict;
 	  }
 
 	  public virtual int resourceType()
 	  {
-		return resourceType_Renamed;
+		return resourceType_Conflict;
 	  }
 
 	  public override int GetHashCode()
 	  {
 		const int prime = 31;
 		int result = 1;
-		result = prime * result + ((string.ReferenceEquals(resourceName_Renamed, null)) ? 0 : resourceName_Renamed.GetHashCode());
-		result = prime * result + resourceType_Renamed;
+		result = prime * result + ((string.ReferenceEquals(resourceName_Conflict, null)) ? 0 : resourceName_Conflict.GetHashCode());
+		result = prime * result + resourceType_Conflict;
 		return result;
 	  }
 
@@ -66,18 +66,18 @@ namespace org.camunda.bpm.engine.rest.util
 		  return false;
 		}
 		ResourceUtil other = (ResourceUtil) obj;
-		if (string.ReferenceEquals(resourceName_Renamed, null))
+		if (string.ReferenceEquals(resourceName_Conflict, null))
 		{
-		  if (!string.ReferenceEquals(other.resourceName_Renamed, null))
+		  if (!string.ReferenceEquals(other.resourceName_Conflict, null))
 		  {
 			return false;
 		  }
 		}
-		else if (!resourceName_Renamed.Equals(other.resourceName_Renamed))
+		else if (!resourceName_Conflict.Equals(other.resourceName_Conflict))
 		{
 		  return false;
 		}
-		if (resourceType_Renamed != other.resourceType_Renamed)
+		if (resourceType_Conflict != other.resourceType_Conflict)
 		{
 		  return false;
 		}

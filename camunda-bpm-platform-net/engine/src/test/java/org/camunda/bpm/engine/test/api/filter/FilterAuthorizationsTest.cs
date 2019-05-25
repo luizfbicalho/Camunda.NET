@@ -38,7 +38,7 @@ namespace org.camunda.bpm.engine.test.api.filter
 	  protected internal User testUser;
 
 //JAVA TO C# CONVERTER NOTE: Fields cannot have the same name as methods:
-	  protected internal Authorization createAuthorization_Renamed;
+	  protected internal Authorization createAuthorization_Conflict;
 	  protected internal Authorization updateAuthorization;
 	  protected internal Authorization readAuthorization;
 	  protected internal Authorization deleteAuthorization;
@@ -47,7 +47,7 @@ namespace org.camunda.bpm.engine.test.api.filter
 	  {
 		testUser = createTestUser("test");
 
-		createAuthorization_Renamed = createAuthorization_Renamed(Permissions.CREATE, org.camunda.bpm.engine.authorization.Authorization_Fields.ANY);
+		createAuthorization_Conflict = createAuthorization_Conflict(Permissions.CREATE, org.camunda.bpm.engine.authorization.Authorization_Fields.ANY);
 		updateAuthorization = createAuthorization(Permissions.UPDATE, null);
 		readAuthorization = createAuthorization(Permissions.READ, null);
 		deleteAuthorization = createAuthorization(Permissions.DELETE, null);
@@ -425,7 +425,7 @@ namespace org.camunda.bpm.engine.test.api.filter
 
 	  protected internal virtual void grantCreateFilter()
 	  {
-		grantFilterPermission(createAuthorization_Renamed, null);
+		grantFilterPermission(createAuthorization_Conflict, null);
 		assertFilterPermission(Permissions.CREATE, testUser, null, true);
 	  }
 

@@ -47,13 +47,13 @@ namespace org.camunda.bpm.engine.impl.repository
 	  private IList<string> processDefinitionIds;
 
 //JAVA TO C# CONVERTER NOTE: Fields cannot have the same name as methods:
-	  private bool cascade_Renamed;
+	  private bool cascade_Conflict;
 	  private string tenantId;
 	  private bool isTenantIdSet;
 //JAVA TO C# CONVERTER NOTE: Fields cannot have the same name as methods:
-	  private bool skipCustomListeners_Renamed;
+	  private bool skipCustomListeners_Conflict;
 //JAVA TO C# CONVERTER NOTE: Fields cannot have the same name as methods:
-	  protected internal bool skipIoMappings_Renamed;
+	  protected internal bool skipIoMappings_Conflict;
 
 	  public DeleteProcessDefinitionsBuilderImpl(CommandExecutor commandExecutor)
 	  {
@@ -92,19 +92,19 @@ namespace org.camunda.bpm.engine.impl.repository
 
 	  public virtual DeleteProcessDefinitionsBuilderImpl cascade()
 	  {
-		this.cascade_Renamed = true;
+		this.cascade_Conflict = true;
 		return this;
 	  }
 
 	  public virtual DeleteProcessDefinitionsBuilderImpl skipCustomListeners()
 	  {
-		this.skipCustomListeners_Renamed = true;
+		this.skipCustomListeners_Conflict = true;
 		return this;
 	  }
 
 	  public virtual DeleteProcessDefinitionsBuilderImpl skipIoMappings()
 	  {
-		this.skipIoMappings_Renamed = true;
+		this.skipIoMappings_Conflict = true;
 		return this;
 	  }
 
@@ -115,11 +115,11 @@ namespace org.camunda.bpm.engine.impl.repository
 		Command<Void> command;
 		if (!string.ReferenceEquals(processDefinitionKey, null))
 		{
-		  command = new DeleteProcessDefinitionsByKeyCmd(processDefinitionKey, cascade_Renamed, skipCustomListeners_Renamed, skipIoMappings_Renamed, tenantId, isTenantIdSet);
+		  command = new DeleteProcessDefinitionsByKeyCmd(processDefinitionKey, cascade_Conflict, skipCustomListeners_Conflict, skipIoMappings_Conflict, tenantId, isTenantIdSet);
 		}
 		else if (processDefinitionIds != null && processDefinitionIds.Count > 0)
 		{
-		  command = new DeleteProcessDefinitionsByIdsCmd(processDefinitionIds, cascade_Renamed, skipCustomListeners_Renamed, skipIoMappings_Renamed);
+		  command = new DeleteProcessDefinitionsByIdsCmd(processDefinitionIds, cascade_Conflict, skipCustomListeners_Conflict, skipIoMappings_Conflict);
 		}
 		else
 		{

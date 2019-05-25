@@ -28,13 +28,13 @@ namespace org.camunda.bpm.engine.rest.helper.variable
 	{
 
 //JAVA TO C# CONVERTER NOTE: Fields cannot have the same name as methods:
-	  protected internal ValueType type_Renamed;
+	  protected internal ValueType type_Conflict;
 
 //JAVA TO C# CONVERTER TODO TASK: Most Java annotations will not have direct .NET equivalent attributes:
 //ORIGINAL LINE: @SuppressWarnings("unchecked") public S type(org.camunda.bpm.engine.variable.type.ValueType type)
 	  public virtual S type(ValueType type)
 	  {
-		this.type_Renamed = type;
+		this.type_Conflict = type;
 		return (S) this;
 	  }
 
@@ -47,7 +47,7 @@ namespace org.camunda.bpm.engine.rest.helper.variable
 
 		TypedValue typedValue = (TypedValue) argument;
 
-		if (type_Renamed != null && !type_Renamed.Equals(typedValue.Type))
+		if (type_Conflict != null && !type_Conflict.Equals(typedValue.Type))
 		{
 		  return false;
 		}

@@ -39,66 +39,66 @@ namespace org.camunda.bpm.engine.impl
 	  private const long serialVersionUID = 1L;
 
 //JAVA TO C# CONVERTER NOTE: Fields cannot have the same name as methods:
-	  protected internal string decisionInstanceId_Renamed;
+	  protected internal string decisionInstanceId_Conflict;
 //JAVA TO C# CONVERTER NOTE: Fields cannot have the same name as methods:
-	  protected internal string[] decisionInstanceIdIn_Renamed;
+	  protected internal string[] decisionInstanceIdIn_Conflict;
 
 //JAVA TO C# CONVERTER NOTE: Fields cannot have the same name as methods:
-	  protected internal string decisionDefinitionId_Renamed;
+	  protected internal string decisionDefinitionId_Conflict;
 //JAVA TO C# CONVERTER NOTE: Fields cannot have the same name as methods:
-	  protected internal string[] decisionDefinitionIdIn_Renamed;
+	  protected internal string[] decisionDefinitionIdIn_Conflict;
 
 //JAVA TO C# CONVERTER NOTE: Fields cannot have the same name as methods:
-	  protected internal string decisionDefinitionKey_Renamed;
+	  protected internal string decisionDefinitionKey_Conflict;
 //JAVA TO C# CONVERTER NOTE: Fields cannot have the same name as methods:
-	  protected internal string[] decisionDefinitionKeyIn_Renamed;
+	  protected internal string[] decisionDefinitionKeyIn_Conflict;
 
 //JAVA TO C# CONVERTER NOTE: Fields cannot have the same name as methods:
-	  protected internal string decisionDefinitionName_Renamed;
+	  protected internal string decisionDefinitionName_Conflict;
 //JAVA TO C# CONVERTER NOTE: Fields cannot have the same name as methods:
-	  protected internal string decisionDefinitionNameLike_Renamed;
+	  protected internal string decisionDefinitionNameLike_Conflict;
 
 //JAVA TO C# CONVERTER NOTE: Fields cannot have the same name as methods:
-	  protected internal string processDefinitionKey_Renamed;
+	  protected internal string processDefinitionKey_Conflict;
 //JAVA TO C# CONVERTER NOTE: Fields cannot have the same name as methods:
-	  protected internal string processDefinitionId_Renamed;
+	  protected internal string processDefinitionId_Conflict;
 //JAVA TO C# CONVERTER NOTE: Fields cannot have the same name as methods:
-	  protected internal string processInstanceId_Renamed;
+	  protected internal string processInstanceId_Conflict;
 
 //JAVA TO C# CONVERTER NOTE: Fields cannot have the same name as methods:
-	  protected internal string caseDefinitionKey_Renamed;
+	  protected internal string caseDefinitionKey_Conflict;
 //JAVA TO C# CONVERTER NOTE: Fields cannot have the same name as methods:
-	  protected internal string caseDefinitionId_Renamed;
+	  protected internal string caseDefinitionId_Conflict;
 //JAVA TO C# CONVERTER NOTE: Fields cannot have the same name as methods:
-	  protected internal string caseInstanceId_Renamed;
+	  protected internal string caseInstanceId_Conflict;
 
 	  protected internal string[] activityInstanceIds;
 	  protected internal string[] activityIds;
 
 //JAVA TO C# CONVERTER NOTE: Fields cannot have the same name as methods:
-	  protected internal DateTime evaluatedBefore_Renamed;
+	  protected internal DateTime evaluatedBefore_Conflict;
 //JAVA TO C# CONVERTER NOTE: Fields cannot have the same name as methods:
-	  protected internal DateTime evaluatedAfter_Renamed;
+	  protected internal DateTime evaluatedAfter_Conflict;
 
 //JAVA TO C# CONVERTER NOTE: Fields cannot have the same name as methods:
-	  protected internal string userId_Renamed;
+	  protected internal string userId_Conflict;
 
 	  protected internal bool includeInput = false;
 //JAVA TO C# CONVERTER NOTE: Fields cannot have the same name as methods:
-	  protected internal bool includeOutputs_Renamed = false;
+	  protected internal bool includeOutputs_Conflict = false;
 
 	  protected internal bool isByteArrayFetchingEnabled = true;
 	  protected internal bool isCustomObjectDeserializationEnabled = true;
 
 //JAVA TO C# CONVERTER NOTE: Fields cannot have the same name as methods:
-	  protected internal string rootDecisionInstanceId_Renamed;
+	  protected internal string rootDecisionInstanceId_Conflict;
 //JAVA TO C# CONVERTER NOTE: Fields cannot have the same name as methods:
-	  protected internal bool rootDecisionInstancesOnly_Renamed = false;
+	  protected internal bool rootDecisionInstancesOnly_Conflict = false;
 
 //JAVA TO C# CONVERTER NOTE: Fields cannot have the same name as methods:
-	  protected internal string decisionRequirementsDefinitionId_Renamed;
+	  protected internal string decisionRequirementsDefinitionId_Conflict;
 //JAVA TO C# CONVERTER NOTE: Fields cannot have the same name as methods:
-	  protected internal string decisionRequirementsDefinitionKey_Renamed;
+	  protected internal string decisionRequirementsDefinitionKey_Conflict;
 
 	  protected internal string[] tenantIds;
 
@@ -113,98 +113,98 @@ namespace org.camunda.bpm.engine.impl
 	  public virtual HistoricDecisionInstanceQuery decisionInstanceId(string decisionInstanceId)
 	  {
 		ensureNotNull(typeof(NotValidException), "decisionInstanceId", decisionInstanceId);
-		this.decisionInstanceId_Renamed = decisionInstanceId;
+		this.decisionInstanceId_Conflict = decisionInstanceId;
 		return this;
 	  }
 
 	  public virtual HistoricDecisionInstanceQuery decisionInstanceIdIn(params string[] decisionInstanceIdIn)
 	  {
 		ensureNotNull("decisionInstanceIdIn", (object[]) decisionInstanceIdIn);
-		this.decisionInstanceIdIn_Renamed = decisionInstanceIdIn;
+		this.decisionInstanceIdIn_Conflict = decisionInstanceIdIn;
 		return this;
 	  }
 
 	  public virtual HistoricDecisionInstanceQuery decisionDefinitionId(string decisionDefinitionId)
 	  {
 		ensureNotNull(typeof(NotValidException), "decisionDefinitionId", decisionDefinitionId);
-		this.decisionDefinitionId_Renamed = decisionDefinitionId;
+		this.decisionDefinitionId_Conflict = decisionDefinitionId;
 		return this;
 	  }
 
 	  public virtual HistoricDecisionInstanceQuery decisionDefinitionIdIn(params string[] decisionDefinitionIdIn)
 	  {
 		ensureNotNull(typeof(NotValidException), "decisionDefinitionIdIn", decisionDefinitionIdIn);
-		this.decisionDefinitionIdIn_Renamed = decisionDefinitionIdIn;
+		this.decisionDefinitionIdIn_Conflict = decisionDefinitionIdIn;
 		return this;
 	  }
 
 	  public virtual HistoricDecisionInstanceQuery decisionDefinitionKey(string decisionDefinitionKey)
 	  {
 		ensureNotNull(typeof(NotValidException), "decisionDefinitionKey", decisionDefinitionKey);
-		this.decisionDefinitionKey_Renamed = decisionDefinitionKey;
+		this.decisionDefinitionKey_Conflict = decisionDefinitionKey;
 		return this;
 	  }
 
 	  public virtual HistoricDecisionInstanceQuery decisionDefinitionKeyIn(params string[] decisionDefinitionKeyIn)
 	  {
 		ensureNotNull(typeof(NotValidException), "decisionDefinitionKeyIn", decisionDefinitionKeyIn);
-		this.decisionDefinitionKeyIn_Renamed = decisionDefinitionKeyIn;
+		this.decisionDefinitionKeyIn_Conflict = decisionDefinitionKeyIn;
 		return this;
 	  }
 
 	  public virtual HistoricDecisionInstanceQuery decisionDefinitionName(string decisionDefinitionName)
 	  {
 		ensureNotNull(typeof(NotValidException), "decisionDefinitionName", decisionDefinitionName);
-		this.decisionDefinitionName_Renamed = decisionDefinitionName;
+		this.decisionDefinitionName_Conflict = decisionDefinitionName;
 		return this;
 	  }
 
 	  public virtual HistoricDecisionInstanceQuery decisionDefinitionNameLike(string decisionDefinitionNameLike)
 	  {
 		ensureNotNull(typeof(NotValidException), "decisionDefinitionNameLike", decisionDefinitionNameLike);
-		this.decisionDefinitionNameLike_Renamed = decisionDefinitionNameLike;
+		this.decisionDefinitionNameLike_Conflict = decisionDefinitionNameLike;
 		return this;
 	  }
 
 	  public virtual HistoricDecisionInstanceQuery processDefinitionKey(string processDefinitionKey)
 	  {
 		ensureNotNull(typeof(NotValidException), "processDefinitionKey", processDefinitionKey);
-		this.processDefinitionKey_Renamed = processDefinitionKey;
+		this.processDefinitionKey_Conflict = processDefinitionKey;
 		return this;
 	  }
 
 	  public virtual HistoricDecisionInstanceQuery processDefinitionId(string processDefinitionId)
 	  {
 		ensureNotNull(typeof(NotValidException), "processDefinitionId", processDefinitionId);
-		this.processDefinitionId_Renamed = processDefinitionId;
+		this.processDefinitionId_Conflict = processDefinitionId;
 		return this;
 	  }
 
 	  public virtual HistoricDecisionInstanceQuery processInstanceId(string processInstanceId)
 	  {
 		ensureNotNull(typeof(NotValidException), "processInstanceId", processInstanceId);
-		this.processInstanceId_Renamed = processInstanceId;
+		this.processInstanceId_Conflict = processInstanceId;
 		return this;
 	  }
 
 	  public virtual HistoricDecisionInstanceQuery caseDefinitionKey(string caseDefinitionKey)
 	  {
 		ensureNotNull(typeof(NotValidException), "caseDefinitionKey", caseDefinitionKey);
-		this.caseDefinitionKey_Renamed = caseDefinitionKey;
+		this.caseDefinitionKey_Conflict = caseDefinitionKey;
 		return this;
 	  }
 
 	  public virtual HistoricDecisionInstanceQuery caseDefinitionId(string caseDefinitionId)
 	  {
 		ensureNotNull(typeof(NotValidException), "caseDefinitionId", caseDefinitionId);
-		this.caseDefinitionId_Renamed = caseDefinitionId;
+		this.caseDefinitionId_Conflict = caseDefinitionId;
 		return this;
 	  }
 
 	  public virtual HistoricDecisionInstanceQuery caseInstanceId(string caseInstanceId)
 	  {
 		ensureNotNull(typeof(NotValidException), "caseInstanceId", caseInstanceId);
-		this.caseInstanceId_Renamed = caseInstanceId;
+		this.caseInstanceId_Conflict = caseInstanceId;
 		return this;
 	  }
 
@@ -225,14 +225,14 @@ namespace org.camunda.bpm.engine.impl
 	  public virtual HistoricDecisionInstanceQuery evaluatedBefore(DateTime evaluatedBefore)
 	  {
 		ensureNotNull(typeof(NotValidException), "evaluatedBefore", evaluatedBefore);
-		this.evaluatedBefore_Renamed = evaluatedBefore;
+		this.evaluatedBefore_Conflict = evaluatedBefore;
 		return this;
 	  }
 
 	  public virtual HistoricDecisionInstanceQuery evaluatedAfter(DateTime evaluatedAfter)
 	  {
 		ensureNotNull(typeof(NotValidException), "evaluatedAfter", evaluatedAfter);
-		this.evaluatedAfter_Renamed = evaluatedAfter;
+		this.evaluatedAfter_Conflict = evaluatedAfter;
 		return this;
 	  }
 
@@ -251,7 +251,7 @@ namespace org.camunda.bpm.engine.impl
 	  public virtual HistoricDecisionInstanceQuery userId(string userId)
 	  {
 		ensureNotNull(typeof(NotValidException), "userId", userId);
-		this.userId_Renamed = userId;
+		this.userId_Conflict = userId;
 		return this;
 	  }
 
@@ -277,7 +277,7 @@ namespace org.camunda.bpm.engine.impl
 	  {
 		  get
 		  {
-			return decisionDefinitionId_Renamed;
+			return decisionDefinitionId_Conflict;
 		  }
 	  }
 
@@ -285,7 +285,7 @@ namespace org.camunda.bpm.engine.impl
 	  {
 		  get
 		  {
-			return decisionDefinitionKey_Renamed;
+			return decisionDefinitionKey_Conflict;
 		  }
 	  }
 
@@ -293,7 +293,7 @@ namespace org.camunda.bpm.engine.impl
 	  {
 		  get
 		  {
-			return decisionDefinitionName_Renamed;
+			return decisionDefinitionName_Conflict;
 		  }
 	  }
 
@@ -301,7 +301,7 @@ namespace org.camunda.bpm.engine.impl
 	  {
 		  get
 		  {
-			return processDefinitionKey_Renamed;
+			return processDefinitionKey_Conflict;
 		  }
 	  }
 
@@ -309,7 +309,7 @@ namespace org.camunda.bpm.engine.impl
 	  {
 		  get
 		  {
-			return processDefinitionId_Renamed;
+			return processDefinitionId_Conflict;
 		  }
 	  }
 
@@ -317,7 +317,7 @@ namespace org.camunda.bpm.engine.impl
 	  {
 		  get
 		  {
-			return processInstanceId_Renamed;
+			return processInstanceId_Conflict;
 		  }
 	  }
 
@@ -325,7 +325,7 @@ namespace org.camunda.bpm.engine.impl
 	  {
 		  get
 		  {
-			return caseDefinitionKey_Renamed;
+			return caseDefinitionKey_Conflict;
 		  }
 	  }
 
@@ -333,7 +333,7 @@ namespace org.camunda.bpm.engine.impl
 	  {
 		  get
 		  {
-			return caseDefinitionId_Renamed;
+			return caseDefinitionId_Conflict;
 		  }
 	  }
 
@@ -341,7 +341,7 @@ namespace org.camunda.bpm.engine.impl
 	  {
 		  get
 		  {
-			return caseInstanceId_Renamed;
+			return caseInstanceId_Conflict;
 		  }
 	  }
 
@@ -377,7 +377,7 @@ namespace org.camunda.bpm.engine.impl
 
 	  public virtual HistoricDecisionInstanceQuery includeOutputs()
 	  {
-		includeOutputs_Renamed = true;
+		includeOutputs_Conflict = true;
 		return this;
 	  }
 
@@ -393,7 +393,7 @@ namespace org.camunda.bpm.engine.impl
 	  {
 		  get
 		  {
-			return includeOutputs_Renamed;
+			return includeOutputs_Conflict;
 		  }
 	  }
 
@@ -429,14 +429,14 @@ namespace org.camunda.bpm.engine.impl
 	  {
 		  get
 		  {
-			return rootDecisionInstanceId_Renamed;
+			return rootDecisionInstanceId_Conflict;
 		  }
 	  }
 
 	  public virtual HistoricDecisionInstanceQuery rootDecisionInstanceId(string rootDecisionInstanceId)
 	  {
 		ensureNotNull(typeof(NotValidException), "rootDecisionInstanceId", rootDecisionInstanceId);
-		this.rootDecisionInstanceId_Renamed = rootDecisionInstanceId;
+		this.rootDecisionInstanceId_Conflict = rootDecisionInstanceId;
 		return this;
 	  }
 
@@ -444,27 +444,27 @@ namespace org.camunda.bpm.engine.impl
 	  {
 		  get
 		  {
-			return rootDecisionInstancesOnly_Renamed;
+			return rootDecisionInstancesOnly_Conflict;
 		  }
 	  }
 
 	  public virtual HistoricDecisionInstanceQuery rootDecisionInstancesOnly()
 	  {
-		this.rootDecisionInstancesOnly_Renamed = true;
+		this.rootDecisionInstancesOnly_Conflict = true;
 		return this;
 	  }
 
 	  public virtual HistoricDecisionInstanceQuery decisionRequirementsDefinitionId(string decisionRequirementsDefinitionId)
 	  {
 		ensureNotNull(typeof(NotValidException), "decisionRequirementsDefinitionId", decisionRequirementsDefinitionId);
-		this.decisionRequirementsDefinitionId_Renamed = decisionRequirementsDefinitionId;
+		this.decisionRequirementsDefinitionId_Conflict = decisionRequirementsDefinitionId;
 		return this;
 	  }
 
 	  public virtual HistoricDecisionInstanceQuery decisionRequirementsDefinitionKey(string decisionRequirementsDefinitionKey)
 	  {
 		ensureNotNull(typeof(NotValidException), "decisionRequirementsDefinitionKey", decisionRequirementsDefinitionKey);
-		this.decisionRequirementsDefinitionKey_Renamed = decisionRequirementsDefinitionKey;
+		this.decisionRequirementsDefinitionKey_Conflict = decisionRequirementsDefinitionKey;
 		return this;
 	  }
 
@@ -472,7 +472,7 @@ namespace org.camunda.bpm.engine.impl
 	  {
 		  get
 		  {
-			return decisionRequirementsDefinitionId_Renamed;
+			return decisionRequirementsDefinitionId_Conflict;
 		  }
 	  }
 
@@ -480,7 +480,7 @@ namespace org.camunda.bpm.engine.impl
 	  {
 		  get
 		  {
-			return decisionRequirementsDefinitionKey_Renamed;
+			return decisionRequirementsDefinitionKey_Conflict;
 		  }
 	  }
 	}

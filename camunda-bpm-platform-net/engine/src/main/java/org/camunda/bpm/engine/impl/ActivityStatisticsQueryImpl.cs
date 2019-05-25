@@ -35,12 +35,12 @@ namespace org.camunda.bpm.engine.impl
 
 	  protected internal const long serialVersionUID = 1L;
 //JAVA TO C# CONVERTER NOTE: Fields cannot have the same name as methods:
-	  protected internal bool includeFailedJobs_Renamed = false;
+	  protected internal bool includeFailedJobs_Conflict = false;
 	  protected internal string processDefinitionId;
 //JAVA TO C# CONVERTER NOTE: Fields cannot have the same name as methods:
-	  protected internal bool includeIncidents_Renamed;
+	  protected internal bool includeIncidents_Conflict;
 //JAVA TO C# CONVERTER NOTE: Fields cannot have the same name as methods:
-	  protected internal string includeIncidentsForType_Renamed;
+	  protected internal string includeIncidentsForType_Conflict;
 
 	  // for internal use
 	  protected internal IList<PermissionCheck> processInstancePermissionChecks = new List<PermissionCheck>();
@@ -66,19 +66,19 @@ namespace org.camunda.bpm.engine.impl
 
 	  public virtual ActivityStatisticsQuery includeFailedJobs()
 	  {
-		includeFailedJobs_Renamed = true;
+		includeFailedJobs_Conflict = true;
 		return this;
 	  }
 
 	  public virtual ActivityStatisticsQuery includeIncidents()
 	  {
-		includeIncidents_Renamed = true;
+		includeIncidents_Conflict = true;
 		return this;
 	  }
 
 	  public virtual ActivityStatisticsQuery includeIncidentsForType(string incidentType)
 	  {
-		this.includeIncidentsForType_Renamed = incidentType;
+		this.includeIncidentsForType_Conflict = incidentType;
 		return this;
 	  }
 
@@ -86,7 +86,7 @@ namespace org.camunda.bpm.engine.impl
 	  {
 		  get
 		  {
-			return includeFailedJobs_Renamed;
+			return includeFailedJobs_Conflict;
 		  }
 	  }
 
@@ -94,7 +94,7 @@ namespace org.camunda.bpm.engine.impl
 	  {
 		  get
 		  {
-			return includeIncidents_Renamed || !string.ReferenceEquals(includeIncidentsForType_Renamed, null);
+			return includeIncidents_Conflict || !string.ReferenceEquals(includeIncidentsForType_Conflict, null);
 		  }
 	  }
 
@@ -110,7 +110,7 @@ namespace org.camunda.bpm.engine.impl
 	  {
 		base.checkQueryOk();
 		ensureNotNull("No valid process definition id supplied", "processDefinitionId", processDefinitionId);
-		if (includeIncidents_Renamed && !string.ReferenceEquals(includeIncidentsForType_Renamed, null))
+		if (includeIncidents_Conflict && !string.ReferenceEquals(includeIncidentsForType_Conflict, null))
 		{
 		  throw new ProcessEngineException("Invalid query: It is not possible to use includeIncident() and includeIncidentForType() to execute one query.");
 		}

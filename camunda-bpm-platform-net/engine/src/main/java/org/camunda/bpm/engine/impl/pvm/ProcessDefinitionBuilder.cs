@@ -50,7 +50,7 @@ namespace org.camunda.bpm.engine.impl.pvm
 	  protected internal Stack<ScopeImpl> scopeStack = new Stack<ScopeImpl>();
 	  protected internal CoreModelElement processElement;
 //JAVA TO C# CONVERTER NOTE: Fields cannot have the same name as methods:
-	  protected internal TransitionImpl transition_Renamed;
+	  protected internal TransitionImpl transition_Conflict;
 	  protected internal IList<object[]> unresolvedTransitions = new List<object[]>();
 
 	  public ProcessDefinitionBuilder() : this(null)
@@ -79,7 +79,7 @@ namespace org.camunda.bpm.engine.impl.pvm
 		scopeStack.Push(activity);
 		processElement = activity;
 
-		transition_Renamed = null;
+		transition_Conflict = null;
 
 		return this;
 	  }
@@ -107,7 +107,7 @@ namespace org.camunda.bpm.engine.impl.pvm
 		scopeStack.Pop();
 		processElement = scopeStack.Peek();
 
-		transition_Renamed = null;
+		transition_Conflict = null;
 
 		return this;
 	  }
@@ -130,16 +130,16 @@ namespace org.camunda.bpm.engine.impl.pvm
 		  throw new PvmException("destinationActivityId is null");
 		}
 		ActivityImpl activity = Activity;
-		transition_Renamed = activity.createOutgoingTransition(transitionId);
-		unresolvedTransitions.Add(new object[]{transition_Renamed, destinationActivityId});
-		processElement = transition_Renamed;
+		transition_Conflict = activity.createOutgoingTransition(transitionId);
+		unresolvedTransitions.Add(new object[]{transition_Conflict, destinationActivityId});
+		processElement = transition_Conflict;
 		return this;
 	  }
 
 	  public virtual ProcessDefinitionBuilder endTransition()
 	  {
 		processElement = scopeStack.Peek();
-		transition_Renamed = null;
+		transition_Conflict = null;
 		return this;
 	  }
 
@@ -199,9 +199,9 @@ namespace org.camunda.bpm.engine.impl.pvm
 
 	  public virtual ProcessDefinitionBuilder executionListener(ExecutionListener executionListener)
 	  {
-		if (transition_Renamed != null)
+		if (transition_Conflict != null)
 		{
-		  transition_Renamed.addExecutionListener(executionListener);
+		  transition_Conflict.addExecutionListener(executionListener);
 		}
 		else
 		{
@@ -212,13 +212,13 @@ namespace org.camunda.bpm.engine.impl.pvm
 
 	  public virtual ProcessDefinitionBuilder executionListener(string eventName, ExecutionListener executionListener)
 	  {
-		if (transition_Renamed == null)
+		if (transition_Conflict == null)
 		{
 		  scopeStack.Peek().addExecutionListener(eventName, executionListener);
 		}
 		else
 		{
-		  transition_Renamed.addExecutionListener(executionListener);
+		  transition_Conflict.addExecutionListener(executionListener);
 		}
 		return this;
 	  }

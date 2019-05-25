@@ -44,12 +44,12 @@ namespace org.camunda.bpm.engine.impl.dmn
 	  protected internal string decisionDefinitionId;
 
 //JAVA TO C# CONVERTER NOTE: Fields cannot have the same name as methods:
-	  protected internal int? version_Renamed;
+	  protected internal int? version_Conflict;
 //JAVA TO C# CONVERTER NOTE: Fields cannot have the same name as methods:
-	  protected internal IDictionary<string, object> variables_Renamed;
+	  protected internal IDictionary<string, object> variables_Conflict;
 
 //JAVA TO C# CONVERTER NOTE: Fields cannot have the same name as methods:
-	  protected internal string decisionDefinitionTenantId_Renamed;
+	  protected internal string decisionDefinitionTenantId_Conflict;
 	  protected internal bool isTenantIdSet = false;
 
 
@@ -60,26 +60,26 @@ namespace org.camunda.bpm.engine.impl.dmn
 
 	  public virtual DecisionEvaluationBuilder variables(IDictionary<string, object> variables)
 	  {
-		this.variables_Renamed = variables;
+		this.variables_Conflict = variables;
 		return this;
 	  }
 
 	  public virtual DecisionEvaluationBuilder version(int? version)
 	  {
-		this.version_Renamed = version;
+		this.version_Conflict = version;
 		return this;
 	  }
 
 	  public virtual DecisionEvaluationBuilder decisionDefinitionTenantId(string tenantId)
 	  {
-		this.decisionDefinitionTenantId_Renamed = tenantId;
+		this.decisionDefinitionTenantId_Conflict = tenantId;
 		isTenantIdSet = true;
 		return this;
 	  }
 
 	  public virtual DecisionEvaluationBuilder decisionDefinitionWithoutTenantId()
 	  {
-		this.decisionDefinitionTenantId_Renamed = null;
+		this.decisionDefinitionTenantId_Conflict = null;
 		isTenantIdSet = true;
 		return this;
 	  }
@@ -143,7 +143,7 @@ namespace org.camunda.bpm.engine.impl.dmn
 	  {
 		  get
 		  {
-			return version_Renamed;
+			return version_Conflict;
 		  }
 	  }
 
@@ -151,7 +151,7 @@ namespace org.camunda.bpm.engine.impl.dmn
 	  {
 		  get
 		  {
-			return variables_Renamed;
+			return variables_Conflict;
 		  }
 	  }
 
@@ -159,7 +159,7 @@ namespace org.camunda.bpm.engine.impl.dmn
 	  {
 		  get
 		  {
-			return decisionDefinitionTenantId_Renamed;
+			return decisionDefinitionTenantId_Conflict;
 		  }
 	  }
 

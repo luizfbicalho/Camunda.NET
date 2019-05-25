@@ -802,7 +802,7 @@ namespace org.camunda.bpm.engine.impl.persistence.entity
 
 	  public override void inactivate()
 	  {
-		this.isActive_Renamed = false;
+		this.isActive_Conflict = false;
 	  }
 
 	  // executions ///////////////////////////////////////////////////////////////
@@ -1502,7 +1502,7 @@ namespace org.camunda.bpm.engine.impl.persistence.entity
 	  {
 		  get
 		  {
-			return isActive_Renamed && getActivity() != null && getActivity().Scope && !string.ReferenceEquals(activityInstanceId, null) && !(getActivity().ActivityBehavior is CompositeActivityBehavior);
+			return isActive_Conflict && getActivity() != null && getActivity().Scope && !string.ReferenceEquals(activityInstanceId, null) && !(getActivity().ActivityBehavior is CompositeActivityBehavior);
 		  }
 	  }
 
@@ -1749,7 +1749,7 @@ namespace org.camunda.bpm.engine.impl.persistence.entity
 			persistentState["businessKey"] = businessKey;
 			persistentState["activityId"] = this.activityId;
 			persistentState["activityInstanceId"] = this.activityInstanceId;
-			persistentState["isActive"] = this.isActive_Renamed;
+			persistentState["isActive"] = this.isActive_Conflict;
 			persistentState["isConcurrent"] = this.isConcurrent;
 			persistentState["isScope"] = this.isScope;
 			persistentState["isEventScope"] = this.isEventScope;

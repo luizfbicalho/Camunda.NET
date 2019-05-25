@@ -36,16 +36,16 @@ namespace org.camunda.bpm.engine.impl.cmd
 	  protected internal CommandExecutor commandExecutor;
 
 //JAVA TO C# CONVERTER NOTE: Fields cannot have the same name as methods:
-	  protected internal IList<string> externalTaskIds_Renamed;
+	  protected internal IList<string> externalTaskIds_Conflict;
 //JAVA TO C# CONVERTER NOTE: Fields cannot have the same name as methods:
-	  protected internal IList<string> processInstanceIds_Renamed;
+	  protected internal IList<string> processInstanceIds_Conflict;
 
 //JAVA TO C# CONVERTER NOTE: Fields cannot have the same name as methods:
-	  protected internal ExternalTaskQuery externalTaskQuery_Renamed;
+	  protected internal ExternalTaskQuery externalTaskQuery_Conflict;
 //JAVA TO C# CONVERTER NOTE: Fields cannot have the same name as methods:
-	  protected internal ProcessInstanceQuery processInstanceQuery_Renamed;
+	  protected internal ProcessInstanceQuery processInstanceQuery_Conflict;
 //JAVA TO C# CONVERTER NOTE: Fields cannot have the same name as methods:
-	  protected internal HistoricProcessInstanceQuery historicProcessInstanceQuery_Renamed;
+	  protected internal HistoricProcessInstanceQuery historicProcessInstanceQuery_Conflict;
 
 	  protected internal int retries;
 
@@ -56,7 +56,7 @@ namespace org.camunda.bpm.engine.impl.cmd
 
 	  public virtual UpdateExternalTaskRetriesBuilder externalTaskIds(IList<string> externalTaskIds)
 	  {
-		this.externalTaskIds_Renamed = externalTaskIds;
+		this.externalTaskIds_Conflict = externalTaskIds;
 		return this;
 	  }
 
@@ -64,18 +64,18 @@ namespace org.camunda.bpm.engine.impl.cmd
 	  {
 		if (externalTaskIds == null)
 		{
-		  this.externalTaskIds_Renamed = Collections.emptyList();
+		  this.externalTaskIds_Conflict = Collections.emptyList();
 		}
 		else
 		{
-		  this.externalTaskIds_Renamed = Arrays.asList(externalTaskIds);
+		  this.externalTaskIds_Conflict = Arrays.asList(externalTaskIds);
 		}
 		return this;
 	  }
 
 	  public virtual UpdateExternalTaskRetriesBuilder processInstanceIds(IList<string> processInstanceIds)
 	  {
-		this.processInstanceIds_Renamed = processInstanceIds;
+		this.processInstanceIds_Conflict = processInstanceIds;
 		return this;
 	  }
 
@@ -83,30 +83,30 @@ namespace org.camunda.bpm.engine.impl.cmd
 	  {
 		if (processInstanceIds == null)
 		{
-		  this.processInstanceIds_Renamed = Collections.emptyList();
+		  this.processInstanceIds_Conflict = Collections.emptyList();
 		}
 		else
 		{
-		  this.processInstanceIds_Renamed = Arrays.asList(processInstanceIds);
+		  this.processInstanceIds_Conflict = Arrays.asList(processInstanceIds);
 		}
 		return this;
 	  }
 
 	  public virtual UpdateExternalTaskRetriesBuilder externalTaskQuery(ExternalTaskQuery externalTaskQuery)
 	  {
-		this.externalTaskQuery_Renamed = externalTaskQuery;
+		this.externalTaskQuery_Conflict = externalTaskQuery;
 		return this;
 	  }
 
 	  public virtual UpdateExternalTaskRetriesBuilder processInstanceQuery(ProcessInstanceQuery processInstanceQuery)
 	  {
-		this.processInstanceQuery_Renamed = processInstanceQuery;
+		this.processInstanceQuery_Conflict = processInstanceQuery;
 		return this;
 	  }
 
 	  public virtual UpdateExternalTaskRetriesBuilder historicProcessInstanceQuery(HistoricProcessInstanceQuery historicProcessInstanceQuery)
 	  {
-		this.historicProcessInstanceQuery_Renamed = historicProcessInstanceQuery;
+		this.historicProcessInstanceQuery_Conflict = historicProcessInstanceQuery;
 		return this;
 	  }
 
@@ -134,7 +134,7 @@ namespace org.camunda.bpm.engine.impl.cmd
 	  {
 		  get
 		  {
-			return externalTaskIds_Renamed;
+			return externalTaskIds_Conflict;
 		  }
 	  }
 
@@ -142,7 +142,7 @@ namespace org.camunda.bpm.engine.impl.cmd
 	  {
 		  get
 		  {
-			return processInstanceIds_Renamed;
+			return processInstanceIds_Conflict;
 		  }
 	  }
 
@@ -150,7 +150,7 @@ namespace org.camunda.bpm.engine.impl.cmd
 	  {
 		  get
 		  {
-			return externalTaskQuery_Renamed;
+			return externalTaskQuery_Conflict;
 		  }
 	  }
 
@@ -158,7 +158,7 @@ namespace org.camunda.bpm.engine.impl.cmd
 	  {
 		  get
 		  {
-			return processInstanceQuery_Renamed;
+			return processInstanceQuery_Conflict;
 		  }
 	  }
 
@@ -166,7 +166,7 @@ namespace org.camunda.bpm.engine.impl.cmd
 	  {
 		  get
 		  {
-			return historicProcessInstanceQuery_Renamed;
+			return historicProcessInstanceQuery_Conflict;
 		  }
 	  }
 

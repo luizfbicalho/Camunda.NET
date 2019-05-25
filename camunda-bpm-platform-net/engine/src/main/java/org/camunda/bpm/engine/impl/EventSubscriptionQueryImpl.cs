@@ -39,22 +39,22 @@ namespace org.camunda.bpm.engine.impl
 	  private const long serialVersionUID = 1L;
 
 //JAVA TO C# CONVERTER NOTE: Fields cannot have the same name as methods:
-	  protected internal string eventSubscriptionId_Renamed;
+	  protected internal string eventSubscriptionId_Conflict;
 //JAVA TO C# CONVERTER NOTE: Fields cannot have the same name as methods:
-	  protected internal string eventName_Renamed;
+	  protected internal string eventName_Conflict;
 //JAVA TO C# CONVERTER NOTE: Fields cannot have the same name as methods:
-	  protected internal string eventType_Renamed;
+	  protected internal string eventType_Conflict;
 //JAVA TO C# CONVERTER NOTE: Fields cannot have the same name as methods:
-	  protected internal string executionId_Renamed;
+	  protected internal string executionId_Conflict;
 //JAVA TO C# CONVERTER NOTE: Fields cannot have the same name as methods:
-	  protected internal string processInstanceId_Renamed;
+	  protected internal string processInstanceId_Conflict;
 //JAVA TO C# CONVERTER NOTE: Fields cannot have the same name as methods:
-	  protected internal string activityId_Renamed;
+	  protected internal string activityId_Conflict;
 
 	  protected internal bool isTenantIdSet = false;
 	  protected internal string[] tenantIds;
 //JAVA TO C# CONVERTER NOTE: Fields cannot have the same name as methods:
-	  protected internal bool includeEventSubscriptionsWithoutTenantId_Renamed = false;
+	  protected internal bool includeEventSubscriptionsWithoutTenantId_Conflict = false;
 
 	  public EventSubscriptionQueryImpl()
 	  {
@@ -67,35 +67,35 @@ namespace org.camunda.bpm.engine.impl
 	  public virtual EventSubscriptionQuery eventSubscriptionId(string id)
 	  {
 		ensureNotNull("event subscription id", id);
-		this.eventSubscriptionId_Renamed = id;
+		this.eventSubscriptionId_Conflict = id;
 		return this;
 	  }
 
 	  public virtual EventSubscriptionQuery eventName(string eventName)
 	  {
 		ensureNotNull("event name", eventName);
-		this.eventName_Renamed = eventName;
+		this.eventName_Conflict = eventName;
 		return this;
 	  }
 
 	  public virtual EventSubscriptionQueryImpl executionId(string executionId)
 	  {
 		ensureNotNull("execution id", executionId);
-		this.executionId_Renamed = executionId;
+		this.executionId_Conflict = executionId;
 		return this;
 	  }
 
 	  public virtual EventSubscriptionQuery processInstanceId(string processInstanceId)
 	  {
 		ensureNotNull("process instance id", processInstanceId);
-		this.processInstanceId_Renamed = processInstanceId;
+		this.processInstanceId_Conflict = processInstanceId;
 		return this;
 	  }
 
 	  public virtual EventSubscriptionQueryImpl activityId(string activityId)
 	  {
 		ensureNotNull("activity id", activityId);
-		this.activityId_Renamed = activityId;
+		this.activityId_Conflict = activityId;
 		return this;
 	  }
 
@@ -116,14 +116,14 @@ namespace org.camunda.bpm.engine.impl
 
 	  public virtual EventSubscriptionQuery includeEventSubscriptionsWithoutTenantId()
 	  {
-		this.includeEventSubscriptionsWithoutTenantId_Renamed = true;
+		this.includeEventSubscriptionsWithoutTenantId_Conflict = true;
 		return this;
 	  }
 
 	  public virtual EventSubscriptionQueryImpl eventType(string eventType)
 	  {
 		ensureNotNull("event type", eventType);
-		this.eventType_Renamed = eventType;
+		this.eventType_Conflict = eventType;
 		return this;
 	  }
 
@@ -158,42 +158,42 @@ namespace org.camunda.bpm.engine.impl
 	  {
 		  get
 		  {
-			return eventSubscriptionId_Renamed;
+			return eventSubscriptionId_Conflict;
 		  }
 	  }
 	  public virtual string EventName
 	  {
 		  get
 		  {
-			return eventName_Renamed;
+			return eventName_Conflict;
 		  }
 	  }
 	  public virtual string EventType
 	  {
 		  get
 		  {
-			return eventType_Renamed;
+			return eventType_Conflict;
 		  }
 	  }
 	  public virtual string ExecutionId
 	  {
 		  get
 		  {
-			return executionId_Renamed;
+			return executionId_Conflict;
 		  }
 	  }
 	  public virtual string ProcessInstanceId
 	  {
 		  get
 		  {
-			return processInstanceId_Renamed;
+			return processInstanceId_Conflict;
 		  }
 	  }
 	  public virtual string ActivityId
 	  {
 		  get
 		  {
-			return activityId_Renamed;
+			return activityId_Conflict;
 		  }
 	  }
 

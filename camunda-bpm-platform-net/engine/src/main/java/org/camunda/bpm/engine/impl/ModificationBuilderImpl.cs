@@ -40,23 +40,23 @@ namespace org.camunda.bpm.engine.impl
 
 	  protected internal CommandExecutor commandExecutor;
 //JAVA TO C# CONVERTER NOTE: Fields cannot have the same name as methods:
-	  protected internal ProcessInstanceQuery processInstanceQuery_Renamed;
+	  protected internal ProcessInstanceQuery processInstanceQuery_Conflict;
 //JAVA TO C# CONVERTER NOTE: Fields cannot have the same name as methods:
-	  protected internal IList<string> processInstanceIds_Renamed;
+	  protected internal IList<string> processInstanceIds_Conflict;
 	  protected internal IList<AbstractProcessInstanceModificationCommand> instructions;
 	  protected internal string processDefinitionId;
 
 //JAVA TO C# CONVERTER NOTE: Fields cannot have the same name as methods:
-	  protected internal bool skipCustomListeners_Renamed;
+	  protected internal bool skipCustomListeners_Conflict;
 //JAVA TO C# CONVERTER NOTE: Fields cannot have the same name as methods:
-	  protected internal bool skipIoMappings_Renamed;
+	  protected internal bool skipIoMappings_Conflict;
 
 	  public ModificationBuilderImpl(CommandExecutor commandExecutor, string processDefinitionId)
 	  {
 		this.commandExecutor = commandExecutor;
 		ensureNotNull(typeof(NotValidException),"processDefinitionId", processDefinitionId);
 		this.processDefinitionId = processDefinitionId;
-		processInstanceIds_Renamed = new List<string>();
+		processInstanceIds_Conflict = new List<string>();
 		instructions = new List<AbstractProcessInstanceModificationCommand>();
 	  }
 
@@ -97,7 +97,7 @@ namespace org.camunda.bpm.engine.impl
 
 	  public virtual ModificationBuilder processInstanceIds(IList<string> processInstanceIds)
 	  {
-		this.processInstanceIds_Renamed = processInstanceIds;
+		this.processInstanceIds_Conflict = processInstanceIds;
 		return this;
 	  }
 
@@ -105,30 +105,30 @@ namespace org.camunda.bpm.engine.impl
 	  {
 		if (processInstanceIds == null)
 		{
-		  this.processInstanceIds_Renamed = Collections.emptyList();
+		  this.processInstanceIds_Conflict = Collections.emptyList();
 		}
 		else
 		{
-		  this.processInstanceIds_Renamed = Arrays.asList(processInstanceIds);
+		  this.processInstanceIds_Conflict = Arrays.asList(processInstanceIds);
 		}
 		return this;
 	  }
 
 	  public virtual ModificationBuilder processInstanceQuery(ProcessInstanceQuery processInstanceQuery)
 	  {
-		this.processInstanceQuery_Renamed = processInstanceQuery;
+		this.processInstanceQuery_Conflict = processInstanceQuery;
 		return this;
 	  }
 
 	  public virtual ModificationBuilder skipCustomListeners()
 	  {
-		this.skipCustomListeners_Renamed = true;
+		this.skipCustomListeners_Conflict = true;
 		return this;
 	  }
 
 	  public virtual ModificationBuilder skipIoMappings()
 	  {
-		this.skipIoMappings_Renamed = true;
+		this.skipIoMappings_Conflict = true;
 		return this;
 	  }
 
@@ -159,7 +159,7 @@ namespace org.camunda.bpm.engine.impl
 	  {
 		  get
 		  {
-			return processInstanceQuery_Renamed;
+			return processInstanceQuery_Conflict;
 		  }
 	  }
 
@@ -167,7 +167,7 @@ namespace org.camunda.bpm.engine.impl
 	  {
 		  get
 		  {
-			return processInstanceIds_Renamed;
+			return processInstanceIds_Conflict;
 		  }
 	  }
 
@@ -201,7 +201,7 @@ namespace org.camunda.bpm.engine.impl
 	  {
 		  get
 		  {
-			return skipCustomListeners_Renamed;
+			return skipCustomListeners_Conflict;
 		  }
 	  }
 
@@ -209,7 +209,7 @@ namespace org.camunda.bpm.engine.impl
 	  {
 		  get
 		  {
-			return skipIoMappings_Renamed;
+			return skipIoMappings_Conflict;
 		  }
 	  }
 

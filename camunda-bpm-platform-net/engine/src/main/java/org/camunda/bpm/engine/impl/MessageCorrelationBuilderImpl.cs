@@ -52,9 +52,9 @@ namespace org.camunda.bpm.engine.impl
 	  protected internal string messageName;
 	  protected internal string businessKey;
 //JAVA TO C# CONVERTER NOTE: Fields cannot have the same name as methods:
-	  protected internal string processInstanceId_Renamed;
+	  protected internal string processInstanceId_Conflict;
 //JAVA TO C# CONVERTER NOTE: Fields cannot have the same name as methods:
-	  protected internal string processDefinitionId_Renamed;
+	  protected internal string processDefinitionId_Conflict;
 
 	  protected internal VariableMap correlationProcessInstanceVariables;
 	  protected internal VariableMap correlationLocalVariables;
@@ -62,7 +62,7 @@ namespace org.camunda.bpm.engine.impl
 	  protected internal VariableMap payloadProcessInstanceVariablesLocal;
 
 //JAVA TO C# CONVERTER NOTE: Fields cannot have the same name as methods:
-	  protected internal string tenantId_Renamed = null;
+	  protected internal string tenantId_Conflict = null;
 	  protected internal bool isTenantIdSet = false;
 
 	  protected internal bool startMessagesOnly = false;
@@ -146,14 +146,14 @@ namespace org.camunda.bpm.engine.impl
 	  public virtual MessageCorrelationBuilder processInstanceId(string id)
 	  {
 		ensureNotNull("processInstanceId", id);
-		this.processInstanceId_Renamed = id;
+		this.processInstanceId_Conflict = id;
 		return this;
 	  }
 
 	  public virtual MessageCorrelationBuilder processDefinitionId(string processDefinitionId)
 	  {
 		ensureNotNull("processDefinitionId", processDefinitionId);
-		this.processDefinitionId_Renamed = processDefinitionId;
+		this.processDefinitionId_Conflict = processDefinitionId;
 		return this;
 	  }
 
@@ -214,14 +214,14 @@ namespace org.camunda.bpm.engine.impl
 		ensureNotNull("The tenant-id cannot be null. Use 'withoutTenantId()' if you want to correlate the message to a process definition or an execution which has no tenant-id.", "tenantId", tenantId);
 
 		isTenantIdSet = true;
-		this.tenantId_Renamed = tenantId;
+		this.tenantId_Conflict = tenantId;
 		return this;
 	  }
 
 	  public virtual MessageCorrelationBuilder withoutTenantId()
 	  {
 		isTenantIdSet = true;
-		tenantId_Renamed = null;
+		tenantId_Conflict = null;
 		return this;
 	  }
 
@@ -323,7 +323,7 @@ namespace org.camunda.bpm.engine.impl
 
 	  protected internal virtual void ensureProcessDefinitionIdNotSet()
 	  {
-		if (!string.ReferenceEquals(processDefinitionId_Renamed, null))
+		if (!string.ReferenceEquals(processDefinitionId_Conflict, null))
 		{
 		  throw LOG.exceptionCorrelateMessageWithProcessDefinitionId();
 		}
@@ -331,7 +331,7 @@ namespace org.camunda.bpm.engine.impl
 
 	  protected internal virtual void ensureProcessInstanceAndTenantIdNotSet()
 	  {
-		if (!string.ReferenceEquals(processInstanceId_Renamed, null) && isTenantIdSet)
+		if (!string.ReferenceEquals(processInstanceId_Conflict, null) && isTenantIdSet)
 		{
 		  throw LOG.exceptionCorrelateMessageWithProcessInstanceAndTenantId();
 		}
@@ -347,7 +347,7 @@ namespace org.camunda.bpm.engine.impl
 
 	  protected internal virtual void ensureProcessDefinitionAndTenantIdNotSet()
 	  {
-		if (!string.ReferenceEquals(processDefinitionId_Renamed, null) && isTenantIdSet)
+		if (!string.ReferenceEquals(processDefinitionId_Conflict, null) && isTenantIdSet)
 		{
 		  throw LOG.exceptionCorrelateMessageWithProcessDefinitionAndTenantId();
 		}
@@ -403,7 +403,7 @@ namespace org.camunda.bpm.engine.impl
 	  {
 		  get
 		  {
-			return processInstanceId_Renamed;
+			return processInstanceId_Conflict;
 		  }
 	  }
 
@@ -411,7 +411,7 @@ namespace org.camunda.bpm.engine.impl
 	  {
 		  get
 		  {
-			return processDefinitionId_Renamed;
+			return processDefinitionId_Conflict;
 		  }
 	  }
 
@@ -459,7 +459,7 @@ namespace org.camunda.bpm.engine.impl
 	  {
 		  get
 		  {
-			return tenantId_Renamed;
+			return tenantId_Conflict;
 		  }
 	  }
 

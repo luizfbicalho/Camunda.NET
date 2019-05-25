@@ -51,11 +51,11 @@ namespace org.camunda.bpm.engine.impl.cmmn
 	  protected internal string caseDefinitionKey;
 	  protected internal string caseDefinitionId;
 //JAVA TO C# CONVERTER NOTE: Fields cannot have the same name as methods:
-	  protected internal string businessKey_Renamed;
+	  protected internal string businessKey_Conflict;
 	  protected internal VariableMap variables;
 
 //JAVA TO C# CONVERTER NOTE: Fields cannot have the same name as methods:
-	  protected internal string caseDefinitionTenantId_Renamed;
+	  protected internal string caseDefinitionTenantId_Conflict;
 	  protected internal bool isTenantIdSet = false;
 
 	  public CaseInstanceBuilderImpl(CommandExecutor commandExecutor, string caseDefinitionKey, string caseDefinitionId) : this(caseDefinitionKey, caseDefinitionId)
@@ -78,20 +78,20 @@ namespace org.camunda.bpm.engine.impl.cmmn
 
 	  public virtual CaseInstanceBuilder businessKey(string businessKey)
 	  {
-		this.businessKey_Renamed = businessKey;
+		this.businessKey_Conflict = businessKey;
 		return this;
 	  }
 
 	  public virtual CaseInstanceBuilder caseDefinitionTenantId(string tenantId)
 	  {
-		this.caseDefinitionTenantId_Renamed = tenantId;
+		this.caseDefinitionTenantId_Conflict = tenantId;
 		isTenantIdSet = true;
 		return this;
 	  }
 
 	  public virtual CaseInstanceBuilder caseDefinitionWithoutTenantId()
 	  {
-		this.caseDefinitionTenantId_Renamed = null;
+		this.caseDefinitionTenantId_Conflict = null;
 		isTenantIdSet = true;
 		return this;
 	  }
@@ -182,7 +182,7 @@ namespace org.camunda.bpm.engine.impl.cmmn
 	  {
 		  get
 		  {
-			return businessKey_Renamed;
+			return businessKey_Conflict;
 		  }
 	  }
 
@@ -195,7 +195,7 @@ namespace org.camunda.bpm.engine.impl.cmmn
 	  {
 		  get
 		  {
-			return caseDefinitionTenantId_Renamed;
+			return caseDefinitionTenantId_Conflict;
 		  }
 	  }
 

@@ -39,23 +39,23 @@ namespace org.camunda.bpm.engine.impl.cmmn.entity.runtime
 
 	  protected internal string id;
 //JAVA TO C# CONVERTER NOTE: Fields cannot have the same name as methods:
-	  protected internal string caseInstanceId_Renamed;
+	  protected internal string caseInstanceId_Conflict;
 //JAVA TO C# CONVERTER NOTE: Fields cannot have the same name as methods:
-	  protected internal string caseExecutionId_Renamed;
+	  protected internal string caseExecutionId_Conflict;
 //JAVA TO C# CONVERTER NOTE: Fields cannot have the same name as methods:
-	  protected internal string sentryId_Renamed;
+	  protected internal string sentryId_Conflict;
 //JAVA TO C# CONVERTER NOTE: Fields cannot have the same name as methods:
-	  protected internal string type_Renamed;
+	  protected internal string type_Conflict;
 //JAVA TO C# CONVERTER NOTE: Fields cannot have the same name as methods:
-	  protected internal string sourceCaseExecutionId_Renamed;
+	  protected internal string sourceCaseExecutionId_Conflict;
 //JAVA TO C# CONVERTER NOTE: Fields cannot have the same name as methods:
-	  protected internal string standardEvent_Renamed;
+	  protected internal string standardEvent_Conflict;
 //JAVA TO C# CONVERTER NOTE: Fields cannot have the same name as methods:
-	  protected internal string variableEvent_Renamed;
+	  protected internal string variableEvent_Conflict;
 //JAVA TO C# CONVERTER NOTE: Fields cannot have the same name as methods:
-	  protected internal string variableName_Renamed;
+	  protected internal string variableName_Conflict;
 //JAVA TO C# CONVERTER NOTE: Fields cannot have the same name as methods:
-	  protected internal bool satisfied_Renamed;
+	  protected internal bool satisfied_Conflict;
 
 	  public CaseSentryPartQueryImpl()
 	  {
@@ -75,62 +75,62 @@ namespace org.camunda.bpm.engine.impl.cmmn.entity.runtime
 	  public virtual CaseSentryPartQueryImpl caseInstanceId(string caseInstanceId)
 	  {
 		ensureNotNull(typeof(NotValidException), "caseInstanceId", caseInstanceId);
-		this.caseInstanceId_Renamed = caseInstanceId;
+		this.caseInstanceId_Conflict = caseInstanceId;
 		return this;
 	  }
 
 	  public virtual CaseSentryPartQueryImpl caseExecutionId(string caseExecutionId)
 	  {
 		ensureNotNull(typeof(NotValidException), "caseExecutionId", caseExecutionId);
-		this.caseExecutionId_Renamed = caseExecutionId;
+		this.caseExecutionId_Conflict = caseExecutionId;
 		return this;
 	  }
 
 	  public virtual CaseSentryPartQueryImpl sentryId(string sentryId)
 	  {
 		ensureNotNull(typeof(NotValidException), "sentryId", sentryId);
-		this.sentryId_Renamed = sentryId;
+		this.sentryId_Conflict = sentryId;
 		return this;
 	  }
 
 	  public virtual CaseSentryPartQueryImpl type(string type)
 	  {
 		ensureNotNull(typeof(NotValidException), "type", type);
-		this.type_Renamed = type;
+		this.type_Conflict = type;
 		return this;
 	  }
 
 	  public virtual CaseSentryPartQueryImpl sourceCaseExecutionId(string sourceCaseExecutionId)
 	  {
 		ensureNotNull(typeof(NotValidException), "sourceCaseExecutionId", sourceCaseExecutionId);
-		this.sourceCaseExecutionId_Renamed = sourceCaseExecutionId;
+		this.sourceCaseExecutionId_Conflict = sourceCaseExecutionId;
 		return this;
 	  }
 
 	  public virtual CaseSentryPartQueryImpl standardEvent(string standardEvent)
 	  {
 		ensureNotNull(typeof(NotValidException), "standardEvent", standardEvent);
-		this.standardEvent_Renamed = standardEvent;
+		this.standardEvent_Conflict = standardEvent;
 		return this;
 	  }
 
 	  public virtual CaseSentryPartQueryImpl variableEvent(string variableEvent)
 	  {
 		ensureNotNull(typeof(NotValidException), "variableEvent", variableEvent);
-		this.variableEvent_Renamed = variableEvent;
+		this.variableEvent_Conflict = variableEvent;
 		return this;
 	  }
 
 	  public virtual CaseSentryPartQueryImpl variableName(string variableName)
 	  {
 		ensureNotNull(typeof(NotValidException), "variableName", variableName);
-		this.variableName_Renamed = variableName;
+		this.variableName_Conflict = variableName;
 		return this;
 	  }
 
 	  public virtual CaseSentryPartQueryImpl satisfied()
 	  {
-		this.satisfied_Renamed = true;
+		this.satisfied_Conflict = true;
 		return this;
 	  }
 
@@ -196,7 +196,7 @@ namespace org.camunda.bpm.engine.impl.cmmn.entity.runtime
 	  {
 		  get
 		  {
-			return caseInstanceId_Renamed;
+			return caseInstanceId_Conflict;
 		  }
 	  }
 
@@ -204,7 +204,7 @@ namespace org.camunda.bpm.engine.impl.cmmn.entity.runtime
 	  {
 		  get
 		  {
-			return caseExecutionId_Renamed;
+			return caseExecutionId_Conflict;
 		  }
 	  }
 
@@ -212,7 +212,7 @@ namespace org.camunda.bpm.engine.impl.cmmn.entity.runtime
 	  {
 		  get
 		  {
-			return sentryId_Renamed;
+			return sentryId_Conflict;
 		  }
 	  }
 
@@ -220,7 +220,7 @@ namespace org.camunda.bpm.engine.impl.cmmn.entity.runtime
 	  {
 		  get
 		  {
-			return type_Renamed;
+			return type_Conflict;
 		  }
 	  }
 
@@ -228,7 +228,7 @@ namespace org.camunda.bpm.engine.impl.cmmn.entity.runtime
 	  {
 		  get
 		  {
-			return sourceCaseExecutionId_Renamed;
+			return sourceCaseExecutionId_Conflict;
 		  }
 	  }
 
@@ -236,7 +236,7 @@ namespace org.camunda.bpm.engine.impl.cmmn.entity.runtime
 	  {
 		  get
 		  {
-			return standardEvent_Renamed;
+			return standardEvent_Conflict;
 		  }
 	  }
 
@@ -244,7 +244,7 @@ namespace org.camunda.bpm.engine.impl.cmmn.entity.runtime
 	  {
 		  get
 		  {
-			return variableEvent_Renamed;
+			return variableEvent_Conflict;
 		  }
 	  }
 
@@ -252,7 +252,7 @@ namespace org.camunda.bpm.engine.impl.cmmn.entity.runtime
 	  {
 		  get
 		  {
-			return variableName_Renamed;
+			return variableName_Conflict;
 		  }
 	  }
 
@@ -260,7 +260,7 @@ namespace org.camunda.bpm.engine.impl.cmmn.entity.runtime
 	  {
 		  get
 		  {
-			return satisfied_Renamed;
+			return satisfied_Conflict;
 		  }
 	  }
 

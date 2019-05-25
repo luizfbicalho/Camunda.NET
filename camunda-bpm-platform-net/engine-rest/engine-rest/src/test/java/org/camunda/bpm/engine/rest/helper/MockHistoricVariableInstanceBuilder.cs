@@ -39,50 +39,50 @@ namespace org.camunda.bpm.engine.rest.helper
 	{
 
 //JAVA TO C# CONVERTER NOTE: Fields cannot have the same name as methods:
-	  protected internal string id_Renamed;
+	  protected internal string id_Conflict;
 //JAVA TO C# CONVERTER NOTE: Fields cannot have the same name as methods:
-	  protected internal string name_Renamed;
+	  protected internal string name_Conflict;
 	  protected internal TypedValue value;
 //JAVA TO C# CONVERTER NOTE: Fields cannot have the same name as methods:
-	  protected internal string processDefinitionKey_Renamed;
+	  protected internal string processDefinitionKey_Conflict;
 //JAVA TO C# CONVERTER NOTE: Fields cannot have the same name as methods:
-	  protected internal string processDefinitionId_Renamed;
+	  protected internal string processDefinitionId_Conflict;
 //JAVA TO C# CONVERTER NOTE: Fields cannot have the same name as methods:
-	  protected internal string processInstanceId_Renamed;
+	  protected internal string processInstanceId_Conflict;
 //JAVA TO C# CONVERTER NOTE: Fields cannot have the same name as methods:
-	  protected internal string executionId_Renamed;
+	  protected internal string executionId_Conflict;
 //JAVA TO C# CONVERTER NOTE: Fields cannot have the same name as methods:
-	  protected internal string errorMessage_Renamed;
+	  protected internal string errorMessage_Conflict;
 //JAVA TO C# CONVERTER NOTE: Fields cannot have the same name as methods:
-	  protected internal string activityInstanceId_Renamed;
+	  protected internal string activityInstanceId_Conflict;
 //JAVA TO C# CONVERTER NOTE: Fields cannot have the same name as methods:
-	  protected internal string caseDefinitionKey_Renamed;
+	  protected internal string caseDefinitionKey_Conflict;
 //JAVA TO C# CONVERTER NOTE: Fields cannot have the same name as methods:
-	  protected internal string caseDefinitionId_Renamed;
+	  protected internal string caseDefinitionId_Conflict;
 //JAVA TO C# CONVERTER NOTE: Fields cannot have the same name as methods:
-	  protected internal string caseInstanceId_Renamed;
+	  protected internal string caseInstanceId_Conflict;
 //JAVA TO C# CONVERTER NOTE: Fields cannot have the same name as methods:
-	  protected internal string caseExecutionId_Renamed;
+	  protected internal string caseExecutionId_Conflict;
 //JAVA TO C# CONVERTER NOTE: Fields cannot have the same name as methods:
-	  protected internal string taskId_Renamed;
+	  protected internal string taskId_Conflict;
 //JAVA TO C# CONVERTER NOTE: Fields cannot have the same name as methods:
-	  protected internal string tenantId_Renamed;
+	  protected internal string tenantId_Conflict;
 //JAVA TO C# CONVERTER NOTE: Fields cannot have the same name as methods:
-	  protected internal DateTime createTime_Renamed;
+	  protected internal DateTime createTime_Conflict;
 //JAVA TO C# CONVERTER NOTE: Fields cannot have the same name as methods:
-	  protected internal DateTime removalTime_Renamed;
+	  protected internal DateTime removalTime_Conflict;
 //JAVA TO C# CONVERTER NOTE: Fields cannot have the same name as methods:
-	  protected internal string rootProcessInstanceId_Renamed;
+	  protected internal string rootProcessInstanceId_Conflict;
 
 	  public virtual MockHistoricVariableInstanceBuilder id(string id)
 	  {
-		this.id_Renamed = id;
+		this.id_Conflict = id;
 		return this;
 	  }
 
 	  public virtual MockHistoricVariableInstanceBuilder name(string name)
 	  {
-		this.name_Renamed = name;
+		this.name_Conflict = name;
 		return this;
 	  }
 
@@ -94,91 +94,91 @@ namespace org.camunda.bpm.engine.rest.helper
 
 	  public virtual MockHistoricVariableInstanceBuilder processDefinitionKey(string processDefinitionKey)
 	  {
-		this.processDefinitionKey_Renamed = processDefinitionKey;
+		this.processDefinitionKey_Conflict = processDefinitionKey;
 		return this;
 	  }
 
 	  public virtual MockHistoricVariableInstanceBuilder processDefinitionId(string processDefinitionId)
 	  {
-		this.processDefinitionId_Renamed = processDefinitionId;
+		this.processDefinitionId_Conflict = processDefinitionId;
 		return this;
 	  }
 
 	  public virtual MockHistoricVariableInstanceBuilder processInstanceId(string processInstanceId)
 	  {
-		this.processInstanceId_Renamed = processInstanceId;
+		this.processInstanceId_Conflict = processInstanceId;
 		return this;
 	  }
 
 	  public virtual MockHistoricVariableInstanceBuilder executionId(string executionId)
 	  {
-		this.executionId_Renamed = executionId;
+		this.executionId_Conflict = executionId;
 		return this;
 	  }
 
 	  public virtual MockHistoricVariableInstanceBuilder errorMessage(string errorMessage)
 	  {
-		this.errorMessage_Renamed = errorMessage;
+		this.errorMessage_Conflict = errorMessage;
 		return this;
 	  }
 
 	  public virtual MockHistoricVariableInstanceBuilder activityInstanceId(string activityInstanceId)
 	  {
-		this.activityInstanceId_Renamed = activityInstanceId;
+		this.activityInstanceId_Conflict = activityInstanceId;
 		return this;
 	  }
 
 	  public virtual MockHistoricVariableInstanceBuilder caseDefinitionKey(string caseDefinitionKey)
 	  {
-		this.caseDefinitionKey_Renamed = caseDefinitionKey;
+		this.caseDefinitionKey_Conflict = caseDefinitionKey;
 		return this;
 	  }
 
 	  public virtual MockHistoricVariableInstanceBuilder caseDefinitionId(string caseDefinitionId)
 	  {
-		this.caseDefinitionId_Renamed = caseDefinitionId;
+		this.caseDefinitionId_Conflict = caseDefinitionId;
 		return this;
 	  }
 
 	  public virtual MockHistoricVariableInstanceBuilder caseInstanceId(string caseInstanceId)
 	  {
-		this.caseInstanceId_Renamed = caseInstanceId;
+		this.caseInstanceId_Conflict = caseInstanceId;
 		return this;
 	  }
 
 	  public virtual MockHistoricVariableInstanceBuilder caseExecutionId(string caseExecutionId)
 	  {
-		this.caseExecutionId_Renamed = caseExecutionId;
+		this.caseExecutionId_Conflict = caseExecutionId;
 		return this;
 	  }
 
 	  public virtual MockHistoricVariableInstanceBuilder taskId(string taskId)
 	  {
-		this.taskId_Renamed = taskId;
+		this.taskId_Conflict = taskId;
 		return this;
 	  }
 
 	  public virtual MockHistoricVariableInstanceBuilder tenantId(string tenantId)
 	  {
-		this.tenantId_Renamed = tenantId;
+		this.tenantId_Conflict = tenantId;
 		return this;
 	  }
 
 	  public virtual MockHistoricVariableInstanceBuilder createTime(DateTime createTime)
 	  {
-		this.createTime_Renamed = createTime;
+		this.createTime_Conflict = createTime;
 		return this;
 	  }
 
 	  public virtual MockHistoricVariableInstanceBuilder removalTime(DateTime removalTime)
 	  {
-		this.removalTime_Renamed = removalTime;
+		this.removalTime_Conflict = removalTime;
 		return this;
 	  }
 
 	  public virtual MockHistoricVariableInstanceBuilder rootProcessInstanceId(string rootProcessInstanceId)
 	  {
-		this.rootProcessInstanceId_Renamed = rootProcessInstanceId;
+		this.rootProcessInstanceId_Conflict = rootProcessInstanceId;
 		return this;
 	  }
 
@@ -186,7 +186,7 @@ namespace org.camunda.bpm.engine.rest.helper
 	  {
 		  get
 		  {
-			return id_Renamed;
+			return id_Conflict;
 		  }
 	  }
 
@@ -194,7 +194,7 @@ namespace org.camunda.bpm.engine.rest.helper
 	  {
 		  get
 		  {
-			return name_Renamed;
+			return name_Conflict;
 		  }
 	  }
 
@@ -218,7 +218,7 @@ namespace org.camunda.bpm.engine.rest.helper
 	  {
 		  get
 		  {
-			return processDefinitionKey_Renamed;
+			return processDefinitionKey_Conflict;
 		  }
 	  }
 
@@ -226,7 +226,7 @@ namespace org.camunda.bpm.engine.rest.helper
 	  {
 		  get
 		  {
-			return processDefinitionId_Renamed;
+			return processDefinitionId_Conflict;
 		  }
 	  }
 
@@ -234,7 +234,7 @@ namespace org.camunda.bpm.engine.rest.helper
 	  {
 		  get
 		  {
-			return processInstanceId_Renamed;
+			return processInstanceId_Conflict;
 		  }
 	  }
 
@@ -242,7 +242,7 @@ namespace org.camunda.bpm.engine.rest.helper
 	  {
 		  get
 		  {
-			return executionId_Renamed;
+			return executionId_Conflict;
 		  }
 	  }
 
@@ -250,7 +250,7 @@ namespace org.camunda.bpm.engine.rest.helper
 	  {
 		  get
 		  {
-			return errorMessage_Renamed;
+			return errorMessage_Conflict;
 		  }
 	  }
 
@@ -258,7 +258,7 @@ namespace org.camunda.bpm.engine.rest.helper
 	  {
 		  get
 		  {
-			return activityInstanceId_Renamed;
+			return activityInstanceId_Conflict;
 		  }
 	  }
 
@@ -266,7 +266,7 @@ namespace org.camunda.bpm.engine.rest.helper
 	  {
 		  get
 		  {
-			return caseDefinitionKey_Renamed;
+			return caseDefinitionKey_Conflict;
 		  }
 	  }
 
@@ -274,7 +274,7 @@ namespace org.camunda.bpm.engine.rest.helper
 	  {
 		  get
 		  {
-			return caseDefinitionId_Renamed;
+			return caseDefinitionId_Conflict;
 		  }
 	  }
 
@@ -282,7 +282,7 @@ namespace org.camunda.bpm.engine.rest.helper
 	  {
 		  get
 		  {
-			return caseInstanceId_Renamed;
+			return caseInstanceId_Conflict;
 		  }
 	  }
 
@@ -290,7 +290,7 @@ namespace org.camunda.bpm.engine.rest.helper
 	  {
 		  get
 		  {
-			return caseExecutionId_Renamed;
+			return caseExecutionId_Conflict;
 		  }
 	  }
 
@@ -298,7 +298,7 @@ namespace org.camunda.bpm.engine.rest.helper
 	  {
 		  get
 		  {
-			return taskId_Renamed;
+			return taskId_Conflict;
 		  }
 	  }
 
@@ -306,7 +306,7 @@ namespace org.camunda.bpm.engine.rest.helper
 	  {
 		  get
 		  {
-			return tenantId_Renamed;
+			return tenantId_Conflict;
 		  }
 	  }
 
@@ -314,7 +314,7 @@ namespace org.camunda.bpm.engine.rest.helper
 	  {
 		  get
 		  {
-			return createTime_Renamed;
+			return createTime_Conflict;
 		  }
 	  }
 
@@ -322,7 +322,7 @@ namespace org.camunda.bpm.engine.rest.helper
 	  {
 		  get
 		  {
-			return removalTime_Renamed;
+			return removalTime_Conflict;
 		  }
 	  }
 
@@ -330,16 +330,16 @@ namespace org.camunda.bpm.engine.rest.helper
 	  {
 		  get
 		  {
-			return rootProcessInstanceId_Renamed;
+			return rootProcessInstanceId_Conflict;
 		  }
 	  }
 
 	  public virtual HistoricVariableInstance build()
 	  {
 		HistoricVariableInstance mockVariable = mock(typeof(HistoricVariableInstance));
-		when(mockVariable.Id).thenReturn(id_Renamed);
-		when(mockVariable.Name).thenReturn(name_Renamed);
-		when(mockVariable.VariableName).thenReturn(name_Renamed);
+		when(mockVariable.Id).thenReturn(id_Conflict);
+		when(mockVariable.Name).thenReturn(name_Conflict);
+		when(mockVariable.VariableName).thenReturn(name_Conflict);
 		when(mockVariable.TypeName).thenReturn(value.Type.Name);
 		when(mockVariable.VariableTypeName).thenReturn(value.Type.Name);
 
@@ -361,22 +361,22 @@ namespace org.camunda.bpm.engine.rest.helper
 		}
 
 		when(mockVariable.TypedValue).thenReturn(value);
-		when(mockVariable.ProcessDefinitionKey).thenReturn(processDefinitionKey_Renamed);
-		when(mockVariable.ProcessDefinitionId).thenReturn(processDefinitionId_Renamed);
-		when(mockVariable.ProcessInstanceId).thenReturn(processInstanceId_Renamed);
-		when(mockVariable.ExecutionId).thenReturn(executionId_Renamed);
-		when(mockVariable.ErrorMessage).thenReturn(errorMessage_Renamed);
-		when(mockVariable.ActivtyInstanceId).thenReturn(activityInstanceId_Renamed);
-		when(mockVariable.ActivityInstanceId).thenReturn(activityInstanceId_Renamed);
-		when(mockVariable.CaseDefinitionKey).thenReturn(caseDefinitionKey_Renamed);
-		when(mockVariable.CaseDefinitionId).thenReturn(caseDefinitionId_Renamed);
-		when(mockVariable.CaseInstanceId).thenReturn(caseInstanceId_Renamed);
-		when(mockVariable.CaseExecutionId).thenReturn(caseExecutionId_Renamed);
-		when(mockVariable.TaskId).thenReturn(taskId_Renamed);
-		when(mockVariable.TenantId).thenReturn(tenantId_Renamed);
-		when(mockVariable.CreateTime).thenReturn(createTime_Renamed);
-		when(mockVariable.RemovalTime).thenReturn(removalTime_Renamed);
-		when(mockVariable.RootProcessInstanceId).thenReturn(rootProcessInstanceId_Renamed);
+		when(mockVariable.ProcessDefinitionKey).thenReturn(processDefinitionKey_Conflict);
+		when(mockVariable.ProcessDefinitionId).thenReturn(processDefinitionId_Conflict);
+		when(mockVariable.ProcessInstanceId).thenReturn(processInstanceId_Conflict);
+		when(mockVariable.ExecutionId).thenReturn(executionId_Conflict);
+		when(mockVariable.ErrorMessage).thenReturn(errorMessage_Conflict);
+		when(mockVariable.ActivtyInstanceId).thenReturn(activityInstanceId_Conflict);
+		when(mockVariable.ActivityInstanceId).thenReturn(activityInstanceId_Conflict);
+		when(mockVariable.CaseDefinitionKey).thenReturn(caseDefinitionKey_Conflict);
+		when(mockVariable.CaseDefinitionId).thenReturn(caseDefinitionId_Conflict);
+		when(mockVariable.CaseInstanceId).thenReturn(caseInstanceId_Conflict);
+		when(mockVariable.CaseExecutionId).thenReturn(caseExecutionId_Conflict);
+		when(mockVariable.TaskId).thenReturn(taskId_Conflict);
+		when(mockVariable.TenantId).thenReturn(tenantId_Conflict);
+		when(mockVariable.CreateTime).thenReturn(createTime_Conflict);
+		when(mockVariable.RemovalTime).thenReturn(removalTime_Conflict);
+		when(mockVariable.RootProcessInstanceId).thenReturn(rootProcessInstanceId_Conflict);
 
 		return mockVariable;
 	  }

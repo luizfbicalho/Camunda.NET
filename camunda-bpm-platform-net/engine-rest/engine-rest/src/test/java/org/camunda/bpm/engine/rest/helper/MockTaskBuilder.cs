@@ -30,189 +30,189 @@ namespace org.camunda.bpm.engine.rest.helper
 	{
 
 //JAVA TO C# CONVERTER NOTE: Fields cannot have the same name as methods:
-	  private string id_Renamed;
+	  private string id_Conflict;
 //JAVA TO C# CONVERTER NOTE: Fields cannot have the same name as methods:
-	  private string name_Renamed;
+	  private string name_Conflict;
 //JAVA TO C# CONVERTER NOTE: Fields cannot have the same name as methods:
-	  private string assignee_Renamed;
+	  private string assignee_Conflict;
 //JAVA TO C# CONVERTER NOTE: Fields cannot have the same name as methods:
-	  private DateTime createTime_Renamed;
+	  private DateTime createTime_Conflict;
 //JAVA TO C# CONVERTER NOTE: Fields cannot have the same name as methods:
-	  private DateTime dueDate_Renamed;
+	  private DateTime dueDate_Conflict;
 //JAVA TO C# CONVERTER NOTE: Fields cannot have the same name as methods:
-	  private DateTime followUpDate_Renamed;
+	  private DateTime followUpDate_Conflict;
 //JAVA TO C# CONVERTER NOTE: Fields cannot have the same name as methods:
-	  private DelegationState delegationState_Renamed;
+	  private DelegationState delegationState_Conflict;
 //JAVA TO C# CONVERTER NOTE: Fields cannot have the same name as methods:
-	  private string description_Renamed;
+	  private string description_Conflict;
 //JAVA TO C# CONVERTER NOTE: Fields cannot have the same name as methods:
-	  private string executionId_Renamed;
+	  private string executionId_Conflict;
 //JAVA TO C# CONVERTER NOTE: Fields cannot have the same name as methods:
-	  private string owner_Renamed;
+	  private string owner_Conflict;
 //JAVA TO C# CONVERTER NOTE: Fields cannot have the same name as methods:
-	  private string parentTaskId_Renamed;
+	  private string parentTaskId_Conflict;
 //JAVA TO C# CONVERTER NOTE: Fields cannot have the same name as methods:
-	  private int priority_Renamed;
+	  private int priority_Conflict;
 //JAVA TO C# CONVERTER NOTE: Fields cannot have the same name as methods:
-	  private string processDefinitionId_Renamed;
+	  private string processDefinitionId_Conflict;
 //JAVA TO C# CONVERTER NOTE: Fields cannot have the same name as methods:
-	  private string processInstanceId_Renamed;
+	  private string processInstanceId_Conflict;
 //JAVA TO C# CONVERTER NOTE: Fields cannot have the same name as methods:
-	  private string taskDefinitionKey_Renamed;
+	  private string taskDefinitionKey_Conflict;
 //JAVA TO C# CONVERTER NOTE: Fields cannot have the same name as methods:
-	  private string caseDefinitionId_Renamed;
+	  private string caseDefinitionId_Conflict;
 //JAVA TO C# CONVERTER NOTE: Fields cannot have the same name as methods:
-	  private string caseInstanceId_Renamed;
+	  private string caseInstanceId_Conflict;
 //JAVA TO C# CONVERTER NOTE: Fields cannot have the same name as methods:
-	  private string caseExecutionId_Renamed;
+	  private string caseExecutionId_Conflict;
 //JAVA TO C# CONVERTER NOTE: Fields cannot have the same name as methods:
-	  private string formKey_Renamed;
+	  private string formKey_Conflict;
 //JAVA TO C# CONVERTER NOTE: Fields cannot have the same name as methods:
-	  private string tenantId_Renamed;
+	  private string tenantId_Conflict;
 
 	  public virtual MockTaskBuilder id(string id)
 	  {
-		this.id_Renamed = id;
+		this.id_Conflict = id;
 		return this;
 	  }
 
 	  public virtual MockTaskBuilder name(string name)
 	  {
-		this.name_Renamed = name;
+		this.name_Conflict = name;
 		return this;
 	  }
 
 	  public virtual MockTaskBuilder assignee(string assignee)
 	  {
-		this.assignee_Renamed = assignee;
+		this.assignee_Conflict = assignee;
 		return this;
 	  }
 
 	  public virtual MockTaskBuilder createTime(DateTime createTime)
 	  {
-		this.createTime_Renamed = createTime;
+		this.createTime_Conflict = createTime;
 		return this;
 	  }
 
 	  public virtual MockTaskBuilder dueDate(DateTime dueDate)
 	  {
-		this.dueDate_Renamed = dueDate;
+		this.dueDate_Conflict = dueDate;
 		return this;
 	  }
 
 	  public virtual MockTaskBuilder followUpDate(DateTime followUpDate)
 	  {
-		this.followUpDate_Renamed = followUpDate;
+		this.followUpDate_Conflict = followUpDate;
 		return this;
 	  }
 
 	  public virtual MockTaskBuilder delegationState(DelegationState delegationState)
 	  {
-		this.delegationState_Renamed = delegationState;
+		this.delegationState_Conflict = delegationState;
 		return this;
 	  }
 
 	  public virtual MockTaskBuilder description(string description)
 	  {
-		this.description_Renamed = description;
+		this.description_Conflict = description;
 		return this;
 	  }
 
 	  public virtual MockTaskBuilder executionId(string executionId)
 	  {
-		this.executionId_Renamed = executionId;
+		this.executionId_Conflict = executionId;
 		return this;
 	  }
 
 	  public virtual MockTaskBuilder owner(string owner)
 	  {
-		this.owner_Renamed = owner;
+		this.owner_Conflict = owner;
 		return this;
 	  }
 
 	  public virtual MockTaskBuilder parentTaskId(string parentTaskId)
 	  {
-		this.parentTaskId_Renamed = parentTaskId;
+		this.parentTaskId_Conflict = parentTaskId;
 		return this;
 	  }
 
 	  public virtual MockTaskBuilder priority(int priority)
 	  {
-		this.priority_Renamed = priority;
+		this.priority_Conflict = priority;
 		return this;
 	  }
 
 	  public virtual MockTaskBuilder processDefinitionId(string processDefinitionId)
 	  {
-		this.processDefinitionId_Renamed = processDefinitionId;
+		this.processDefinitionId_Conflict = processDefinitionId;
 		return this;
 	  }
 
 	  public virtual MockTaskBuilder processInstanceId(string processInstanceId)
 	  {
-		this.processInstanceId_Renamed = processInstanceId;
+		this.processInstanceId_Conflict = processInstanceId;
 		return this;
 	  }
 
 	  public virtual MockTaskBuilder taskDefinitionKey(string taskDefinitionKey)
 	  {
-		this.taskDefinitionKey_Renamed = taskDefinitionKey;
+		this.taskDefinitionKey_Conflict = taskDefinitionKey;
 		return this;
 	  }
 
 	  public virtual MockTaskBuilder caseDefinitionId(string caseDefinitionId)
 	  {
-		this.caseDefinitionId_Renamed = caseDefinitionId;
+		this.caseDefinitionId_Conflict = caseDefinitionId;
 		return this;
 	  }
 
 	  public virtual MockTaskBuilder caseInstanceId(string caseInstanceId)
 	  {
-		this.caseInstanceId_Renamed = caseInstanceId;
+		this.caseInstanceId_Conflict = caseInstanceId;
 		return this;
 	  }
 
 	  public virtual MockTaskBuilder caseExecutionId(string caseExecutionId)
 	  {
-		this.caseExecutionId_Renamed = caseExecutionId;
+		this.caseExecutionId_Conflict = caseExecutionId;
 		return this;
 	  }
 
 	  public virtual MockTaskBuilder formKey(string exampleFormKey)
 	  {
-		this.formKey_Renamed = exampleFormKey;
+		this.formKey_Conflict = exampleFormKey;
 		return this;
 	  }
 
 	  public virtual MockTaskBuilder tenantId(string tenantId)
 	  {
-		this.tenantId_Renamed = tenantId;
+		this.tenantId_Conflict = tenantId;
 		return this;
 	  }
 
 	  public virtual Task build()
 	  {
 		Task mockTask = mock(typeof(Task));
-		when(mockTask.Id).thenReturn(id_Renamed);
-		when(mockTask.Name).thenReturn(name_Renamed);
-		when(mockTask.Assignee).thenReturn(assignee_Renamed);
-		when(mockTask.CreateTime).thenReturn(createTime_Renamed);
-		when(mockTask.DueDate).thenReturn(dueDate_Renamed);
-		when(mockTask.FollowUpDate).thenReturn(followUpDate_Renamed);
-		when(mockTask.DelegationState).thenReturn(delegationState_Renamed);
-		when(mockTask.Description).thenReturn(description_Renamed);
-		when(mockTask.ExecutionId).thenReturn(executionId_Renamed);
-		when(mockTask.Owner).thenReturn(owner_Renamed);
-		when(mockTask.ParentTaskId).thenReturn(parentTaskId_Renamed);
-		when(mockTask.Priority).thenReturn(priority_Renamed);
-		when(mockTask.ProcessDefinitionId).thenReturn(processDefinitionId_Renamed);
-		when(mockTask.ProcessInstanceId).thenReturn(processInstanceId_Renamed);
-		when(mockTask.TaskDefinitionKey).thenReturn(taskDefinitionKey_Renamed);
-		when(mockTask.CaseDefinitionId).thenReturn(caseDefinitionId_Renamed);
-		when(mockTask.CaseInstanceId).thenReturn(caseInstanceId_Renamed);
-		when(mockTask.CaseExecutionId).thenReturn(caseExecutionId_Renamed);
-		when(mockTask.FormKey).thenReturn(formKey_Renamed);
-		when(mockTask.TenantId).thenReturn(tenantId_Renamed);
+		when(mockTask.Id).thenReturn(id_Conflict);
+		when(mockTask.Name).thenReturn(name_Conflict);
+		when(mockTask.Assignee).thenReturn(assignee_Conflict);
+		when(mockTask.CreateTime).thenReturn(createTime_Conflict);
+		when(mockTask.DueDate).thenReturn(dueDate_Conflict);
+		when(mockTask.FollowUpDate).thenReturn(followUpDate_Conflict);
+		when(mockTask.DelegationState).thenReturn(delegationState_Conflict);
+		when(mockTask.Description).thenReturn(description_Conflict);
+		when(mockTask.ExecutionId).thenReturn(executionId_Conflict);
+		when(mockTask.Owner).thenReturn(owner_Conflict);
+		when(mockTask.ParentTaskId).thenReturn(parentTaskId_Conflict);
+		when(mockTask.Priority).thenReturn(priority_Conflict);
+		when(mockTask.ProcessDefinitionId).thenReturn(processDefinitionId_Conflict);
+		when(mockTask.ProcessInstanceId).thenReturn(processInstanceId_Conflict);
+		when(mockTask.TaskDefinitionKey).thenReturn(taskDefinitionKey_Conflict);
+		when(mockTask.CaseDefinitionId).thenReturn(caseDefinitionId_Conflict);
+		when(mockTask.CaseInstanceId).thenReturn(caseInstanceId_Conflict);
+		when(mockTask.CaseExecutionId).thenReturn(caseExecutionId_Conflict);
+		when(mockTask.FormKey).thenReturn(formKey_Conflict);
+		when(mockTask.TenantId).thenReturn(tenantId_Conflict);
 		return mockTask;
 	  }
 

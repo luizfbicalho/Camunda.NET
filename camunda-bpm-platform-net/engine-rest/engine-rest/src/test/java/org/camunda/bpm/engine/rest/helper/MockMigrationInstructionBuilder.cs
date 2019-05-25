@@ -30,48 +30,48 @@ namespace org.camunda.bpm.engine.rest.helper
 	{
 
 //JAVA TO C# CONVERTER NOTE: Fields cannot have the same name as methods:
-	  protected internal IList<string> sourceActivityIds_Renamed;
+	  protected internal IList<string> sourceActivityIds_Conflict;
 //JAVA TO C# CONVERTER NOTE: Fields cannot have the same name as methods:
-	  protected internal IList<string> targetActivityIds_Renamed;
+	  protected internal IList<string> targetActivityIds_Conflict;
 //JAVA TO C# CONVERTER NOTE: Fields cannot have the same name as methods:
-	  protected internal bool updateEventTrigger_Renamed = false;
+	  protected internal bool updateEventTrigger_Conflict = false;
 
 	  public virtual MockMigrationInstructionBuilder sourceActivityIds(IList<string> sourceActivityIds)
 	  {
-		this.sourceActivityIds_Renamed = sourceActivityIds;
+		this.sourceActivityIds_Conflict = sourceActivityIds;
 		return this;
 	  }
 
 	  public virtual MockMigrationInstructionBuilder sourceActivityId(string sourceActivityId)
 	  {
-		this.sourceActivityIds_Renamed = Collections.singletonList(sourceActivityId);
+		this.sourceActivityIds_Conflict = Collections.singletonList(sourceActivityId);
 		return this;
 	  }
 
 	  public virtual MockMigrationInstructionBuilder targetActivityIds(IList<string> targetActivityIds)
 	  {
-		this.targetActivityIds_Renamed = targetActivityIds;
+		this.targetActivityIds_Conflict = targetActivityIds;
 		return this;
 	  }
 
 	  public virtual MockMigrationInstructionBuilder targetActivityId(string targetActivityId)
 	  {
-		this.targetActivityIds_Renamed = Collections.singletonList(targetActivityId);
+		this.targetActivityIds_Conflict = Collections.singletonList(targetActivityId);
 		return this;
 	  }
 
 	  public virtual MockMigrationInstructionBuilder updateEventTrigger()
 	  {
-		this.updateEventTrigger_Renamed = true;
+		this.updateEventTrigger_Conflict = true;
 		return this;
 	  }
 
 	  public virtual MigrationInstruction build()
 	  {
 		MigrationInstruction migrationInstructionMock = mock(typeof(MigrationInstruction));
-		when(migrationInstructionMock.SourceActivityId).thenReturn(sourceActivityIds_Renamed[0]);
-		when(migrationInstructionMock.TargetActivityId).thenReturn(targetActivityIds_Renamed[0]);
-		when(migrationInstructionMock.UpdateEventTrigger).thenReturn(updateEventTrigger_Renamed);
+		when(migrationInstructionMock.SourceActivityId).thenReturn(sourceActivityIds_Conflict[0]);
+		when(migrationInstructionMock.TargetActivityId).thenReturn(targetActivityIds_Conflict[0]);
+		when(migrationInstructionMock.UpdateEventTrigger).thenReturn(updateEventTrigger_Conflict);
 		return migrationInstructionMock;
 	  }
 

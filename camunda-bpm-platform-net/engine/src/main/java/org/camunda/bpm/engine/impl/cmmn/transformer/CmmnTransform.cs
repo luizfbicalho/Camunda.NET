@@ -72,9 +72,9 @@ namespace org.camunda.bpm.engine.impl.cmmn.transformer
 	  protected internal IList<CmmnTransformListener> transformListeners;
 
 //JAVA TO C# CONVERTER NOTE: Fields cannot have the same name as methods:
-	  protected internal ResourceEntity resource_Renamed;
+	  protected internal ResourceEntity resource_Conflict;
 //JAVA TO C# CONVERTER NOTE: Fields cannot have the same name as methods:
-	  protected internal DeploymentEntity deployment_Renamed;
+	  protected internal DeploymentEntity deployment_Conflict;
 
 	  protected internal CmmnModelInstance model;
 	  protected internal CmmnHandlerContext context = new CmmnHandlerContext();
@@ -90,23 +90,23 @@ namespace org.camunda.bpm.engine.impl.cmmn.transformer
 
 	  public virtual CmmnTransform deployment(DeploymentEntity deployment)
 	  {
-		this.deployment_Renamed = deployment;
+		this.deployment_Conflict = deployment;
 		return this;
 	  }
 
 	  public virtual CmmnTransform resource(ResourceEntity resource)
 	  {
-		this.resource_Renamed = resource;
+		this.resource_Conflict = resource;
 		return this;
 	  }
 
 	  public virtual IList<CaseDefinitionEntity> transform()
 	  {
 		// get name of resource
-		string resourceName = resource_Renamed.Name;
+		string resourceName = resource_Conflict.Name;
 
 		// create an input stream
-		sbyte[] bytes = resource_Renamed.Bytes;
+		sbyte[] bytes = resource_Conflict.Bytes;
 		MemoryStream inputStream = new MemoryStream(bytes);
 
 		try
@@ -124,7 +124,7 @@ namespace org.camunda.bpm.engine.impl.cmmn.transformer
 		// semantic and execution validation) model
 
 		context.Model = model;
-		context.Deployment = deployment_Renamed;
+		context.Deployment = deployment_Conflict;
 		context.ExpressionManager = expressionManager;
 
 		try
@@ -396,11 +396,11 @@ namespace org.camunda.bpm.engine.impl.cmmn.transformer
 	  {
 		  get
 		  {
-			return deployment_Renamed;
+			return deployment_Conflict;
 		  }
 		  set
 		  {
-			this.deployment_Renamed = value;
+			this.deployment_Conflict = value;
 		  }
 	  }
 
@@ -409,11 +409,11 @@ namespace org.camunda.bpm.engine.impl.cmmn.transformer
 	  {
 		  get
 		  {
-			return resource_Renamed;
+			return resource_Conflict;
 		  }
 		  set
 		  {
-			this.resource_Renamed = value;
+			this.resource_Conflict = value;
 		  }
 	  }
 

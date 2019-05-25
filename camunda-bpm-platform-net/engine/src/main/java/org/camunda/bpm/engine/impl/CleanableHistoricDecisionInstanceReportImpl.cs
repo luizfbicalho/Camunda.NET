@@ -38,11 +38,11 @@ namespace org.camunda.bpm.engine.impl
 	  private const long serialVersionUID = 1L;
 
 //JAVA TO C# CONVERTER NOTE: Fields cannot have the same name as methods:
-	  protected internal string[] decisionDefinitionIdIn_Renamed;
+	  protected internal string[] decisionDefinitionIdIn_Conflict;
 //JAVA TO C# CONVERTER NOTE: Fields cannot have the same name as methods:
-	  protected internal string[] decisionDefinitionKeyIn_Renamed;
+	  protected internal string[] decisionDefinitionKeyIn_Conflict;
 //JAVA TO C# CONVERTER NOTE: Fields cannot have the same name as methods:
-	  protected internal string[] tenantIdIn_Renamed;
+	  protected internal string[] tenantIdIn_Conflict;
 	  protected internal bool isTenantIdSet = false;
 	  protected internal bool isCompact = false;
 
@@ -57,28 +57,28 @@ namespace org.camunda.bpm.engine.impl
 	  public virtual CleanableHistoricDecisionInstanceReport decisionDefinitionIdIn(params string[] decisionDefinitionIds)
 	  {
 		ensureNotNull(typeof(NotValidException), "", "decisionDefinitionIdIn", (object[]) decisionDefinitionIds);
-		this.decisionDefinitionIdIn_Renamed = decisionDefinitionIds;
+		this.decisionDefinitionIdIn_Conflict = decisionDefinitionIds;
 		return this;
 	  }
 
 	  public virtual CleanableHistoricDecisionInstanceReport decisionDefinitionKeyIn(params string[] decisionDefinitionKeys)
 	  {
 		ensureNotNull(typeof(NotValidException), "", "decisionDefinitionKeyIn", (object[]) decisionDefinitionKeys);
-		this.decisionDefinitionKeyIn_Renamed = decisionDefinitionKeys;
+		this.decisionDefinitionKeyIn_Conflict = decisionDefinitionKeys;
 		return this;
 	  }
 
 	  public virtual CleanableHistoricDecisionInstanceReport tenantIdIn(params string[] tenantIds)
 	  {
 		ensureNotNull(typeof(NotValidException), "", "tenantIdIn", (object[]) tenantIds);
-		this.tenantIdIn_Renamed = tenantIds;
+		this.tenantIdIn_Conflict = tenantIds;
 		isTenantIdSet = true;
 		return this;
 	  }
 
 	  public virtual CleanableHistoricDecisionInstanceReport withoutTenantId()
 	  {
-		this.tenantIdIn_Renamed = null;
+		this.tenantIdIn_Conflict = null;
 		isTenantIdSet = true;
 		return this;
 	  }
@@ -115,11 +115,11 @@ namespace org.camunda.bpm.engine.impl
 	  {
 		  get
 		  {
-			return decisionDefinitionIdIn_Renamed;
+			return decisionDefinitionIdIn_Conflict;
 		  }
 		  set
 		  {
-			this.decisionDefinitionIdIn_Renamed = value;
+			this.decisionDefinitionIdIn_Conflict = value;
 		  }
 	  }
 
@@ -128,11 +128,11 @@ namespace org.camunda.bpm.engine.impl
 	  {
 		  get
 		  {
-			return decisionDefinitionKeyIn_Renamed;
+			return decisionDefinitionKeyIn_Conflict;
 		  }
 		  set
 		  {
-			this.decisionDefinitionKeyIn_Renamed = value;
+			this.decisionDefinitionKeyIn_Conflict = value;
 		  }
 	  }
 
@@ -154,11 +154,11 @@ namespace org.camunda.bpm.engine.impl
 	  {
 		  get
 		  {
-			return tenantIdIn_Renamed;
+			return tenantIdIn_Conflict;
 		  }
 		  set
 		  {
-			this.tenantIdIn_Renamed = value;
+			this.tenantIdIn_Conflict = value;
 		  }
 	  }
 

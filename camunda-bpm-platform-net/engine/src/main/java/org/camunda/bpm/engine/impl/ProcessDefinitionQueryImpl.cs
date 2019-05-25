@@ -60,7 +60,7 @@ namespace org.camunda.bpm.engine.impl
 	  protected internal string name;
 	  protected internal string nameLike;
 //JAVA TO C# CONVERTER NOTE: Fields cannot have the same name as methods:
-	  protected internal string deploymentId_Renamed;
+	  protected internal string deploymentId_Conflict;
 	  protected internal string key;
 	  protected internal string[] keys;
 	  protected internal string keyLike;
@@ -72,13 +72,13 @@ namespace org.camunda.bpm.engine.impl
 	  protected internal string authorizationUserId;
 	  protected internal string procDefId;
 //JAVA TO C# CONVERTER NOTE: Fields cannot have the same name as methods:
-	  protected internal string incidentType_Renamed;
+	  protected internal string incidentType_Conflict;
 //JAVA TO C# CONVERTER NOTE: Fields cannot have the same name as methods:
-	  protected internal string incidentId_Renamed;
+	  protected internal string incidentId_Conflict;
 //JAVA TO C# CONVERTER NOTE: Fields cannot have the same name as methods:
-	  protected internal string incidentMessage_Renamed;
+	  protected internal string incidentMessage_Conflict;
 //JAVA TO C# CONVERTER NOTE: Fields cannot have the same name as methods:
-	  protected internal string incidentMessageLike_Renamed;
+	  protected internal string incidentMessageLike_Conflict;
 
 	  protected internal string eventSubscriptionName;
 	  protected internal string eventSubscriptionType;
@@ -88,14 +88,14 @@ namespace org.camunda.bpm.engine.impl
 	  protected internal bool includeDefinitionsWithoutTenantId = false;
 
 //JAVA TO C# CONVERTER NOTE: Fields cannot have the same name as methods:
-	  protected internal string versionTag_Renamed;
+	  protected internal string versionTag_Conflict;
 //JAVA TO C# CONVERTER NOTE: Fields cannot have the same name as methods:
-	  protected internal string versionTagLike_Renamed;
+	  protected internal string versionTagLike_Conflict;
 
 	  protected internal bool isStartableInTasklist = false;
 	  protected internal bool isNotStartableInTasklist = false;
 //JAVA TO C# CONVERTER NOTE: Fields cannot have the same name as methods:
-	  protected internal bool startablePermissionCheck_Renamed = false;
+	  protected internal bool startablePermissionCheck_Conflict = false;
 	  // for internal use
 	  protected internal IList<PermissionCheck> processDefinitionCreatePermissionChecks = new List<PermissionCheck>();
 
@@ -150,7 +150,7 @@ namespace org.camunda.bpm.engine.impl
 	  public virtual ProcessDefinitionQueryImpl deploymentId(string deploymentId)
 	  {
 		ensureNotNull("deploymentId", deploymentId);
-		this.deploymentId_Renamed = deploymentId;
+		this.deploymentId_Conflict = deploymentId;
 		return this;
 	  }
 
@@ -243,28 +243,28 @@ namespace org.camunda.bpm.engine.impl
 	  public virtual ProcessDefinitionQuery incidentType(string incidentType)
 	  {
 		ensureNotNull("incident type", incidentType);
-		this.incidentType_Renamed = incidentType;
+		this.incidentType_Conflict = incidentType;
 		return this;
 	  }
 
 	  public virtual ProcessDefinitionQuery incidentId(string incidentId)
 	  {
 		ensureNotNull("incident id", incidentId);
-		this.incidentId_Renamed = incidentId;
+		this.incidentId_Conflict = incidentId;
 		return this;
 	  }
 
 	  public virtual ProcessDefinitionQuery incidentMessage(string incidentMessage)
 	  {
 		ensureNotNull("incident message", incidentMessage);
-		this.incidentMessage_Renamed = incidentMessage;
+		this.incidentMessage_Conflict = incidentMessage;
 		return this;
 	  }
 
 	  public virtual ProcessDefinitionQuery incidentMessageLike(string incidentMessageLike)
 	  {
 		ensureNotNull("incident messageLike", incidentMessageLike);
-		this.incidentMessageLike_Renamed = incidentMessageLike;
+		this.incidentMessageLike_Conflict = incidentMessageLike;
 		return this;
 	  }
 
@@ -297,7 +297,7 @@ namespace org.camunda.bpm.engine.impl
 	  public virtual ProcessDefinitionQuery versionTag(string versionTag)
 	  {
 		ensureNotNull("versionTag", versionTag);
-		this.versionTag_Renamed = versionTag;
+		this.versionTag_Conflict = versionTag;
 
 		return this;
 	  }
@@ -305,7 +305,7 @@ namespace org.camunda.bpm.engine.impl
 	  public virtual ProcessDefinitionQuery versionTagLike(string versionTagLike)
 	  {
 		ensureNotNull("versionTagLike", versionTagLike);
-		this.versionTagLike_Renamed = versionTagLike;
+		this.versionTagLike_Conflict = versionTagLike;
 
 		return this;
 	  }
@@ -324,7 +324,7 @@ namespace org.camunda.bpm.engine.impl
 
 	  public virtual ProcessDefinitionQuery startablePermissionCheck()
 	  {
-		this.startablePermissionCheck_Renamed = true;
+		this.startablePermissionCheck_Conflict = true;
 		return this;
 	  }
 
@@ -420,7 +420,7 @@ namespace org.camunda.bpm.engine.impl
 	  {
 		base.checkQueryOk();
 
-		if (latest && ((!string.ReferenceEquals(id, null)) || (version != null) || (!string.ReferenceEquals(deploymentId_Renamed, null))))
+		if (latest && ((!string.ReferenceEquals(id, null)) || (version != null) || (!string.ReferenceEquals(deploymentId_Conflict, null))))
 		{
 		  throw new ProcessEngineException("Calling latest() can only be used in combination with key(String) and keyLike(String) or name(String) and nameLike(String)");
 		}
@@ -432,7 +432,7 @@ namespace org.camunda.bpm.engine.impl
 	  {
 		  get
 		  {
-			return deploymentId_Renamed;
+			return deploymentId_Conflict;
 		  }
 	  }
 	  public virtual string Id
@@ -535,7 +535,7 @@ namespace org.camunda.bpm.engine.impl
 	  {
 		  get
 		  {
-			return incidentId_Renamed;
+			return incidentId_Conflict;
 		  }
 	  }
 
@@ -543,7 +543,7 @@ namespace org.camunda.bpm.engine.impl
 	  {
 		  get
 		  {
-			return incidentType_Renamed;
+			return incidentType_Conflict;
 		  }
 	  }
 
@@ -551,7 +551,7 @@ namespace org.camunda.bpm.engine.impl
 	  {
 		  get
 		  {
-			return incidentMessage_Renamed;
+			return incidentMessage_Conflict;
 		  }
 	  }
 
@@ -559,7 +559,7 @@ namespace org.camunda.bpm.engine.impl
 	  {
 		  get
 		  {
-			return incidentMessageLike_Renamed;
+			return incidentMessageLike_Conflict;
 		  }
 	  }
 
@@ -567,7 +567,7 @@ namespace org.camunda.bpm.engine.impl
 	  {
 		  get
 		  {
-			return versionTag_Renamed;
+			return versionTag_Conflict;
 		  }
 	  }
 
@@ -591,7 +591,7 @@ namespace org.camunda.bpm.engine.impl
 	  {
 		  get
 		  {
-			return startablePermissionCheck_Renamed;
+			return startablePermissionCheck_Conflict;
 		  }
 	  }
 

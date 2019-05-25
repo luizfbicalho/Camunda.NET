@@ -535,13 +535,13 @@ namespace org.camunda.bpm.engine.test.history
 
 
 //JAVA TO C# CONVERTER NOTE: Fields cannot have the same name as methods:
-		protected internal PeriodUnit periodUnit_Renamed = MONTH;
+		protected internal PeriodUnit periodUnit_Conflict = MONTH;
 
 		protected internal DurationReportResultAssertion assertion = new DurationReportResultAssertion(outerInstance);
 
 		public virtual DurationReportScenarioBuilder periodUnit(PeriodUnit periodUnit)
 		{
-		  this.periodUnit_Renamed = periodUnit;
+		  this.periodUnit_Conflict = periodUnit;
 		  assertion.PeriodUnit = periodUnit;
 		  return this;
 		}
@@ -568,7 +568,7 @@ namespace org.camunda.bpm.engine.test.history
 		  ProcessInstance pi = outerInstance.runtimeService.startProcessInstanceByKey(key);
 
 		  int period = month;
-		  if (periodUnit_Renamed == QUARTER)
+		  if (periodUnit_Conflict == QUARTER)
 		  {
 			period = month / 3;
 		  }

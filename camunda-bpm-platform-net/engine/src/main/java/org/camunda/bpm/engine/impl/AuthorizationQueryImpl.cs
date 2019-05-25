@@ -42,12 +42,12 @@ namespace org.camunda.bpm.engine.impl
 	  protected internal string[] userIds;
 	  protected internal string[] groupIds;
 //JAVA TO C# CONVERTER NOTE: Fields cannot have the same name as methods:
-	  protected internal int resourceType_Renamed;
+	  protected internal int resourceType_Conflict;
 //JAVA TO C# CONVERTER NOTE: Fields cannot have the same name as methods:
-	  protected internal string resourceId_Renamed;
+	  protected internal string resourceId_Conflict;
 	  protected internal int permission = 0;
 //JAVA TO C# CONVERTER NOTE: Fields cannot have the same name as methods:
-	  protected internal int? authorizationType_Renamed;
+	  protected internal int? authorizationType_Conflict;
 	  protected internal bool queryByPermission = false;
 	  protected internal bool queryByResourceType = false;
 
@@ -94,14 +94,14 @@ namespace org.camunda.bpm.engine.impl
 
 	  public virtual AuthorizationQuery resourceType(int resourceType)
 	  {
-		this.resourceType_Renamed = resourceType;
+		this.resourceType_Conflict = resourceType;
 		queryByResourceType = true;
 		return this;
 	  }
 
 	  public virtual AuthorizationQuery resourceId(string resourceId)
 	  {
-		this.resourceId_Renamed = resourceId;
+		this.resourceId_Conflict = resourceId;
 		return this;
 	  }
 
@@ -125,7 +125,7 @@ namespace org.camunda.bpm.engine.impl
 
 	  public virtual AuthorizationQuery authorizationType(int? type)
 	  {
-		this.authorizationType_Renamed = type;
+		this.authorizationType_Conflict = type;
 		return this;
 	  }
 
@@ -164,7 +164,7 @@ namespace org.camunda.bpm.engine.impl
 		if (queryByResourceType && queryByPermission)
 		{
 		  Resource[] resources = resourcesIntersection.toArray(new Resource[resourcesIntersection.Count]);
-		  return !ResourceTypeUtil.resourceIsContainedInArray(resourceType_Renamed, resources);
+		  return !ResourceTypeUtil.resourceIsContainedInArray(resourceType_Conflict, resources);
 		}
 		return false;
 	  }
@@ -207,7 +207,7 @@ namespace org.camunda.bpm.engine.impl
 	  {
 		  get
 		  {
-			return resourceType_Renamed;
+			return resourceType_Conflict;
 		  }
 	  }
 
@@ -215,7 +215,7 @@ namespace org.camunda.bpm.engine.impl
 	  {
 		  get
 		  {
-			return resourceId_Renamed;
+			return resourceId_Conflict;
 		  }
 	  }
 

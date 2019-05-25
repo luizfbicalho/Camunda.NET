@@ -32,13 +32,13 @@ namespace org.camunda.bpm.engine.impl
 
 	  protected internal const long serialVersionUID = 1L;
 //JAVA TO C# CONVERTER NOTE: Fields cannot have the same name as methods:
-	  protected internal bool includeFailedJobs_Renamed = false;
+	  protected internal bool includeFailedJobs_Conflict = false;
 //JAVA TO C# CONVERTER NOTE: Fields cannot have the same name as methods:
-	  protected internal bool includeIncidents_Renamed = false;
+	  protected internal bool includeIncidents_Conflict = false;
 //JAVA TO C# CONVERTER NOTE: Fields cannot have the same name as methods:
-	  protected internal bool includeRootIncidents_Renamed = false;
+	  protected internal bool includeRootIncidents_Conflict = false;
 //JAVA TO C# CONVERTER NOTE: Fields cannot have the same name as methods:
-	  protected internal string includeIncidentsForType_Renamed;
+	  protected internal string includeIncidentsForType_Conflict;
 
 	  public ProcessDefinitionStatisticsQueryImpl(CommandExecutor commandExecutor) : base(commandExecutor)
 	  {
@@ -58,19 +58,19 @@ namespace org.camunda.bpm.engine.impl
 
 	  public virtual ProcessDefinitionStatisticsQuery includeFailedJobs()
 	  {
-		includeFailedJobs_Renamed = true;
+		includeFailedJobs_Conflict = true;
 		return this;
 	  }
 
 	  public virtual ProcessDefinitionStatisticsQuery includeIncidents()
 	  {
-		includeIncidents_Renamed = true;
+		includeIncidents_Conflict = true;
 		return this;
 	  }
 
 	  public virtual ProcessDefinitionStatisticsQuery includeIncidentsForType(string incidentType)
 	  {
-		this.includeIncidentsForType_Renamed = incidentType;
+		this.includeIncidentsForType_Conflict = incidentType;
 		return this;
 	  }
 
@@ -78,7 +78,7 @@ namespace org.camunda.bpm.engine.impl
 	  {
 		  get
 		  {
-			return includeFailedJobs_Renamed;
+			return includeFailedJobs_Conflict;
 		  }
 	  }
 
@@ -86,22 +86,22 @@ namespace org.camunda.bpm.engine.impl
 	  {
 		  get
 		  {
-			return includeIncidents_Renamed || includeRootIncidents_Renamed || !string.ReferenceEquals(includeIncidentsForType_Renamed, null);
+			return includeIncidents_Conflict || includeRootIncidents_Conflict || !string.ReferenceEquals(includeIncidentsForType_Conflict, null);
 		  }
 	  }
 
 	  protected internal override void checkQueryOk()
 	  {
 		base.checkQueryOk();
-		if (includeIncidents_Renamed && !string.ReferenceEquals(includeIncidentsForType_Renamed, null))
+		if (includeIncidents_Conflict && !string.ReferenceEquals(includeIncidentsForType_Conflict, null))
 		{
 		  throw new ProcessEngineException("Invalid query: It is not possible to use includeIncident() and includeIncidentForType() to execute one query.");
 		}
-		if (includeRootIncidents_Renamed && !string.ReferenceEquals(includeIncidentsForType_Renamed, null))
+		if (includeRootIncidents_Conflict && !string.ReferenceEquals(includeIncidentsForType_Conflict, null))
 		{
 		  throw new ProcessEngineException("Invalid query: It is not possible to use includeRootIncident() and includeIncidentForType() to execute one query.");
 		}
-		if (includeIncidents_Renamed && includeRootIncidents_Renamed)
+		if (includeIncidents_Conflict && includeRootIncidents_Conflict)
 		{
 		  throw new ProcessEngineException("Invalid query: It is not possible to use includeIncident() and includeRootIncidents() to execute one query.");
 		}
@@ -109,7 +109,7 @@ namespace org.camunda.bpm.engine.impl
 
 	  public virtual ProcessDefinitionStatisticsQuery includeRootIncidents()
 	  {
-		this.includeRootIncidents_Renamed = true;
+		this.includeRootIncidents_Conflict = true;
 		return this;
 	  }
 

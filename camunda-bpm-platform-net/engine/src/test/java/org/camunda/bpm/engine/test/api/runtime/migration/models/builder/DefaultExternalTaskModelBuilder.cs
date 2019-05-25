@@ -28,15 +28,15 @@ namespace org.camunda.bpm.engine.test.api.runtime.migration.models.builder
 	  public const int? DEFAULT_PRIORITY = 1;
 
 //JAVA TO C# CONVERTER NOTE: Fields cannot have the same name as methods:
-	  protected internal string processKey_Renamed = DEFAULT_PROCESS_KEY;
+	  protected internal string processKey_Conflict = DEFAULT_PROCESS_KEY;
 //JAVA TO C# CONVERTER NOTE: Fields cannot have the same name as methods:
-	  protected internal string externalTaskName_Renamed = DEFAULT_EXTERNAL_TASK_NAME;
+	  protected internal string externalTaskName_Conflict = DEFAULT_EXTERNAL_TASK_NAME;
 //JAVA TO C# CONVERTER NOTE: Fields cannot have the same name as methods:
-	  protected internal string externalTaskType_Renamed = DEFAULT_EXTERNAL_TASK_TYPE;
+	  protected internal string externalTaskType_Conflict = DEFAULT_EXTERNAL_TASK_TYPE;
 //JAVA TO C# CONVERTER NOTE: Fields cannot have the same name as methods:
-	  protected internal string topic_Renamed = DEFAULT_TOPIC;
+	  protected internal string topic_Conflict = DEFAULT_TOPIC;
 //JAVA TO C# CONVERTER NOTE: Fields cannot have the same name as methods:
-	  protected internal int? priority_Renamed = DEFAULT_PRIORITY;
+	  protected internal int? priority_Conflict = DEFAULT_PRIORITY;
 
 	  public static DefaultExternalTaskModelBuilder createDefaultExternalTaskModel()
 	  {
@@ -45,37 +45,37 @@ namespace org.camunda.bpm.engine.test.api.runtime.migration.models.builder
 
 	  public virtual DefaultExternalTaskModelBuilder processKey(string processKey)
 	  {
-		this.processKey_Renamed = processKey;
+		this.processKey_Conflict = processKey;
 		return this;
 	  }
 
 	  public virtual DefaultExternalTaskModelBuilder externalTaskName(string externalTaskName)
 	  {
-		this.externalTaskName_Renamed = externalTaskName;
+		this.externalTaskName_Conflict = externalTaskName;
 		return this;
 	  }
 
 	  public virtual DefaultExternalTaskModelBuilder externalTaskType(string externalTaskType)
 	  {
-		this.externalTaskType_Renamed = externalTaskType;
+		this.externalTaskType_Conflict = externalTaskType;
 		return this;
 	  }
 
 	  public virtual DefaultExternalTaskModelBuilder topic(string topic)
 	  {
-		this.topic_Renamed = topic;
+		this.topic_Conflict = topic;
 		return this;
 	  }
 
 	  public virtual DefaultExternalTaskModelBuilder priority(int? priority)
 	  {
-		this.priority_Renamed = priority;
+		this.priority_Conflict = priority;
 		return this;
 	  }
 
 	  public virtual BpmnModelInstance build()
 	  {
-		return ProcessModels.newModel(processKey_Renamed).startEvent().serviceTask(externalTaskName_Renamed).camundaType(externalTaskType_Renamed).camundaTopic(topic_Renamed).camundaTaskPriority(priority_Renamed.ToString()).endEvent().done();
+		return ProcessModels.newModel(processKey_Conflict).startEvent().serviceTask(externalTaskName_Conflict).camundaType(externalTaskType_Conflict).camundaTopic(topic_Conflict).camundaTaskPriority(priority_Conflict.ToString()).endEvent().done();
 	  }
 
 	}

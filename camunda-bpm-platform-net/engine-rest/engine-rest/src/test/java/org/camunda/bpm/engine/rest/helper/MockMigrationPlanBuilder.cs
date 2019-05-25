@@ -34,33 +34,33 @@ namespace org.camunda.bpm.engine.rest.helper
 	{
 
 //JAVA TO C# CONVERTER NOTE: Fields cannot have the same name as methods:
-	  protected internal string sourceProcessDefinitionId_Renamed;
+	  protected internal string sourceProcessDefinitionId_Conflict;
 //JAVA TO C# CONVERTER NOTE: Fields cannot have the same name as methods:
-	  protected internal string targetProcessDefinitionId_Renamed;
+	  protected internal string targetProcessDefinitionId_Conflict;
 //JAVA TO C# CONVERTER NOTE: Fields cannot have the same name as methods:
-	  protected internal IList<MigrationInstruction> instructions_Renamed = new List<MigrationInstruction>();
+	  protected internal IList<MigrationInstruction> instructions_Conflict = new List<MigrationInstruction>();
 
 	  public virtual MockMigrationPlanBuilder sourceProcessDefinitionId(string sourceProcessDefinitionId)
 	  {
-		this.sourceProcessDefinitionId_Renamed = sourceProcessDefinitionId;
+		this.sourceProcessDefinitionId_Conflict = sourceProcessDefinitionId;
 		return this;
 	  }
 
 	  public virtual MockMigrationPlanBuilder targetProcessDefinitionId(string targetProcessDefinitionId)
 	  {
-		this.targetProcessDefinitionId_Renamed = targetProcessDefinitionId;
+		this.targetProcessDefinitionId_Conflict = targetProcessDefinitionId;
 		return this;
 	  }
 
 	  public virtual MockMigrationPlanBuilder instructions(IList<MigrationInstruction> instructions)
 	  {
-		this.instructions_Renamed = instructions;
+		this.instructions_Conflict = instructions;
 		return this;
 	  }
 
 	  public virtual MockMigrationPlanBuilder instruction(MigrationInstruction instruction)
 	  {
-		instructions_Renamed.Add(instruction);
+		instructions_Conflict.Add(instruction);
 		return this;
 	  }
 
@@ -86,9 +86,9 @@ namespace org.camunda.bpm.engine.rest.helper
 	  public virtual MigrationPlan build()
 	  {
 		MigrationPlan migrationPlanMock = mock(typeof(MigrationPlan));
-		when(migrationPlanMock.SourceProcessDefinitionId).thenReturn(sourceProcessDefinitionId_Renamed);
-		when(migrationPlanMock.TargetProcessDefinitionId).thenReturn(targetProcessDefinitionId_Renamed);
-		when(migrationPlanMock.Instructions).thenReturn(instructions_Renamed);
+		when(migrationPlanMock.SourceProcessDefinitionId).thenReturn(sourceProcessDefinitionId_Conflict);
+		when(migrationPlanMock.TargetProcessDefinitionId).thenReturn(targetProcessDefinitionId_Conflict);
+		when(migrationPlanMock.Instructions).thenReturn(instructions_Conflict);
 		return migrationPlanMock;
 	  }
 

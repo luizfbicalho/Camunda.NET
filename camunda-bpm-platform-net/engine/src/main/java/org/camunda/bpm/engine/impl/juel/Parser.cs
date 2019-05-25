@@ -161,7 +161,7 @@ namespace org.camunda.bpm.engine.impl.juel
 		private IList<IdentifierNode> identifiers = Collections.emptyList();
 		private IList<FunctionNode> functions = Collections.emptyList();
 //JAVA TO C# CONVERTER NOTE: Fields cannot have the same name as methods:
-		private IList<LookaheadToken> lookahead_Renamed = Collections.emptyList();
+		private IList<LookaheadToken> lookahead_Conflict = Collections.emptyList();
 
 		private Token token; // current token
 		private int position; // current token's position
@@ -327,15 +327,15 @@ namespace org.camunda.bpm.engine.impl.juel
 //ORIGINAL LINE: protected final org.camunda.bpm.engine.impl.juel.Scanner.Token lookahead(int index) throws org.camunda.bpm.engine.impl.juel.Scanner.ScanException, ParseException
 		protected internal Token lookahead(int index)
 		{
-			if (lookahead_Renamed.Count == 0)
+			if (lookahead_Conflict.Count == 0)
 			{
-				lookahead_Renamed = new LinkedList<LookaheadToken>();
+				lookahead_Conflict = new LinkedList<LookaheadToken>();
 			}
-			while (index >= lookahead_Renamed.Count)
+			while (index >= lookahead_Conflict.Count)
 			{
-				lookahead_Renamed.Add(new LookaheadToken(scanner.next(), scanner.Position));
+				lookahead_Conflict.Add(new LookaheadToken(scanner.next(), scanner.Position));
 			}
-			return lookahead_Renamed[index].token;
+			return lookahead_Conflict[index].token;
 		}
 
 		/// <summary>
@@ -346,14 +346,14 @@ namespace org.camunda.bpm.engine.impl.juel
 		protected internal Token consumeToken()
 		{
 			Token result = token;
-			if (lookahead_Renamed.Count == 0)
+			if (lookahead_Conflict.Count == 0)
 			{
 				token = scanner.next();
 				position = scanner.Position;
 			}
 			else
 			{
-				LookaheadToken next = lookahead_Renamed.RemoveAt(0);
+				LookaheadToken next = lookahead_Conflict.RemoveAt(0);
 				token = next.token;
 				position = next.position;
 			}

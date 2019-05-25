@@ -32,56 +32,56 @@ namespace org.camunda.bpm.engine.rest.helper
 	{
 
 //JAVA TO C# CONVERTER NOTE: Fields cannot have the same name as methods:
-	  private string id_Renamed = null;
+	  private string id_Conflict = null;
 //JAVA TO C# CONVERTER NOTE: Fields cannot have the same name as methods:
-	  private string key_Renamed = null;
+	  private string key_Conflict = null;
 //JAVA TO C# CONVERTER NOTE: Fields cannot have the same name as methods:
-	  private string category_Renamed = null;
+	  private string category_Conflict = null;
 //JAVA TO C# CONVERTER NOTE: Fields cannot have the same name as methods:
-	  private string name_Renamed = null;
+	  private string name_Conflict = null;
 //JAVA TO C# CONVERTER NOTE: Fields cannot have the same name as methods:
-	  private int version_Renamed = 0;
+	  private int version_Conflict = 0;
 //JAVA TO C# CONVERTER NOTE: Fields cannot have the same name as methods:
-	  private string resource_Renamed = null;
+	  private string resource_Conflict = null;
 	  protected internal string diagramResource = null;
 //JAVA TO C# CONVERTER NOTE: Fields cannot have the same name as methods:
-	  private string deploymentId_Renamed = null;
+	  private string deploymentId_Conflict = null;
 //JAVA TO C# CONVERTER NOTE: Fields cannot have the same name as methods:
-	  private string tenantId_Renamed = null;
+	  private string tenantId_Conflict = null;
 
 	  public virtual MockCaseDefinitionBuilder id(string id)
 	  {
-		this.id_Renamed = id;
+		this.id_Conflict = id;
 		return this;
 	  }
 
 	  public virtual MockCaseDefinitionBuilder key(string key)
 	  {
-		this.key_Renamed = key;
+		this.key_Conflict = key;
 		return this;
 	  }
 
 	  public virtual MockCaseDefinitionBuilder category(string category)
 	  {
-		this.category_Renamed = category;
+		this.category_Conflict = category;
 		return this;
 	  }
 
 	  public virtual MockCaseDefinitionBuilder name(string name)
 	  {
-		this.name_Renamed = name;
+		this.name_Conflict = name;
 		return this;
 	  }
 
 	  public virtual MockCaseDefinitionBuilder version(int version)
 	  {
-		this.version_Renamed = version;
+		this.version_Conflict = version;
 		return this;
 	  }
 
 	  public virtual MockCaseDefinitionBuilder resource(string resource)
 	  {
-		this.resource_Renamed = resource;
+		this.resource_Conflict = resource;
 		return this;
 	  }
 
@@ -93,13 +93,13 @@ namespace org.camunda.bpm.engine.rest.helper
 
 	  public virtual MockCaseDefinitionBuilder deploymentId(string deploymentId)
 	  {
-		this.deploymentId_Renamed = deploymentId;
+		this.deploymentId_Conflict = deploymentId;
 		return this;
 	  }
 
 	  public virtual MockCaseDefinitionBuilder tenantId(string tenantId)
 	  {
-		this.tenantId_Renamed = tenantId;
+		this.tenantId_Conflict = tenantId;
 		return this;
 	  }
 
@@ -107,15 +107,15 @@ namespace org.camunda.bpm.engine.rest.helper
 	  {
 		CaseDefinition mockDefinition = mock(typeof(CaseDefinition));
 
-		when(mockDefinition.Id).thenReturn(id_Renamed);
-		when(mockDefinition.Category).thenReturn(category_Renamed);
-		when(mockDefinition.Name).thenReturn(name_Renamed);
-		when(mockDefinition.Key).thenReturn(key_Renamed);
-		when(mockDefinition.Version).thenReturn(version_Renamed);
-		when(mockDefinition.ResourceName).thenReturn(resource_Renamed);
+		when(mockDefinition.Id).thenReturn(id_Conflict);
+		when(mockDefinition.Category).thenReturn(category_Conflict);
+		when(mockDefinition.Name).thenReturn(name_Conflict);
+		when(mockDefinition.Key).thenReturn(key_Conflict);
+		when(mockDefinition.Version).thenReturn(version_Conflict);
+		when(mockDefinition.ResourceName).thenReturn(resource_Conflict);
 		when(mockDefinition.DiagramResourceName).thenReturn(diagramResource);
-		when(mockDefinition.DeploymentId).thenReturn(deploymentId_Renamed);
-		when(mockDefinition.TenantId).thenReturn(tenantId_Renamed);
+		when(mockDefinition.DeploymentId).thenReturn(deploymentId_Conflict);
+		when(mockDefinition.TenantId).thenReturn(tenantId_Conflict);
 
 		return mockDefinition;
 	  }

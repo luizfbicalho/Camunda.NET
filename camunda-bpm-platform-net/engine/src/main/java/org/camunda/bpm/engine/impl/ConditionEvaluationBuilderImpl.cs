@@ -36,12 +36,12 @@ namespace org.camunda.bpm.engine.impl
 
 	  protected internal string businessKey;
 //JAVA TO C# CONVERTER NOTE: Fields cannot have the same name as methods:
-	  protected internal string processDefinitionId_Renamed;
+	  protected internal string processDefinitionId_Conflict;
 
 	  protected internal VariableMap variables = new VariableMapImpl();
 
 //JAVA TO C# CONVERTER NOTE: Fields cannot have the same name as methods:
-	  protected internal string tenantId_Renamed = null;
+	  protected internal string tenantId_Conflict = null;
 	  protected internal bool isTenantIdSet = false;
 
 	  public ConditionEvaluationBuilderImpl(CommandExecutor commandExecutor)
@@ -70,7 +70,7 @@ namespace org.camunda.bpm.engine.impl
 	  {
 		  get
 		  {
-			return processDefinitionId_Renamed;
+			return processDefinitionId_Conflict;
 		  }
 	  }
 
@@ -83,7 +83,7 @@ namespace org.camunda.bpm.engine.impl
 	  {
 		  get
 		  {
-			return tenantId_Renamed;
+			return tenantId_Conflict;
 		  }
 	  }
 
@@ -110,7 +110,7 @@ namespace org.camunda.bpm.engine.impl
 	  public virtual ConditionEvaluationBuilder processDefinitionId(string processDefinitionId)
 	  {
 		ensureNotNull("processDefinitionId", processDefinitionId);
-		this.processDefinitionId_Renamed = processDefinitionId;
+		this.processDefinitionId_Conflict = processDefinitionId;
 		return this;
 	  }
 
@@ -136,14 +136,14 @@ namespace org.camunda.bpm.engine.impl
 		ensureNotNull("The tenant-id cannot be null. Use 'withoutTenantId()' if you want to evaluate conditional start event with a process definition which has no tenant-id.", "tenantId", tenantId);
 
 		isTenantIdSet = true;
-		this.tenantId_Renamed = tenantId;
+		this.tenantId_Conflict = tenantId;
 		return this;
 	  }
 
 	  public virtual ConditionEvaluationBuilder withoutTenantId()
 	  {
 		isTenantIdSet = true;
-		tenantId_Renamed = null;
+		tenantId_Conflict = null;
 		return this;
 	  }
 

@@ -33,11 +33,11 @@ namespace org.camunda.bpm.engine.rest.helper.variable
 	{
 
 //JAVA TO C# CONVERTER NOTE: Fields cannot have the same name as methods:
-	  protected internal object value_Renamed;
+	  protected internal object value_Conflict;
 
 	  public virtual EqualsPrimitiveValue value(object value)
 	  {
-		this.value_Renamed = value;
+		this.value_Conflict = value;
 		return this;
 	  }
 
@@ -57,7 +57,7 @@ namespace org.camunda.bpm.engine.rest.helper.variable
 //ORIGINAL LINE: org.camunda.bpm.engine.variable.value.PrimitiveValue<?> primitveValue = (org.camunda.bpm.engine.variable.value.PrimitiveValue<?>) argument;
 		PrimitiveValue<object> primitveValue = (PrimitiveValue<object>) argument;
 
-		if (value_Renamed == null)
+		if (value_Conflict == null)
 		{
 		  if (primitveValue.Value != null)
 		  {
@@ -78,33 +78,33 @@ namespace org.camunda.bpm.engine.rest.helper.variable
 	  protected internal virtual bool matchesValues(object otherValue)
 	  {
 		// explicit matching for byte[]
-		if (value_Renamed is sbyte[])
+		if (value_Conflict is sbyte[])
 		{
 		  if (!(otherValue is sbyte[]))
 		  {
 			return false;
 		  }
 
-		  sbyte[] byteValue = (sbyte[]) value_Renamed;
+		  sbyte[] byteValue = (sbyte[]) value_Conflict;
 		  sbyte[] otherByteValue = (sbyte[]) otherValue;
 
 		  return Arrays.Equals(byteValue, otherByteValue);
 		}
 
-		if (type_Renamed == ValueType.NUMBER)
+		if (type_Conflict == ValueType.NUMBER)
 		{
 		  if (!(otherValue is Number))
 		  {
 			return false;
 		  }
 
-		  Number thisNumer = (Number) value_Renamed;
+		  Number thisNumer = (Number) value_Conflict;
 		  Number otherNumber = (Number) otherValue;
 
 		  return thisNumer.doubleValue() == otherNumber.doubleValue();
 		}
 
-		return value_Renamed.Equals(otherValue);
+		return value_Conflict.Equals(otherValue);
 
 	  }
 
@@ -164,9 +164,9 @@ namespace org.camunda.bpm.engine.rest.helper.variable
 		sb.Append(this.GetType().Name);
 		sb.Append(": ");
 		sb.Append("value=");
-		sb.Append(value_Renamed);
+		sb.Append(value_Conflict);
 		sb.Append(", type=");
-		sb.Append(type_Renamed);
+		sb.Append(type_Conflict);
 
 		description.appendText(sb.ToString());
 	  }

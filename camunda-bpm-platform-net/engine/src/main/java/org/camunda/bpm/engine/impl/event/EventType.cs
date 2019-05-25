@@ -34,16 +34,16 @@ namespace org.camunda.bpm.engine.impl.@event
 	  public static readonly EventType CONDITONAL = new EventType("conditional");
 
 //JAVA TO C# CONVERTER NOTE: Fields cannot have the same name as methods:
-	  private readonly string name_Renamed;
+	  private readonly string name_Conflict;
 
 	  private EventType(string name)
 	  {
-		this.name_Renamed = name;
+		this.name_Conflict = name;
 	  }
 
 	  public string name()
 	  {
-		return name_Renamed;
+		return name_Conflict;
 	  }
 	}
 

@@ -40,7 +40,7 @@ namespace org.camunda.bpm.engine.impl
 	  private static readonly QueryProperty TIMESTAMP_PROPERTY = new QueryPropertyImpl("TIMESTAMP_");
 
 //JAVA TO C# CONVERTER NOTE: Fields cannot have the same name as methods:
-	  protected internal string version_Renamed;
+	  protected internal string version_Conflict;
 
 	  public SchemaLogQueryImpl(CommandExecutor commandExecutor) : base(commandExecutor)
 	  {
@@ -49,7 +49,7 @@ namespace org.camunda.bpm.engine.impl
 	  public virtual SchemaLogQuery version(string version)
 	  {
 		ensureNotNull("version", version);
-		this.version_Renamed = version;
+		this.version_Conflict = version;
 		return this;
 	  }
 

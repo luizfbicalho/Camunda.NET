@@ -47,25 +47,25 @@ namespace org.camunda.bpm.engine.impl
 
 	  protected internal string id;
 //JAVA TO C# CONVERTER NOTE: Fields cannot have the same name as methods:
-	  protected internal string jobId_Renamed;
+	  protected internal string jobId_Conflict;
 //JAVA TO C# CONVERTER NOTE: Fields cannot have the same name as methods:
-	  protected internal string jobExceptionMessage_Renamed;
+	  protected internal string jobExceptionMessage_Conflict;
 //JAVA TO C# CONVERTER NOTE: Fields cannot have the same name as methods:
-	  protected internal string jobDefinitionId_Renamed;
+	  protected internal string jobDefinitionId_Conflict;
 //JAVA TO C# CONVERTER NOTE: Fields cannot have the same name as methods:
-	  protected internal string jobDefinitionType_Renamed;
+	  protected internal string jobDefinitionType_Conflict;
 //JAVA TO C# CONVERTER NOTE: Fields cannot have the same name as methods:
-	  protected internal string jobDefinitionConfiguration_Renamed;
+	  protected internal string jobDefinitionConfiguration_Conflict;
 	  protected internal string[] activityIds;
 	  protected internal string[] executionIds;
 //JAVA TO C# CONVERTER NOTE: Fields cannot have the same name as methods:
-	  protected internal string processInstanceId_Renamed;
+	  protected internal string processInstanceId_Conflict;
 //JAVA TO C# CONVERTER NOTE: Fields cannot have the same name as methods:
-	  protected internal string processDefinitionId_Renamed;
+	  protected internal string processDefinitionId_Conflict;
 //JAVA TO C# CONVERTER NOTE: Fields cannot have the same name as methods:
-	  protected internal string processDefinitionKey_Renamed;
+	  protected internal string processDefinitionKey_Conflict;
 //JAVA TO C# CONVERTER NOTE: Fields cannot have the same name as methods:
-	  protected internal string deploymentId_Renamed;
+	  protected internal string deploymentId_Conflict;
 	  protected internal JobState state;
 	  protected internal long? jobPriorityHigherThanOrEqual;
 	  protected internal long? jobPriorityLowerThanOrEqual;
@@ -91,35 +91,35 @@ namespace org.camunda.bpm.engine.impl
 	  public virtual HistoricJobLogQuery jobId(string jobId)
 	  {
 		ensureNotNull(typeof(NotValidException), "jobId", jobId);
-		this.jobId_Renamed = jobId;
+		this.jobId_Conflict = jobId;
 		return this;
 	  }
 
 	  public virtual HistoricJobLogQuery jobExceptionMessage(string jobExceptionMessage)
 	  {
 		ensureNotNull(typeof(NotValidException), "jobExceptionMessage", jobExceptionMessage);
-		this.jobExceptionMessage_Renamed = jobExceptionMessage;
+		this.jobExceptionMessage_Conflict = jobExceptionMessage;
 		return this;
 	  }
 
 	  public virtual HistoricJobLogQuery jobDefinitionId(string jobDefinitionId)
 	  {
 		ensureNotNull(typeof(NotValidException), "jobDefinitionId", jobDefinitionId);
-		this.jobDefinitionId_Renamed = jobDefinitionId;
+		this.jobDefinitionId_Conflict = jobDefinitionId;
 		return this;
 	  }
 
 	  public virtual HistoricJobLogQuery jobDefinitionType(string jobDefinitionType)
 	  {
 		ensureNotNull(typeof(NotValidException), "jobDefinitionType", jobDefinitionType);
-		this.jobDefinitionType_Renamed = jobDefinitionType;
+		this.jobDefinitionType_Conflict = jobDefinitionType;
 		return this;
 	  }
 
 	  public virtual HistoricJobLogQuery jobDefinitionConfiguration(string jobDefinitionConfiguration)
 	  {
 		ensureNotNull(typeof(NotValidException), "jobDefinitionConfiguration", jobDefinitionConfiguration);
-		this.jobDefinitionConfiguration_Renamed = jobDefinitionConfiguration;
+		this.jobDefinitionConfiguration_Conflict = jobDefinitionConfiguration;
 		return this;
 	  }
 
@@ -144,28 +144,28 @@ namespace org.camunda.bpm.engine.impl
 	  public virtual HistoricJobLogQuery processInstanceId(string processInstanceId)
 	  {
 		ensureNotNull(typeof(NotValidException), "processInstanceId", processInstanceId);
-		this.processInstanceId_Renamed = processInstanceId;
+		this.processInstanceId_Conflict = processInstanceId;
 		return this;
 	  }
 
 	  public virtual HistoricJobLogQuery processDefinitionId(string processDefinitionId)
 	  {
 		ensureNotNull(typeof(NotValidException), "processDefinitionId", processDefinitionId);
-		this.processDefinitionId_Renamed = processDefinitionId;
+		this.processDefinitionId_Conflict = processDefinitionId;
 		return this;
 	  }
 
 	  public virtual HistoricJobLogQuery processDefinitionKey(string processDefinitionKey)
 	  {
 		ensureNotNull(typeof(NotValidException), "processDefinitionKey", processDefinitionKey);
-		this.processDefinitionKey_Renamed = processDefinitionKey;
+		this.processDefinitionKey_Conflict = processDefinitionKey;
 		return this;
 	  }
 
 	  public virtual HistoricJobLogQuery deploymentId(string deploymentId)
 	  {
 		ensureNotNull(typeof(NotValidException), "deploymentId", deploymentId);
-		this.deploymentId_Renamed = deploymentId;
+		this.deploymentId_Conflict = deploymentId;
 		return this;
 	  }
 
@@ -322,7 +322,7 @@ namespace org.camunda.bpm.engine.impl
 	  {
 		  get
 		  {
-			return jobId_Renamed;
+			return jobId_Conflict;
 		  }
 	  }
 
@@ -330,7 +330,7 @@ namespace org.camunda.bpm.engine.impl
 	  {
 		  get
 		  {
-			return jobExceptionMessage_Renamed;
+			return jobExceptionMessage_Conflict;
 		  }
 	  }
 
@@ -338,7 +338,7 @@ namespace org.camunda.bpm.engine.impl
 	  {
 		  get
 		  {
-			return jobDefinitionId_Renamed;
+			return jobDefinitionId_Conflict;
 		  }
 	  }
 
@@ -346,7 +346,7 @@ namespace org.camunda.bpm.engine.impl
 	  {
 		  get
 		  {
-			return jobDefinitionType_Renamed;
+			return jobDefinitionType_Conflict;
 		  }
 	  }
 
@@ -354,7 +354,7 @@ namespace org.camunda.bpm.engine.impl
 	  {
 		  get
 		  {
-			return jobDefinitionConfiguration_Renamed;
+			return jobDefinitionConfiguration_Conflict;
 		  }
 	  }
 
@@ -378,7 +378,7 @@ namespace org.camunda.bpm.engine.impl
 	  {
 		  get
 		  {
-			return processInstanceId_Renamed;
+			return processInstanceId_Conflict;
 		  }
 	  }
 
@@ -386,7 +386,7 @@ namespace org.camunda.bpm.engine.impl
 	  {
 		  get
 		  {
-			return processDefinitionId_Renamed;
+			return processDefinitionId_Conflict;
 		  }
 	  }
 
@@ -394,7 +394,7 @@ namespace org.camunda.bpm.engine.impl
 	  {
 		  get
 		  {
-			return processDefinitionKey_Renamed;
+			return processDefinitionKey_Conflict;
 		  }
 	  }
 
@@ -402,7 +402,7 @@ namespace org.camunda.bpm.engine.impl
 	  {
 		  get
 		  {
-			return deploymentId_Renamed;
+			return deploymentId_Conflict;
 		  }
 	  }
 

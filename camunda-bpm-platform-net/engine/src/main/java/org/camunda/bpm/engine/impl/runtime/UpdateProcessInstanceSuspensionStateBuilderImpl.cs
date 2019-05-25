@@ -48,7 +48,7 @@ namespace org.camunda.bpm.engine.impl.runtime
 	  protected internal string processDefinitionId;
 
 //JAVA TO C# CONVERTER NOTE: Fields cannot have the same name as methods:
-	  protected internal string processDefinitionTenantId_Renamed;
+	  protected internal string processDefinitionTenantId_Conflict;
 	  protected internal bool isProcessDefinitionTenantIdSet = false;
 
 	  public UpdateProcessInstanceSuspensionStateBuilderImpl(CommandExecutor commandExecutor)
@@ -109,7 +109,7 @@ namespace org.camunda.bpm.engine.impl.runtime
 
 	  public virtual UpdateProcessInstanceSuspensionStateBuilderImpl processDefinitionWithoutTenantId()
 	  {
-		this.processDefinitionTenantId_Renamed = null;
+		this.processDefinitionTenantId_Conflict = null;
 		this.isProcessDefinitionTenantIdSet = true;
 		return this;
 	  }
@@ -118,7 +118,7 @@ namespace org.camunda.bpm.engine.impl.runtime
 	  {
 		ensureNotNull("tenantId", tenantId);
 
-		this.processDefinitionTenantId_Renamed = tenantId;
+		this.processDefinitionTenantId_Conflict = tenantId;
 		this.isProcessDefinitionTenantIdSet = true;
 		return this;
 	  }
@@ -171,7 +171,7 @@ namespace org.camunda.bpm.engine.impl.runtime
 	  {
 		  get
 		  {
-			return processDefinitionTenantId_Renamed;
+			return processDefinitionTenantId_Conflict;
 		  }
 	  }
 

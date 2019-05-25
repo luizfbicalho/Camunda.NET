@@ -41,20 +41,20 @@ namespace org.camunda.bpm.engine.impl
 
 	  private const long serialVersionUID = 1L;
 //JAVA TO C# CONVERTER NOTE: Fields cannot have the same name as methods:
-	  protected internal string deploymentId_Renamed;
+	  protected internal string deploymentId_Conflict;
 	  protected internal string name;
 	  protected internal string nameLike;
 	  protected internal bool sourceQueryParamEnabled;
 	  protected internal string source;
 //JAVA TO C# CONVERTER NOTE: Fields cannot have the same name as methods:
-	  protected internal DateTime deploymentBefore_Renamed;
+	  protected internal DateTime deploymentBefore_Conflict;
 //JAVA TO C# CONVERTER NOTE: Fields cannot have the same name as methods:
-	  protected internal DateTime deploymentAfter_Renamed;
+	  protected internal DateTime deploymentAfter_Conflict;
 
 	  protected internal bool isTenantIdSet = false;
 	  protected internal string[] tenantIds;
 //JAVA TO C# CONVERTER NOTE: Fields cannot have the same name as methods:
-	  protected internal bool includeDeploymentsWithoutTenantId_Renamed = false;
+	  protected internal bool includeDeploymentsWithoutTenantId_Conflict = false;
 
 	  public DeploymentQueryImpl()
 	  {
@@ -67,7 +67,7 @@ namespace org.camunda.bpm.engine.impl
 	  public virtual DeploymentQueryImpl deploymentId(string deploymentId)
 	  {
 		ensureNotNull("Deployment id", deploymentId);
-		this.deploymentId_Renamed = deploymentId;
+		this.deploymentId_Conflict = deploymentId;
 		return this;
 	  }
 
@@ -95,14 +95,14 @@ namespace org.camunda.bpm.engine.impl
 	  public virtual DeploymentQuery deploymentBefore(DateTime before)
 	  {
 		ensureNotNull("deploymentBefore", before);
-		this.deploymentBefore_Renamed = before;
+		this.deploymentBefore_Conflict = before;
 		return this;
 	  }
 
 	  public virtual DeploymentQuery deploymentAfter(DateTime after)
 	  {
 		ensureNotNull("deploymentAfter", after);
-		this.deploymentAfter_Renamed = after;
+		this.deploymentAfter_Conflict = after;
 		return this;
 	  }
 
@@ -123,13 +123,13 @@ namespace org.camunda.bpm.engine.impl
 
 	  public virtual DeploymentQuery includeDeploymentsWithoutTenantId()
 	  {
-		this.includeDeploymentsWithoutTenantId_Renamed = true;
+		this.includeDeploymentsWithoutTenantId_Conflict = true;
 		return this;
 	  }
 
 	  protected internal override bool hasExcludingConditions()
 	  {
-		return base.hasExcludingConditions() || CompareUtil.areNotInAscendingOrder(deploymentAfter_Renamed, deploymentBefore_Renamed);
+		return base.hasExcludingConditions() || CompareUtil.areNotInAscendingOrder(deploymentAfter_Conflict, deploymentBefore_Conflict);
 	  }
 
 	  //sorting ////////////////////////////////////////////////////////
@@ -179,7 +179,7 @@ namespace org.camunda.bpm.engine.impl
 	  {
 		  get
 		  {
-			return deploymentId_Renamed;
+			return deploymentId_Conflict;
 		  }
 	  }
 
@@ -219,7 +219,7 @@ namespace org.camunda.bpm.engine.impl
 	  {
 		  get
 		  {
-			return deploymentBefore_Renamed;
+			return deploymentBefore_Conflict;
 		  }
 	  }
 
@@ -227,7 +227,7 @@ namespace org.camunda.bpm.engine.impl
 	  {
 		  get
 		  {
-			return deploymentAfter_Renamed;
+			return deploymentAfter_Conflict;
 		  }
 	  }
 	}

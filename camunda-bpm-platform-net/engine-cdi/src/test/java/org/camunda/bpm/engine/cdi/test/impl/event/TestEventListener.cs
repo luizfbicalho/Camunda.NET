@@ -37,7 +37,7 @@ namespace org.camunda.bpm.engine.cdi.test.impl.@event
 	  {
 		startActivityService1 = 0;
 		endActivityService1 = 0;
-		takeTransition1_Renamed = 0;
+		takeTransition1_Conflict = 0;
 		createTaskUser1 = 0;
 		assignTaskUser1 = 0;
 		completeTaskUser1 = 0;
@@ -94,7 +94,7 @@ namespace org.camunda.bpm.engine.cdi.test.impl.@event
 	  private int startActivityService1 = 0;
 	  private int endActivityService1 = 0;
 //JAVA TO C# CONVERTER NOTE: Fields cannot have the same name as methods:
-	  private int takeTransition1_Renamed = 0;
+	  private int takeTransition1_Conflict = 0;
 
 //JAVA TO C# CONVERTER TODO TASK: Most Java annotations will not have direct .NET equivalent attributes:
 //ORIGINAL LINE: public void onStartActivityService1(@Observes @StartActivity("service1") org.camunda.bpm.engine.cdi.BusinessProcessEvent businessProcessEvent)
@@ -129,7 +129,7 @@ namespace org.camunda.bpm.engine.cdi.test.impl.@event
 		assertNull(businessProcessEvent.Task);
 		assertNull(businessProcessEvent.TaskId);
 		assertNull(businessProcessEvent.TaskDefinitionKey);
-		takeTransition1_Renamed += 1;
+		takeTransition1_Conflict += 1;
 	  }
 
 	  public virtual int EndActivityService1
@@ -152,7 +152,7 @@ namespace org.camunda.bpm.engine.cdi.test.impl.@event
 	  {
 		  get
 		  {
-			return takeTransition1_Renamed;
+			return takeTransition1_Conflict;
 		  }
 	  }
 

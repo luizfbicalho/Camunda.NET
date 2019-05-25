@@ -27,90 +27,90 @@ namespace org.camunda.bpm.engine.rest.helper
 	{
 
 //JAVA TO C# CONVERTER NOTE: Fields cannot have the same name as methods:
-	  protected internal string id_Renamed;
+	  protected internal string id_Conflict;
 //JAVA TO C# CONVERTER NOTE: Fields cannot have the same name as methods:
-	  protected internal string activityId_Renamed;
+	  protected internal string activityId_Conflict;
 //JAVA TO C# CONVERTER NOTE: Fields cannot have the same name as methods:
-	  protected internal string jobConfiguration_Renamed;
+	  protected internal string jobConfiguration_Conflict;
 //JAVA TO C# CONVERTER NOTE: Fields cannot have the same name as methods:
-	  protected internal string jobType_Renamed;
+	  protected internal string jobType_Conflict;
 //JAVA TO C# CONVERTER NOTE: Fields cannot have the same name as methods:
-	  protected internal long? jobPriority_Renamed;
+	  protected internal long? jobPriority_Conflict;
 //JAVA TO C# CONVERTER NOTE: Fields cannot have the same name as methods:
-	  protected internal string processDefinitionKey_Renamed;
+	  protected internal string processDefinitionKey_Conflict;
 //JAVA TO C# CONVERTER NOTE: Fields cannot have the same name as methods:
-	  protected internal string processDefinitionId_Renamed;
+	  protected internal string processDefinitionId_Conflict;
 //JAVA TO C# CONVERTER NOTE: Fields cannot have the same name as methods:
-	  protected internal bool suspended_Renamed;
+	  protected internal bool suspended_Conflict;
 //JAVA TO C# CONVERTER NOTE: Fields cannot have the same name as methods:
-	  protected internal string tenantId_Renamed;
+	  protected internal string tenantId_Conflict;
 
 	  public virtual MockJobDefinitionBuilder id(string id)
 	  {
-		this.id_Renamed = id;
+		this.id_Conflict = id;
 		return this;
 	  }
 
 	  public virtual MockJobDefinitionBuilder activityId(string activityId)
 	  {
-		this.activityId_Renamed = activityId;
+		this.activityId_Conflict = activityId;
 		return this;
 	  }
 
 	  public virtual MockJobDefinitionBuilder jobConfiguration(string jobConfiguration)
 	  {
-		this.jobConfiguration_Renamed = jobConfiguration;
+		this.jobConfiguration_Conflict = jobConfiguration;
 		return this;
 	  }
 
 	  public virtual MockJobDefinitionBuilder jobType(string jobType)
 	  {
-		this.jobType_Renamed = jobType;
+		this.jobType_Conflict = jobType;
 		return this;
 	  }
 
 	  public virtual MockJobDefinitionBuilder jobPriority(long? priority)
 	  {
-		this.jobPriority_Renamed = priority;
+		this.jobPriority_Conflict = priority;
 		return this;
 	  }
 
 	  public virtual MockJobDefinitionBuilder processDefinitionId(string processDefinitionId)
 	  {
-		this.processDefinitionId_Renamed = processDefinitionId;
+		this.processDefinitionId_Conflict = processDefinitionId;
 		return this;
 	  }
 
 	  public virtual MockJobDefinitionBuilder processDefinitionKey(string processDefinitionKey)
 	  {
-		this.processDefinitionKey_Renamed = processDefinitionKey;
+		this.processDefinitionKey_Conflict = processDefinitionKey;
 		return this;
 	  }
 
 	  public virtual MockJobDefinitionBuilder suspended(bool suspended)
 	  {
-		this.suspended_Renamed = suspended;
+		this.suspended_Conflict = suspended;
 		return this;
 	  }
 
 	  public virtual MockJobDefinitionBuilder tenantId(string tenantId)
 	  {
-		this.tenantId_Renamed = tenantId;
+		this.tenantId_Conflict = tenantId;
 		return this;
 	  }
 
 	  public virtual JobDefinition build()
 	  {
 		JobDefinition mockJobDefinition = mock(typeof(JobDefinition));
-		when(mockJobDefinition.Id).thenReturn(id_Renamed);
-		when(mockJobDefinition.ActivityId).thenReturn(activityId_Renamed);
-		when(mockJobDefinition.JobConfiguration).thenReturn(jobConfiguration_Renamed);
-		when(mockJobDefinition.OverridingJobPriority).thenReturn(jobPriority_Renamed);
-		when(mockJobDefinition.JobType).thenReturn(jobType_Renamed);
-		when(mockJobDefinition.ProcessDefinitionId).thenReturn(processDefinitionId_Renamed);
-		when(mockJobDefinition.ProcessDefinitionKey).thenReturn(processDefinitionKey_Renamed);
-		when(mockJobDefinition.Suspended).thenReturn(suspended_Renamed);
-		when(mockJobDefinition.TenantId).thenReturn(tenantId_Renamed);
+		when(mockJobDefinition.Id).thenReturn(id_Conflict);
+		when(mockJobDefinition.ActivityId).thenReturn(activityId_Conflict);
+		when(mockJobDefinition.JobConfiguration).thenReturn(jobConfiguration_Conflict);
+		when(mockJobDefinition.OverridingJobPriority).thenReturn(jobPriority_Conflict);
+		when(mockJobDefinition.JobType).thenReturn(jobType_Conflict);
+		when(mockJobDefinition.ProcessDefinitionId).thenReturn(processDefinitionId_Conflict);
+		when(mockJobDefinition.ProcessDefinitionKey).thenReturn(processDefinitionKey_Conflict);
+		when(mockJobDefinition.Suspended).thenReturn(suspended_Conflict);
+		when(mockJobDefinition.TenantId).thenReturn(tenantId_Conflict);
 		return mockJobDefinition;
 	  }
 

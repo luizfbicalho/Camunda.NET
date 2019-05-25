@@ -34,7 +34,7 @@ namespace org.camunda.bpm.engine.impl.db
 	  protected internal IList<PermissionCheck> atomicChecks = new List<PermissionCheck>();
 	  protected internal IList<CompositePermissionCheck> compositeChecks = new List<CompositePermissionCheck>();
 //JAVA TO C# CONVERTER NOTE: Fields cannot have the same name as methods:
-	  protected internal bool disjunctive_Renamed = true;
+	  protected internal bool disjunctive_Conflict = true;
 
 	  protected internal PermissionCheckBuilder parent;
 
@@ -49,13 +49,13 @@ namespace org.camunda.bpm.engine.impl.db
 
 	  public virtual PermissionCheckBuilder disjunctive()
 	  {
-		this.disjunctive_Renamed = true;
+		this.disjunctive_Conflict = true;
 		return this;
 	  }
 
 	  public virtual PermissionCheckBuilder conjunctive()
 	  {
-		this.disjunctive_Renamed = false;
+		this.disjunctive_Conflict = false;
 		return this;
 	  }
 
@@ -102,7 +102,7 @@ namespace org.camunda.bpm.engine.impl.db
 	  {
 		validate();
 
-		CompositePermissionCheck permissionCheck = new CompositePermissionCheck(disjunctive_Renamed);
+		CompositePermissionCheck permissionCheck = new CompositePermissionCheck(disjunctive_Conflict);
 		permissionCheck.AtomicChecks = atomicChecks;
 		permissionCheck.CompositeChecks = compositeChecks;
 

@@ -45,7 +45,7 @@ namespace org.camunda.bpm.engine.impl.db
 	  /// If true authorization check is performed.
 	  /// </summary>
 //JAVA TO C# CONVERTER NOTE: Fields cannot have the same name as methods:
-	  protected internal bool shouldPerformAuthorizatioCheck_Renamed = false;
+	  protected internal bool shouldPerformAuthorizatioCheck_Conflict = false;
 
 	  /// <summary>
 	  /// Indicates if the revoke authorization checks are enabled or not.
@@ -106,7 +106,7 @@ namespace org.camunda.bpm.engine.impl.db
 
 	  public virtual bool shouldPerformAuthorizatioCheck()
 	  {
-		return shouldPerformAuthorizatioCheck_Renamed;
+		return shouldPerformAuthorizatioCheck_Conflict;
 	  }
 
 	  /// <summary>
@@ -119,7 +119,7 @@ namespace org.camunda.bpm.engine.impl.db
 		  }
 		  set
 		  {
-			this.shouldPerformAuthorizatioCheck_Renamed = value;
+			this.shouldPerformAuthorizatioCheck_Conflict = value;
 		  }
 	  }
 

@@ -39,7 +39,7 @@ namespace org.camunda.bpm.engine.impl.form.engine
 	  /// </summary>
 	  protected internal bool isSelfClosing;
 //JAVA TO C# CONVERTER NOTE: Fields cannot have the same name as methods:
-	  protected internal string textContent_Renamed;
+	  protected internal string textContent_Conflict;
 	  protected internal IDictionary<string, string> attributes = new LinkedHashMap<string, string>();
 
 	  public HtmlElementWriter(string tagName)
@@ -65,7 +65,7 @@ namespace org.camunda.bpm.engine.impl.form.engine
 
 	  public virtual void writeContent(HtmlWriteContext context)
 	  {
-		if (!string.ReferenceEquals(textContent_Renamed, null))
+		if (!string.ReferenceEquals(textContent_Conflict, null))
 		{
 		  writeLeadingWhitespace(context);
 		  writeTextContent(context);
@@ -95,7 +95,7 @@ namespace org.camunda.bpm.engine.impl.form.engine
 	  {
 		StringWriter writer = context.Writer;
 		writer.write("  "); // add additional whitespace
-		writer.write(textContent_Renamed);
+		writer.write(textContent_Conflict);
 	  }
 
 	  protected internal virtual void writeStartTagOpen(HtmlWriteContext context)
@@ -169,7 +169,7 @@ namespace org.camunda.bpm.engine.impl.form.engine
 		{
 		  throw new System.InvalidOperationException("Self-closing element cannot have text content.");
 		}
-		this.textContent_Renamed = text;
+		this.textContent_Conflict = text;
 		return this;
 	  }
 

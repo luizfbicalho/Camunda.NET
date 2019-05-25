@@ -47,7 +47,7 @@ namespace org.camunda.bpm.engine.impl.util.xml
 	  protected internal int column;
 	  protected internal StringBuilder text = new StringBuilder();
 //JAVA TO C# CONVERTER NOTE: Fields cannot have the same name as methods:
-	  protected internal IList<Element> elements_Renamed = new List<Element>();
+	  protected internal IList<Element> elements_Conflict = new List<Element>();
 
 	  public Element(string uri, string localName, string qName, Attributes attributes, Locator locator)
 	  {
@@ -90,7 +90,7 @@ namespace org.camunda.bpm.engine.impl.util.xml
 	  protected internal virtual IList<Element> elementsNS(string nameSpaceUri, string tagName)
 	  {
 		IList<Element> selectedElements = new List<Element>();
-		foreach (Element element in elements_Renamed)
+		foreach (Element element in elements_Conflict)
 		{
 		  if (tagName.Equals(element.TagName))
 		  {
@@ -128,7 +128,7 @@ namespace org.camunda.bpm.engine.impl.util.xml
 
 	  public virtual void add(Element element)
 	  {
-		elements_Renamed.Add(element);
+		elements_Conflict.Add(element);
 	  }
 
 	  public virtual string attribute(string name)
@@ -192,7 +192,7 @@ namespace org.camunda.bpm.engine.impl.util.xml
 
 	  public virtual IList<Element> elements()
 	  {
-		return elements_Renamed;
+		return elements_Conflict;
 	  }
 
 	  public override string ToString()
@@ -252,7 +252,7 @@ namespace org.camunda.bpm.engine.impl.util.xml
 	  public virtual void collectIds(IList<string> ids)
 	  {
 		ids.Add(attribute("id"));
-		foreach (Element child in elements_Renamed)
+		foreach (Element child in elements_Conflict)
 		{
 		  child.collectIds(ids);
 		}

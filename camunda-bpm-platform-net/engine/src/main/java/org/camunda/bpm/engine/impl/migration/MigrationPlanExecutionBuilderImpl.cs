@@ -32,13 +32,13 @@ namespace org.camunda.bpm.engine.impl.migration
 	  protected internal CommandExecutor commandExecutor;
 	  protected internal MigrationPlan migrationPlan;
 //JAVA TO C# CONVERTER NOTE: Fields cannot have the same name as methods:
-	  protected internal IList<string> processInstanceIds_Renamed;
+	  protected internal IList<string> processInstanceIds_Conflict;
 //JAVA TO C# CONVERTER NOTE: Fields cannot have the same name as methods:
-	  protected internal ProcessInstanceQuery processInstanceQuery_Renamed;
+	  protected internal ProcessInstanceQuery processInstanceQuery_Conflict;
 //JAVA TO C# CONVERTER NOTE: Fields cannot have the same name as methods:
-	  protected internal bool skipCustomListeners_Renamed;
+	  protected internal bool skipCustomListeners_Conflict;
 //JAVA TO C# CONVERTER NOTE: Fields cannot have the same name as methods:
-	  protected internal bool skipIoMappings_Renamed;
+	  protected internal bool skipIoMappings_Conflict;
 
 	  public MigrationPlanExecutionBuilderImpl(CommandExecutor commandExecutor, MigrationPlan migrationPlan)
 	  {
@@ -56,7 +56,7 @@ namespace org.camunda.bpm.engine.impl.migration
 
 	  public virtual MigrationPlanExecutionBuilder processInstanceIds(IList<string> processInstanceIds)
 	  {
-		this.processInstanceIds_Renamed = processInstanceIds;
+		this.processInstanceIds_Conflict = processInstanceIds;
 		return this;
 	  }
 
@@ -64,11 +64,11 @@ namespace org.camunda.bpm.engine.impl.migration
 	  {
 		if (processInstanceIds == null)
 		{
-		  this.processInstanceIds_Renamed = Collections.emptyList();
+		  this.processInstanceIds_Conflict = Collections.emptyList();
 		}
 		else
 		{
-		  this.processInstanceIds_Renamed = Arrays.asList(processInstanceIds);
+		  this.processInstanceIds_Conflict = Arrays.asList(processInstanceIds);
 		}
 		return this;
 	  }
@@ -77,13 +77,13 @@ namespace org.camunda.bpm.engine.impl.migration
 	  {
 		  get
 		  {
-			return processInstanceIds_Renamed;
+			return processInstanceIds_Conflict;
 		  }
 	  }
 
 	  public virtual MigrationPlanExecutionBuilder processInstanceQuery(ProcessInstanceQuery processInstanceQuery)
 	  {
-		this.processInstanceQuery_Renamed = processInstanceQuery;
+		this.processInstanceQuery_Conflict = processInstanceQuery;
 		return this;
 	  }
 
@@ -91,13 +91,13 @@ namespace org.camunda.bpm.engine.impl.migration
 	  {
 		  get
 		  {
-			return processInstanceQuery_Renamed;
+			return processInstanceQuery_Conflict;
 		  }
 	  }
 
 	  public virtual MigrationPlanExecutionBuilder skipCustomListeners()
 	  {
-		this.skipCustomListeners_Renamed = true;
+		this.skipCustomListeners_Conflict = true;
 		return this;
 	  }
 
@@ -105,13 +105,13 @@ namespace org.camunda.bpm.engine.impl.migration
 	  {
 		  get
 		  {
-			return skipCustomListeners_Renamed;
+			return skipCustomListeners_Conflict;
 		  }
 	  }
 
 	  public virtual MigrationPlanExecutionBuilder skipIoMappings()
 	  {
-		this.skipIoMappings_Renamed = true;
+		this.skipIoMappings_Conflict = true;
 		return this;
 	  }
 
@@ -119,7 +119,7 @@ namespace org.camunda.bpm.engine.impl.migration
 	  {
 		  get
 		  {
-			return skipIoMappings_Renamed;
+			return skipIoMappings_Conflict;
 		  }
 	  }
 

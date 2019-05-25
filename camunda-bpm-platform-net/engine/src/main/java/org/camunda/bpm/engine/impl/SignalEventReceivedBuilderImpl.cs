@@ -37,10 +37,10 @@ namespace org.camunda.bpm.engine.impl
 	  protected internal readonly string signalName;
 
 //JAVA TO C# CONVERTER NOTE: Fields cannot have the same name as methods:
-	  protected internal string executionId_Renamed = null;
+	  protected internal string executionId_Conflict = null;
 
 //JAVA TO C# CONVERTER NOTE: Fields cannot have the same name as methods:
-	  protected internal string tenantId_Renamed = null;
+	  protected internal string tenantId_Conflict = null;
 	  protected internal bool isTenantIdSet = false;
 
 	  protected internal VariableMap variables = null;
@@ -68,7 +68,7 @@ namespace org.camunda.bpm.engine.impl
 	  public virtual SignalEventReceivedBuilder executionId(string executionId)
 	  {
 		ensureNotNull("executionId", executionId);
-		this.executionId_Renamed = executionId;
+		this.executionId_Conflict = executionId;
 		return this;
 	  }
 
@@ -76,7 +76,7 @@ namespace org.camunda.bpm.engine.impl
 	  {
 		ensureNotNull("The tenant-id cannot be null. Use 'withoutTenantId()' if you want to send the signal to a process definition or an execution which has no tenant-id.", "tenantId", tenantId);
 
-		this.tenantId_Renamed = tenantId;
+		this.tenantId_Conflict = tenantId;
 		isTenantIdSet = true;
 
 		return this;
@@ -91,7 +91,7 @@ namespace org.camunda.bpm.engine.impl
 
 	  public virtual void send()
 	  {
-		if (!string.ReferenceEquals(executionId_Renamed, null) && isTenantIdSet)
+		if (!string.ReferenceEquals(executionId_Conflict, null) && isTenantIdSet)
 		{
 		  throw LOG.exceptionDeliverSignalToSingleExecutionWithTenantId();
 		}
@@ -112,7 +112,7 @@ namespace org.camunda.bpm.engine.impl
 	  {
 		  get
 		  {
-			return executionId_Renamed;
+			return executionId_Conflict;
 		  }
 	  }
 
@@ -120,7 +120,7 @@ namespace org.camunda.bpm.engine.impl
 	  {
 		  get
 		  {
-			return tenantId_Renamed;
+			return tenantId_Conflict;
 		  }
 	  }
 

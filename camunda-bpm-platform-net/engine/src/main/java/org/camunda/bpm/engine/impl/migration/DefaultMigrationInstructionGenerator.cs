@@ -39,9 +39,9 @@ namespace org.camunda.bpm.engine.impl.migration
 	{
 
 //JAVA TO C# CONVERTER NOTE: Fields cannot have the same name as methods:
-	  protected internal IList<MigrationActivityValidator> migrationActivityValidators_Renamed = new List<MigrationActivityValidator>();
+	  protected internal IList<MigrationActivityValidator> migrationActivityValidators_Conflict = new List<MigrationActivityValidator>();
 //JAVA TO C# CONVERTER NOTE: Fields cannot have the same name as methods:
-	  protected internal IList<MigrationInstructionValidator> migrationInstructionValidators_Renamed = new List<MigrationInstructionValidator>();
+	  protected internal IList<MigrationInstructionValidator> migrationInstructionValidators_Conflict = new List<MigrationInstructionValidator>();
 	  protected internal MigrationActivityMatcher migrationActivityMatcher;
 
 	  public DefaultMigrationInstructionGenerator(MigrationActivityMatcher migrationActivityMatcher)
@@ -51,21 +51,21 @@ namespace org.camunda.bpm.engine.impl.migration
 
 	  public virtual MigrationInstructionGenerator migrationActivityValidators(IList<MigrationActivityValidator> migrationActivityValidators)
 	  {
-		this.migrationActivityValidators_Renamed = migrationActivityValidators;
+		this.migrationActivityValidators_Conflict = migrationActivityValidators;
 		return this;
 	  }
 
 	  public virtual MigrationInstructionGenerator migrationInstructionValidators(IList<MigrationInstructionValidator> migrationInstructionValidators)
 	  {
 
-		this.migrationInstructionValidators_Renamed = new List<MigrationInstructionValidator>();
+		this.migrationInstructionValidators_Conflict = new List<MigrationInstructionValidator>();
 		foreach (MigrationInstructionValidator validator in migrationInstructionValidators)
 		{
 		  // ignore the following two validators during generation. Enables multi-instance bodies to be mapped.
 		  // this procedure is fine because these validators are again applied after all instructions have been generated
 		  if (!(validator is CannotAddMultiInstanceInnerActivityValidator || validator is CannotRemoveMultiInstanceInnerActivityValidator))
 		  {
-			this.migrationInstructionValidators_Renamed.Add(validator);
+			this.migrationInstructionValidators_Conflict.Add(validator);
 		  }
 		}
 
@@ -119,7 +119,7 @@ namespace org.camunda.bpm.engine.impl.migration
 
 		existingInstructions.addAll(eventScopeInstructions);
 
-		existingInstructions.filterWith(migrationInstructionValidators_Renamed);
+		existingInstructions.filterWith(migrationInstructionValidators_Conflict);
 
 		foreach (ValidatingMigrationInstruction generatedInstruction in flowScopeInstructions)
 		{
@@ -132,7 +132,7 @@ namespace org.camunda.bpm.engine.impl.migration
 
 	  protected internal virtual bool isValidActivity(ActivityImpl activity)
 	  {
-		foreach (MigrationActivityValidator migrationActivityValidator in migrationActivityValidators_Renamed)
+		foreach (MigrationActivityValidator migrationActivityValidator in migrationActivityValidators_Conflict)
 		{
 		  if (!migrationActivityValidator.valid(activity))
 		  {

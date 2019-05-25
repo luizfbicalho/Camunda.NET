@@ -35,7 +35,7 @@ namespace org.camunda.bpm.engine.impl
 
 	  protected internal readonly string decisionRequirementsDefinitionId;
 //JAVA TO C# CONVERTER NOTE: Fields cannot have the same name as methods:
-	  protected internal string decisionInstanceId_Renamed;
+	  protected internal string decisionInstanceId_Conflict;
 
 	  public HistoricDecisionInstanceStatisticsQueryImpl(string decisionRequirementsDefinitionId, CommandExecutor commandExecutor) : base(commandExecutor)
 	  {
@@ -76,7 +76,7 @@ namespace org.camunda.bpm.engine.impl
 
 	  public virtual HistoricDecisionInstanceStatisticsQuery decisionInstanceId(string decisionInstanceId)
 	  {
-		this.decisionInstanceId_Renamed = decisionInstanceId;
+		this.decisionInstanceId_Conflict = decisionInstanceId;
 		return this;
 	  }
 
@@ -84,11 +84,11 @@ namespace org.camunda.bpm.engine.impl
 	  {
 		  get
 		  {
-			return decisionInstanceId_Renamed;
+			return decisionInstanceId_Conflict;
 		  }
 		  set
 		  {
-			this.decisionInstanceId_Renamed = value;
+			this.decisionInstanceId_Conflict = value;
 		  }
 	  }
 

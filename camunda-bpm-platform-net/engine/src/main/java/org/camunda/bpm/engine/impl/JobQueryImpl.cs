@@ -43,47 +43,47 @@ namespace org.camunda.bpm.engine.impl
 
 	  private const long serialVersionUID = 1L;
 //JAVA TO C# CONVERTER NOTE: Fields cannot have the same name as methods:
-	  protected internal string activityId_Renamed;
+	  protected internal string activityId_Conflict;
 	  protected internal string id;
 //JAVA TO C# CONVERTER NOTE: Fields cannot have the same name as methods:
-	  protected internal string jobDefinitionId_Renamed;
+	  protected internal string jobDefinitionId_Conflict;
 //JAVA TO C# CONVERTER NOTE: Fields cannot have the same name as methods:
-	  protected internal string processInstanceId_Renamed;
+	  protected internal string processInstanceId_Conflict;
 //JAVA TO C# CONVERTER NOTE: Fields cannot have the same name as methods:
-	  protected internal string executionId_Renamed;
+	  protected internal string executionId_Conflict;
 //JAVA TO C# CONVERTER NOTE: Fields cannot have the same name as methods:
-	  protected internal string processDefinitionId_Renamed;
+	  protected internal string processDefinitionId_Conflict;
 //JAVA TO C# CONVERTER NOTE: Fields cannot have the same name as methods:
-	  protected internal string processDefinitionKey_Renamed;
+	  protected internal string processDefinitionKey_Conflict;
 	  protected internal bool retriesLeft;
 //JAVA TO C# CONVERTER NOTE: Fields cannot have the same name as methods:
-	  protected internal bool executable_Renamed;
+	  protected internal bool executable_Conflict;
 	  protected internal bool onlyTimers;
 	  protected internal bool onlyMessages;
 //JAVA TO C# CONVERTER NOTE: Fields cannot have the same name as methods:
-	  protected internal DateTime duedateHigherThan_Renamed;
+	  protected internal DateTime duedateHigherThan_Conflict;
 //JAVA TO C# CONVERTER NOTE: Fields cannot have the same name as methods:
-	  protected internal DateTime duedateLowerThan_Renamed;
+	  protected internal DateTime duedateLowerThan_Conflict;
 	  protected internal DateTime duedateHigherThanOrEqual;
 	  protected internal DateTime duedateLowerThanOrEqual;
 //JAVA TO C# CONVERTER NOTE: Fields cannot have the same name as methods:
-	  protected internal DateTime createdBefore_Renamed;
+	  protected internal DateTime createdBefore_Conflict;
 //JAVA TO C# CONVERTER NOTE: Fields cannot have the same name as methods:
-	  protected internal DateTime createdAfter_Renamed;
+	  protected internal DateTime createdAfter_Conflict;
 	  protected internal long? priorityHigherThanOrEqual;
 	  protected internal long? priorityLowerThanOrEqual;
 //JAVA TO C# CONVERTER NOTE: Fields cannot have the same name as methods:
-	  protected internal bool withException_Renamed;
+	  protected internal bool withException_Conflict;
 //JAVA TO C# CONVERTER NOTE: Fields cannot have the same name as methods:
-	  protected internal string exceptionMessage_Renamed;
+	  protected internal string exceptionMessage_Conflict;
 //JAVA TO C# CONVERTER NOTE: Fields cannot have the same name as methods:
-	  protected internal bool noRetriesLeft_Renamed;
+	  protected internal bool noRetriesLeft_Conflict;
 	  protected internal SuspensionState suspensionState;
 
 	  protected internal bool isTenantIdSet = false;
 	  protected internal string[] tenantIds;
 //JAVA TO C# CONVERTER NOTE: Fields cannot have the same name as methods:
-	  protected internal bool includeJobsWithoutTenantId_Renamed = false;
+	  protected internal bool includeJobsWithoutTenantId_Conflict = false;
 
 	  public JobQueryImpl()
 	  {
@@ -103,42 +103,42 @@ namespace org.camunda.bpm.engine.impl
 	  public virtual JobQuery jobDefinitionId(string jobDefinitionId)
 	  {
 		ensureNotNull("Provided job definition id", jobDefinitionId);
-		this.jobDefinitionId_Renamed = jobDefinitionId;
+		this.jobDefinitionId_Conflict = jobDefinitionId;
 		return this;
 	  }
 
 	  public virtual JobQueryImpl processInstanceId(string processInstanceId)
 	  {
 		ensureNotNull("Provided process instance id", processInstanceId);
-		this.processInstanceId_Renamed = processInstanceId;
+		this.processInstanceId_Conflict = processInstanceId;
 		return this;
 	  }
 
 	  public virtual JobQueryImpl executionId(string executionId)
 	  {
 		ensureNotNull("Provided execution id", executionId);
-		this.executionId_Renamed = executionId;
+		this.executionId_Conflict = executionId;
 		return this;
 	  }
 
 	  public virtual JobQuery processDefinitionId(string processDefinitionId)
 	  {
 		ensureNotNull("Provided process definition id", processDefinitionId);
-		this.processDefinitionId_Renamed = processDefinitionId;
+		this.processDefinitionId_Conflict = processDefinitionId;
 		return this;
 	  }
 
 	  public virtual JobQuery processDefinitionKey(string processDefinitionKey)
 	  {
 		ensureNotNull("Provided process instance key", processDefinitionKey);
-		this.processDefinitionKey_Renamed = processDefinitionKey;
+		this.processDefinitionKey_Conflict = processDefinitionKey;
 		return this;
 	  }
 
 	  public virtual JobQuery activityId(string activityId)
 	  {
 		ensureNotNull("Provided activity id", activityId);
-		this.activityId_Renamed = activityId;
+		this.activityId_Conflict = activityId;
 		return this;
 	  }
 
@@ -150,7 +150,7 @@ namespace org.camunda.bpm.engine.impl
 
 	  public virtual JobQuery executable()
 	  {
-		executable_Renamed = true;
+		executable_Conflict = true;
 		return this;
 	  }
 
@@ -177,14 +177,14 @@ namespace org.camunda.bpm.engine.impl
 	  public virtual JobQuery duedateHigherThan(DateTime date)
 	  {
 		ensureNotNull("Provided date", date);
-		this.duedateHigherThan_Renamed = date;
+		this.duedateHigherThan_Conflict = date;
 		return this;
 	  }
 
 	  public virtual JobQuery duedateLowerThan(DateTime date)
 	  {
 		ensureNotNull("Provided date", date);
-		this.duedateLowerThan_Renamed = date;
+		this.duedateLowerThan_Conflict = date;
 		return this;
 	  }
 
@@ -215,14 +215,14 @@ namespace org.camunda.bpm.engine.impl
 	  public virtual JobQuery createdBefore(DateTime date)
 	  {
 		ensureNotNull("Provided date", date);
-		this.createdBefore_Renamed = date;
+		this.createdBefore_Conflict = date;
 		return this;
 	  }
 
 	  public virtual JobQuery createdAfter(DateTime date)
 	  {
 		ensureNotNull("Provided date", date);
-		this.createdAfter_Renamed = date;
+		this.createdAfter_Conflict = date;
 		return this;
 	  }
 
@@ -240,20 +240,20 @@ namespace org.camunda.bpm.engine.impl
 
 	  public virtual JobQuery withException()
 	  {
-		this.withException_Renamed = true;
+		this.withException_Conflict = true;
 		return this;
 	  }
 
 	  public virtual JobQuery exceptionMessage(string exceptionMessage)
 	  {
 		ensureNotNull("Provided exception message", exceptionMessage);
-		this.exceptionMessage_Renamed = exceptionMessage;
+		this.exceptionMessage_Conflict = exceptionMessage;
 		return this;
 	  }
 
 	  public virtual JobQuery noRetriesLeft()
 	  {
-		noRetriesLeft_Renamed = true;
+		noRetriesLeft_Conflict = true;
 		return this;
 	  }
 
@@ -271,34 +271,34 @@ namespace org.camunda.bpm.engine.impl
 
 	  protected internal override bool hasExcludingConditions()
 	  {
-		return base.hasExcludingConditions() || CompareUtil.areNotInAscendingOrder(priorityHigherThanOrEqual, priorityLowerThanOrEqual) || hasExcludingDueDateParameters() || CompareUtil.areNotInAscendingOrder(createdBefore_Renamed, createdAfter_Renamed);
+		return base.hasExcludingConditions() || CompareUtil.areNotInAscendingOrder(priorityHigherThanOrEqual, priorityLowerThanOrEqual) || hasExcludingDueDateParameters() || CompareUtil.areNotInAscendingOrder(createdBefore_Conflict, createdAfter_Conflict);
 	  }
 
 	  private bool hasExcludingDueDateParameters()
 	  {
 		IList<DateTime> dueDates = new List<DateTime>();
-		if (duedateHigherThan_Renamed != null && duedateHigherThanOrEqual != null)
+		if (duedateHigherThan_Conflict != null && duedateHigherThanOrEqual != null)
 		{
-		  dueDates.Add(CompareUtil.min(duedateHigherThan_Renamed, duedateHigherThanOrEqual));
-		  dueDates.Add(CompareUtil.max(duedateHigherThan_Renamed, duedateHigherThanOrEqual));
+		  dueDates.Add(CompareUtil.min(duedateHigherThan_Conflict, duedateHigherThanOrEqual));
+		  dueDates.Add(CompareUtil.max(duedateHigherThan_Conflict, duedateHigherThanOrEqual));
 		}
-		else if (duedateHigherThan_Renamed != null)
+		else if (duedateHigherThan_Conflict != null)
 		{
-		  dueDates.Add(duedateHigherThan_Renamed);
+		  dueDates.Add(duedateHigherThan_Conflict);
 		}
 		else if (duedateHigherThanOrEqual != null)
 		{
 		  dueDates.Add(duedateHigherThanOrEqual);
 		}
 
-		if (duedateLowerThan_Renamed != null && duedateLowerThanOrEqual != null)
+		if (duedateLowerThan_Conflict != null && duedateLowerThanOrEqual != null)
 		{
-		  dueDates.Add(CompareUtil.min(duedateLowerThan_Renamed, duedateLowerThanOrEqual));
-		  dueDates.Add(CompareUtil.max(duedateLowerThan_Renamed, duedateLowerThanOrEqual));
+		  dueDates.Add(CompareUtil.min(duedateLowerThan_Conflict, duedateLowerThanOrEqual));
+		  dueDates.Add(CompareUtil.max(duedateLowerThan_Conflict, duedateLowerThanOrEqual));
 		}
-		else if (duedateLowerThan_Renamed != null)
+		else if (duedateLowerThan_Conflict != null)
 		{
-		  dueDates.Add(duedateLowerThan_Renamed);
+		  dueDates.Add(duedateLowerThan_Conflict);
 		}
 		else if (duedateLowerThanOrEqual != null)
 		{
@@ -325,7 +325,7 @@ namespace org.camunda.bpm.engine.impl
 
 	  public virtual JobQuery includeJobsWithoutTenantId()
 	  {
-		this.includeJobsWithoutTenantId_Renamed = true;
+		this.includeJobsWithoutTenantId_Conflict = true;
 		return this;
 	  }
 
@@ -396,14 +396,14 @@ namespace org.camunda.bpm.engine.impl
 	  {
 		  get
 		  {
-			return processInstanceId_Renamed;
+			return processInstanceId_Conflict;
 		  }
 	  }
 	  public virtual string ExecutionId
 	  {
 		  get
 		  {
-			return executionId_Renamed;
+			return executionId_Conflict;
 		  }
 	  }
 	  public virtual bool RetriesLeft
@@ -417,7 +417,7 @@ namespace org.camunda.bpm.engine.impl
 	  {
 		  get
 		  {
-			return executable_Renamed;
+			return executable_Conflict;
 		  }
 	  }
 	  public virtual DateTime Now
@@ -431,14 +431,14 @@ namespace org.camunda.bpm.engine.impl
 	  {
 		  get
 		  {
-			return withException_Renamed;
+			return withException_Conflict;
 		  }
 	  }
 	  public virtual string ExceptionMessage
 	  {
 		  get
 		  {
-			return exceptionMessage_Renamed;
+			return exceptionMessage_Conflict;
 		  }
 	  }
 

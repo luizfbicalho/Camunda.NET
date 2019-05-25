@@ -173,7 +173,7 @@ namespace org.camunda.bpm.engine.impl.bpmn.parser
 	  /// <summary>
 	  /// The deployment to which the parsed process definitions will be added. </summary>
 //JAVA TO C# CONVERTER NOTE: Fields cannot have the same name as methods:
-	  protected internal DeploymentEntity deployment_Renamed;
+	  protected internal DeploymentEntity deployment_Conflict;
 
 	  /// <summary>
 	  /// The end result of the parsing: a list of process definition. </summary>
@@ -244,7 +244,7 @@ namespace org.camunda.bpm.engine.impl.bpmn.parser
 
 	  public virtual BpmnParse deployment(DeploymentEntity deployment)
 	  {
-		this.deployment_Renamed = deployment;
+		this.deployment_Conflict = deployment;
 		return this;
 	  }
 
@@ -530,7 +530,7 @@ namespace org.camunda.bpm.engine.impl.bpmn.parser
 	  {
 		foreach (Element processElement in rootElement.elements("process"))
 		{
-		  bool isExecutable = !deployment_Renamed.New;
+		  bool isExecutable = !deployment_Conflict.New;
 		  string isExecutableStr = processElement.attribute("isExecutable");
 		  if (!string.ReferenceEquals(isExecutableStr, null))
 		  {
@@ -609,7 +609,7 @@ namespace org.camunda.bpm.engine.impl.bpmn.parser
 		processDefinition.Category = rootElement.attribute("targetNamespace");
 		processDefinition.setProperty(PROPERTYNAME_DOCUMENTATION, parseDocumentation(processElement));
 		processDefinition.TaskDefinitions = new Dictionary<string, TaskDefinition>();
-		processDefinition.DeploymentId = deployment_Renamed.Id;
+		processDefinition.DeploymentId = deployment_Conflict.Id;
 		processDefinition.setProperty(PROPERTYNAME_JOB_PRIORITY, parsePriority(processElement, PROPERTYNAME_JOB_PRIORITY));
 		processDefinition.setProperty(PROPERTYNAME_TASK_PRIORITY, parsePriority(processElement, PROPERTYNAME_TASK_PRIORITY));
 		processDefinition.VersionTag = processElement.attributeNS(CAMUNDA_BPMN_EXTENSIONS_NS, "versionTag");
@@ -1116,9 +1116,9 @@ namespace org.camunda.bpm.engine.impl.bpmn.parser
 			  {
 				startFormHandler = new DefaultStartFormHandler();
 			  }
-			  startFormHandler.parseConfiguration(startEventElement, deployment_Renamed, processDefinition, this);
+			  startFormHandler.parseConfiguration(startEventElement, deployment_Conflict, processDefinition, this);
 
-			  processDefinition.StartFormHandler = new DelegateStartFormHandler(startFormHandler, deployment_Renamed);
+			  processDefinition.StartFormHandler = new DelegateStartFormHandler(startFormHandler, deployment_Conflict);
 			}
 
 		  }
@@ -2681,7 +2681,7 @@ namespace org.camunda.bpm.engine.impl.bpmn.parser
 		string decisionRef = businessRuleTaskElement.attributeNS(CAMUNDA_BPMN_EXTENSIONS_NS, "decisionRef");
 
 		BaseCallableElement callableElement = new BaseCallableElement();
-		callableElement.DeploymentId = deployment_Renamed.Id;
+		callableElement.DeploymentId = deployment_Conflict.Id;
 
 		ParameterValueProvider definitionKeyProvider = createParameterValueProvider(decisionRef, expressionManager);
 		callableElement.DefinitionKeyValueProvider = definitionKeyProvider;
@@ -3203,9 +3203,9 @@ namespace org.camunda.bpm.engine.impl.bpmn.parser
 		{
 		  taskFormHandler = new DefaultTaskFormHandler();
 		}
-		taskFormHandler.parseConfiguration(taskElement, deployment_Renamed, processDefinition, this);
+		taskFormHandler.parseConfiguration(taskElement, deployment_Conflict, processDefinition, this);
 
-		TaskDefinition taskDefinition = new TaskDefinition(new DelegateTaskFormHandler(taskFormHandler, deployment_Renamed));
+		TaskDefinition taskDefinition = new TaskDefinition(new DelegateTaskFormHandler(taskFormHandler, deployment_Conflict));
 
 		taskDefinition.Key = taskDefinitionKey;
 		processDefinition.TaskDefinitions[taskDefinitionKey] = taskDefinition;
@@ -4442,7 +4442,7 @@ namespace org.camunda.bpm.engine.impl.bpmn.parser
 		string versionTagAttributeName = "calledElementVersionTag";
 		string tenantIdAttributeName = "calledElementTenantId";
 
-		string deploymentId = deployment_Renamed.Id;
+		string deploymentId = deployment_Conflict.Id;
 
 		CallableElement callableElement = new CallableElement();
 		callableElement.DeploymentId = deploymentId;

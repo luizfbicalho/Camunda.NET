@@ -27,27 +27,27 @@ namespace org.camunda.bpm.engine.rest.helper
 	{
 
 //JAVA TO C# CONVERTER NOTE: Fields cannot have the same name as methods:
-	  protected internal string id_Renamed;
+	  protected internal string id_Conflict;
 //JAVA TO C# CONVERTER NOTE: Fields cannot have the same name as methods:
-	  protected internal string name_Renamed;
+	  protected internal string name_Conflict;
 //JAVA TO C# CONVERTER NOTE: Fields cannot have the same name as methods:
-	  protected internal string type_Renamed;
+	  protected internal string type_Conflict;
 
 	  public virtual MockGroupBuilder id(string id)
 	  {
-		this.id_Renamed = id;
+		this.id_Conflict = id;
 		return this;
 	  }
 
 	  public virtual MockGroupBuilder name(string name)
 	  {
-		this.name_Renamed = name;
+		this.name_Conflict = name;
 		return this;
 	  }
 
 	  public virtual MockGroupBuilder type(string type)
 	  {
-		this.type_Renamed = type;
+		this.type_Conflict = type;
 		return this;
 	  }
 
@@ -56,9 +56,9 @@ namespace org.camunda.bpm.engine.rest.helper
 	  public virtual Group build()
 	  {
 		Group group = mock(typeof(Group));
-		when(group.Id).thenReturn(id_Renamed);
-		when(group.Name).thenReturn(name_Renamed);
-		when(group.Type).thenReturn(type_Renamed);
+		when(group.Id).thenReturn(id_Conflict);
+		when(group.Name).thenReturn(name_Conflict);
+		when(group.Type).thenReturn(type_Conflict);
 		return group;
 	  }
 

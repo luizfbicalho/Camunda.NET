@@ -29,7 +29,7 @@ namespace org.camunda.bpm.engine.impl.batch.removaltime
 
 	  protected internal DateTime removalTime;
 //JAVA TO C# CONVERTER NOTE: Fields cannot have the same name as methods:
-	  protected internal bool hasRemovalTime_Renamed;
+	  protected internal bool hasRemovalTime_Conflict;
 	  protected internal bool isHierarchical;
 
 	  public SetRemovalTimeBatchConfiguration(IList<string> ids) : base(ids)
@@ -52,12 +52,12 @@ namespace org.camunda.bpm.engine.impl.batch.removaltime
 
 	  public virtual bool hasRemovalTime()
 	  {
-		return hasRemovalTime_Renamed;
+		return hasRemovalTime_Conflict;
 	  }
 
 	  public virtual SetRemovalTimeBatchConfiguration setHasRemovalTime(bool hasRemovalTime)
 	  {
-		this.hasRemovalTime_Renamed = hasRemovalTime;
+		this.hasRemovalTime_Conflict = hasRemovalTime;
 		return this;
 	  }
 

@@ -37,22 +37,22 @@ namespace org.camunda.bpm.engine.impl
 
 	  protected internal string id;
 //JAVA TO C# CONVERTER NOTE: Fields cannot have the same name as methods:
-	  protected internal string externalTaskId_Renamed;
+	  protected internal string externalTaskId_Conflict;
 //JAVA TO C# CONVERTER NOTE: Fields cannot have the same name as methods:
-	  protected internal string topicName_Renamed;
+	  protected internal string topicName_Conflict;
 //JAVA TO C# CONVERTER NOTE: Fields cannot have the same name as methods:
-	  protected internal string workerId_Renamed;
+	  protected internal string workerId_Conflict;
 //JAVA TO C# CONVERTER NOTE: Fields cannot have the same name as methods:
-	  protected internal string errorMessage_Renamed;
+	  protected internal string errorMessage_Conflict;
 	  protected internal string[] activityIds;
 	  protected internal string[] activityInstanceIds;
 	  protected internal string[] executionIds;
 //JAVA TO C# CONVERTER NOTE: Fields cannot have the same name as methods:
-	  protected internal string processInstanceId_Renamed;
+	  protected internal string processInstanceId_Conflict;
 //JAVA TO C# CONVERTER NOTE: Fields cannot have the same name as methods:
-	  protected internal string processDefinitionId_Renamed;
+	  protected internal string processDefinitionId_Conflict;
 //JAVA TO C# CONVERTER NOTE: Fields cannot have the same name as methods:
-	  protected internal string processDefinitionKey_Renamed;
+	  protected internal string processDefinitionKey_Conflict;
 	  protected internal long? priorityHigherThanOrEqual;
 	  protected internal long? priorityLowerThanOrEqual;
 	  protected internal string[] tenantIds;
@@ -74,28 +74,28 @@ namespace org.camunda.bpm.engine.impl
 	  public virtual HistoricExternalTaskLogQuery externalTaskId(string externalTaskId)
 	  {
 		ensureNotNull(typeof(NotValidException), "externalTaskId", externalTaskId);
-		this.externalTaskId_Renamed = externalTaskId;
+		this.externalTaskId_Conflict = externalTaskId;
 		return this;
 	  }
 
 	  public virtual HistoricExternalTaskLogQuery topicName(string topicName)
 	  {
 		ensureNotNull(typeof(NotValidException), "topicName", topicName);
-		this.topicName_Renamed = topicName;
+		this.topicName_Conflict = topicName;
 		return this;
 	  }
 
 	  public virtual HistoricExternalTaskLogQuery workerId(string workerId)
 	  {
 		ensureNotNull(typeof(NotValidException), "workerId", workerId);
-		this.workerId_Renamed = workerId;
+		this.workerId_Conflict = workerId;
 		return this;
 	  }
 
 	  public virtual HistoricExternalTaskLogQuery errorMessage(string errorMessage)
 	  {
 		ensureNotNull(typeof(NotValidException), "errorMessage", errorMessage);
-		this.errorMessage_Renamed = errorMessage;
+		this.errorMessage_Conflict = errorMessage;
 		return this;
 	  }
 
@@ -132,21 +132,21 @@ namespace org.camunda.bpm.engine.impl
 	  public virtual HistoricExternalTaskLogQuery processInstanceId(string processInstanceId)
 	  {
 		ensureNotNull(typeof(NotValidException), "processInstanceId", processInstanceId);
-		this.processInstanceId_Renamed = processInstanceId;
+		this.processInstanceId_Conflict = processInstanceId;
 		return this;
 	  }
 
 	  public virtual HistoricExternalTaskLogQuery processDefinitionId(string processDefinitionId)
 	  {
 		ensureNotNull(typeof(NotValidException), "processDefinitionId", processDefinitionId);
-		this.processDefinitionId_Renamed = processDefinitionId;
+		this.processDefinitionId_Conflict = processDefinitionId;
 		return this;
 	  }
 
 	  public virtual HistoricExternalTaskLogQuery processDefinitionKey(string processDefinitionKey)
 	  {
 		ensureNotNull(typeof(NotValidException), "processDefinitionKey", processDefinitionKey);
-		this.processDefinitionKey_Renamed = processDefinitionKey;
+		this.processDefinitionKey_Conflict = processDefinitionKey;
 		return this;
 	  }
 
